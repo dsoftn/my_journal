@@ -1,0 +1,11 @@
+{
+  "project": null,
+  "selected": "web",
+  "type": "html",
+  "source": "https://www.oanda.com/currency-converter/en/?from=BTC&to=RSD&amount=1",
+  "text": "",
+  "formated_text": "",
+  "code": "# Rashomon Code\n\nBeginSegment (Seg)\n    Parent = None\n    Index = 0\n    DefineStartString\n        IsEqual `<div class=\"bio-text\">`\n    EndDefineStartString\n    DefineEndString\n        IsEqual `</div>`\n    EndDefineEndString\n\nEndSegment\n\nBeginSegment (Valute1_Desc)\n    Parent = \"Seg\"\n    Index = 0\nEndSegment\n\nBeginSegment (Valute2_Desc)\n    Parent = \"Seg\"\n    Index = 1\nEndSegment\n\n\n\n",
+  "project_filename": "D:/Programiranje/Python/Projekti/rashomon/ExchangeRateDesc.rpf",
+  "saved": true
+}

@@ -1,0 +1,11 @@
+{
+  "project": null,
+  "selected": "web",
+  "type": "html",
+  "source": "https://www.xe.com/currencyconverter/convert/?Amount=11&From=EUR&To=RSD",
+  "text": "",
+  "formated_text": "",
+  "code": "# Rashomon Code\n\nBeginSegment (Seg)\n    Parent = None\n    Index = 0\n    DefineStartString\n        StartsWith `<p class=\"result__`\n        EndsWith `>`\n    EndDefineStartString\n    DefineEndString\n        IsEqual `</p>`\n    EndDefineEndString\n    \nEndSegment\n\nBeginSegment (Seg_000)\n    Parent = \"Seg\"\n    Index = 0\nEndSegment\n\nBeginSegment (Result)\n    Parent = \"Seg\"\n    Index = 1\nEndSegment\n\n# Rashomon Code\n\nBeginSegment (units)\n    Parent = None\n    Index = 0\n    DefineStartString\n        StartsWith `<div class=\"unit-rates___`\n        EndsWith `>`\n    EndDefineStartString\n    DefineEndString\n        IsEqual `</div>`\n    EndDefineEndString\t\nEndSegment\n\nBeginSegment (OtherUnits)\n    Parent = \"units\"\n    Index = 0\nEndSegment\n\n\n",
+  "project_filename": "D:/Programiranje/Python/Projekti/rashomon/ExchangeRate.rpf",
+  "saved": true
+}

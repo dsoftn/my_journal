@@ -1,0 +1,395 @@
+{
+  "numbers": [
+    [
+      "one",
+      "1"
+    ],
+    [
+      "two",
+      "2"
+    ],
+    [
+      "three",
+      "3"
+    ],
+    [
+      "four",
+      "4"
+    ],
+    [
+      "five",
+      "5"
+    ],
+    [
+      "six",
+      "6"
+    ],
+    [
+      "seven",
+      "7"
+    ],
+    [
+      "eight",
+      "8"
+    ],
+    [
+      "nine",
+      "9"
+    ],
+    [
+      "ten",
+      "10"
+    ],
+    [
+      "eleven",
+      "11"
+    ],
+    [
+      "twelve",
+      "12"
+    ],
+    [
+      "thirteen",
+      "13"
+    ],
+    [
+      "fourteen",
+      "14"
+    ],
+    [
+      "fifteen",
+      "15"
+    ],
+    [
+      "sixteen",
+      "16"
+    ],
+    [
+      "seventeen",
+      "17"
+    ],
+    [
+      "eighteen",
+      "18"
+    ],
+    [
+      "nineteen",
+      "19"
+    ],
+    [
+      "twenty",
+      "20"
+    ],
+    [
+      "and a half",
+      ".5"
+    ]
+  ],
+  "metric": {
+    "unit": {
+      "Celsius": {
+        "syn": [
+          "celcius",
+          "centigrade",
+          "deg c",
+          "degree c",
+          "degrees c",
+          "c",
+          "celsius"
+        ],
+        "type": "Temperature"
+      },
+      "Fahrenheit": {
+        "syn": [
+          "fahrenheits",
+          "deg f",
+          "degree f",
+          "degrees f",
+          "f",
+          "farenheit",
+          "farenheight",
+          "ferenheit",
+          "ferenheight",
+          "ferinheit",
+          "ferinheight",
+          "fahrinheight",
+          "fahenhiet",
+          "degree fahrenheit",
+          "degrees fahrenheit",
+          "deg fahrenheit",
+          "fahrenheit"
+        ],
+        "type": "Temperature"
+      },
+      "Kelvin": {
+        "syn": [
+          "k",
+          "kelvins",
+          "kelvin"
+        ],
+        "type": "Temperature"
+      },
+      "Pounds": {
+        "syn": [
+          "lb",
+          "lbm",
+          "pound",
+          "pounds"
+        ],
+        "type": "Mass, Weight (in non-scientific affairs)"
+      },
+      "Ounces": {
+        "syn": [
+          "ounce",
+          "ounc",
+          "ounces"
+        ],
+        "type": "Mass, Weight (in non-scientific affairs)"
+      },
+      "Kilograms": {
+        "syn": [
+          "kg",
+          "kilo",
+          "kilogram",
+          "kilograms"
+        ],
+        "type": "Mass, Weight (in non-scientific affairs)"
+      },
+      "Grams": {
+        "syn": [
+          "g",
+          "gram",
+          "grams"
+        ],
+        "type": "Mass, Weight (in non-scientific affairs)"
+      },
+      "Meters": {
+        "syn": [
+          "meter",
+          "m",
+          "metre",
+          "meters"
+        ],
+        "type": "Length / distance"
+      },
+      "Kilometers": {
+        "syn": [
+          "kilometer",
+          "km",
+          "kilometre",
+          "kmh",
+          "km/h",
+          "kilometers"
+        ],
+        "type": "Length / distance"
+      },
+      "Centimeters": {
+        "syn": [
+          "cm",
+          "centimeter",
+          "centimeters"
+        ],
+        "type": "Length / distance"
+      },
+      "Millimeters": {
+        "syn": [
+          "mm",
+          "millimeter",
+          "mil",
+          "millimeters"
+        ],
+        "type": "Length / distance"
+      },
+      "Miles": {
+        "syn": [
+          "mile",
+          "mi",
+          "mph",
+          "mi/h",
+          "miles"
+        ],
+        "type": "Length / distance"
+      },
+      "Yards": {
+        "syn": [
+          "yard",
+          "yd",
+          "yards"
+        ],
+        "type": "Length / distance"
+      },
+      "Feet": {
+        "syn": [
+          "feets",
+          "foot",
+          "ft",
+          "feet"
+        ],
+        "type": "Length / distance"
+      },
+      "Inches": {
+        "syn": [
+          "inch",
+          "inches"
+        ],
+        "type": "Length / distance"
+      },
+      "Gallons": {
+        "syn": [
+          "gallon",
+          "gal",
+          "gallons"
+        ],
+        "type": "Volume / capacity"
+      },
+      "Liters": {
+        "syn": [
+          "l",
+          "liter",
+          "lit",
+          "liters"
+        ],
+        "type": "Volume / capacity"
+      },
+      "Calories": {
+        "syn": [
+          "calorie",
+          "cal",
+          "cal15",
+          "calories"
+        ],
+        "type": "Energy and power"
+      },
+      "Joules": {
+        "syn": [
+          "joule",
+          "j",
+          "joules"
+        ],
+        "type": "Energy and power"
+      }
+    },
+    "conv": [
+      [
+        "Celsius",
+        "Fahrenheit",
+        "Fahrenheit = Celsius * 1.8 + 32"
+      ],
+      [
+        "Fahrenheit",
+        "Celsius",
+        "Celsius = (Fahrenheit - 32) / 1.8"
+      ],
+      [
+        "Celsius",
+        "Kelvin",
+        "Kelvin = Celsius + 273.15"
+      ],
+      [
+        "Kelvin",
+        "Celsius",
+        "Celsius = Kelvin - 273.15"
+      ],
+      [
+        "Fahrenheit",
+        "Kelvin",
+        "Kelvin = (Fahrenheit - 32) / 1.8 + 273.15"
+      ],
+      [
+        "Kelvin",
+        "Fahrenheit",
+        "Fahrenheit = (Kelvin - 273.15) * 1.8 + 32"
+      ],
+      [
+        "Pounds",
+        "Kilograms",
+        "Kilograms = Pounds / 2.2046"
+      ],
+      [
+        "Ounces",
+        "Grams",
+        "Grams = Ounces * 28.349"
+      ],
+      [
+        "Kilograms",
+        "Pounds",
+        "Pounds = Kilograms * 2.2046"
+      ],
+      [
+        "Grams",
+        "Ounces",
+        "Ounces = Grams / 28.349"
+      ],
+      [
+        "Meters",
+        "Yards",
+        "Yards = Meters * 1.0936"
+      ],
+      [
+        "Meters",
+        "Feet",
+        "Feet = Meters * 3.2808"
+      ],
+      [
+        "Kilometers",
+        "Miles",
+        "Miles = Kilometers * 0.62137"
+      ],
+      [
+        "Centimeters",
+        "Inches",
+        "Inches = Centimeters * 0.39370"
+      ],
+      [
+        "Miles",
+        "Kilometers",
+        "Kilometers = Miles / 0.62137"
+      ],
+      [
+        "Yards",
+        "Meters",
+        "Meters = Yards / 1.0936"
+      ],
+      [
+        "Feet",
+        "Meters",
+        "Meters = Feet / 3.2808"
+      ],
+      [
+        "Inches",
+        "Centimeters",
+        "Centimeters = Inches / 0.39370"
+      ],
+      [
+        "US Gallons",
+        "Liters",
+        "Liters = Gallons / 0.26417"
+      ],
+      [
+        "UK Gallons",
+        "Liters",
+        "Liters = Gallons / 0.21997"
+      ],
+      [
+        "Liters",
+        "US Gallons",
+        "Gallons = Liters * 0.26417"
+      ],
+      [
+        "Liters",
+        "UK Gallons",
+        "Gallons = Liters * 0.21997"
+      ],
+      [
+        "Calories",
+        "Joules",
+        "Joules = Calories / 0.23892"
+      ],
+      [
+        "Joules",
+        "Calories",
+        "Calories = Joules * 0.23892"
+      ]
+    ]
+  }
+}
