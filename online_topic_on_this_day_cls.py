@@ -298,7 +298,9 @@ class OnThisDay(AbstractTopic):
             lbl_desc.move(0, 310)
             lbl_desc.setFixedWidth(300)
             lbl_desc.setText(image["desc"])
+            lbl_desc.setToolTip(image["desc"])
             lbl_desc.adjustSize()
+            lbl_desc.linkActivated.connect(lambda url: webbrowser.open_new_tab(url))
 
             lst_item_widget.resize(300, 310 + lbl_desc.height())
 

@@ -1,0 +1,2220 @@
+A
+ability - sposobnost
+abrade - brusiti, glačati
+accelerate - ubrzati
+accelerator - akcelerator, ubrzač
+accelerator pedal - pedala gasa
+accelerated combustion - ubrzano sagorevanje
+accessory - deo pribora
+accessory devices - pripadajući uređaji
+accessories - pribor, prateća oprema
+acesss - pristup, prilaz
+acetylene cutting - acetilensko sečenje
+acclivity - nagib, uspon
+accuracy control - kontrola tačnosti
+acetylene welding - autogeno zavarivanje
+adjustable breaker points - platinska dugmad
+adjusting screw - zavrtanj za podešavanje
+aerial - antena
+air brake system - pneumatska kočnica
+air cleaner - filter za vazduh
+angular gear - konusni zupčanik
+anvil - nakovanj
+arc - električni luk(zavar.)
+arc blow - skretanje električnog luka(zavar.)
+arc erratic - nepravilan električni luk
+arc stable - stabilan električni luk
+arc welding - elektrolučno zavarivanje
+assembly - sklop, montiranje
+assembly drawing - sklopni crtež
+autoignition - samopaljenje
+automatic ignition advance - automatsko podešavanje pretpaljenja
+autoclave - sud pod pritiskom
+axis - osa
+axle - osovina
+B
+back lighting - povratno paljenje
+back plate - zadnja ploča
+back pressure - protivpritisak
+back resistance - povratni otpor
+back up lamp - zadnji far(auto)
+ball bearing - kuglični ležaj
+balance wheel - zamajac
+bearing wall - noseći zid
+belt - kaiš,remen
+belt drive - kaišni prenos, pogon preko kaiša,
+belt pulley - kaišna remenica
+belt slip - proklizavanje kaiša
+bolt - zavrtanj, zavorak, bolcn
+bolted joint - spoj zavrtnjem
+boring machine - horizontalna bušilica
+boring mill - vertikalna bušilica
+boring tool - burgija
+boss - osovina(točka, slavina, čep
+boss in two parts - dvodelna glavčina
+box spanner - cevasti ključ
+bracket - nosač, držač, oslonac
+bracket - konzola
+brake - kočnica
+brake caliper - čeljust kočnice
+brake handle - ručica kočnice
+brake hose - kočiono crevo
+brake hose assembly - garnitura creva za kočnice
+brake pulley - disk kočnice
+brass cock - mesingana slavina
+buble level - libela
+buffer - odbojnik
+butterfly pump - krilna pumpa
+butterfly valve - leptir ventil
+burner - plamenik
+burning rate - brzina gorenja
+bushing - čaura
+C
+caking tendency - sklonost ka stvrdnjavanju
+camshaft - bregasta osovina(motor)
+cardan joint - kardanski zglob
+carding mashine - mašina za grebenanje
+cargo elevator - teretna dizalica
+carbon steel - ugljenični čelik
+cast iron - liveno gvožđe
+chisel and punch set - garnitura sekača i izbijača
+choke @ prigušni ventil("sauk"-karburator)
+chuck - stezna glava, čeljust
+chuke - stezna glava, ೅eljust
+circlip - "seger" osigurač
+clearance - zazor
+clutch - kvačilo
+clutch pedal - pedala kvačila
+clutch plate - lamela kvačila
+clutch release bearing - potisni ležj, druklager
+clutch release lever - potisna viljuška kvačila
+clutch shaft - spojnička osovina kvačila
+clutch thrust plate - potisna ploča kvačila
+coaler - radnik za utovar
+Connecting rod - Klipnjača
+countershaft - pomoćna osovina,prenosna
+coupling - spojnica, kvačilo
+coil - kalem, namotaj(el.)
+crank - koleno kolenastog vratila(radilice)
+cranckshaft - kolenasto vratilo, radilica(motor)
+crankcase - karter motora, kućište radilice
+crankcase gasket - dihtung kartera(motor)
+crankpin - leteći rukavac radilice
+cross country vehicle - terensko vozilo
+Curb Weight - težina praznog vozila
+cylinder head gasket - dihtung glave motora
+cylinder sleeve - košuljica cilindra(motor)
+D
+daily output, daily quantity production - dnevna proizvodnja
+damaging - oštećenje
+damping - ovlaženje, prigušenje
+damping of noises - prigušenje buke
+dead short circuit - potpun prekid struje
+delay - usporenje
+delay in production - zastoj u proizvodnji
+design documentation - projektna dokumentacija
+desired dimensions - tražene dimenzije
+desired value - tražena vrednost
+desk - sto, komandni pult
+device - uređaj, sprava
+die holder - nosač matrice
+die, screw die - nareznica
+die thorn - trn matrice
+direct current - jednosmerna struja
+discharge channel - odvodni, ispusni kanal
+distributing pipes - razvodne cevi
+distributing box - razvodna kutija
+distributing board - razvodna tabla
+distributor - razvodnik
+distributor cap - razvodna kapa(motor)
+distributor rotor - razvodna ruka (palenja.motor)
+dividers - cirkle(šestar)
+division - fabrika(svi pogoni)
+draftsman - crtač
+drawback - nedostatak
+drawing (of metal) - izvlačenje metala
+drilling - bušenje
+drilling machine - bušilica
+driving axle - pogonska osovina
+drive shaft - kardansko vratilo, pogonska osovina
+drop of pressure - pad pritiska
+drudge - radnik za teške poslove
+dry filter - suvi filter
+drying oven, dryer - sušara
+ductile steel - kovano gvožđe
+dust collector - skupljač prašine
+dust filter - filter za prašinu
+E
+engine - motor (auto)
+engine & transmission - motor i menjač
+engine block - blok motora
+engine cover gasket - dihtung bregaste, dihtung poklopca motora
+engine rebuild kit - garnitura za reparaciju motora
+epicyclic gear - planetarni zupčanik
+exhaust - izduvni sistem (automobila)
+exhaust pipe - izduvna cev
+exhaust clamps - držači auspuha
+exhaust gaskets - dihtunzi auspuha
+exhaust manifold - izduvna grana
+exhaust valve - izduvni ventil
+F
+fan - ventilator
+fan belt - kaiš ventilatora(motor)
+fasten - pričvrstiti
+fastener - pričvršćivač
+feature - karakteristika
+dual program feature - paralelna obrada
+feed(fed) - napajati(strujno, itd)
+feed roll - transportni valjak
+feedback - povratna sprega
+fender - branik, odbojnik
+firmly - čvrsto
+firmware - upravljački softver
+fitting - cevna armatura
+fixed cab truck - kamion sa fiksiranom kabinom
+flat washer - ravna podloška
+floodlight - svetlo reflektora
+float - ventil (u karburatoru)
+float and lever - plovak sa polugom
+float bowl - lonče karburatora
+float valve - ventil plovka
+flow valve - regulacioni ventil
+flow control valve - ventil za regulaciju protoka
+fluid needle - igličasti ventil, igla ventila
+fluxible - topljiv
+fluid, fluidal - tečan
+fluxibility - topljivost
+fly nut - krilna navrtka
+flywheel - zamajac
+flywheel ring gear - ozubljeni venac zamajca
+foot pedal - nožna pedala
+foot brake - nožna kočnica
+forging - otkivak
+frame - ram šasije(kamion)
+friction bearing - klizni ležaj
+front axle - prednja osovina
+front axle assembly - sklop prednje osovine
+front wheel drive - pogon na prednje točkove
+fuel bowl - lonče karburatora
+fuel economy - potrošnja goriva
+fuel injection system - sistem za ubrizgavanje goriva
+fuel pump - pumpa za gorivo
+furnace chamber - komora peći(unutrašnja)
+G
+gage - mera, merilo, kalibar, brojač, manometar
+gap - zazor
+gasket - zaptivka
+gate - prolaz, propust
+gate valve - propusni ventil
+gauge - merač, manometar
+gear - zupčanik
+gear case - kućište menjača
+gauge - merni instrument, kalibar
+gear - zupčanik
+angular gear - zupčanik sa kosim zupcima
+conical gear - konusni zupčanik
+epicyclic gear - planetarni zupčanik
+gear face - čeoni zupčanik
+gear cutter - glodalo za zupčanike
+gear chain - lančanik
+generator - dinama, anlaser
+generator circuit - strujno kolo dinama
+globe valve - loptasti ventil
+goods lift - teretna dizalica
+grader elevating - grejder utovarivač
+grind - brusiti
+grinding head - glava za brušenje
+grinder - brusilica, ručna električna brusilica
+grinding machine - brusilica(mašina)
+grinding wheel - tocilo, brusni kamen
+grindstone - brus, brusni kamen
+gutter - oluk, brazda, žleb
+H
+hand drill - ručna bušilica
+hand saver - zaštitne rukavice
+hardening - kaljenje
+okaljen - hard tempered
+heat consumption - utrošak toplote
+heat dissipitation - odvođenje toplote, gubljenje toplote
+heat exchanger - izmenjivač toplote
+heat insulator - toplotni izolator
+hemp - kudelja, konoplja
+hemp cord - kudeljna pletenica
+high pressure valve - ventil za visok pritisak
+hinged cover - poklopac na šarke
+hinge pin - osovinica na šarke
+hob - pužasti glodač
+hole gauge - kalibar za otvore
+hollow punch - zumba(probojac)
+hook spanner - kukasti ključ
+horizontal drilling and milling machine - horizontalna bušilica i glodalica
+horizontal section - horizontalni presek
+hose pipe - crevo (gumeno i sl.)
+hose tap - slavina za crevo
+hot blast valve - ventil za vruć vazduh
+hub - glavčina točka
+I
+I-beam, I-bar @ I profil (čelični)
+idle - prazan hod("ler" motora)
+idle stroke - prazan hod(klipa)
+idler arm - spona praznog hoda(upr.)
+impact - udar
+ignition - paljenje
+ignition advance - pretpaljenje
+ignition capacitor - kondenzator (palenje)
+ignition coil - bobina
+ignition plug - svećica
+ignition switch - kontakt brava(auto)
+immersion - potapanje
+impact force - udarna sila
+impurity - nečistoća
+incendiary mixture - zapaljiva smeša
+independent suspension - nezavisno vešanje
+induction - usisni hod motora
+induction stroke - usisni takt(motor)
+inlet valve - usisni ventil
+intake - hod usisavanja(motor)
+injection engine - motor sa ubrizgavanjem goriva
+injector - brizgaljka goriva
+injector nozzle valve - mlaznica brizgaljke
+inlet port - usisni otvor
+interference - zador, preklop
+interior trim - unutrašnja presvlaka, tapacirung(auto)
+I-section connecting rod @ I-klipnjača(motor) 
+item - pozicija, stavka
+J
+jack - ručna dizalica(auto)
+jaw - čeljust, klešta
+jaw clutch - kandžasto kvačilo
+jet - mlaz, mlaznica
+jet nozzle - mlaznica
+joint - spona, zglob, zglobna veza
+joint ring - spojni prsten
+journal - rukavac, ležaj rukavca
+journal bearing -ležaj vratila
+jump ring - uskočni prsten, osigurač
+junction - električna veza, priključak
+K
+kettle - kotao
+key-bolt @ klinasta čivija
+key joint - spoj klinom
+key-way @ žleb za klin
+key-seat @ žleb za klin, sedište klina
+key punch machine - perforator
+king beam - glavna kruta osovina kamiona
+king pin - osovinica rukavca(upravljački sistem)
+king pin bushing - čaura osovinice rukavca(upravljački sistem)
+kit - garnitura
+knock off - automatsko isključivanje motora
+knuckle - zblob, zglobna veza(auto),šarka
+knuckle pin - osovinica zglobne veze(upravljački sistem,auto)
+knee mill - konzolna glodalica
+knife holder - držač noža
+knife lifting distance - korak noža
+knocking of the motor - lupanje motora
+knocking of the valve - lupanje ventila
+knockout - izbijanje
+knowledge of safety rulles - poznavanje propisa sigurnosti
+knurled nut - izreckana navrtka
+L
+lap - preklop
+lap safety belt - sigurnosni pojas(vozača)
+leaf spring - gibanj, lisnata opruga(auto)
+left hand screw - zavrtanj sa levim navojem
+lid, cover - poklopac
+lift a cover - podići poklopac
+limit gauge - kontrolnik dimenzija
+limit switch - granični prekidač
+limiter - graničnik
+liner - podloška
+liner - košuljica cilindra, šolja ležaja kolenastog vratila
+line drop - pad napona (u mreži)
+lining - obloga
+link - zglob, veza, spona
+link chain - karika lanca
+load - teret, opterećenje
+permissible load - dopušteno opterećenje
+lobe - breg bregaste osovine
+lock - brava, zapor,zapreka, kočnica, brana, ustava, gat
+headlock - gornja brana
+lock ball - kuglasti zatvarač
+lock lever - polužni zatvarač
+lock ring - osigurač, sigurnosni prsten
+locksmith - bravar
+lubricating oil - ulje za podmazivanje
+M
+machine drive - mašinski pogon
+machine shop - mašinska radionica
+mainshaft - glavna osovina, pogonska osovina
+maintain - održavati
+maintenance - održavanje
+maintenance man - radnik na održavanju
+maintenance instruction - upuptstvo za održavanje
+maintenance team - ekipa za tekuće održavanje
+manufacturing plant - proizvodni pogon
+mandrel - vreteno, osovina, pokretni trn
+master brake cylinder - glavni kočioni cilindar
+Brake Master Cylinder - Glavni kočioni cilindar
+material input - ulaz materijala
+maximum permitted - maksimalno dozvoljeno
+mechanical impact - mehaniči udar
+melting furnace - peć za topljenje
+metal casing - metalno kućište
+metallic packing - metalna zaptivka
+mill - pilana, strugara, železara, valjanonica, predionica, tkaonica
+mill diameter - prečnik glodala(maš)
+mill grinder - mlin
+mill table - sto glodalice
+miller - glodalica(maš)
+milling cutter - alat glodalo
+milling head - glava za glodanje
+milling machine - glodalica
+milling machine spindle - vreteno glodalice
+mineral wool - mineralna vuna
+mixture - smeša
+muffler - izduvni lonac (auspuh)
+N
+nadir - tačka u zenitu(sunce)
+nail wrench - alat za otvaranje sanduka
+needle file - igličasta turpija
+needle bearing - igličasti ležaj
+needle valve - igličasti ventil
+night shift - noćna smena
+night duty - noćna služba
+no-clearance @ bez zazora
+no load stroke - prazan hod (motora)
+node - čvor
+non-ferrous metals @ obojeni metali
+non-rusting @ nerđajući
+non-saturated @ nezasićen
+notch - žleb, izrez
+notch angle - ugao zareza
+notch root radius - zaobljenost zareza
+non return valve - nepovratni ventil
+negligible - zanemarljiv
+nickel - nikal
+night shift - noćna smena
+nitric acid - azotna kiselina
+non-volatile @ neisparljiv
+nozzle - mlaznica, dizna
+number of revolutions - broj obrtaja(u min.)
+nut - matica, navrtka
+nut lockig,nut guard - osiguranje navrtke
+O
+octane rating - oktanski broj
+oblique spiral bevel gear - konusni zupčanik sa kosim zubima
+off road vehicle - terensko vozilo
+oil fuel - dizel gorivo
+oil seal - semering
+oil pressure - pritisak ulja
+oil resistant gasket - zaptivka otporna na ulje
+oil separator - odvajač ulja
+oil ring - klipni prsten, uljni(motor)
+once upon a shift - jednom u toku smene
+open position - isključeno
+operating table - komandni sto
+operating pressure - radni pritisak
+operating phase - faza izrade
+open endid wrench - viljuškasti ključ
+order (a commission) - poručiti (nabavku)
+ordinary construction steel - običan konstruktivni čelik
+outlet valve - ispusni ventil
+out of order - u kvaru
+output power - izlazna snaga
+overhaul(work) - remont, generalni remont
+overflow pipe - prelivna cev
+overflow vessel - prelivni sud
+overheating - pregrevanje
+overload - preopteretiti
+over-time work @ prekovremeni rad
+overtaking - preticanje automobilom
+P
+packing - pakung, garnitura zaptivki
+packing ring - zaptivni prsten
+paint spray gun - pištolj za farbanje
+panel board - komandna tabla
+partition wall - pregradni zid
+peak capacity - najveći kapacitet
+pedestal bearing - uspravni ležaj
+petrol filter - filter goriva
+petrol pump - pumpa za gorivo
+pick - grebenati
+pickling - odmašćivanje,"bajcovanje"
+pig iron - sirovo gvožđe
+pilot lot - probna serija(nulta serija)
+pilot valve - servo ventil
+pin - osovinica, osigurač, čivija
+pin bushing - čaura osovinice klipa
+pipe - cev
+pipe bracket - držač cevi
+pipe cutter - sekač cevi
+pipe fitting - cevna armatura
+pipe joint - cevna spojnica, reducir
+pipe tee - teštik, cevni razvodnik
+piston - klip
+piston pin - osovinica klipa
+piston pin bushing set - garnitura čaura osovinice klipa
+piston pin circlip - osigurač osovinice
+piston ring - klipni prsten(karika)
+piston ring pack - garnitura klipnih prstenova
+piston rod - klipnjača
+pitch - navoj, loza
+pitch of thread - korak navoja
+pitch of screw - korak navoja
+pitman arm - upravljačka spona
+plain scale - razmera 1:1
+plain pipe - glatka cev
+plant capacity - kapacitet fabrike
+plant maintenance - održavanje pogona
+plastic hose - plastično crevo
+pliers - klešta
+plug - utikač, čep
+plumb line - visak
+point of interruption - mesto prekida
+polishing house - polirnica
+potable water - voda za piće
+power current - jaka struja
+power faillure - prekid struje
+power input - napajanje, dovod energije
+power output - izlazna snaga, efektivna snaga motora
+power piston - radni klip, pogonski klip
+power cylinder - radni cilindar
+power stroke - radni takt
+precisely - precizno
+precipitation - taloženje
+precipitator - taložnik
+preheating - predgrevanje
+preparation - priprema
+pressure rise - povećanje pritiska
+pressure working cycle - radni ciklus prese
+previous - prethodan
+protecting suit - zaštitno odelo
+proved in practice - provereno u praksi
+pulley - remenica
+pulley block - koturača
+pump work - pumpna stanica
+push-button @ taster
+putty - git(za dihtovanje)
+Q
+qualified operator - kvalifikovani radnik
+qualty control - kontrola kvaliteta
+quick acting electromagnetic valve @ brzo-otvarajući elektromagnetni ventil
+quick lime - negašeni kreč
+quicksilver(Hg) - živa (elemenat)
+R
+rack - zupčasta letva(upravljača)
+rack and pinion - zupčasta letva sa pužnim zupčanikom
+range - područje, opseg
+rail moving - kretanje po šinama
+rate - brzina, odnos, srazmera
+ratio - odnos
+reamer - razvrtač
+remover - izvlakač
+rectify - pretvoriti(el.struju)
+rectifier - ispravljač(naizmenične u jednosmernu sturju)
+reducer - reducir(cevna armatura)
+reduced pressure valve - ventil za smanjenje pritiska
+reducing flange - redukcion prirubnica
+reducing socket - redukciona spojnica
+reduction gear - reduktor
+reference gauge - komparativni(uporedni) kontrolnik
+reference sample - komparativni(uporedni) uzorak
+refractory - vatrostalan
+refuse - otpadak
+refuse fuel - otpadno gorivo
+reinforced - ojačan
+rejections - škart
+relay valve - servo ventil
+release valve, relief valve - ispusni ventil
+repaire - popravka
+repair kit - garnitura za popravku
+replace - zamena
+repture - lom (zbog zamora materijala)
+required quality - traženi kvalitet
+retainer - osigurač
+rewinding machine - premotalica
+rivet - zakovica, nitna
+roll(er) - valjak
+roller bearing - valjčasti ležaj
+roller conveyor - transporter sa valjcima
+rotor arm - razvodna ruka (razvodnika. motor)
+rubber roll grinding machine - brusilica za gumene valjke
+run out - nedostajati
+revolution speed - brzina okretanja
+S
+sand-paper @ šmirgla
+saw machine - mašinska testera
+saw - testera
+sawmill, sawmill plant - pilana, strugara
+sawing machine - mašinska testera
+saw blade - list testere, bonsek platno
+screen - sito
+seamles pipe - bešavna cev
+seamles SS tubes(pipes) - bešavne čelične cevi
+self-ignition @ samopaljenje
+semi-automatic @ poluautomatski
+semi-skilled labourer @ polukvalifikovni radnik
+set - garnitura
+set in motion - staviti u pokret
+set of screw drivers - garnitura odvrtača
+set of tinsmiths tool - komplet limarskog alata
+set of spanners - garnitura ključeva
+settling tank - taložnik
+sewage, sewerage - kanalizacija
+sewage water pump - pumpa za otpadne vode
+shaft - osovina, vratilo
+shaft bearing - ležište vratila
+shafting - transmisija
+shaping machine - rendisaljka
+sharpening - oštrenje
+shearing - sečenje(mašinsko), smicanje
+sheet cooper - bakarni lim
+sheet metal drum - bure od metalnog lima
+shell pump(sludger) @ šljam-pumpa
+sludge pump - pumpa za mulj
+shim - tanka podloška(podeš.zazora)
+short circuit - kratak spoj(elektro.)
+shrinkage - skupljanje, kontrakcija
+shut off time - pauza(u toku rada)
+side lap welde - bočni var
+side panel - bočni lim
+side face - bočna površina
+sidecar - bočna prikolica
+silencer - izduvni lonac(auto)
+sill - prag (automobila limarija)
+slaked lime - gašeni kreč
+sleeve - čaura
+slide gauge, caliper slide - kljunasto merilo, šubler
+slide valve, gate valve - zasunski ventil, zasun
+slip ring - klizni prsten klizač(el.kontakt)
+slot - prorez
+socket - naglavak(spojnice)
+soldering - lemljenje
+soldering lamp @ let-lampa
+solution - rastvor
+solvent vapours - pare rastvarača
+sound insulation - izolacija zvuka
+spark plug - svećica(motor)
+spanner - običan ključ(za zavrtnjeve)
+spare part - rezervni deo
+spark advance - pretpaljenje
+sparkless tool - neiskreći alat
+sparkless tool steel - alatni čelik koji ne varniči
+spark plug - svećica (motor)
+spill valve - prelivni ventil
+spin - rotirati, obrtati se
+spindle - vreteno
+spindle bearing - ležaj vretena
+spiral spring - spiralna opruga
+spline - špong (struga)
+spline - klinasti žleb na vratilu
+spline shaft - klinasto vratilo
+splint pin - rascepka
+spot welding - tačkasto zavarivanje
+spot and stitch welding machine - mašina za tačkasto i šavno zavarivanje
+spring pressure gauge - manometar sa oprugom
+sprocket - lančanik
+sprocket chain - Galov lanac
+stainless steel - nerđajući čelik
+stand by pumps - rezervne pumpe
+steady - čvrst, stabilan
+steam valve - parni ventil
+steel cylinder - čelična boca
+steel plate - čelični lim
+steel seamless tube - čelična bešavna cev
+steel sheet - čelični lim
+steel structure - čelična konstrukcija
+steel construction - čelična konstrukcija
+steering - upravljački mehanizam automobila, volan
+steering knuckle - nosač spone letve volana
+steering gear - letva volana sa pužem
+steering link - mehanizam letve volana
+steering pinion - pužni zupčanik upravljača
+steering rod end - krajnica, spona letve
+steering rack - zupčasta letva
+steering shaft -osovina volana
+steering wheel - volan (unutr.auta)
+stirrer - mešalica
+stop arm - ručica za zaustavljanje
+stop rest - radna pauza
+storage life, storage time - vreme skladištenja
+storing instruction - propisi za skladištenje
+straight - prav, pravolinijski
+support - držati, podupirati, oslonac
+suspension front - prednje vešanje
+suspension rear - zadnje vešanje
+swivel joint - obrtni spoj, zblobni spoj
+T
+table boring machine - stona bušilica(horizontalna)
+table drilling machine - stona bušilica(vertikalna)
+taking on a job - preuzimanje dužnosti na radnom mestu
+tank for crude nitric acid - cisterna za sirovu azotnu kiselinu
+to tap - urezivati lozu(navoja)
+tap - slavina
+taper seat gate valve - zasun sa kosim sedištem
+tapping drill - ureznica
+tap screw - zavrtanj sa glavom
+tartaric acid - vinska kiselina
+task shift - jedna dnevna smena(u fabrici)
+technical conditions - tehnički uslovi
+technologic unit - tehnološka jedinica
+three-way stop cock @ trokraka slavina
+thread gauge - šablon za navoj
+thread of a screw - loza zavrtnja
+throttle - prigušiti
+thrust ball bearing - aksijalni kuglični ležaj
+thrust bearing - potisni ležaj, aksijalni ležaj
+thrust collar - prsten aksijalnog ležaja
+thrust plate - pritisna ploča kvačila
+thrust ring - aksijalni prsten
+throw of crankshaft - koleno radilice
+tie rod - spona, krajnica,spona letve volana
+timing belt tensioner bearing - ležaj zatezač zupčastog kaiša
+timing belt tensioner pulley - remenica zatezač zupčastog kaiša
+timing pulley - remenica bregaste osovine
+torque - obrtni momenat
+toughend glass - tvrdo staklo
+trial run - probni rad (pogon)
+trial lot - probna serija
+tube - cev, cevčica
+tube wall thickness - debljina zida cevi
+tube - unutrašnja guma točka
+tubeless - bez unutrašnje gume
+tube patch - zakrpa za gumu
+tubular - cevasti
+turning lathe - revolver strug
+turbocharger - turbokompresor
+twin cam - V motor (dve bregaste)
+twist drill - spiralna burgija
+two-speed gear box @ dvobrzinski menjač
+tyre - pneumatik, guma točka
+tyre bead - ojačani rub gume točka
+tyre mounting bar - pajser za montažu gume
+tyre changer - mašina za izmenu guma
+tyre profile - profil gume
+tyre pressure - pritisak gume
+U
+uniform - ravnomeran, jednolik
+uniform quantity - ravnomerna količina
+u-joint @ kardanski zglob
+universal joint - kardanski zglob
+universal joint cross - kardanski krst
+union nut - priključna navrtka
+unit - agregat, aparat, jedinica(pogonska)
+hot air generating unit - aparat za pripremu toplog vazduha
+unit drawing - detaljan crtež
+unit pressure - ravnomeran pritisak
+unit operation - osnovna operacija
+universal lathe - univerzalni strug
+universal joint - kardanski zglob, okretljivi zglob
+unloading crane - istovarna dizalica
+utility room - pomoćna prostorija
+V
+valve housing - kućište ventila
+valve grinding - brušenje ventila
+valve seat grinding - brušenje sedišta ventila
+varnishing - lakiranje
+vat - kofa
+V-belt @ klinasti kaiš
+V-belt pulley @ remenica za klinasti kaiš
+verifer - kontrolnik
+vernier caliper - kljunasto merilo, šubler
+vertical shaft - vertikalno vratilo
+vibration damper - amortizer vibracija
+vibratory sieve - vibraciono sito
+vice - mengele(paralelene)
+vise - mengele, stezaljke
+voltage decrease - pad napona
+W
+waste - otpadak
+high percentage of waste - visok procenat otpatka
+weld - zavareni šav, zavarivati
+weld edge - rubni šav (zavar.)
+weld fillet - ugaoni šav (zavar.)
+weld metal zone - oblast rastapanja
+weld slope - ugao nagiba šava(zavar.)
+weld zone - oblast zavarivanja
+welded assembly - zavarena konstrukcija
+welder - varilački aparat
+welding arc - zavarivački luk
+welding choke - induktivni regulator
+welding current - zavarivačka struja
+weldid steel pipe - Čelična šavna cev
+weldment - zavareni komad, zavarena konstrukcija
+weld tack - mesto zavarenog spoja
+whisker - kontaktna opruga, pipak, zalistak
+windmill - vetrenjača
+winding machine - mašina za namotavanje
+wireless - bežični
+wing - blatobran,krilo(auto)
+wire brush - metalna četka
+wire insulation - izolacija žice(el.)
+wiring - električna instalacija
+work bench - radni sto
+working drawing - radni crtež
+working pressure - radni pritisak
+working spindle - radno vreteno
+working stroke - radni hod
+workpiece - radni komad,radni deo
+workshop - radionica
+worm - puž, pužni zupčanik
+worm gear - pužni zupčanik
+worm gear motor - motor sa pužnim reduktorom
+wrist pin - osovinica klipa
+wrist pin bushing - čaura osovinice klipa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+abrasion -habanje
+abutment- obalni stub, oporac
+accessories (bridge deck maintenance acc.)- pomoćna oprema
+achievement- iskustvo
+Act of Urbanism- Urbanistički dokument
+acute angle- oštar ugao
+adhesivity -prionljivost
+aerodynamic stability- aerodinamična stabilnost
+aerodynamic tests -aerodinamička ispitivanja
+aggradation- nanos
+aggregate impact test apparatus- aparat za testiranje agregata
+air entrainment meter - uređaj za merenje aerizacije vazduha
+alignment - trasa; projektovani geometrijski položaj
+aluvial deposits -aluvijalni nanos
+amplitude - jačina struje
+anchor head- ankerna glava
+anchoring- ankerisanje
+angle pole- zatezni stub (elek.)
+approved disposal plant -javna deponija
+aquifier- podzemni rezervoar 
+arterial road- magistralni put
+articulation- orijentacija
+asphalt base course- bitumenizirani noseći sloj
+assembly -montaža
+assembly line- montažna traka
+at grade- u nivou (raskrsnice)
+austenitic- austenični
+back span - zadnji raspon
+balance - vaga
+barge board - parapet
+barge boards - maske
+barge traffic - prolaz barži
+base course - noseći sloj
+base plate - donja ploča
+batching plant - fabrika betona
+bearing capacity at failure - nosivost pri lomu
+bearing power - nosivost
+bearings - ležišta
+bend @ savijanje (bend FOR smth. - savijanje NEČEGA)
+bending strength - čvrstoća na savijanje
+benzene - benzen
+bi-directional @ dvostrani
+bituminous - vezan bitumenom
+bituminous binder - vezivo
+bituminous mixture - asfaltna mešavina
+blast-furnace cement @ metalurški cement
+blasting - miniranje
+bolted connections - veze sa zavrtnjima
+bored pile - bušeni šip
+bored pile work - radovi na bušenju šipova
+borehole filling - zapunjavanje bušotina
+borehole log - dnevnik bušenja
+borehole logging - karotaž
+borehole logging measurements - karotažna merenja
+box girder - nosač sandučastog preseka; sandučaste konstrukcije
+braces - podupirači
+bracing - ukrućenje
+breaking load - kritično opterećenje
+breaking strength - čvrstoća na lom
+Bridge approach structures - prilazne konstrukcije mosta
+bridge deck - deck section @ gredni nosač mosta
+Bridge foundation design approach - projektantski pristup fundiranju mosta
+bulk density - zapreminska težina
+bulk filling - nasipanje
+burrow pit - pozajmište
+by-bridge @ radna platforma (za pregled konstrukcija)
+bypass - obilaznica
+cable stays - kosi kablovi
+cable tray - nosač kablova
+cable wire - žica
+cage - armaturni koš
+calculation - proračun
+calibration - tariranje
+cantilever struts - podupirači konzole
+care of samples - čuvanje uzoraka
+carriage - kolovoz
+casing pipe - obložna cev
+cast cubes - izlivene kocke
+cast iron - liveno gvožđe
+caving in - zarušavanje
+CBR - KIN
+cell - ćelija
+centrifuge extractor - centrifugalni ekstraktor 
+chainage - stacionaža
+chainman - markirant
+channel (river) - korito reke
+characteristic - svojstvo
+Charpy impact test - ispitivanje po Šarpiju
+City Assembly - Gradska skupština
+clearance - slobodan prolaz/profil
+clip - stezaljka
+closing piece - završni komad; pasent  komad
+coarse-grained @ krupnozrni
+coating - premaz
+cofferdam - zagat
+colour template - karta boja
+column - stub
+compacted layer - ugrađeni sloj
+compaction apparatus - aparat za merenje zbijenosti
+compaction hammer - nabijač
+compactor - valjak za zbijanje
+composite structure - spregnuta konstrukcija
+compressibility - stišljivost
+compressing machine - presa
+compressive strength - čvrstoća na pritisak
+Conceptual Design - Idejno rešenje
+conceptual grid matching - idejni raspored poprečnih nosača
+concrete in situ - betonirati in situ
+concrete inspector - vršilac inspekcije betonskih radova
+concrete test hammer - Šmitov čekić za testiranje betona
+concreted shear keys - ubetonirani moždanici
+connected devices - priključni uređaji
+connection - spoj
+consistency - konzistencija
+constrain map - sintezna mapa ograničenja
+construction - izgradnja
+Construction Supervision Consultant - Nadzorni savetnik
+construction working hours - (propisano) vreme izvođenja radova
+Consultant Supervision Guidelines - uputstva o konsultantskom nadzoru
+continuous supervision - stalni nadzor 
+convey - proslediti
+core - jezgro
+core box - kutija za jezgra
+core mapping - kartiranje jezgra
+core pipes - sržne cevi
+core sample - uzorak jezgra
+correlation - sadejstvo; korelacija
+cover truss (drainage) - rešetka slivnika
+CPT test - CPT testovi
+crate - sanduk (za čuvanje jezgra)
+creation of joints - izrada spojnica
+creek - rukavac
+critical path - kritični put
+cross beams (of the main span) - poprečna ukrućenja (glavnog raspona)
+cross beams grid - raspored poprečnih nosača
+cross fall - poprečni nagib
+Cross hole method - metod "Cross hole"
+cross-section @ poprečni profil
+cube/cylinder compressing machine - presa za ispitivanje kocki/cilindara
+culvert - kolektor 
+curing - negovanje betona
+curve (put.) - krivina
+cut-back bitumen @ razređeni bitumen
+cutting - usek
+cutting plan - plan sečenja
+cycling lane - biciklistička staza
+daily compaction joints - dnevni radni spojevi
+dampers - damperi
+debris - šut
+deck = deck plate - ploča mosta
+deck drainage system - sistem odvodnjavanja atmosferskih padavina
+deck joints - dilatacione spojnice
+deck movement joints - dilatacione spojnice
+deck section - bridge deck @ gredni nosač mosta
+deck section - poprečni presek
+declinometer - merač nagiba
+declinometer comprising moulds and water bath - merač nagiba sa kalupima i kadom
+defects notification period - garantni period
+deflection - ugib
+deformability - deformabilnost
+deformability characteristics - deformabilne karakteristike
+deliverables - isporučeni delovi projekta
+demolition drawing - crtež potrebnih rušenja
+density - gustina
+deposits - naslage
+depot - depo
+design load(ing) - projektovano opterećenje
+design review - revizija projekta
+desk study - analiza postojećih informacija
+diameter - prečnik
+diaphragm wall - zidna dijafragma
+dilatation - dilatacija
+dilatometric tests - dilatometarska ispitivanja
+dismantling - demontaža
+disposal plant - deponija
+distance meter - daljinomer 
+distant reading thermometer - termometar za daljinsko očitavanje
+distillation apparatus - aparat za destilaciju
+ditch - jarak
+double decked cable trays - dvospratni nosači kablova
+Down hole method - metod "Down hole"
+DPH tests - DPH testovi
+draft - gaz
+draft drawings - radni crteži
+drafter - crtač (tehnički crtač)
+drainage - odvodnjavanje
+drilling log - dnevnik bušenja
+drilling means - sredstva za izvođenje bušenja
+drilling method - način izvođenja
+drilling regime parameters - parametri režima bušenja
+drilling rigs - bušaća garnitura
+drilling rod - bušaće šipke
+dry density - suva zapreminska težina
+drying shrinkage - skupljanje usled sušenja
+ductile - duktilan
+dynamic penetration test - opit dinamičke penentracije
+eccentric load - ekscentrično opterećenje
+edge preparation - obrada/ priprema ivica
+effusion - izlivanje vode
+elastomeric - elastomerna
+electric post - bandera
+electrical installations - elektro instalacije
+elevated junction - izdignuta raskrsnica
+elevation value (put.) - vrednost kote sa simbolom
+elongation - istezanje
+elongation at break - izduženje pri lomu
+embankment - nasip, obaloutvrda
+emission - imisija
+EMP - Plan sprovođenja zaštite životne sredine
+engineering value - ušteda
+envelopes - anvelope
+erection (steel) - montaža (čelične konstrukcije)
+erection procedure - metod izgradnje
+establishment (site) - formiranje gradilišta
+establishment of site facilities - formiranje gradilišnih objekata
+excavate - iskopati
+excavation - iskop
+expansion joints - dilatacione spojnice; dilatacija
+extend (into the bridge structure) - zalazi u...
+extension - nastavak
+extent of works - obim radova
+extraction of samples - vađenje (uzoraka)
+fabric - platno
+fabricate - proizvesti
+fabrication shop - fabrika čelične konstrukcije
+fabrication yard - radna platforma
+fabricator - proizvođač
+facilities - oprema (a može i isto što i utilities)
+factual report - činjenični izveštaj sa rezultatima ispitivanja
+Faculty of mining and geology @ rudarsko-geološki fakultet
+failure - lom
+field investigations - terenska istraživanja
+field prospecting works - terenski istražni radovi, terenska ispitivanja
+field tests - probe na terenu
+fill - nasip
+filling of boreholes - zapunjavanje bušotina
+Final Design - Glavni projekat
+fine-grained @ finozrni
+finish - završna obrada
+fixed survey points - stalne geod.tačke
+flakiness index test apparatus - aparatura za testiranje indeksa ljuspanja
+flexible pavement - elastična kolovozna konstrukcija
+flood plain - povodnje
+flow measurement - merenje protoka
+flux heater - peć
+footing support - temeljni potpornik
+footprint - zauzeće u osnovi
+formworks - forms @ oplata
+foundation elements - elementi fundiranja
+foundation laid down on piles - objekat fundiran na šipovima
+foundation pit - temeljna jama
+foundation/ founding - fundiranje
+foundations and geotechnical inspector - vršilac inspekcije temelja i geotehničkih radova
+fracture - ispucalost
+friction pile - lebdeći šip
+frost penetration depth - dubina prodiranja mraza
+fuel leakage - prolivanje goriva
+funnel - levak
+furniture - oprema (mosta)
+fuse - osigurač
+gantries - pokretne portalne dizalice
+Gantt chart - gantogram
+gauge device - merni uređaj
+general layout plan - situacioni plan
+geometric design standards - standardi za projektovanje geometrije
+geometry - geometrija
+geotechnics - geotehnika
+girder - greda, gredni nosač mosta 
+steel girder - čelični nosač
+girder bridge - gredni most
+goods traffic - teretni saobraćaj
+grade - nagib
+grade junction - denivelisana raskrsnica
+grade of concrete - marka betona
+grade-separated junctions @ raskrsnice u više nivoa
+grading curve - granulometrijska kriva
+grading of particle size distribution - granični pojas za granulometrijsku krivu
+grading test - granulometrijska analiza
+graduate - podeok
+granulation - granulacija
+granulometric composition - granulometrijski sastav
+gravels - šljunkovi
+grid - roštilj (nosača)
+groove - žleb
+grooving tool - nož za povlačenje brazde
+ground level - na tlu
+ground level of the piles - kota fundiranja šipova
+ground works - zemljani radovi
+growth - rastinje
+guard-rail @ sigurnosna ograda
+guide structure / guide wall - zaštitni zid
+gypsum - gips
+handling - manipulacija
+handling of traffic - opsluživanje saobraćaja
+handrails - pešačke ograde
+hardened concrete - stvrdnuti beton
+hardened steel - kaljen čelik
+hardness @ čvrstoća (hardness FOR smth. - čvrstoća NEČEGA)
+hidrocarbon mixtures - ugljovodonične mešavine
+high voltage electrical currents - struje visokog napona
+highway bridge - most u sklopu autoputa
+Holocene age - holocen
+Hot rolled products of structural steels - toplo valjani čelični profili
+hydraulic installations - hidrotehničke instalacije
+hydraulic lifting system - hidraulični sistemi
+hydro insulation - hidroizolacija
+ICE - Nezavisna provera projekta
+impact load - opterećenje na udar 
+impermeability - vodonepropustljivost
+in situ - na licu mesta; ''in situ''
+IN the span - U rasponu
+incorporation - ugradnja
+indicator - pokazatelj
+interceptor - separator (kanaliz.)
+interchange - saobraćajna petlja ( U ulici….)
+interface - saradnja
+interface point - tačka prelaska na...
+interpretive report - Извештај о итерпретацији резултата
+intersection - raskrsnica (bulevara)
+ job mix formula - receptura za radnu mešavinu
+ joint - veza
+ jointing material - zaptivni materijal
+ junction - raskrsnica (običnih ulica)
+ junction at ground level - raskrsnica na nivou tla
+ junction box - razvodni orman
+laboratory mixer - laboratorijska mešalica
+land parcels - parcele
+landscaping - uređenje zemljišta/zelenih površina
+LAP Calculation - LAP
+lapping - preklopne
+lateral bracing - poprečno ukrućenje
+launching - naguravanje/ potiskivanje
+launching nose - kljun
+layout - dispozicija (položaj i oblik); raspored; geodetska podloga
+layout (road) - dispozicija puta
+layout drawing - dispozicioni crtež
+layouts - osnove
+lenticular inclusions of mud - sočiva mulja
+level junction (=flat junction) - raskrsnica u nivou
+levelling - nivelisanje
+levels - kote
+lever - poluga
+light-post @ kandelabr 
+limestone - krečnjak
+limestone banks - sprudni krečnjaci
+lines - ravnosti
+liquefaction - likvefakcija
+liquid limit - granica tečenja
+load cell - merna ćelija
+load temperature (asphalt) - temperatura asfalta pri ugrađivanju
+load tests - ispitivanja probnim opterećenjem
+loading - nanošenje opterećenja
+loess - les
+log book - dnevnik rada
+longitudinal (pipelines) - podužni (cevovodi)
+longitudinal profiles - podužni profil
+longitudinal section - podužni profil
+Los Angeles abrasion apparatus - aparat za ispitivanje habanja po LA metodi
+LRT bed @ donji stroj za konstrukciju LRT-a
+lubricants - maziva
+machine - uređaj
+main bridge structure - konstrukcija mostovskog nosača
+main line railway station - glavna stanica
+maintenance track - staza za održavanje
+map (to) the coordinates - snimiti koordinate (bušotina)
+map (to) the level - snimiti kote (bušotina)
+mapping - kartiranje
+marl - lapor 
+marly limestone - krečnjak laporovit
+marly sand - peščar laporovit
+masonry - zidane konstrukcije
+materials engineer - inženjer za materijale
+measures - menzure
+mechanical drilling - mašinsko bušenje
+mechanical installations - mašinske instalacije
+mechanical resistance - mehanička čvrstoća
+mechanical testing machine - mehanički uređaj
+median - razdelna traka, razdelni pojas
+metallic materials - metali
+method of electrical resistence - metod specifične električne otpornosti
+Method Statement - metodologija izvodjenja radova/ aktivnosti
+microlocations - mikrolociranje
+mill test certificate - sertifikat proizvođača čelika
+mineralogical - mineraloški
+mix design - receptura za mešavinu
+mix design reference - referentna mešavina
+mixing plant - betonska baza
+mock-up model @ maketa
+modulus of compressibility - modul stišljivosti
+modulus of elasticity - modul elastičnosti
+moisture - vlažnost
+moisture content tin - posuda za merenje vlažnosti
+monitoring levelling points - tačke geodetskog osmatranja
+monitoring stations - merna mesta
+mould - kalup
+movement joints - dilatacione sprave
+muds - muljevi
+natural radioactivity method - metod merenja prirodne radioaktivnosti
+New Jersey barrier - Nju Dzerzi barijera
+New Jersey barrier elements - Nju Dzerzi elementi
+noise barrier - zaštitni zid
+nuclear gauge - radioaktivni merni uređaj
+nuclear gauge for density testing - radioaktivni merni uređaj za testiranje gustine
+number of passes of the compactor - broj prelaza valjka za zbijanje
+obtuse angle - tup ugao
+oedometer test - opit odometrom
+official updating and record-keeping of land parcels @ održavanje katastarskog operata
+orthotropic - ortotropan
+orthotropic plate - ortotropna ploča
+outputs - izvestaji
+oven - pećnica
+overconsolidated - prekonsolidovani
+overhead crane - mosni kran
+pace - hod
+paint - farba
+paint hall - farbara
+paint system - sistem za farbanje
+panels - paneli
+Pannonian - panon
+parapets - parapeti, ivični venci
+particle - zrno
+particle size distribution - granulometrijski sastav
+passenger traffic - putnički saobraćaj
+pavement - kolovozna konstrukcija
+pavement design - projekat kolovozne konstrukcije
+paver - finišer 
+penetration resistance - otpor pri utiskivanju igle
+penetration tin - penetraciona posuda
+penetrometer - penetrometar 
+perforated - perforisan
+permeability - propustljivost
+petrochemical installation - petrohemijsko postrojenje
+petrological - petrološki
+piers' foundations - način fundiranja stubova mosta
+piezometers - piezometri
+pile - šip
+pile caps - slab of piles @ naglavice šipova
+pile head - glava šipa
+pile test - test šipova
+pillar site - stubno mesto
+piston - klip
+pitch - nagib
+plain view - osnova
+plan view - situacioni plan
+plant and equipment - mehanizacija
+plasma cutting machines - mašine za sečenje plazmom
+plastic limit - granica plastičnosti
+plasticity index - indeks plastičnosti
+plasticizer - plastifikator 
+plate - ploča (mosta)
+porewater pressure - pritisak porne vode
+Port Authority - lučka kapetanija
+Portland pozzolana cement - pucolanski cement
+pot bearing - tipsko zatvoreno ležište (ležište u loncu)
+pre-assembling yard @ prostor za prethodnu montažu
+precast -
+precipitation - padavine
+press - presa
+pressiometric tests - presiometarska ispitivanja
+prestressed strands - užad za prednaprezanje
+prestressing - prednaprezanje
+prime coat - osnovni premaz
+processed clays - prerađena glina
+Proctor compaction apparatus - aparat za Proktorovu probu zbijanja
+products - proizvodi
+products (crude oil) - derivati
+profile grade - niveleta posteljice
+proofing - dokazivanje
+proportioning - doziranje
+prospecting - istraživanje zemljišta
+prospecting area - istražni prostor 
+prospecting depth - dubina ispitivanja
+prospecting dynamics - dinamika istraživanja
+protection of drill cores - čuvanje jezgra
+protective casing - zacevljenje
+provision for - mogućnost za
+public lighting - javna rasveta
+pumping test/trial - probno crpljenje
+pylon (surface) treatment - tretiranje pilona
+pylon anchorage - pilonski ankeri
+pylon inspector - vršilac inspekcije pilona
+pylon-girder joint @ veza pilona i grede
+quarternary deposits - kvartarne naslage
+quotient - količnik
+radiographic - radiografska
+radius - radijus (poluprečnik)
+rail point (LRT) - skretnica
+railway bridge - železnički most
+railway underpass - kratki železnički tunel
+rate of settlement - stepen sleganja
+reaction forces - reaktivne sile
+reference point - reper 
+references - oznake
+rehabilitation (roads) - sanacija
+reinforced concrete - armirani beton
+reinforcement - armatura
+reinforcing bars - armaturne šipke
+representative sample - reprezentativni uzorak
+research excavations - istražni raskopi
+resettlement plan - plan preseljenja
+resident engineer - rezident inženjer 
+resistance characteristics - otporne karakteristike
+response spectra - povratni spektri
+retaining wall - potporni zid
+review (for) - na uvid
+right angle - pravi ugao (u mat.)
+rigid - krut
+rigid pavement - kruta kolovozna konstrukcija
+ring and ball apparatus - aparat za prsten i kuglicu
+rising - montaža
+river bank - obala reke
+river channel - rečno korito
+rivercraft - vodeni saobraćaj
+road bridge - drumski most
+road level - niveleta puta
+road traffic - drumski saobraćaj
+roadway - trasa puta
+rock masses - stenske mase
+rod heater - grejač šipki za zavarivanje
+rolo ramp - prilazna rampa za barže
+rotary drilling - rotaciona metoda bušenja
+rotary drilling with continual core sampling - rotaciona metoda bušenja sa kontinualnim jezgrovanjem
+round down, round off - zaokružiti sumu
+route span (LRT) - svetli otvor 
+rule - ravnjača
+run-off water @ otpadne vode
+rut - kolotrag
+S curves - dijagram sa krivuljama
+safety barriers - odbojne ograde
+sampling - uzorkovanje
+sampling pipette - pipeta za uzimanje uzoraka
+sand bank - sprud
+sand cone apparatus - konus za pesak
+sandblasting - peskarenje
+sands with argillaceous content - zaglinjeni peskovi
+sanitary measures - mere sanitarne zaštite na radu
+Sarmatian - sarmat
+schedule of equipment - raspored opreme
+schedule of human resources - raspored radne snage
+scooping (env.) - opšta zaštita životne sredine
+sealed route - asfaltiran put
+secondary raw materials - sekundarne sirovine
+section - deonica
+section at ground level - deonica na tlu
+security space - sigurnosni prostor 
+sedimentological - sedimentološki
+segments of the bridge - montažni komadi mosta
+seismic - seizmološki
+seismic design - seizmički proračun
+seismic profiling - metoda seizmičkog prozračivanja
+seizmic devices - seizmički uređaji
+seizmic load of the structure - seizmičko opterećenje NA konstrukciju
+senior driller - prvi geološki bušač
+separation - izdeljenost
+service road - sporedni put, put za održavanje
+serviceability - upotrebljivost
+services - infrastrukturne instalacije
+set of piles - baterija šipova
+set of supports - raspored oslonaca
+setting out - iskolčavanje objekta
+setting time - vreme vezivanja
+settlement - sleganje
+settling - taloženje
+shaft - okno
+shear modul - modul klizanja
+shear test - ispitivanje na smicanje
+shearing forces - poprečne sile
+shearing strength - čvrstoća na smicanje
+sheet pile - talpa
+sheet-pile wall @ priboj
+shift leader - vođa smene
+shoring - podgrada, podgradjivanje
+SI (site investigations) - ispitivanja na terenu
+side cutting - zasecanje, usecanje
+side span - manji raspon
+sidewalk - pesacka staza
+sieve - sito
+sieve-shaker @ vibro-sito
+silt fraction - prašine
+silty clays - prašinaste gline
+sinking - utiskivanje
+site diary - građevinski dnevnik
+site establishment - formiranje gradilišta
+site investigation - istražni radovi na gradilištu
+site layout drawing - crtež/ plan organizacije gradilišta
+site plan - situacija
+slab (for marking of boreholes) - blok, ploča
+slab of piles - pile caps @ naglavice šipova
+slope - škarpa, padina (autoput.)
+slot - otvor 
+slotted wall - dijafragma
+slump - visina sleganja, mera sleganja
+slump cone - konus
+slump test apparatus (for cement) - aparat za meru sleganja svežeg betona
+smoothness - glatkost
+socket - podnožje osigurača
+softening point - tačka razmekšanja
+soil composition - sastav tla
+soil density - gustina tla
+soil failure - nosivost tla
+soil investigation - ispitivanje tla
+soil mechanics - mehanika tla
+solubleness - rastvorljivost
+SP method - metod sopstvenog potencijala
+space - razmak
+spacing - raster / razmak
+span - raspon
+span (LRT) - svetli otvor 
+span arrangement - raspored raspona
+Specialist Launching System - specijalistički sistem za naguravanje konstrukcije
+specific gravity - specifična težina
+speed moisture meter - aparat za brzo određivanje vlažnosti
+spent specimen - iskorišćeni uzorci
+spring - opruga
+SPT borehole tests - SPT testovi/ opiti u bušotini
+SPTs - Standard Penetration Tests
+stability - postojanost
+standard cube/cylinder compressing machine - standardna presa za ispitivanje kocki/cilindara
+standard penetration test - opit standardne penetracije
+standpipes - vodostan cevi
+starter bar - armatura iz temelja
+state value - propisana vrednost
+static penetration test - statičko penetraciono ispitivanje
+stay cables - kosi kablovi
+stay cables inspector - vršilac inspekcije kosih kablova
+stays - kablovi
+steel inspector - vršilac inspekcije radova na čeličnoj konstrukciji
+steel rule - čelična ravnjača
+stiffness modulus - modul krutosti
+stock pile - deponija; zaliha
+strain - deformacija
+strain gauge - ekstenziometar 
+strand - uže
+street light-post @ kandelabr 
+strength - čvrstoća
+stress - naprezanje
+structual design - projekat konstrukcije
+structural analysis - statička analiza
+structural health monitoring proposal - predlog za praćenje ponašanja konstrukcije
+structural steel plate - konstruktivna čelična ploča
+structure - konstrukcija; tekstura
+struts - podupirači/ kosnici
+subbase - donji noseći sloj
+subgrade - posteljica
+submit (materials) - dopremiti (materijale)
+substructure - donji stroj mosta
+subsurface - pripovršinski
+superelevation - vitoperenje
+superstructure - gornji stroj mosta
+supervision consultants' guidelines - uputstva tehničkom nadzoru
+support - oslonačka konstrukcija, oslonac
+support reaction - oslonačka reakcija
+supports - potpornici
+supports on piled foundations - temeljenje stubova je na šipovima
+surface - zastor 
+surface tension - površinski napon
+survey - geodetsko snimanje
+survey points - geodetske tacke
+surveyor - geodeta
+tack coat - vezni sloj emulzije
+tamping rod - štap za nabijanje
+technical acceptance committee - komisija za tehnički prijem (objekata)
+Technical Design Controllers - tehnička kontrola projekta
+temporary support - privremeni oslonci
+tensile strength - tension @ čvrstoća na kidanje; zatezanje
+test - opit
+test on completion - test na završetku izvođenja radova
+test tube - epruveta
+testing machine - uređaj za ispitivanje
+thermal treatment - termička obrada
+thermostat - termostat
+timbering (in trial pits) - drvene podgrade
+time schedule - dinamički plan
+time series calculation - serije proračuna kroz vreme
+tin - posuda
+tip - špic
+tipping - deponovanje
+title block (on drawings) - naslovni pečat
+tolerance - dozvoljeno odstupanje
+toluene - toluen
+top coat - površinski sloj
+topographic survey fixed points - stalne geodetske tačke
+topographic surveying - geodetski radovi, geodetska snimanja
+tower crane - toranjski kran
+traffic flow figures - iznos saobraćajnog opterećenja
+traffic management - upravljanje saobraćajem
+traffic sign gantries - portali saobraćajnih znakova
+transition curve (put.) - prelazna krivina
+transitional curves - prelazne krivine
+transversal section - poprečni presek
+trial assembly of sections - probna montaža delova
+trial drilling - istražno bušenje
+trial pit - sondažna (istražna) jama
+trial pumping - test crpljenja
+tripod - tronožac
+typical cross-section @ normalni podužni profil
+ulivanje (toka) - weaving
+unbound granular material - zrnasti nevezani kameni materijal
+unconfined compression test - test kompresije sa nesprečenim bočnim širenjem
+underpass - kratak saobraćajni tunel
+undesturbed sample - neporemećeni uzorak
+unidirectional - jednostrani
+unloading - rasterećenje
+unsealed route - neasfaltiran put
+upper road-base @ gornja podloga
+utilities - komunalna infrastruktura; infrastrukturne instalacije kroz most
+vehicle weighing sheet - merni registar 
+vibrating plate @ vibro-ploča
+Vicat apparatus - Vikatova igla
+viscosity - viskoznost
+visibility - vizura
+void - šupljina
+volatile - isparljiv
+voltage - napon
+walkway @ pešačko-biciklistička staza
+water level - vodostaj
+water management - vodoprivreda
+water spraying - vlaženje (gradilišta)
+water still - posuda sa vodom za čuvanje uzoraka
+waterproofing - hidroizolacija
+wearing course - habajuci sloj (asfalta)
+web - rebro (nosača)
+wedge - kotva
+welded caps (of pipes) - navarene kape (cevi)
+welder - varilac
+welding - zavarivanje
+welding inspector - vršilac inspekcije zavarenih spojeva
+welding testing apparatus - oprema za ispitivanje varova
+weldless tube - bešavna cev
+wet concrete - svež beton
+wind tunnel tests - testiranja u aero tunelu
+wing wall - krilni zid
+work piece - radni komad
+workability - obradljivost, ugradljivost (za beton)
+workmanship - izrada
+Works Contractors Supervision Guidelines - uputstva za nadzor nad radovima
+workshop drawings - radionički crteži
+yield point - granica popuštanja
+yield strength - čvrstoća rastezanja
+axle load - opterećenje po osovini
+cement bin - silos za cement
+loader - utovarivac
+drainage coefficient - koeficijent drenaže
+gully - slivnik
+congestion - prenatrpanost
+congestion of services - manjak prostora za smeštanje instalacija
+proprietary components - predodređene komponente
+shop drawing - radionički crtež
+class of concrete - marka betona
+beam - greda
+tentative - približan, orijentacion
+dead load - stalno/ sopstveno opterecenje
+superimposed load- naneto (dodatno) opterecenje
+self weight (of material) - sopstvena tezina
+superimposed dead load - dodatno stalno opterecenje
+hold down cables - usidreni kablovi
+infringement - prodor, zadiranje
+sheet pile wall - priboj
+aerodinamička ispitivanja - aerodynamic tests
+aluvijalni nanos - aluvial deposits
+ankerna glava - ancher head
+aparat za brzo određivanje vlažnosti - speed moisture meter 
+aparat za destilaciju  - distillation apparatus
+aparat za ispitivanje agregata - aggregate impact test apparatus
+aparat za ispitivanje habanja po LA metodi - Los Angeles abrasion apparatus
+aparat za meru sleganja svežeg betona - slump test apparatus (for cement)
+aparat za Proktorovu probu zbijanja - Proctor compaction apparatus
+aparat za prste i kuglicu - ring and ball apparatus
+aparatura za testiranje indeksa ljuspanja - flakiness index test apparatus
+aritmetička sredina - arithmetic mean
+armatura - reinforcement
+armatura iz temelja - starter bar 
+armaturne šipke - reinforcing bars
+armaturni koš - cage
+armirani beton - reinforced concrete
+asfaltiran put - sealed route
+asfaltna mešavina - bituminous mixture
+austenični - austenitic
+bandera - electric post
+barrier - rampa
+barže (prolaz barži) - barge traffic
+benzen - benzene
+bešavna cev - weldless tube
+betonska baza - mixing plant
+biciklistička staza - cycling lane
+biro za projektovanje - design office
+bitumenizirani noseći sloj - asphalt base course
+brodogradilište - shipyard
+broj prelaza valjka za zbijanje - number of passes of the compactor 
+bušaća garnitura - drilling rigs
+bušaće šipke - drilling rods
+bušen šip - bored pile
+bypass - obilaznica
+čelična ravnjača - steel rule
+centrifugalni ekstraktor - centrifuge extractor 
+cetvorokraka raskrsnica @ cross-roads junction
+CPT testovi - CPT test
+crtež/ plan organizacije gradilišta - site layout drawing
+čuvanje jezgra - protection of drill cores
+čuvanje uzoraka - care of samples
+čvrstoća @ hardness (FOR smth. - čvrstoća NEČEGA), strength
+čvrstoća na kidanje - tensile strength / tension
+čvrstoća na lom - breaking strength
+čvrstoća na savijanje - bending strength
+čvrstoća na smicanje - shearing strength
+čvrstoća pri pritisku - compressive strength
+čvrstoća rastezanja - yield strength
+daljinomer - distance meter 
+deformabilnost - deformability
+deformacija - strain
+delom poprečni profil @ some cross-section:)
+demontaža - dismantling
+denivelisana raskrsnica - grade junction
+depo - depot
+deponija - disposal plant
+deponovanje - tipping
+derivati (nafte) - products
+dijafragma - slotted wall, diaphragm
+dijagram sa krivuljama - S curves
+dilatacione spojnice/sprave, dilatacija - expansion joints
+dilatometarska ispitivanja - dilatometric tests
+dinamički plan - time schedule
+dinamika istraživanja - prospecting dynamics
+dispozicija (položaj i oblik) - layout
+dispozicioni crtež - layout drawing
+dnevni radni spojevi - daily compaction joints
+dnevnik bušenja - borehole log
+dnevnik bušenja - drilling log
+dnevnik rada - log book
+donja ploča - base plate
+donji noseći sloj/podloga @ sub-base
+donji stroj mosta - substructure
+dopremiti (materijale) - submit (materials)
+doziranje - proportioning
+dozvoljeno odstupanje - tolerance
+DPH testovi - DPH tests
+drumski saobraćaj - road traffic
+drvene podgrade (u istražnim jamama) - timbering
+dubina ispitivanja - prospecting depth
+dubina prodiranja mraza - frost penetration depth
+duktilan - ductile
+dvospratni nosači kablova - double decked cable trays
+dvotračna - two lane
+ekscentrično opterećenje - eccentric load
+elaborat - Project documentation
+elastična kolovozna konstrukcija - flexible pavement
+elektro instalacije - electrical installations
+emisija - emission
+epruveta - test tube
+fabrika betona - batching plant
+fabrika čelične konstrukcije - fabrication shop
+farba - paint
+finišer - paver 
+finozrni @ fine-grained
+formiranje gradilišnih objekata - establishment of site facilities
+formiranje gradilišta - site establishment
+fundiranje - founding, foundations
+gantogram - Gantt chart
+gaz - draft
+geodeta - surveyor 
+geodetska podloga - layout
+geodetske tacke - survey points
+geodetski radovi/geodetska snimanja - topographic surveying
+geodetsko snimanje - survey
+geomehanička ispitivanja - testing of soil
+geometrija - geometry
+geometrijski (elementi) - geometric
+geotehnika - geotechnics
+gips - gypsum
+glatkost - smoothness
+glava šipa - pile head
+glavna stanica - main line railway station
+glavni most - Sava Bridge
+Glavni projekat - Final Design
+gornja podloga @ upper road-base
+gornji stroj mosta - superstructure
+gornji stroj pruge - permanent way
+građevinski dnevnik - site diary
+granica (legenda) - boundary
+granica plastičnosti - plastic limit
+granica popuštanja - yield point
+granica tečenja - liquid limit
+granice - boundaries
+granična vrednost - limit value
+granit - granite
+granulacija - granulation
+granulometrijska analiza - grading test
+granulometrijska kriva - grading curve
+granulometrijski sastav - granulometric composition
+greda / gredni nosač mosta - bridge girder 
+gredni most - girder bridge
+gredni nosač mosta - bridge deck = deck section
+gustina - density
+gustina tla - soil density
+habanje - abrasion
+hidroizolacija - waterproofing; hydro insulation
+hidrotehničke instalacije - hydraulic installations
+hod - pace
+holocen - Holocene age
+imisija - restrain
+indeks plastičnosti - plasticity index
+infrastrukturne instalacije kroz most - utilities
+inženjer za materijale - materials engineer 
+isključenje - exit
+iskop - excavation
+iskopati - excavate
+isparljiv - volatile
+ispitivanja na terenu - SI (site investigations)
+ispitivanja probnim opterećenjem - load tests
+ispitivanje na smicanje - shear test
+ispitivanje po Šarpiju - Charpy impact test
+isporučeni delovi projekta - deliverables
+ispucalost - fracture
+istezanje - elongation
+istraživanje zemljišta - prospecting
+istražne jame - trial pits
+istražni prostor - prospecting area
+istražni raskopi - research excavations
+istražno bušenje - trial drilling
+ivičnjak - curb
+ivično rebro - edge web
+izdeljenost - separation
+izduženje pri lomu - elongation at break
+izgubljena visina - lost height
+izlivanje (vode) - effusion
+izlivene kocke - cast cubes
+izrada - workmanship
+ jarak - ditch
+ javna deponija - approved disposal plant
+ jednosmerna - one way
+ jezgro - core
+kablovi - stays
+kaljen čelik - hardened steel
+kalup - mould
+kandelabr @ light-post
+karotaž - borehole logging
+karotažna merenja - borehole logging measurements
+karta boja - colour template
+kartiranje - mapping
+kartiranje jezgra - core mapping
+kernovanje - sampling
+KIN - CBR
+klip - piston
+klizište - landslipe
+koeficijent - coefficient
+kolektor - main drain/sewer 
+količnik - quotient
+kolotrag - rut
+kolovozna konstrukcija - pavement
+komisija za tehnički prijem (objekata) - technical acceptance committee
+komunalna infrastruktura - utilities
+konstrukcija - structure
+konstrukcija mostovskog nosača - main bridge structure
+konstruktivna čelična ploča - structural steel plate
+konus - slump cone
+konus za pesak - sand cone
+konzistencija - consistency
+kosi kablovi - cable stays
+kota - level
+kota fundiranja šipova - ground level of the piles
+kotva - wedge
+kratki železnički tunel - railway underpass
+krečnjak - limestone
+krečnjak - limestone
+kritični put - critical path
+kritično opterećenje - breaking load
+krupnozrni @ coarse-grained
+krut - rigid
+kruta kolovozna konstrukcija - rigid pavement
+kružni tok - gyratory traffic
+kvartarne naslage - quarternary deposits
+laboratorijska mešalica - laboratory mixer 
+lapor - marl
+lebdeći šip - friction pile
+les - loess
+lesne naslage - loess layers
+levak - funnel
+ležište - bearing
+likvefakcija - liquefaction
+liveno gvožđe - cast iron
+lom - failure
+lučka kapetanija - Port Authority
+magistrala - arterial road
+manji raspon - side span
+manometar - pressure gauge
+marka betona - grade of concrete
+mašinske instalacije - mechanical installations
+mašinsko bušenje - mechanical drilling
+maske - barge boards
+maziva - lubricants
+mehanička čvrstoća - mechanical resistance
+mehanički uređaj - mechanical testing machine
+mehanika tla - soil mechanics
+mehanizacija - plant and equipment
+menzure - measures
+mera sleganja - slump
+mere - faces
+mere sanitarne zaštite na radu - sanitary measures
+mere zaštite - protective / protection measures, m. for protection against
+merenje protoka - flow measurement
+merna ćelija - load cell
+merna mesta - monitoring stations
+merni registar - vehicle weighing sheet
+merni uređaj - gauge device
+metalurški cement @ blast-furnace cement
+metod merenja prirodne radioaktivnosti - natural radioactivity method
+metod sopstvenog potencijala - SP method
+metod specifične električne otpornosti - method of electrical resistence
+metoda seizmičkog prozračivanja - seismic profiling
+mikrolociranje - microlocations
+mineraloški - mineralogical
+miniranje - blasting
+modul elastičnosti - modulus of elasticity
+modul klizanja - shear modul
+modul krutosti - stiffness modulus
+modul stišljivosti - modulus of compressibility
+montaža - assembly
+montaža (čelične konstrukcije) - steel erection
+montažna traka - assembly line
+montažni komadi mosta - segments of the bridge
+mosni kran - overhead crane
+muljevi - muds
+na licu mesta; ''in situ'' - in situ
+nabijač - compaction hammer 
+način fundiranja stubova mosta - piers' foundations
+način izvođenja bušenja - drilling method
+nadmorska visina - altitude
+nadvožnjak - overbridge, overpass
+nadzemni vod - drop wire
+nadzorni inženjer - resident engineer 
+nagib - pitch
+nagib -grade
+naglavice šipova - pile caps = slab of piles
+naknadni radovi - variations
+nanos - aggradation
+nanošenje opterećenja - loading
+napon - voltage
+naprezanje - stress
+nasip - embankment
+nasip - fill
+naslage - deposits
+nastavak - extension
+nastavak ulice - prolongation
+neasfaltiran put - unsealed route
+negovanje - curing
+neobrađen - coarse
+neporemećeni uzorak - undesturbed sample
+nepropusan - impermeable
+nesmetani - unrestricted
+nevezani - unbound
+niveleta posteljice - profile grade
+niveleta puta - road level
+nivelisanje - levelling
+normalni podužni profil @ typical cross-section
+nosač kablova - cable tray
+nosač sandučastog preseka -box girder 
+noseći sloj - base course
+nosivost - bearing power 
+nosivost pri lomu - bearing capacity at failure
+nož za povlačenje brazde - grooving tool
+obala reke - river bank
+obalni stub - abutment
+obilaznica - bypass
+oblik (stuba) - shape
+obložna cev - casing pipe
+obrada/ priprema ivica - edge preparation
+obradljivost - workability
+odbojne ograde - safety barriers
+održavanje katastarskog operata @ official updating and record-keeping of land parcels
+odvaja (veza) - establish
+odvodnjavanje - drainage
+okno - shaft
+opeka - brick
+opit - test
+opit dinamičke penentracije - dynamic penetration test
+opit standardne penetracije - standard penetration test
+oplata - formworks / forms
+oprema (a može i isto što i utilities) - facilities
+oprema (mosta) - furniture
+oprema za ispitivanje varova - welding testing apparatus
+opruga - spring
+opsluživanje saobraćaja - handling of traffic
+opterećenje na udar - impact load
+orijentacija - articulation
+orman (razvodni orman) - distribution cabinet
+ortotropna ploča - orthotropic plate
+osigurač - fuse
+oslonačka reakcija - support reaction
+osnovni premaz - prime coat
+osovinski od - with axel distance of 
+oštar ugao - acute angle
+ostvarenje - achievement
+otpadne vode - foul/waste water 
+otpor pri utiskivanju igle - penetration resistance
+otporne karakteristike - resistance characteristics
+označiti - indicate, designate, mark
+oznake - references
+padavine - precipitation
+paneli - panels
+panon - Pannonian
+parametri režima bušenja - drilling regime parameters
+parapeti - parapets; barge boards
+parcele - land parcels
+pećnica - oven
+penetraciona posuda - penetration tin
+penetrometar - penetrometer 
+perforisan - perforated
+pešačka staza - sidewalk
+pešačke ograde - handrails
+pešačko-biciklistička staza @ walkway
+peskarenje - sandblasting
+petlja (U ulici…) - interchange
+petrološki - petrological
+pijuk - pick
+pilonski ankeri - pylon anchorage
+pipeta za uzimanje uzoraka - sampling pipette
+plan sečenja - cutting plan
+Plan sprovođenja zaštite životne sredine - EMP
+plastični malter - plastic consistency mortar 
+plastifikator - plasticizer 
+platno - fabric
+ploča (mosta) - plate
+početak radova - commencement of works
+podeok - graduate
+podgrada / podgradjivanje - shoring
+podnožje osigurača - socket
+podupirači - braces
+podupirači - struts
+podupirači konzola - canteliever's struts
+podupirači konzole - canteliever struts
+podužne ose @ longitudinal axes (axis-jedn.)
+podužni (cevovodi) - longitudinal (pipelines)
+podužni profil - longitudinal profiles
+podzemni rezervoar - aquifier 
+pokazatelj - indicator 
+poligon (topografski) - topographic polygon
+poluga - lever 
+poluprečnik - radius
+poprečna ukrućenja (glavnog raspona) - cross beams (of the main span)
+poprečne sile - shearing forces
+poprečni nagib - cross fall
+poprečni nagib - superelevation
+poprečni presek - transversal section
+poprečni profil @ cross-section
+portali saobraćajnih znakova - traffic sign gantries
+posteljica - subgrade
+postojanost - stability
+posuda - tin
+posuda sa vodom za čuvanje uzoraka - water still
+posuda za merenje vlažnosti - moisture content tin
+potporni zid - retaining wall
+povodnje - flood plain
+površinske raskrsnice- junctions at ground level
+površinski napon - surface tension
+pozajmište - burrow pit
+prašinaste gline - silty clays
+prašine - silt fraction
+pravi ugao (mat.) - right angle
+prečišćavanje vode - water treatment
+prečnik - diameter 
+predaja gradilišta @ Site hand-over 
+prednja osovina - front axis
+preklopne - lapping
+prekonsolidovani - overconsolidated
+prelazne krivine - transitional curves
+premaz - coating
+prerađena glina - processed clays
+presa - press
+presiometarska ispitivanja - pressiometric tests
+priboj @ sheet-pile wall
+priključak - junction, intersection, service (elek.)
+priključenje - connection
+priključni uređaji - connected devices
+prilazne konstrukcije mosta - Bridge approach structures
+prionljivost - adhesivity
+pripovršinski - subsurface
+pripremni radovi - preliminary works
+pritisna čvrstoća - compressive strength
+probe na terenu - field tests
+probna montaža delova - trial assembly of sections
+proizvesti - fabricate
+proizvođač - fabricator 
+proizvodi - products
+projekat konstrukcije - structural design
+projektni biro - design office
+projektovano opterećenje - design load(ing)
+prolaz (ispod rečnog korita) - underpass
+prolazi kroz sito - passing through the sieve
+prolivanje goriva - fuel leakage
+propisana vrednost - state value
+propustljivost - permeability
+proračun - calculation
+prostor za prethodnu montažu @ pre-assembling yard
+protivpožarna zaštita - fire protection
+provodnik - conductor 
+prvi geološki bušač - senior driller 
+pucolanski cement - Portland pozzolana cement
+putni objekat - road related structure
+putnički saobraćaj - passenger traffic
+radijus - radius (poluprečnik)
+radioaktivni merni uređaj - nuclear gauge
+radioaktivni merni uređaj za testiranje gustine - nuclear gauge for density testing
+radiografska - radiographic
+radionički crteži - workshop drawings
+radna platforma (za pregled konstrukcija) @ by-bridge
+radni crteži - draft drawings
+radni komad - work piece
+radovi na bušenju šipova - bored pile work
+raskrsnica (bulevara) - intersection
+raskrsnica (običnih ulica) - junction
+raskrsnica u nivou - level junction (=flat junction)
+raskrsnice u više nivoa @ grade-separated junctions
+raspon - span
+raspored - layout
+raspored opreme - schedule of equipment
+raspored oslonaca - set of supports
+raspored radne snage - schedule of human resources
+raspored raspona - span arrangement
+rasprostiranje - extent
+raster / razmak - spacing
+rasterećenje - unloading
+rastinje - growth
+rastvorljivost - solubleness
+ravnjača - rule
+razdelna traka / razdelni pojas - median
+razmak - space, spacing
+razređeni bitumen @ cut-back bitumen
+razvodni orman - junction box
+rebro - web
+receptura za mešavinu - mix design
+receptura za radnu mešavinu - job mix formula
+rečno korito - river channel
+referentna mešavina - mix design reference
+reper - reference point
+reprezentativni uzorak - representative sample
+revizija projekta - design review
+rotaciona metoda bušenja - rotary drilling
+rotaciona metoda bušenja sa kontinualnim jezgrovanjem - rotary drilling with continual core sampling
+rudarsko-geološki fakultet @ Faculty of mining and geology
+rukavac - creek
+sadejstvo - correlation
+šaht - hole
+sanacija (puteva) - rehabilitation
+sanduk (za jezgra) - crate
+sanitarni - sanitary
+saobraćajna petlja - interchange
+saobraćajnica - road
+sarmat - Sarmatian
+sastav tla - soil composition
+savijanje - bend (FOR smth.)
+sedimentološki - sedimentological
+seizmološki - seismic
+sekundarne sirovine - raw materials
+separator (kanaliz.) - interceptor 
+serija - charge
+sigurnosna ograda @ guard-rail
+silos za cement - cement bin
+sinhroni plan - synchronous plan
+šip - pile
+sito - sieve
+situacija/situacioni plan - general layout plan; site plan
+škarpa - slope
+skretnica - railpoint (LRT)
+skupljanje usled sušenja - drying shrinkage
+sleganje - settlement
+slivna površina - drainage area/basin
+šljunkovi - gravels
+slobodan prolaz/profil - clearance
+smesa - mixture
+snežni pokrivač - snow cover 
+snimiti koordinate (bušotina) - to map the coordinates
+snimiti kote (bušotina) - to map the level
+sočiva mulja - lenticular inclusions of mud
+sorbens - absorbing chemicals
+specifična težina - specific gravity
+špic - tip
+spoj - connection
+sporedni put - service road
+spregnuta konstrukcija - composite structure
+sprud - sand bank
+SPT testovi u bušotini - SPT borehole tests
+spuštati (instalacije unutar stuba) - to lower (to ground inside pier..)
+sredstva za izvođenje bušenja - drilling means
+sržne cevi - core pipes
+stacionaža - chainage
+stalne geodetske tačke - topographic survey fixed points
+stalni nadzor - continuous supervision
+standardna presa za ispitivanje kocki/cilindara - standard cube/cylinder compressing machine
+štap za nabijanje - tamping rod
+statička analiza - structural analysis
+statičko penetraciono ispitivanje - static penetration test
+staza za održavanje - maintenance track
+stenske mase - rock masses
+stepen sleganja - rate of settlement
+stezaljka - clip
+stišljivost - compressibility
+struje visokog napona - high voltage electrical currents
+stub - column
+stubno mesto - pillar site
+stvrdnuti beton - hardened concrete
+šupljina - void
+sušnica - heating chamber 
+šut - debris
+suva zapreminska težina - dry density
+svetli otvor - span (LRT)
+svetlosna signalizacija - traffic lights signalization
+sveži beton - wet concrete
+svojstvo - characteristic
+tačka razmekšanja - softening point
+tačke geodetskog osmatranja - monitoring levelling points
+taloženje - settling
+talpa - sheet pile
+tariranje - calibration
+tehnička kontrola projekta - Technical Design Control(lers)
+tekstura (lapora) - structure
+temeljenje - foundation
+temeljenje stubova je na šipovima - supports are on piled foundations
+temeljna jama - foundation pit
+temeljni potpornik - footing support
+terenska istraživanja - field investigations
+terenski istražni radovi - field prospecting works
+teretni saobraćaj - goods traffic
+termička obrada - thermal treatment
+termometar za daljinsko očitavanje - distant reading thermometer 
+termostat - thermostat
+test crpljenja - trial pumping
+test dinamičke penentracije - dynamic penetration test
+test kompresije sa nesprečenim bočnim širenjem - unconfined compression test
+test na završetku izvođenja radova - test on completion
+test šipova - pile test
+testiranja u aero tunelu - wind tunnel tests
+toluen - toluene
+toplo valjani čelični profili - Hot rolled products of structural steels
+topografsko-katastarski plan/podloga @ topgraphic parcel layout
+torzioni napon/ naprezanje - torsional stress
+trajanje mraza - duration of frost period
+traka - lane
+tramvaj - tram
+tramvajska pruga @ tram-line
+trasa - route, alignment
+trasa puta - roadway
+tretiranje pilona - pylon (surface) treatment
+trokraka raskrsnica @ T-junction
+tronožac - tripod
+tup ugao - obtuse angle
+tvrdoća - hardness
+U nivou - AT the level, AT GRADE (raskrsnice)
+U rasponu - IN the span
+ugib - deflection
+ugljovodonične mešavine - hidrocarbon mixtures
+ugradljivost (za beton) - workability
+ugradnja - incorporation
+ukinuti (kanal) - be out of use
+ukinuti (ulicu) - stop
+ukrstanje - crossing
+uputstva tehničkom nadzoru - supervision consultants' guidelines
+uređaj - machine
+uređaj za ispitivanje - testing machine
+uređaj za merenje aerizacije vazduha - air entrainment meter 
+uređenje - organisation
+uređenje zemljišta/zelenih površina - landscaping, green areas development
+usecanje - side cutting
+uskladiti - ...must conform with...
+uspravno NA osu... - at the right angle TO the axis...
+utiskivanje - sinking
+utovarivac - loader 
+užad za prednaprezanje - prestressed strands
+uže - strand
+uzorak jezgra - core sample
+uzorkovanje - sampling
+vađenje (uzoraka) - extraction of samples
+vaga - balance
+valjak za zbijanje - compactor 
+varilac - welder 
+venac - bridge parapet
+ventilacioni otvor - vent shaft
+veza - joint
+veza pilona i grede @ pylon-girder joint
+vezan bitumenom - bituminous
+vezani - bound
+veze sa zavrtnjima - bolted connections
+vezivo (bitumen, NE cement) - bituminous binder 
+vezni sloj (asf.) - tack coat, binder 
+vezni sloj emulzije - tack coat
+vibro-ploča @ vibrating plate
+vibro-sito @ sieve-shaker 
+Vikatova igla - Vicat apparatus
+višeetažne konstrukcije @ multi-storey buildings
+visina sleganja - slump
+viskoznost - viscosity
+vizualizacija - visual presentation
+vizura - visibility
+vlaženje (trase i gradilišta) - water spraying
+vlažnost - moisture
+vođa smene - shift leader 
+vodeni saobraćaj - rivercraft
+vodonepropustljivost - impermeability
+vodoprivreda - water management
+vodostaj - water level
+vozni park - rolling pool
+vreme vezivanja - setting time
+vršilac inspekcije betonskih radova - concrete inspector 
+vršilac inspekcije kosih kablova - stay cables inspector 
+vršilac inspekcije pilona - pylon inspector 
+vršilac inspekcije radova na čeličnoj konstrukciji - steel inspector 
+vršilac inspekcije temelja i geotehničkih radova - foundations and geotechnical inspector 
+vršilac inspekcije zavarenih spojeva - welding inspector 
+zacevljenje - protective casing
+zadnja osovina - rear axis
+zadnji raspon - back span
+zagat - cofferdam
+zaglinjeni peskovi - sands with argillaceous content
+zakrivljenost - curvature
+zaokružiti (sumu) - round down, round off 
+zapisnik o prijemu bušotine - log for receipt of the borehole
+zapreminska masa - density
+zapreminska težina - bulk density
+zaptivni materijal - jointing material
+zapunjavanje bušotine - borehole filling
+žardinjera - plant box
+zarušavanje - caving in
+zasecanje - side cutting
+zaštitna ograda - guard rail
+zastor - surface
+zatezni stub (elek.) - angle pole
+zaustavna traka - service line
+zaustavni put - stopping distance
+zavarivanje - welding
+završna obrada - finish
+zemljani radovi - ground works
+žica - cable wire
+zidane konstrukcije - masonry
+žleb - groove
+zrnasti nevezani kameni materijal - unbound granular material
+zrno (lab.) - particle
+regulaciono-nivelacioni plan @ Levelling and Regulation Plan

@@ -1,0 +1,416 @@
+acikličnost (14): neka ekonomska varijabla biće aciklična ako njeno kretanje nije sinhronizovano sa kretanjem outputa u toku privrednog ciklusa
+agregatna tražnja (1, 11, 12, 13): suma planiranog iznosa po- trošnje, investicija,  javnih  rashoda  na  dobra  i  usluge plus neto izvoz dobara i usluga (primarni tekući bilans) agregatna proizvodna funkcija (5): relacija između ukupnog outputa i angažovanih resursa, kao što su kapital, rad i
+drugi proizvodni faktori
+agregatna ponuda (12): ukupan obim dobara i usluga koji, za datu cenu, proizvođači iznose na tržište
+akcelerator (6): pozitivan efekat rasta BDP na rast inve- sticija
+aktivne politike na tržištu rada (17): programi namenjeni direktnom stvaranju radnih mesta, osiguranje radnog mesta, realokacija porodica iz ugroženih regiona, kao i specijalni programi za mlade koji se uključuju na tržište rada
+aktivne politike (16): politike vlade kojima se ispravlja trži- šni ishod tako što se koriguju loše tržišne performanse akumulacija kapitala (3): porast kapitala, ponekad pod
+imenom neto investicije. Od bruto investicija razlikuje se po tome što ne sadrži amortizaciju
+amortizacija (kapitala) (2, 6): pad prvobitne vrednosti fizič- ke aktive usled korišćenja ili usled zastarevanja
+anticipativna premija ili diskont (19): razlika između ugovo- renog i tekućeg kursa valute
+anticipirana premija (19): očekivana razlika između teku- ćeg i anticipiranog (forward) kursa
+anticipativna (forward) tržišta (19): devizno tržište na kome se ugovara isporuka  i  plaćanje  valute  u  budućnosti,  ali po današnjim cenama
+antimonopolska politika (competition policy) (16, 18): politi- ke kojima je cilj da smanje snagu monopola, kao i rast tržišnog rivaliteta između prodavaca
+apsolutni paritet kupovne moći (8): teorija koja tvrdi da, ka- da se sve cene izraze u zajedničkoj valuti, razmena do- vodi do izjednačavanja nivoa cena u svim zemljama
+apsorpcija (2): ukupna domaća (privatna i javna) potro- šnja na dobra i usluge
+apresijacija (deviznog kursa) (7, 8, 13, 19): rast tržišne vred- nosti valute (povećava se količina strane valute koju do- bijamo prodajom jedinice domaće valute); vidi depresijacija; revalvacija
+arbitraža (11, 13, 15): simultana kupoprodaja nerizične ak- tive istih karakteristika u cilju zarade: prostorna arbi- traža nastaje kad se javi razlika u ceni aktive na različitim lokacijama, prinosna arbitraža se aktivira kada aktive imaju različite prinose, a triangularna arbi- traža javlja se kada izjednačavaju tri međusobno neus- klađene cene aktive
+asimetričnost informacija (8): situacija gde jedna strana ima bolji uvid u verovatnoću ishoda, a svi akteri to znaju autarkija (5): stanje u kome se nalazi zemlja koja ne vrši
+razmenu sa svetom
+automatski stabilizator (15): ekonomski mehanizam koji automatski amortizuje uticaj egzogenih promena agre- gatne tražnje tako što promene dohotka utiču na izme- ne mehanizama štednje
+averzija prema riziku (19): ponašanje koje karakteriše pre- ferencija da se rizik izbegne
+Balaša–Samjuelsonov efekat (7): opservacija da je nivo cena u bogatijim zemljama sistematski viši nego u siroma- šnim; dovodi se u vezu sa bržim rastom cena nerazme- ljivih dobara u zemljama sa bržim privrednim rastom
+bankarske rezerve (9): pasiva centralne banke (gotovina ili bankarski depoziti) koje poslovne banke drže dobro- voljno, ili po nalogu centralne banke ili dobrovoljno, da bi zadovoljile tražnju za depozitima i/ili zahteve cen- tralne banke
+bazična inflacija (12): stopa inflacije koja se korsiti u prego- vorima sindikata u cilju anticipiranja buduće inflacije, ili da bi se nadoknadili gubici nastali u toku pređašnje inflacije
+Berns–Mičelov dijagram (14): dijagram koji prikazuje pona- šanje makroekonomskih varijabli u toku tipičnog pri- vrednog ciklusa, gde se varijable prikazuju kao odstupanje od sopstvene ekstremne vrednosti u vrhu
+Beveridžova kriva (17): silazna putanja koja povezuje stopu nezaposlenosti sa stopom otvaranja novih radnih me- sta; ovom krivom meri se efikasnost procesa nalaženja posla na tržištu rada
+bilans stanja (8): izveštaj o finansijskom stanju firme ili ne- ke druge organizacije u nekom trenutku, u kome se na- lazi spisak njene aktive, pasive i vrednosti kapitala
+bilansne jednačine (2): relacije koje po definiciji važe izme- đu makroekonomskih varijabli
+bimetalnost (20): paralelno korišćenje zlata i srebra u funk- ciji robnog novca
+bogatstvo (2, 5, 6): suma isplaćene aktive ili dugova plus sa- dašnja vrednost budućih dohodaka
+Bretonvudska konferencija (20): Nakon II svetskog rata, 1944. godine, postignut je dogovor zvaničnika iz 45 ze- malja o stvaranju novog međunarodnog monetarnog poretka
+britanska konvencija (7): jedan od dva moguća načina izra- žavanja deviznog kursa, ovde se radi o broju jedinica strane valute po jedinici domaće (npr. 1.52 USD za 1 funtu, za državljanje Velike Britanije); videti takođe Evropska konvencija
+bruto domaći proizvod (BDP) (1, 2): geografski zasnovana mera proizvodne aktivnosti jedne zemlje koja odgovara dodatoj vrednosti koju generišu faktori proizvodnje ko- ji su svojina rezidenata, tj. koji su angažovani na terito- riji date zemlje
+bruto nacionalni proizvod (BNP) (2): mera proizvodne aktiv- nosti zemlje koju su ostvarili vlasnici faktora proizvodnje brzina opticaja novca (8): broj koji pokazuje koliko puta ista novčana jedinica promeni vlasnika u periodu merenja (obično za godinu dana)
+bum (polet)/recesija (14): period ekspanzije/kontrakcije agre- gatne privredne aktivnosti
+centralna banka (9): državna ili kvazi-državna agencija sa eksplicitnim ovlašćenjem da izdaje novčanice i ostale vidove bankarske pasive
+ciklično ađustirani budžet (15): budžet korigovan za efekte privrednog ciklusa na poreske prihode
+čovek-časovi (4): mera rada koja se dobija množenjem bro- ja zaposlenih i prosečnog broja radnih časova
+čišćenje tržišta (16): izraz kojim se opisuju tržišta koja savr- šeno funkcionišu i gde se u svakom trenutku izjednača- vaju ponuda i tražnja
+deflacija (1, 13): period trajnog pada opšteg nivoa cena, ili, još opštije, trajnog pada stope inflacije
+deflator BNP ili BDP (2): količnik nominalnog i realnog BNP ili BDP, često se koristi kao mera inflacije
+dekompozicija prema Solou (3): tročlana dekompozicija iz- vora privrednog rasta, koja se sastoji od akumulacije ka- pitala, rasta korišćenja rada i od reziduala Soloua kojim se utvrđuje uticaj tehničkog progresa
+depresijacija (deviznog kursa) (7, 8, 13, 19): pad tržišne vred- nosti valute (kada se sa istom jedinicom domaće može kupiti manja vrednost strane valute); videti apresijacija, devalvacija, revalvacija
+derivati (19): hartije od vrednosti čija se cena izvodi iz kre- tanja cena drugih vrednosnih papira
+detrendovanje (14): ekstrakcija trenda iz vremenske serije
+devalvacija (11, 13, 20): odluka monetarnih vlasti o smanje- nju vrednosti valute; videti takođe apresijacija, depresija- cija, revalvacija
+devizne rezerve (2): strana valuta koju drže monetarne vla- sti u cilju intervencija na deviznom tržištu
+difuzija (18): proces čijim posredstvom raste primena ot- krića u različitim industrijama
+dinamička neefikasnost/efikasnost (3): privreda će biti dina- mički neefikasna ako smanjenje tekuće štednje bude predstavljalo dobitak za sve generacije; ona će biti dina- mički efikasna kada se stanje budućih generacija može popraviti jedino smanjenjem potrošnje (tj. rastom šted- nje) u tekućem peirodu
+diskontna stopa (9): kamatna stopa po kojoj centralne ban- ke pozajmljuju komercijalnim bankama
+diskontovanje (5): vrednost dobara ili novca iz budućnosti izražena u sadašnjim cenama; videti takođe intertempo- ralna cena
+distorziono oporezivanje (17, 18): videti poreske distorzije
+diversifikacija (19): kupovina različitih vrsta finansijske aktive u cilju smanjenja rizika usled različitih fluktuaci- ja vrednosti svake pojedine aktive
+dobrovoljna nezaposlenost (4): razlika između ukupne ras- položivosti rada i zaposlenosti koja bi proizašla iz rav- noteže na tržištu rada; odražava činjenicu da  radna snaga ne želi da radi pri datom nivou zarada
+dodata vrednost (2): rast tržišne vrednosti proizvoda u po- jedinoj fazi proizvodnog procesa; izračunava se kada se od ukupne vrednosti outputa oduzme vrednosti svih inputa nabavljenih iz drugih firmi
+dohodni efekat (4, 6): deo promena tražnje koji se pripisu- je promeni realnog dohotka usled promene cena
+dokolica (4): vreme koje se ne koristi za rad
+dominirana aktiva (8): aktiva koja ima nižu stopu prinosa nego što je imaju uporedive vrste aktive
+dugi talasi (18): teorije koje identifikuju veoma duge ci- kluse privrednog rasta, koji su uglavnom zasnovani na tehnološkim otkrićima i njihovoj sporoj difuziji
+dugoročna agregatna ponuda (12): vertikalna linija u koor- dinatnom sistemu inflacija–output, koja pokazuje da realne i nominalne varijable na dugi rok jedne na druge ne utiču
+efektivni devizni kurs (7): ponderisani prosek deviznih kur- seva jedne zemlje prema njenim ključnim spoljnotrgo- vinskim partnerima
+efikasne zarade (4): zarade koje nadmašuju marginalnu produktivnost rada a koje se plaćaju radi stimulisanosti radnika
+ekonomika ponude (1, 12, 17): proizvodni potencijal privre- de i faktori koji determinišu njenu ukupnu efikasnost ekonomika tražnje (1, 12): analiza odluka privrednih subje
+kata o visini potrošnje
+ekonomska renta (17, 18): prinosi faktora proizvodnje koji premašuju minimum koji ih stimuliše da se angažuju eksternalije (5, 15, 18): aktivnosti koje utiču na blagostanje
+privrednih subjekata koji nisu direktni učesnici procesa
+emisiona dobit (9, 15, 20): eksploatacija monopola u kreira- nju novca u svrhe kreiranja realnih resursa
+endogene i egzogene varijable (1): endogene varijable kreću se u skladu sa ekonomskim principima; nasuprot tome, egzogene varijable determinisane su izvan sistema
+endogeni rast (3, 18): objašnjenje privrednog rasta koje se ne zasniva na egzogenom tehničkom progresu, već na reakcijama privrednih subjekata na uslove privređivanja Evropska centralna banka (20): centralna institucija novog
+Evropskog sistema centralnih banaka
+Evropska monetarna unija (EMU) (20): proces kreiranja je- dinstvene valute za zemlje Evropske komisije
+Evropska novčana jedinica, European Currency Unit (ECU) (20): obračunska jedinica Evropskog monetarnog sistema i Evropske zajednice, i osnova za definisanje pariteta u mehanizmu deviznog kursa (Exchange  Rate  Mecha- nism (ERM)); sastoji se iz korpe valuta zemalja Evropske komisije; vidi Mehanizam deviznog kursa (ERM)
+Evropska konvencija (7, 18): jedan od dva načina izražava- nja deviznog kursa, ovde u jedinicama domaće valute po jedinici strane (npr. 1,5DM za 1US$ za nemačke rezi- dente); vidi takođe Britanska konvencija
+Evropski monetarni sistem (EMS) (20): međunarodni spora- zum iz 1979. godine postignut u cilju stabilizacije devi- znih kurseva između pojedinih valuta u ERM
+Evropski sistem centralnih banaka (20): sistem koji povezuje Evropsku centralnu banku i nacionalne podsisteme u integrisani sistem evropske centralne banke
+faktori proizvodnje (1, 2): inputi, rad i kapital, ili zemlja, ko- ji stvaraju dodatu vrednost (za razliku od intermedijar- nih inputa)
+Filipsova kriva (12): empirijski ustanovljena inverzna rela- cija između stope inflacije i stope nezaposlenosti
+finalne i međufazne prodaje (2): finalne prodaje odnose se na prodaju dobara i usluga potrošačima ili firmama koje će ih u krajnjoj liniji koristiti; međufazne prodaje odno- se se na proizvođače koji ova dobra ili usluge kupuju i koriste u sopstvenom proizvodnom ciklusu
+finansijski posrednici (9): privredni subjekti koji prikupljaju i plasiraju finansijska sredstva
+finansijsko posredovanje (2, 18): aktivnost povezivanja za- modavaca i zajmoprimalaca; po pravilu je obavljaju ban- ke i drugi finansijski posrednici koji prikupljaju štednju a zatim je plasiraju onima koji su voljni za to da plate
+fiskalna politika (13, 15, 16): upotreba budžetskih sredstava u cilju promene nivoa ukupnih državnih rashoda ili u opštijem smislu, javne nabavke i preraspodela dohotka Fišerov princip (8): dekompozicija nominalne kamatne stope (i) na sumu realne kamatne stope (r) i očekivane stope inflacije
+fjučersi (19): ugovori o budućoj isporuci robe ili finansij- ske aktive,
+frikcionalna nezaposlenost (4): nezaposlenost nastala usled promene posla ili stupanja u kontingent ponude radne snage
+fundamentalne determinante (7, 19): faktori koji determini- šu devizni kurs; saldo platnog bilansa, determinante te- kućeg bilansa, kao i monetarni uslovi i stepen cenovne rigidnosti: uopšteno, svi realni faktori koji utiču na vrednost aktive
+funkcija investicija (6): relacija između investicija i njiho- vih fundamentalnih  determinanti:  agregatne  investici- je pozitivna su funkcija Tobinovog q i rasta BDP g, ali su negativna funkcija realne kamatne stope
+funkcija potrošnje (6): simbolima izražena relacija između agregatne potrošnje koja je pozitivno korelirana sa agregatnim bogatstvom i, ako značajan broj domaćin- stava bude imao kreditne restrikcije, sa raspoloživim dohotkom
+funkcija primarnog tekućeg računa (6, 7): relacija koja poka- zuje negativnu vezu PTR sa realnim  deviznim  kursom funkcija primarnog tekućeg računa (PTR) (11): funkcija data
+razlikom između izvoza i uvoza koja je determinisana domaćim rashodima, stranim rashodima i realnim de- viznim kursom
+funkcija tražnje (10): ukupni planirani rashodi pri datoj kamatnoj stopi i realnom BDP
+funkcija tražnje za novcem (9): relacija između realne tra- žnje za novcem i njenih determinanti: realni GNP, no- minalna kamatna stopa i troškovi bankarskih transakcija
+glavni tržišni akteri (market makers) (19): subjekti ili institu- cije koje su spremne da se angažuju u prometu određe- nog oblika aktive
+Grešamov zakon (20): propozicija o tome da se precenjena valuta povlači iz opticaja
+greška u predviđanju(19): odstupanje anticipativnog kursa od realizovane vrednosti tekućeg kursa
+hiperinflacija (1, 8, 13, 16): termin kojim se obeležava pe- riod ekstremno visoke inflacije, gde mesečne stope obično prelaze 50%
+hipoteza o konvergenciji (5): hipoteza o negativnoj vezi iz- među privrednog rasta per capita dohotka i inicijalne vrednosti per capita BDP
+hipoteza o racionalnim očekivanjima (5): hipoteza prema kojoj privredni subjekti procenjuju buduće događaje koristeći sve raspoložive informacije  tako  efikasno  da ne može doći do sistematske greške u predviđanju
+histerezija (4): pojava da se neke makroekonomske varija- ble ni po uklanjanju uzroka nestabilnosti ne vraćaju na svoj početni nivo; privremene promene jednih vode trajnim promenama drugih varijabli
+Hjumov mehanizam (20): proces omogućava uravnoteženje trgovinskog bilansa u sistemu zlatnog standarda: u slu- čaju deficita (suficita) dolazi do redukcije (rasta) zlata i novčane ponude, što vodi rastu (padu) kamatne stope, prilivu (odlivu) kapitala i padu (rastu) cena, što pobolj- šava (smanjuje) konkurentnost zemlje
+Holandski sindrom (7): gubitak konkurentnosti koji proiz- lazi iz apresijacije deviznog kursa nastale usled otkrića prirodnih bogatstava
+imitacija (18): proces u kome zaostale privrede kopiraju ot- krića iz razvijenih zemalja
+implementacioni jaz (16): vremenski jaz efikasnosti koji se javlja u periodu dok ministarstva i parlament ne pripre- me i usvoje neophodne mere
+indeks (1): broj koji nema dimenziju (tj. koji se ne izražava u jedinicama kao što su funte, tone, časovi, itd); njego- va inicijalna vrednost je 1 ili 100
+indeks bede (misery index) (1): suma nezaposlenosti i stope inflacije
+indeks cena potrošača (1, 2, 12): indeks cena korpe dobara u kojoj se nalaze dobra koja troši „prosečni potrošač”, ko- risteći fiksne količinske pondere iz neke date bazne  go- dine
+indeksacija (12): mehanizam koji se koristi u ugovorima o zaradi ili u drugim ugovorima  prema  kome  se  nominal- ne zarade u definisanim periodima koriguju odabranim indeksom cena, u cilju održanja realne vrednosti zarada individualno nevoljna/kolektivno voljna nezaposlenost (4): nezaposlenost koja proizlazi iz činjenice da sindikati ugovaraju više zarade nego što bi se moglo dobiti na slo- bodnom tržištu, što može biti suprotno volji pojedinaca industrijske politike (18): zvanični podsticaji domaćim fir- mama ili čitavim granama u vidu subvencija, javnih na
+bavki ili trgovinskih politika
+inflacija zarada (12): godišnji rast nominalnih zarada
+inflacioni diferencijal (8, 16): razlika između domaće i ino- strane stope
+inflacioni porez (9, 15): realni prihod koji vlada obezbeđu- je inflacijom. Inflacija erodira realnu vrednost nomi- nalne aktive i stoga može da povrati državne finansije , smanjujući nivo svoje nominalne pasive
+instalacioni troškovi (6): troškovi instaliranja nove proiz- vodne opreme
+interni odnosi razmene (7): odnos cena razmenljivih i cena nerazmenljivih dobara
+intertemporalna cena (5): cena sutrašnjih dobara izražena u njihovoj današnjoj vrednosti; za koliko bismo bili spremni da kupimo — ili da prodamo — današnja dobra koja bi nam bila dostavljena nekog dana u budućnosti
+intertemporalna razmena (5): trgovina domaćinstava i fir- mi kroz vreme
+intertemporalno budžetsko ograničenje (5): relacija koja obuhvata resurse i raspoložive ishode u sadašnjosti i bu- dućnosti; sadašnja vrednost  rashoda  mora  biti  manja ili, najviše, jednaka vrednosti bogatstva
+intervencije na deviznom tržištu (2, 9): kupovina i prodaja stranog novca koju vrše monetarne vlasti
+intervencionizam (1): politika gde država interveniše tako što daje podršku, koordinira, ili čak kontroliše pojedine segmente privatnih aktivnosti; vidi laissez-faire
+investicije (5): kupovina proizvodne opreme za kasniju upotrebu u proizvodnji;
+investicije, bruto i neto (1, 2, 3, 4, 5): nabavka nove proiz- vodne opreme: bruto investicije uključuju ukupne ras- hode na nova kapitalna dobra, uključujući rashode na zamenu utrošene opreme; neto investicije predstavljaju dodatak na kapitalni stok
+IS kriva (10): za datu vrednost egzogenih varijabli, kombi- nacija nominalne kamatne stope i i realnog outputa (BDP) koja je konzistentna sa ravnotežom na robnom tržištu
+istiskivanje (crowding out) (11): mehanizam koji dovodi do toga da ekspanzivna fiskalna politika izaziva pad ostalih komponenti agregatne tražnje, te stoga može da izazo- ve pad, umesto rasta agregatnog outputa
+izravnavanje potrošnje (6, 15): optimalni izbor domaćinsta- va da rasporede uticaj privremenih poremećaja u plano- vima potrošnje, rastom štednje (u slučaju pozitivnog šoka), ili zaduživanjem (u slučaju negativnog šoka)
+javna dobra (8, 15, 18): dobra i usluge koji se besplatno ko- riste i kod kojih važi to da potrošnja od strane jednog subjekta ne sprečava da to isto učini bilo ko drugi (ima- ju karakteristike nerivaliteta i nemogućnosti isključenja potrošača)
+jaz u efikasnosti (16): vremenski jaz koji proizlazi iz sporog ili odloženog uticaja ekonomske politike na realne pri- vredne tokove
+jaz u odlučivanju (16): period koji je potreban vladi da for- muliše odgovarajuće mere ekonomske politike
+jaz u outputu (12):  privremeno odstupanje BDP od trenda ili od ravnotežnog nivoa
+jazovi (16): zastoji (spoznajni, jaz u odlučivanju, imple- mentacioni i jaz u efikasnosti) koji nastaju od trenutka javljanja pa sve do trenutka kada primenjena politika da svoj konačni efekat politike; usled toga, nekada ume- sto ublažavanja, može doći do pojačavanja privrednih fluktuacija
+kamatna stopa (3, 5): nadoknada za korišćenje novčanih fondova u definisanom vremenskom periodu; cena bu- ćeg dohotka ili dobra izražena sadašnjim dohotkom ili sadašnjom vrednošću robe
+kamatni paritet (11, 13): izjednačavanje kamatnih stopa po zemljama uz očekivane promene deviznog kursa
+kapital (2):  jedan od faktora proizvodnje ; obično se odno- si na fabrike, opremu i zalihe
+kapital po radniku (3): količnik ukupnog stoka kapitala i angažovane količine rada
+kapitalna adekvatnost (9): minimum kapitala koji banke moraju da drže kao frakciju ukupne rizične aktive
+kapitalna kontrola (11, 17, 20): restrikcije domaćem i među- narodnom prometu aktive
+kapitalni bilans (2): komponenta platnog bilansa u kome se beleže finansijske transakcije sa ostatkom sveta
+Kejnzijanska pretpostavka (10, 11): pretpostavka da se na kratak rok nivo cena ne menja zbog promena agregatne tražnje
+Kejnzijanska revolucija (1): razvoj ideja i politika kojima se može delovati u situacijama gde dolazi do recesije zbog toga što su cene i/ili zarade rigidne; ove ideje u suprot- nosti su sa (neo)klasičnim ekonomistima, koji tvrde da su tržišta u stanju da se staraju sama o sebi
+Kejnzijanski model (11): model zasnovan na pretpostavci o rigidnim cenama, barem na kratak rok
+(Kejnzijanski) multiplikator agregatne tražnje (11): izraz koji ukazuje efekte rasta egzogenih  komponenti  na  ukupan rast agregatne tražnje
+Kejnzijanstvo (10, 16): pogled prema kome državna politi- ka upravljanja agregatnom tražnjom treba da ima ključ- nu ulogu među svim makroekonomskim politikama; kejnzijanci tvrde da su tržišta nesavršena — na primer, tržišta rada veoma se sporo uravnotežavaju — što dovo- di do povremenih epizoda neiskorišćenosti kapaciteta
+klasična dihotomija (10): situacija u kojoj se ravnotežne vrednosti nominalnih  varijabli  mogu  utvrditi  nezavi- sno od realnih varijabli; na realnu stranu privredne ak- tivnosti (rast, nezaposlenost itd) utiče samo tehnologija i promena ukusa
+Kob–Daglasova proizvodna funkcija (3): poseban slučaj op- šte proizvodne funkcije koja kretanje outputa  Y vezuje za promene kapitala K i rada L: Y  AKL1
+koeficijent korelacije (1): statistička mera, u rasponu od 1 do 1, koja pokazuje usklađenost u kretanju dveju varijabli: kada je rezultat nula, nema korelacije; vrednost od 1 uka- zuje da postoji savršena pozitivna korelacija; vrednost od
+1 ukazuje na postojanje savršene negativne korelacije
+koeficijent varijacije (1): mera varijabiliteta koja se izraču- nava kao količnik standardne devijacije i aritmetičke sredine
+koincidirajući indikatori (14): makroekonomske varijable čije se kretanje u toku privrednog ciklusa u potpunosti slaže sa promenama agregatnog outputa
+kolektivno voljna/individualno nevoljna nezaposlenost (4): nezaposlenost koja je nepoželjna sa stanovišta pojedi- načnog radnika, ali koja je rezultat kolektivnog ugovo- ra u okviru koga se vršen trade off između viših plata i manjeg broja radnih mesta
+kombinacija politika (11): kombinovana upotreba mera monetarne i fiskalne politike
+konstantni prinosi (3): izraz kojim se označava proizvodna funkcija u kojoj simultani istoprocentni rast faktora proizvodnje izaziva rast outputa u istoj proporciji.
+kontraciklična fiskalna politika (15): korektivni instrument kojim se utiče na korekciju agregatne tražnje, bilo izme- nom poreza ili nivoa javne potrošnje, a koji se koristi da bi se privreda usmerila ka svojoj ravotežnoj putanji
+kontracikličnost (14): termin koji se koristi da se opiše neka ekonomska varijabla koja je negativno korelirana sa pri- vrednim ciklusom; to jest, koja se u toku ciklusa kreće u suprotnom pravcu u odnosu na agregatni output
+koordinacioni (autoregulacioni) promašaj (1): situacija koja nastaje kada privredni subjekti (domaćinstva, firme) ne mogu da spoznaju  da  su  njihovi  potezi  međuzavisni,  te da bi zajednički nastup mogao biti svima od koristi
+korisnost (6): zadovoljenje koje potrošač dobija potro- šnjom dobara i usluga
+korporativizam (4): sistem u kome sindikati, uprava i vlada sinhronizovano rade na ostvarenju makroekonomskih ciljeva
+krajnji poverilac (9): centralna banka, svojim implicitnim zaštitničkim stavom prema komercijalnim bankama, obezbeđuje potrebne količine primarnog novca radi za- štite od bankrota
+kredibilitet (16, 20): stepen poverenja koji javnost iska- zuje prema određenom organu, instituciji  ili  vladi; npr. kredibilna (verodostojna) centralna banka sigurno neće tolerisati inflaciju; videti takođe, reputacija
+kreditna ograničenja (6): uslov na tržištu kredita koje ka- rakteriše višak tražnje za kreditima pri postojećoj ka- matnoj stopi
+kreditne restrikcije (5): restrikcije usled neizvesnosti u vezi budućeg dohotka, usled čega privatna lica često ne mogu da izvrše intertemporalnu alokaciju svojih resursa
+kriterijumi konvergencije (20): skup kriterijuma koji mora- ju zadovoljiti one zemlje koje žele da se pridruže Evrop- skoj monetarnoj uniji
+kriva agregatne ponude (12): uzlazna kriva koja prikazuje vezu inflacije i agregatne ponude firmi
+kriva agregatne tražnje (13): opadajuća kriva koja prikazuje obrnutu srazmeru agregatne tražnje i inflacije
+kriva kolektivne ponude rada (4): veza između količine čo- vek-časova koje radnici kolektivno nude (kroz proces pregovora o zaradama ili koje nude njihovi sindikati) i njihove realne zarade
+krive indiferencije (3, 6): grafički prikaz svih mogućih kom- binacija dva izbora koji daju isti nivo korisnosti
+kvota (MMF) (20): pravo glasa i pravo na zajam u MMF-u de- finisani su na bazi inicijalnog depozita koji zemlja pola- že u trenutku učlanjenja
+Laferova kriva (17, 18): relacija između poreskih prihoda i prosečne poreske stope: preko određene tačke, rast po- reskih stopa vodi padu poreskih prihoda, usled toga što se javljaju distorzije koje obaraju poreske prihode
+laissez-faire (1): izraz kojim se opisuje stav da će tržišta ko- ja dobro funcionišu dovesti do najboljeg društvenog is- hoda, te da treba odbaciti varijantu o državnoj intervenciji u privrednom životu; vidi  intervencionizam lični dohodak/lični raspoloživi dohodak (2): ukupni doho- dak nakon plaćanja poreza, kazni itd; količina koja se
+može koristiti za potrošnju ili za štednju
+linija cena (7): grafička prezentacija relativne cene dva dobra linija finansijske integracije(19): linija na IS–LM dijagramu kojom se, pri punoj mobilnosti kapitala, nivo domaće ka
+matne stope izjednačava sa svetskom
+linija rasta novčane mase (13): to je horizontalna linija koja odgovara stopi inflacije koju pri fleksibilnom deviznom kursu kontroliše domaća monetarna vlast
+ljudski kapital (5, 6, 17): obrazovanje, obuka, trening i radno iskustvo ljudi u radnom dobu
+LM kriva (10): za datu vrednost egzogenih varijabli i za dati nivo cena, to su kombinacije realnog outputa (BDP) i ka- matne stope pri kojima je novčano tržište u ravnoteži
+loše obavešteni agenti (noise traders) (19): neobavešteni ili iracionalni agenti koji izazivaju dugoročna odstupanja cena akcija od njihove fundamentalne vrednosti
+Lukasova kritika (16): hipoteza prema kojoj domaćinstva i firme u svoje odluke inkorporiraju mere ekonomske po- litike; posledično, promene ekonomske politike mogu imati fundamentalne posledice na ponašanje privredih subjekata
+Lundbergov jaz (14): pretpostavka da će output sa zakašnje- njem reagovati na promenu potrošnje, što se zasniva na hipotezi da će firme na promenu tražnje reagovati pro- menom zaliha, a ne promenom proizvodnje
+Mandel–Flemingov model (11): verzija IS–LM modela za otvorenu privredu
+marginalna produktivnost kapitala (6): dodatni output pro- izveden angažovanjem dodatne jedinice kapitala
+marginalna produktivnost rada (4, 12): dodatni output pro- izveden angažovanjem dodatne jedinice rada
+marginalna stopa supstitucije (6): stopa po kojoj jedna roba može da se supstituiše drugom bez promene nivoa kori- snosti
+marginalni troškovi kapitala (6): troškovi dodatnog rasta proizvodnih kapaciteta
+matematički model (1): lista jednačina kojima se opisuju formalne veze između egzogenih i endogenih varijabli
+međubankarsko tržište (9): velikoprodajno tržište novca na kome učestvuju komercijalne banke
+međunarodna Fišerova jedančina (19): nepokriveni kamat- ni paritet i paritet kupovne moći (PPP) ukazuju da se re- alne kamatne stope ex ante izjednačavaju između zemalja
+Međunarodni monetarni fond (MMF) (20): institucija stvore- na 1944. godine na Bretonvudskoj konferenciji u cilju unapređenja međunarodne finansijske saradnje i stabil- nosti deviznih kurseva, formiranja multilateralnog platnog sistema tekućih transakcija, kao i u cilju pomo- ći članicama sa platnobilansnim teškoćama
+mehanizam deviznog kursa (Exchange Rate Mechanism (ERM)) (20):  sistem fiksnog kursa u okviru Evropskog monetar- nog sistema
+mehanizam impuls-širenje (14): mehanizam koji transfor- miše šokove (impulse) u neregularne oscilacije nalik privrednom ciklusu
+mehurovi (19): uporna odstupanja cena aktive od njihove vrednosti definisane fundamentalnim determinanta- ma, odnosno od široko rasprostranjenog uverenja o njenoj fundamentalnoj vrednosti
+meko budžetsko ograničenje(15): situacija u državnim fir- mama čiji se gubici automatski pokrivaju iz budžeta
+mera vrednosti (numeraire) (7): dobro koje predstavlja jedi- nicu vrednosti i koje služi za određivanje cena svih dru- gih dobara
+minimalne zarade (4): najniži iznos zarada koji se može is- platiti radniku, koji se obično (mada ne uvek) utvrđuje zakonom
+model (1): skup ekonomskih relacija, uključujući i pretpo- stavke prilikom konstrukcije skupa egzogenih i endoge- nih varijabli
+model multiplikator-akcelerator (14): model privrednih ci- klusa koji je razvio Pol Samjuelson u kome princip akce- leratora i multiplikatora generišu ciklično kretanje
+model rasta Soloua (3): teorija prema kojoj se rast tumači egzogenim tehničkim progresom i akumulacijom fak- tora proizvodnje
+monetarizam (16): ova vrlo kompleksna škola ekonomske misli, koja pokriva širok raspon stavova — od stava da upravo količina novca vrši presudan uticaj na privred- nu aktivnost, pa sve do stava da novac deluje samo na nominalne (ali ne i na realne) ekonomske varijable — daje zaključak da je najbolje da se monetarna politika vodi tako što će se targetirati stopa rasta novčane mase; monetaristi odbacuju aktivističke politike zbog neizve- snosti, jazova i zbog nekompetentnosti vlade
+monetarna ekonomija (1, 10, 11, 12, 13): deo ekonomske na- uke koji se bavi monetarnim  i  finansijskim,  nominal- nim fenomenima
+monetarna nezavisnost (11): izraz koji se odnosi na činjeni- cu da, pri fiksnom deviznom kursu, promena svetske monetarne politike utiče na domaće monetarne prilike monetarna neutralnost (8, 10): činjenica da novac ne utiče
+na realne ekonomske tokove
+monetarna politika (9): akcije centralne banke u cilju izme- ne monetarnih i finansijskih prilika u zemlji
+monetarna unija (20): sporazum suverenih zemalja o kori- šćenju jedinstvene valute
+monetarni agregati (8): različite definicije novčanih fondo- va, koje se uglavnom razlikuju po stepenu likvidnosti monetarni multiplikator (9): veza između primarnog novca
+i širih monetarnih agregata
+monetarni pristup (19): pogled prema kome, pri stabilnom ravnotežnom deviznom kursu, sva dugoročna kretanja nominalnog kursa potiču od promena nominalne nov- čane ponude
+monetizacija (9, 15): postupak pri kome centralna banka kupuje obveznice Trezora, ili, opštije, kada se vlada, ra- di pokrića deficita, zadužuje kod centralne banke
+naknade za nezaposlenost (4): finansijska pomoć onima koji traže posao, ali nisu u stanju da pronađu odgovara- juće radno mesto
+nemoguće trojstvo (20): princip prema kome se ne može istovremeno postići puna mobilnost kapitala, fiksni de- vizni kurs i nezavisnost monetarne politike; moguće je ostvariti parove, ali samo trojstvo nije moguće postići
+nerastavljivi rizik (19): rizik koji se ne može smanjiti tako što će se držati nekoliko različitih vrsta aktive
+neravnoteža (10): situacija pri kojoj se,  za  dati  output  ili pri datoj kamatnoj stopi, tražnja ne izjednačava sa po- nudom
+nerazmenljiva dobra (7): dobra koja ne ulaze u spoljnotrgo- vinsku razmenu
+nevoljna nezaposlenost (4): nezaposlenost koja se javlja ka- da bi pojedinci želeli i mogli da rade po važećoj zaradi, ali ne mogu da nađu posao
+normativna ekonomija (1): vrednosni sud ili saveti o poželj- nim akcijama ekonomske politike; vidi pozitivna eko- nomija
+neoklasične pretpostavke (10): cene se prilagođavaju čak i na kratak rok, te u privredi uvek vlada dihotomija
+neoklasični pristup (10): model prema kome fleksibilne ce- ne “čiste” tržište, čak i na kratak rok
+neplaćeni rad (2): privredna aktivnost koja se ne plaća i ne obračunava u BDP
+nepoklapanje (4, 18): neravnoteža na tržištu rada koja na- staje kada nezaposleni nemaju odgovarajuće gransko ili profesionalno iskustvo ili kada ne žive na odgovaraju- ćoj lokaciji
+nepokriveni kamatni paritet (NKP) (19): uslov prema kome se stope prinosa na aktivu uporedive rizičnosti izjedna- čavaju kada se uračunaju očekivane promene deviznog kursa
+nerezidentna (offshore) tržišta (19): tržišta aktive denomini- rane u valuti zemlje, koja su locirana van same zemlje nestašica dolara (20): situacija koje su se pribojavale zemlje
+članice bretonvudskog sistema tokom 50-tih godina, jer je SAD u to vreme imala suficit na računu tekućih tran- sakcija
+neto izvoz (2): razlika između izvoza i uvoza dobara i usluga
+neto nacionalni proizvod (2): mera outputa koja isključuje amortizaciju proizvodne opreme
+neto porezi (2): prikupljeni porezi od domaćinstava i firmi nakon odbijanja transfera
+neto kapital (8): razlika između aktive (imovine, kapitala) i pasive (potraživanja) u bilansu stanja, koji prikazuje ko- lika je njegova vrednost za vlasnika
+neutralnost prema riziku (19): ponašanje koje je indiferent- no na postojanje rizika
+neusklađenost (misalignment) (19): uporno odstupanje real- nog deviznog kursa od svog ravnotežnog nivoa
+neutralnost novca/monetarna neutralnost (8, 10): princip prema kome ponuda novca ne utiče na  realne  varijable kao što je realni output  ili  nezaposlenost,  već  utiče  sa- mo na nivo cena
+nezaposlenost (4): pojedinci koji nemaju i koji aktivno tra- že posao
+nivo cena (1): prosečni nivo cena u jednoj privredi
+nominalna (1): varijabla izražena u novcu, nasuprot „real- nom” izrazu (npr. u naturi)
+nominalno sidro (16): u stabilizacionim programima, to je praksa targetiranja jedne ili više nominalnih varijabli — kao što su devizni kurs ili nominalne zarade—u cilju ubrzanja povratka na ravnotežni nivo outputa i u cilju delovanja na očekivanja
+nominalni devizni kurs (7): vrednost inostrane valute izra- žena jedinicama domaćeg novca
+nominalna kamatna stopa (8): kamatna stopa koju obja- vljuju finansijska tržišta ili banke
+novčana iluzija (12): nemogućnost razlikovanja monetar- nih i realnih veličina
+novčane/nenovčane eksternalije (17): eksternalije koje se ili koje se ne prenose cenovnim mehanizmom
+obrtne tačke (14):  vreme kada privredni ciklus dostiže vrh ili dno
+odnosi razmene (7): količnik izvoznih i uvoznih cena; me- ri koliko strane robe može da se kupi jedinicom doma- ćeg outputa
+Okunov zakon (1, 12, 13): inverzna relacija između fluktua- cija realnog BDP oko trenda i fluktuacija stope nezapo- slenosti oko svog ravnotežnog nivoa
+opadajuća marginalna produktivnost (3, 5): tendencija da se pri uvećanju prirasta inputa, prirast outputa smanjuje opadajući prinosi (3): opis proizvodne funkcije gde isto
+procentni rast faktora proizvodnje dovodi do ispodpro- porcionalnog rasta outputa; videti takođe konstantni i rastući prinosi
+opcije (call and put) (18): ugovor koji dozvoljava vlasniku da kupuje (call) ili  prodaje  aktivu  (put)  po  nekoj  una- pred određenoj ceni
+operacije na otvorenom tržištu (9): transakcije koje obavlja centralna banka prodajući obveznice na sopstvena po- traživanja; ove operacije vode rastu ili padu rezervi bankarskog sistema
+oportunitetni trošak (5, 6, 8): vrednost resursa pri najboljoj alternativnoj upotrebi
+optimalna valutna zona (20): region u kome korišćenje za- jedničke valute ne izaziva gubitak blagostanja
+optimalni stok kapitala (6): fizički stok kapitala kojim se maksimizuje vrednost firme, gde je marginalna pro- duktivnost kapitala jednaka marginalnom trošku inve- stiranja
+opšta spoljna i unutrašnja ravnoteža (1,4,7, 10) ; karakteristi- ka privrede u kojoj sva tržišta utiču jedna na druga
+opšta ravnoteža (10, 11): uslov ravnoteže koji se simultano odnosi na sva tržišta, kojim se priznaje da su sva tržišta međuzavisna
+otkazi (4): dobrovoljno odustajanje od radnog mesta od strane zaposlenog
+otpremnina (4): kompenzacija, obično u formi jednokrat- ne paušalne isplate, koju poslodavac isplaćuje onim radnicima koji iz ekonomskih razloga postanu višak
+output determinisan ponudom (10): kada se nivo cena slo- bodno prilagođava, tako da se tačka opšte ravnoteže uvek nalazi na preseku IS krive i linije ponude dobara, onda je output u potpunosti determinisan ponudom
+output determinisan tražnjom(10): situacija gde se obim proizvodnje, pri datim cenama, menja u zavisnosti od promena tražnje
+papirni novac (8, 9): novac koji se zakonski uvodi kao legal- no sredstvo plaćanja, koji štampa država i čija je vred- nost sama po sebi mala ili nikakva
+paralelna valuta (8): valuta koju izdaje bilo privatna insti- tucija bilo strana zemlja, a koja se koristi uporedo sa do- maćim novcem
+parcijalna ravnoteža (3): analiza determinanti  ravnoteže na pojedinačnom tržištu, gde se ne vodi računa o tome da li se i druga tržišta simultano nalaze u ravnoteži
+paritet (20): fiksni zvanični devizni kurs koji objavljuje monetarna vlast jedne zemlje
+paritet/centralni paritet (20): fiksni kurs sa mogućnošću pri- lagođavanja; vidi takođe paritet
+paritet kupovne moći (PPP) (7, 8, 13): princip prema kome je stopa nominalne depresijacije jednaka razlici između domaće i strane inflacije; strožija (i manje verovatna) va- rijanta apsolutnog PPP vodi potpunom izjednačenju ce- na u svim zemljama, kada se izrazi u zajedničkoj valuti
+paritet realne kamatne stope(19): razlika između domaće i inostrane realne kamatne stope, koja je jednaka razlici nominalnih stopa umanjenoj za očekivani inflacioni diferencijal
+partijski privredni ciklusi (16): privredni ciklusi koji nastaju zbog izmene partija na vlasti, kada dolazi do promene privrednih prioriteta i ekonomskih politika; vidi politič- ki privredni ciklusi
+permanentni dohodak (6): tok dohotka koji, ukoliko je konstantan, daje istu sadašnju vrednost kao i stvarni očekivani tok dohotka
+persistentnost (14): dugotrajni efekti šoka koji pogađa ne- ku privredu
+platni bilans (2): rezime svih realnih i finansijskih transakcija zemlje sa ostatkom sveta
+pojas fluktuacija (20): raspon dozvoljenih fluktuacija domaće valute koji se definiše međunarodnim sporazumom, ili jednostranom odlukom centralne banke
+pokrivanje (hedžing) (19): tehnike koje se koriste radi zaštite od fluktuacija deviznog kursa; opštije govoreći, bilo koja trgovinska tehnika koja se koristi da bi se eliminisao rizik pokriveni kamatni paritet (19): nearbitražni uslov kojim se izjednačava razlika između domaćih i inostranih kamat
+nih stopa na nivo premije na anticipirani devizni kurs
+politika osiromašenja sopstvenih suseda (beggar-thy-neighbour policies) (11):  politike, a naročito politike deviznog kur- sa, kreirane da bi domaću tražnju preusmerile sa stranih na domaća dobra
+politički privredni ciklus (16): privredni ciklus koji nastaje zbog mera ekonomske politike kojima je cilj da nepo- sredno pred izbore poprave privrednu situaciju; vidi ta- kođe partijski privredni ciklus
+ponuda rada, individualna i agregatna (4): relacija između stope zarada i broja časova koji su zaposleni spremni da rade: agregatna ponuda odnosi se na sveukupno pona- šanje radne snage, gde se ustanovljava da li su radnici zainteresovani da povećaju ponudu radnih časova, dok će firme, pri porastu satnice smanjivati tražnju
+poreske distorzije (15): efekti jaza koji porez unosi između cene koju naplaćuje prodavac i cene koju za istu robu plaća potrošač
+poreski jaz u zaradama (17): razlika između troškova rada za firmu i stvarne zarade koju radnici primaju
+potcenjenost/precenjenost (7, 19): jedna valuta biće potce- njena/precenjena kada je devizni kurs ispod/iznad sopstvene dugoročne ravnotežne vrednosti, odnosno sopstvene dugoročne fundamentalne vrednosti
+potrošačev višak (17): razlika između maksimalne količine koju bi potrošač bio spreman da plati za određenu koli- činu dobra i one cene koju za nju zaista mora da plati
+potrošnja (2): dobra i usluge kojima domaćinstva zadovo- ljavaju sopstvene potrebe
+pozicija (long or short) (19): agent je “dug” kada duguje, ili je ugovorio da će dobiti  neku  valutu  u  budućnosti;  slič- no tome, agent je „kratak” kada je ugovorio da će u bu- dućnosti vršiti isplatu valute
+pozitivna ekonomija (1): opis i objašnjenje ekonomskih fe- nomena; vidi normativna ekonomija
+PPP linija (paritet kupovne moći) (13): horizontalna linija, jer pri fiksnom kursu paritet kupovne moći isključuje mogućnost javljanja trajnih razlika između domaće i inostrane stope inflacije
+prigušeni, eksplozivni i oscilirajući ciklusi (14): jedna vremen- ska serija biće stabilna (prigušena, eksplozivna) ako bude imala stabilne (prigušene, rastuće) ciklične oscilacije
+prebačaj (overshooting) (17): situacija koja nastaje kada, kao reakcija na poremećaj koji menja dugoročni nivo deviznog kursa,  nominalni  kurs  previše  pomera,  dodu- še u dobrom pravcu, ali u većoj meri nego što treba, da bi se kasnije vratio unazad
+preduzetnički instinkti (6): izraz kojim se označava uverenje i spremnost da se preduzmu rizični investicioni projekti preferencije (3): ponašanje pojedinca koji se suočava sa al
+ternativnim mogućnostima potrošnje
+premija na kapitalne kontrole (19): odstupanja od pokrive- nog kamatnog pariteta koja se javljaju zbog kapitalnih kontrola
+premija na rizik (18, 19): kompenzacija preko i iznad očeki- vane stope prinosa koje držaoci finansijske aktive traže da bi pristali da je drže u posedu
+prenošenje krize (20): situacija koja nastaje kada jedna ze- mlja koja ima režim fiksnog kursa izvrši devalvaciju, što smanjuje konkurentnost ostalih učesnika koji takođe postaju kandidati za devalvaciju, iako to inicijalno nije bilo opravdano
+pretpostavka o maloj otvorenoj privredi (11): radna pretpo- stavka o tome da domaće prilike ne utiču na realne i fi- nansijske uslove poslovanja u inostranstvu, i da je
+„inostrana” stopa prinosa egzogena
+primarni budžetski deficit (5): budžetski deficit bez otplate duga (tj. bez kamate na javni dug)
+primarni budžetski suficit (5): višak poreskih prihoda u od- nosu na nekamatonosne rashode, ili, što je ekvivalento, višak neto poreza plus kamatna plaćanja u odnosu na javne nabavke dobara i usluga
+primarni novac (9): suma gotovine i bankarskih rezervi
+primarni tekući račun (5): tekući račun bez neto plaćanja kamate (neto dohotka od investicija); alternativno, raz- lika između BDP i agregatne domaće potrošnje, kada su jednostrani transferi jednaki nuli
+prinosi na obim proizvodnje(3): uticaj rasta svih inputa u is- toj proporciji na output: ako output poraste u istoj sra- zmeri, kaže se da proizvodna funkcija ima konstantne prinose; ako output poraste ispod ili natproporcional- no, imaćemo rastuće ili opadajuće prinose na obim pro- izvodnje, respektivno
+prirodni monopol (17): javlja se u granama sa rastućim pri- nosima (telekomunikacije, transport, itd)
+privatizacija (1, 17): prodaja ili transfer privatnim vlasnici- ma jednog dela ili svih državnih preduzeća
+privredni subjekti (1): izraz kojim označavamo donosioce odluka u jednoj privredi
+prinosna arbitraža (19): arbitraža koja se odnosi na aktivu jednake rizičnosti; vidi arbitraža
+privredni ciklusi (1, 11, 12, 14): naizmenični periodi ubrza- nog rasta i ubrzanog pada u kojima output fluktuira oko svoje dugoročne vrednosti (trenda)
+privredni rast (1, 3): sekularni rast outputa u jednoj privre- di, po pravilu se meri godišnjim rastom BDP po stanov- niku
+problem „N – 1”(20): pri režimu fiksnog kursa u N zemalja, činjenica da je poznavanje N – 1 bilateralnih deviznih kurseva dovoljno za utvrđivanje svih, uz jedan stepen (monetarne) slobode
+procikličnost (14): ekonomska varijabla koja je pozitivno korelirana sa stanjem u privredi; to jest, koja se kreće u istom pravcu kao i agregatni output
+produktivnost (output–labour ratio) (3): količinik outputa i rada potrebnog za njegovu proizvodnju
+progresivno oporezivanje (17): poreski sistem u kome se po- reska stopa uvećava sa rastom (neoporezovanog) nivoa dohotka
+proizvodna funkcija (3, 4, 5): teorijska veza između agregat- nog outputa i inputa faktora proizvodnje
+proizvodna efikasnost (15): optimalna upotreba raspoloži- vih proizvodnih resursa
+proizvođačev višak (17): razlika između vrednosti koju pro- izvođač zaista ostvari prodajom određene količine do- bara po određenoj ceni i vrednosti koju bi ostvario prodajom iste količine po minimalnoj ceni na koju bi pristao
+prosečni ili jedinični troškovi(12): proizvodni troškovi po jedinici outputa
+prostorna arbitraža arbitaža koja nastaje kada se cene iden- tičnih vrsta aktive  razlikuju  na  različitim  lokacijama; vidi arbitraža
+proširena Filipsova kriva (12): Filipsova kriva koja uključuje baznu inflaciju i mogućnost javljanja šokova ponude pukotine (11): deo dohotka koji nije prisutan u kružnom
+toku dohotka i rashoda, bilo u vidu štednje, poreza ili uvoza
+q-teorija investicija (6): teorija koja vezuje investicije za Tobinovo q, količnik tržišne vrednosti i troškova zame- ne instalisanog kapitala
+rad (1): faktor proizvodnje, obično meren čovek-časovima, tj. ukupan broj časova rada u firmi, grani ili u državi
+radna snaga (4): ukupan broj pojedinaca koji ili rade ili ak- tivno traže posao
+Ramsejev princip javnih finansija (17): princip prema kome, da bi se prikupila određena suma poreskih prihoda, a da bi se pri tome minimizirao gubitak potrošačevog i pro- izvođačevog viška u jednoj privredi, treba najviše opo- rezovati robu čija je tražnja ili ponuda neelastična
+raspoloživost (endowment) (5, 6): egzogeno definisan obim resursa koje privredni subjekti očekuju u sadašnjosti i u budućnosti
+rastući prinosi (3): karakteristika proizvodne funkcije da proporcionalni rast faktora proizvodnje dovodi do nat- proporcionalnog rasta outputa.
+ravnotežni rast (3): izraz koji označava stabilan privredni rast pri čemu se određene ključne relacije, npr. odnos kapitala i rada, ne menjaju
+ravnotežna stopa nezaposlenosti (4, 11): stopa nezaposleno- sti koja se javlja kada se stabilizuje zaposlenost i nezapo- slenost, tj. kada se agregatna tražnja za radom izjednači sa agregatnom ponudom rada. Pošto ponuda rada neće savršeno odražavati preferencije pojedinaca, nezaposle- nost delom može biti nevoljna (strukturna), ali isto ta- ko može odražavati efikasnost na tržištu rada (frikciona nezaposlenost)
+ravnoteža na robnom tržištu (10): situacija gde je ponuda jednaka tražnji
+ravnoteža na tržištu novca (10): jednakost egzogene ponu- de novca koju kontroliše centralna banka i tražnje za novcem koja odgovara određenom nivou outputa i eg- zogenim transakcionim troškovima
+razlika kupovnog i prodajnog kursa (bid-ask spread) (9): na deviznom tržištu, kupovni je onaj kurs po kome će se na tržištu kupovati neka valuta; prodajni je onaj po kome ga pojedinci mogu kupiti na tržištu. Razlika (spread) je
+— obično procentualno izražena — razlika između ove dve cene
+razmenljiva dobra (7): dobra koja stvarno ili potencijalno mogu da učestvuju u spoljnotrgovinskoj razmeni
+realna varijabla (1): izražena tako da nominalna vrednost bude korigovana stopom inflacije
+realna zarada za potrošnju (4): količnik nominalne zarade i indeksa cena potrošača; mera cene dokolice (ili cene po- vratka na posao) izražena u potrošnim dobrima
+realna ekonomija (1, 10, 11, 12, 13): izraz koji se odnosi na proizvodnju i na potrošnju dobara i usluga, kao i na dohotke od proizvodnih aktivnosti; vidi monetarna ekonomija
+realni devizni kurs (7): cena inostranih dobara izražena do- maćim dobrima, definiše se kao nominalni devizni kurs korigovan promenom domaćih i inostranih cena
+realna kamatna stopa (8): razlika između nominalne ka
+matne stope i očekivane stope inflacije
+relativna cena (7): cena jednog dobra izražena u drugoj, obično se računa kao količnik dve nominalne cene
+relativni paritet kupovne moći (8): situacija koja nastaje ka- da trošak iste korpe dobara u dvema zemljama raste po istoj stopi, kada se prevede u zajedničku valutu
+reputacija (16): efekat koji na javnost imaju pravila vlade kojima se ona uzdržava od nekih poteza, čak i u situaci- ji kada bi te mere bile vrlo poželjne
+revalvacija (11, 13, 20): odluka monetarnih vlasti da pove- ćaju vrednost valute; vidi apresijacija, depresijacija, de- valvacija
+rezidual Soloua (3): deo rasta BDP koji se ne može objasni- ti rastom faktora proizvodnje i koji se po pravilu pripi- suje rastu tehničkog progresa
+režim deviznog kursa (11): opis sistema deviznog kursa u nekoj zemlji: kurs može biti fiksan, tako da centralna banka održava paritet prema drugoj valuti, ili grupi va- luta; kurs takođe može biti fluktuirajući (plivajući)
+režim ekonomske politike (11, 16): eksplicitno ili implicitno postavljen skup pravila za vođenje politike
+rigidnost nominalnih zarada i cena (12): usled troškova naja- ve, ranije zaključenih ugovora ili zbog ustaljenih običa- ja, cene ne reaguju smesta na promenu tražnje, što sprečava da output na kratak rok dostigne svoj ravnote- žni nivo
+rigidnost realnih zarada (4, 12): rigidnost koja proizlazi iz nemogućnosti pada zarada u uslovima nezaposlenosti Rikardijanska jednakost (5): hipoteza prema kojoj vremen
+ska dimenzija oporezivanja nema efekta na intertempo- ralno budžetsko ograničenje privatnog sektora, te nema efekta ni na njihove odluke o štednji; onda se javni dug ne smatra delom privatnog bogatstva.
+Robertsonov pomak (14): pretpostavka da je visina tekućih rashoda vezana za dohodak iz prošlosti
+robni novac (8): novčane forme koje imaju sopstvenu vred- nost, ili koje svoju vrednost izvode iz robe od koje su na- činjeni
+sadašnja diskontovana vrednost (5): vrednost toka dohotka ili potrošnje koji se vrednuje po današnjim cenama ;  vi- di takođe intertemporalna cena
+samoispunjavajući udari (20): napadi na devizni kurs koji ne proizlaze iz fundamentalne neravnoteže deviznog  kur- sa, već se javljaju zato što, u slučaju da uspeju, vlasti pre- staju sa vođenjem čvrste monetarne politike, što daje ex post verifikaciju da je napad bio opravdan
+sindikati (4): organizacije radnika formirane u cilju kolek- tivnog pregovaranja sa poslodavcima da bi se poboljšale zarade i uslovi rada
+sistemski rizik (9): rizik od opšteg kraha bankarskog siste- ma, koji nastaje stoga što banke i finansijske institucije drže svoju pasivu jedne kod drugih
+siva ekonomija (2): neoporezovane privredne aktivnosti usled toga što se ne prijavljuje ostvareni prihod
+slučajan hod (19): varijabla koja na slučaj menja kretanje iz perioda u period, gde se kao jedina promena današnje u odnosu na sutrašnju vrednost biti beli šum, koji može biti ili pozitivan ili negativan
+specijalna prava vučenja (SDRs) (20): rezervna valuta koju je 1967. godine MMF kreirao i potom je alocirao članica- ma na osnovu njihove kvote; koristi se među central- nim bankama kao dodatni izvor likvidnosti
+spoljnotrgovinska politika (17): politika koja ima za cilj da pomogne prodaju domaćih proizvoda tako što se  na uvoz inostranih dobara stavljaju carine ili kvote
+spot tržište (19): tržište na kome se obavljaju transakcije vezane za promptnu isporuku ili kupovinu robe
+spoznajni jaz (16): vremenski jaz koji protekne dok se ne utvrdi potreba za interventnim merama
+sredstvo razmene (8): valuta ili druga dobra korišćena u platnom prometu
+stabilizacija duga (15): obuzdavanje procesa eksplozivnog rasta duga u BDP, što se obično postiže rastom poreza i smanjenjem javnih rashoda
+stabilizacione politike (15): politike stabilizovanja agregat- nog dohotka i potrošnje, kao i nezaposlenosti
+stabilno stanje (4): hipotetičko stanje nakon koga varijable ne reaguju dalje na egzogene promene u okruženju
+stacionarni BDP (14): nivo BDP koji bi teorijski nastao na- kon što se izvrši potpuno prilagođavanje,  u  odsustvu svih budućih privrednih šokova
+stagflacija (12, 13): periodi simultanog rasta inflacije i ne- zaposlenosti
+sterilizacija (9): akcija centralne banke u nameri da se ne- utrališe uticaj deviznih intervencija na domaću ponudu novca, obično se svodi na kupovinu ili prodaju vredno- snih papira koji po vrednosti odgovaraju obimu inter- vencija na deviznom tržištu
+stopa inflacije (1, 8): stopa promena nivoa cena, merena nekim indeksom cena ili deflatorom
+stopa korišćenja kapaciteta (1): stepen u kome firme koriste svoje fabrike i opremu; jedan od indikatora cikličnih kretanja
+stopa nalaženja posla (4): stopa po kojoj radnici prelaze iz statusa nezaposlenih u status zaposlenih; vidi stopa se- paracije
+stopa nalaženja posla (4, 17): poklapanje ponude novih radnih mesta i raspoložive ponude rada
+stopa nezaposlenosti (4): količnik broja nezaposlenih rad- nika i ukupne ponude rada
+stopa obaveznih rezervi (9): količnik rezervi komercijalne banke (gotovina ili depoziti kod centralne banke) i ukupnih depozita koje je banka odobrila
+stopa participacije radne snage (1, 4): udeo radno sposob- nih određene grupe (žena, mladih, itd) u ponudi radne snage
+stopa separacije (4): brzina po kojoj zaposleni radnik po- staje nezaposlen po jedinici vremena; vidi: stopa nalaže- nja posla
+strukturna nezaposlenost (4): nezaposlenost koja nastaje kao rezulat nepoklapanja tražnje i ponude rada; vidi ne- poklapanje
+supstitucioni efekat(4, 6): komponenta promene tražnje koja se može pripisati promeni relativnih cena
+svojinska prava (18): prava na privatnu svojinu. Kada svo- jinska prava nisu efektivno primenjena, dolazi do zao- stajanja u privrednom rastu
+swap transakcije (19): razmena iste valute ali u različitim periodima, pod različitim uslovima, na primer prompt- nom prodajom franaka uz njihov simultani otkup kroz tri meseca
+šokovi ponude (12, 13, 14, 17): egzogeni rast proizvodnih troškova (isključujući rad)
+šokovi tražnje (14): iznenadni rast ili pad agregatne tražnje
+špekulativni napad (20): iznenadni gubitak deviznih rezer- vi centralne banke, koji nastaje kada učesnici na devi- znom tržištu predvide da će uskoro neizbežno doći do devalvacije
+špekulativni mehur (19): uporno odstupanje tržišnih cena od sopstvene fundamentalne vrednosti
+štednja (2): odložena potrošnja jednog dela raspoloživog ličnog dohotka
+tehnički progres (3): doprinos tehničkog progresa privred- nom rastu, obično se meri rastom ukupne faktorske produktivnosti
+tekući račun (2, 3, 7): svodni prikaz trgovine robom i uslu- gama i jednostranih transfera jedne zemlje sa ostatkom sveta
+teorija privrednih ciklusa usled rigidnih cena (14): čitava kla- sa teorija privrednog  ciklusa  u  kojima  je  rigidnost  cena od ključne važnosti za nastanak ciklusa
+teorija realnih privrednih ciklusa (14): teorija ciklusa koja, pod pretpostavkom da su cene fleksibilne, privredne fluktuacije tumači prvenstveno kao  posledicu  tehnič- kog progresa,
+teorija životnog ciklusa (6): teorija prema kojoj će potro- šnja zavisiti od horizonta koji je jednak očekivanom trajanju života pojedinca; da pojedinac uvećava štednju u toku svog radnog doba, koju će trošiti nakon penzio- nisanja
+tokovi i fondovi (stokovi) (2): vrednost varijabli toka meri se između dva perioda; varijable fonda mere se u  određe- nom trenutku
+trajna dobra (6): dobra čije se korišćenje proteže u buduć- nost
+troškovi dezinflacije (13): stopa žrtvovanja, kojom se ku- mulirani rast nezaposlenosti poredi sa smanjenjem in- flacije u određenom periodu
+tražnja za radom (4): relacija koja povezuje troškove rada sa brojem čovek-časova koji firme žele da zaposle
+trade-off između jednakosti i efikasnosti (15): činjenica da ujednačavanje raspodele u jednom društvu često ima negativne implikacije na privrednu efikasnost
+tržišna efikasnost (19): svojstvo cena aktive da odražavaju sve raspoložive informacije i rizik koji je vezan za svaki pojedinačni oblik aktive
+teorema glasača sa medijane (16): ako preferencije glasača budu ravnomerno raspoređene, onda će izborna strate- gija političkih partija biti fokusirana na politike koje najviše odgovaraju (središnjem) glasaču sa medijane
+Tobinovo q (6): količnik sadašnje vrednosti prinosa od no- vih investicija i troškova instalisanog kapitala; često se njegova približna vrednost određuje kao odnos cena ak- cija prema ceni potrebnoj za zamenu postojeće opreme tokovi i fond nezaposlenih (4): fond nezaposlenosti čine lju- di koji žele da rade ali su trenutno bez posla; tokovi se odnose na radnike koji postaju nezaposleni (to je priliv) ili se odnose na prethodno nezaposlene koji nalaze po- sao ili zauvek napuštaju kontingent radne snage (odliv) trade-off između potrošnje i dokolice (4): fundamentalna de- terminanta u donošenju odluke o ponudi rada: u cilju sopstvene potrošnje, moramo da zarađujemo, a stoga i
+da radimo, što znači da se moramo odreći dokolice
+transakcioni troškovi (8, 17): troškovi obavljanja transakci- ja, naročito finansijskih transakcija
+transferi (2): direktna plaćanja države (npr. premije, sub- vencije, naknade za nezaposlenost, penzije) koja prima- ju pojedinci ili firme i koja nisu vezana za  nabavku dobara i usluga
+trgovinski bilans (2): izvoz minus uvoz robe jedne zemlje sa ostatkom sveta u određenom periodu
+trend (1, 13): dugoročna tendencija u vremenskoj seriji
+triangularna arbitraža (19): arbitraža kojom se postiže me- đusobna konzistentnost cena više vrsta aktive; vidi arbi- traža
+Trifinov paradoks (20): nekonzistentnost američkog dola- ra (kao nacionalne valute) sa funkcijom rezervne valu- te, usled nedovoljne zlatne podloge: da bi dolarske rezerve u svetu rasle po stopi po kojoj raste svetska pri- vreda, SAD su morale da vode politiku spoljnotrgovin- skog deficita koji je vremenom postao veći od iznosa zlatnih rezervi SAD
+troškovi najave (menu costs) (10, 11, 12): paušalni troškovi izazvani nominalnim rastom cena ili zarada
+učenje uz rad (18): primena novih tehnologija uporedo sa drugim poslovima
+udeo profita (4): udeo vlasnika kapitala u BDP
+udeo zarada (4): deo BDP koji odlazi na isplatu zarada
+udeo rada i profita (1, 3): udeo rada ili udeo zarada frakcija je ukupnog dohotka koji se plaća radnicima; udeo pro- fita je onaj koji ide vlasnicima kapitala
+ujednačavanje poreza (15): propozicija prema kojoj vlada ne bi trebalo da na privremeni budžetski deficit reaguje promenom poreskih stopa, već bi trebalo da se zaduži
+ukupna faktorska produktivnost (7): produktivnost proiz- vodnog procesa koja se ne pripisuje niti jednom pojedi- načnom faktoru, već svim faktorima zajedno; rast ukupne faktorske produktivnosti obično se meri kao ponderisani prosek produktivnosti svih faktora uzetih zajedno
+unutarmarginalne intervencije (20): intervencije centralnih banaka unutar margina (pojasa) koje imaju za cilj da po- kušaju da razuvere tržište da postoje namere o promeni politike kursa
+upravljanje tražnjom (16): politika korigovanja agregatne tražnje u cilju održanja privrede na ravnotežnom nivou uslov parcijalne tržišne ravnoteže (1, 4): jednakost ponude i
+tražnje na pojedinačnom tržištu
+uslovi neravnoteže (3): uslovi pod kojima tržište nije u rav- noteži
+uslovljavanje (20): zahtevi MMF-a koje zemlje članice mo- raju primeniti u svojoj makroekonomskoj politici da bi ostvarile pravo na dobijanje određenih vrsta zajmova
+usluge (invisibles) (2): razmena usluga između jedne zemlje i ostatka sveeta
+usporavanje proizvodnog rasta (3): obrt u rastu ukupne fak- torske produktivnosti zabeležen od sredine 70-tih godi- na, koje su nastale uprkos razvoju novih tehnologija
+uvozna funkcija (11): funkcija koja predstavlja deo doma- ćih rashoda i stoga prati njene fluktuacije: što veći  ras- hodi, veći će biti uvoz
+višak ponude (10): tržišna situacija gde ponuda pri datoj ceni nadmašuje tražnju
+višestruko preklapanje potreba (8): neophodan uslov za međusobnu trampu pri kojoj vrste i količine dobra koje jedan učesnik ponudi moraju odgovarati željama  dru- gog učesnika
+vodeći i zaostajući indikatori (14): makroekonomske varija- ble koje tokom čitavog privrednog ciklusa sistematski prethode (zaostaju) za agregatnim outputom
+vremenska nekonzistentnost (16): karakteriše ponašanje prema kome politike koje, mada su trenutno optimal- ne, kasnije postaju manje poželjne, naročito ukoliko su privredni subjekti već počeli da se ponašaju na željeni način
+vrh/dno (14): gornja/donja obrtna tačka u cikličnim vre- menskim serijama
+zakoni nasuprot diskrecionim merama (16): zakonske mere donose se radi isključenja vremenske nekonzistentnosti državne politike
+zamka siromaštva (3): situacija pri kojoj zemlja ne može da dostigne putanju održivog rasta
+zamka socijalne sigurnosti (welfare trap) (17): situacija gde sistem socijalnog osiguranja destimuliše privatnu aktiv- nost, a primaoce pomoći čini zavisnim od socijalne  po- moći
+zatvorena privreda (10): privreda koja ne trguje, ne zadužu- je se, niti kreditira druge zemlje
+zidanje cena (12): formiranje cena uvećavanjem prosečnih ili jediničnih troškova proizvodnje u određenom pro- centu
+zlatni standard (20): sistem u kome je vrednost domaće va- lute vezana za zlato
+zlatni valutni standard (20): sistem uspostavljen 1944. go- dine na Bretonvudskoj konferenciji gde je zlato progla- šeno osnovnom merom vrednosti, ali za  sve  valute zlatni paritet utvrđivao se preko dolara
+zlatno pravilo (3): propozicija o maksimizaciji potrošnje po glavi stanovnika u rastućoj privredi, što se dešava u tački u kojoj se marginalni proizvod kapitala izjednača- va sa stopom rasta
+„Zmija” (20): monetarni aranžman između zemalja EC iz poslednjih godina bretonvudskog sistema, koji se od- nosio na dogovor o prepolovljavanju margine fluktua- cija njihovih deviznih kurseva

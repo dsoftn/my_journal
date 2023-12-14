@@ -1,0 +1,2030 @@
+Ad valorem porez - porez koji je proporcionalan vrednosti izdataka.
+
+Ad valorem tarifa - porez na uvoz obračunat kao procenat vrednosti uvoza.
+
+Adaptivna očekivanja - pokazuju da pojedinci formiraju svoja buduća očekivanja polazeći od prosečnih vrednosti posmatrane pojave u prošlosti.
+
+Agregatna kriva ponude - količina proizvoda koju su firme spremne da proizvode po različitim cenama.
+
+Agregatna kriva tražnje - različite kombinacije nivoa cena i količina za koje su tržište roba i tržište novca u ravnoteži.
+
+Agregatna ponuda - ukupna vrednost svih dobara i usluga proizvedenih u privredi za raspoloživom ponudom kapitala, rada i tehnologije (takođe poznat i kao potencijalni GDP).
+
+Agregatna tražnja - suma tražnji za tekućim proizvodom od strane svakog sektora privrede koji kupuje: domaćinstava, privrede, vlade i kupovina u inostranstvu.
+
+Agregatna vrednost - ukupna vrednost neke promenljive za ekonomiju kao celinu; npr. društveni proizvod je agregatna vrednost za posmatranu privredu.
+ 
+Agregatni časovi - ukupni broj časova rada svih radnika u privredi u datom vremenskom periodu.
+
+Agregatni ciljevi - varijable koje društvo postavlja za svoje ciljeve; npr. inflacija, nezaposlenost i dr.
+
+Agregatni prihod - ukupni prihod koga su ostvarili svi faktori proizvodnje u privredi u datom vremenskom periodu.
+
+Akordni sistem - sistem u kome su radnici plaćeni određenom sumom za jedinicu koju proizvedu.
+
+Aktivistička makroekonomija - makroekonomsku politiku smatra za rezultat ideološki motivisanih odluka lidera različitih političkih partija. Partije reprezentuju dolednost različitih preferencija koje se tiču makroekonomskih varijabli.
+
+Aktivizam - upotreba instrumenata monetarne i fiskalne politike da bi uticali na promenu privatne potrošnje. Ovaj pristup ekonomskoj politici je podvrgnut kritici monetarista. Akumulacija kapitala - rast zaliha postrojenja i opreme.
+
+Alternativni troškovi - troškovi za firmu korišćenja sopstvenih inputa u odnosu na zaradu koju bi ti inputi mogli ostvariti u najpovoljnijem slučaju.
+
+Analiza varijanse - test koji proverava objašnjen varijabilitet regresione analize korišćenjem F statistike.
+
+Analiza vremenskih serija - tehnika predviđanja budućih vrednosti vremenskih serija razmatranjem samo prošlih podataka o vremenskim serijama.
+
+Anticiklična politika - politika kreirana radi otklanjanja fluktuacija u poslovnom ciklusu.
+
+Antidampinške obaveze - tarife koje se primenjuju na određenu zemlju kao kazna za dampinška dobra.
+ 
+Antitrustovska politika - uobičajen termin za politiku konkurencije u SAD, ona zaokružava vladine politike koje su kreirane da promovišu konkurenciju među preduzećima.
+
+Apresijacija - smanjenje vrednosti strane valute izražene u domaćoj valuti. Relativni porast vrednosti jedne valute u odnosu na druge valute; npr.: apresijacija dolara u odnosu na Nemačku marku tokom 1980-1985, značila je da se za 1 dolar može kupiti više nemačkih maraka nego pre.
+
+Apsolutna prednost - situacija u kojoj je pojedinac ili zemlja efikasnija u proizvodnji dobra u poređenju sa drugim pojedincem ili zemljom.
+
+Apstinencija - odlaganje (uzdržavanje od) sadašnje potrošnje radi akumulacije kapitala koja će u budućnosti omogućiti veću potrošnju ili dalju akumulaciju kapitala. Klasičarska teorija kapitala po kojoj je kapital produkt uzdržavanja kapitalista od potrošnje.
+
+Asimetrična informacija - različit nivo informacija dostupnih različitim ljudima u ekonomskm odnosu ili razmeni. Situacija u kojoj jedan učesnik transakcije ima više informacija od drugoga o kvalitetu proizvoda, ili usluge koja je predmet kupoprodaje.
+
+Aukcija - mesto na kome profesionalni kupci po posebnim pravilima kupuju i prodaju robe, ili hartije od vrednosti.
+
+Autokorelacija - problem koji se javlja u regresionoj analizi sa vremenskim serijama, kada slučajna greška ima isti znak, ili menja znak često; to rezultira u preuveličanim vrednostima t testa i nepouzdanom R2 i F testu.
+
+Automatska stabilizacija - karakteristika ekonomije u kojoj poreski prihodi zavise od nivoa dohotka; ekonomija se stabilizuje smanjenjem poreza kada opada dohodak.
+
+Automatski stabilizator - automatske promene poreza i trošenja koja se javljaju tokom poslovnog ciklusa kojima se teži da se fluktuacije realnog GDP-a stabilizuju; npr. promene poreza i vladinih jednostranih plaćanja koje se javljaju kada se nivo dohotka menja. Oni pomažu stabilizaciji privrede.
+
+Autonomna veličina - nezavisna od nivoa dohotka, npr. autonomna potrošnja.
+
+Autonomni izdaci - izdaci koji su određeni faktorima različitim od tekućeg dohotka.
+
+Autsajder - osoba koja ne radi u određenoj firmi; to otežava dobijanje posla u toj firmi, mada bi on prihvatio i nižu nadnicu.
+
+Averch-Johnson (A-J) efekat - preveliko ili nedovoljno investiranje u preduzeća, ili opremu kada je javna (opšta) korisnost određena previsoko ili prenisko.
+
+Bandwagon efekat - situacija kada pojedinci kupuju neko dobro zato što ga kupuju drugi pojedinci.
+
+Bankarske rezerve - ukupne bankarske rezerve minus pozajmice banaka od centralne banke.
+
+Barijere ulasku - sve ono što onemogućava ulazak preduzeća na tržište.
+
+Barometarska firma - oligopolistička firma koja kao barometar svojim ponašanjem predskazuje promene cena i troškova u nekoj industrijskoj grani.
+
+Barometarsko predviđanje - metod predviđanja poslovnih ciklusa pomoću vodećih ekonomskih indikatora.
+
+Barter - trgovina robama i uslugama bez korišćenja novca.
+
+Benchmarking - utvrđivanje kako druga firma radi neke stvari bolje (jeftinije) i njihovo kopiranje u cilju poboljšanja poslovnog rezultata.
+
+Beta koeficijent - racio varijabiliteta prinosa redovnih akcija u odnosu na varijabilitet prosečnog prinosa na sve akcije.
+
+Bilans tekućih transakcija - razlika vrednosti izvoza i vrednosti uvoza kojoj sa dodaje neto faktor dohotka iz inostranstva i neto transferi iz inostranstva.
+
+Bilateralni monopol - situacija u kojoj postoje jedan kupac i jedan prodavac na tržištu.
+
+Bilateralni trgovinski bilans - vrednost uvoza manje vrednost izvoza između dve zemlje.
+ 
+
+Bretonvudski sistem - međunarodni monetarni sistem formiran nakon Drugog svetskog rata; bazira se na fiksnim kamatnim stopama, mada su ponekad dozvoljena usklađivanja kamata.
+
+Bruto domaći proizvod (engl. GDP) - mera svih tekućih proizvedenih finalnih dobara i usluga u privredi tokom određenog perioda vremena.
+
+Bruto investicije - ukupna suma investicija, uključujući i one koje služ za zamenu otpisanog kapitala.
+
+Bruto nacionalni proizvod (GNP) - mera agregatnog nacionalnog proizvoda. Postoje dve razlike između dve mere, koje se obe tiču stranih transakcija. GNP uključuje strane zarade domaćih korporacija i državljana koji rade u inostranstvu; GDP ne uključuje ove stavke. Obrnuto, GDP uključuje zarade koje potiču iz tekuće proizvodnje u zemlji koji pripada stranim državljanima i stranim firmama, dok GNP isključuje ove stavke.
+
+Brzina opticaja novca - koliko puta se novac obrne u ekonomiji: jednaka je nominalnom društvenom proizvodu podeljenom sa novčanom masom. Brzina opticaja novca je racio nominalnog dohotka (PQ) i novčane mase (M); predstavlja prosečan broj puta koji se novčani stok koristi za plaćanje u toku godine. Inverzno od brzine opticaja novca (M/PQ) je relativni odnos novčane mase prema nominalnom dohotku.
+
+Budžetska linija - maksimalne kombinacije dva dobra koje potrošač može kupiti, uzimajući u obzir budžetsko ograničenje i tržišne cene dva dobra. Budžetska linija je kriva pozitivnog nagiba, međuzavisnost budžetskog suficita na y osi i racia proizvodnje na x osi. Pozitivan nagib se javlja zato što viši racio proizvodnje povećava poreske prihode i stoga budžetski suficit.
+
+Budžetski ciklus - vreme u kome se federalni budžet predlaže, modifikuje, propisuje i primenjuje.
+
+Budžetski deficit - suma za koju su državni izdaci iznad poreskih prihoda. Budžetski deficit je višak državne potrošnje nad državnim rashodima.
+
+Budžetski limit - maksimalna potrošnja države za određenu budžetsku stavku, npr. za odbranu, koja je dozvoljena zakonom.
+
+Budžetski suficit - suma za koju poreski prihodi nadmašuju trošenja.
+ 
+
+Budžetsko ograničenje - dohodna ograničenost ličnih izdataka na dobra i usluge.
+
+Buduća očekivanja - metod formiranja očekivanja čiji je cilj da predvidi buduće ponašanje neke ekonomske varijable koristeći ekonomski model koji objašnjava vezu između te i nekih drugih varijabli.
+
+Buduće tržište - tržište koje se posluje robama koje će biti isporučene u budućnosti.
+
+Budući ugovor - (engl. Futures) ugovor o kupovini određene valute određenog datuma.
+
+Bum - brzi rast realnog GDPa, obično pred na kraj ekonomske ekspanzije.
+
+CAD tehnika - omogućava istraživačima i inženjerima da dizajniraju nove ili promenjene proizvode ili komponente na kompjuterskom ekranu.
+
+CAM tehnika - omogućava istraživačima i inženjerima da daju instrukcije u mreži integralne mašine ili da proizvode prototipove novih ili izmenjenih proizvoda.
+
+Carina - porez na uvoz.
+
+Carinska unija - područje slaobodne trgovine po opštoj spoljašnjoj tarifi.
+
+Cena marginalnog koštanja - metod koji kojim se određuje da preduzeće odredi cenu koja je jednaka marginalnom trošku.
+
+Cena - odnosi se na određeno dobro i definiše se kao količina novca ili nekog drugog dobra koju pojedinac mora da plati da bi obezbedio dobro.
+
+Cena u senci - marginalno vrednovanje inputa ili autputa za firmu.
+
+Cenovna diskriminacija prvog stepena - prodaja svake jedinice proizvoda odvojeno i određivanje maksimalne moguće cene za svaku pojedinačnu prodaju.
+
+Cenovna elastičnost ponude - procentualna promena ponuđene količine podeljena procentualnom promenom cene.
+ 
+
+Cenovna elastičnost tražnje - procentualna promena količine tražene robe podeljena procentualnom proemnom njene cene, dok su sve druge varijable funkcije tražnje konstantne.
+
+Cenovna elastičnost tražnje u tačci - u određenoj tačci na krivoj tražnje, meri se: (delta Q/delta P) (P/Q).
+
+Cenovni šok - promena cene ključne robe, kao što je ulje, obino izazvane oskudicom, koja izaziva pomeranje krive uravnoteženja cene; takođe se ponekad zove i šok ponude.
+
+Centralizovani kartel - formalni dogovor oligopolista o određivanju monopolskih cena, alokaciji proizvodnje i podeli profita.
+
+Centralna banka - državna institucja koja kontroliše monetarnu politiku većine zemalja.
+
+Ceteris paribus - analiza pretpostavlja da su sve druge stvari jednake; odnosi se na držanje svih drugih promenljiva konstantim dok se jedna promenljiva menja.
+
+Ciklična nezaposlenost - deo nezaposlenih čiji se broj menja tokom poslovnog ciklusa. Nezaposlenost koja je prisutna na vrhu ekspanzije naziva se prirodna stopa nezaposlenosti. Ciklična nezaposlenost je uzrokovana recesijom, kada je stopa nezaposlenosti iznad prirodne stope nezposlenosti. Rezultat je fluktuacija u nivou ekonomske aktivnosti i iz njih proisteklih fluktuacija u tražnji industrije za radnicima.
+
+Ciklične fluktuacije - velike ekspanzije i kontrakcije većine ekonomskih vremenskih serija koje se ponavljaju nakon određenog broja godina.
+
+Ciklični deficit - iznos deficita koji prevazilazi strukturni deficit, koji je definisan kao deficit koji bi postojao da se privreda nalazi na nivou prirodne stope društvenog proizvoda. Ciklični deficit je razlika između stvarnog i strukturnog deficita. To je udeo u budžetskom deficitu koji je rezultat niskog nivoa ekonomske aktivnosti jedne privrede.
+
+Ciljna funkcija - funkcija koja se optimizira u linearnom programiranju.
+ 
+Ciljna inflacija - stopa inflacije koju centralna banka planira za određeni period.
+
+Ciljna zona deviznog kursa - područje u kome kreatori politike pokušavaju da održe vrednost svoje valute. Ciljne zone su zajednički određene od strane razvijenih zemalja.
+
+Cobb-Douglasova proizvodna funkcija - proizvodna funkcija koja ima oblik Q = AKaLb, pri čemu su Q, K i L fizičke jedinice proizvodnje, rada i kapitala; A, a, b parametri koji se empirijski procenjuju.
+
+Cost-benefit analiza - ocenjivanje projekta koje se bazira na troškovima i koristima izvednim iz njih.
+
+Crowding out - pad privatnih investicija usled rasta državnih izdataka.
+
+Čist oligopol - oligopol u kome su proizvodi firmi u privrednoj grani homogeni.
+
+Damping - međunarodna cenovna diskriminacija pri kojoj se proizvod prodaje po nižoj ceni u inostranstvu u odnosu na cenu u zemlji. Nastaje kada strana preduzeća prodaju robe po cenama ispod prosečnog troška ili ispod cene na domaćem tržištu.
+
+Deficit prirodne stope nezaposlenosti - razlika između poreskih prihoda i rashoda države koja bi postojala kada bi ekonomija bila na prirodnoj stopi nezaposlenosti.
+
+Deficiti blizanci - izraz koji se odnosi na situaciju u kojoj se zajedno pojavljuju budžetski i spoljnotrgovinski deficit.
+
+Definiciona jednačina - jednačina u modelu sa više jednačina koja je identitet i istinita po definiciji.
+
+Definisanje tržišta - demarkacija geografskih regiona i kategorija dobara i usluga kojima preduzeća konkurišu.
+
+Deflacija - sniženje opšteg nivoa cena, ili negativna stopa inflacije.
+
+Deflator lične potrošnje - deflator koji se koristi one delove društvenog proizvoda koji otpadaju na ličnu potrošnju.
+ 
+
+Delfi metod - metod predviđanja baziran na ispitivanju  menadžmenta firme i spoljnih eksperata (odvojeno) i suočavanje njihovih stavova u nadi da će postići kosenzus u predviđanju.
+
+Depozitne institucije - finansijski posrednici čija je glavna pasiva u obliku depozita. Ove depozitne institucije uključuju poslovne banke, štedionice i kreditne asocijacije, zajedničke štedne banke i kreditna udruženja.
+
+Depresijacija - povećanje vrednosti strane valute izraženo u domaćoj valuti. Deo kapitala koji se svake godine potroši: smanjenje vrednosti aktive tokom vremena; za kapital, to je iznos za koji se kapital fizički istroši u datom vremenskom periodu.
+
+Deregulaciona kretanja - počela su krajem 70ih, smanjenjem državne regulacije kontrolom cena i ulaskom u mnoge privredne grane.
+
+Devizni kurs - cena jedinice strane valute izražena u jedinicama nacionalne valute. Vrednost valute jedne zemlje izražena u stranoj valuti.
+
+Devizno tržište - tržište na kojem se vrši kupovina i prodaja nacionalnih va- luta.
+
+Dezekonomija obima - opadajući prinosi su sitacija u kojoj u dugom roku raste prosečni ukupni trošak sa rastom proizvoda preduzeća.
+
+Dezinflacija - smanjenje stope inflacije.
+
+Dezintermedijacija - preusmeravanje sredstava iz bankarske štednje, kada se povećava kamatna stopa na državne hartije od vrednosti, ili neke druge obveznice, zbog regulacije koja je sprečavala banke da povećavaju kamatnu stopu da ne bi konkurisale državnim obveznicama.
+
+Diferencijalna kamatna stopa - prosečna kamatna stopa u minus prosečna strana kamatna stopa.
+
+Diferencirani oligopol - oligopol u kojem firme prodaju diferencirane proizvode.
+
+Diferencirani proizvodi - proizvodi koji su slični, ali nisu identični i koji zadovoljavaju istu osnovnu potrebu.
+ 
+
+Diferenciranje proizvoda - napor firme da proizvede proizvod koji će se razlikovati od istog tipa proizvoda konkurenata.
+
+Difuzija - širenje inovacije kroz ekonomiju.
+
+Difuzioni indeks - indeks koji meri procentualnu promenu 12 vodećih indikatora.
+
+Dinamička komparativna prednost - promene komparativne prednosti tokom vremena koje potiču od investicija u fizički, ljudski kapital I tehnologiju.
+
+Dinamični multiplikator - iznos za koji se povećava proizvodnja tokom određenog vremenskog perioda kao rezultat povećanja potrošnje za jedan dolar.
+
+Diskontna stopa - kamatna stopa koja se koristi za diskontovanje budućih plaćanja kada se računa sadašnja diskontovana vrednost.
+
+Diskontna stopa za usklađivanje rizika - viša diskontna stopa koja se koristi za kalkulisanje sadašnje vrednosti neto-cash flowa ili povraćaja od investicionog projekta da bi se kompenzovao rizik.
+
+Diskontovanje - proces pretvaranja budućeg plaćanja u sadašnju vrednost.
+
+Diskreciona distribucija verovatnoće - stepeni dijagram sa stubićima koji pokazuje verovatnoću svakog mogućeg ishoda neke odluke, ili strategije.
+
+Diskreciona fiskalna politika - politika koja menja poreze i državnu potrošnju kao pokušaj da se utiče na nivo proizvodnje i nezaposlenost. Diskreciona fiskalna politika obuhvata promene u politici poreza ili trošenja koju zakonom ili administrativnim akcijama zahtevaju državni organi .
+
+Diskreciona politika - svaku makroekonomsku situaciju razmatra kao jedinstvenu i nikad ne reaguje na isti način na različite, ili iste situacije.
+
+Diskriminacija cena - određivanje različitih cena za različite količine proizvoda, u različito vreme, za različite grupe kupaca, ili na različitim tržištima, kada ove razlike u ceni nisu opravdane razlikama u troškovima.
+ 
+Diskriminacija cena trećeg stepena - formiranje različitih cena za isti proizvod na različitim tržištima sve dok je marginalni prihod poslednje jediniceproizvoda prodate na svakom tržištu jednaka marginalnom trošku proizvoda.
+
+Distribucija verovatnoće - lista mogućih rešenja odluke ili strategije i verovatnoća sa kojom se svako od njih dešava.
+
+Dividenda - prinos ostvaren od vlasništva nad nekom hartijom od vrednosti.
+
+Dividendni prinos - dividenda određena kao procenat cene akcije.
+
+Dobici od trgovine - poboljšanja dohotka, proizvodnje ili satisfakcije koja se duguju razmeni dobara i usluga.
+
+Dobitak - rezultat ili konsekvenca svake kombinacije strategija igrača u teoriji igara.
+
+Dodatna rezerva - iznos rezerve koji banka drži iznad obavezne rezerve.
+
+Dodatna vrednost - vrednost proizvodnje firme minus vrednost intermedijarnih proizvoda. Dodatna vrednost je vrednost rada i kapitala koji se ulaže u određenoj fazi procesa proizvodnje. U trgovini uključuje plate radnika i kapitalni dohodak (kamata, profit i amortizacija) vlasnika trgovinskih firmi, ali ne uključuje troškove prodatih proizvoda.
+
+Dohodak faktora - zarade proizvodnog faktora koje uključuju nadnice i profite.
+
+Dohodna elastičnost tražnje - procentualna promena tražnje za nekim proizvodom podeljena sa procentualnom promenom dohotka potrošača, dok su sve ostale varijable nepromenjene.
+
+Dohodna elastičnost tražnje u tačci - dohodna elastičnost tražnje na određenom nivou dohotka, meri se: (delta Q/delta I) (I/Q).
+
+Dohodna nejednakost - disparitet u nivoima dohotka između pojedinaca u privredi.
+ 
+Dohodni efekat - povećanje tražnje za nekim proizvodom koje nastaje kao rezultat povećanja realnog dohotka. Iznos za koji će se smanjiti tražena količina usled pada realnog dohotka izazvanog rastom cena.
+
+Dominantna strategija - najbolja, ili optimalna strategija za igrača bez obzira na strategije ostalih igrača.
+
+Državna nabavka - proces u kome vlade kupuju robe i usluge. To su kupovine novih roba i usluga od strane federalne, državnih i lokalnih vlada.
+
+Državno budžetsko organičenje - povezuje državnu potrošnju sa tri izvora finansiranja potrošnje: poreski prihodi, emisija obveznica i štampanje novca.
+
+Drugi izvod - Izvod izvoda; utvrđuje se istim pravilima diferenciranja, koja se koriste za utvrđivanje prvog izvoda.
+
+Drvo odlučivanja - grafička tehnika koja se koristi za prikazivanje i analiziranje mogućih menadžerskih odluka i njihovih očekivanih rezultata pod uticajem specifičnih okolnosti.
+
+Dualna skala - grafik na kome je vreme na horizontalnoj osi, dok su različiti obimi na levim i desnim vertikalnim osama radi poređenja kretanja dve promenljive tokom vremena.
+
+Dualna terorema - teorema po kojoj je optimalna vrednost primarne ciljne funkcije jednaka optimalnoj vrednosti dualne funkcije.
+
+Dualni problem - inverzno rešenje primarnog linearnog modela programiranja.
+
+Dugi rok - minimalni period vremena tokom koga se svi inputi koji generišu fiksne troškove mogu da usklađuju. To je vremenski period u kome su svi inputi varijabilni.
+
+Dugoročna ravnoteža - situacija u kojoj je agregatna tražnja jednaka agregatnoj ponudi i očekivanja pojedinaca su realna. Dugoročna ravnoteža je situacija u kojoj je ulazak i izlazak iz industrije potpun i ekonomski profiti su nula sa cenom jednakom prosečnom ukupnom trošku.
+ 
+Dugoročni prosečni trošak (engl. LAC) - minimalni trošak po jedinici proizvodnje na bilo kom nivou proizvodnje, kada firma može da utvrdi bilo koji željeni obim kapaciteta; LAC=LTC/Q.
+
+Dugoročni ugovor o radu - dogovor između firme i radnika koji utvrđuje nominalnu nadnicu za jednu, ili više godina. To je dogovor, eksplicitan ili implicitan, između poslodavaca i radnika koji određuje uslove radnog odnosa u dugom vremenskom periodu.
+
+Dugoročni ukupni trošak (engl. LTC) - minimalni ukupni troškovi proizvodnje različitih nivoa autputa kada firma može da utvrdi bilo koji željeni obim kapaciteta.
+
+Duopol - oligopol u kojem postoje samo dve firme.
+
+Durbin-Watsonova statistika - statistika koja se koristi da bi se utvrdilo da li postoji autokorelacija.
+
+Dvodelna tarifa - praksa određivanja cene u kojoj potrošači plaćaju inicijalni račun za pravo da kupe proizvod ili uslugu, kao i deo računa za svaku jedinicu proizvoda koga kupuju.
+
+Efekat istiskivanja - smanjenje jedne komponente potrošnje kao posledica povećanja druge komponente potrošnje: kada državna potrošnja raste, raste i kamatna stopa, što vodi smanjenju investicija.
+
+Efekat očekivanja - pad u tražnji tokom deflacije zbog očekivanja da će doći do daljeg pada cena koji će voditi odlaganju potrošnje da bi se kupilo u budućnosti po nižoj ceni.
+
+Efektivna poreska stopa - odnos poreza poreskog obveznika i njegovog ukupnog dohotka.
+
+Efikasna nadnica - nadnica viša od one koja bi izjednačila ponuđenu i traženu količinu određena od strane poslodavaca da bi povećala efikasnost radnika, na primer, smanjenjem izbegavanja od strane radnika.
+
+Egzogene varijable - varijable čija je vrednost određena nezavisno u modelu (moraju se odrediti da bi model uošte mogao da se reši) sa više jednačina.
+ 
+Ekonometrija - empirijsko procenjivanje i testiranje ekonomskih relacija i modela.
+
+Ekonometrijski model - grupa jednačina koja pokazuje neke relacije koje postoje u ekonomiji čiji parametri se određuju na bazi statističkih ispitivanja posmatranih veličina u prošlosti. Sve jednačine mogu biti posebno izračunate pokazujući nivo inflacije, nezaposlenosti i drugih veličina pri alternativnim ekonomskim politikama.
+
+Ekonomija obima - sniženje troškova koje nastaje kao rezultat, na primer, zajedničke proizvodnje dva ili više proizvoda umesto da oni budu nezavisno proizvedeni.
+
+Ekonomija obima - rastući prinosi je situacija u kojoj se prosečni ukupni trošak smanjuje u dugom roku sa rastom prozvodnje preduzeća. Primer: dvostruko uvećanje ulaganja izaziva više nego dvostruko uvećanje proizvoda.
+
+Ekonomija ponude - škola ekonomske misli koja pretpostavlja da do porasta realnog društvenog proizvoda dolazi kada se smanje marginalne poreske stope. To rezultira u povećanju radne inicijative, povećanju štednje i radnih napora. Uticaj ekonomije ponude je bio važan kada je R. Regan predložio kongresu smanjivanje poreskih stopa 1981, koji je rezultirao u guranju deficita iz ravnoteže u veliki deficit.
+
+Ekonomija rastućih prinosa - slučaj kada se obim proizvodnje povećava u većem procentu u odnosu na inpute.
+
+Ekonomska interakcija - obuhvata razmenu dobara i usluga između ljudi.
+
+Ekonomska promenljiva - bilo koja ekonomska mera koja može da uzima različite vrednosti.
+
+Ekonomska regulacija - državna regulacija kojom se određuju cene ili uslovi ulaska preduzeća uprivrednu granu.
+
+Ekonomska renta - cena nečega što ima fiksnu ponudu.
+
+Ekonomska tablica - fiziokratska koncepcija kruženja dobara i usluga u privredi između tri klase - prva koncepcija opšte makroekonomske ravnoteže, koja ukazuje na međuzavisnost aktera kroz kupovine i prodaje.
+ 
+Ekonomska teorija regulacije - teorija po kojoj regulacija rezultira iz pritiska raznih grupa (lobija) da se podrži neki vid biznisa, zaštite potrošači, radnici i okruženje.
+
+Ekonomske fluktuacije - promene realnog GDP-a koje vode devijacijama ekonomije u svom dugoročnom trendu rasta.
+
+Ekonomski model - objašnjenje kako ekonomija ili deo ekonomije funkcioniše.
+
+Ekonomski profit - prihod firme minus ekonomski troškovi. Obuhvataju razliku između ukupnih prihoda i ukupnih troškova, gde ukupni troškovi uključuju oportunitetne troškove bez obzira da li su implicitni ili eksplicitni.
+
+Ekonomski rast - ispitivanje uzroka i posledica stalnog rasta društvenog proizvoda. Različite stope ekonomskog rasta tokom dugog perioda mogu promeniti redosled nacija u tabeli nivoa životnog standarda.
+
+Ekonomski razvoj - proces razvoja kojim zemlje povećavaju svoje dohotke per capita i postaju industrijalizovane; odnosi se i na ekonomsku disciplinu koja proučava ovaj proces.
+
+Ekonomski troškovi - alternativni ili oportunitetni troškovi.
+
+Ekskluzivne teritorije - čini region na kome proizvođač ograničava distibuciju ili prodaju svojih proizvoda na jednog prodavca na veliko ili malo.
+
+Ekskluzivno poslovanje - uslov u ugovoru kojim proizvođač ne dozvoljava prodavcu na veliko da prodaje robu konkurentnom proizvođaču.
+
+Ekspanzija - period između dolje recesije i narednog vrha, koju čini opšti rast proizvoda i zaposlenosti. Period u ekonomskom ciklusu u kome se privreda kreće od minimalnog stepena aktivnosti ka maksimalnom.
+
+Ekspanziona putanja - geometrijsko mesto tačaka tangenti izotroškovne linije i izokvante koja pokazuje optimalnu kombinaciju inputa.
+
+Eksperimentalna ekonomija - grana ekonomije koja koristi labaratorijski eksperiment za analizu ekonomskog ponašanja.
+ 
+Eksplicitni troškovi - aktuelni troškovi firme u slučaju kupovine ili otkazivanja kupovine nekog inputa.
+
+Eksplicitno tajno sporazumevanje - otvorena kooperacija preduzeća radi zajednički korisnih odluka o cenama i proizvodnji.
+
+Eksterna dizekonomija obima - situacija u kojoj rast industrije izaziva pad prosečnog ukupnog troška pojedinačnog preduzeća zbog nekih eksternih faktora; to odgovara opadajućoj dugoročnoj krivi industrijske ponude.
+
+Eksterna dizekonomija potrošnje - troškovi prevaljeni na neke pojedince koji nastaju kao rezultat potrošnje nekih drugih pojedinaca bez ikakve kompenzacije.
+
+Eksterna dizekonomija proizvodnje - troškovi prevaljeni na neku firmu kao rezultat ekspanzije proizvodnje neke druge firme bez ikakve kompenzacije.
+
+Eksterna ekonomija potrošnje - beneficije koje uživaju neki pojedinci kao rezultat potrošnje nekih drugih pojedinaca bez davanja kompenzacije.
+
+Eksterna ekonomija proizvodnje - beneficije koje uživaju neke firme kao rezultat ekspanzije proizvodnje drugih firmi bez plaćanja kompenzacija.
+
+Eksternalije - negativni ili pozitivni efekti po pojedince ili firme kao rezultat proizvodnje ili konzumiranja nekog proizvoda od strane neke druge firme ili nekog drugog pojedinca. Situacija u kojoj se troškovi proizvodnje ili koristi potrošnje dobra prevaljuju na druge koji ne proizvode niti troše to dobro.
+
+Elastična tražnja - tražnja u kojoj je cenovna elastičnost veća od jedan.
+
+Elastičnost autputa - procentualna promena autputa ili ukupnog proizvoda podeljena procentualnom promenom korišćenog varijabilnog inputa.
+
+Elastičnost - meri procentualnu promenu jedne promenljive za jedan procenat promene druge promenljive; npr., elastičnost tražnje novca u odnosu na kamatnu stopu.
+
+Emisioni porez - obračunava se preduzećima koja zagađuju okolinu i bazira se na količini zagađenja koje emituju.
+ 
+Endogene varijable - varijable čija vrednost je određena rešavanjem modela sa više jednačina.
+
+Evropski monetarni sistem - sistem kamatnih stopa po kome su evropske valute fiksno međusobno povezane i fleksibilne u odnosu na američki dolar, japanski jen i druge valute.
+
+Faktori proizvodnje - rad, kapital i drugi inputi u proizvodnju dobara i usluga.
+
+Faktorski inputi - ekonomski elementi koji učestvju u stvaranju društvenog proizvoda, prvenstveno rad i kapital. Drugi faktori su: istraživanje i razvoj, obrazovanje i specijalna obuka kadrova. Veza između proizvodnje i faktorskih inputa data je proizvodnom funkcijom.
+
+Faza izlaska - postepano smanjenje državne regulacije ili trgovinskih barijera.
+
+Federalni dug - ukupna suma postojećih zajmova koje duguje federalna vlada.
+
+Fenomen J krive - tendencija da zemlja u kratkom roku poveća uvoz više nego izvoz u slučaju devalvacije, a tek kasnije dolazi do smanjenja spoljnotrgovinskog deficita.
+
+Fer igra - igra ili opklada u kojoj postoji 50% šansi da se dobije ili izgubi.
+
+Fiksne poslovne investicije - investicije preduzeća u fizički kapital kao što su fabrike i oprema.
+
+Fiksni devizni kurs - sistem u kome je devizni kurs fiksiran za duži vremenski period.
+
+Fiksni inputi - inputi koji ne mogu biti promenjeni odmah već tokom određenog vremenskog perioda.
+
+Fiksni porez - poreski sistem u kome postoji konstantna poreska stopa za sve nivoe dohotka koji se oporezuje.
+
+Fiksni troškovi - troškovi proizvodnje koji ne zavise od proizvedene količine.
+ 
+
+Filipsova kriva - inverzna zavisnost inflacije i nezaposlenosti, utvrđena na osnovu podataka krajem XIX-og i početka XX v. sa britansku privredu.
+
+Finalni proizvodi - svi proizvodi i usluge proizvedeni i prodati preko tržišta u određenom vremenskom periodu, bez onih koji su preprodavani. Isto što i društveni proizvod.
+
+Finalno dobro - novo dobro koje ne podleže daljem procesu pre nego što se proda potrošaču.
+
+Finansijska deregulacija - politika s kraja sedamdesetih koja dozvoljava finansijskim institucijama da svojim klijentima ponude mnoge finansijske inovacije.
+
+Finansijski kapital - fondovi koji se koriste za kupovinu zakup ili izgradnju fizičkog kapitala.
+
+Finansijski posrednici - institucije koje primaju novčana sredstva od štediša i daju zajmove konačnim korisnicima. To može biti firma koja kanališe fondove onih koji štede ka investitorima uzimajući depozite i dajući zajmove.
+
+Finansijsko posredovanje - davanje zajmova i prikupljanje sredstava od
+štediša, najčešće preko depozita.
+
+Finansijsko tržište - organizovano tržište gde se kupuju i prodaju hartije od vrednosti i sekjuritizacije.
+
+Firma - organizacija koja kombinuje i organizuje resurse u cilju proizvodnje i prodaje proizvoda i/ili usluga.
+
+Fiskalna politika - državna politika koja teži da postigne određene ciljeve koristeći državne prihode i rashode. Fiskalna politika obuhvata vladine planove za trošenje, poreze i zaduživanje.
+
+Fiskalna stabilizaciona politika - korišćenje državnog trošenja i poreskih politika radi delovanja na nivo ekonomske aktivnosti.
+
+Fleksibilni akcelerator - teorija po kojoj se na racio kapital/očekivana proizvodnja može uticati preko troškova kapitala.
+ 
+Fleksibilni devizni kurs - sistem u kome se devizni kurs može svaki dan menjati.
+
+Formula za računanje rasta - stopa rasta realnog GDP-a za radni čas jednaka je proizvodu udela kapitala u dohotku i stope rasta kapitala po času rada uvećano za stopu rasta tehnologije.
+
+Frikciona nezaposlenost - kratkoročna nezaposlenost koja potiče od normalnih promena na tržištu. To je nezaposlenost u periodu koji radnici provedu prelazeći sa posla na posao ili kada traže posao. Frikciona nezaposlenost pojavljuje se tokom traženja posla pojedinaca koji su dali otkaz na prethodnom poslu i dolaze na tržište rada.
+
+Funkcija nagodbe rizika i povraćaja - kriva koja pokazuje različite kombinacije rizika i povraćaja između kojih je menadžer ili investitor indiferentan.
+
+Funkcija produktivnosti - veza između proizvodnje u toku jednog sata i uoženog rada i kapitala. Pokazuje nivo proizvodnje koji može biti ostvaren sa datom količinom faktorskih inputa.
+
+Funkcija tržišne tražnje - odnos koji identifikuje determinante ukupne ili agregatne tražnje za proizvodom.
+
+Funkcija tražnje za proizvodima firme - relacija koja identifikuje determinante tražnje za proizvodima firme. Uključuje: cenu proizvoda, broj potrožača, dohodak potrošača, cenu supstituta i komplementarnih proizvoda, ukuse i druge značajne faktore za firmu.
+
+Funkcionalne oblasti studija poslovne adiministracije - ekonomske disci- pline u koje spadaju računovodstvo, finansije, marketing, upravljanje kadrovima i proizvodnja.
+
+GDP deflator - nominalni GDP podeljen realnim GDP-om; meri nivo cena dobara i usluga uključujući i realni GDP relativno u odnosu na baznu godinu.
+
+Gifenovo dobro - inferiorno dobro kod kojeg je pozitivni substitucioni efekat manji nego negativni dohodni efekat tako da se smanjuje kupovina proizvoda kada opada njegova cena.
+ 
+Gini koeficijent - indeks nejednakosti dohotka koji se kreće između nule (za perfektnu jednakost) i jedinice (za apsolutnu nejednakost); definiše se kao odnos površine između Lorencove krive i krve perfektne jednakosti i površine između linija perfektne jednakosti i perfektne nejednakosti.
+
+Glasački paradoks - situacija kada agregatni glasovi ne odražavaju preferencije građana zato što su izloženi mnoštvu različitih uticaja.
+
+GNP deflator - razlika između realnog i nominalnog društvenog proizvoda.
+
+GNP - tržišna vrednost proizvedenih i u određenom vremenskom periodu prodatih proizvoda, izuzev preprodatih.
+
+Grabežljivo određivanje cena - aktivnost preduzeća kojom se cene određuju ispod prelomne tačke, da bi se konkurencija istisla sa tržišta. To je prodavanje ispod nivoa prosečnog varijabilnog troška da bi se istisnula konkurencija sa tržišta ili obeshrabrili novi koji žele da uđu na tržište.
+
+Gradualizam - pristup dezinflaciji koji uvodi postepene korake u obaranju inflacije.
+
+Grafik vremenske serije - grafik koji prikazuje neku varijablu tokom određenog vremenskog perioda, vreme se obično predstavlja na X osi.
+
+Granična sklonost štednji - promena štednje koja je prouzrokovana promenom dohotka za 1 dolar.
+
+Granična sklonost potrošnji - promena potrošnje do koje je došlo zato što je dohodak pojedinca povećan za jedan dolar.
+
+Grešamov zakon - loš novac, niske vrednosti, izbacuje iz opticaja dobar novac.
+
+Greške u koordinaciji - situacije u koima pošto su njihove akcije nezavisne, ljudi propuštaju da rade na način koji je zajednički koristan.
+
+Gvozdeni zakon plata - predviđanje da će nadnice uvek težiti izjednačenju na egzistencijalnom nivou.
+ 
+Hazard - na tržištu osiguranja situacija u kojoj pojedinac kupuje osiguranje protiv nekog rizika i kasnije preuzima aktivnosti kojima povećava taj rizik; analogne su situacije kada postoje asimetrične iformacije na drugim tržištima.
+
+Hedžing - pokrivanje valutnog rizika.
+
+Herfindal-Hiršmanov indeks (HHI) - indeks koji uzima vrednosti između 0 i 10,000 ukazujući na koncentraciju u industriji; računa se sumiranjem kvadrata tržišnih učešća svake firme u industriji. Mera koncentracije industrije dobijena kao zbir kvadrata tržišnog učešća svih učesnika.
+
+Heteroskedastičnost - problem koji se javlja u regresionoj analizi unakrsnih podataka, kada greška nije konstantna; rezultira u netačnoj standardnoj grešci i netačnim statističkim testovima.
+
+Hiperinflacija - ekstremno visoka inflacija koja dostiže 100%, ili više mesečno. U najtežoj hiperinflaciji rast cena dostiže i nekoliko hiljada procenata mesečno.
+
+Hipoteza životnog ciklusa - teorija po kojoj ljudi pokušavaju da izjednače svoju potrošnju tokom životnog veka. Ova hipoteza smatra da mladi i penzioneri troše više nego što zarađuju, a da sredovečni štede da bi sebi obezbedili odgovarajuću potrošnju u starosti. Pokazuje da odluke o štednji i potrošnji domaćinstava odslikavaju plan za optimalnu putanju potrošnje tokom života, pod pretpostavkom ograničenosti njihovih resursa.
+
+Hipoteza o akceleratoru - nivo neto investicija zavisi od promena očekivanog obima proizvodnje, jer firme teže da održe fiksnim racio željeni kapital/očekivani obim proizvodnje.
+
+Hipoteza o efikasnom tržištu - tržišta se usklađuju dovoljno brzo i tako se trenutno eliminišu profitne prednosti.
+
+Hipoteza permanentnog dohotka - teorija po kojoj potrošnja zavisi od dugoročnog prosečnog dohotka koji pojedinci očekuju da prime; npr., ako dohodak pojedinaca pada, ili raste tokom poslovnog ciklusa, tada će njegov tekući dohodak biti ispod, ili iznad permanentnog dohotka tokom recesije i ekspanzije. Štednja pojedinaca će rasti i opadati sa kretanjem tekućeg dohotka.
+ 
+Hipoteza prirodne stope - pomeranje agregatne tražnje nema dugoročne efekte na realni društveni proizvod.
+
+Histerezis hipoteza - prirodna stopa nezaposlenosti automatski sledi stvarnu stopu nezaposlenosti; ako je tekuća stopa nezaposlenosti smanjena tekućom ekonomskom politikom, prirodna stopa nezaposlenosti će automatski opasti.
+
+Histerezis - svojstvo promenljive da, usled dejstva šoka i udaljena od svoje inicijalne vrednosti, neće pokazati tendenciju se na nju vrati čak i kada je šok prošao. Stalno prisutna visoka stopa nezaposlenosti u mnogim evropskim zemljama dovela je mnoge ekonomiste da tvrde da se u stanju nezaposlenosti ispoljava histerezis.
+
+Horizont planiranja - vremenski period dugog roka u kome firma može da izgradi bilo koji željeni obim kapaciteta.
+
+Horizontalni merdžer - kombinacija dve firme koje prodaju isti ili slični tip proizvoda.
+
+I faza proizvodnje - oblast rastućeg prosečnog proizvoda varijabilnog inputa.
+
+Identifikacioni problem - problem izvođenja krive tražnje iz posmatrane relacije cena - količina što rezultira u preseku različitih i neuočenih krivih tražnje i ponude.
+
+Igrači - donosioci odluka u teoriji igara (ovde oligopolističke firme ili njihovi menadžeri) čije ponašanje pokušavamo da objasnimo i predvidimo.
+
+II	faza proizvodnje - oblast od maksimuma prosečnog proizvoda varijabilnog inputa do tačke u kojoj je marginalni proizvod inputa nula.
+
+III	faza proizvodnje - oblast negativnog marginalnog proizvoda varijabilnog inputa.
+
+Implicitna zakupna cena - obuhvata kamatna plaćanja na pozajmljena sredstva radi kupovine kapitala plus depresijacija kapitala za dati period vremena.
+ 
+Implicitni BNP deflator - indeks cena dobara i usluga koji su uključeni u BNP. Predstavlja racio nominalni društveni proizvod/realni društveni proizvod.
+
+Implicitni troškovi - vrednost (u slučaju najbolje alternative) inputa koje koristi firma.
+
+Implicitni ugovor - neformalni dogovor između firme i njenih klijenata ili između firme i zaposlenih.
+
+Impotentnost deflacije - nemogućnost realnog društvenog proizvoda da reaguje na povećanje novčane mase prouzrokovano padom cena.
+
+Imputacija - marginalistička tehnika pripisivanja - vrednovanja faktora proizvodnje (Mengerova dobra višeg reda) na osnovu njihovog doprinosa vrednosti proizvoda.
+
+Inženjerska tehnika - metod procenjivanja dugoročnih prosečnih troškova firme pomoću određivanja optimalne kombinacije inputa korišćenih da se proizvedu različiti nivoi proizvodnje uz korišćenje postojeće tehnologije i postojećih cena inputa.
+
+Indeks cena - dobija se kada se podeli prosečni nivo cena u posmatranoj godini sa nivoom cena istih proizvoda u baznoj godini; npr., indeks potrošačkih cena je odnos prosečnog nivoa potrošačkih cena u posmatranom mesecu podeljen sa nivoom istih cena u baznom mesecu.
+
+Indeks potrošačkih cena - indeks cena koji je jednak trenutnoj ceni potrošačke korpe potrošnih dobara i usluga bazirane na jednoj godini. Indeks potrošačkih cena meri maloprodajne cene fiksne korpe (nekoliko hiljada) dobara i usluga koje kupuju domaćinstva.
+
+Indeks profitabilnosti (engl. PI) - odnos sadašnje vrednosti neto cash-flowa projekta i inicijalnog troška projekta.
+
+Indeks proizvođačkih cena - meri cene na veliko - oko 3000 stavki.
+
+Indeksirane obveznice - obveznice na koje se plaća fiksna realna kamatna stopa. Njihova nominalna kamatna stopa je jednaka fiksiranoj realnoj kamatnoj stopi uvećanoj za tekuću stopu inflacije.
+ 
+Indikatori kašnjenja - vremenske serije koje prate ili kasne za kretanjima nivoa opšte ekonomske aktivnosti.
+
+Indirektni porezi - porezi na promet i porezi na potrošnju. Indirektni poslovni porezi su porezi kao što su porezi na promet koji se naplaćuju na proizvode kada se prodaju.
+
+Indirektni poslovni porezi - porezi koje plaćaju preduzeća i koji se tretiraju kao troškovi poslovanja. Na primer porez na promet, akcize, vlasnički porez i dr.
+
+Individualna kriva tražnje - grafički prikazana relacija između cene i tražene količine proizvoda od strane pojedinca u određenom vremenskom periodu.
+
+Individualni dohodak - dohodak koji se direktno plaća pojedincima; uključujući dohotke od rada, transferna plaćanja, i deo dohodaka od kapitala koji se isplaćuju pojedincima.
+
+Indukovana štednja - deo štednje koji se javlja kao reakcija na promenu dohotka.
+
+Indukovana potrošnja - deo potrošnje koji se javlja kao reakcija na promenu dohotka.
+
+Industrijalizovana zemlja - zemlja sa velikom industrijskom bazom koja je relativno bogata po svetskim standardima kroz realni GDP per capita.
+
+Industrijska politika - obuhvata vladine politike kao kreiranje subvencija i poreza radi ohrabrenja proizvodnje u određenoj industriji.
+
+Industrijski sindikat - sindikat organizovan u datoj industriji, čiji su članovi različitih zanimanja.
+
+Inferiorno dobro - dobro za kojim se tražnja smanjuje kada dohodak raste i povećava se kada dohodak pada.
+
+Inflacija - stalno kretanje naviše cena najvećeg broja proizvoda.
+ 
+Inflacija ponude - povećanje cena do kog dolazi zbog povećanja troškova poslovanja koji nisu povezani sa akcleracijom nominalnog društvenog proizvoda.
+
+Inflacija tražnje - prouzrokovana stalnim pomeranjem udesno agregatne krive tražnje.
+
+Inflatorni porez - prihod koji država dobija od inflacije; isto kao i sinjoraž, posmatran iz perspektive domaćinstava.
+
+Informaciona super magistrala - mogućnost da istraživači, firme i potrošači koriste biblioteke, datoteke, i marketinške informacije kroz nacionalnu kompjutersku mrežu i da imaju na raspoloženju ogromnu količinu informacija.
+
+Injekcija - deo dohotka koji se troši na nepotrošna dobra; npr.: privatne investicije, državna potrošnja i dr.
+
+Inkrementalna analiza - analiza dodatnog (inkrementalnog) prihoda u odnosu na dodatne troškove prilikom donošenja odluka.
+
+Inkrementalni troškovi - ukupno povećanje troškova kao rezulat sprovođenja određene menadžerske odluke.
+
+Inokosna firma - firma u kojoj je jedan pojedinac vlasnik.
+
+Inovacija - primena novih znanja na način kojim se kreiraju novi proizvodi ili se značajno menjaju stari.
+
+Input - resurs upotrebljen u proizvodnji proizvoda ili usluga.
+
+Insajder - osoba koja već radi za preduzeće i ima određeni uticaj na politiku plata i zapošljavanja.
+
+Insajder-autsajder model - objašnjava histerezis u nezaposlenosti. Radnici, tzv. insajderi (članovi sindikata) su jedina grupa koja utiče na pogodbe o realnoj nadnici. Radnici - autsajderi (oni koji traže posao) ne utiču. Recesija izaziva da insajderi postanu autsajderi. Posle recesije, sa manjim brojem insajdera, realna nadnica raste i nezaposlenost ostaje ista.
+ 
+Instrumenti tržišta novca - hartije prodate na finansijskom tržištu koje imaju kratke rokove dospeća obično manje od godinu dana, malu fluktuaciju cene i obično minimalan rizik.
+
+Intermedijarno dobro - dobro koje podleže daljem procesu pre nego što se proda potrošačima.
+
+Intermedijarno targetiranje monetarnog agregata -strategija monetarne politike kojom se ciljaju targeti novčanog rasta, sa konačnim ciljem kontrole nivoa ekonomske aktivnosti.
+
+Interna stopa prinosa projekta - diskontna stopa koja koja izjednačava sadašnju vrednost neto cash-flowa sa inicjalnim troškovima projekta.
+
+Internacionalizacija ekonomskih aktivnosti - korišćenje poslovnih mogućnosti da se proizvodi prodaju u inostranstvu i/ili da se u inostranstvu kupuju komponente i delovi.
+
+Internalije - obuhvataju proces obezbeđivanja podsticaja tako da se eksternalije uračunavaju interno od strane firmi ili potrošača.
+
+Internet - skup hiljada kompjutera, biznisa i miliona ljudi u svetu međusobno povezanih u servisu koji se zove World Wide Web (WWW).
+
+Interval pouzdanosti - interval u okviru kojeg verujemo da se nalazi prava vrednost parametra (obično pri 95% verovatnoći).
+
+Intervencije na deviznom tržištu - kupovine i prodaje strane valute od strane države na deviznim tržištima sa namerom da se utiče na devizni kurs.
+
+Intraindustrijska trgovina - trgovina diferenciranim proizvodima. Invencija - pronalazak novog znanja.
+Investicija - kupovine finalnih roba od strane firmi plus kupovine novo proizvedenih od strane domaćinstava. Investicije su deo BNP namenjen kupovinama od strane sektora preduzeća, čemu se dodaje i stambena izgradnja.
+
+Investicini poreski kredit - smanjenje poreza za firme koje kupuju nova investiciona dobra koji je proporcionalan izdacima za dobra.
+ 
+
+Investiciono-štedni jaz - razlika između nivoa investicija i nivoa štednje u privredi.
+
+Investiranje - dovodi do promena količina zaliha iz dana u dan.
+
+IS kriva - kriva koja pokazuje kombinacije dohotka i kamatne stope za koje je tržište dobara u ravnoteži; svugde duž IS krive tražnja za proizvodima jednaka je njihovoj ponudi.
+
+Ispitivanje potrošača - ispitivanje uzorka potrošača o tome kako bi reagovali na određene promene cene ili drugih determinanti tražnje konkretnog proizvoda.
+
+Istraživački poreski kredit - smanjenje poreskog opterećenja za firme koje vrše istraživačke poslove.
+
+Istraživanje promatranjem (opažanjem) - skupljanje informacija o preferencijama potrošača posmatranje njih u kupovini i korišćenju proizvoda.
+
+Iteracija - kompjuterska simulacija nekog modela sa setom slučajno određenih varijabli.
+
+Izbor - izbor između alternativnih dobara, usluga ili aktivnosti.
+
+Izjednačavanje cena faktora - izjednačavanje cene rada i cena kapitala u zemljama kada su ona uključene u slobodnu trgovinu.
+
+Izlomljena kriva tražnje - model koji pokušava da objasni cenovnu rigidnost ističući krivu tražnje sa prelomom na nivou preovlađujuće cene.
+Izotroškovna linija - pokazuje različite kombinacije dva inputa koja firma može kupiti za dato budžetsko ograničenje.
+
+Izokvanta - kriva koja pokazuje kombinacije dva inputa koje obezbeđuju istu količinu proizvoda.
+
+Izotroškovna linija - kombinacije dva inputa koje rezultiraju istim ukupnim troškovima.
+
+Izvedena tražnja - tražnja firme za inputom, ili faktorom proizvodnje koji je neophodan za proizvodnju proizvoda koji firma prodaje.
+ 
+
+Izvedeni izdaci - izdaci determinisani prvenstveno tekućim dohotkom.
+
+Izvesnost - situacija u kojoj je unapred poznat rezultat odluke; situacija bez rizika.
+
+Izvoz - prodaja dobara i usluga u inostranstvu. To je ukupna vrednost dobara i usluga koje ljudi u jednoj zemlji prodaju ljudima u drugoj zemlji.
+
+Japanski menadžment troškova - sistem proizvodnje u kojem firma startuje sa targetiranim troškovima baziranim na tržišnim cenama pri čemu firma veruje da će potrošači kupovati proizvod i zbog toga nastoji da proizvod proizvede prema targetiranim troškovima.
+
+Javne koristi - prirodni monopoli koji snabdevaju električnom energijom, vodom, gasom, PTT uslugama, i lokalnim transportnim uslugama.
+
+Javni infrastrukturni projekti - investiciona ulaganja u one objekte kojima država želi da poboljša blagostanje društva.
+
+Javni izbor - primena mikroekonomske teorije donošenja odluka na makroekonomsko kreiranje politike.
+
+Javni proizvodi - proizvodi ili usluge koji imaju dve karakteristike: nekonkurentnost i neisključivost.
+
+Jedinična elastičnost - tražnja za koju je elastičnost jednaka jedinici.
+
+Jedinični kapitalni troškovi - troškovi kapitala za preduzeće nastali korišćenjem jedinice kapitala u određenom vremenskom perodu, izraženo kao % od ukupnog kapitala. Na ove troškove utiče kamatna stopa, stopa amortizacije i poreski tretman investicija, amortizacije i profita.
+
+Jednačina razmene - ima oblik MV=PT i predstavlja identitet agregatne tražnje (MV) i agregatne ponude (PT).
+
+Jednačine redukovane forme - pokazuju rešenje modela više jednačina i iskazuju (objašnjavaju) endogene varijable modela sama egzogenim varijablama.
+ 
+Jednostavna regresiona analiza - egresiona analiza sa samo jednom nezavisnom ili eksplinatornom varijablom.
+
+JIT proizvodnja - sistem proizvodnje koji je uvela Tojota u kojem svaki deo i komponenta stižu u trenutku kada su neophodni za proizvodnju.
+
+Kamatna stopa - iznos koji se prima za pozajmljeni dinar za jednu godinu; obično se izražava kao procenat zajma. Kamatna stopa na novčana sredstva je stopa po kojoj banke pozajmljuju jedna drugoj.
+
+Kantijon efekat - objašnjava posledice injekcije novca na strukturu cena (relativne cene), a ne samo nivo cena (apsolutne cene), jer novcem raspolažu pojedinci sa različitim potrebama, što utiče na promenu strukture cena.
+
+Kapital - fabrike, unapređenjem kultivisana zemlja, mašine i druga sredstva, oprema i strukture koje se koriste u proizvodnji dobara i usluga.
+
+Kapitalna dobit - rast na tržištu vrednosti svake imovine iznad cene koja je prvobitno za nju plaćena. Kapitalna dobit se realizuje kada je imovina stvarno prodata.
+
+Kapitalna dobra - kapitalni resursi - fabrike, mašine i oprema koje se koriste za proizvodnju drugih dobara.
+
+Kapitalni gubitak - smanjenje vrednosti tržišne vrednosti bilo koje imovine ispod cene koja je prvobitno plaćena.
+
+Kapitalni prihod - suma profita, zakupnina i kamata.
+
+Kapitalni račun - deo platnog bilansa koji sadrži direktne investicije i trgovinu kratkoročnim i dugoročnim hartijama od vrednosti.
+
+Kapitalno štedna tehnološka promena - tehnološka inovacija kojom se smanjuje količina kapitala potrebna za proizvodnju date količine proizvoda datom količinom radne snage.
+
+Kapitalno budžetiranje - proces planiranja troškova koji polazi od prihoda, ili prinosa tokom određenog broja godina.
+
+Kapitalno intenzivna proizvodnja - ona u kojoj se koristi relativno visoki nivo kapitala po radniku.
+ 
+
+Kartel - grupa proizvođača u istoj industriji koja koordinira odluke o cenama i proizvodnji.
+
+Kartel tržišnog učešća - dogovor između oligopolista da podele tržište.
+
+Kauzalnost - veza uzroka i efekta između promenljivih u kome jedna promenljiva određuje drugu.
+
+Keficijent korelacije - pokazatelj stepena kovarijacije između između dve varijable; pozitivni ili negativni kvadratni koren koeficijenta determinacije u jednostavnoj regresionoj analizi.
+
+Kejnzijanska škola - škola makroekonomske misli koja se bavi razmatranjem tražnje makroekonomskih politika - prvenstveno fiskalnim politikama koje deluju preko multiplikatora - radi smanjenja nezaposlenosti i podsticanja privrednog rasta.
+
+Kejnzijanska revolucija - promene u makroekonomskom mišljenju ograničene velikom depresijom i radom Džona Majnarda Kejnsa koje su vodile većem uvažavanju agregatne tražnje.
+
+Kembridžki pristup - verzija kvantitativne teorije novca koji fokusira tražnju novca (Md = kPy).
+Klauzula životnih troškova - klauzula kojom se vezuje porast plata za porast cena, najčešće indeks potrošačkih cena.
+
+Koeficijent determinacije - odnos objašnjenog prema ukupnom varijabilitetu zavisne varijable u regresionoj analizi.
+
+Koeficijent varijacije - standardna devijacija podeljena sa očekivanom vrednošću.
+
+Koficijent ekvivalentne izvesnosti - racio određene vrednosti koji je jednak očekivanom riziku, ili neto prinosu investiranja koji je korišćen za procenu rizika.
+
+Koincidencija želja - uslov koji je potreban za razmenu u nenovčanom sistemu; da bi se trgovina postigla, neophodno je pronaći osobu koja ima predmet koji druga osoba želi i želi ono što ta osoba ima.
+ 
+
+Koincidirajući indikatori - vremenska serija koja se pomera podudarno sa promenama opšte ekonomske aktivnosti.
+
+Koluzija (tajni dogovor) - formalni ili neformalni dogovor između oligopolista o nivou cena u cilju ograničenja ili eliminisanja konkurencije da bi se maksimizirao profit.
+
+Komitet federalnog otvorenog tržišta - komitet koga čini sedam članova Saveta guvernera i dvanaest predsednika federalnih banaka, koji odlučuje o monetarnoj politici.
+
+Komparativna prednost - teorija koja ističe da se međusobna spoljnotrgovinska razmena bazira na međunarodnim razlikama u raspoloživosti i ceni resursa.
+
+Komparativna prednost - situacija u kojoj pojedinac ili zemlja mogu da proizvedu jedno dobro efikasnije nego drugo dobro u poređenju sa drugim pojedincem ili zemljom.
+
+Komparativna statistika - metoda ekonomske analize koja poredi dva ravnotežna stanja, pri čemu se ignoriše stanje između dve ravnotežne situacije, kao i vreme i put iz neke tranzitorne tačke do finalne ravnoteže.
+
+Kompenzacija - sva plaćanja koja radnik prima uključujući i posebna davanja.
+
+Kompenzativne razlike nadnica - razlike u nadnicama ljudi sličnih veština, koje se baziraju na nekoj karakteristici posla, kao što su rizičnost, neprijatnost, ili smenski rad.
+
+Komplementarno dobro - dobro koje se troši ili koristi zajedno sa nekim drugim dobrom.
+
+Kompozitni indeks - indeks formiran kao ponderisani prosek individulanih indikatora. Najčešće se sastoji od 12 vodećih indikatora, 4 prateća i 6 indikatora kašnjena.
+
+Kompozitni troškovi kapitala - prosečan odnos troškova duga i deoničkog kapitala firme.
+ 
+Konglomerat - firma koja prodaje veoma različite tipove proizvoda; zove se i diversifikovano preduzeće.
+
+Konkurentna industrija - industrija koju karakteriše veliki broj preduzeća koja prodaju isti proizvod kao i slobodan ulazak i izlazak preduzeća.
+
+Konkurentno tržište - tržište na kome nijedno preduzeće nema moći da utiče na tržišnu cenu dobra.
+
+Konkurentski reper - poređenje efikasnosti proizvodnje firme u odnosu na proizvodnju konkurenata.
+
+Konstantna stopa prinosa - slučaj u kome se proizvodnja menja u istoj proporciji sa promenom inputa.
+
+Konstantni prinosi - pokazuju da porast svih inputa za određeni procenat (npr. 100%) izaziva rast proizvoda za isti procenat (100%). Konstantni prinosi su situacija u kojoj je u dugom roku prosečni ukupni trošak konstantan sa promenom proizvodnje. To je situacija u kojoj proizvodnja i kapitalni inputi rastu po istoj stopi, tako da je racio proizvodnje i kapitalnih inputa konstantan.
+
+Kontestabilno tržište - tržište na kome je strah od konkurencije dovoljan da ohrabri preduzeća da se konkurentno ponašaju.
+
+Kontrola cena - vladin zakon ili regulacija kojom se određuje ili limitira cena određenog dobra.
+
+Kooperativni rezultat - ravnoteža u igri u kojoj su igrači slažu da sarađuju.
+
+Koordinaciona anomalija - javlja se kada nema privatne inicijative da se deluje zajednički kako bi se izbegle akcije koje vode društvenim troškovima.
+
+Korisnost - numerički indikator preferencija pojedinaca kod kojih viši nivo korisnosti predstavlja viši nivo preferencija.
+
+Korporacija - firma koju karakteriše ograničena odgovornost vlasnika, kao i odvojenost vlasništva od mendžmenta.
+
+Kousova teorema - stav po kome će privatni pregovori između pojedinaca dovesti do efikasnog rešenja eksternalija u odnosu na ono bazirano na definisanim vlasničkim pravima.
+ 
+
+Kratak rok - vremenski period u kojem se ne mogu promeniti fiksni inputi.
+To je vremenski period kada je najmanje jedan input fiksan.
+
+Kratkoročna Filipsova kriva - kriva koja pokazuje vezu između nezaposlenosti i stope inflacije za datu očekivanu stopu inflacije.
+
+Kratkoročna kriva ponude perfektno konkurentne firme - rastući deo firmine kratkoročne krive marginalnog troška iznad njene krive varijabilnog troška.
+
+Kratkoročna ravnoteža - situacija u kojoj je agregatna tražnja jednaka kratoročnoj agregatnoj ponudi, za data očekivanja (očekivanja ne moraju biti ostvarena u kratkoročnoj ravnoteži, kao što se zahteva u dugoročnoj ravnoteži).
+
+Kredibilitet - poverenje u vladine namere da vodi zacrtanu politiku.
+
+Kretanje po krivi - situacija u kojoj promena promenljive na jednoj osi izaziva promenu promenljive na drugoj osi, ali se položaj krive zadržava.
+
+Kritična vrednost - vrednost uzeta iz tabele rasporeda verovatnoće (na primer t raspored) koja se koristi da se proveri značaj testa.
+
+Kriva agregatna tražnja/inflacija - obrnuta zavisnost između inflacije i agrgetne količine dobara i usluga traženih za te stope inflacije.
+
+Kriva agregatne ponude - makroekonomski analogna krivi agregatne ponude pojedinačnog tržišta, koja pokazuje nivo raspoloživog proizvoda za svaki nivo cena proizvoda. Kriva agregatne tražnje pokazuje ukupan proizvod preduzeća koji će biti ponuđen za svaku vrednost nivoa agregatnih cena.
+
+Kriva agregatne tražnje - meri tražnju za ukupnim proizvodom za svaku vrednost agregatnog nivoa cena.
+
+Kriva agregatnih izdataka - veza između sume četiri makroekonomska izdatka (C+I+G+NX) i agregatnog dohotka.
+
+Kriva cenovnog usklađivanja - fiksna kriva koja pokazuje nivo inflacije u privredi u datoj tački vremena. Pomera se naviše kada je realni GDP iznad
+ 
+potencijalnog GDP-a, naniže kada je realni GDP ispod potencijalnog GDP-a; pomera se i sa promenom inflacije ili cena sirovina.
+
+Kriva dugoročne ponude privredne grane - kriva određena presecima kriva tražnje koje se pomeraju u desno i odgovarajuvih kriva kratkoročne tražnje.
+
+Kriva dugoročnog prosečnog ukupnog troška - kriva koja sledi pravac kriva prosečnog ukupnog troška u kratkom roku, pokazujući niži prosečni ukupni trošak za svaku proizvedenu količinu, sa širenjem firme u dugom roku.
+
+Kriva indiferencije - kriva koja pokazuje kombinacije dva dobra koje potrošaču pružaju istu korisnost.
+
+Kriva izvozne ponude - kriva koja pokazuje količinu izvozne ponude po različitim cenama.
+
+Kriva normalnog rasporeda - kriva oblika zvona koja prikazuje verovatnoću da će neki rezultat biti u određenom nizu rezultata.
+
+Kriva pojedinačne tražnje - kriva koja pokazuje odnos između tražene količine dobra od strane pojedinca i cene dobra.
+
+Kriva ponude - količina proizvoda koje su firme voljne da prodaju po određenoj ceni.
+
+Kriva ponude rada - veza koja pokazuje količinu rada koju su radnici voljni da ponude za određenu nadnicu.
+
+Kriva proizvodnih mogućnosti - pokazuje različite kombinacije proizvoda koji mogu biti proizvedeni sa resursima sa kojima raspolaže jedna ekonomija.
+
+Kriva siromaštva - procena minimalne količine godišnjeg dohotka potrebnog porodici da bi izbegla ekonomske teškoće.
+
+Kriva tržišne tražnje - horizontalno sumiranje svih pojedinačnih kriva tražnje za dobrom; uprošćeno se naziva i kriva tražnje.
+
+Kriva tražnje - grafički prikaz inverzne veze između cene i tražene količine.
+
+Kriva tražnje rada - negativno nagnuta kriva koja pokazuje količinu rada koju su preduzeća spremna da angažuju za različite nadnice.
+ 
+Kriva tražnje za uvozom - kriva koja pokazuje količinu uvoza koji se traži za različite cene.
+
+Kriva učenja - pokazuje opadanje prosečnog troška sa rastom kumulativnog ukupnog autputa tokom vremena.
+
+Kriza dugova - situacija u kasnim 70im i ranim 80im u kojoj su zemlje u razvoju imale probleme sa vraćanjem svojih međunarodnih obaveza.
+
+Kružni tok ekonomske aktivnosti - tok resursa od vlasnika resursa ka firmama i obrnuti tok proizvoda i usluga. Novac se kreće od firmi ka vlasnicima resursa i obrnuto od vlasnika resursa ka firmama kada se kupuju proizvodi i usluge.
+
+Kružni tok - kruženje tokova dobara i novca u jednoj privredi, uslovljeno samostalnošću privrednih subjekata.
+
+Kupon - fiksna suma za koju se onaj koji pozajmljuje obavezuje da je plati vlasniku obveznice svake godine.
+
+Kurnoov model - model koji koristi pristup čija je pretpostavka da svako preduzeće očekuje od drugih preduzeća da zadrže konstantnu proizvodnju kao odgovor na akcije koje preduzeće preduzima.
+
+Kvantitativna jednačina novca - jednačina koja povezuje nivo cena i realni društveni proizvod sa količinom novca u opticaju i brzinom opticaja novca: količina novca u opticaju pomnožena sa brzinom opticaja novca je jednaka nivou cena pomnoženim s realnim društvenim proizvodom.
+
+Kvantitativna teorija novca - klasična teorija po kojoj je nivo cena proporcionalan količini novca. U monetarističkoj verziji kvantitativna teorija je teorija nominalnog GNP. 
+
+Kvota - državno ograničenje broja proizvoda koji se može uvesti, ili prodati.
+
+Lagranžova funkcija - funkcija formirana od originalne funkcije cilja koju firme teže da maksimiziraju ili minimiziraju Lagranžov multiplikator pomnoženo sa funkcijom ograničenja izjednačeno sa nulom.
+
+Leg monetarne politike - vremenski period od momenta preduzimanja određene akcije od strane Centralne banke do momenta kada ta akcija počinje da deluje.
+ 
+
+Lična štednja - deo ličnog dohotka koji nije potrošen, niti upotrebljen za plaćanje poreza.
+
+Lični dohodak - dohodak koji prima pojedinac iz svih izvora (nadnica, kamate, transferna primanja); nacionalni dohodak umanjen za korporacijski neraspodeljen profit, korporacijske poreze, penziono osiguranje, a uvećan za transferna plaćanja.
+
+Licenciranje - zahtev za licencu (ovlašćenje) ili dozvolu da se uđe ili ostane u poslu, profesiji ili trgovini.
+
+Limitiranje cena - utvrđivanje niže cene od one pri kojoj postoji maksimiziranje profita od strane firme, da bi se obeshrabrio ulazk drugih firmi na tržište.
+
+Linearno programiranje - matematička tehnika za rešavanje problema maksimizacije ili minimizacije kada postoji više ograničenja, ciljna funkcija koja se optimizira, pri čemu su ograničenja linearna.
+
+Linearnost - situacija u kojoj je linija prava i sa konstantnim nagibom. Linija 450 - pokazuje jednakost agregatnih izdataka i agregatnog dohotka.
+Linija grebena - linija koja razdvaja relevatan (tj, negativnog nagiba) od nerelevantnog (pozitvnog nagiba) dela izokvante.
+
+Linija opstanka - predstavlja minimalni iznos potrošnje koji je potreban da bi stanovništvo opstalo.
+
+Linija zadržavanja kapitala - predstavlja količina proizvoda po radnom času koja - potrebna da bi se zadržao nivo kapitala po radniku pri postojanju smanjenja ili rasta radne snage.
+
+Ljudski kapital - akumulirano znanje i veštine pojedinca. Ljudski kapital je akumulacija investicija u školovanje, obučavanje i zdravlje kojima se povećava produktivna sposobnost ljudi.
+
+LM kriva - kriva koja pokazuje kombinacije dohotka i kamate za koje je tržište novca u ravnoteži; na svim tačkama LM krive ponuda novca jednaka je tražnji za novcem.
+ 
+
+Logistički menadžment - spajanje na korporativnom nivou prodaje, transporta, skladištenja, distribucije i funkcija pružanja usluga klijentima, radije nego da postoje razdvojene na divizionim nivoima.
+
+Lorencova kriva - kriva koja pokazuje vezu između kumulativnog procenta stanovništva i procenta ukupnog dohotka koju je zaradio svaki kumulativni procenat. Meri nejednakost dohodaka.
+
+Lučna dohodna elastičnost - dohodna elastičnost tražnje u odosu na dva nivoa dohotka; može se izračunati: (Q2 - Q1)/(I2 - I1) (I2 + I1)/(Q2 + Q1).
+
+Lučna elastičnost tražnje - cenovna elastičnost tražnje u odnosu na dve tačke na krivoj tražnje; može se izračunati: (Q2 - Q1)/(P2 - P1) (P2 + P1)/(Q2
++ Q1).
+
+Lučna unakrsna elastičnost tražnje - unakrsna elastičnost tražnje za proizvodom X u odnosu na dva nivoa cena proizvoda Y; može se izračunati: (Qx2 - Qx1)/(Py2 - Py1) (Py2 + Py1)/(Qx2 + Qx1).
+
+M1 - mera ponude novca. Sadrži gotovinu plus likvidne depozite. Dve druge mere, M2 i M3 su šire. One uključuju sve komponente M1 plus neke dodatne depozite banke koji nisu ili su ograničeno likvidni. M1 je uži koncept novčane mase; količina novca koju drže ljudi plus vrednost njihovih čekovnih računa. M2 - širi koncept novčane mase; uključuje koncept M1 plus štedni depoziti i sertifikati kod komercijalnih banaka i hartije od vrednosti na tržištu novca. M2 je zbir M1, štednje i oročenih depozita.
+
+Makroekonomija - agregatno proučavanje najznačajnijih ekonomskih varijabli. Makroekonomija je grana ekonomije koja proučava funkcionisanje i probleme ekonomije kao celine - ekonomski rast, inflaciju, nezaposlenost i ekonomske fluktacije.
+
+Makroekonomske eksternalije - situacija kada jedan ekonomski subjekt nameće svoje troškove drugim ekonomskim jedinicama bez plaćanja nadoknade.
+
+Maksimizacija korisnosti - pretpostavka da ljudi pokušavaju da dostignu najviši mogući nivo korisnosti za dato budžetsko ograničenje.
+ 
+Maksimizacija profita - pretpostavka da firme pokušavaju da ostvare najveći mogući nivo profitabilnosti (ukupni prihodi minus ukupni troškovi) za datu proizvodnu funkciju.
+
+Maltusova ravnoteža - situacija u kojoj je proizvodnja jednaka egzistencijalnom nivou proizvoda jer se uravnoteženje stanovništva bazira na potrošnji hrane.
+
+Marginalni društveni trošak - marginalni trošak proizvodnje sa aspekta društva kao celine.
+
+Marginalni proizvod rada - promena proizvodnje koja potiče iz jediničnog povećanja ulaganja rada.
+
+Marginalni trošak (engl. MC) - promena ukupnih troškova ili ukupnih varijabilnih troškova po jedinici promene autputa.
+
+Marginalna analiza - postulat da se optimizacija pojavljuje kada se marginalna korisnost aktivnosti izjednači sa marginalnim troškom.
+
+Marginalna društvena korisnost - marginalna korisnost potrošnje dobra sa aspekta društva kao celine.
+
+Marginalna korisnost dobra - dodatna satisfakcija potrošača koja potiče od korišćenja dodatne jedinice tog dobra. To je dodatna korisnost koja potiče od dodatne jedinice potrošnje dobra.
+
+Marginalna poreska stopa - promena ukupnog poreza podeljena promenom dohotka. Marginalna poreska stopa je stopa po kojoj se porez plaća za svaki dodatno zarađeni dinar.
+
+Marginalna privatna korisnost - marginalna korisnost potrošnje dobra sa aspekta pojedinca.
+
+Marginalna sklonost štednji - porast štednje pri jediničnom rastu raspoloživog dohotka. Marginalna sklonost štednji je promena štednje izazvana datom promenom dohotka; MSŠ= 1 - marginalna sklonost potrošnji (MSP).
+ 
+Marginalna sklonost potrošnji - nagib funkcije potrošnje, koji pokazuje promene potrošnje koje potiču iz date promene dohotka. Marginalna sklonost potrošnji je rast potrošnje uzrokovan jediničnim rastom raspoloživog dohotka.
+
+Marginalna sklonost proizvoda rada - promena ukupnog prinosa koja potiče od rasta ulaganja rada.
+
+Marginalna sklonost uvozu - promena uvoza izazvana datom promenom dohotka.
+
+Marginalna stopa povlačenja - deo dohotka koji nije potrošen na potrošnju; deo dohotka koji ide na štednju, plaćanje poreza i uvoz.
+
+Marginalna stopa tehničke supstitucije (engl. MRTS) -apsolutna vrednost nagiba izokvante. Jednaka je odnosu marginalnih proizvoda dva inputa.
+
+Marginalni prihod (engl. MR) - promena ukupnog prihoda po jedinici promene prodate količine. To je promena ukupnog prihoda izazvana jediničnim rastom prodate količine.
+
+Marginalni prihod proizvoda - marginalni proizvod varijabilnog inputa pomnožen marginalnim prihodom od prodaje extra proizvedenog autputa.
+
+Marginalni prinos - dodatni prinos povezan sa prodajom dodatne jedinice proizvoda. Marginalni prinos proizvoda za bilo koji input je ekstra prinos koji preduzeće ostvaruje korišćenjem dodatne jedinice tog inputa, dok drugi ostaju konstantni.
+
+Marginalni prinos proizvoda kapitala - promena ukupnog prihoda koja potiče od jediničnog porasta kapitala.
+
+Marginalni privatni trošak - marginalni trošak sa aspekta privatne firme ili pojedinca.
+
+Marginalni proizvod (engl. MP) - promena ukupnog proizvoda po jediničnoj promeni korišćenog varijabilnog inputa. To je povećanje ukupnog proizvoda koje nastaje kao rezultat dodavanja ekstra jedinice ulaganja (pri
+čemu količina drugih inputa ostaje konstantna).
+
+Marginalni proizvod kapitala - vrednost ekstra jedinice u konstantnim cenama koju firme proizvode u toku određenog perioda sa dodajnom
+ 
+jedinicom kapitala podeljeno sa ukupnom vrednošću kapitala. Marginalni proizvod se izražava u %; npr., ako mašina vredna 1000 dolara proizvede ekstra proizvod od 150 dolara bez zapošljavanja dodatnih radnika tada je marginalni proizvod kapitala 15%.
+
+Marginalni proizvod rada - dodatni proizvod koji firma može proizvesti u toku jednog sata od strane jednog radnika.
+
+Marginalni trošak - ekstra (dodatni) trošak proizvodnje dodatne jedinice proizvoda. Marginalni trošak je promena ukupnog troška koja potiče od jedinične promene proizvedene količine.
+
+Marginalni trošak resursa - porast ukupnog troška izazvan zapošljavanjem dodatne jedinice varijabilnog inputa.
+
+Matematička ekonomija - razmatranje formalnih (jednačinama izraženih) odnosa između ekonomskih varijabli u ekonomskim modelima i njihovih teorijskih implikacija.
+
+Matrica dobitaka - tabela koja pokazuje moguće ishode ili rezultate svake strategije.
+
+Maximin kriterijum - pravilo odlučivanja u uslovima neizvesnosti prema kome bi onaj koji odlučuje trebalo da odredi najgori mogući rezultat svake strategije i da prihvati strategiju koja mu obezbeđuje najbolji od najgorih mogućih rezultata.
+
+Mešovita privreda - tržišna ekonomija u kojoj država ima veliku ulogu.
+
+Međunarodna monetarna nezavisnost - ideja da sistem fleksibilnog deviznog kursa daje zemlji spososbnost da vodi nezavisnu monetarnu politiku u odnosu na druge zemlje.
+
+Međunarodna transferna plaćanja - plaćanja preko međunarodnih granica u formi poklona, doznaka i pomoći.
+
+Međunarodna trgovina - obuhvata razmenu dobara i usluga između ljudi i preduzeća iz različitih zemalja.
+ 
+Međunarodne rezerve - međunarodno prihvaćena sredstva kojim svaka zemlja može pokriti spoljnotrgovinski deficit. Najznačajniji tipovi međunarodnih rezervi su: zlato, dolar i specijalna prava vučenja.
+
+Međunarodni efekat istiskivanja - javlja se kada ekspanziona fiskalna politika smanjuje neto izvoz povećavajući kamatnu stopu i devizni kurs. Viša domaća kamatna stopa privlači priliv kapitala iz inostranstva, koji indirektno pomaže finansiranju budžetskog deficita stvorenog ekspanzivnom fiskalnom politikom.
+
+Međunarodni Monetarni Fond - međunarodna agencija, osnovana posle Drugog svetskog rata radi pomoći zemljama sa problemima u platnom bilansu i radi obezbeđenja ravnomernog funkcionisanja međunarodnog monetarnog sistema.
+
+Međuzavisnost tražnje - odnosi supstitucije i komplementarnosti sa proizvodom firme.
+
+Menadžerska ekonomija - primena ekonomske teorije i nauke o odlučivanju na razmatranje kako organizacija može da najefkasnije dostigne ciljeve.
+
+Menadžment totalnog kvaliteta (engl. TQM) - konstantno poboljšavanje kvaliteta proizvoda i procesa firme tako da se konzistentno povećava vrednost isporuka potrošačima. Konstano postavlja pitanje kako se nešto može učiniti jeftinije, brže ili bolje timskim radom.
+
+Meni troškovi - odnose se na bilo koji tip troškova do koga u preduzeću dolazi sa promenenom cene svojih proizvoda.
+
+Metod Lagranžovog multiplikatora - tehnika za rešavanje problema ograničenja u optimizaciji, formiranjem Lagranžove funkcije i tretiranjem ovog problema kao problema bez ograničenja.
+
+Metod najmanjih kvadrata - statistička tehnika za procenjivanje linije regresije kojom se minimizira suma kvadrata vertikalnih devijacija ili grešaka zapaženih tačaka od regresione krive.
+
+Mikroekonomija - grana ekonomije koja istražuje pojedinačno odlučivanje preduzeća i domaćinstava i načine njihovog odnosa u industrijama i tržištima. Razmatranje ekonomskog ponašanja individualnih jedinica koje odlučuju,
+ 
+kao što su pojedinačni potrošači, vlasnici resursa, i poslovne firme u slobodno-tržišnom sistemu.
+
+Minimalna nadnica - nadnica za sat rada ispod koje je nezkonito platiti radnika.
+
+Minimalni nivo efikasnosti - najniži nivo proizvodnje na kome će dugoročni prosečni ukupni trošak biti minimalan.
+
+Minimax kriterijum žaljenja - pravilo odlučivanja u uslovima neizvesnosti po kome bi onaj koji donosi odluku trebalo da selektuje strategije koje minimiziraju maksimalno žaljenje ili oportunitetni trošak loše odluke.
+
+Model životnog ciklusa - tip modela potrošnje okrenute budućnosti koji pretpostavlja da ljudi baziraju svoju potrošnju na očekivanom životnom dohotku, a ne na osnovu svog trenutnog dohotka.
+
+Model akceleracije - model poslovnog investiranja koji u svojoj jednostavnoj formi povezuje nivo investicija sa stopom promena proizvodnje. Kompleksnije forme uzimaju u obzir troškove usklađivanja i troškove pozajmljivanja.
+
+Model ciklusa proizvoda - teorija po kojoj firma koja uvodi inovacije može da izgubi svoje izvozno tržište pa čak i domaće zbog stranih imitatora koji imaju niže trošove proizvodnje.
+
+Model dugoročne konkurentne ravnoteže - model industrijskih preduzeća u kome slobodan ulazak i izlazak obezbeđuju ravnotežu u kojoj je cena jednaka minimumu ukupnog prosečnog troška; ekonomski profiti su u toj tački jednaki nuli.
+
+Model - formalni matematički iskaz ekonomske teorije.
+
+Model javnog izbora - model ponašanja države koji pretpostavlja da članovi državne uprave nastoje da maksimiziraju sopstveno blagostanje - npr. da budu ponovo izabrani.
+
+Model konkurentne ravnoteže - model koji pretpostavlja maksimiziranje korisnosti od strane potrošača i maksimiziranje profita od strane preduzeća.
+ 
+Model maksimizacije prodaje - model po kome oligopolističke firme teže da maksimiziraju prodaje nakon što je zarađena adekvatna profitna stopa koja je zadovoljila vlasnike akcija.
+
+Model nepromenljivih nadnica - ukazuje da troškovi promena cena sprečavaju usklađivanja cena kada se tražnja menja.
+Model određivanja cene kapitala - metod određivanja troškova deonice koji se dobija kao kamatna stopa bez rizika plus beta keficijent pomnožen sa premijom rzika prosečne deonice.
+
+Model permanentnog dohotka - model potrošnje okrenute ka budućnosti koji pretpostavlja da ljudi razlikuju privremene promene svojih dohodaka i permanentnih promena svojih dohodaka; permanentne promene imaju veliki efekat na potošnju.
+
+Model principal-agent - opisuje ugovorni odnos između dve osobe u kojem se međusobni ciljevi razlikuju. Principal želi neku radnju koju treba da preduzme agent.
+
+Model ravnoteže - pretpostavlja da je ekonomija uvek u ravnoteži u tački preseka krive ponude i tražnje, a naročito na tržištu rada.
+
+Model vrednosti dividende - metod koji izračunava troškove akcijskog kapitala firme preko racia dividende po akciji prema ceni akcije plus očekivana stopa povećanja dividendi.
+
+Monetaristička škola - škola makroekonomske misli po kojoj su promene ponude novca primarni uzrok fluktuacija realnog GDP-a i inflacije. Monetarizam je škola ekonomske misli koja se suprostavlja državnoj intervenciji u cilju stabilizacije ekonomije.
+
+Monetarna baza - gotov novac plus rezerve.
+
+Monetarna impotencija - opisuje nemogućnost realnog društvenog proizvoda da reaguje na povećanje realne novčane mase.
+
+Monetarna politika - državna politka koju vodi centralna banka koja pokušava da utiče na određene varijable, menjajući ponudu novca i/ili kamatnu stopu.
+ 
+Monetarni transmisioni kanal - preporuka kako promene monetarne politike mogu da deluju na realni GDP.
+
+Monopol - forma tržišne organizacije u kojoj samo jedna firma prodaje proizvod za koga ne postoji bliski supstitut. Situacija u kojoj jedno preduzeća u grani prodaje proizvod koji nema bliskog supstituta.
+
+Monopolistička konkurencija - tržišna struktura koju karakteriše mnogo preduzeća koja prodaju raličite proizvode u grani u kojoj je slobodan ulazak i izlazak. Forma tržišne organizacije u kojoj postoji mnogo prodavaca diferenciranih proizvoda i ulazak ili izlazak iz privredne grane prilično lak u dugom roku.
+
+Monopson - situacija u kojoj postoji jedan kupac određenog dobra ili usluge na datom tržištu.
+
+Moralni hazard - rastuća verovatnoća gubitka kada ekonomski subjekt može da neke od svojih troškova prebaci na druge.
+
+Multifaktorska produktivnost - stopa rasta proizvodnje po satu rada, umanjena za doprinos drugih faktora posebno kapitala, sirovina i energije, ili drugih faktora proizvodnje.
+
+Multikolinearnost -problem u regresionoj analizi koji nastaje kada su dve ili više nezavisnih varijabli visoko korelisane; dovodi do preteranih standardnih grešaka i utiče na statističke testove.
+
+Multilateralna trgovina - trgovina između više od dva pojedinca ili zemlje. Multilateralni pregovor - pregovaranje više zemalja istovremeno.
+Multiplikator autonomnih izdataka - promene ravnotežnog proizvoda za jediničnu promenu autonomnih izdataka.
+
+Multiplikator depozita - povećanje depozita banke pri rastu rezervi banke za jedinicu.
+
+Multiplikator - odnos promene realnog GDP-a i promene linije agregatnih izdataka.
+ 
+Multiplikator uravnoteženog budžeta - odnos promene realnog GDP-a i promene kupovina države kada su one povezane sa ekvivalentnom promenom poreza.
+
+Multiplikatorska neizvesnost - neizvesnost oko tačne vrednosti multiplikatora; koristi se kao argument protiv aktivističke stabilizacione politike; npr., pošto svaki ekonometrijski model daje različitu vrednost multiplikatora, tada su kreatori ekonomske politike nesigurni oko njegove vednosti i efekata.
+
+Nacionalizacija - preuzimanje privatnih firmi od strane države.
+
+Nacionalna štednja - agrgatni dohodak minus potrošnja minus državna potrošnja.
+
+Nacionalni dohodak i računi proizvodnje - zvanični vladini pokazatelji komponenti GDP-a i agrgatnog dohotka.
+
+Nacionalni dohodak - dohodak koji je rezultat proizvodnje proizvoda i usluga; čist nacionalni dohodak minus indirektni porezi. Nacionalni dohodak je suma svih zarada svih faktora proizvodnje koji potiču iz tekuće proizvodnje.
+
+Nadnica - cena rada definisana tokom određenog vremenskog perioda.
+
+Nagib - jednak količniku promene varijable na vertikalnoj osi prema promeni varijable na horizontalnoj osi.
+
+Najniži nivo cena - određuje vladina politika koja utvrđuje minimalnu dozvoljenu cenu dobra.
+
+Najpovlašćenija nacija - princip kojim sve zemlje uključene u pregovore GATT-a primenjuju iste tarifne stope kao zemlja sa najnižim tarifnim stopama.
+
+Nash ravnoteža - ravnotežna situacija u kojoj je svaki igrač odabrao svoju optimalnu strategiju, uz datu strategiju izabranu od drugog igrača.
+
+Neanticipirana inflacija - deo tekuće stope inflacije, koji pojedinci nisu očekivali da će se pojaviti. Dobija se kao tekuća stopa inflacije minus očekivana stopa inflacije. Ako pojedinci očekuju da godišnja inflacija bude 10%, a tekuća inflacija je 12%, tada je neanticipirana inflacija 2%.
+ 
+
+Necenovna konkurencija - konkurencija bazirana na varijaciji proizvoda, reklamiranju, i uslugama pre nego na ceni.
+
+Neelastična tražnja - tražnja za koju je cenovna elastičnost manja od jedan.
+
+Neformalna ekonomija - deo ekonomije koga karakteriše neregularno i nelegalno poslovanje.
+
+Negativne eksternalije - obuhvataju situaciju u kojoj troškove ima pojedinac/firma koji ne proizvodi niti troši neko dobro.
+
+Negativni odnos - situacija u kojoj rast jedne promenljive - povezan sa smanjenjem druge promenljive; naziva se i inverzna povezanost.
+
+Negativno nagnuta kriva ponude rada - situacija u kojoj dohodni efekat nadmašuje supstitucioni efekat rasta nadnice što uzrokuje negativan nagib krive ponude rada i uzima negativne nagibe na višim nivoima dohotka.
+
+Neisključivanje - situacija u kojoj niko ne može da izbegne potrošnju dobra.
+
+Nekooperativni rezultat - ravnoteža u igri u kojoj se igrači ne mogu dogovoriti i umesto toga prate svoje pojedinačne podsticaje.
+
+Nenegativna ograničenja - ograničenja koja sprečavaju negativne vrednosti rešenja u problemu linearnog programiranja.
+
+Neobjašnjena varijacija - suma kvadrata devijacija svake razmatrane vrednosti zavisne varijable od njoj odgovarajuće procenjene vrednosti.
+
+Neoklasična škola rasta - pristup makroekonomiji koji koristi agregatnu prozvodnu funkciju i formulu rasta u opisivanju dugoročnog rasta, naglašavajući agregatnu ponudu pre nego agregatnu tražnju.
+
+Neplanirane zalihe - deo zaliha koje preduzeće ne može da proda kada predviđena potrošnja manja od proizvodnje.
+
+Nepostojanje suparništva - situacija u kojoj više ljudi može da troši dobro, ne smanjujući količinu dostupnu drugim potrošačima.
+ 
+Neprijateljsko preuzimanje - situacija u kojoj investitori kupuju veliki deo kompanije i menjaju menadžere.
+
+Nerazvijena industrija - nova industrija koja se može podstaći protekcionističkim merama.
+
+Neregularni ili slučajni uticaj - nepredvidljiva varijacija serije podataka kao posledica rata, prirodnih katastrofa, štrajkova i drugih nepredvidljivih uticaja.
+
+Nesavršena konkurencija - monopol, oligopol i monopolistička konkurencija.
+
+Netarifne barijere - sve vladine akcije sem carina kojima se smanjuje uvoz, kao što su kvote i standardi.
+
+Neto cash-flow projekta - razlika između cash prihoda i cash izdataka tokom realizacije projekta.
+
+Neto dohodni faktor - razlika između doznaka faktora dohotka iz inostranstva i plaćanja faktora dohotka dohotka strancima.
+
+Neto investicije - bruto investicije minus depresijacija.
+
+Neto izvoz - vrednost dobara i usluga prodatih u inostranstvu minus vrednost dobara i usluga kupljenih od ostatka sveta; izvoz minus uvoz. Neto izvoz je višak izvoza u odnosu na uvoz.
+
+Neto nacionalni proizvod - neto tržišna vrednost proizvedenih proizvoda i usluga u određenom vremenskom periodu.
+
+Neto proizvod - fiziokratska koncepcija viška koji jedino stvara poljoprivreda i koji je jednak razlici ukupnog proizvoda i ulaganja (avansa) u poljoprivredu.
+
+Neto sadašnja vrednost projekta (engl. NPV) - sadašnja vrednost procenjenog toka cash-flowa projekta, diskontovana firminim troškom kapitala, minus inicijalni trošak projekta.
+
+Neto strana sredstva - razlika između sredstava državljana koja su u inostranstvu i sredstava koja stranci poseduju u zemlji.
+ 
+Neto strane investicije - višak izvoza nad uvozom, odnosno neto izvoz.
+
+Neto transferi iz inostranstva - razlika između primljenih transfernih plaćanja i transfernih plaćanja drugim zemljama.
+
+Nevidljiva ruka - ideja slobodne interakcije ljudi na tržištu dovode ekonomiju na željeni društveni rezultat; pojam je uveo A. Smit i svoje moderno utemeljenje je našao u prvoj teoremi ekonomije blagostanja.
+
+Nezavisnost centralne banke - mogućnost vlasti centralne banke da donose odluke o monetarnoj politici uz malo mešanje vlade koja je na vlasti.
+
+Nivo cena - prosečni nivo cena u privredi.
+
+Nominalna kamatna stopa - kamatna stopa koju plaća banka, odnosno zajmoprimci; npr. kada klijent plati kamatnu stopu od 12% na zajam, tada je nominalna kamatna stopa 12%. Nominalna kamatna stopa je kamatna stopa nekorigovana stopom inflacije.
+
+Nominalna rigidnost - faktori koji sprečavaju fleksibilnost nominalnog nivoa cena, kao što su troškovi menija, ili radni ugovori sa različitim vremenom isticanja, koji utiču na to da se firmi ne isplati da menja nominalni nivo cena. Nominalne rigidnosti su nefleksibilnosti nadnica i cena.
+
+Nominalna vrednost kapitala - kapital koji će biti plaćen kada obveznica dospe na naplatu.
+
+Nominalni društveni proizvod - vrednost društvenog proizvoda u tekućim cenama.
+
+Nominalni GDP - bruto nacionalni proizvod bez korekcija inflacije; isto što i GDP; vrednost svih dobara i usluga novo proizvedenih u zemlji tokom određenog vremenskog perioda - jedne godine.
+
+Normalna dobra - dobra koja potrošač kupuje više sa rastom dohotka.
+
+Normalni profiti - suma obračunatih profita kada su ekonomski profiti jednaki nuli.
+
+Normalno dobro - dobro za kojim se tražnja povećava sa rastom dohotka i pada sa padom dohotka.
+ 
+
+Normativna ekonomija - ekonomska analiza kojom se daju preporuke za ekonomsku politiku.
+
+Novčani multiplikator - multiplikator po kome se ponuda novca menja zbog promena novčane baze. Novčani multiplikator ukazuje na porast ponude novca za jedinični rast monetarne baze.
+
+Nova klasična škola - škola makroekonomije po kojoj su cene perfektno fleksibilne, očekivanja su racionalna, zbog čega anticipirana monetarna politika neće imati efekta na privredu. To je verzija novog klasičnog modela, bazirana na tri pretpostavke: ravnotežne cene, nesavršene informacije i racionalna očekivanja. Teorija realnih poslovnih ciklusa je drugi tip novog klasičnog modela.
+
+Nova međunarodna ekonomija obima - rastuća produktivnost koja je rezultat firmine integracije celokupnog sistema njenih proizvodnih operacija u celom svetu.
+
+Novac - sve ono što se običajno prihvata kao sredstvo plaćanja u kupovini dobara i usluga i plaćanju obaveza i poreza. Novac je sve ono što se prihvata kao sredstvo razmene. Novac takođe služi i za izražavanje vrednosti i jedinice.
+
+Novajlije - ljudi koji su nezaposleni jer su postali deo radne snage i još uvek traže posao.
+
+Novi Kejnzijanci - objašnjavaju rigidnost cena i plata kao konzistentne sa ličnim interesima firmi i radnika, za koje se pretpostavlja da imaju racionalna očekivanja.
+
+Novoindustijalizovana zemlja - zemlja čiji je rast brz na osnovu razvoja industijske baze.
+
+Nulta stopa produktivnosti - tačka preseka linije kapitala i funkcije produktivnosti i pokazuje stabilnost kapitala po satu.
+
+Očekivana dobit - prinos od nesigurne investicije koja se obračunava merenjem dobitaka ili gubitaka mogućnostima da do njih dođe.
+
+Očekivana korisnost - zbir svih mogućih korisnosti kao rezultat neke odluke, ili strategije i verovatnoća njihovog ostvarenja.
+ 
+Očekivana realna kamata - realna stopa koju pojedinci očekuju da plate na sredstva koja su pozajmili, ili da je prime za sredstva koja su plasirali, posle eliminisanja inflacije iz nominalne kamatne stope. Primer: ako pojedinci prime kamatu od 10%, a očekuju stopu inflacije od 7%, onda je realna kamatna stopa 3%.
+
+Očekivana stopa inflacije - stopa inflacije za koju se očekuje da će se pojaviti u budućnosti. Vremenski period za koji se ona pretpostavlja zavisi od pojediačnih subjekata. Sindikat može posmatrati trogodišnji period i zahtevati trogodišnje ugovore o radu, ali investitor može posmatrati period od 30 godina.
+
+Očekivana vrednost - zbir svih mogućih rezultata neke odluke ili strategije i verovatnoća njihovog ostvarenja.
+
+Očekivani profit - ponderisani prosek svih mogućih profita koji mogu rezultirati iz nove investicije, pri čemu se verovatnoća koristi kao ponder.
+
+Obaveza - neka vrednost koju pojedinac ili preduzeće duguju nekom drugom.
+
+Obavezna rezerva - deo depozita koji su banke obavezne da drže kod centralne banke. Obavezne rezerve su rezerve koje propisuje centralna banka, a moraju da ih drže poslovne banke; njihov iznos se dobija kada se ukupan iznos depozita pomnoži sa stopom obavezne rezerve; npr., banka koja ima depozite u iznosu od 100 milona dolara mora držati 10 miliona dolara obaveznih rezervi, ako je stopa obavezne rezerve 10%.
+
+Obavezno ograničenje - varijabla koja je u potpunosti iskorišćena u određenoj tački.
+
+Obilnost kapitala - viši nivo kapitala u jednoj nego u drugoj zemlji. Obilnost rada - niži nivo kapitala po radniku u odnosu na druge zemlje.
+Objašnjenja varijacija - zbir kvadrata devijacija svih ocenjenih vrednosti zavisne varijable.
+
+Obračunska jedinica - standardna jedinica u kojoj cene mogu biti izražene i njihova vrednost poređena tokom vremena.
+ 
+Obveznica - finansijski ugovor kojim se utvrđuje specifična ispata glavnice i kamate na zajam određenog datuma u budućnosti.
+
+Obveznice korporacija - formalne priznanice kojima se priznaje dug i kojim se korporacija obavezuje da godišnje isplaćuje fiksnu sumu novca sve do trenutka dospeća kada isplaćuje inicijalno pozajmljenu sumu (glavnicu).
+
+Odliv mozgova - emigracija visokokfalifikovanih radnika iz siromašnijih zemalja u industrijske zemlje.
+
+Odnos duga i GDP-a - ukupna suma neizmirenih zajmova koje federalna država duguje podeljena nominalnim GDP-om.
+
+Odnos novca i depozita - deo novca koji ljudi u jednoj privredi žele da drže u odnosu na svoje depozite; jednak je odnosu novca i depozita.
+
+Odnosi razmene - količina uvoznih proizvoda koju privreda dobija za jedinicu izvoznih proizvoda.
+
+Ograđivanje - proces koji je u Engleskoj u XV i XVI v. značio ukrupnjavanje poseda i prelazak sa svaštarske proizvodnje na monokulturnu poljoprivrednu proizvodnju, prvenstveno stočarstvo radi dobijanja vune za razvoj tekstilnih manufaktura koje su bile osnova nastajuće industrije.
+
+Ograničena likvidnost - situacija u kojoj ljudi ne mogu da pozajmljuju radi uravnoteženja svoje potrošnje kada im je dohodak nizak.
+
+Ograničene informacije - situacija u kojoj preduzeća nemaju potpuna saznanja o uslovima na tržištu, npr. promenama u tražnji njihovih proizvoda.
+
+Ograničenje likvidnosti - javlja se kada finansijska institucija ne dozvoljava pojedincu da pozajmi koliko želi, iako se možda očekuje povećani dohodak u budućnosti.
+
+Ograničenje proizvodnje - nemogućnost upotrebe nekih resursa ili određeni minimalni zahtevi koji moraju biti ispunjeni.
+
+Okunov zakon - veza između nezaposlenosti i racio proizvodnje. Prema originalnoj verziji Okunovog zakona 1% smanjenja (povećanja) zaposlenosti rezultira u % smanjenju (povećanju) društvenog proizvoda za 3%. Sada se čini da je realnije 2%.
+ 
+
+Oligopol - forma tržišne organizacije u kojoj postoji nekoliko prodavaca homogenog ili diferenciranog proizvoda i gde je ulazak ili izlazak iz privredne grane težak. Bliži je monopolu nego potpunoj konkurenciji jer ga karakteriše nekoliko preduzeća (dva ili tri) i relativno zanemarljive teškoće ulaska. U proizvodnji, oligopolska tržišta mogu imati ili standardizovane ili diferencirane proizvode. Oligopol je karakteristika grane u kojoj nekoliko preduzeća prodaje isti proizvod uz ograničen ulazak drugih preduzeća.
+
+Opšta ravnoteža - situacija u kojoj istovremeno postoji ravnoteža na svim tržištima u zemlji.
+
+Opšti nivo cena - prosek cena svih dobara i usluga uz davanje većeg pondera stavkama na koje se više troši.
+
+Opšti sporazum o carinama i trgovini (GATT) - međunarodni sporazum i organizacija kreirana da promoviše zajedničko smanjenje carina i drugih barijera trgovine među zemljama.
+
+Opadajuća marginalna korisnost - smanjenje dodatne korisnosti koja potiče od dodatne jedinice dobra, u meri u kojoj se dobro sve više koristi.
+
+Opadajuća marginalna korisnost novca - opadanje dodatne korisnosti koja je rezultat povećanja dohotka .
+
+Opadajući prinosi - situacija u kojoj proizvodnja raste u manjoj proporciji nego inputi. Predstavljaju situaciju u kojoj uspešan rast u korišćenju jednog inputa, uz konstantne druge inpute, izaziva smanjenje dodatne proizvodnje sa dodatnom jedinicom tog inputa.
+
+Opadajući prinosi rada - situacija u kojoj se dodatni porast proizvoda koji potiče od dodatne količine rada smanjuje sa povećanjem ulaganja rada; opadajuća marginalna produktivnost rada.
+
+Operacije na otvorenom tržištu - kupovina i prodaja obveznica od strane centralne banke sa ciljem da izmeni ponudu gotovine, M1 ili nivo kamatne stope. Kada centralna banka želi da poveća ponudu novca tada kupuje obveznice, a kada želi da smanji tada prodaje.
+
+Operativni leveridž - odnos ukupnih fiksnih troškova firme i njenih ukupnih varijabilnih troškova.
+ 
+
+Oporavak - period koji nastupa neposredno nakon recesije u kojem privreda počinje da se kreće ka ekspanziji.
+
+Oporeziv dohodak - dohodak pojedinca umanjen za poreska oslobođenja i dedukcije.
+
+Oportunitetni trošak - trošak naredne najbolje odbačene alternative koja nije izabrana, jer je nešto drugo izabrano.
+
+Optimalno rešenje - najbolje od mogućih rešenja.
+
+Optimizacija ograničenja - maksimiziranje ili minimiziranje ciljne funkcije prema ograničenjima.
+
+Organizacija - struktura ljudi, kao što je porodica, ili koledž, kroz koju ljudi mogu da razmenjuju dobra i usluge van formalnog tržišta.
+
+Oročena sredstva - sredstva položena kod određene finansijske institucije koja se ne mogu određeni vremenski period podizati.
+
+ORT bilans (engl. Oficial reserve transaction) - platnobilansni deficit, ili suficit koji uključuje trgovinu robama i sekjutirizacijama; svaki takav deficit mora biti kompenziran odlivom međunarodnih sredstava.
+
+Ortakluk - firma koju poseduje više nego jedna osoba u kojoj partneri odlučuju podelom firminog dohotka među sobom i zajednički su odgovorni za gubitke preduzeća.
+
+Osiguranje za slučaj nezaposlenosti - program davanja nadoknade pojedincima koji su ostali bez posla.
+
+Osnovna linija - putanja kretanja ekonomske promenljive koja bi postojala bez uticaja promene politike.
+
+Osnovna sredstva - svi finalni proizvodi koji se koriste u poslovanju i nisu namenjeni prodajim, npr. mašine, oprema, kancelarijski nameštaj i dr.
+
+Osposobljavanje na radnom mestu - poboljšanje veština zaposlenih u preduzeću dok u njemu rade.
+ 
+Otkrivanje cene - proces kojim tržište utvrđuje ravnotežnu tržišnu cenu.
+
+Otvorena ekonomija - ekonomija u kojoj postoji razmena rada, kapitala i obveznica sa drugim ekonomijama.
+
+Otvoreno tržište - tržište dilera državnim hartijama od vrednosti u Njujorku. Komitet otvorenog tržišta čini 12 članova sa pravom glasa; 7 članova je iz Saveta guvernera i 5 su predsednici regionalnih banaka Federalnih rezervi.
+
+Ovlašćene naknade - zakonski određene naknade koje firma mora da obezbedi zaposlenima.
+
+Ovlašćeno trošenje - transferna plaćanja pojedincima iz vladinog programa u kojima se ukupna vrenost transfernih plaćanja menja sa svakom promenom broja osoba koje dobijaju pomoć.
+
+Papirni novac - novac napravljen od papira koji nema nikakvu unutrašnju vrednost.
+
+Parametar - nešto što je uzeto kao poznato u analizi. Na primer u potrošnoj funkciji C= a + bq, autonomna potrošnja a i granična sklonost potrošnji b su parametri. Mnogo je napora uloženo u ekonomiji u ispitivanju efekata promena pojedinačnog parametra.
+
+Parcijalni izvod - marginalni efekat na zavisnu promenljivu multivaraijacione funkcije koji rezultira iz promene jedne od nezavisnih varijabli dok druge ostaju konstante.
+
+Pareto efikasnost - situacija u kojoj nije moguće učiniti svoju situaciju boljom bez pogoršanja tuđe situacije.
+
+Paritet kupovne moći - teorija koja smatra da su devizni kursevi određeni na taj način da izjednačavaju kupovnu moć u različitim zemljama.
+
+Patent - pravo koje se garantuje pronalazaču od strane federalne države za ekskluzivno korišćenje inovacije u periodu od 17 godina.
+
+Peak-load utvrđivanje cene - situacija u kojoj firma određuje višu cenu u periodu ekonomske ekspanzije u odnosu na onu van ovog perioda.
+ 
+Penziono osiguranje - sistem u kojem pojedinci plaćaju državi dok rade, a država plaća njima kada odu u penziju.
+
+Perfektna konkurencija - forma tržišne organizacije u kojoj postoji više firmi koje prodaju homogeni ili identični proizvod i svaka od firmi je suviše mala da utiče na cenu dobra.
+
+Perfektno elastična ponuda - ponuda za koju cenovna elastičnost beskonačna, ukazujući na beskonačan odgovor ponuđene količine na promenu u ceni i zbog toga je kriva ponude horizontalna.
+
+Perfektno elastična tražnja - tražnja za koju je cenovna elastičnost beskonačna, ukazujući na beskonačni odgovor na promenu u ceni i zbog toga je rkriva tražnje horizonatlna.
+
+Perfektno neelastična ponuda - ponuda za koju je cenovna elastičnost nula, ukazujući da nema odgovora ponuđene količine na promene cene i zbog toga je kriva ponude vertikalna.
+
+Perfektno neelastična tražnja - tražnja za koju je cenovna elastičnost nula, ukazujući da nema odgovora na promenu u ceni i zbog toga je kriva tražnje vertikalna.
+
+Permanentni dohodak - prosečni dohodak koji pojedinci očekuju da prime u dužem vremenskom periodu, obično se dobija kao funkcija prošlih dohodaka.
+
+Piguov efekat - direktna stimulacija autonomne potrošnje koja se dešava kada deflacija cena povećava novčanu masu i time blagostanje. Još se naziva efekat realnog bilansa.
+
+Plafoniranje cena - vladina kontrola cena kojom se određuje maksimalna dozvoljena cena dobra. Praksa određivanja cene utvrđivanjem cenovnog targeta I zatim razvijanjem proizvoda koji će dozvoliti maksimiziranje ukupnog profita pri toj ceni.
+
+Plan i kontrola - regulacije i ograničenja koje država koristi da bi popravila tržišnu nesavršenost.
+ 
+Platni bilans - račun transakcija između zemlje i ostatka sveta; uključuje informacije o vrednosti trgovine robama i uslugama kao i o transfernim plaćanjima.
+
+Podela rada - podela rada na različite zadatke sa grupama radnika specijalizovanih za svaki od tih zadataka.
+
+Podsticaj - plan kojim se ljudi motivišu na akciju, obično tako da se poveća ekonomska efikasnost.
+
+Podsticajna regulacija - metod regulacije kojim se cene određuju za nekoliko godina unapred, zatim se dopušta preduzećima da zadrže sve dodatne profite ili da imaju gubitke tokom tog vremenskog perioda.
+
+Pogrešna selekcija - situacija u kojoj proizvodi, ili usluge niskog kvaliteta istiskuju sa tržišta kvalitetnije proizvode, ili usluge kao posledica asimetričnih informacija između kupaca i prodavaca.
+
+Pojedinac nesklon riziku - pojedinac za koga se marginalna korisnost novca smanjuje; on ili ona neće prihvatiti ni pravičnu opkladu.
+
+Pojedinac neutralan u odnosu na rizik - pojedinac za koga - marginalna korisnost novca konstantna; on ili ona su indiferentni na pravičnu opkladu.
+
+Politički kredibilitet - verovanje javnosti da će kreatori ekonomske politike sprovesti objavljenu politiku.
+
+Politički poslovni ciklus - poslovni ciklus koji je rezultat korišćenja fiskalne ili monetarne politike od strane političara radi delovanja rezultat izbora.
+
+Politika konkurencije - sve državne akcije s ciljem promocije konkurencije među firmama u jednoj privredi.
+
+Polje mogućnosti - polje koje uključuje sva moguća rešenja za data ograničenja.
+
+Pomeranje krive - promene u poziciji krive koja je često prouzrokovana promenama varijabli koje nisu predstavljene na osama.
+ 
+Pomeranje proseka - tehnika u kojoj je predviđena vrednost vremenskih serija u datom periodu jednaka prosečnoj vrednosti vremenskih serija u većem broju prethodnih perioda.
+
+Ponovljene igre - igre zatvorenikove dileme ponovljene više puta.
+
+Ponuda - cena po kojoj bi prodavci želeli da prodaju svoje proizvode na aukcionim tržištima.
+
+Ponuda novca - glavni instrument monetarne politike. Ponuda novca po konceptu M1 sastoji se od novca u sektoru stanovništva plus čekovni računi. Ponuda novca je suma gotovog novca (metalnog i papirnog novca) koju poseduje javnost i depoziti kod banaka.
+
+Ponuda rada - veza između količine ponuđenog rada i nadnice.
+
+Poravnanje potrošnje - ideja po kojoj i pored fluktuacije dohodaka ljudi pokušavaju da stabilizuju potrošnju iz godine u godinu.
+
+Poreska stopa - procenat od od dohotka, ili prodaje koji je plaćen državi u formi poreza.
+
+Poreski kredit na zarađeni dohodak - deo poreza na dohodak preko koga pojedinci sa nižim dohotkom koji rade primaju sredstva od vlade ili smanjenje svojih poreza.
+
+Poreski prihod - ukupan iznos koji država dobija na ime poreza; dobija se kada se poreska stopa pomnoži sa poreskom osnovom.
+
+Poreski razred - niz oporezivih dohodaka koji se oporezuju po istoj stopi.
+
+Porez na dohodak građana - porez na sve forme dohotka koje pojedinac ili domaćinstvo primaju.
+
+Porez na dohodak korporacija - porez na obračunate profite korporacija. Porez na dohodak porez - porez na nadnice i plate pojedinaca.
+
+Porez na imovinu - porez koji se plaća na vrednost imovine koju poseduje pojedinac.
+ 
+Porez na kapitalnu dobit - porez na rast vrednosti sredstava.
+
+Porez na promet - porez koji se plaća na vrednost robe kada se kupuje. Portfolio diversifikacija - širenje oblika aktive radi smanjenja rizika.
+
+Portfolio investicije - investicije stranaca manjih od 10% vlasničkog udela u firmi.
+
+Posebne privilegije - kompenzacije koje radnik prima pored direktnih novčanih plaćanja za period rada: osiguranje, pravo na penziju, godišnji odmor, porodiljsko odsustvo i bolovanje.
+
+Poslovni ciklus - kratkoročne fluktuacije realnog GDP-a i zaposlenosti. Poslovni ciklus je odstupanje nivoa proizvodnje od njegovog dugoročnog trenda i traje tri do četiri godine. Poslovni ciklus dostiže svoj vrh kada realni društveni proizvod dostigne maksimum, posle toga opada i dostiže minimalnu vrednost, zatim ponovo raste.
+
+Recesija - Period u kome se društveni proizvod kreće između najviše i najniže vrednosti zove se recesija.
+
+Poslovni profit - prihod firme umanjen za eksplicitne ili računovodstvene troškove.
+
+Potencijalni GDP - dugoročni trend rasta realnog GDP-a u privredi određen raspoloživom ponudom kapitala, rada i tehnologije. Realni GDP odstupa od potencijalnog GDP-a na više i na niže.
+
+Potpuno alocirani prosečni troškovi - zbir prosečnih varijabilnih troškova proizvodnje normalnog ili standardnog obima proizvodnje i prosečni ###.
+
+Potraga za poslom - razlog za nezaposlenost po kome nesigurnost na tržištu rada i ograničene informacije kojima radnici raspolažu zahtevaju da ljudi potroše vreme tražeći posao.
+
+Potrošačka klinika - laboratorijski eksperiment u kojem je učesnicima data određena suma novca i zamoljeni su da ih potroše u simuliranoj radnji da bi se videlo kako reaguju na promene cena i druge determinante tražnje.
+
+Potrošački izdaci - kupovina proizvoda i usluga od strane domaćinstava za svoje potrebe.
+ 
+
+Potrošački višak - razlika između onoga što su potrošači spremni da plate za određenu količinu proizvoda i onoga što stvarno plaćuju. Razlika između onog što je pojedinac spreman da plati za dodatnu jedinicu proizvoda -marginalna korisnost- i tržišne cene dobra; za tržište u celini, to je suma svih individualnih potrošačevih viškova ili površina ispod krive tražnje, a iznad tržišne cene.
+
+Potrošna funkcija - pozitivna veza između potrošnje i dohotka.
+
+Potrošna ravnoteža - nivo dohotka pri kojem linija agregatne potrošnje seče liniju od 45 stepeni. Takođe se zove i ravnotežni dohodak.
+
+Potrošnja - kupovine finalnih dobara i usluga od strane domaćinstava. Potrošnja je tražnja sektora domaćinstava za proizvodom za tekuću potrošnju. Izdaci za potrošnju sastoje se od kupovina trajnih potrošnih dobara (automobili, televizori), dobara tekuće potrošnje (hrana i novine) i usluga.
+
+Povezivanje u mrežu - formiranje privremenih strategijskih alijansi gde svaka firma učestvuje svojom najboljom konkurentošću.
+
+Povlačenje - deo dohotka koji se povlači iz potrošnje i ide za poreze, uvoz i štednju, a ne na potrošna dobra.
+
+Pozitivna ekonomija - ekonomska analiza koja objašnjava šta bi se u ekonomiji desilo i zbog čega, bez davanja preporuka o ekonomskoj politici.
+
+Pozitivna povezanost - situacija u kojoj je rast jedne promenljive povezan sa rastom druge promenljive; naziva se i direktna povezanost.
+
+Pozitivne eksternalije - situacija u kojoj koristi ima neko ko nije uključen niti u proces proizvodnje, ni potrošnje dobra.
+
+Pozitivni nagib - nagib krive veći od nule, koji pokazuje pozitivnu ili direktnu vezu između dve promenljive.
+
+Pravilo 5% - koristi Federalna trgovačka komisija i Ministarstvo pravde SAD da bi definisali tržište na kome se preduzeća takmiče: ako u grupi preduzeća sa određenom kategorijom dobara svi promene svoje cene za 5% i profiti im se značajno povećaju, tada ta preduzeća čine određeno tržište.
+ 
+Pravilo fiskalne politike - propis kojim se obezbeđuje da instrumenti politike odgovaraju stanju privrede. Automatski stabilizatori su primer pravila fiskalne politike.
+
+Pravilo konstantne stope monetarnog rasta - monetarna politika u kojoj Centralna banka održava stopu monetarnog rasta konstantnom.
+Pravilo maksimizacije korisnosti - pokazuje da potrošač maksimizira korisnost tako što bira kombinaciju proizvoda kod kojih je odnos marginalne korisnosti i cene jednak za sve proizvode.
+
+Pravilo monetarne politike - preporuka kolika bi trebalo da je stopa inflacije, ponuda novca, ili drugi instrumenti monetarne politike koji utiču na inflaciju, realni dohodak, ili druge pokazatelje stanja ekonomije.
+
+Pravilo povratne veze - skup stabilizacionih politika koje odgovaraju na makroekonomske događaje kao što su nezaposlenost, inflacija i dr.
+
+Preimućstvo - neka vrednost koju poseduje pojedinac ili preduzeće. Prelomna tačka - tačka u kojoj su prihodi jednaki ukupnim troškovima.
+Premija rizika - povećanje očekivane ili tražene stope povraćaja na rizične investisticije iznad stope povraćaja na nerizičnu aktivu, da bi se konpenzovao rizik.
+
+Pretpostavka fleksibilne cene - pretpostavka da se cene brzo usklađuju kao odgovor na promene u ponudi ili tražnji.
+
+Pretpostavka konstantnih cena - pretpostavka da se cene ne prilagođavaju brzo kao odgovor na promenu ponude, ili tražnje; ova pretpostavka se koristi u teoriji ekonomskih fluktuacija.
+
+Pretpostavka racionalnih očekivanja - pretpostavka da ljudi predviđaju budućnost isto onako uspešno kao i kreatori ekonomske politike.
+
+Price maker - firma koja ima moć da nametne tržištu svoju cenu, umesto da prihvata tržišnu cenu za datu.
+
+Price taker - situacija u potpunoj konkurenciji kada svaka firma nema uticaja na cenu proizvoda koji prodaje i može da proda bilo koju količinu pri datoj tržišnoj ceni. To je firma koja prihvata tržišnu cenu za datu. Ne može uticati na tržišnu cenu zato što je tržište konkurentsko.
+
+Prihodno orjentisane carine - carine kod kojih je osnovni cilj da obezbede prihode za državni budžet.
+
+Prilagođavajuća politika - odnosi se na monetarnu i fiskalnu politiku koje su suočene sa nepovoljnim šokom ponude i teže da povećaju stopu rasta nominalnog društvenog proizvoda i eliminišu smanjenje racia proizvodnje prouzrokovano šokom ponude.
+
+Prilagođeno R2 - koeficijent višestruke  determinacije  prilagođen smanjenju stepena slobode pošto je više zavisnih varijabli uključeno u regresiju.
+
+Principal-agent problem - problem koji nastaje jer agenti (menadžeri) firme mogu da teže da maksimiziraju svoje dobiti (kao što su plate) pre nego profite ili vrednost firme, što je interes vlasnika ili principala.
+
+Prirodna stopa društvenog proizvoda - pokazuje nivo koji bi ekonomija mogla proizvesti kada bi se nalazila na prirodnoj stopi nezaposlenosti. Ne postoji tendencija ni rasta ni smanjenja stope inflacije.
+
+Prirodna stopa nezaposlenosti - minimalni održiv nivo nezaposlenosti ispod koga inflacija počinje da ubrzava svoj rast. Pri ovoj stopi ne postoji tendencija ni rasta ni opadanja stope inflacije. Prirodna stopa nezaposlenosti je stopa nezaposlenosti koja postoji u normalno vreme kada ne postoji ni recesija ni bum i kada je realni GDP jednak potencijalnom GDP-u.
+
+Prirodni monopol - situacija u kojoj postoji jedno preduzeće u grani u kome prosečan ukupni trošak se smanjue za ceo obim proizvodnje i kome je nivo minimalne efikasnosti veći od veličine tržišta. Slučaj kada ekonomija obima izaziva da samo jedna firma snabdeva čitavo tržište.
+
+Prirodni nivoi proizvodnje, zaposlenosti - u monetarističkom modelu su određeni realnim faktorima ponude: kapitala, veličine radne snage i nivoa tehnologije. U našem jednostavnom modelu, prirodne stope proizvodnje, zaposlenosti i nezaposlenosti su na svom klasičnom nivou za ove promenljive (nezaposlenost je ograničena na frikcione i strukturalne forme).
+Privredna grana - obuhvata preduzeća koja proizvode slične proizvode.
+ 
+
+Problem primala - originalni problem linearnog programiranja maksimiziranja (npr. profita) ili minimiziranja (npr. troška).
+
+Problem Sever-Jug - odnosi se na geografsku disperziju dohodaka: severne zemlje teže da budu relativno bogate, dok su južne relativno siromašne.
+
+Problem slobodnog jahača - problem koji se javlja u slučaju javnih dobara: pojedinci koji ne učestvuju u troškovima obezbeđenja javnog dobra ne mogu biti isključeni iz korišćenja tog dobra.
+
+Proces inovacije - uvođenje novog ili poboljšanog proizvodnog procesa.
+
+Produkciona kriva - pokazuje maksimalnu moguću proizvodnju dva proizvoda sa resursima sa kojima raspolaže ekonomija.
+
+Produktivnost - opšti izraz koji često znači prosečan nivo proizvodnje ostvaren od strane jednog zaposlenog za jedan sat. Nove mašine i oprema povećavaju produktivnost rada omogućujući radnicima da proizvode više.
+
+Produktivnost rada - proizvod po radnom času.
+
+Profit - ukupni prihod koji dobije firma minus ukupni troškovi.
+
+Profitna margina - razlika između cene i potpuno alociranog prosečnog troška proizvoda.
+
+Programi pomoći stanovanju - državni programi koji obezbeđuju subvencije ili siromašnim porodicama da iznajme kuće ili izvođačima radova da grade kuće siromašnima.
+
+Progresivno oporezivanje - vrsta poreza kod koga se poreska stopa povećava u proporciji sa povećanjem dohotka.
+
+Proizvođački višak - razlika između cene koju firma dobija za dodatni prodati proizvod i marginalnih troškova istog. Za tržište kao celinu to je zbir viškova svih pojedinačnih fimi, odnosno površina iznad krive ponude i ispod tržišne cene.
+
+Proizvodna dobra - sirovine, kapitalna oprema i drugi inputi koje firme koriste u proizvodnji dobara i usluga koje zahtevaju kupci.
+ 
+
+Proizvodna funkcija - kriva koja pokazuje količinu proizvoda koja može biti proizvedena za datu količinu inputa. To je jednačina, tabela ili grafik koja pokazuje maksimalni autput koji firma može da proizvede u vremenskom periodu sa jednim setom inputa.
+
+Proizvodna inovacija - uvođenje novog ili poboljšanog proizvoda.
+
+Proizvodni pristup - menadžerska tehnika u kojoj odluke donose menadžeri pojedinih proizvoda.
+
+Proizvodni proces - različiti odnosi kapital/rad koje firma može koristiti za proizvodnju proizvoda.
+
+Proizvodni target - cilj proizvodnje proizvoda i usluga u planskim ekonomijama.
+
+Proizvodnja - transformacija inputa ili resursa u autput ili dobra i usluge.
+
+Promena tražene količine - kretanje duž određene krive tražnje kao rezultat promene cene dobra, dok su sve ostale varijable nepromenjene.
+
+Promena tražnje - pomeranje krive tražnje kao rezultat promene dohotka potrošača, ukusa, ili bilo koje druge necenovne determinante proizvoda.
+
+Promene zaliha - promena u stanju sirovina, delova i gotovih proizvoda pod uticajem poslovanja.
+
+Proporcionalna carina - carina koja se plaća u srazmeri sa količinom uvezenih proizvoda.
+
+Proporcionalni porez - porez koji se plaća proporcionalno broju prodatih proizvoda.
+
+Proreska sposobnost - načelo po kome pojedinci sa nižim dohotkom treba da plaćaju viši porez od onih sa nižim dohotkom.
+
+Prosečan proizvod - ukupni proizvod podeljen sa količinom varijabilnih inputa.
+ 
+Prosečna poreska stopa - ukupni plaćeni porez podeljen sa ukupnim dohotkom koji podleže oporezivanju.
+
+Prosečna ukupna cena koštanja - propisani metod kojim se utvrđuje da preduzeće zahteva cenu jednaku prosečnom ukupnom trošku.
+
+Prosečni fiksni troškovi - ukupni fiksni troškovi podeljeni sa obimom proizvodnje.
+
+Prosečni prihod - ukupni prihod podeljen količinom.
+
+Prosečni proizvod rada - proizvedena količina podeljena količinom uloženog rada.
+
+Prosečni ukupni troškovi - ukupni troškovi podeljeni sa obimom proizvodnje. Mogu se dobiti i kao zbir prosečnih fiksnih i prosečnih varijabilnih troškova.
+
+Prosečni varijabilni troškovi - ukupni varijabilni troškovi podeljeni sa obimom proizvodnje.
+Protekcionizam - politika koja ograničava uvoz da bi zaštitila domaće proizvođače.
+
+Prva teorema ekonomije blagostanja - stav da iz konkurentnih tržišta rezultira efikasni rezultat; naziva se i teorema nevidljive ruke; definicija efikasnosti koja se u teoremi koristi je Pareto efikasnost.
+
+Putanja zavisnosti - situacija u kojoj pozicija ravloteže zavisi od putanje prethodnih, istorijskih događaja.
+
+Q Regulacija - politika Centalne banke SAD koja je ograničavala kamatnu stopu koju komercijalne banke mogu plaćati na depozite. Slična politika ograničavala je visinu kamatne stope koju mogu platiti i druge štedne i finansijske insitucije. Kada je tržišna kamatna stopa prevazilazila maksimalno propisanu kamatnu stopu dolazilo je do dezintermedijacije.
+
+Računovodstveni profit - ukupni prihod minus ukupni troškovi koji ne uključuju implicitne oportune troškove; to je definicija profita koju obično koriste preduzeća.
+
+Računovodstveni troškovi - istorijski eksplicitni troškovi.
+ 
+
+Racio žrtvovanja - ukupni gubitak proizvodnje tokom dezinflacije podeljen sa smanjenjem stope inflacije.
+
+Racio cena/marginalni troškovi - razlika između cene i marginalnih troškova podeljenu sa cenom. Ovaj indeks je indikator tržišne moći, kada je 0 tada ne postoji nikakva tržišna moć. Što je veći to postoji veća tržišna moć.
+
+Racio cene/dohodak - odnos cene proizvoda na zalihama i godišnjeg prihoda po proizvodu.
+
+Racio koncentracije - racio koji pokazuje procntulani udeo prodaje 4,8i 20 najvećih firmi u prodaji ukupne grane.
+
+Racio proizvodnje - odnos tekuće i prirodne stope proizvodnje. Njegove promene su povezane sa promenama zaposlenosti. Promene su određene vezama IS-LM modela i agregatne ponude. Postoji više koncepata koji ga definišu na nivou 100%, npr. prirodna stopa nezaposlenosti, deficit pune zaposlenosti i dr.
+
+Racio zaposlenost-stanovništvo - odnos zaposlenih radnika u odnosu na radno sposobno stanovništvo.
+
+Racionalizacija radnih mesta - razlog za nezaposlenost po kome je ponuđena količina rada veća od tražene količine jer su realne nadnice previsoke.
+
+Racionalna očekivanja - očekivanja formirana na osnovu svih svih raspoloživih i relevantnih informacija o varijablama koje se predviđaju. Pretpostavlja se da ekonomski agenti koriste sve informacije: oni razumeju vezu između razmatranih promenljivih i promenljivih koje se predviđaju.
+
+Rad - obuhvata fizičku energiju, veštinu i mentalne sposobnosti koje ljudi pridodaju proizvodnji dobara i usluga. Rad - broj radnih časova u kojima ljudi proizvode robe i usluge.
+
+Radna snaga - obuhvata sve one koji su ili zaposleni ili nezaposleni.
+
+Radni dohodak - suma nadnica, plata i posebnih privilegija koja se isplaćuje radnicima.
+ 
+Radnici koji napuštaju posao - ljudi koji su nezaposleni jer su napustili svj prethodni posao.
+
+Radnici koji su izgubili posao - nezaposleni koji su izgubili svoj prethodni posao.
+
+Radnik sa delimičnim radnim vremenom - neko ko radi između jednog časa i punog radnog vremena nedeljno.
+
+Radno intenzivna proizvodnja - proizvodnja u kojoj se koristi relativno niži nivo kapitala po radniku.
+
+Radno-štedne tehnološke promene - tehnološke inovacije kojima se smanjuje iznos potrebnog rada za proizvodnju date količine proizvoda korišćenjem date količine kapitala.
+
+Raspoloživi dohodak - dohodak koji stoji na raspolaganju pojedincima za potrošnju i štednju. Lična primanja umanjena za poreze. To je dohodak kojim domaćinstva raspolažu za potrošnju nakon plaćenih poreza I dobijenih transfera od države.
+
+Rastući oportunitetni trošak - situacija u kojoj veća proizvodnja jednog dobra zahteva odustajanje od povećanja proizvodnje drugog dobra.
+
+Ravnoteža tržišta rada - situacija u kojoj je količina ponuđenog rada jednaka količini traženog rada.
+
+Ravnotežna cena - cena po kojoj se izjednačavaju tražena i ponuđena količina.
+
+Ravnotežna kamatna stopa - kamatna stopa kojom se izjednačava sumu udela potrošnje, investicija i neto izvozasa udelom GDP-a dostupnog za nevladinu potrošnju.
+
+Ravnotežna količina - količina koja odgovara ravnotežnoj ceni.
+
+Ravnotežna nadnica - nivo nadnica kod koga ne postoji pritisak za promene. To je nivo koji se dobija u preseku krive ponude i krive tražnje za radnom snagom.
+ 
+Ravnotežna veza rizika i dobitka - pozitivna veza između rizika i očekivane stope dobiti na sredstva i vzana je za činjenicu da osoba koja preuzima veći rizik mora biti i kompenzovana većim dobitkom.
+
+Ravnotežni budžet - budžet u kome su poreki prihodi jednaki vrednosti potrošnje.
+
+Ravnotežni devizni kurs - devizni kurs komplementaran sa uravnoteženim platnim bilansom, pošto su sva neophodna prilagođavanja završena.
+
+Realna kamatna stopa - kamatna stopa koju pojedinci plaćaju za pozajmice, ili dobijaju za depozite umanjena za stopu inflacije; npr., ako je nominalna kamatna stopa 12%, a stopa inflacije je 10%, realna kamatna stopa je 2%. Realna kamatna stopa je nominalna kamatna stopa minus anticipirana stopa inflacije.
+
+Realna količina novca - ukupna količina novca podeljena sa indeksom cena.
+
+Realna nadnica - cena rada očišćena od inflacije, nasuprot nominalnoj nadnici koja uključuje inflaciju.
+
+Realna rigidnost - faktor koji čini firme neosetljivim na promene realnih plata (plata prema cenama), ili relativnih plata (jednih plata u odnosu na druge plate).
+
+Realni BNP - meri agregatni autput u konstantnoj vrednosti dinara iz bazne godine.
+
+Realni devizni kurs - prosečni nominalni devizni kurs između jedne zemlje i zemalja sa kojima trguje u koji je uključeno prilagođavanje zbog različitih stopa inflacija.
+
+Realni društveni proizvod - vrednost društvenog proizvoda u konstantnim cenama.
+
+Realni GDP - mera vrednosti svih novo proizvedenih usluga i proizvoda u zemlji tokom određenog vremenskog perioda, bez inflatornog računanja.
+
+Recesija - period pada realne ekonomske aktivnosti. Definiše se kao period u kome realni društveni proizvod opada u dva ili više kvartala za redom.
+ 
+Recesija počinje posle dostizanja špica i traje sve dok se privreda kreće do dna, a tada ponovo počinje oporavak.
+
+Recipročna tražnja - uzajamnost tražnje partnera koji trguju dobrima. Dž. St. Mil je ovim objašnjavao nejednaku deobu dobitaka u trgovini dvaju zemalja.
+
+Rediskontna stopa - kamatna stopa po kojoj banke pozajmljuju sredstva od Centralne banke.
+
+Redistribucioni efekat - utiče na tražnju zbog redistribucije  dohotka između dužnika i poverilaca tokom perioda deflacije. Ukoliko dužnici više smanje svoju potrošnju nego što je povećaju kreditori tada će agregatna potrošnja opasti.
+
+Regresiona analiza - statistička tehnika za procenjivanje kvantitativne veze između ekonomske varijable koju želimo da objasnimo (zavisne varijable) i jedne ili više nezavisnih varijabli.
+
+Regresiona kriva - kriva dobijena minimiziranjem suma najmanjih kvadrata vertikalnih odstupanja svih tačaka podata od krive.
+
+Regresivni porez - porez kod kojeg se poreska stopa smanjuje kako se povećava dohodak pojedinca.
+Regulatorno kašnjenje - vremenski period koji je neophodan da bi se donela odluka o regulatornoj politici.
+
+Reinženjering - radikalna promena svih procesa u firmi kako bi se dostigli veliki dobici u brzini, kvalitetu, usluzi i profitabilnosti.
+
+Relativna cena - cena nekog proizvoda upoređena sa cenama drugih proizvoda.
+
+Relativna elastičnost - situacija u kojoj je elastičnost jednog proizvoda veća od elastičnosti nekog drugog proizvoda.
+
+Relevantni troškovi - troškovi koje bi trebalo razmotriti prilikom donošenja menadžerske odluke; oportunitetni troškovi.
+
+Rental kapitala - cena koju traži vlasnik opreme za iznajmljivanje na određeni vremenski period.
+ 
+
+Restrikcije domaćeg zadovoljenja - zahtevi da deo proizvoda bude proizvedn u nekoj oblasti da bi se kvalifikovala za nulte tarife među zemljama u slobonoj carinskoj zoni.
+
+Revolucija racionalnih očekivanja - promena u načinu makroekonomskog razmišljanja tokom sedamdesetih, koje pretpostavlja da ljudi koristeći sve informacije koje su im dostupne racionalno predviđaju budućnost.
+
+Rezerva - deo depozita koji komercijalne banke drže kod centralne banke.
+
+Rezidual - deo koji preostaje posle izdvajanja svih poznatih izvora koji su uticali na stopu rasta društvenog proizvoda, uključujući i povećanje radne snage i kapitalne opremljenosti, kao i uticaj obrazovanja, istraživanja i drugih faktora.
+
+Rigidna nadnica - nemogućnost nominalne nadnice da se prilagodi nivou koji bi održao ravnotežu na tržištu rada.
+
+Rikardijanska ekvivalentnost - stanovište da sadašnja promena u porezima neće uticati na smanjenje potrošnje zato što pojedinci pretpostavljaju da će se poresko opterećenje njihove dece kretati u suprotnom smeru.
+
+Risk-seeker - pojedinac za koga marginalna korisnost novca raste; on bi prihvatio pravičnu okladu, pa čak i neke nepravične.
+
+Rizik - situacija u kojoj postoji više od jednog mogućeg rezultata za odlučivanje i verovatnoća svakog mogućeg rezultata je poznata ili može biti procenjena.
+
+Robna trgovina - trgovina robama koje su u fizičkom obliku, kao što su nafta, žito, ili kompjuteri.
+
+Robni novac - dobro korišćeno kao novac koje ima neku unutrašnju vrednost u nenovčanom korišćenju.
+
+Robni trgovinski bilans - vrednost robnog izvoza minus vrednost robnog uvoza.
+
+Rok dospeća - dan kada se vraća glavnica zajma.
+ 
+Rukovođeno plivanje - sistem koji kombinuje fiksne i plivajuće devizne kurseve, u kome se dozvoljava fluktuiranje deviznog kursa od ravnoteže, ali ne trajno udaljavanje.
+
+Sadašnja diskontovana vrednost - vrednost u sadašnjosti budućih plaćanja.
+
+Samokorigujuće snage - inherentnte snage u ekonomiji, posebno fleksibilnost cena, koje pokreću privredu ka prirodnoj stopi proizvodnje bez državne intervencije.
+
+Sektorski spoljnotrgovinski deficit - vrednost uvoza minus vrednost izvoza u nekom sektoru industrije.
+
+Sekularni trend - dugoročni rast ili smanjenje u serijama podataka.
+
+Sezonska nezaposlenost - nezaposlenost koja sezonski varira tokom godine kao rezultat sezonske promene u ponudi, ili tražnji za radnom snagom.
+
+Sezonske varijacije - fluktuacije ekonomske aktivnosti koje se redovno pojavljuju svake godine zbog vremena i društvenih običaja.
+
+Simpleks metod - matematička tehnika za rešavanje problema linearnog programiranja.
+
+Sindikat radnika - organizacija radnika, organizovana radi povećavanja nadnica i poboljšavanja uslova rada svojih članova.
+
+Sindikat zanata - sindikat organizovan da reprezentuje pojedinačno zanimanje, čiji su članovi iz različitih privrednih grana.
+
+Sinjoraž - prihod koji država prima od inflacije, jednak je stopi inflacije pomnoženoj sa novčanom bazom. Sinjoraž je iznos realnih resursa kupljenih od strane države novo kreiranim novcem.
+
+Sistem deviznog kursa - skup pravila kojima se organizuje određivanje deviznih kurseva među valutama.
+
+Sistem federalnih rezervi (FED) - centralna banka SAD, koja kontroliše kreiranje novca u SAD.
+ 
+Sistem fiksnog deviznog kursa - sistem međunarodnih deviznih kurseva u kome su se zemlje složile da zadrže ranije određene vrednosti svojih valuta u odnosu na druge valute.
+
+Sistem fleksibilnog deviznog kursa - međunarodni monetarni sistem u kome se devizni kursevi određuju na inostranim deviznim tržištima i vlada se nije složila da ih fiksira.
+
+Sistemski rizik - rizik na kapitalnom tržištu koji investitori ne mogu smanjiti diverzifikacijom portfolia.
+
+Slobodan ulaz i izlaz - kretanja firmi unutra i napolje grane koja nisu blokirana regulacijom, drugim preduzećima, ili nekom drugom barijerom.
+
+Slobodno determinisana cena - određena je interakcijom pojedinaca i preduzeća na tržištu.
+
+Snobovski efekat - situacija u kojoj neki ljudi traže manje količine dobra što ga više ljudi konzumira, da bi bili drugačiji i ekskluzivni.
+
+Socijalna regulacija - državna regulacija u oblastima poput zaštite prirodne sredine, zdravstva i dr. i usmerena je na regulaciju eksternalija.
+
+Socijalno osiguranje - transferno plaćanje, koje ne zavisi od nivoa dohotka lica.
+
+Specijalizacija - situacija u kojoj su resursi, npr. rad, koncentrisani na određeni posao.
+
+Spoljnotrgovinski deficit - višak uvoza proizvoda i usluga u odnosu na izvoz proizvoda i usluga.
+
+Spoljnotrgovinski suficit - identičan neto izvozu, odnosno višak izvoza nad uvozom.
+
+Sredstvo razmene - predmet koji je opšte prihvaćen kao sredstvo plaćanja dobara i usluga.
+
+Stabilizaciona politika - opšti izraz za monetarnu i fiskalnu politiku. Svaka politika koja teži da utiče na nivo agregatne tražnje.
+ 
+Stagflacija - situacija u kojoj postoje visoka inflacija i visoka nezaposlenost.
+
+Standardna greška regresije - standardna greška zavisne varijable (Y) od regresione linije.
+
+Standardna klasifikacija industrije (SITC) - klasifikacija koja deli industriju u određene grane radi statističkih potreba.
+
+Statistička razlika - razlika između kalkulacije realnog društvenog proizvoda korišćenjem potrošnog principa i dohodnog principa zbog grešaka i neprijavljenih podataka.
+
+Stepen operacionog levridža - procentualna promena profita firme podeljena sa procentualnom promenom obima proizvodnje, ili prodaje; prodajna elastičnost profita.
+
+Stepeni slobode - broj vrednosnih podataka, ili jedinica uzorka minus broj ocenjenih parametara u regresonoj analizi.
+
+Stok - ekonomska veličina koja označava posedovanje neke jedinice ili agregatne veličine u određenom vremenskom periodu. Na primer: kapitalni stok, novčana masa i dr.
+
+Stok vrednosti - metod čuvanja kupovne moći kada prihodi i izdaci nisu sinhronizovani.
+
+Stopa depresijacije - godišnje ekonomsko i fizičko rabaćenje kapitala; npr., ako pojedinac kupi kola za 5000 dolara, a ona sledeće godine vrede 4000 dolara tada je stopa depresijacije 20%.
+
+Stopa inflacije - procentualni porast opšteg nivoa cena u datom vremenskom periodu, obično godinu dana.
+
+Stopa nacionalne štednje - deo GdP-a koji se štedi, niti se troši niti se troši na državne izdatke; jednak je odnosu nacionalne štednje i GDP-a, ili je jednak jedan minus učešće potrošnje minus učešće vladinih kupovina u GDP-u.
+
+Stopa nezaposlenosti - broj onih koji su ostali bez posla (ili su privremeno otpušteni), a aktivno traže posao, podeljen sa zbirom zaposlenih i nezaposlenih. Stopa nezaposlenosti je racio nezaposlenih prema ukupnom broju radnosposobnih (u %).
+ 
+
+Stopa obaveznih rezervi - procenat depozita koje banke moraju da drže u obliku rezervi.
+
+Stopa prinosa - godišnji prihod investicije podeljen sa njenim ukupnim troškovima. To je prinos na uložena sredstva izražen kao procenat od prodajne cene.
+
+Stopa radne snage - racio ukupne radne snage (zaposleni plus nezaposleni) i radne populacije stanovništva.
+
+Stopa siromaštva - procenat ljudi ispod krive siromaštva.
+
+Stopa tehničke supstitucije - stopa po kojoj jedan input može biti zamenjen sa drugim tako da se održi isti obim proizvodnje; jednak je nagibu izokvante.
+
+Stopa udela radne snage - odnos (u %) radne snage i radno sposobne populacije.
+
+Stopa vremenskih preferencija - dodatna jedinica koju je pojedinac voljan radije da sad kupi i konzumira nego godinu dana kasnije.
+
+Strana kupovina inputa - kupovina delova ili komponenti u inostranstvu da bi se smanjili troškovi porizvodnje i povećala konkurentnost.
+
+Strane direktne investicije - investicije kod kojih najmanje 10% direktnog vlasništva imaju stranci.
+
+Strategija hladne ćurke - pristup dezinflaciji koji polazi od iznenadnog i stalnog smanjenja nominalnog društvenog proizvoda i stope rasta.
+
+Strategija izvoza - državno podsticanje ekonomskog razvoja ustanovljavanjem otvorena politike trgovine i rastućeg izvoza.
+
+Strategija uvozne supstitucije - politika trgovine kreirana da ohrabri lokalne firme da proizvode dobra koja se obično uvoze u zemlju.
+
+Strategije - potencijalni izbori koje mogu napraviti igrači (firme) u teoriji igara.
+ 
+Strategijska kriva marginalnog prihoda - kriva marginalnog prihoda izvedena iz strategijske krive tražnje.
+
+Strategijska kriva tražnje - kriva tražnje (negativnog nagiba) u koju firme uključuju svoje pretpostavke o ponašanju konkurentskih firmi.
+
+Strategijska trgovinska politika - politika države koja ima cilj da obeshrabri strane firme sa velikom ekonomijom obima da otvore svoje filijale.
+
+Strategijsko ponašanje - ponašanje firmi koje uzima u obzir tržišnu moć i reakciju drugih firmi.
+
+Strategijsko ponašanje - plan aktivnosti igrača ili oligopoliste, nakon uzimanja u obzir svih mogućih reakcija drugih, pošto se oni takmiče za profit ili druge prednosti.
+
+Struktura - metod analiziranja tržišne moći u industriji na osnovu strukture industrije.
+
+Strukturalistička hipoteza -prirodna stopa nezaposlenosti je visoka zbog specifičnih problema u poslovanju privrede, naročito na tržištu rada, uključujući previsoke realne ndnice, visoke beneficije za slučaj nezaposlenosti, preveliku državnu potrošnju i regulaciju, visoke marginalne poreske stope, regionalne neravnoteže i dr.
+
+Strukturalne (biherviorističke) jednačine - jednačine kojima se objašnjavaju (identifikuju determinante) veze u modelu.
+
+Strukturna nezaposlenost - deo nezaposlenosti koja postoji i kada se ekonomija nalazi na nivou prirodne stope nezaposlenosti. To je dugoročna nezaposlenost kao rezultat strukturnih problema kao što su nedovoljna kvalifikacija, promena u tražnji za pojedinim kategorijama radnika, nedovoljna radna inicijativa i dr.
+
+Strukturni deficit - deo budžetskog deficita koji bi postojao čak i kada bi ekonomija bila na potencijalnom nivou proizvodnje. Strukturni deficit je nivo budžetskog deficita koji bi postojao kada bi realni društveni proizvod bio jednak potencijalnom društvenom proizvodu; zove se i deficit pune zaposlenosti.
+ 
+Stvarni devizni kurs - prilagođava se razlici u stopi inflacije između dve zemlje.
+
+Stvarni poslovni ciklus - ciklus tekućeg realnog društvenog proizvoda zbog fluktuacija u prirodnoj stopi društvenog proizvoda. Pristup stvarnog poslovnog ciklusa je objašnjava poslovni ciklus u proizvodnji i zaposlenosti kao rezultat tehnološlog šoka, ili šoka ponude.
+
+Substitucioni efekat - porast tražene količine dobra koji - rerzultat samo pada njegove cene i nezavistan je od promene realnog dohotka.
+
+Supstitucioni efekat - iznos za koji se kupljena količina smanjuje kao rezultat porasta cene, posmatran nezavisno od promena nivoa dohotka.
+
+Supstitut - proizvod koji ima brojne karakteristike kao i drugi proizvod i može da ga zameni u potrošnji.
+
+Šok ponude - promena u količini proizvoda koje su firme voljne da proizvode po postojećim cenama. Npr., pad proizvodnje kukuruza je došao kao posledica skoka cena nafte 1973/74.
+
+Šok terapija - naglo uvođenje slobodnog tržišta u centralno planske privrede.
+
+Šok tražnje - promena jedne od komponenti agregatne tražnje koja vodi promeni agregatne tražnje/krive inflacije.
+
+Štedni depozit - račun kod finansijske institucije koji je vrlo likvidan, ali se ne može lako upotrebiti za kupoprodajne transakcije.
+
+T statistika - odnos vrednosti procenjenog parametra i njegove standardne devijacije ili greške.
+
+T test - test značajnosti za procenjeni parametar korišćenjem t distribucije.
+
+Tačka zatvaranja - nivo proizvodnje pri kome je cena proizvoda jednaka prosečnom varijabilnom trošku firme.
+
+Tabela individulane tražnje - tabelarno prikazana relacija između cene i tražene količine proizvoda od strane pojedinca u određenom vremenskom periodu.
+ 
+
+Tabela tražnje - tabelarni prikaz tražnje koji pokazuje cenu i traženu količinu za određenu robu.
+
+Tangentna tačka - jedina zajednička tačka za dve krive u kojoj se one dodiruju.
+Targetiranje nominalnog GDP-a - monetarna politika kojom centralna banka da održi konstantan rast nominalnog GDP-a.
+
+Targetna zona - kada neka varijabla, npr. devizni kurs pređe dozvoljene granice fluktuacije tada centralna banka preduzima intervenciju.
+
+Tehnika preživljavanja - metod određivanja postojanja rastućih, opadajućih ili konstantnih prinosa u zavisnosti da li učešće autputa velikih firmi u proizvodu privredne grane (uz poređenje sa učešćem proizvoda malih firmi) raste, opada ili ostaje isto tokom vremena.
+
+Tehnike poravnavanja - metod naivnog predviđanja u kome su buduće varijable vremenskih serija predviđene samo na osnovu nekih proseka njihovih prošlih vrednosti.
+
+Tehnološka promena - poboljšanje tehnologije tokom vremena. Tehnološke promene uključuju promene u tehnološkom znanju i nova znanja o poslovnoj organizaciji.
+
+Tehnologija - sve što povećava količlinu proizvoda koja može biti proizvedena za datu količinu kapitala i rada.
+
+Tekući račun - deo platnog bilansa koji uključuje izvoz i uvoz roba i usluga, kao i transfere i poklone.
+
+Teorema o neefikasnosti politike - teorema Nove klasične makroekonomije ukazuje da sistematske akcije monetarne i fiskalne politike kojima se menja agregatna tražnja neće uticati na proizvod i zaposlenost čak ni u kratkom roku.
+Teorema o srednjem glasaču - teorema po kojoj će se sredina političkih preferencija reflektovati na vladine odluke.
+
+Teorija firme - postavka po kojoj primarni cilj firme da maksimizira blagostanje ili vrednost firme.
+ 
+Teorija igara - teorija koja ispituje izbor najbolje ili optimalne strategije u konfliktnim situacijama.
+
+Teorija igara - grana primenjene matematike koja se mnogo koristi u ekonomiji uključujući analizu interakcije preduzeća koja uzimaju u obzir akcije jednih i drugih.
+
+Teorija kontestabilnih tržišta - teorija po kojoj čak i privredna grana koju čini jedna ili nekoliko firmi, može da funkcioniše kao da je konkurencija perfektna, ukolio je ulazak apsolutno slobodan i ako je izlazak potpuno besplatan.
+
+Teorija nove trgovine - obuhvata modele međunarodne trgovine bazirane na monopolističkoj konurenciji, diferencijaciji proizvoda i ekonomiji obima koja se pojavljuje 70ih i 80ih godina.
+
+Teorija pariteta kupovne moći - po ovoj teoriji cene istih proizvoda u različitim zemljama treba da su iste, a mogu se razlikovati samo za iznos transportnih troškova i carinskih barijera.
+
+Teorija potrošačke tražnje - proučavanje determinanti tražnje za posmatranim proizvodom.
+
+Teorija realnih poslovnih ciklusa - makroekonomska teorija koja ističe da su promene u potencijalnom društvenom proizvodu primarno prouzrokovane promenama stvarnog društvenog proizvoda; promene potencijalnog društvenog proizvoda su često prouzrokovane promenama u tehnologiji.
+
+Teorija regulacije na osnovu javnog interesa - teorija po kojoj se regulacija preduzima da bi se osiguralo da ekonomski sistem funkcioniše na način konzistentan sa javnim interesom i uz otklanjanje tržišnih nedostataka.
+
+Terminska prodaja deviza - dogovor da se kupi određeni iznos strane valute po kursu dogovorenom u sadašnjosti određenog datuma u budućnosti.
+
+Test značajnosti - test kojim se utvrđuje da li postoji zadovoljavajuće značajna veza između zavisne i nezavisne varijable(i) u regresionoj analizi.
+
+Totalna faktorska produktivnost - racio realne proizvodnje i inputa svih pojedinačnih faktora proizvodnje, a posebno sa radom i kapitalom. U imeniocu mogu biti kombinovani rad, kapital i neke druge veličine.
+ 
+
+Tržišna ravnoteža - situacija u kojoj je cena jednaka ravnotežnom trošku i količina kojom se trguje je izjednačena sa ravnotežnom količinom.
+
+Tržišna snaga - snaga preduzeća da odredi svoju cenu bez gubitka svog celokupnog tržišnog učešća.
+
+Tržišna struktura - konkurentsko okruženje u kome kupci i prodavci proizvoda deluju.
+
+Tržišni eksperimenti - pokušaji firme da proceni tražnju za proizvodom, promenom cene i drugih determinanti tražnje za proizvodom na stvarnom tržištu.
+
+Tržišni nedostaci - ekonomska neefikasnost koja potiče od postojanja monopolske moći na neperfektno konkurentnim tržištima, zbog eksternalija, i zbog postojanja javnih dobara.
+
+Tržište - sporazum po kome se vrši ekonomska razmena između ljudi. Čine ga stvarni i potencijalni kupci i prodavci određenog proizvoda.
+
+Tržište rada - tržište na kome pojedinci nude svoj rad firmama u razmenu za nadnice i plate.
+
+Tražnja - količina proizvoda koju ljudi žele da kupe po datoj ceni. Tražnja je veza između cene i tražene količine, kojom se pokazuje koliko će određenog dobra ljudi hteti da kupe za datu cenu, ukoliko je sve drugo jednako.
+
+Tražnja novca - veza između kamatne stope i količine novca koji pojedinci žele da drže pri datoj kamatnoj stopi.
+
+Tražnja rada - odnos između količine traženog rada preduzeća i nadnice.
+
+Trajna nezaposlenost - situacija u kojoj visoki nivo nezaposlenosti može trajati dugi niz godina.
+
+Trajno dobro - dobro koje može biti uskladišteno i može pružati usluge (služiti nameni) ne samo u godini u kojoj je kupljeno već u dužem nizu godina.
+
+Transakcioni troškovi - ekstra trošak (iznad cene prodaje) u obliku novca, vremena. Firme postoje da bi izbegle mnoge transakcione troškove.
+ 
+
+Transakcioni troškovi - troškovi kupovine i prodaje na tržištu uključujući i traganje, pregovaranje i sastavljanje ugovora.
+Transferna cena - cena koju jedno odeljenje organizacije mora platititi da bi dobilo proizvode, ili usluge od drugog odeljenja istog preduzeća.
+
+Transferna plaćanja - plaćanja koja nemaju za protivuslugu proizvode, ili usluge, npr., socijalno osiguranje. Transferno plaćanje je preraspodela fondova od strane države pojedincima.
+
+Transferno određivanje cene - određivanje cene posrednih proizvoda prodatih od strane jednog semi-autonomnog dela preduzeća drugom semi-autonomnom delu istog preduzeća.
+
+Tranzitorni dohodak - razlika između tekućeg i permanentnog dohotka.
+
+Trgovinski bilans - vrednost izvoza minus vrednost uvoza. Trgovinski bilans meri razliku između uvoza i izvoza u platnom bilansu.
+
+Trgovinski deficit - rast uvoza iznad izvoza.
+
+Trgovinski rat - sukob između država vezan za trgovisnku politiku, koji rezultira u uvođenju protekcionizma za deo, ili sve proizvode neke druge zemlje i protekcionistički odgovor druge zemlje.
+
+Trižišne greške - označavaju bilo koju situaciju u kojoj tržište ne obezbeđuje efikasni ekonomski rezultat i u kojoj postoji potencijalan prostor za delovanje države.
+
+Trišna ekonomija - ekonomija koju karakterišu slobodno određene cene i slobodna razmena dobara i usluga.
+
+Troškovi duga - neto kamatna stopa koju plaće firma na pozajmljena sredstva.
+
+Troškovi plus - najčešće korišćen model određivanja cena, gde se određeni iznos dodaje na ukupne troškove proizvodnje.
+
+Troškovi prodaje - izdaci (kao što je reklamiranje) koje firma ima da bi uticala na potrošače da potroše više na njene proizvode.
+ 
+Troškovi/proizvodnja/profit - metod određivanja obima proizvodnje pri kojem firme određuju obim proizvodnje targetirajući profit na bazi ukupnih prihoda i ukupnih troškova firme.
+
+Tvrdnja o neefektivnoj politici - tvrdnja da anticipirana monetarna politika neće imati efekta na ekonomiju.
+
+Učešće neto izvoza - deo GDP-a koji je jednak neto izvozu; jednak neto izvoz podeljenom sa GDP-om ili X/ Y.
+
+Učešće vladinih kupovina - procenat GDP-a koji se koristi za vladine kupovine; jednako je odnosu odnosu vladinih kupovina i GDP-a ili G/Y.
+
+Učeća organizacija - organizacija koja vrednuje kontinuirano učenje i pojedinačno i kolektivno, i veruje da konkurentska prednost potiče od i zahteva kontinuirano učenje u eri informacija.
+
+Učenje kroz rad - situacija u kojoj radnici postaju spretniji radeći određeni posao više puta.
+
+Udeo investicija - deo GDP-a koji se koristi za investiranje; jednak je odnosu investicija i GDP-a ili I/Y.
+
+Udeo potrošnje - deo GDP-a koji se koristi za potrošnju; jednak odnosu potrošnje i GDP-a ili C/Y.
+
+Ugovor o akcijskom kapitalu - učešće u vlasništvu u firmi u kojoj plaćanja vlasnicima akcija zavise od profita preduzeća.
+
+Ugovor o odloženom plaćanju - ugovor između radnika i poslodavca kojim se radnik plaća manje od marginalne produktivnosti kada je mlad, dok se kada ostari plaća više od svoje marginalne produktivnosti.
+
+Ukrštena cenovna elastičnost tražnje - odnos procentualne promene tražene količine jednog dobra i procentualne promene cene drugog dobra.
+
+Ukupna radna snaga - svi zaposleni i nezaposleni, isključujući one koji ne rade i ne traže posao, a uključujući armiju.
+
+Ukupni fiksni troškovi (engl. TFC) - ukupne obaveze firme za vremenski period za sve korišćene fuksne inpute.
+ 
+
+Ukupni prihod (engl. TR) - cena po jedinici proizvoda pomnoženo prodatom količinom. Dobija se kao proizvod cene pomnožen sa količinom prodatih proizvoda.
+
+Ukupni proizvod (engl. TP) - ukupni autput proizveden korišćenjem različitih količina inputa kada su fiksne količine drugog.
+
+Ukupni troškovi (engl. TC) - ukupni fiksni troškovi plus ukupni varijabilni troškovi.
+
+Ukupni troškovi - zbir fiksnih i varijabilnih troškova.
+
+Ukupni varijabilni troškovi (engl. TVC) - ukupne obaveze firme u vremenskom periodu za sve varijabilne inpute koje firma koristi.
+
+Unakrsna analiza - analiza velikog broja jedinica u istom vremenskom trenutku (engl. cross section analysis).
+
+Unakrsna elastičnost tražnje - procentualna promena tražnje za proizvodom X podeljena sa procentualnom promenom cene proizvoda Y, pri čemu su konstantne sve ostale determinante tražnje.
+
+Unakrsna elastičnost tražnje u tačci - unakrsna elastičnost tražnje za dobrom X pri određenoj ceni dobra Y; meri se: (delta Qx / delta PY) (delta PY / delta QX)
+
+Unakrsni podaci - podatak iz uzorka porodica, firmi, ili nekih drugih ekonomskih jedinica posmatran u određenoj vremenskoj tački, na primer u određenoj godini
+
+Unilateralna liberalizacija - ukidanje spoljnotrgovinskih barijera jedne zemlje bez recipročnog ukidanja od strane neke druge zemlje.
+
+Upražnjena radna mesta - situacija u kojoj preduzeća pokušavaju da radna mesta popune, ali ne mogu da pronađu odgovarajuće radnike.
+
+Upravljanje trgovinom - situacija u kojoj vlada preuzima akcije da promoviše ili smanji trgovinu određenid dobrima, obično određujući targete za izvoz i uvoz.
+ 
+Upravljanje valutom - na principima plivajućeg deviznog kursa je sistem u kome je ponekad deviznom kursu dozvoljeno da odgovori na dejstvo tržišnih sila, a nekad Centralna banka interveniše utičući na devizni kurs.
+
+Uslovljavanje - obaveze koje se nameću zemljama od strane MMF-a koje su vezane za reforme cena ili sniženje državnog budžetskog deficita, da bi primile sredstva zajma.
+
+Uslovna verovatnoća - verovatnoća da će desiti jedan događaj ukoliko se desio neki drugi događaj.
+
+Utopija - naslov dela T. Mora, po kome je celokupno negativno određenje prema nastajućem kapitalizmu dobilo karakter utopijskog; kod T. Mora odnosi se na grad - mesto, koga nema, pa se i u širem smislu to osmišljavanje društva koga nema.
+
+Utvrđivanje cena za prestižne - metod utvrđivanja cena namernim određivanjem visokih cena da bi se privukli potrošači orijentisani na prestiž.
+
+Utvrđivanje cene - situacija u kojoj preduzeća planiraju da odrede cene za dobra prodata na istom tržištu.
+
+Uvoz - ukupna suma vrednosti dobara i usluga koje ljudi u jednoj zemlji kupuju od ljudi iz drugih zemalja. Uvoz su proizvodi i usluge proizvedeni u zemlji A, a potrošeni u nekoj drugoj zemlji.
+
+Uvozne carine - porez na uvezenu robu. Uvozne kvote - kvantitativna ograničenja uvoza.
+
+Valuta - novac u svojoj fizičkoj formi: metalni i papirni novac.
+
+Varijabilna kamatna stopa - menja se usled promena na finansijskom tržištu, za razliku od fiksne kamate koja je nepromenljiva.
+
+Varijabilni inputi - inputi koji se lako mogu promeniti. Varijacija proizvoda - razlike u nekoj od karakteristika diferenciranih proizvoda.
+
+Varijabilni troškovi - troškovi koji variraju sa obimom proizvodnje.
+ 
+Varijabla odluke - varijabla koju firma može varirati da bi optimizirala ciljnu funkciju.
+
+Verovatnoća - mogućnost (verovatnoća) da će se događaj dogoditi.
+
+Vertikalna integracija - koprodukcija dve firme u kojoj jedna daje proizvode za proizvodnju druge.
+
+Vezivanje - zahtev da potrošač koji kupuje proizvod takođe kupi i proizvod koji mu je neohodan za korišćenje prvog.
+
+Višak - situacija u kojoj je ponuđena količina veća od tražene.
+
+Višak kapaciteta - situacija u kojoj preduzeće proizvodi ispod nivoa na kome je prosečni ukupni trošak minimalan.
+
+Višak troškova - situacija u kojoj su troškovi proizvodnje viši od minimalnog prosečnog ukupnog troška.
+
+Višestruka ravnoteža - situacija u kojoj postoji više od jedne moguće ravnoteže.
+
+Višestruka regresija - regresiona analiza sa više od dve nezavisne varijable.
+
+Vladine greške - situacija u kojoj vlada pogoršava stanje u odnosu na tržišnu soluciju, iako postoje i greške tržišta.
+
+Vladine kupovine - kupovine dobara i usluga deo su tekućeg proizvoda koji koristi državni sekor - federalna država, kao i država i lokalne vlade.
+
+Vladino trošenje - odnosi se na vladine izdatke za kupovine, jednostrana plaćanja i novčanu pomoć.
+
+Vlasnička prava - prava raspolaganja, prodaje imovine, proizvoda, ili sredstava.
+
+Vođstvo cena - cenovno određivanje od strane preduzeća u  privrednoj grani gde druga preduzeća prate lidera. To je forma tržišnog, tajnog dogovora u oligopolističkim firmama po kome firma koja služi kao lider u cenama inicira promenu cene I druge firme u privrednoj grani je uskoro slede.
+ 
+Vodeći ekonomski indikatori - vremenske serije koje teže da prethode promenama u nivou opšte ekonomske aktivnosti.
+
+Vrednosno određivanje cene - prodaja kvalitetnih roba po nižim cenama od prethodnih.
+
+Vrednost firme - sadašnja vrednost svih očekivanih budućih profita firme.
+
+Vremenska nekonzistentnost - situacija u kojoj kreatori ekonomske politike postavljaju novu ekonomsku politiku, ali je onda menjaju, jer se građani ponašaju u skladu sa starom. Vremenska nekonzistentnost opisuje iskušenja kreatora ekonomske politike da odstupe od ekonomske politike koju su prvobitno prihvatili.
+
+Vremenska vrednost novca - shvatanje da jedan dolar primljen ili plaćen u budućnosti nije vredi manje nego 1$ plaćen ili primljen danas.
+
+Vremenske serije - podaci koji pokrivaju određeni vremenski period; Npr. podaci o dohotku i potrošnji od 1900. godine predstavljaju vremensku seriju koja pokazuje kakva je veza između ove dve varijable.
+
+Vremenske serije - vrednosti varijabli uređenih hronološki, po danima, nedeljama, mesecima, kvartalima ili godinama.
+
+Vrh - najviša tačka u realnom GDP-u pre recesije.
+
+Zaštita - smanjenje rizika, obično kupovinom budućih ugovora radi garantovane cene nekoliko meseci unapred.
+
+Zadovoljavajuće ponašanje - teorija firme po kojoj menadžeri nisu spososbni da maksimiziraju profite već mogu da se bore samo za neki zadovoljavajući cilj u obliku prodaje, profita, rasta, tržišnog učešća itd.
+
+Zahtev - cena po kojoj bi prodavci želeli da prodaju na aukcionom tržištu.
+
+Zajam - obuvata sredstva koja nose kamatu banci koja ih pozajmljuje pojedincima ili firmama.
+
+Zakon jedne cene - pokazuje da se uz niske tranportne troškove, kada ne postoje trgovinske barijere, isto dobro prodaje po istoj ceni u dve različite zemlje, ukoliko je cena u istoj valuti.
+ 
+
+Zakon o intelektualnoj imovini - štiti vlasnička prava nad idejama i invencijama; to su zakon o patentima, zakon o autorskim pravima i zakon o zaštitnim znacima.
+
+Zakon opadajućih prinosa - Zakon za koji je utvrđeno da je uvek empirijski tačan, da nakon određene tačke, marginalni proizvod varijabilnog inputa opada.
+
+Zakon ponude - tendencija rasta ponuđene količine dobra sa rastom cene.
+
+Zakon tržišta - Sejov zakon pretpostavlja uzajamnost ponude i tražnje, tako da je uvek agregatna tražnja jednaka agregatnoj ponudi, jer se istovremeno stvaraju dobra i kupovna moć onih koji će ih kupiti.
+
+Zakon tražnje - inverzna veza između cene i tražene količine dobra u određenom vremenskom periodu. To je tendencija smanjenja tražene količine dobra sa rastom cene.
+
+Zakonodavstvo minimalne nadnice - zakon koji određuje najnižu nadnicu, ili cenu rada.
+
+Zamka likvidnosti - situacija u kojoj je kamatna stopa po mišljenju svih na minimalnom mogućem nivou, a vrednost obveznica je relativno visoka. Tada svi pojedinci očekuju da će pasti vrednost obveznica i niko ne drži obveznice. Država tada ne može nikome da proda obveznice da bi stabilizovala ekonomiju i kamatnu stopu.
+
+Zarade - obračunati profiti preduzeća.
+
+Zatvorena ekonomija - ekonomija koja ne trguje robama, uslugama i kapitalom sa drugim zemljama.
+
+Zatvorenikova dilema - igra u kojoj individualne inicijative vode neoptimalnom rešenju. Ukoliko bi pojedinci kooperirali postigli bi optimalni rezultat. To je situacija u kojoj svaki igrač u oligopolističkoj igri usvaja svoju dominantnu strategiju, ali bi mogao i bolju kada bi igrači sarađivali.
+
+Združena ponuda - tip proizvodnje u kome se proizvode dva ili više dobra zajedničkim inputima - faktorima, pa se alokacija troškova mora vršiti
+ 
+arbitrarno na proizvode koji su proizvedeni, pa troškovi proizvodnje ne mogu biti determinanta cene.
+
+Zemlja u razvoju - siromašna zemlja po standardima realnog GDP-a per ca- pita.
+
+Zidanje troškova - odnos profitne margine i potpuno alociranih prosečnih troškova proizvoda.
+
+Zlatni standard - monetarni standard u kome je vrednost novca vezana za zlato.
+
+Zona slobodne trgovine - područje u kome ne postoje trgovinske barijere između zemalja u tom području.

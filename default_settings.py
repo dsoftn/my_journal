@@ -4998,7 +4998,187 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Idi na prethodnu stranicu"""] ],
         "online_news_mondo_lbl_next_tt": [
             [0, """Go to the next page"""],
-            [1, """Idi na sledecu stranicu"""] ]
+            [1, """Idi na sledecu stranicu"""] ],
+        "online_news_txt_search_placeholder_text": [
+            [0, """Find a topic..."""],
+            [1, """Pronadji temu..."""] ],
+        "online_news_btn_search_text": [
+            [0, """Find on RTS"""],
+            [1, """Pronadji na RTS-u"""] ],
+        "online_news_btn_search_tt": [
+            [0, """Enter the topic for which you want to find news and press the "Find" button."""],
+            [1, """Unesite temu za koju zelite da pronadjete vesti i pritisnite "Pronadji" dugme."""] ],
+        "online_topic_aladin_we_title": [
+            [0, """Weather Forecast"""],
+            [1, """Vremenska prognoza"""] ],
+        "topic_msg_aladin_we": [
+            [0, """Aladin - Weather forecast"""],
+            [1, """Aladin - Vremenska prognoza"""] ],
+        "online_aladin_we_country_table_title": [
+            [0, """Countries"""],
+            [1, """Države"""] ],
+        "online_aladin_we_lbl_title_text": [
+            [0, """Weather Forecast"""],
+            [1, """Vremenska prognoza"""] ],
+        "online_aladin_we_lbl_title_search_results_text": [
+            [0, """City search results"""],
+            [1, """Rezultati pretrage gradova"""] ],
+        "online_aladin_we_lbl_months_title_text": [
+            [0, """Climate by month:"""],
+            [1, """Klima po mesecima:"""] ],
+        "online_aladin_we_btn_cb_today_text": [
+            [0, """Today"""],
+            [1, """Danas"""] ],
+        "online_aladin_we_btn_cb_now_text": [
+            [0, """Now"""],
+            [1, """Sada"""] ],
+        "online_aladin_we_btn_cb_hourly_text": [
+            [0, """Hourly"""],
+            [1, """Po satima"""] ],
+        "online_aladin_we_btn_cb_geo_text": [
+            [0, """Geo location"""],
+            [1, """Geo lokacija"""] ],
+        "online_aladin_we_btn_cb_near_text": [
+            [0, """Places nearby"""],
+            [1, """Mesta u blizini"""] ],
+        "online_aladin_we_btn_cb_most_text": [
+            [0, """Most visited"""],
+            [1, """Najčešće posećivano"""] ],
+        "online_aladin_we_btn_cb_tomorrow_text": [
+            [0, """Tomorrow"""],
+            [1, """Sutra"""] ],
+        "online_aladin_we_btn_cb_sat_text": [
+            [0, """Saturday"""],
+            [1, """Subota"""] ],
+        "online_aladin_we_btn_cb_sun_text": [
+            [0, """Sunday"""],
+            [1, """Nedelja"""] ],
+        "online_aladin_we_btn_cb_10_text": [
+            [0, """10 days"""],
+            [1, """10 Dana"""] ],
+        "online_aladin_we_btn_cb_temp_text": [
+            [0, """Temperature"""],
+            [1, """Temperatura"""] ],
+        "online_aladin_we_btn_cb_hum_text": [
+            [0, """Humidity"""],
+            [1, """Vlažnost"""] ],
+        "online_aladin_we_btn_cb_rain_text": [
+            [0, """Rainfall"""],
+            [1, """Kišne padavine"""] ],
+        "online_aladin_we_btn_cb_rain_d_text": [
+            [0, """Rainfall days"""],
+            [1, """Kišni dani"""] ],
+        "online_aladin_we_btn_cb_snow_text": [
+            [0, """Snowfall"""],
+            [1, """Snežne padavine"""] ],
+        "online_aladin_we_btn_cb_snow_d_text": [
+            [0, """Snowfall days"""],
+            [1, """Snežni dani"""] ],
+        "online_aladin_we_btn_cb_daylight_text": [
+            [0, """Daylight"""],
+            [1, """Dnevna svetlost"""] ],
+        "online_aladin_we_btn_cb_uv_text": [
+            [0, """UV Index"""],
+            [1, """UV Indeks"""] ],
+        "online_topic_aladin_tv_title": [
+            [0, """TV program"""],
+            [1, """TV Program"""] ],
+        "online_aladin_tv_lbl_title_text": [
+            [0, """TV program"""],
+            [1, """TV Program"""] ],
+        "online_aladin_tv_lbl_search_text": [
+            [0, """Find a movie"""],
+            [1, """Pronađi film"""] ],
+        "online_aladin_tv_lbl_chan_text": [
+            [0, """TV Channels"""],
+            [1, """TV Kanali"""] ],
+        "topic_msg_aladin_tv": [
+            [0, """Aladin - TV Program"""],
+            [1, """Aladin - TV Program"""] ],
+        "online_topic_aladin_tv_channel_style_1_text": [
+            [0, """Show logo and channel name"""],
+            [1, """Prikazi logo i naziv kanala"""] ],
+        "online_topic_aladin_tv_channel_style_2_text": [
+            [0, """Show channel logo only"""],
+            [1, """Prikazi samo logo kanala"""] ],
+        "online_topic_aladin_tv_channel_style_3_text": [
+            [0, """Show channel name only"""],
+            [1, """Prikazi samo naziv kanala"""] ],
+        "imdb_link": [
+            [0, """Opens the IMDB page in your browser."""],
+            [1, """Otvara IMDB stranicu u vasem pretrazivacu."""] ],
+        "online_topic_aladin_tv_find_title_text": [
+            [0, """Search results"""],
+            [1, """Rezultati pretrage"""] ],
+        "online_topic_aladin_tv_find_supported_text": [
+            [0, """Supported sites"""],
+            [1, """Podrzani sajtovi"""] ],
+        "online_topic_aladin_tv_find_unsupported_text": [
+            [0, """All search results"""],
+            [1, """Svi rezultati pretrage"""] ],
+        "wiki_card_toc_text": [
+            [0, """Table of content:"""],
+            [1, """Sadržaj stranice:"""] ],
+        "wiki_title_open_in_browser_text": [
+            [0, """Open the page in the browser"""],
+            [1, """Otvori stranicu u browseru"""] ],
+        "wiki_cmb_languages": [
+            [0, """Available languages"""],
+            [1, """Dostupni jezici"""] ],
+        "wiki_cmb_alphabets": [
+            [0, """Available alphabets"""],
+            [1, """Dostupna pisma"""] ],
+        "error_file_not_found_text": [
+            [0, """File not found!"""],
+            [1, """Fajl nije pronadjen !"""] ],
+        "wiki_lbl_search_title_text": [
+            [0, """Search Wikipedia:"""],
+            [1, """Pretrazi Wikipediju:"""] ],
+        "wiki_btn_search_text": [
+            [0, """Find"""],
+            [1, """Pronadji"""] ],
+        "wiki_win_title_text": [
+            [0, """Wikipedia"""],
+            [1, """Wikipedija"""] ],
+        "wiki_lbl_warning_text": [
+            [0, """Please select at least one search engine!"""],
+            [1, """Molim vas izaberite najmanje jedan pretrazivac !"""] ],
+        "wiki_lbl_content_pic_tt": [
+            [0, """View Wikipedia content"""],
+            [1, """Prikazi Wikipedija sadrzaj"""] ],
+        "wiki_lbl_search_pic_tt": [
+            [0, """Show search results"""],
+            [1, """Prikazi rezultate pretrage"""] ],
+        "wiki_chk_any_tt": [
+            [0, """Search Wikipedia using any of the search engines."""],
+            [1, """Pretrazi Wikipediju koristeci bilo koji od pretrazivaca."""] ],
+        "wiki_chk_duckduckgo_tt": [
+            [0, """Search Wikipedia using only the DuckDuckGo search engine.
+https://duckduckgo.com/"""],
+            [1, """Pretrazi Wikipediju koristeci samo DuckDuckGo pretrazivac.
+https://duckduckgo.com/"""] ],
+        "wiki_chk_yahoo_tt": [
+            [0, """Search Wikipedia using only the Yahoo search engine.
+https://www.yahoo.com/"""],
+            [1, """Pretrazi Wikipediju koristeci samo Yahoo pretrazivac.
+https://www.yahoo.com/"""] ],
+        "wiki_chk_brave_tt": [
+            [0, """Search Wikipedia using only the Brave search engine.
+https://search.brave.com/"""],
+            [1, """Pretrazi Wikipediju koristeci samo Brave pretrazivac.
+https://search.brave.com/"""] ],
+        "wiki_search_title_text": [
+            [0, """Search results"""],
+            [1, """Rezultati pretrage"""] ],
+        "wikipedia_pages_text": [
+            [0, """Found Wikipedia pages"""],
+            [1, """Pronadjene Wikipedija stranice"""] ],
+        "wikipedia_all_search_results_text": [
+            [0, """All search results"""],
+            [1, """Svi rezultati pretrage"""] ],
+        "loading_text": [
+            [0, """Loading..."""],
+            [1, """Ucitavam..."""] ]
     }
     if key_name in lang.keys():
         return lang[key_name]
@@ -7453,8 +7633,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "header_btn_diary_stylesheet": {
-            "value": """color: #23f418 ;""",
-            "default_value": """color: #23f418 ;""",
+            "value": """QPushButton {color: #23f418; background-color: #005500; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
+            "default_value": """QPushButton {color: #23f418; background-color: #005500; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -7564,8 +7744,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "header_btn_tag_stylesheet": {
-            "value": """color: #21cec0 ;""",
-            "default_value": """color: #21cec0 ;""",
+            "value": """QPushButton {color: #21cec0; background-color: #000055; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
+            "default_value": """QPushButton {color: #21cec0; background-color: #000055; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -7675,8 +7855,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "header_btn_user_stylesheet": {
-            "value": """color: #a3a300 ;""",
-            "default_value": """color: #a3a300 ;""",
+            "value": """QPushButton {color: #a3a300; background-color: #000055; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
+            "default_value": """QPushButton {color: #a3a300; background-color: #000055; border-radius: 8px;} QPushButton::hover {color: #ffff00; background-color: #5500ff;}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -26639,6 +26819,201 @@ Example: Ctrl+W"""
             "max_value": None,
             "recommended": """Type the relative path to the application icon""",
             "description": """Location of the image for the Widget"""
+            },
+        "online_topics_aladin_folder_path": {
+            "value": """data/app/images/online_topics/""",
+            "default_value": """data/app/images/online_topics/""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Enter the path relative to the folder where the application is located.""",
+            "description": """The location of the folder that contains data for online topics."""
+            },
+        "online_topic_aladin_we_ui_file_path": {
+            "value": """data/app/designer/frm_online_aladin_we.ui""",
+            "default_value": """data/app/designer/frm_online_aladin_we.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "online_topic_aladin_we_icon_path": {
+            "value": """data/app/images/online_topic_aladin_we.png""",
+            "default_value": """data/app/images/online_topic_aladin_we.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "item_icon_path": {
+            "value": """data/app/images/item.png""",
+            "default_value": """data/app/images/item.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "checked_icon_path": {
+            "value": """data/app/images/checked.png""",
+            "default_value": """data/app/images/checked.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "not_checked_icon_path": {
+            "value": """data/app/images/not_checked.png""",
+            "default_value": """data/app/images/not_checked.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "def_extra_image_custom_source_folder_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Enter the path relative to the folder where the application is located.""",
+            "description": """The location of the folder that contains data,"""
+            },
+        "def_extra_image_custom_source_add_subfolders": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Enter the path relative to the folder where the application is located.""",
+            "description": """The location of the folder that contains data,"""
+            },
+        "online_topic_aladin_tv_ui_file_path": {
+            "value": """data/app/designer/frm_online_aladin_tv.ui""",
+            "default_value": """data/app/designer/frm_online_aladin_tv.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "online_topic_aladin_tv_icon_path": {
+            "value": """data/app/images/online_topic_aladin_tv.png""",
+            "default_value": """data/app/images/online_topic_aladin_tv.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "online_topics_aladin_tv_channel_logo": {
+            "value": """data/app/images/online_topics/aladin/tv/channel_logo/""",
+            "default_value": """data/app/images/online_topics/aladin/tv/channel_logo/""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Enter the path relative to the folder where the application is located.""",
+            "description": """The location of the folder that contains images for online topics."""
+            },
+        "online_topic_aladain_tv_channel_item_display": {
+            "value": 1,
+            "default_value": 1,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Select 1, 2 or 3.""",
+            "description": """Determines the way the TV channel selection buttons are displayed.
+1 = Logo + Name
+2 = Logo only
+3 = Name only"""
+            },
+        "online_topic_aladin_tv_no_image_icon_path": {
+            "value": """data/app/images/online_topics/aladin/tv/no_actor_image.png""",
+            "default_value": """data/app/images/online_topics/aladin/tv/no_actor_image.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
+            },
+        "wiki_win_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "wiki_win_icon_path": {
+            "value": """data/app/images/wikipedia.png""",
+            "default_value": """data/app/images/wikipedia.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_frm_search_stylesheet": {
+            "value": """color: #ffff00; background-color: #440067;""",
+            "default_value": """color: #ffff00; background-color: #440067;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "wiki_lbl_search_icon_path": {
+            "value": """data/app/images/wikipedia_search.png""",
+            "default_value": """data/app/images/wikipedia_search.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_txt_search_stylesheet": {
+            "value": """color: #ffff00; background-color: #005500;""",
+            "default_value": """color: #ffff00; background-color: #005500;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "wiki_btn_search_stylesheet": {
+            "value": """QPushButton {color: white; background-color: #316349;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: white; background-color: #316349;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "wiki_lbl_content_icon_path": {
+            "value": """data/app/images/wikipedia_logo.png""",
+            "default_value": """data/app/images/wikipedia_logo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "engine_any": {
+            "value": """data/app/images/engine_any.webp""",
+            "default_value": """data/app/images/engine_any.webp""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "engine_yahoo": {
+            "value": """data/app/images/engine_yahoo.png""",
+            "default_value": """data/app/images/engine_yahoo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "engine_duckduckgo": {
+            "value": """data/app/images/engine_duckduckgo.png""",
+            "default_value": """data/app/images/engine_duckduckgo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "engine_brave": {
+            "value": """data/app/images/engine_brave.png""",
+            "default_value": """data/app/images/engine_brave.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
             }
     }
 

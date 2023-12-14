@@ -1,0 +1,11 @@
+National Geographic Wild
+
+Picture format	International:
+1080i HDTV
+(downscaled to 16:9 480i/576i for the SDTV feed)
+United States:
+720p HDTV
+(downscaled to letterboxed 480i for the SDTV feed)
+Ownership
+Owner	The Walt Disney Company
+Parent	National Geographic Partners (Disney Entertainment)

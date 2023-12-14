@@ -135,7 +135,7 @@ class OnlineContent(QDialog):
             self.btn_topics_show.move(0, self.btn_topics_show.pos().y())
             self.lst_topics.setVisible(False)
         else:
-            self.frm_topics.resize(350, self.frm_topics.height())
+            self.frm_topics.resize(371, self.frm_topics.height())
             self.btn_topics_show.move(350, self.btn_topics_show.pos().y())
             self.lst_topics.setVisible(True)
         self._resize_me()
@@ -276,9 +276,14 @@ class OnlineContent(QDialog):
         self.area_widget.layout().addWidget(self.topic_handler.current_topic)
 
     def _clear_temp_folder(self):
+        if self.get_appv("cb")._clip["os"]:
+            clipboard_files = [x[1] for x in self.get_appv("cb")._clip["os"]]
+        else:
+            clipboard_files = []
+        print (clipboard_files)
         tmp_folder = self.getv("temp_folder_path").strip("/") + "/"
         for file in os.listdir(tmp_folder):
-            if file not in self.temp_folder_snapshot:
+            if file not in self.temp_folder_snapshot and os.path.abspath(tmp_folder + file) not in clipboard_files:
                 os.remove(os.path.abspath(tmp_folder + file))
 
     def _get_temp_folder_files(self):
@@ -301,7 +306,8 @@ class OnlineContent(QDialog):
         return super().changeEvent(a0)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
-        if self.topic_handler.current_topic:
+        if self.topic_handler and self.topic_handler.current_topic:
+            self.topic_handler.current_topic.stop_loading = True
             self.topic_handler.current_topic.close_me()
             QCoreApplication.processEvents()
         self.topic_handler = None
@@ -309,10 +315,11 @@ class OnlineContent(QDialog):
             self._stt.app_setting_add("online_content_win_geometry", {}, save_to_file=True)
 
         g = self.get_appv("online_content_win_geometry")
-        g["pos_x"] = self.pos().x()
-        g["pos_y"] = self.pos().y()
-        g["width"] = self.width()
-        g["height"] = self.height()
+        if not self.isMinimized() and not self.isMaximized():
+            g["pos_x"] = self.pos().x()
+            g["pos_y"] = self.pos().y()
+            g["width"] = self.width()
+            g["height"] = self.height()
         g["last_topic"] = self.active_topic
 
         self._clear_temp_folder()
@@ -343,7 +350,7 @@ class OnlineContent(QDialog):
         self.area_content.move(10 + self.frm_topics.width(), self.frm_topics.pos().y())
         self.area_content.resize(w - 20 - self.frm_topics.width(), self.frm_topics.height())
         
-        if self.topic_handler.current_topic:
+        if self.topic_handler and self.topic_handler.current_topic:
             self.topic_handler.current_topic.area_changed(self.area_content)
 
     def _define_widgets(self):
@@ -393,6 +400,8 @@ class OnlineContent(QDialog):
     def _define_online_content_win_apperance(self):
         self.setStyleSheet(self.getv("online_content_win_stylesheet"))
         self.setWindowIcon(QIcon(self.getv("online_content_win_icon_path")))
+        self.setWindowFlags(self.windowFlags() | Qt.WindowMinMaxButtonsHint)
+        self.setWindowFlags(self.windowFlags() | Qt.WindowSystemMenuHint)
         self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
 
     def _define_labels_apperance(self, label: QLabel, name: str) -> None:

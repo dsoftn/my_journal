@@ -69,9 +69,14 @@ class Definition():
         
         name = name.lower()
 
-        q = f"SELECT * FROM definition WHERE LOWER(name) = ? ;"
+        q = f"SELECT * FROM definition ;"
         with database_cls.DataBase(self.db_info) as db:
-            result = db.execute(q, (name,))
+            db_result = db.execute(q)
+
+        result = []
+        for i in db_result:
+            if i[1].lower() == name:
+                result.append(i)
 
         if result:
             if populate_properties:

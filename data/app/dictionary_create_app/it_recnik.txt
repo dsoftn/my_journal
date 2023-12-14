@@ -1,0 +1,445 @@
+APPLICATION (aplikacija)
+Ukljucuje softver opšte produktivnosti (programi za tabelarna izracunavanja, tekst procesori, programi baza podataka, itd), kao i uobicajene paketne programe za obracun licnih dohodaka, za izdavanje racuna, inventar i druge knjigovodstvene svrhe.
+
+
+
+BACKUP (rezervna kopija)
+Pravljenje kopije važnih podataka na drugom memorijskom medijumu zbog sigurnosti.
+
+BAUD RATE (brzina u bodima)
+Brzina kojom modem prenosi podatke, to je broj promena signala (napona ili frekvencije) koji se dešava u jednoj sekundi. Termin se pogrešno koristio u značenju broja prenesenih bitova u sekundi. Samo pri veoma malim brzinama je brzina u bodima jednaka broju prenesenih bitova u sekundi.
+
+BINARY (binarni)
+Znači dvojni, i to je princip u osnovi digitalnih računara. Svi ulazni podaci u računar se konvertuju u binarne brojeve sačinjene od dve cifre, 0 i 1 (bitovi). Na primer, kada pritisnete taster “A” na vašem računaru, tastatura generiše i prenosi broj 01000001 u memoriju računara kao seriju impulsa. Bit 1 se prenosi kao visok napon, bit 0 se prenosi kao nizak. Bitovi se čuvaju kao naelektrisane i nenaelektrisane memorijske ćelije u računaru, ili kao mikroskopski magneti na disku ili traci. Ekrani za prikazivanje i štampači konvertuju binarne brojeve u vizuelne simbole.
+
+BIOS
+Basic input output system (osnovni ulazno-izlazni sistem). Komplet osnovnih softverskih rutina u PC-ju, koji se čuva na čipu. On obezbeđuje interfejs između operativnog sistema i hardvera. Pri startovanju BIOS testira sistem i priprema računar za rad, upitom nad CMOS memorijom (memorija sa rezervnim baterijskim napajanjem) za uređaj i druge parametre konfiguracije. Onda učitava operativni sistem i njemu prepušta kontrolu.
+
+BIT
+Binary digit (binarna cifra). Najmanja jedinica računarske memorije. To je jedna cifra u binarnom broju (0 ili 1). Bit je fizički predstavljen tranzistorom ili kondenzatorom u memorijskoj ćeliji, magnetskim domenom na disku ili traci, reflektujućom tačkom na optičkom medijumu ili impulsima visokog ili niskog napona u kolu. Grupe bitova čine memorijske jedinice u računaru, koje se zovu znakovi, bajtovi ili reči, kojima se upravlja kao grupom. Najčešći je bajt, sačinjen od 8 bitova i ekvivalentan je jednom alfanumeričkom znaku. Bitovi su široko rasprostranjeni kao mera prenosa. Deset megabita u sekundi znači da se deset miliona impulsa prenosi u sekundi. 16-o bitna magistrala znači da postoji 16 žica koje prenose bit u isto vreme. Mere za memorijske uređaje, kao što su diskovi, datoteke i baze podataka, se izražavaju u bajtovima, a ne u bitovima.
+
+BITMAP (bit mapa)
+Binarni prikaz u kome bit ili skup bitova odgovara nekom delu objekta, kao što je slika ili font. Bit mapa je obično povezana sa grafičkim objektima, u kojoj su bitovi direktan prikaz izgleda slike. Ipak, bit mape mogu da se koriste za predstavljanje i vođenje evidencije o bilo čemu, gde je svakoj lokaciji bita dodeljena druga vrednost ili stanje.
+
+BOARD (ploča)
+Pogledati kartica.
+
+BOOT (podizanje sistema)
+Proces pokretanja računara kako bi izvršavao instrukcije. Personalni računari sadrže ugrađene instrukcije u ROM čipu (BIOS-u), koje se automatski izvršavaju pri startovanju. Ove instrukcije traže operativni sistem, učitavaju ga i predaju mu kontrolu. Podizanje računara pomaže da on dobije svoje prve instrukcije. BROWSER (pretraživač). Program koji vam pomaže da pregledate skup podataka. Uobičajeni Web pretraživači su Internet Explorer i Netscape Nav igator.
+
+BYTE, BINARY TABLE (bajt-binarna reč)
+Najčešća jedinica računarske memorije. Čini je 8 binarnih cifara (bitova). Deveti bit se može koristiti u memorijskim kolima kao bit parnosti za proveru greške. Bajt predstavlja ekvivalent jednog znaka, kao što je slovo A, znak za dolar ili decimalna tačka. Kada su brojevi u pitanju, može sadržati jednu decimalnu cifru ( 0-9 ), dve numeričke cifre (spakovana decimala) ili broj od 0-255 (binarni brojevi). Glavne specifikacije za hardver su date u bajtovima; na primer, disk od 10 gigabajta (10 GB) čuva instrukcije i podatke koji iznose deset milijardi znakova. Memorija od 64 megabajta (64 M ili 64 MB) dozvoljava interno skladištenje 64 miliona znakova instrukcija i podataka za obrada. Sa datotekama baza podataka, i dokumentima za obradu teksta, veličina datoteke je nešto veča nego broj znakova podataka koji se u njoj čuva. Datoteke za obradu teksta sadrže ugrađene kodove za parametre uređenja (margine, tabulatore, polucrna slova); prema tome, dokument od 100 000 bajtova podrazumeva nešto manje od 100 000 tekstualnih znakova (približno 30 strana). Datoteke baza podataka sadrže kodove koji opisuju strukturu podataka; prema tome, datoteka baze podataka od 100 000 bajtova čuva nešto manje od 100 000 znakova.
+
+
+CD-ROM
+Compact Disc Read Only Memory (memorija samo za čitanje na kompaktdisku). Kompakt disk format koji se koristi za čuvanje teksta, grafike, i hi-fi ste reozvuka. Izgleda kao audio CD, ali koristi različite formate traka za podatke. Audio CDplejer ne može da očitava CD-ROM, ali CD-ROM plejeri mogu da čitaju audio diskove.CD-ROM čuva 700 MB podataka, što je ekvivalentno otprilike sa 250000 strana tekstaili 20000 slika srednje rezolucije.
+
+
+CD-RW
+CD-ReWritable (prepisivi kompakt disk). Prepisiva CD-ROM tehnologija.CD-RW uređaji se takođe mogu koristiti za upisivanje na CD-R diskove, i mogu čitatiCD-ROM. CD-RW diskovi imaju nižu reflektivnost od CD-ROM-ova i CD-R-ova, iMultiRead CD- ROM uređaji su potrebni za njihovo očitavanje. Inicijalno poznat kaoCD-E (izbrisivi kompakt disk), CD-RW disk je disk na kome se može ponovo upisivatihiljadu puta.
+
+CHIP (čip)
+Skup mikro-minijaturnih elektronskih kola koja su napravljena da sekoriste kao procesori i memorija u računarima i brojnim industrijskim proizvodima.Čipovi su pokretačka snaga u ovoj industriji. Mali čipovi mogu se sastojati od desetine dodesetina hiljada tranzistora. Izgledaju kao mali čipovi od aluminijuma, ne više od 1/16kvadratnih inča sa debljinom od 1/30 inča, odakle je i potekao izraz “čip”. Veliki čipovi,koji mogu biti više od polovine kvadratnog inča sastoje se od miliona tranzistora.
+
+COMPRESS (kompresija)
+Sažimanje podataka radi uštede prostora.
+
+CPU, Central processing unit (jedinica centralnog procesora)
+Računska iupravljačka jedinica računara. Takođe se zove procesor, sačinjena je od kontrolnejedinice i aritmetičko logičke jedinice (ALU). Danas se procesori gotovo svih računaranalaze na jednom čipu.
+ 
+
+DATA BASE (baza podataka)
+Skup povezanih datoteka koje kreira i kojima upravljasistem za upravljanje bazama podataka (DBMS). Danas DBMS može upravljati bilokojim oblikom podataka, uključujući tekst, slike, zvuk i video. Baze podataka i strukturedatoteka uvek određuje softver. što se tiče hardvera, sve su to bitovi i bajtovi.
+
+DESKTOP (radna površina)
+Prikaz radne površine na ekranu, gde se nalaze alati, datoteke i dokumenta.
+
+DIALOG BOX (okvir za dijalog)
+Mali prozor na ekranu koji se prikazuje kao odgovorna neki zahtev. On pokazuje opcije koje su trenutno na raspolaganju korisniku.
+
+
+DIGITAL CAMERA (digitalna kamera)
+Video kamera koja snima slike u digitalnomobliku. Za razliku od tradicionalne analogne kamere, koja konvertuje svetlosnu jačinu ubeskonačno promenljive signale, digitalne kamere konvertuju svetlosnu jačinu u diskretnebrojeve za skladištenje na medijumu, kao što je disk ili fleš disk. Kao kod svihdigitalnih uređaja, postoji fiksirana, maksimalna rezolucija i broj boja koje mogu bitiprikazane. Digitalna kamera snima slike u boji kao crvenu, zelenu i plavu različitogintenziteta, koje se čuvaju kao promenljiva naelektrisanja u matrici uređaja spregnutognaelektrisanjem (CCD). Veliina matrice određuje rezoluciju, ali analogno-digitalnikonvertor (ADC) koji konvertuje naelektrisanja u digitalne podatke, određuje kvalitetboje.
+
+DISPLAY (displej)
+(1)	Prikazuje tekst ili grafike na CRT ili ravnom ekranu.
+(2)	Ekran ili monitor.
+
+DOCUMENT (dokument)
+Tekstualna datoteka za obradu teksta.
+
+DOS
+Disk operating system (operativni sistem na disku). Microsoftov jednokorisnički operativni sistem za PC. To je bio prvi operativni sistem za PC. Windows 95/98 i Windows NT napravili su sopstvenu verziju DOS-a da podrži postoječe aplikacije DOS-a. DOS verzija koju je Microsoft razvio za IBM je PC-DOS, a verzija koju su svi ostali proizvođači koristili je MS-DOS. Osim za DOS6, koji sadrži različite verzije pomočnih programa, komande i sistemske funkcije PC-DOS i MS-DOS su iste. Sve verzije PC-DOS i MS-DOS se obično nazivaju DOS.
+
+DRIVE (uređaj)
+Elektromehanički uređaj koji okreče diskove i trake određenombrzinom. Takođe se odnosi na celu periferijsku jedinicu, kao što je disk uređaj ili jedinicaza traku.
+ 
+DSL, digital subscriber line (digitalna pretplatnička linija)
+Modemska tehnologija,koja značajno povećava digitalnu brzinu običnih telefonskih linija u odnosu naobične modeme. DSL tehnologije su ili asimetrične, ili simetrične. Asimetrija obezbeđuje brže nizvodne brzine, koje odgovaraju korišćenju Interneta i videa po potrebi.Simetrija obezbeđuje istu brzinu dolaska i odlaska. DSL koristi tehnologiju paketakomutacije, koja radi nezavisno od glasovnog telefonskog sistema, dozvoljavajući telefonskimkompanijama da obezbede uslugu bez zaključavanja kola za duge razgovore. Iztog razloga, DSL nije odgovarajući za video konferencije kao ISDN. ISDN komutiranihkola drži liniju otvorenom i povezanom tokom sesije. Brzina prenosa DSL tehnologija jeu velikoj meri povezana sa udaljenošću telefonske kompanije i korisnika.
+
+DVD-ROM
+DVD disk samo za čitanje, koji se koristi za skladištenje podataka,interaktivne sekvence kao i audio i video. Za DVD-ROM-ove se očekuje da postanuCD-ROM-ovi 21. veka, oni rade na DVD-ROM ili DVD-RAM uređajima, ali ne na DVD video plejerima povezanim sa TV i kućnim bioskopima. Međutim, većina DVD-ROMuređaja će prikazivati DVD video filmove. DVD originalno znači digitalni video disk.Pošto je obuhvatio i video film i kompjuterski svet, kasnije je nazvan digitalni mnogostranidisk (Digital Versatile Disc). Danas je njegov akronim postao njegovo ime, DVD stoji za D-V-D.
+
+
+
+
+E-MAIL (e-pošta, elektronska tekstualna poruka)
+Razmena beleški i poruka prekomreže. Korisnici mogu da šalju poštu jednom primaocu ili je proslediti većem brojukorisnika. Sa višeprocesnim radnim stanicama, pošta može da se isporuči i objavi dokkorisnik radi u aplikaciji. E-poštanski sistem zahteva sistem za elektronsku razmenuporuka, koji obezbeđuje sposobnost čuvanja i prosleđivanja, i program za poštu, kojiobezbeđuje korisnički interfejs sa funkcijama za slanje i primanje. Većina Web pretraživačaima ugrađenu funkciju elektronske pošte.
+
+ERGONOMICS (ergonomija)
+Nauka o međusobnim odnosima (relacijama) izmeđučoveka i mašine. Ergonomski napravljen proizvod implicira da je uređaj usklađen satelom čoveka ili njegovim akcijama. Iako su ergonomski napravljena sedišta, tastatura imiš važni za dobrobit korisnika računara, možda je najkorisniji aspekt ergonomije,učenje ljudi da s vremena na vreme ustanu od računara i protegnu se.
+
+EXTENSION (oznaka tipa datoteke)
+Tip datoteke, ili kategorija datoteke koja sedodje na kraj imena DOS i Win dows datoteka. Oznaka tipa je odvojena od imenadatoteke tačkom, kao na primer LETTER.DOC. Oznaka tipa može da sadrži do tri slovaili cifre. Izvršne datoteke imaju oznake tipova .EXE, .COM i .BAT. Na primer,NOTEPAD.EXE je tekst editor koji ide uz Windows. Svi programi i većina datoteka imaoznake tipova. Međutim, neke datoteke za obradu teksta nemaju oznaku tipa, pa u tomslučaju možete da napravite sopstveni sistem datoteka; na primer, CHAP1.NOV iCHAP2.NOV bi mogla biti poglavlja romana.
+
+
+
+
+FILE (datoteka)
+Skup bajtova koji se čuva kao jedinstven entitet. Svi podaci na diskuse čuvaju kao datoteka sa dodeljenim imenom datoteke, koje je jedinstveno u direktorijumuu kome je smeštena. Za računar, datoteka nije ništa više nego niz bajtova.Struktura datoteke je poznata softveru koji njom upravlja. Na primer, datoteke bazepodataka su napravljene od serija zapisa. Datoteke za obradu teksta sadrže kontinualanprotok teksta. Slede glavni tipovi datoteka. Osim ASCII tekstualnih datoteka, većina datoteka sadrži propratne informacije koje se nalaze u zaglavlju ili su umetnute kroz datoteku:
+TIP – Sadržaj
+DATA TABLE (table) - datoteka podataka (tabela), zapisi podataka
+DOCUMENT - dokument tekst SPREADSHEET - tabela, redovi i kolone ćelija IMAGE - slika, redovi i kolone bitova DRAWING - crtež, lista vektora
+AUDIO - digitalizovani zvučni talasi
+MIDI - MIDI instrukcije VIDEO - digitalni video kadrovi WEB PAGE - Web strana tekst
+BATCH FILE - rezervna datoteka tekst
+SOURCE PROGRAM - izvorni program tekst
+EXECUTABLE PROGRAM - izvršni program mašinski jezik
+
+FIRE WIRE
+Serijska sabirnica velike brzine, koju su proizveli Apple i Texas Instruments, koja omogućava povezivanje do 63 uređaja. Takođe poznata i kao IEEE 1394 standard, za brzine transfera 100, 200 i 400 megabita u sekundi. IEEE 1394b obezbeđuje 800, 1600 i 3200 Mbps. FireWire podržava zamenu u toku rada. Veoma je rasprostranjen za priključivanje video uređaja u računar.
+
+FLOPY DISK (disketa)
+Magnetski memorijski medijum koji se više puta možekoristiti, predstavljen je 1971. od strane IBM. Disketa je bila prvi način za distribucijusoftvera personalnih računara sve do kraja devedesetih, kada su CD-ROM-ovi postalipogodniji medijum. Diskete su i dalje veoma rasprostranjene za pravljenje rezervnihkopija i za prenos podataka između korisnika koji nisu u mreži. Današnja uobičajenadisketa je Sony 3,5" mikrodisketa, koja čuva 1,44 MB. Disketa je fleksibilan krugmagnetnih materijala sličan magnetnoj traci, izuzev što se obe površine koriste za snimanje. Uređaj prihvata centar diskete i okreće je unutar svog kućišta. Glava za čitanje/pisanje dodiruje površinu kroz otvor u plastičnom okviru. Diskete se obrću brzinom od 300 Rpm (roll per minute), što je 10-30 puta sporije od diska.
+
+FOLDER (omotnica)
+Kod Macintosha i Windowsa simulacija omotnice-datoteke koja čuva podatke, aplikacije i druge omotnice. Omotnica je isto što i direktorijum DOS-a ili Windowsa 3.1, i omotnica u okviru omotnice (podomotnica) je isto što i poddirektorijum u DOS-u ili Windowsu
+3.1. Omotnice su popularizovane na Macu i kasnije prilagođene za UNIX i Windows.
+
+FONT
+Skup znakova istog tipografskog pisma, stila i debljine. Obično je svako tipografsko pismo (Times Roman, Helvetica, Arial, itd.) na raspolaganju u četiri varijacije: normalne debljine, tamniji i deblji, kurziv, i tamniji i deblji kurziv. Prema tome, za bitmapirane fontove, koji su u potpunosti generisani unapred, četiri fonta će biti zahtevana za svaku veličinu tipografske tačke, korišćenu u svakom tipografskom pismu. Za fontove kojima se može srazmerno promeniti veličina, koji se generišu u bilo kojoj veličini tipografske tačke, biče zahtevana samo četiri fonta za svako tipografsko pismo.
+
+
+
+GIGABYTE (gigabajt)
+Jedan bilion bajtova. Takođe GB.
+
+GRAPHICS (grafika)
+Kreiranje i upravljanje prikazom slike na računaru. Dve metode se koriste za skladištenje i održavanje slika na računaru. Prva metoda, nazvana vektorska grafika, održava sliku kao niz tačaka, linija, lukova i drugih geometrijskih oblika. Druga metoda, nazvana bitmapirana grafika i takođe poznata kao rasterska grafika, podseća na televiziju, gde je prikaz slike sačinjen od tačaka.
+
+
+
+HARD DISK (disk)
+Primarni memorijski medijum računara, koji je sačinjen od jedne ili više aluminijumskih ili staklenih ploča, obloženih feromagnetskim materijalom. Većina diskova su fiksirani diskovi, koji su trajno smešteni u uređaj. Kertridž diskovi koji se mogu uklanjati, dobijaju na popularnosti i sve više varijanti je na raspolaganju. Većina desktop diskova su bili IDE ili SCSI. Prednost SCSI-ja je ta što sedam ili više uređaja može biti priključeno na isti kontroler. Diskovi obezbeđuju brzo ponovno pronalaženje, jer konstantno rotiraju velikom brzinom od 3000 do 10000 rpm. U laptopovima mogu biti isključeni kada se ne koriste, kako bi produžili trajanje baterije. Stariji diskovi su imali samo 5 megabajta i koristili su ploče do 12 inča u prečniku. Današnji diskovi mogu imati nekoliko gigabajta i generalno koriste ploče od 3,5 inča za desk top računare, i 2,5 inčne ploče za noutbuk računare.
+
+HARDWARE (hardver)
+Mašina i oprema (CPU, diskovi, trake, modemi, kablovi, itd). Pri radu, računar predstavlja i hardver i softver. Jedan je beskoristan bez drugog. Dizajn hardvera određuje komande koje može da sledi, a instrukcije mu govore šta da uradi. Hardver je “skladištenje i prenos”. što više memorije i prostora na disku računar ima, to više posla može da obavi. što brže memorija i diskovi prenose podatke i instrukcije do CPU, to se brže posao obavlja. Zahtevi koje hardver mora da zadovolji su zasnovani na veličini baza podataka koje će biti kreirane i broju korisnika ili aplikacija koje će biti uslužene u isto vreme. Softver je”logika i jezik”. Softver se bavi detaljima posla koji se stalno menja i mora obraditi transakcije na logičan način. Jezici se koriste za programiranje softvera. “Logika i jezik” uključeni u analizu i programiranje su daleko komplikovaniji od određivanja zahteva koji se odnose na memoriju i prenos.
+
+HERTZ (herc)
+Frekvencija električnih vibracija (ciklusa) u sekundi. Skraćeno “Hz”, 1 Hz je jednak jednom ciklusu u sekundi. Dobio je ime po Heinrichu Hertzu koji je otkrio elektromagnetne talase 1883. Megaherz (MHz) je jedan milion ciklusa u sekundi.
+
+HOME PAGE (matična strana)
+Prva strana koja se pronađe pri pristupanju Web lokaciji. Služi kao sadržaj za ostale strane na lokaciji ili za druge Web lokacije. Pogledajte World Wide Web i URL.
+
+HTML, Hyper Text Markup Language (hipertekstualni markerski jezik).
+Format dokumenta koji se koristi na World Wide Webu. Web strane su napravljene sa HTML oznakama, ili kodovima, ugrađenim u tekst. HTML definiše uređenje strane,
+fontove i grafičke elemente, kao i hipertekstualne veze do drugih dokumenata na Webu. Svaka veza ima URL, ili adresu Web stranice koja se nalazi na istom serveru ili bilo kom drugom serveru u svetu, otuda “World Wide Web”.
+
+HIPER TEXT (hipertekst)
+Editor veze između srodnih dokumenata. Na primer, izborom reči u rečenici, pronalazi se informacija o reči ako postoji, ili se nalazi sledeće pojavljivanje reči. Hipertekst je osnova World Wide Weba. Veze ugrađeni u Web strane su adrese do drugih Web strana, koje se čuvaju ili lokalno ili na Web serveru bilo gde u svetu. Veze se mogu sastojati samo od teksta, u tom slučaju su podvučene, ili mogu biti predstavljeni ikonom bilo kog oblika i veličine. Hipertekstualni koncept izvorno potiče od Teda Nelsona, jednog od pionira mikroračunarske revolucije. To je metod koji omogućava da računar reaguje na način na koji ljudi misle i traže informacije.
+ 
+
+ICON (ikona)
+U grafičkom korisničkom interfejsu (GUI), mali, ilustrovan prikaz objekta na ekranu, kao što je dokument, program, omotnica ili disk uređaj.
+
+IDE, Integrated Drive Eletronics (elektronika integrisanih uređaja)
+Široko rasprostranjeni tip hardverskog interfejsa za povezivanje diskova, CD-ROM-ova, i jedinica za traku sa PC-ja. IDE je veoma popularan, jer je trenutno najjeftiniji način za povezivanje periferijskih uređaja. Godinama unazad njihov početni kapacitet je bio 40 MB, da bi IDE disk uređaji sa više gigabajta (GB) postali standard, a cena je manja od 5 centi po megabajtu.
+
+INTERNET
+Internet je velika mreža sačinjena od velikog broja manjih mreža. Internet je sačinjen od više od 100000 međusobno povezanih mreža u preko 100 zemalja, obuhvata komercijalne, akademske i vladine mreže. Prvobitno razvijen u vojne svrhe, Internet se danas koristi u akademskim i komercijalnim istraživanjima. Korisnici su imali pristup neobjavljenim podacima i časopisima koji su pokrivali najrazličitije teme. Danas je Internet komercijalizovan u svetski informacioni autoput, dajući informacije o svim mogućim pitanjima. Dva puta je dostignut vrhunac u razvoju Interneta. Sa povezivanjem najvećih onlajn servisa (America On line, CompuServe, itd) na Internet zbog razmene elektronskom poštom. Internet je počeo da funkcioniše kao centralno čvorište za elektronsku poštu izvan Internet zajednice. Korisnik jednog onlajn servisa može da pošalje poštu korisniku drugog, korišćenjem Interneta kao mrežnog prolaza. Internet je povezao svet posredstvom elektronske pošte. Drugo, World Wide Web serveri na dokumentima Internet veza širom sveta, obezbeđuju razmenu informacija velikih razmera, koje rastu eksponencijalno. Sa napredovanjem grafički baziranih Web pretraživača, kao što su Mo saic i Netscape, ovo bogatstvo informacija postalo je lako dostupno i korisnicima PC-ja i Macova, a ne samo naučnicima i hakerima na UNIX radnim stanicama. Web je takođe postao skladište uređaja, ažuriranih podataka i demo snimaka koji se preuzimaju posredstvom pretraživača. Svakodnevne vesti i informacije su takođe dostupne na mreži. Usenet (User Net work) elektronske konferencije su redovno dostavljale informacije velikom broju ljudi, još mnogo pre nego što je Web kreiran. Iz vašeg Web pretraživača možete direktno vršiti izbor vesti i čitati ih. Sobe za interaktivni razgovor predstavljaju još jednu popularnu uslugu na Internetu. Kanal za interaktivni razgovor na Internetu (IRC) obezbeđuje konferencije o različitim temama za veći broj korisnika. Na desetine IRC servera obezbeđuju stotine kanala, na koje svako može da se prijavi i učestvuje. Danas, svi najveći onlajn servisi obezbeđuju potpun pristup Internetu. DELPHI je bio prvi, a ostali su ga sledili. Treba dodati da se pojavilo na hiljade posrednika za Internet usluge (ISP) kako bi ponudili pristup pojedincima i organizacijama.
+
+INTRANET
+Lokacija na Webu koja služi zaposlenima u kompaniji. Iako intranet strane mogu biti povezane sa Internetom, intranet nije lokacija dostupna široj javnosti. Intraneti koriste iste protokole u komunikaciji i hiperteksualne veze kao Web, i prema tome obezbeđuju standardan način za interno širenje informacija, i u isto vreme proširenje aplikacija širom sveta. Termin koji je prvobitno definisan kao ovde, je postao toliko popularan da se sada često koristi da označi bilo koji LAN i klijent/server sistem.
+
+
+ISDN, Integrated Services Digital Net work (digitalna mreža integrisanih usluga)
+Internacionalni standard u telekomunikacijama za prenošenje glasa, videa i podataka preko digitalnih linija brzinom od 64 Kbps. Telefonske kompanije obično koriste 64 Kbps kanal za digitalizovanu, dvosmernu glasovnu konverzaciju. ISDN usluga je na raspolaganju u većem delu SAD.
+
+ISP, Internet services provider (posrednik za Internet usluge)
+Organizacija koja obezbeđuje pristup Internetu. Mali posrednici za Internet usluge obezbeđuju uslugu preko modema i ISDN, dok veći takođe nude i priključke za privatne linije. Korisnici uglavnom plaćaju fiksnu mesečnu ratu, ali se mogu naplaćivati i dodatni troškovi. Uz nadoknadu, na ISP-ovom serveru može da se napravi i održava Web prezentacija, koja omogućava manjim organizacijama da se predstave na Webu sa sopstvenim imenom domena. Najveći onlajn servisi, kao što su America On line i CompuServe obezbeđuju pristup Internetu, ali su i dalje poznati kao “onlajn servisi”, ne ISP. Oni uglavnom nude baze podataka, forume i usluge koje su kreirali kao dodatak pristupu Internetu. Iako mogu biti domaćini početne strane korisnika, oni obično nisu domaćini Web lokacija sa jedinstvenim imenima domena.
+
+
+
+JOYSTICK (upravljačka palica)
+Pokazivački uređaj koji se koristi za pomeranje objekta na ekranu u bilo kom pravcu. On ima vertikalnu polugu na osnovi sa jednim ili dva dugmeta. Upravljačka palica se uglavnom koristi za igranje računarskih igara, kao i u nekim sistemima za crtanje.
+
+JPEG (Joint Photo graphic Experts Group)
+Izgovara se “jot-peg”. ISO/ITU standard za komprimovanje slika, koji je postao veoma popularan zbog svoje velike sposobnosti kompresije. Korišćenjem diskretne kosinusne transformacije vrši se kompresija sa gubicima (gube se neki podaci iz originalne slike) sa koeficijentima 100:1, i većim. To zavisi od slike, ali koeficijenti od deset prema jedan do dvadeset prema jedan daju jedva primetne gubitke. što se veći gubitak može tolerisati, to slika može biti više komprimovana. Kompresija se postiže deljenjem slike na male blokove piksela, koji se dele na pola sve dok se ne postigne koeficijent.
+ 
+
+KEYBOARD (tastatura)
+Skup ulaznih tastera. Na terminalima i personalnim računarima, ona se sastoji od standardnih tastera kao kod pisaće mašine, nekoliko specijalizovanih tastera i instrukcija koje su date u nastavku. Videti PC tastaturu.
+
+ENTER (RETURN) TASTER
+U tekstualnim aplikacijama, on završava pasus ili red. U aplikacijama za red sa podacima, on označava kraj unosa za to polje ili red.
+
+KURSOR TASTERI
+Četiri tastera sa strelicama koji pomeraju kursor po ekranu. Koriste se zajedno sa Shift, Alt i Control, za pomeranje kursora u većim skokovima; na primer, CONTROL taster sa strelicom na gore pomera sadržaj ekrana. Neke starije tastature nisu imale kursorske tastere, i kod njih se Control ili Alt koristio zajedno sa nekim slovnim tasterom.
+
+
+TASTERI CONTROL, ALT, COMMAND i OPTION
+Koriste se kao taster Shift, ovi tasteri se drže pritisnuti dok se drugi taster pritiska kako bi se upravljalo računarom na različite načine.
+
+TASTER ESC
+Najčešće se koristi za izlazak ili prekid trenutnog režima, kao što je izlaženje iz menija. Takođe se koriste za brisanje oblasti ili ponavljanje funkcije kao što je osvežavanje ekrana.
+
+TASTER NUM LOCK
+Zaključava kombinaciju broj/kursor numeričkog dela tastature, samo u numerički režim.
+
+TASTER HOME i END
+Obično se koristi za pomeranje kursora na levu ili desnu ivicu postoježeg reda. često se koristi zajedno sa Shift, Con trol i Alt; na primer, CONTROL HOME i CONTROL END obično pomeraju kursor na početak i kraj datoteke.
+
+TASTER PAGE UP/PAGE DOWN
+Koriste se za pomeranje kursora naviše i naniže po strani, ekranu ili okviru. često se koriste u kombinaciji sa Shift, Control i Alt.
+
+FUNKCIJSKI TASTERI
+Koriste se za pozivanje menija ili izvršavanje funkcije; locirani su u grupi sa leve strane ili u nizu na vrhu tastature (F1, F2, itd.). često se koriste sa tasterima Shift, Con trol i Alt da bi povećali broj opcija.
+ 
+TASTER BACKSPACE
+Koristi se za brisanje znakova sa leve strane kursora (briše otkucano) i može da se koristi sa tasterima Shift, Con trol i Alt da izbriše delove teksta. Preporučuje se širi taster kao kod pisaće mašine.
+
+TASTER DEL
+Koristi se za brisanje znakova na trenutnom položaju kursora. Koristi se zajedno sa tasterima Shift, Con trol i Alt. Njime se može brisati bilo koji deo teksta kao što je reč, rečenica ili pasus.
+
+TASTER INSERT
+Najčešće, “prekidač” za prelaženje između režima ubacivanja i prepisivanja. Takođe se koristi da “umetne” deo teksta ili grafike u dokument, na trenutnoj lokaciji kursora.
+
+TASTERI KOJI PONAVLJAJU RADNJU
+Većina tastera na računaru ponavlja istu radnju kada ih držite pritisnutim, fenomen na koji se početnici u korišćenju računara moraju navići. Ako držite pritisnutim taster koji se koristi za upravljanje računarom, unosićete komandu nekoliko puta.
+
+ZVUČNI SIGNAL
+Tastature mogu izazvati zvuk koji se čuje sa računara kada se pritisnu tasteri. To potvrđuje da je znak unet. Može se podešavati po potrebi.
+
+
+
+
+LAN
+Local area network (lokalna računarska mreža). Komunikaciona mreža koja pruža usluge korisnicima na ograničenom geografskom području. Sastoji se od servera, radnih stanica, operativnog sistema mreže i komunikacionih veza. Serveri su mašine velikih brzina koje čuvaju programe i podatke, koje zajednički koriste korisnici mreže. Radne stanice (klijenti) su personalni računari korisnika, koji samostalno obrađuju i pristupaju mrežnim serverima po zahtevu. (Videti klijent/server.) Ponekad se koriste radne stanice samo sa disketom i bez diskova, koje uzimaju softver i podatke od servera. Sve više se koriste mrežni računari “neopterećenog klijenta” i Win dows terminali. Na radnu stanicu ili server može biti priključen štampač, koji mogu zajednički koristiti korisnici mreže. Male lokalne računarske mreže mogu dozvoliti da izvesne radne stanice funkcionišu kao serveri, dajući korisnicima pristup podacima na mašini drugog korisnika. Ove mreže ravnopravnih računara su često jednostavnije za instaliranje i upravljanje, ali namenski serveri obezbeđuju bolju performansu i mogu upravljati većim transakcijama. Više servera se koristi u velikim mrežama. Upravljački softver lokalne računarske mreže je operativni sistem mreže (NetWare, UNIX, Win dows NT, itd.) koji je smešten na serveru. Sastavni deo softvera je smešten na svakom klijentu, i dozvoljava aplikaciji čitanje i pisanje podataka sa servera kao da su na lokalnoj mašini. Prenosom poruke upravlja protokol transporta kao što je TCP/IP i IPX. Fizički prenos podataka izvršava se metodom pristupa (Ether net, To ken Ring, itd) koja je primenjena u mrežnim adapterima uključenim u mašine. Stvarni put komunikacije je kabl (sa upredenim paricama, koaksijalni, optičko vlakno) koji međusobno povezuje sve mrežne adaptere.
+
+LAP TOP računar
+Prenosivi računar koji ima ravan ekran i težina mu je obično manja od desetak funti (približno 4,5 kg). Koristi naizmenično napajanje i/ili baterije. Većina ima konektore za eksterni mon i tor i tastaturu, što ih transformiše u desktop računare. Većina današnjih lap top računara spada u kategoriju noutbuk računara. (Vidite notebook računar.)
+
+LINK (veza)
+Na World Wide Webu, adresa (URL) koja vas vodi do drugog dokumenta na istom serveru, ili na bilo kom drugom serveru.
+
+LINUX
+Besplatna verzija UNIX operativnog sistema (OS) koja se koristi na PC i smatra se potencijalnom alternativom Windowsa. Iako je Linux “besplatan”; često se prodaje zajedno sa tehničkim dodacima od proizvođača kao što su Red Hat Software, Caldera, i TurboLinux. Distribucija CD-ROM-ova od takvih proizvođača uključuje na stotine alata, apleta i pomoćnih programa, kao i ceo izvorni kod. Zahvaljujući svojoj stabilnosti, Linux je dobio na popularnosti kod posrednika za Internet usluge (ISP) kao operativni sistem koji podržava Web servere. Očekuje se porast u njegovom korišćenju kao operativnog sistema poslovnih servera; kako grafički korisnički interfejsi, kao što su KDE i GNOME postaju sve razumljiviji, Linux može postati alternativa Windowsu. 1990, stu dent računarstva Linus Torvalds je pretvorio Minix, popularno nastavno sredstvo, u Linux.
+Torvalds je kreirao jezgro operativnog sistema Linux, dok većina aplikacija i pomoćnih programa za podršku potiče od GNU projekta fondacije za slobodni softver. Mnogi programeri koji su doprineli Linux/GNU sistemu, postali su poznati kao pokret softverskog otvorenog koda.
+
+
+
+
+MACINTOSH
+Familija personalnih računara iz Applea, koja se pojavila 1984. To je bioprvi računar koji je popularizovao grafički korisnički interfejs (GUI), što je zajedno sa njegovom hardverskom arhitekturom obezbedilo postojanost i lakoću pri korišćenju, koja je neprevaziđena. Macintosh-i su najveća serija personalnih računara nekompatibilnih sa IBM koja se koristi u svetu.
+
+MAKSIMIZE (maksimalno povećati)
+U grafičkom okruženju, uvećati prozor na punu veličinu.
+
+MEGABYTE (megabajt)
+Jedan milion bajtova. Takođe MB.
+ 
+
+MEGA HERTZ (megaherc)
+Jedan milion ciklusa u sekundi. Takođe se piše kao MHz.
+
+MEMORY (memorija)
+Radni prostor računara (fizički, skup RAM čipova). To je važan resurs, pošto određuje veličinu i broj programa koji se mogu istovremeno koristiti, kao i količinu podataka koja može biti momentalno obrađena. Izvršavanje programa i obrada podataka se odvija u memoriji. Instrukcije programa se kopiraju u memoriju sa diska ili trake, i onda se izdvajaju iz memorije u kolo kontrolne jedinice, za analizu i izvršavanje. Instrukcije nalažu računaru unos podataka u memoriju sa tastature, diska, trake ili komunikacionog kanala. Kada se podaci unesu u memoriju, prethodni sadržaj tog prostora je izgubljen.
+Jednom kada su podaci u memoriji, mogu se obrađivati (izračunavati, upoređivati i kopirati). Rezultati se šalju na ekran, štampač, disk, traku ili komunikacioni kanal. Memorija je kao elektronska kontrolna tabla, pri čemu svako polje čuva jedan bajt podataka ili instrukcije. Svako polje ima zasebnu adresu, kao poštansko sanduče i njime se može nezavisno upravljati. Zahvaljujući tome, računar može rastaviti programe na instrukcije za izvršavanje i zapise podataka na polja za obradu. Može zvučati čudno, ali memorija računara ne pamti ništa kada se isključi napajanje. Zbog toga morate da snimate vaše datoteke, pre nego što izađete iz programa. Iako postoje čipovi u memoriji koji trajno čuvaju njihov sadržaj (ROM, PROM, EPROM, itd.), oni se koriste u svrhu interne kontrole, a ne za korisničke podatke. Memorija “koja pamti” su njegovi diskovi i trake u računarskom sistemu, i iako se oni takođe zovu memorijski uređaji, mnogi ih radije zovu uređaji za skladištenje, kako bi ih razlikovali od interne memorije. Možda će se u budućnosti memorija odnositi samo na diskove, a RAM će se odnositi na radnu memoriju. Do tada, korišćenje ovog termina i za RAM i za diskove doprinosi konfuziji u inače najkonfuznijoj industriji na planeti. Memorija je tako važan resurs da ne sme biti neiskorišćena. Ona mora biti alocirana od strane operativnog sistema i aplikacija, a zatim oslobođena kada nije potrebna. Programi sa greškom mogu zauzimati memoriju čak i kada su zatvoreni, što ima za posledicu sve manje memorije na raspolaganju, dok učitavate i koristite dodatne programe. Ako operativni sistem nije razvijen, aplikacija sa greškom može upisivati u deo memorije koji koristi drugi program, uzrokujući čudno ponašanje sistema. To ćete otkriti kada se sistem ukoči, ili kada se nešto čudno dogodi.
+Kada bi mogli da vidite šta se dešava u memoriji, koliko se podataka i instrukcija i kojom brzinom upisuje i briše iz nje, pomislili bi ste da je čudo što uopšte radi!
+
+MENU (meni)
+Lista na ekranu raspoloživih funkcija, ili operacija koje trenutno mogu da se izvršavaju. Zavisno od tipa menija, odabir se može postići (1) obeležavanjem opcije menija sa mišem; (2) postavljanjem pokazivača miša na ime opcije i pritiskom na njega; (3) obeležavanjem opcije kursor tasterima i pritiskom na enter; ili (4) pritiskom na prvo slovo u imenu opcije ili neko označeno slovo u okviru imena.
+
+MICROPROCESSOR (mikroprocesor)
+CPU na jednom čipu. Da bi funkcionisao kao računar on zahteva napajanje, sat i memoriju. Prva generacija mikroprocesora su bili Intel 8080, Zilog Z80, Motorola 6800 i MOS Technologies 6502 Prvi mikroprocesor je kreirao Intel, čija je familija x86 čipova i dalje najpopularniji tip mikroprocesora.
+
+MINIMIZE (minimizovati)
+U grafičkom okruženju, sakriti aplikaciju koja je prikazana na ekranu. Prozor se uklanja i predstavlja se ikonom na radnoj površini ili paleti poslova.
+
+MODEM (modulator-demodulator)
+Komunikacioni uređaj koji omogućava računaru prenos informacija preko telefonske linije. On konvertuje digitalne impulse računara u audio frekvencije (analogne) za telefonski sistem, i obrnuto. Modem takođe uspostavlja vezu, odgovara na poziv i kontroliše brzinu prenosa.
+
+MONITOR
+Ekran za prikaz koji predstavlja izlaz iz računara, kamere, video rekordera, itd. Jasnoća monitora je bazirana na video propusnom opsegu, rastojanju između tačaka, učestanosti obnavljanja i konvergenciji.
+
+
+MOUSE (miš)
+Najpopularniji pokazivački uređaj. Nazvan je tako jer podseća više ili manje na njega, sa gajtanom koji liči na rep miša. Grafički interfejsi su napravljeni za korišćenje sa pokazivačkim uređajima, ali ovi uređaji se mogu zameniti komandama tastature. Ipak, grafičke aplikacije kao što su CAD i uređivanje slika, zahtevaju miš kao uređaj. Kretanje miša je relativno. Kursor na ekranu se kreće iz svoje trenutne lokacije. Miša možete pokretati po vašoj ruci, i kursor na ekranu će se takođe pomerati. Posle godina korišćenja od strane miliona korisnika, sada je opšte poznato da miš može biti opasan po vaše zdravlje. Mnoge aplikacije zahtevaju beskonačno pritiskanje tastera i pomeranje miša da bi se obavili zadaci. Kontinuirano korišćenje predstavlja veliko opterećenje za zglob i može biti veoma naporno.
+
+MP3, MPEG Audio Layer 3 (MPEG Audio sloj 3)
+Tehnologija kompresije zvuka koja je deo MPEG-1 i MPEG-2 specifikacija. On kompresuje zvuk CD kvaliteta sa koeficijentom 12, održavajući pri tome istu visoku tačnost reprodukcije. Dostižni su i veći koeficijenti kompresije koji obezbeđuju razuman kvalitet zvuka.
+
+MPEG, Moving Pictures Experts Group (Ekspertska grupa za film)
+Izgovara se “em-peg”. To je ISO/ITU standard za video kompresiju. MPEG je metoda kompresije sa gubicima, što znači da se gubi nešto od originalne slike. MPEG-1, koji se koristi za CD-ROM i video CD, obezbeđuje rezoluciju od 352 x 240 na 30 fps sa 24- bitnom bojom i zvukom CD kvaliteta. Većina MPEG ploča takođe obezbeđuje skaliranje hardvera, koje povećava sliku do punog ekrana. MPEG-2 je standard kvaliteta za emitovanje koji stavlja na raspolaganje bolju rezoluciju nego VHS trake. MPEG-2 se koristi u DVD filmovima. Datoteke koje se čuvaju u MPEG formatu datoteka imaju oznaku tipa .mpg.
+ 
+
+MULTITASKING (višeprocesna obrada zadataka)
+Rad dva ili više programa na jednom računaru u isto vreme. Broj programa na kojima se može efikasno istovremeno raditi zavisi od tipa višeprocesne obrade zadataka (sa prečim pravom nasuprot kooperativnim), brzine CPU-a i kapaciteta memorije i diska. Programi mogu da rade istovremeno na računaru, zbog razlika između ulaza/izlaza i brzine obrade. Dok jedan program čeka na ulaz, instrukcije drugog mogu da se izvršavaju. Tokom milisekunde u kojoj jedan program čeka da se podaci očitaju sa diska, milioni instrukcija u drugom programumogu se izvršiti. U interaktivnim programima, na hiljade instrukcija može da se izvrši između svakog pritiska na taster tastature.
+
+
+
+
+NETWORK (mreža)
+Uređenje objekata koji su međusobno povezani. U komunikacijama, mreža se sastoji od kanala prenosa koji međusobno povezuju sve stanice klijenata i servera, kao i hardver i softver za podršku.
+
+NOTEBOOK COMPUTER
+Lap top računar koji teži približno pet do sedam funti. Noutbuk računar koji ima težinu manju od pet funti se obično zove podtip noutbuka.
+
+
+
+
+OPERATING SYSTEM (operativni sistem)
+Glavni upravljački program koji pokreće računar. To je prvi program koji se učitava kada se računar uključi, i njegov glavni deo, jezgro, je stalno prisutan u memoriji. Njega može razviti proizvođač računara na kom se koristi, ili treća strana. To je važna komponenta računarskog sistema, jer postavlja standarde za programe aplikacija koji se u njemu odvijaju. Svi programi moraju da “razgovaraju” sa operativnim sistemom. PC uglavnom koriste Windows (uključujući Windows 3.x, Windows 95/98/Me i Windows NT/2000) ili mogu raditi sa sve popularnijim Linux operativnim sistemima. Macintosh računari koriste Mac OS (System 9 i OS/X su najnovije verzije). Mini-računari i radne stanice obično koriste varijacije UNIX operativnog sistema.
+ 
+
+
+PARALLEL PORT (paralelni port)
+Utičnica na računaru koja se koristi za povezivanje štampača ili drugog paralelnog uređaja preko paralelnog interfejsa računara.
+
+PC, personal computer (personalni računar)
+Iako se izraz PC ponekad koristi da označi bilo koju vrstu personalnog računara (Mac, Amiga, itd.), generalno se termin “PC” odnosi na računare koji su kompatibilni sa PC standardom, koji je prvobitno razvio IBM. Danas, hardverom PC-ja upravlja Intel, a operativnim sistemima PC-ja Microsoft. PC je najveća svetska računarska baza. PC-ji se koriste kao samostalni personalni računari ili kao radne stanice i serveri datoteka u LAN- u (lokalnoj računarskoj mreži). Oni pretežno rade pod Windowsom, iako se DOS sistemi još uvek drže. Ako se Intelov PC koristi kao mrežni server pod UNIX-om ili drugim operativnim sistemom, on se obično zove Intelov server, ili x86-bazirani server, ne PC. Iako postoji, bukvalno na hiljade isporučilaca PC-ja, od malih prodavnica do velikih kod kojih možete naručiti putem elektronske pošte (Dell, Gate way, itd.), kao i najvećih računarskih kompanija (Compaq, HP, itd.) i naravno IBM, i dalje jednog od najvećih svetskih proizvođača PC-ja, svi PC-ji koriste Intel x86, ili kompatibilan CPU.
+
+PERIPHERAL (periferijski uređaj)
+Bilo koji hardverski uređaj povezan sa računarom, kao što je monitor, tastatura, štampač, disk, jedinica za traku, grafička tabla, skener, upravljačka palica, obrtni regulator i miš.
+
+PIXEL, piksel (elemenat slike)
+Najmanja adresibilna jedinica na ekranu za prikaz. Što je veća rezolucija piksela (više redova i kolona piksela), to više informacija može biti prikazano. U memoriji, pikseli su prikazani sa jednim ili više bitova. Što je veća “dubina bitova”, više nijansi ili boja može biti prikazano. Najekonomičniji sistem je monohromatski, koji koristi jedan bit po pikselu (1/0). Nijansa sive i prikazi boja, obično koriste od 4 do 24 bita po pikselu, dajući više od 16 miliona boja.
+
+PLUG IN (dopunski modul)
+Pomoćni program koji radi sa glavnim softverskim paketom da bi povećao njegove sposobnosti. Na primer, dopunski moduli se često koriste u programima za uređivanje slika, kao što je Photoshop, za dodavanje filtera zbog nekih specijalnih efekata. Dopunski moduli se dodaju Web pretraživačima, kao što je Netscape, da bi im omogućili da podrže nove tipove sadržaja (audio, video, itd.). Termin se uglavnom koristi za softver, ali takođe može da se odnosi na dopunski modul za hardver.
+
+POINTER (pokazivač)
+Simbol koji se koristi da pokaže neki elemenat na ekranu.
+
+PRINTER (štampač)
+Uređaj koji konvertuje izlaz računara u štampani prikaz. Laserski i LED štampači koriste elektro-fotografsku metodu, koja je u upotrebi kod kopir mašina. Inkdžet su postali najpopularniji oblik stonih personalnih štampača. Gotovo sve jedinice mogu da štampaju u boji, ili imaju opciju za boju. Inkdžet štampači usmeravaju kapljice mastila direktno na papir.
+
+PRINTED CIRCUIT (štampano kolo)
+Štampano kolo je u stvari “nagrizeno” kolo. Bakarna folija se stavlja preko staklene ili plastične osnove i pokriva sa fotorezistorom. Dejstvu ultraljubičaste svetlosti se izlaže negativ slike linija šeme (kola) na fotorezistoru, stvrdnjavajući područja koja će ostati nakon nagrizanja. Područja koja nisu bila izložena svetlosti (neočvrsnuta područja), se spiraju kiselinom. Sličan proces stvara mikrominijaturna kola na čipu (videti čip).
+
+
+
+RAM, Random Access Memory (memorija sa direktnim pristupom)
+Grupa čipova u memoriji, obično dinamička RAM (DRAM), koja funkcioniše kao glavni radni prostor računara. Kao što ime kaže, sadržajima svakog bajta se može direktno pristupiti bez obzira na bajtove pre ili posle. To je takođe tačno i za druge vrste čipova u memoriji, uključujući ROM. Ipak, za razliku od ROM, RAM čipovi zahtevaju napajanje da bi čuvali njihov sadržaj, i zbog toga morate snimati vaše podatke na disk pre isključivanja računara.
+
+ROM, Read-Only Memory (memorija samo za čitanje)
+Čip u memoriji koji trajno skladišti instrukcije i podatke. Njegovi sadržaji su kreirani u vreme proizvodnje i ne mogu biti izmenjeni. ROM čipovi se koriste za čuvanje kontrolnih rutina u personalnim računarima (ROM BIOS), periferijskih kontrolera i druge elektronske opreme. Oni su takođe često jedini sadržaj unutar kertridža koji se stavlja u štampače, video igre i druge sisteme.
+
+
+
+
+SAVE (snimiti)
+Kopirati dokument, zapis ili sliku na kojoj se radi, na memorijski medijum. Snimanje ažurirane datoteke upisivanjem podataka koji su trenutno smešteni u memoriji (RAM) na disk ili traku. Većina aplikacija podseća korisnika da snimi podatke pre izlaska. Sva obrada se izvršava u memoriji (RAM). Kada je obrada završena, podaci moraju da budu smešteni na trajni memorijski medijum, kao što je disk ili traka.
+
+SCSI, Small Computer System Interface (interfejs malih računarskih sistema)
+Izgovara se “skazi”. SCSI je hardverski interfejs koji dozvoljava povezivanje do 7 ili 15 periferijskih uređaja na jednu ploču za proširenje, koja se utiče u računar, nazvan SCSI matični adapter ili SCSI kontroler. Na jednoj ploči se takođe mogu nalaziti dva kontrolera i podrška za do 30 periferijskih uređaja. SCSI je široko rasprostranjen od personalnih računara do centralnih jedinica.
+
+SCANER (skener)
+Uređaj koji očitava štampanu stranu i konvertuje je u grafički prikaz za računar. Skener ne prepoznaje sadržaj štampanog materijala koji skenira. Sve na strani (tekst i grafički objekti) se konvertuje u jedan bitmapiran grafički prikaz, koji je dijagram tačaka. Sistemi za optičko prepoznavanje znakova (OCR) izvode istu operaciju skeniranja, ali koriste softver za konvertovanje tačaka u kodirane ASCII ili EBCDIC znakove. Digitalne kamere su slične desk top skenerima, osim što im je fokus u beskonačnosti, dok desk top skeneri prihvataju ili po jedan list papira ili neprekidan niz kao kopir mašina (vidi digitalna kamera).
+
+SCREEN SAVER (program za zaštitu ekrana)
+Pomoćni program koji sprečava trajno ispisivanje slike na ekranu. Posle određenog vremenskog intervala u kome nije dodirnuta tastatura ni pomeren miš, zamračuje ekran ili prikazuje neku pokretnu sliku. Pritisak na taster ili pomeranje miša obnavlja prikaz na ekranu. Kod današnjih kolor monitora, bilo bi potrebno mnogo sati da bi došlo do sagorevanja (trajne promene fosforne prevlake sa unutrašnje strane ekrana monitora). Ovi programi su i dalje popularni zbog dekorativne i zabavne funkcije.
+
+
+
+SCROLLBAR (traka za pomeranje sadržaja)
+Horizontalna ili vertikalna traka koja sadrži klizač, koji izgleda kao pomični kvadratni element na ovoj traci. Strelica se koristi za pomeranje sadržaja ekrana red po red u željenom pravcu, a klizač za premeštanje na željenu lokaciju.
+
+SERIAL PORT (serijski port)
+Utičnica na računaru koja se koristi za povezivanje modema, miša, skenera ili drugog serijskog uređaja preko serijskog interfejsa računara. Macintosh koristi serijski port za priključivanje štampača, dok PC koristi paralelni port. Prenos datoteka između dva personalna računara se može postići povezivanjem serijskih portova obe mašine kablovima i korišćenjem programa za prenos datoteka.
+
+SHORTCUTS (prečice)
+Windows vam omogućava da kreirate pokazivače, ili prečice do vaših programa i datoteka sa podacima. Ikone prečica mogu biti smeštene na radnojpovršini, ili se čuvati u drugim omotnicama. Dvostruki pritisak tastera miša na prečicu je isto što i dvostruki pritisak tastera miša na originalnu datoteku. Međutim, brisanje prečica ne uklanja original. Ikone prečica imaju malu strelicu u njihovom donjem levom uglu, koja pokazuje na severoistok. Da bi kreirali prečicu do datoteke programa, povucite ikonu iz omotnice ili prozora Explorera i pustite je na desk top ili u drugu omotnicu.
+ 
+SLOT
+(1)	Utični konektor u računaru, projektovan za smeštaj dodatnih štampanih ploča.
+(2)	Patrona za umetanje i uklanjanje kertridža diska ili trake.
+
+SOFTWARE (softver)
+Instrukcije za računar. Serija instrukcija koje izvršavaju određeni zadatak zove se program. Dve glavne kategorije softvera su sistemski softver i softver aplikacija. Sistemski softver sastoji se od kontrolnih programa kao što su operativni sistem i sistem za upravljanje bazama podataka (DBMS). Softver aplikacija je svaki program koji obrađuje podatke za korisnika (inventar, obračun ličnih dohodaka, program za tabelarna izračunavanja, tekst procesor, itd.). Uobičajena zabluda je da su podaci softver. Oni to nisu. Softver govori hardveru kako da obrađuju podatke. Softver se “izvršava”, a podaci se “obrađuju”.
+
+SOUND CARD (zvučna kartica)
+Takođe nazvana “zvučna ploča” i “zvučni adapter”. To je ploča za proširenje personalnog računara, koja snima i reprodukuje zvuk, obezbeđujući izlaz direktno do slušalica ili eksternog pojačavača. Stan dard za kompatibilnost zvučne kartice kod PC je Sound Blaster od Creative Labs.
+
+SPREAD SHEET (program za tabelarna izračunavanja)
+Softver koji simulira tabelu na papiru, ili radni list, i koristi se za proračun budžeta i predviđanje. Pojavljuje se na ekranu kao matrica redova i kolona, čiji preseci određuju ćelije. Ona može imati na hiljade ćelija, i može se skrolovati horizontalno i vertikalno da bi je pregledali. Ćelije su popunjene sa : (1) Oznakama “ bilo koji deskriptivni tekst, na primer, RENT, PHONE, GROSS SALES. (2) Numeričkim vrednostima “ numerički podaci koji se koriste u proračunu budžeta i predviđanja, i formule za izračunavanje; na primer, SUM CELLS A5 TO A10. (3) Formulama “ kreiranim ovim izrazom “ova ćelija PLUS ta ćelija PUTA ta ćelija” Formule su lake za kreiranje, pošto tabele dozvoljavaju korisniku da označi svakućeliju i otkuca u njoj aritmetičku operaciju koja se na nju odnosi. Formule su moćni alat tabela. Pošto se brojevi dodaju ili izmene, formule će ponovo izvršiti proračun podataka, bilo automatski ili pritiskom na taster. Pošto se sadržaji svake ćelije mogu koristiti u proračunu ili kopirati u drugu ćeliju, suma jedne kolone može se koristiti kao element druge kolone. Na primer, suma kolone stavki troškova, može biti prenesena u kolonu sume koja prikazuje sve troškove. Ako se radi ručno, svaka izmena će zahtevati ponovni proračun, brisanje i izmenu suma svake kolone. Automatski, posledica koja se postepeno širi dozvoljava korisnicima da kreiraju plan, daju različite pretpostavke i momentalno vide rezultat u poslednjoj liniji. Ova mogućnost čini program za tabelarna izračunavanja nezamenljivim u proračunu budžeta, predviđanjima i drugim zadacima zasnovanim na jednačinama.
+
+SURGE PROTECTOR (prigušivač prednapona)
+Uređaj koji koristi neki metod prigušivanja udarnog napona da bi zaštitio elektronsku opremu od preteranog napona (pikova i prenapona) u liniji napajanja. Najčešće metode koriste metal oksid varistor (MOV) komponentu, za skretanje udarnog napona na neutralnu i liniju uzemljenja. Druga metoda je serijski režim koji ustvari apsorbuje energiju. Prigušivači prenapona mogu koristiti obe metode.
+
+SYNCHRONOU (sinhroni)
+Odnosi se na događaje koji su sinhronizovani, ili koordinisani u vremenu. Na primer, interval između prenosa A i B je isti kao između B i C, i završavanje trenutne operacije pre početka sledeće, smatra se sinhronom operacijom.
+
+SYSTEM (sistem)
+Računarski sistem se sastoji iz CPU, operativnog sistema i periferijskih uređaja.
+
+
+
+
+TASKBAR (paleta poslova)
+Paleta alata na ekranu koja prikazuje aktivne aplikacije(zadatke). Pritisak mišem na dugme palete poslova vraća aplikaciju na njen prethodni prikaz. Windows 95 je popularizovao ovo svojstvo.
+
+TIFF, Tagged Image File Format (format datoteke označene slike)
+Široko rasprostranjen format bitmapirane grafičke datoteke, koji su razvili Aldus i Microsoft, koji upravlja monohromatskom, u sivim nijansama, 8 i 24 bitnom bojom. TIFF dozvoljava prilagođavanje i komprimanje se korišćenjem nekoliko metoda kompresije. Za označavanje TIFF datoteka koristi se oznaka tipa .tif.
+
+TRACKBALL (pokazivački uređaj sa kuglom)
+Stacionarni pokazivački uređaj koji sadrži pokretnu kuglu, koja se okreće prstima ili dlanom. Jedan do tri tastera su locirani u različitim položajima zavisno od jedinice.
+
+
+
+UPS, uninterruptible power supply (izvor neprekidnog napajanja)
+Rezervno napajanje koje se koristi kada dođe do nestanka napajanja ili pada električnog mrežnog napona. Mali UPS sistemi obezbeđuju napajanje iz baterije u trajanju od par minuta; dovoljno da se računar isključi na pravilan način. Sofisticirani sistemi su vezani za električne generatore koji mogu obezbediti napajanje za više dana. UPS sistem može biti povezan sa serverom datoteka, tako da se u slučaju problema svi korisnici mreže mogu upozoriti da snime datoteke i odmah isključe računar.
+
+URL, uniform resource locator (uniformni lokator resursa)
+Adresa koja definiše putanju do datoteke na Webu, ili bilo kog drugog uređaja na Internetu. URL adrese se ukucaju u pretraživač, da bi pristupili Web stranama, i ugrađene su u te strane da bi obezbedile hipertekstualne veze do drugih strana. URL sadrži prefiks protokola, broj porta, ime domena, imena poddirektorijuma i ime datoteke. Adrese porta se obično podrazumevaju i retko se specificiraju. Da bi pristupili početnoj strani na Web lokaciji, potrebni su samo protokol i ime domena. Na primer, http://www.osborne.com nalazi početnu stranu na Osborne/McGraw-Hill Web lokaciji. http:// je Web protokol, a www.osborne.com je ime domena. Ako se strana čuva u drugom direktorijumu, ili ako je tražena neka druga a ne početna strana, kose crte se koriste za razdvajanje imena. Ako se tražena strana čuva u poddirektorijumu, njegovo ime je odvojeno kosom crtom. Kao imena putanja u DOS-u i Windowsu, poddirektorijumi mogu imati nekoliko nivoa.
+
+USB, universal serial bus (univerzalna serijska sabirnica)
+Hardverski interfejs za periferijske uređaje male brzine, kao što su tastatura, miš, upravljačka palica, skener, štampač i telefonski uređaji. On takođe podržava MPEG-1 i MPEG-2 digitalni video. USB ima maksimalni propusni opseg od 1,5 megabajta u sekundi, i može se priključiti do 127 uređaja. Periferijski uređaji mogu biti uključeni i isključeni bez isključivanja sistema. USB portovi su počeli da se pojavljuju na PC 1997, i Win dows 98/Me okruženja ih u potpunosti podržavaju.
+
+UTILITY PROGRAM (pomoćni program)
+Program projektovan za održavanje sistema. Pomoćni programi stavljaju na raspolaganje mogućnosti upravljanja datotekama kao što je sortiranje, kopiranje, upoređivanje, listing i pretraživanje, kao i dijagnostičke i rutine merenja koje proveravaju stanje i performansu sistema.
+
+
+
+
+
+VIDEO CARD (video kartica)
+Ploča za proširenje koja se utiče u desk top računar i konvertuje slike kreirane na računaru u elektronske signale koje zahteva monitor. Ona određuje maksimalnu rezoluciju, maksimalnu učestanost obnavljanja i broj boja koje se mogu proslediti monitoru. Monitor mora biti u mogućnosti da podržava i najvišu rezoluciju i obnavljanje.
+
+VIRUS
+Softver koji se koristi da inficira računar. Pošto se napiše kod virusa, on se ugrađuje u postojeći program. Kada se program izvršava, kod virusa se aktivira i dodaje svoje kopije drugim programima u sistemu. Inficirani programi kopiraju virus u druge programe.
+Posledica virusa može biti samo šala u vidu poruke koja se pojavljuje iznenada na ekranu, ili može uništiti programe i podatke momentalno ili određenog datuma. Virus može da bude pritajen i da pravi štetu jednom godišnje. Na primer, virus Michaelangelo se aktivira na Mikelanđelov rođendan. Uobičajeni tip virusa je virus korenog sektora koji se čuva u sektorima za startovanje na disketi. Ako se disketa ostavi u uređaju kada se mašina isključi, i ponovo uključi, mašina je inficirana, jer čita sektore za startovanje na disketi, očekujući da u njima nađe operativni sistem. Kada se mašina jednom inficira, virus se kopira iz korenog sektora na sve diskete koje se čitaju ili na koje se upisuje u toj mašini, sve dok se ne utamani.
+
+
+
+
+WALLPAPER (tapet)
+Uzorak (šara) ili slika na pozadini ekrana koja se koristi u grafičkom korisničkom interfejsu (GUI). GUI imaju nekoliko ponuđenih tapeta, a na raspolaganju su i tapeti iz drugih izvora. Možete takođe skenirati vašu omiljenu sliku i izabrati je za tapet.
+
+WINDOW (prozor)
+Deo ekrana čiji sadržaj može da se pomera da bi se pregledao. U Windowsu su obično pravougaonog oblika, iako postoje okrugli i poligonalni prozori koji se koriste u specijalizovanim aplikacijama. Prozor može da se odnosi na deo aplikacije, kao što je indeksni prozor koji može da se skroluje ili tekstualni prozor u bazi podataka, ili može da se odnosi na celu aplikaciju u prozoru.
+
+WINDOWS
+Najrasprostranjeniji operativni sistem za PC. Windows obezbeđuje grafički korisnički interfejs i desk top okruženje, slično kao kod Macintosha, u kome se aplikacije prikazuju u prozorima na ekranu koji se mogu pomerati i kojima se može menjati veličina. Najveća prednost Windowsa je obilje aplikativnih programa koji su za njega napisani. On je standard za desktop i laptop računare širom sveta, sa preko dvesta miliona korisnika.
+Microsoft ima apsolutnu kontrolu nad Windowsom, i čini sve kako bi uveo poboljšanja, da bi ostao u toku. Windows je međutim složeno operativno okruženje, koje ima svoje korene u DOS-u, koji je razvijen za prve PC. Svaka verzija Windowsa mora da podržava aplikacije napisane za prethodne verzije Windowsa, kao i DOS aplikacije. Izvesne kombinacije hardvera i softvera, koje rade zajedno, mogu uzrokovati probleme, i rešavanje problema može biti otežano. Ako uzmemo u obzir da Windows ima korene u hardverskoj platformi koja se razvijala bez reda, kao divlji zapad, čudo je da funkcionše tako dobro.
+
+WORLD WIDE WEB (WWW)
+Tehnička mogućnost Interneta koja povezuje dokumente lokalno i na daljinu. Web dokument se zove Web strana, a veze na strani dozvoljavaju korisnicima da prelaze sa strane na stranu (hipertekst), bez obzira da li se strane čuvaju na istom serveru ili na serverima širom sveta. Stranama se pristupa i čitaju se preko Web pretraživača, kao što je Netscape Navigator ili Internet Explorer. Web je postao centar aktivnosti na Internetu, jer su Web strane, koje sadrže i tekst i grafiku, postale lako dostupne preko Web pretraživača. Web obezbeđuje interfejs najvećoj kolekciji on lajn informacija na svetu, a količina informacija se povećava neverovatnom brzinom. Web se takođe pretvara u multimedijalni sistem jer nove karakteristike pretraživača koje se pojavljuju vrtoglavom brzinom omogućavaju zvuk, video, telefoniju, 3D animacije i video konferencije na Netu. Noviji pretraživači takođe podržavaju Java jezik, koji omogućava da najrazličitije aplikacije budu preuzete sa Neta i korišćene lokalno. Osnovni Web format je tekstualni dokument u koji su ugrađene HTML oznake, koje obezbeđuju formatiranje strane kao i hipertekstualne veze (URL) do drugih strana. HTML kodovi su obični alfanumerički znaci koji mogu biti otkucani u svakom tekst editoru ili tekst procesoru. Brojni programi za objavljivanje na Webu obezbeđuju grafički interfejs za kreiranje Web strane i automatski generišu kodove. Mnogi tekst procesori i programi za objavljivanje izvoze svoja postojeća dokumenta u HTML formatu, tako da Web strane mogu kreirati korisnici bez poznavanja sistema kodiranja. Lakoća kreiranja strana je doprinela razvoju Weba.
+Web strane se održavaju na Web lokacijama, računarima koji podržavaju Web HTTP protokole. Kada pristupate Web lokaciji, vi se prvo povezujete na njegovu početnu stranu koja je html dokument, koji služi kao indeks sadržaja lokacije. Velike organizacije kreiraju i upravljaju svojim Web lokacijama. Lokacije manjih su smešteni na serverima, kojima upravljaju njihovi posrednici za pružanje Internet usluga. Veliki broj pojedinaca je napravio lične početne strane na Webu, pošto mnogi ISP uključuju ovu uslugu uz mesečnu naplatu pristupa. Pojedinci mogu da postave svoje podatke, hobije ili bilo šta drugo što žele, kao način svog predstavljanja svetu. Iz Weba je proistekao intranet, privatni Web lokacija za interne korisnike. On je zaštićen od Interneta mrežnom barijerom, koja dozvoljava korisnicima intraneta pristup Internetu, ali sprečava korisnike Interneta da pristupe intranetu.
+World Wide Web je razvio evropski savet za nuklearna istraživanja (CERN) u Ženevi na predlog Tim Berners-Lee 1989. On je kreiran zbog zajedničkog korišćenja informacija o istraživanjima u nuklearnoj fizici. (Godine 1991, predstavljen je prvi pretraživač sa komandnom linijom. Početkom 1993. postojalo je pedeset Web servera, i X Window pretraživač je obezbedio prve grafičke mogućnosti za Web. Iste godine CERN je predstavio svoj Macintosh pretraživač, i nacionalni centar za superračunarske aplikacije (NCSA) u Čikagu je predstavio X Window verziju Mosaica. Mosaic je razvio Marc Andreessen, koji je kasnije postao poznat širom sveta kao načelo Netscapea. Do 1994. bilo je približno 500 lokacija, a sa početkom 1995, skoro 10 000. 1995. o Webu je napisano više članaka, nego o bilo kom drugom predmetu iz računarske oblasti. Danas postoje milioni Web lokacija, a novi se stalno pojavljuju on lajn. Mnogi veruju da Web označava početak pravog informacionog doba, i vide ga kao poslovni model dvadesetprvog veka.
+
+
+
+ZIP
+Komprimovati datoteku sa PKZIP ili WINZIP.
+ 

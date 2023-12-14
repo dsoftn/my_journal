@@ -6,6 +6,8 @@ from online_abstract_topic import AbstractTopic
 import online_topic_main_cls
 import online_topic_on_this_day_cls
 import online_topic_news_cls
+import online_topic_aladin_we_cls
+import online_topic_aladin_tv_cls
 
 
 class OnLineTopicHandler(QObject):
@@ -25,7 +27,9 @@ class OnLineTopicHandler(QObject):
         self.topics = {
             "main": {"object": online_topic_main_cls.Main},
             "on_this_day": {"object": online_topic_on_this_day_cls.OnThisDay},
-            "news": {"object": online_topic_news_cls.News}
+            "news": {"object": online_topic_news_cls.News},
+            "aladin_we": {"object": online_topic_aladin_we_cls.AladinWE},
+            "aladin_tv": {"object": online_topic_aladin_tv_cls.AladinTV}
             }
         self.parent_widget = parent_widget
         self.current_topic: AbstractTopic = None
@@ -56,7 +60,6 @@ class OnLineTopicHandler(QObject):
     def _populate_topic_dictionary(self):
         for topic in self.topics:
             topic_obj: AbstractTopic = self.topics[topic]["object"](self.parent_widget, self._stt)
-            # self.topics[topic]["object"] = topic_obj
             topic_obj.setVisible(False)
             
             self.topics[topic]["name"] = topic

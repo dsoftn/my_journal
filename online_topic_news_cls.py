@@ -152,6 +152,7 @@ class AbstractNewsSource:
         self.html_parser = html_parser_cls.HtmlParser()
         self.base_site_url = ""
         self.base_default_image_path = ""
+        self.search_available = False
 
     def load_project(self) -> bool:
         pass
@@ -376,22 +377,19 @@ class NewsMondo(AbstractNewsSource):
                     video_class = element[start + 7:end]
                 videos.append([url, video_class])
 
-        # video_elements = self.html_parser.get_tags(html_code=html_code, tag="blockquote", multiline=True)
-        # if video_elements:
-        #     for element in video_elements:
-        #         start = element.find('link="')
-        #         end = element.find('"', start + 6)
-        #         if start != -1 and end != -1:
-        #             url = element[start + 6:end]
-        #         else:
-        #             continue
+        unable_to_show_html = """
+        <html>
+        <body>
+                <h2><div>Unable to show some elements</div></h1>
+                <h4>Please visit <a href="#1"><strong>source page</strong></a> for additional videos</h2>
+        </body>
+        </html>
+        """
+        unable_to_show_html = unable_to_show_html.replace("#1", self.data.active_page)
 
-        #         start = element.find('class="')
-        #         end = element.find('"', start + 7)
-        #         video_class = ""
-        #         if start != -1 and end != -1:
-        #             video_class = element[start + 7:end]
-        #         videos.append([url, video_class])
+        video_elements = self.html_parser.get_tags(html_code=html_code, tag="blockquote", multiline=True)
+        if video_elements:
+            videos.append([unable_to_show_html, "page"])
 
         return videos
 
@@ -943,7 +941,9 @@ class NewsMondo(AbstractNewsSource):
             "galerija automobila",
             "lepa i srećna",
             "wanted",
-            "sensa"
+            "sensa",
+            "Ukrštene reči",
+            "Sudoku"
         ]
         result = {}
         main_count = 1
@@ -1405,7 +1405,7 @@ class NewsSputnik(AbstractNewsSource):
             page_content_code_raw = page_content_code_raw.replace('</div>', '<br>\n</div>')
 
             page_text_code_raw1 = page_content_code_raw
-            page_text_code_raw1 = self.html_parser.remove_specific_tag(text=page_text_code_raw1, tag="table", multiline=True)
+            page_text_code_raw1 = self.html_parser.remove_specific_tag(html_code=page_text_code_raw1, tag="table", multiline=True)
             in_tag = False
             page_text_code_raw = ""
             for line in page_text_code_raw1.splitlines():
@@ -1564,12 +1564,17 @@ class NewsRTS(AbstractNewsSource):
 
         self.base_site_url = "https://www.rts.rs"
         self.base_default_image_path = self.getv("online_news_rts_page_def_img_path")
+        self.search_available = "https://www.rts.rs/pretraga.html?lang=sr&searchText="
 
     def load_project(self, source: str = None) -> bool:
         project_file = self.getv("rashomon_folder_path") + "rts_news.rpf"
         if not source:
             source = "https://www.rts.rs/sr/index.html"
 
+        if self.rashomon.project_name == project_file and self.rashomon.get_source() == source:
+            self.project_loaded = True
+            return True
+        
         self.project_loaded = False
         
         self.rashomon.errors(clear_errors=True)
@@ -1670,13 +1675,19 @@ class NewsRTS(AbstractNewsSource):
         result = self.load_project(url)
         if not result:
             return False
-
+        
+        search_code = self.rashomon.get_segment_selection("content_final")
+        search_results = self.html_parser.get_tags(html_code=search_code, tag="div", tag_class_contains="storyNav fix  searchStory", multiline=True)
         if self.rashomon.is_segment("head1_000"):
             segment_to_load = "head1_000"
             data = self.rashomon.get_segment_selection(segment_to_load)
         elif self.rashomon.is_segment("head2_000"):
             segment_to_load = "head2_000"
             data = self.rashomon.get_segment_selection(segment_to_load)
+        elif self.rashomon.is_segment("content_final_000"):
+            return self._load_headline_type2()
+        elif search_results:
+            return self._load_headline_type3(search_results)
         else:
             data = ""
         if self.rashomon.errors():
@@ -1688,6 +1699,25 @@ class NewsRTS(AbstractNewsSource):
         
         return result
 
+    def _load_headline_type3(self, search_results: list) -> bool:
+        for headline_code in search_results:
+            self._add_headline_type1(headline_code)
+        
+        return True
+
+    def _load_headline_type2(self) -> bool:
+        headlines_segments = self.rashomon.get_segment_children("content_final")
+        if not headlines_segments:
+            return False
+        
+        for headline_segment in headlines_segments:
+            headline_data = self.rashomon.get_segment_selection(headline_segment)
+            if not headline_data:
+                continue
+            self._add_headline_type1(headline_data)
+        
+        return True
+    
     def _load_headline_type1(self, head_segment: str):
         if not self.rashomon.is_segment(head_segment):
             return False
@@ -1732,6 +1762,15 @@ class NewsRTS(AbstractNewsSource):
                 result = self.html_parser.get_all_links()
                 if result:
                     news_link = self._fix_url(result[0].a_href)
+        if not text:
+            text_code = self.html_parser.get_tags(html_code=html_code, tag="h2", multiline=True)
+            if text_code:
+                self.html_parser.load_html_code(text_code[0])
+                text = self.html_parser.get_raw_text().strip()
+        if not news_link:
+            self.html_parser.load_html_code(html_code)
+            if self.html_parser.get_all_links():
+                news_link = self._fix_url(self.html_parser.get_all_links()[0].a_href)
         # Description
         desc = ""
         desc_code = self.html_parser.get_tags(html_code=html_code, tag="p", tag_class_contains="lead", multiline=True)
@@ -1752,6 +1791,11 @@ class NewsRTS(AbstractNewsSource):
         if news_date_code:
             self.html_parser.load_html_code(news_date_code[0])
             news_date = self.html_parser.get_raw_text().replace("&gt;", ">")
+        if not news_date:
+            news_date_code = self.html_parser.get_tags(html_code=html_code, tag="p", tag_class_contains="date", multiline=True)
+            if news_date_code:
+                self.html_parser.load_html_code(news_date_code[0])
+                news_date = self.html_parser.get_raw_text().replace("&gt;", ">")
         # Category
         news_cat = ""
         news_cat_code = self.html_parser.get_tags(html_code=html_code, tag="div", tag_class_contains="uptitleHolder", multiline=True)
@@ -1820,7 +1864,7 @@ class NewsRTS(AbstractNewsSource):
             page_content_code_raw = self.rashomon.get_segment_selection("page_content_000")
             page_text_code_raw = page_content_code_raw
             if "kursna-lista-za" in page_url.lower():
-                page_text_code_raw = self.html_parser.remove_specific_tag(text=page_text_code_raw, tag="table", multiline=True)
+                page_text_code_raw = self.html_parser.remove_specific_tag(html_code=page_text_code_raw, tag="table", multiline=True)
             page_text_code = ""
             write = True
             for i in page_text_code_raw.splitlines():
@@ -2000,7 +2044,6 @@ class NewsRTS(AbstractNewsSource):
                 count += 1
 
         return related_content
-
 
 
 class NewsTEST(AbstractNewsSource):
@@ -2450,6 +2493,10 @@ class News(AbstractTopic):
         self.lst_cat.currentItemChanged.connect(self.lst_cat_current_item_changed)
         self.lst_subcat.currentItemChanged.connect(self.lst_subcat_current_item_changed)
 
+        self.txt_search.textChanged.connect(self.txt_search_text_changed)
+        self.txt_search.returnPressed.connect(self.btn_search_click)
+        self.btn_search.clicked.connect(self.btn_search_click)
+
         self.lbl_content_pic_open_in_browser.mousePressEvent = self.lbl_content_pic_open_in_browser_click
         self.frm_content_images.mousePressEvent = self.frm_content_images_click
 
@@ -2459,6 +2506,28 @@ class News(AbstractTopic):
         self.lbl_top.mousePressEvent = self.lbl_top_click
         self.lbl_prev.mousePressEvent = self.lbl_prev_click
         self.lbl_next.mousePressEvent = self.lbl_next_click
+
+    def btn_search_click(self):
+        if not self.source_obj or not self.source_obj.search_available:
+            return
+        
+        search_text = self.txt_search.text().strip()
+        if not search_text:
+            return
+        
+        search_string = self._clean_search_string(search_string=search_text)
+        search_string = self.source_obj.search_available + search_string
+
+        self.active_page = search_string
+        result = self.update_topic(load_categories=False, load_headlines=False, load_page=True)
+        if result is False:
+            self.update_topic(load_categories=False, load_headlines=search_string, load_page=False)
+
+    def txt_search_text_changed(self):
+        if self.txt_search.text().strip():
+            self.btn_search.setEnabled(True)
+        else:
+            self.btn_search.setDisabled(True)
 
     def lbl_top_click(self, e: QMouseEvent):
         if e.button() != Qt.LeftButton:
@@ -2551,6 +2620,10 @@ class News(AbstractTopic):
             source_obj = self._get_source_object(source)
             if source_obj:
                 self.source_obj = source_obj(self.parent_widget, self._stt, self.data)
+                if self.source_obj.search_available:
+                    self.frm_search.setVisible(True)
+                else:
+                    self.frm_search.setVisible(False)
             else:
                 self.source_obj = None
             self.frm_content.setVisible(False)
@@ -3146,10 +3219,14 @@ class News(AbstractTopic):
         QCoreApplication.processEvents()
 
         y = 0
+        has_warrning = False
         for video in videos:
             video_url: QUrl = QUrl(video[0])
             web_widget = QWebEngineView(self.frm_content_video)
-            web_widget.setUrl(video_url)
+            if video[0].startswith("http"):
+                web_widget.setUrl(video_url)
+            else:
+                web_widget.setHtml(video[0])
             web_widget.move(0, y)
             web_widget.adjustSize()
             w = self.frm_content_video.width()
@@ -3157,6 +3234,16 @@ class News(AbstractTopic):
                 web_widget_h = min(int(w * 0.6), 500)
             else:
                 web_widget_h = w
+            if not video[0].startswith("http"):
+                if has_warrning:
+                    continue
+                has_warrning = True
+                web_widget = QLabel(self.frm_content_video)
+                web_widget.setText(video[0])
+                web_widget.setStyleSheet("QLabel {background-color: #aa0000; color: #ffffff;} QLabel:hover {background-color: #d10000;}")
+                web_widget.setAlignment(Qt.AlignCenter)
+                web_widget.linkActivated.connect(self._open_link_in_browser)
+                web_widget_h = 80
             web_widget.resize(w, web_widget_h)
             y += web_widget_h + 10
             self.page_content_videos.append(web_widget)
@@ -3165,6 +3252,9 @@ class News(AbstractTopic):
             QCoreApplication.processEvents()
         
         return True
+
+    def _open_link_in_browser(self, url):
+        webbrowser.open_new_tab(url)
 
     def _page_hide_all_widgets(self):
         self.lbl_content_pic.setVisible(False)
@@ -3433,6 +3523,7 @@ class News(AbstractTopic):
     def _set_cursor_pointing_hand(self):
         self.frm_mondo.setCursor(Qt.PointingHandCursor)
         self.frm_rts.setCursor(Qt.PointingHandCursor)
+        self.frm_sputnik.setCursor(Qt.PointingHandCursor)
 
     def area_changed(self, area_object: QScrollArea):
         if self.parent_widget.area_content.widget():
@@ -3476,8 +3567,8 @@ class News(AbstractTopic):
 
     def close_me(self):
         for item in self.page_content_videos:
-            item: QWebEngineView
-            item.stop()
+            if not isinstance(item, QLabel):
+                item.stop()
             QCoreApplication.processEvents()
             item.deleteLater()
         self.page_content_videos = []
@@ -3501,6 +3592,9 @@ class News(AbstractTopic):
         else:
             h = self.lst_cat.pos().y() + self.lst_cat.height() + 10
 
+        if self.frm_search.isVisible():
+            self.frm_search.move(self.area_headlines.pos().x(), h)
+            h += self.frm_search.height()
 
         self.area_headlines.move(self.area_headlines.pos().x(), h)
         self.area_headlines.resize(self.area_headlines.width(), 1200)
@@ -3542,6 +3636,10 @@ class News(AbstractTopic):
         # Category
         self.lst_cat: QListWidget = self.findChild(QListWidget, "lst_cat")
         self.lst_subcat: QListWidget = self.findChild(QListWidget, "lst_subcat")
+        # Search
+        self.frm_search: QFrame = self.findChild(QFrame, "frm_search")
+        self.txt_search: QLineEdit = self.findChild(QLineEdit, "txt_search")
+        self.btn_search: QPushButton = self.findChild(QPushButton, "btn_search")
         # Headlines list
         self.area_headlines: QScrollArea = self.findChild(QScrollArea, "area_headlines")
         self.line_end_headlines: QFrame = self.findChild(QFrame, "line_end_headlines")
@@ -3577,6 +3675,12 @@ class News(AbstractTopic):
         self.lbl_next.setVisible(False)
         self.lbl_next.setToolTip(self.getl("online_news_mondo_lbl_next_tt"))
 
+        self.txt_search.setPlaceholderText(self.getl("online_news_txt_search_placeholder_text"))
+        self.btn_search.setText(self.getl("online_news_btn_search_text"))
+        self.btn_search.setToolTip(self.getl("online_news_btn_search_tt"))
+        self.frm_search.setVisible(False)
+        self.btn_search.setDisabled(True)
+        
         self.area_widget = QWidget()
         self.area_widget_layout = QVBoxLayout()
         self.area_widget.setLayout(self.area_widget_layout)

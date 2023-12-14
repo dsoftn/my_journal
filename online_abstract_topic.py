@@ -1,16 +1,19 @@
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QFrame, QWidget, QLabel, QScrollArea
-from PyQt5.QtGui import QPixmap, QFontMetrics, QFont
+from PyQt5.QtWidgets import (QFrame, QWidget, QLabel, QScrollArea, QGridLayout, QListWidget, QListWidgetItem,
+                             QSizePolicy, QSpacerItem)
+from PyQt5.QtGui import QPixmap, QFontMetrics, QFont, QMouseEvent
 from PyQt5.QtCore import QRect, pyqtSignal, QSize, Qt
 
 import os
+from cyrtranslit import to_latin
 
 import settings_cls
-import urllib.response
+import urllib.request
 import requests
 from rashomon_cls import Rashomon
 import html_parser_cls
 from urllib.parse import urlparse
+import utility_cls
 
 
 class AbstractTopic(QFrame):
@@ -45,9 +48,9 @@ class AbstractTopic(QFrame):
         self.rashomon = Rashomon()
         self.html_parser = html_parser_cls.HtmlParser()
         self.slider_frm_image_slide = None
+        self.base_url = ""
 
         # Events
-
 
     def _load_slider_widgets(self):
         # Image slide
@@ -204,16 +207,19 @@ class AbstractTopic(QFrame):
                 if os.path.isfile(image_url):
                     img = QPixmap()
                     has_image = img.load(os.path.abspath(image_url))
+                    # print (img.width(), img.height())
+                    # rrr = img.scaledToHeight(50, img.KeepAspectRatio)
+                    # print (rrr.width(), rrr.height())
+                    # print ()
                 else:
                     response = requests.get(image_url, timeout=2)
-                    mime_type = response.headers['content-type']
-                    if mime_type and mime_type.startswith("image/"):
-                        img = QPixmap()
-                        has_image = img.loadFromData(response.content)
+                    img = QPixmap()
+                    has_image = img.loadFromData(response.content)
         except:
             img = None
         
-        label.setToolTip(tt)
+        if tt:
+            label.setToolTip(tt)
 
         if not has_image:
             return False
@@ -228,15 +234,15 @@ class AbstractTopic(QFrame):
             if resize_label:
                 scale = img.width() / img.height()
                 if scale >= 1:
-                    label.resize(int(label.width() * scale), label.height())
+                    label.resize(int(label.height() * scale), label.height())
                 else:
-                    label.resize(label.width(), int(label.height() / scale))
+                    label.resize(label.width(), int(label.width() / scale))
             if resize_label_fixed_w:
                 scale = img.height() / img.width()
-                label.resize(label.width(), int(label.height() * scale))
+                label.resize(label.width(), int(label.width() * scale))
             if resize_label_fixed_h:
                 scale = img.width() / img.height()
-                label.resize(int(label.width() * scale), label.height())
+                label.resize(int(label.height() * scale), label.height())
 
             img = img.scaled(label.width(), label.height(), Qt.KeepAspectRatio)
         
@@ -307,12 +313,17 @@ class AbstractTopic(QFrame):
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             return result
 
-        segments = self.rashomon.get_segment_children("images")
+        page_code = self.rashomon.get_segment_selection("images")
+        images_code = self.html_parser.get_tags(html_code=page_code, tag="ul", custom_tag_property=[["id", "sres"]], multiline=True)
+        if images_code:
+            segments = self.html_parser.get_tags(html_code=images_code[0], tag="li", tag_class_contains="ld", multiline=True)
 
         count = 0
-        for segment in segments:
+        for html_code in segments:
+            if "<ul>" in html_code:
+                continue
+
             result[str(count)] = {}
-            html_code = self.rashomon.get_segment_selection(segment)
             self.html_parser.load_html_code(html_code)
             
             result[str(count)]["img_tag"] = ""
@@ -322,23 +333,254 @@ class AbstractTopic(QFrame):
                     result[str(count)]["img_tag"] = image
                     break
             
-            text_code = self.rashomon.get_tags(html_code=html_code, tag="div", tag_class_contains="img-desc", multiline=False)
+            text_code = self.rashomon.get_tags(html_code=html_code, tag="div", tag_class_contains="img-desc", multiline=True)
+            desc = ""
             if text_code:
                 text_code = text_code[0]
-            start = text_code.find('title="')
-            text = ""
-            if start != -1:
-                end = text_code.find('"', start + 7)
-                if end != -1:
-                    text = text_code[start+7:end]
+                title = ""
+                source = ""
+                source_code = self.html_parser.get_tags(html_code=text_code, tag="span", tag_class_contains="source", multiline=True)
+                if source_code:
+                    self.html_parser.load_html_code(source_code[0])
+                    source = self.html_parser.get_raw_text()
+                
+                title = ""
+                in_tag = False
+                for i in text_code.splitlines():
+                    if i.startswith('<span class="source"'):
+                        in_tag = True
+                        continue
+                    if i.startswith("</span>") and in_tag:
+                        in_tag = False
+                        continue
+                    if in_tag:
+                        continue
+                    if i.startswith("<span"):
+                        title += "\n"
+                    if not i.startswith("<"):
+                        title += i
+                title = title.strip()
+                
+                desc = title + "\n" + source
+                if title and source:
+                    desc_text = title + "\n" + source
+                    text_to_html = utility_cls.TextToHTML(text=desc_text)
+                    text_to_html.general_rule.font_size = 12
+                    text_to_html.general_rule.font_bold = True
+                    text_to_html.general_rule.fg_color = "#aaff7f"
+                    source_rule = utility_cls.TextToHtmlRule(text=source, fg_color="#aaffff", font_size=10, link_href=source)
+                    text_to_html.add_rule(source_rule)
+                    desc = text_to_html.get_html()
 
-            result[str(count)]["desc"] = text
+            result[str(count)]["desc"] = desc
             count += 1
         
         return result
 
-    def _clean_search_string(self, search_string: str) -> str:
-        search_string = self.clear_serbian_chars(search_string)
+    def get_search_results(self, query_string: str) -> list:
+        result = self._get_search_results_duckduckgo(query_string=query_string)
+        if not result:
+            result = self._get_search_results_yahoo(query_string=query_string)
+            if not result:
+                result = self._get_search_results_brave(query_string=query_string)
+
+        return result
+
+    def _get_search_results_yahoo(self, query_string: str) -> list:
+        result = []
+
+        source_http = "https://search.yahoo.com/search?p=" + self._clean_search_string(query_string)
+        try:
+            result_page = urllib.request.urlopen(source_http, timeout=3)
+            html = result_page.read().decode("utf-8")
+        except:
+            try:
+                result_page = requests.get(source_http, timeout=3)
+                html = result_page.content
+            except:
+                return result
+        
+        if not result_page:
+            return result
+        if not html:
+            return result
+
+        html = html.replace("<b>", "")
+        html = html.replace("</b>", "")
+        html = self.html_parser._quick_format_html(html)
+
+        search_code = self.html_parser.get_tags(html_code=html, tag="ol", tag_class_contains="reg searchCenterMiddle")
+        if search_code:
+            data = self.html_parser.get_tags(html_code=search_code[0], tag="li")
+        else:
+            return result
+        
+        link = ""
+        desc = ""
+        title = ""
+        link_list = []
+        for row in data:
+            # Title
+            title_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="compTitle")
+            link = ""
+            title = ""
+            if title_code:
+                links = self.html_parser.get_all_links(load_html_code=title_code[0])
+                if links:
+                    link = links[0].a_href
+                    if not link.startswith("http"):
+                        link = "https://" + link.lstrip("/")
+
+                title_txt_slices = self.html_parser.get_all_text_slices(load_html_code=title_code[0])
+                title = ""
+                for txt_slice in title_txt_slices:
+                    txt_slice: html_parser_cls.TextObject
+                    if "span" not in txt_slice.get_tag():
+                        title = txt_slice.txt_value
+                if not title:
+                    title = self.html_parser.get_raw_text(load_html_code=title_code[0])
+            if not link:
+                continue
+
+            # Description
+            desc_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="compText")
+            if desc_code:
+                desc = self.html_parser.get_raw_text(load_html_code=desc_code[0])
+    
+            # Add result
+            if link and link not in link_list:
+                link_list.append(link)
+                item = {}
+                item["title"] = "🌐 " + title
+                item["link"] = link
+                item["description"] = desc
+                result.append(item)
+                title = ""
+                desc = ""
+        
+        return result
+
+    def _get_search_results_duckduckgo(self, query_string: str) -> list:
+        result = []
+
+        source_http = "https://lite.duckduckgo.com/lite/search?q=" + self._clean_search_string(query_string)
+
+        try:
+            result_page = urllib.request.urlopen(source_http, timeout=3)
+            html = result_page.read().decode("utf-8")
+        except:
+            try:
+                result_page = requests.get(source_http, timeout=3)
+                html = result_page.content
+            except:
+                return result
+        
+        if not result_page:
+            return result
+        if not html:
+            return result
+
+        html = html.replace("<b>", "")
+        html = html.replace("</b>", "")
+        html = self.html_parser._quick_format_html(html)
+
+        data = self.html_parser.get_tags(html_code=html, tag="tr")
+        link = ""
+        desc = ""
+        title = ""
+        link_list = []
+        for row in data:
+            if 'class="nav_button"' in row:
+                continue
+            links = self.html_parser.get_all_links(load_html_code=row)
+            if links:
+                title = links[0].a_text.strip()
+                continue
+
+            desc_code = self.html_parser.get_tags(html_code=row, tag="td", tag_class_contains="result-snippet")
+            if desc_code:
+                desc = self.html_parser.get_raw_text(load_html_code=desc_code[0]).strip()
+            
+            link = ""
+            link_code = self.html_parser.get_tags(html_code=row, tag="span", tag_class_contains="link-text")
+            if link_code:
+                link = self.html_parser.get_raw_text(load_html_code=link_code[0]).strip()
+                if not link.startswith("http"):
+                    link = "https://" + link.lstrip("/")
+
+            if link and link not in link_list:
+                link_list.append(link)
+                item = {}
+                item["title"] = "🌐 " + title
+                item["link"] = link
+                item["description"] = desc
+                result.append(item)
+                title = ""
+                desc = ""
+        
+        return result
+
+    def _get_search_results_brave(self, query_string: str) -> list:
+        result = []
+
+        source_http = "https://search.brave.com/search?q=" + self._clean_search_string(query_string) + "&source=web"
+
+        try:
+            result_page = urllib.request.urlopen(source_http, timeout=3)
+            html = result_page.read().decode("utf-8")
+        except:
+            try:
+                result_page = requests.get(source_http, timeout=3)
+                html = result_page.content
+            except:
+                return result
+        
+        if not result_page:
+            return result
+        if not html:
+            return result
+
+        html = html.replace("<b>", "")
+        html = html.replace("</b>", "")
+        html = self.html_parser._quick_format_html(html)
+
+        data = self.html_parser.get_tags(html_code=html, tag="div", custom_tag_property=[["class", "snippet"], ["data-type", "web"]])
+        link = ""
+        desc = ""
+        title = ""
+        link_list = []
+        for row in data:
+            title = ""
+            title_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="heading")
+            if title_code:
+                title = self.html_parser.get_raw_text(load_html_code=title_code[0])
+
+            link = ""
+            link_code = self.html_parser.get_all_links(load_html_code=row)
+            if link_code:
+                link = link_code[0].a_href
+            
+            desc = ""
+            desc_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="description")
+            if desc_code:
+                desc = self.html_parser.get_raw_text(load_html_code=desc_code[0])
+            
+            if not link.startswith("http"):
+                link = "https://" + link.lstrip("/")
+
+            if link and link not in link_list:
+                link_list.append(link)
+                item = {}
+                item["title"] = "🌐 " + title
+                item["link"] = link
+                item["description"] = desc
+                result.append(item)
+        
+        return result
+
+    def _clean_search_string(self, search_string: str, remove_serbian_chars: bool = True) -> str:
+        if remove_serbian_chars:
+            search_string = self.clear_serbian_chars(search_string)
 
         search_string = search_string.replace(">", ">\n")
         search_string = search_string.replace("<", "\n<")
@@ -346,9 +588,18 @@ class AbstractTopic(QFrame):
         search_string = " ".join(search_string_list)
 
         search_string = search_string.strip()
-        remove_chars = "~!@#$%^&*()_+`-=[]}{;'\\\":?><,./|\n\t"
-        for char in remove_chars:
-            search_string = search_string.replace(char, " ")
+
+        allowed_chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
+        cleaned_string = ""
+        for char in search_string:
+            if char in allowed_chars:
+                cleaned_string += char
+        search_string = cleaned_string
+
+        # remove_chars = "~!@#$%^&*()_+`-=[]}{;'\\\":?><,./|\n\t"
+        # for char in remove_chars:
+        #     search_string = search_string.replace(char, " ")
+
         while True:
             search_string = search_string.replace("  ", " ")
             if search_string.find("  ") == -1:
@@ -439,6 +690,29 @@ class AbstractTopic(QFrame):
 
         self.set_image_to_label(img_to_show[0], self.slider_lbl_image)
 
+    def fix_url(self, url: str) -> str:
+        if url.startswith("//"):
+            url = "https:" + url
+        elif url.startswith("/"):
+            url = self.base_url.strip(" /") + "/" + url.strip(" /")
+        return url
+    
+    def cirilica_u_latinicu(self, text: str) -> str:
+        latinica_text = to_latin(text)
+        return latinica_text
+
+
+
+
+
+                
+
+
+
+
+
+
+        
 
 
             

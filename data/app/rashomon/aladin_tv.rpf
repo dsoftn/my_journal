@@ -1,0 +1,11 @@
+{
+  "project": null,
+  "selected": "web",
+  "type": "html",
+  "source": "https://tv.aladin.info/",
+  "text": "",
+  "formated_text": "",
+  "code": "# Rashomon Code\nBeginSegment (page)\n    Parent = None\n    Index = 0\nEndSegment\n\n",
+  "project_filename": "D:/Programiranje/Python/Projekti/rashomon/aladin_tv_project.rpf",
+  "saved": true
+}

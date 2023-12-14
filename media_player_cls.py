@@ -11,6 +11,10 @@ import sys
 
 
 class MediaPlayer(QFrame):
+    BG_COLOR_NORMAL = "#005500"
+    BG_COLOR_HOVER = "#55aaff"
+    BG_COLOR_DISABLED = "#aa0000"
+
     def __init__(self, parent_widget: QWidget = None, media_source: str|QUrl = None) -> None:
         super().__init__(parent_widget)
 
@@ -22,7 +26,7 @@ class MediaPlayer(QFrame):
         self.media_player = QMediaPlayer(self)
         self.video_widget = QVideoWidget(self)
         self.media_player.setVideoOutput(self.video_widget)
-        if self.media_content:
+        if self.media_content():
             self.media_player.setMedia(self.media_content())
 
         self._define_widget()
@@ -57,12 +61,11 @@ class MediaPlayer(QFrame):
             self.media_player.stop()
             self.media_player.setPosition(self.sld_time.value())
             self.media_player.play()
-        print (self.sld_time.value(), self.media_player.duration(), self.media_player.position())
         QSlider.mouseReleaseEvent(self.sld_time, e)
 
     def set_media_source(self, media_source: str|QUrl) -> bool:
         self.media_source = media_source
-        if self.media_content:
+        if self.media_content():
             self.media_player.setMedia(self.media_content())
             self.sld_time.setEnabled(True)
             if not self.media_player.isVideoAvailable():
@@ -135,7 +138,7 @@ class MediaPlayer(QFrame):
         if isinstance(self.media_source, QUrl):
             self.media_source = self.media_source.url()
         if os.path.isfile(self.media_source):
-            return QMediaContent(QUrl.fromLocalFile(self.media_source))
+            return QMediaContent(QUrl.fromLocalFile(os.path.abspath(self.media_source)))
         else:
             return QMediaContent(QUrl(self.media_source))
 
@@ -156,10 +159,12 @@ class MediaPlayer(QFrame):
         self.v_layout.addWidget(self.sld_time)
         # Controls
         self.btn_start = QPushButton(self)
+        self.btn_start.setStyleSheet("QPushButton {background-color: " + self.BG_COLOR_NORMAL + ";} QPushButton:hover {background-color: " + self.BG_COLOR_HOVER + ";} QPushButton:disabled {background-color: " + self.BG_COLOR_DISABLED + ";}")
         self.btn_start.setIcon(self.style().standardIcon(QStyle.SP_MediaPlay))
         self.btn_start.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         
         self.btn_pause = QPushButton(self)
+        self.btn_pause.setStyleSheet("QPushButton {background-color: " + self.BG_COLOR_NORMAL + ";} QPushButton:hover {background-color: " + self.BG_COLOR_HOVER + ";} QPushButton:disabled {background-color: " + self.BG_COLOR_DISABLED + ";}")
         self.btn_pause.setIcon(self.style().standardIcon(QStyle.SP_MediaPause))
         self.btn_pause.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         self.btn_pause.setEnabled(False)
@@ -171,6 +176,7 @@ class MediaPlayer(QFrame):
         self.sld_vol.setValue(self.media_player.volume())
 
         self.btn_vol = QPushButton(self)
+        self.btn_vol.setStyleSheet("QPushButton {background-color: " + self.BG_COLOR_NORMAL + ";} QPushButton:hover {background-color: " + self.BG_COLOR_HOVER + ";} QPushButton:disabled {background-color: " + self.BG_COLOR_DISABLED + ";}")
         self.btn_vol.setIcon(self.style().standardIcon(QStyle.SP_MediaVolume))
         self.btn_vol.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         
@@ -182,11 +188,17 @@ class MediaPlayer(QFrame):
         self.h_layout.addWidget(self.btn_vol, alignment=Qt.AlignRight)
 
         self.setLayout(self.v_layout)
+        self.resize(200, 60)
+
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    player = MediaPlayer(media_source="aaa.divx")
+    aa = "data/user/4files/aaa.mp4"
+    print (os.path.isfile(aa))
+    aee = QUrl()
+    aee = aee.fromLocalFile(aa)
+    player = MediaPlayer(media_source=aee)
     player.show()
     sys.exit(app.exec_())
         

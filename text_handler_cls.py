@@ -13,6 +13,7 @@ import time
 from math import *
 import random
 import difflib
+import os
 
 import settings_cls
 import log_cls
@@ -602,7 +603,28 @@ class SimpleDefinitionExtraImage(QLabel):
                 self._select_random_image_custom()
                 
     def _select_random_image_custom(self):
-        pass
+        if not self.getv("def_extra_image_custom_source_folder_path"):
+            return
+        if not os.path.isdir(self.getv("def_extra_image_custom_source_folder_path")):
+            return
+        
+        # Get media pool
+        media_pool = self._custom_folder_image_pool(self.getv("def_extra_image_custom_source_folder_path"))
+
+        self._extra_image_id = self._get_next_image(media_pool)
+        
+    def _custom_folder_image_pool(self, base_path: str = ""):
+        image_pool = []
+        abs_path = os.path.abspath(base_path)
+        file_list = os.listdir(abs_path)
+        for file in file_list:
+            file_path = os.path.join(abs_path, file)
+            if os.path.isfile(file_path) and file.lower().endswith((".jpg", ".jpeg", ".svg", ".png", ".webp", ".gif")):
+                image_pool.append(file_path)
+            if os.path.isdir(file_path) and self.getv("def_extra_image_custom_source_add_subfolders"):
+                image_pool += self._custom_folder_image_pool(file_path)
+
+        return image_pool            
 
     def _select_random_image_media(self, src: str):
         media_pool = []
@@ -635,7 +657,7 @@ class SimpleDefinitionExtraImage(QLabel):
         If this function finds an image that for some reason cannot be displayed later because,
         for example, it does not fit in the frame of the parent window,
         then "extra_images" should be updated and the image removed from that list.
-        Updating the "extra_images" variable mainly refers to the situation when the display mode around the definition
+        Updating the "extra_images" variable mainly refers to the situation when the display mode is set "around the definition"
         The "extra_images_pool" variable should be updated in a similar way.
         """
         random.shuffle(image_list)
@@ -680,7 +702,7 @@ class SimpleDefinitionExtraImage(QLabel):
             elif self.getv("def_extra_image_layout") == 2:
                 self.load_label_around_def()
             
-        elif self.getv("def_extra_image_source") in [2, 3, 4]:
+        elif self.getv("def_extra_image_source") in [2, 3, 4, 5]:
             if self.getv("def_extra_image_layout") == 1:
                 self.load_image_media()
             elif self.getv("def_extra_image_layout") == 2:
@@ -694,13 +716,19 @@ class SimpleDefinitionExtraImage(QLabel):
             img = QPixmap()
             img.load(self.getv("def_extra_images_folder_path") + self._extra_image_id)
             self.set_label_to_available_pos_around_def(img)
-        elif self.getv("def_extra_image_source") in [2, 3, 4]:
+        elif self.getv("def_extra_image_source") in [2, 3, 4, 5]:
             if self._extra_image_id:
-                db_media = db_media_cls.Media(self._stt)
-                if db_media.is_media_exist(self._extra_image_id):
-                    db_media.load_media(self._extra_image_id)
+                if self.getv("def_extra_image_source") == 5:
                     img = QPixmap()
-                    img.load(db_media.media_file)
+                    result = img.load(self._extra_image_id)
+                    if not result:
+                        return None
+                else:
+                    db_media = db_media_cls.Media(self._stt)
+                    if db_media.is_media_exist(self._extra_image_id):
+                        db_media.load_media(self._extra_image_id)
+                        img = QPixmap()
+                        img.load(db_media.media_file)
             self.set_label_to_available_pos_around_def(img)
 
     def set_label_to_available_pos_around_def(self, pixmap_obj: QPixmap) -> bool:
@@ -832,8 +860,12 @@ class SimpleDefinitionExtraImage(QLabel):
         if not self._extra_image_id:
             return
 
-        media = db_media_cls.Media(self._stt, self._extra_image_id)
-        img = QPixmap(media.media_file)
+        if self.getv("def_extra_image_source") == 5:
+            img = QPixmap(self._extra_image_id)
+        else:
+            media = db_media_cls.Media(self._stt, self._extra_image_id)
+            img = QPixmap(media.media_file)
+        
         for i in range(500):
             pos = self.get_position(img)
             if pos:
@@ -2301,7 +2333,7 @@ class TextHandler():
                                 [1250620, self.getl("block_txt_box_menu_def_simple_img_source_def_text"), self.getl("block_txt_box_menu_def_simple_img_source_def_tt"), True, [], None],
                                 [1250630, self.getl("block_txt_box_menu_def_simple_img_source_blocks_text"), self.getl("block_txt_box_menu_def_simple_img_source_blocks_tt"), True, [], None],
                                 [1250640, self.getl("block_txt_box_menu_def_simple_img_source_app_text"), self.getl("block_txt_box_menu_def_simple_img_source_app_tt"), True, [], None],
-                                [1250650, self.getl("block_txt_box_menu_def_simple_img_source_cus_text"), self.getl("block_txt_box_menu_def_simple_img_source_cus_tt"), True, [], None]
+                                [1250650, self.getl("block_txt_box_menu_def_simple_img_source_cus_text") + f' [...{self.getv("def_extra_image_custom_source_folder_path")[-30:]}]', self.getl("block_txt_box_menu_def_simple_img_source_cus_tt"), True, [], None]
                             ],
                             self.getv("source_icon_path")
                         ],
@@ -2734,6 +2766,10 @@ class TextHandler():
             self.setv("def_extra_image_source", 4)
         elif self.get_appv("menu")["result"] == 1250650:
             self.setv("def_extra_image_source", 5)
+            file_ut = utility_cls.FileDialog(self._stt)
+            file_ut_result = file_ut.show_dialog_select_folder(directory=self.getv("def_extra_image_custom_source_folder_path"))
+            if file_ut_result:
+                self.setv("def_extra_image_custom_source_folder_path", file_ut_result)
         elif self.get_appv("menu")["result"] == 1250710:
             self.setv("def_extra_image_layout", 1)
         elif self.get_appv("menu")["result"] == 1250720:

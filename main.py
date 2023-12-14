@@ -22,6 +22,7 @@ import diary_view_cls
 import app_settings_cls
 import dict_cls
 import online_content_cls
+import wikipedia_cls
 
 
 theme_adaptic1 = """/*Copyright (c) DevSec Studio. All rights reserved.
@@ -1525,7 +1526,8 @@ class MyJournal(QMainWindow):
         return super().mousePressEvent(a0)
 
     def mnu_open_click(self):
-        app_settings_cls.Settings(stt, self)
+        wikipedia_cls.Wikipedia(self, stt)
+        # app_settings_cls.Settings(stt, self)
 
     def mnu_file_save_active_block_triggered(self) -> None:
         self.save_active_block()

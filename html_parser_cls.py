@@ -1,13 +1,21 @@
 import urllib.request
+import requests
+import html as HtmlLib
+import os
 
 
 class Utility:
+    ONE_LINE_TAGS = ["img", "/img", "link", "/link", "meta", "/meta", "t", "/t", "br", "/br"]
+
     def __init__(self, html_code: str = None) -> None:
+        self.special_case_rules = ""
         self.html_code = self._quick_format_html(html_code)
 
     def load_html_code(self, html_code: str, dont_split_into_lines: bool = False):
         if not isinstance(html_code, str):
             raise TypeError("HTML Code must be in string format !")
+        if self.html_code == html_code:
+            return
         if not dont_split_into_lines:
             html_code = self._quick_format_html(html_code)
         self.html_code = html_code
@@ -19,21 +27,33 @@ class Utility:
         html = html.replace("<", "\n<")
         html = html.replace(">", ">\n")
         
-        html_clean = ""
-        in_tag = False
-        for line in html.splitlines():
-            if line.startswith("<"):
-                in_tag = True
-            if line.endswith(">"):
-                in_tag = False
-            html_clean += line
-            if not in_tag:
-                html_clean += "\n"
+        if self.special_case_rules == "wikipedia":
+            html_clean = html
+        else:
+            html_clean = ""
+            in_tag = False
+            for line in html.splitlines():
+                if line.startswith("<"):
+                    html_clean += line.replace("'", '"')
+                    in_tag = True
+                    if line.endswith(">"):
+                        html_clean += "\n"
+                        in_tag = False
+                    continue
+                if in_tag:
+                    html_clean += " " + line.replace("'", '"')
+                if line.endswith(">"):
+                    in_tag = False
+                    html_clean += "\n"
+                    continue
+
+                if not in_tag:
+                    html_clean += HtmlLib.unescape(line) + "\n"
 
         html_clean = self.remove_extra_spaces(text=html_clean, only_remove_double="\n", remove_tabs=True)
         return html_clean
 
-    def get_tags(self, 
+    def remove_tags(self,
                  html_code: str, 
                  tag: str, 
                  tag_id_contains: str = None, 
@@ -44,12 +64,20 @@ class Utility:
                  tag_type_contains: str = None,
                  tag_name_contains: str = None,
                  custom_tag_property: list = None,
-                 multiline: bool = False) -> list:
-        
+                 multiline: bool = None,
+                 return_line_numbers: bool = False,
+                 return_line_numbers_with_links: bool = False) -> str:
+
         html_code = self._quick_format_html(html_code)
 
         if not tag or not html_code:
             return ""
+        
+        if multiline is None:
+            if tag in self.ONE_LINE_TAGS:
+                multiline = False
+            else:
+                multiline = True
         
         tag_rules = [
             ["id", tag_id_contains], 
@@ -60,6 +88,14 @@ class Utility:
             ["type", tag_type_contains],
             ["name", tag_name_contains]
         ]
+        remove_from_rules = []
+        for idx, rule in enumerate(tag_rules):
+            if rule[1] is None:
+                remove_from_rules.append(idx)
+        remove_from_rules.sort(reverse=True)
+        for idx in remove_from_rules:
+            tag_rules.pop(idx)
+            
         if custom_tag_property:
             try:
                 for tag_property in custom_tag_property:
@@ -78,7 +114,7 @@ class Utility:
         in_tag = 0
         in_main_tag = False
         tag_code = ""
-        result = []
+        counter = 0
         for line in html_list:
             if line.startswith(tag):
                 if in_main_tag:
@@ -87,41 +123,291 @@ class Utility:
                     in_main_tag = True
                     in_tag += 1
                     
+            if not in_main_tag:
+                tag_code += line + "\n"
+
+            if line.endswith(end_tag) and in_tag:
+                if in_main_tag:
+                    in_tag -= 1
+                    if not in_tag:
+                        in_main_tag = False
+            
+            counter += 1
+
+        return tag_code
+
+    def get_tags(self, 
+                 html_code: str, 
+                 tag: str, 
+                 tag_id_contains: str = None, 
+                 tag_class_contains: str = None, 
+                 tag_title_contains: str = None, 
+                 tag_property_contains: str = None, 
+                 tag_content_contains: str = None,
+                 tag_type_contains: str = None,
+                 tag_name_contains: str = None,
+                 custom_tag_property: list = None,
+                 multiline: bool = None,
+                 return_line_numbers: bool = False,
+                 return_line_numbers_with_links: bool = False,
+                 return_exact_code: bool = False) -> list:
+        
+        html_code = self._quick_format_html(html_code)
+
+        if not tag or not html_code:
+            return ""
+        
+        if multiline is None:
+            if tag in self.ONE_LINE_TAGS:
+                multiline = False
+            else:
+                multiline = True
+        
+        tag_rules = [
+            ["id", tag_id_contains], 
+            ["class", tag_class_contains],
+            ["title", tag_title_contains],
+            ["property", tag_property_contains],
+            ["content", tag_content_contains],
+            ["type", tag_type_contains],
+            ["name", tag_name_contains]
+        ]
+        remove_from_rules = []
+        for idx, rule in enumerate(tag_rules):
+            if rule[1] is None:
+                remove_from_rules.append(idx)
+        remove_from_rules.sort(reverse=True)
+        for idx in remove_from_rules:
+            tag_rules.pop(idx)
+            
+        if custom_tag_property:
+            try:
+                for tag_property in custom_tag_property:
+                    tag_rules.append([tag_property[0], tag_property[1]])
+            except Exception as e:
+                print (f"Invalid custom_tag_property: {e}")
+
+        if return_exact_code:
+            html_list = [x for x in html_code.split("\n")]
+        else:
+            html_list = [x.strip() for x in html_code.split("\n")]
+
+        if multiline:
+            end_tag = "</" + tag.strip(" ><") + ">"
+        else:
+            end_tag = ">"
+        tag = ("<" + tag.strip(" ><") + " ", "<" + tag.strip(" ><") + ">")
+
+        in_tag = 0
+        in_main_tag = False
+        tag_code = ""
+        result = []
+        counter = 0
+        start_line_number = 0
+        link = ""
+        for line in html_list:
+            if return_line_numbers_with_links:
+                if line.startswith("<a "):
+                    link = self.get_tag_property_value(html_code=line, tag_property="href")
+                if line.startswith("</a"):
+                    link = ""
+
+            if line.startswith(tag):
+                if in_main_tag:
+                    in_tag += 1
+                elif self._is_tag_mark_valid(line, tag_rules):
+                    in_main_tag = True
+                    in_tag += 1
+                    start_line_number = counter
+                    if line.endswith("/>"):
+                        in_tag -= 1
+                        in_main_tag = False
+                        tag_code += line + "\n"
+                        
+                        if not return_exact_code:
+                            tag_code = tag_code.strip()
+
+                        if return_line_numbers:
+                            result.append([tag_code, start_line_number, counter])
+                            start_line_number = counter
+                        elif return_line_numbers_with_links:
+                            result.append([tag_code, start_line_number, counter, link])
+                            start_line_number = counter
+                        else:
+                            result.append(tag_code)
+                        tag_code = ""
+                    
             if line.endswith(end_tag) and in_tag:
                 if in_main_tag:
                     in_tag -= 1
                     if not in_tag:
                         tag_code += line + "\n"
-                        result.append(tag_code.strip())
+                        
+                        if not return_exact_code:
+                            tag_code = tag_code.strip()
+
+                        if return_line_numbers:
+                            result.append([tag_code, start_line_number, counter])
+                            start_line_number = counter
+                        elif return_line_numbers_with_links:
+                            result.append([tag_code, start_line_number, counter, link])
+                            start_line_number = counter
+                        else:
+                            result.append(tag_code)
                         tag_code = ""
                         in_main_tag = False
             
             if in_main_tag:
                 tag_code += line + "\n"
+            
+            counter += 1
 
         return result
     
-    def _is_tag_mark_valid(self, tag_code: str, rules: list) -> bool:
+    def _is_tag_mark_valid(self, tag_code: str, rules: list, matchcase: bool = True) -> bool:
+        tag_prop = self._get_tag_properties(tag_code, return_none_if_data_not_valid=False)
         for rule in rules:
-            if rule[1]:
-                mark = rule[0] + '="'
-                if mark not in tag_code:
-                    return False
-                else:
-                    start = tag_code.find(mark)
-                    end = tag_code.find('"', start + len(mark))
-                    if end == -1:
-                        return None
-                    value = tag_code[start+len(mark):end]
-                    if rule[1] not in value:
-                        return False
-        return True
+            if not matchcase:
+                if rule[0]:
+                    rule[0] = rule[0].lower()
+                if rule[1]:
+                    rule[1] = rule[1].lower()
 
-    def remove_specific_tag(self, text: str, tag: str, multiline: bool = False) -> str:
-        text = self._quick_format_html(text)
+            is_valid = False
+            if rule[1] is None or (rule[1].startswith(("'", '"')) and rule[1].endswith(("'", '"'))):
+                for i in tag_prop:
+                    if not matchcase:
+                        if i[0]:
+                            i[0] = i[0].lower()
+                        if i[1]:
+                            i[1] = i[1].lower()
+                    if rule[0] == i[0] and rule[1].strip("'\"") == i[1].strip("'\""):
+                        is_valid = True
+                        break
+                if is_valid:
+                    continue
+                else:
+                    return False
+            
+            for i in tag_prop:
+                if not matchcase:
+                    if i[0]:
+                        i[0] = i[0].lower()
+                    if i[1]:
+                        i[1] = i[1].lower()
+                if rule[0] == i[0] and self._contains(i[1], rule[1]):
+                    is_valid = True
+                    break
+            if is_valid:
+                continue
+            else:
+                return False
+        
+        return True
+            
+    def _contains(self, text: str, contain_string: str) -> bool:
+        if text is None and contain_string is None:
+            return True
+        if text is None and contain_string is not None:
+            return False
+        if text is not None and contain_string is None:
+            return False
+        if text and not contain_string:
+            return True
+
+        if contain_string in text:
+            return True
+        else:
+            return False
+
+    def _get_tag_properties(self, tag_line: str, return_none_if_data_not_valid: bool = True, skip_comments: bool = True) -> list:
+        if return_none_if_data_not_valid:
+            data_not_found = None
+        else:
+            data_not_found = []
+
+        result = []
+        
+        if not tag_line:
+            return data_not_found
+        tag_lines = tag_line.splitlines()
+        for tag_string in tag_lines:
+            if tag_string.startswith("<!") and skip_comments:
+                continue
+            if tag_string.strip():
+                tag_line = tag_string
+                break
+        else:
+            return data_not_found
+        
+        tag_line = tag_line.strip()
+        if not tag_line.startswith("<") or not tag_line.endswith(">"):
+            return data_not_found
+        
+        pos = tag_line.find(" ")
+        if pos == -1:
+            return result
+        tag_line = tag_line[pos+1:]
+        
+        pos = 0
+        pos_end = len(tag_line) - 1
+        while pos < pos_end:
+            val_delim = [pos_end]
+
+            start_pos = pos
+
+            pos_space = tag_line.find(" ", pos)
+            if pos_space != -1:
+                val_delim.append(pos_space)
+
+            pos_equal = tag_line.find("=", pos)
+            if pos_equal != -1:
+                val_delim.append(pos_equal)
+
+            pos = min(val_delim)
+            value_mark = tag_line[pos]
+            tag_property = tag_line[start_pos:pos].strip()
+
+            if value_mark == ">":
+                if tag_property:
+                    result.append([tag_property, None])
+                pos = pos_end
+            elif value_mark == " ":
+                if tag_property:
+                    result.append([tag_property, None])
+                pos = pos_space + 1
+            elif value_mark == "=":
+                pos = pos_equal + 1
+                while True:
+                    if tag_line[pos] == " ":
+                        pos += 1
+                    else:
+                        break
+                value_container = " "
+                if tag_line[pos] in "'\"":
+                    value_container = tag_line[pos]
+                    pos += 1
+                end = tag_line.find(value_container, pos)
+                if end == -1:
+                    end = pos_end
+                value = tag_line[pos:end]
+                end += 1
+                pos = end
+                result.append([tag_property, value])
+
+        return result
+
+    def remove_specific_tag(self, html_code: str, tag: str, multiline: bool = None) -> str:
+        if multiline is None:
+            if tag in self.ONE_LINE_TAGS:
+                multiline = False
+            else:
+                multiline = True
+
+        html_code = self._quick_format_html(html_code)
 
         if not tag:
-            return text
+            return html_code
         
         if multiline:
             end_tag = "</" + tag.strip(" ><") + ">"
@@ -132,7 +418,7 @@ class Utility:
 
         result = ""
         in_tag = 0
-        for line in text.splitlines():
+        for line in html_code.splitlines():
             if line.startswith(tag):
                 in_tag += 1
             
@@ -213,16 +499,61 @@ class Utility:
             result = None
         return result
 
+    def get_tag_property_value(self, html_code: str, tag: str = None, tag_property: str = None, return_first: bool = True):
+        if not html_code:
+            return None
+        
+        if not tag_property:
+            raise ValueError("Tag property must be defined !")
+        
+        if tag is None:
+            tag = ""
+        if tag_property is None:
+            tag_property = ""
+        
+        html_code = self._quick_format_html(html_code)
+
+        prop_values = []
+        for line in html_code.splitlines():
+            if line.startswith("<" + tag):
+                prop_values += self._get_tag_property_value(line, tag_property)
+        
+        if return_first:
+            if prop_values:
+                return prop_values[0]
+            else:
+                return ""
+        else:
+            return prop_values
+    
+    def _get_tag_property_value(self, code_line: str, tag_property: str) -> list:
+        prop_values = []
+
+        start = code_line.find(tag_property + "=")
+        if start != -1:
+            bound_char = " "
+            if code_line[start+len(tag_property)+1] in "\"'":
+                bound_char = code_line[start+len(tag_property)+1]
+            end = code_line.find(bound_char, start + len(tag_property) + 2)
+            if end == -1:
+                end = code_line.find(">", start + len(tag_property))
+            if end != -1:
+                value = code_line[start+len(tag_property)+2:end].strip(" '\"")
+                prop_values.append(value)
+        return prop_values
+        
 
 class AObject:
     def __init__(self,
                  a_href: str = None,
                  a_text: str = None,
-                 a_class: str = None) -> None:
+                 a_class: str = None,
+                 a_title: str = None) -> None:
         
         self.a_href = a_href
         self.a_text = a_text
         self.a_class = a_class
+        self.a_title = a_title
 
 
 class TagA(Utility):
@@ -255,20 +586,27 @@ class TagA(Utility):
                 end = line.find('"', start + 6)
                 if end == -1:
                     continue
-                
-                a_class = ""
                 link = line[start+6:end]
+
+                a_class = ""
                 start = line.find('class="')
                 if start != -1:
                     end = line.find('"', start+7)
                     if end != -1:
                         a_class = line[start+7:end]
-            
+
+                a_title = ""
+                start = line.find('title="')
+                if start != -1:
+                    end = line.find('"', start+7)
+                    if end != -1:
+                        a_title = line[start+7:end]
+
             if not line.startswith("<"):
                 txt += line
 
         if link.startswith(("http", "/", "ftp", ".")):
-            result = AObject(a_href=link, a_text=txt, a_class=a_class)
+            result = AObject(a_href=link, a_text=txt, a_class=a_class, a_title=a_title)
         else:
             result = None
 
@@ -305,21 +643,35 @@ class ImageObject:
                  img_x: int = None,
                  img_y: int = None,
                  img_width: int = None,
+                 img_width_ex: int = None,
                  img_height: int = None,
+                 img_height_ex: int = None,
                  img_alt: str = None,
                  img_title: str = None,
                  img_id: str = None,
-                 img_class: str = None) -> None:
+                 img_class: str = None,
+                 img_link: str = None,
+                 img_link_title: str = None,
+                 img_link_class: str = None,
+                 tag_list: str = None,
+                 in_tag_pos: int = None) -> None:
         
         self.img_src = img_src
         self.img_x = img_x
         self.img_y = img_y
         self.img_width = img_width
         self.img_height = img_height
+        self.img_width_ex = img_width_ex
+        self.img_height_ex = img_height_ex
         self.img_alt = img_alt
         self.img_title = img_title
         self.img_id = img_id
         self.img_class = img_class
+        self.img_link = img_link
+        self.img_link_title = img_link_title
+        self.img_link_class = img_link_class
+        self.tag_list = tag_list
+        self.in_tag_pos = in_tag_pos
 
 
 class TagIMG(Utility):
@@ -332,18 +684,42 @@ class TagIMG(Utility):
 
         img_objects = []
         for line in self._get_img_lines_from_code(self.html_code):
-            img_objects.append(self._get_image_object(line))
+            img_objects.append(self._get_image_object(line[0], line[1], line[2], line[3], line[4], line[5]))
         
         return img_objects
 
     def _get_img_lines_from_code(self, html_code: str) -> list:
         result = []
+        link = ""
+        link_title = ""
+        link_class = ""
+        tags = []
+        count = 0
         for line in html_code.split("\n"):
+            if line.startswith("<"):
+                if line.startswith("</"):
+                    tag_to_pop = None
+                    for idx, i in enumerate(tags):
+                        tag = line.replace("/", "").rstrip(" >")
+                        if i.startswith(tag):
+                            tag_to_pop = idx
+                    if tag_to_pop is not None:
+                        tags.pop(tag_to_pop)
+                else:
+                    tags.append(line)
+
+            if line.startswith("<a "):
+                link = self.get_tag_property_value(html_code=line, tag_property="href")
+                link_title = self.get_tag_property_value(html_code=line, tag_property="title")
+                link_class = self.get_tag_property_value(html_code=line, tag_property="class")
+            if line.startswith("</a"):
+                link = ""
             if line.startswith("<img") and line.endswith(">"):
-                result.append(line)
+                result.append([line, link, link_title, link_class, "\n".join(tags), count])
+            count += 1
         return result
 
-    def _get_image_object(self, img_tag: str) -> ImageObject:
+    def _get_image_object(self, img_tag: str, link: str, link_title: str, link_class: str, tag_list: str, in_tag_pos: int) -> ImageObject:
         img_obj = ImageObject()
         # src
         pos = img_tag.find('src="')
@@ -359,30 +735,45 @@ class TagIMG(Utility):
                 style_list = [x.strip() for x in img_tag[pos+7:end].split(";")]
                 for style in style_list:
                     if style.startswith("left:"):
-                        number_txt = style[5:].replace("px", "")
+                        number_txt = style[5:].replace("px", "").strip(" '\"")
                         number = self._get_integer(number_txt)
                         if number is not None:
                             img_obj.img_x = number
                     if style.startswith("top:"):
-                        number_txt = style[4:].replace("px", "")
+                        number_txt = style[4:].replace("px", "").strip(" '\"")
                         number = self._get_integer(number_txt)
                         if number is not None:
                             img_obj.img_y = number
+                    if style.startswith("width:") and style.endswith("ex"):
+                        number_txt = style[6:].replace("ex", "").strip(" '\"")
+                        number = self._get_float(number_txt)
+                        if number is not None:
+                            img_obj.img_width_ex = number
+                    if style.startswith("height:") and style.endswith("ex"):
+                        number_txt = style[7:].replace("ex", "").strip(" '\"")
+                        number = self._get_float(number_txt)
+                        if number is not None:
+                            img_obj.img_height_ex= number
+
         # width
-        pos = img_tag.find('width="')
+        pos = img_tag.find('width=')
         if pos >= 0:
-            end = img_tag.find('"', pos + 7)
+            end = img_tag.find(' ', pos + 6)
+            if end == -1:
+                end = img_tag.find('>', pos + 6)
             if end >= 0:
-                number_txt = img_tag[pos+7:end].replace("px", "")
+                number_txt = img_tag[pos+6:end].replace("px", "").strip(" '\"")
                 number = self._get_integer(number_txt)
                 if number is not None:
                     img_obj.img_width = number
         # height
-        pos = img_tag.find('height="')
+        pos = img_tag.find('height=')
         if pos >= 0:
-            end = img_tag.find('"', pos + 8)
+            end = img_tag.find(' ', pos + 7)
+            if end == -1:
+                end = img_tag.find('>', pos + 7)
             if end >= 0:
-                number_txt = img_tag[pos+8:end].replace("px", "")
+                number_txt = img_tag[pos+7:end].replace("px", "").strip(" '\"")
                 number = self._get_integer(number_txt)
                 if number is not None:
                     img_obj.img_height = number
@@ -411,6 +802,11 @@ class TagIMG(Utility):
             if end >= 0:
                 img_obj.img_class = img_tag[pos+7:end]
 
+        img_obj.img_link = link
+        img_obj.img_link_title = link_title
+        img_obj.img_link_class = link_class
+        img_obj.tag_list = tag_list
+        img_obj.in_tag_pos = in_tag_pos
         return img_obj
 
 
@@ -421,24 +817,33 @@ class TextObject:
                  txt_link: str = "",
                  txt_strong: bool = False,
                  tags: list = [],
+                 position_map: list = [],
+                 in_tag_pos: int = None,
                  eop :bool = False) -> None:
         self.txt_value = txt_value
         self.txt_title = txt_title
         self.txt_link = txt_link
         self.txt_strong = txt_strong
-        self.tags = tags
+        self.tags = list(tags)
+        self.position_map = list(position_map)
+        self.in_tag_pos = in_tag_pos
         self.eop = eop  # End of paragraph tag </p>
 
-    def get_tag(self, tag: str) -> str:
+    def get_tag(self, tag: str = "") -> str:
         if isinstance(tag, str):
-            tag = "<" + tag.strip(" <>")
-            tag = (tag + " ", tag + ">")
+            if tag == "":
+                tag = "<"
+            else:
+                tag = "<" + tag.strip(" <>")
+                tag = (tag + " ", tag + ">")
         elif isinstance(tag, list) or isinstance(tag, tuple):
             tag_search = []
             for i in tag:
                 formated_tag = "<" + i.strip(" <>")
                 tag_search.append(formated_tag + " ")
                 tag_search.append(formated_tag + ">")
+                if i == "":
+                    tag_search.append(formated_tag)
             tag = tuple(tag_search)
         else:
             raise TypeError(f"Invalid parameter type: tag must be string or list or tuple, not {type(tag)}")
@@ -446,9 +851,60 @@ class TextObject:
         result = ""
         for i in self.tags:
             if i.startswith(tag):
-                result += i + "   "
+                result += i + "\n"
         return result
-    
+
+    def compare_are_objects_in_same_tag(self, tag: str, compare_with: 'TextObject', object_to_compare_with: 'TextObject' = None, ignore_scope: bool = False) -> bool:
+        # Set maps
+        map1 = compare_with.position_map
+        if object_to_compare_with is None:
+            map2 = self.position_map
+        else:
+            map2 = object_to_compare_with.position_map
+
+        # Fix tag
+        tag = tag.split(">")[0].strip("<").lower()
+        tag = tag.split(" ")[0]
+
+        # Create map list for tag
+        compare1 = []
+        compare2 = []
+
+        in_tag = False
+        for i in map1:
+            if tag in i:
+                in_tag = True
+            if in_tag:
+                if ignore_scope and i[0] != "root_tag":
+                    compare1.append(i)
+                else:
+                    compare1.append(i)
+        in_tag = False
+        for i in map2:
+            if tag in i:
+                in_tag = True
+            if in_tag:
+                if ignore_scope and i[0] != "root_tag":
+                    compare2.append(i)
+                else:
+                    compare2.append(i)
+
+        # Compare maps
+        if len(compare1) != len(compare2) and not ignore_scope:
+            return False
+        
+        if not compare1 or not compare2:
+            return None
+        
+        for i in zip(compare1, compare2):
+            if i[0][0] != i[1][0]:
+                return False
+            else:
+                if i[0][1] != i[1][1] and not ignore_scope:
+                    return False
+
+        return True
+
     def tokenize(self, preferred_token_lenght: int = None, use_smart_token_lenght: bool = True) -> list:
         if not self.txt_value:
             token_obj = self._create_text_object("")
@@ -493,6 +949,7 @@ class TextObject:
                               eop=self.eop)
         return text_obj
 
+
 class TagTEXT(Utility):
     def __init__(self, html_code: str = None):
         super().__init__(html_code=html_code)
@@ -504,6 +961,8 @@ class TagTEXT(Utility):
         txt = ""
         slices = []
         tags = []
+        position_map = [["root_tag", 0, 0, "This is root tag"]]
+        count = 0
         for line in self.html_code.split("\n"):
             if not line.startswith("<"):
                 if txt:
@@ -513,58 +972,98 @@ class TagTEXT(Utility):
             elif line.startswith("<br"):
                 txt += "\n"
             else:
-                if line.startswith("</") and txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
+                if txt.strip():
+                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map, in_tag_pos=count))
                     txt = ""
                 tags = self._check_tags(tags, line)
 
             if line.startswith(("<strong ", "<strong>")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 text_strong = True
             
             if line.startswith(("</strong ", "</strong>")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 text_strong = False
 
             if line.startswith("<a "):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 text_link = self._get_link(line)
             
             if line.startswith(("</a ", "</a>")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 text_link = ""
 
             if line.startswith(("<span", "<div")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 span_title = self._span_title(line)
 
             if line.startswith(("</span", "</div")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
                 span_title = ""
 
             if line.startswith(("<p>", "<p ", "</p>")):
-                if txt.strip():
-                    slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
-                    txt = ""
-                slices.append(TextObject(txt_value="\n", txt_title="", txt_link="", txt_strong=False, tags=[], eop=True))
+                # if txt.strip():
+                #     slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map))
+                #     txt = ""
+                slices.append(TextObject(txt_value="\n", txt_title="", txt_link="", txt_strong=False, tags=[], eop=True, position_map=position_map, in_tag_pos=count))
             
+            self._update_position_map(line, position_map)
+            count += 1
 
         if txt.strip():
-            slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False))
+            slices.append(TextObject(txt_value=txt.strip(), txt_title=span_title, txt_link=text_link, txt_strong=text_strong, tags=tags, eop=False, position_map=position_map, in_tag_pos=count))
         
         return slices
+
+    def _update_position_map(self, line: str, position_map: list):
+        """position map list structure:
+            [0] = tag name
+            [1] = self index
+            [2] = children count
+            [3] = full tag line
+        """
+        
+        if not line.startswith("<"):
+            return
+        
+        # Fix Tag
+        tag = line.split(">")[0].strip("<").lower()
+        tag = tag.split(" ")[0]
+
+        # Check if tag is one line type
+        if tag in self.ONE_LINE_TAGS:
+            return
+        
+        # Case: Closing tag
+        if tag.startswith("/"):
+            tag = tag.strip("/")
+            for idx, item in enumerate(position_map):
+                if item[0] == tag:
+                    position_map.pop(idx)
+                    break
+            return
+        
+        # Case: Opening tag
+        if len(position_map):
+            tag_item = [tag, position_map[0][2], 0, line]
+            position_map[0][2] += 1
+        else:
+            tag_item = [tag, 0, 0, line]
+        
+        position_map.insert(0, tag_item)
+        return
 
     def _check_tags(self, tags_list: list, line: str) -> list:
         tags = list(tags_list)
@@ -589,10 +1088,6 @@ class TagTEXT(Utility):
         
         tags.reverse()
         return tags
-
-
-
-
 
     def _get_link(self, line: str) -> str:
         pos = line.find('href="')
@@ -908,11 +1403,13 @@ class TagTABLE(Utility):
 
     def _span_value(self, code_line: str, default_value: int = 1) -> int:
         result = 1
-        pos = code_line.find('span="')
+        pos = code_line.find('span=')
         if pos >=0:
-            end = code_line.find('"', pos + 6)
+            end = code_line.find(' ', pos + 5)
+            if end == -1:
+                end = code_line.find(">", pos + 5)
             if end >=0:
-                result = self._get_integer(code_line[pos+6:end])
+                result = self._get_integer(code_line[pos+5:end].strip(" '\""))
         if result is None:
             return 1
         else:
@@ -1106,42 +1603,60 @@ class HtmlParser(Utility):
         self.alink = TagA()
         self.tag_list = TagLIST()
 
-    def get_all_links(self) -> list:
+    def get_all_links(self, load_html_code: str = None) -> list:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return []
         
         self.alink.load_html_code(self.html_code, dont_split_into_lines=True)
         return self.alink.get_all_links()
 
-    def get_all_images(self) -> list:
+    def get_all_images(self, load_html_code: str = None) -> list:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return []
         
         self.tag_img.load_html_code(self.html_code, dont_split_into_lines=True)
         return self.tag_img.get_all_images()
 
-    def get_all_lists(self) -> list:
+    def get_all_lists(self, load_html_code: str = None) -> list:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return []
         
         self.tag_list.load_html_code(self.html_code, dont_split_into_lines=True)
         return self.tag_list.get_all_lists()
 
-    def get_all_tables(self) -> list:
+    def get_all_tables(self, load_html_code: str = None) -> list:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return []
         
         self.tables.load_html_code(self.html_code, dont_split_into_lines=True)
         return self.tables.get_all_tables()
     
-    def get_all_text_slices(self) -> list:
+    def get_all_text_slices(self, load_html_code: str = None) -> list:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return []
 
         self.text.load_html_code(self.html_code, dont_split_into_lines=True)
         return self.text.get_all_text_slices()
 
-    def get_raw_text(self) -> str:
+    def get_raw_text(self, load_html_code: str = None) -> str:
+        if load_html_code:
+            self.load_html_code(load_html_code)
+            
         if not self.html_code:
             return ""
 
@@ -1158,7 +1673,9 @@ class HtmlParser(Utility):
                                table_height: int = None, 
                                scrollbars_on: bool = True, 
                                feedback_function = None, 
-                               split_text_slices_into_lines: bool = False):
+                               split_text_slices_into_lines: bool = False,
+                               ignore_headers: bool = False,
+                               smart_cell_width: bool = False):
 
         if not table_object.has_table():
             return None
@@ -1168,7 +1685,7 @@ class HtmlParser(Utility):
         from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor
         from PyQt5.QtCore import QSize, Qt
 
-        def set_cell_item(tbl: QTableWidget, cell_data: dict, qtable_row: int, qtable_col: int, no_image_download: bool = False) -> QTableWidget:
+        def set_cell_item(tbl: QTableWidget, cell_data: dict, qtable_row: int, qtable_col: int, no_image_download: bool = False, cell_max_width: int = None) -> QTableWidget:
             fm = QFontMetrics(tbl.font())
             fm_height = fm.height() + 5
             cell_w = 0
@@ -1203,34 +1720,85 @@ class HtmlParser(Utility):
                 if cell_data["data"]["images"][0].img_height:
                     img_w = cell_data["data"]["images"][0].img_height
                 
-                tt += cell_data["data"]["images"][0].img_title + "\n"
+                if cell_data["data"]["images"][0].img_title:
+                    tt += cell_data["data"]["images"][0].img_title + "\n"
                 for i in range(1, len(cell_data["data"]["text_slices"])):
                     tt += cell_data["data"]["text_slices"][i].txt_title + "\n"
                 tt = tt.strip()
 
-                cell_h = fm_height * (cell_data["value"].count("\n") + 1)
-                cell_w = fm.width(cell_data["value"]) + 15
-                
                 cell_item = QTableWidgetItem()
-                cell_item.setText(cell_data["value"])
+                cell_val = cell_data["value"]
+                if cell_max_width:
+                    words = cell_val.split()
+                    lines = []
+                    current_line = ""
+                    for word in words:
+                        candidate_line = current_line + " " + word if current_line else word
+                        width = fm.boundingRect(candidate_line).width()
+
+                        if width <= cell_max_width:
+                            current_line = candidate_line
+                        else:
+                            lines.append(current_line.strip())
+                            current_line = word
+                    if current_line:
+                        lines.append(current_line)
+                    cell_val = "\n".join(lines)
+
+                cell_h = fm_height * (cell_val.count("\n") + 1)
+                if cell_val:
+                    cell_w = min([fm.width(x) for x in cell_val.split("\n")]) + 15
+                else:
+                    cell_w = 15
+                
+                cell_item.setText(cell_val)
+                if not tt:
+                    tt = cell_data["value"]
                 cell_item.setToolTip(tt)
 
                 if img:
                     img = img.scaled(img_w, img_h, Qt.KeepAspectRatio)
                     cell_item.setIcon(QIcon(img))
                     cell_item.setTextAlignment(Qt.AlignHCenter|Qt.AlignVCenter)
-                    tbl.setIconSize(img.size())
+                    icon_size_w = max(img_w, tbl.iconSize().width())
+                    icon_size_h = max(img_h, tbl.iconSize().height())
+                    tbl.setIconSize(QSize(icon_size_w, icon_size_h))
+                    
                     cell_h = max(cell_h, img_h)
                     cell_w += img_w + 10
             else:
+                cell_val = cell_data["value"]
+                if cell_max_width:
+                    words = cell_val.split()
+                    lines = []
+                    current_line = ""
+                    for word in words:
+                        candidate_line = current_line + " " + word if current_line else word
+                        width = fm.boundingRect(candidate_line).width()
+
+                        if width <= cell_max_width:
+                            current_line = candidate_line
+                        else:
+                            lines.append(current_line.strip())
+                            current_line = word
+                    if current_line:
+                        lines.append(current_line)
+                    cell_val = "\n".join(lines)
+
                 for i in range(len(cell_data["data"]["text_slices"])):
                     tt += cell_data["data"]["text_slices"][i].txt_title + "\n"
                 tt = tt.strip()
 
-                cell_h = fm_height * (cell_data["value"].count("\n") + 1)
-                cell_w = fm.width(cell_data["value"]) + 15
+                cell_h = fm_height * (cell_val.count("\n") + 1)
+                if cell_val:
+                    cell_w = min([fm.width(x) for x in cell_val.split("\n")]) + 15
+                else:
+                    cell_w = 15
+
                 cell_item = QTableWidgetItem()
-                cell_item.setText(cell_data["value"])
+                cell_item.setText(cell_val)
+                if not tt:
+                    tt = cell_val
                 cell_item.setToolTip(tt)
 
             if cell_data["data"]["links"]:
@@ -1273,31 +1841,37 @@ class HtmlParser(Utility):
         fm_height = fm.height() + 5
 
         # Get Headers
-        row_headers = []
-        has_row_header = False
-        first_cell = True
-        for row in table_object:
-            if table_object[row]["0"]["data"]["head"]:
-                if not first_cell:
-                    has_row_header = True
-                else:
-                    if table_object[row]["0"]["data"]["row_span"] > 1:
+        if ignore_headers:
+            row_headers = []
+            has_row_header = False
+            col_headers = []
+            has_col_header = False
+        else:
+            row_headers = []
+            has_row_header = False
+            first_cell = True
+            for row in table_object:
+                if table_object[row]["0"]["data"]["head"]:
+                    if not first_cell:
                         has_row_header = True
-                    first_cell = False
-                row_headers.append([table_object[row]["0"]["value"], table_object[row]["0"]["data"]["row_span"]])
+                    else:
+                        if table_object[row]["0"]["data"]["row_span"] > 1:
+                            has_row_header = True
+                        first_cell = False
+                    row_headers.append([table_object[row]["0"]["value"], table_object[row]["0"]["data"]["row_span"]])
 
-        col_headers = []
-        has_col_header = False
-        first_cell = True
-        for col in table_object["0"]:
-            if table_object["0"][col]["data"]["head"]:
-                if not first_cell:
-                    has_col_header = True
-                else:
-                    if table_object["0"][col]["data"]["col_span"] > 1:
+            col_headers = []
+            has_col_header = False
+            first_cell = True
+            for col in table_object["0"]:
+                if table_object["0"][col]["data"]["head"]:
+                    if not first_cell:
                         has_col_header = True
-                    first_cell = False
-                col_headers.append([table_object["0"][col]["value"], table_object["0"][col]["data"]["col_span"]])
+                    else:
+                        if table_object["0"][col]["data"]["col_span"] > 1:
+                            has_col_header = True
+                        first_cell = False
+                    col_headers.append([table_object["0"][col]["value"], table_object["0"][col]["data"]["col_span"]])
 
         # Set table size
         row_count = len(table_object)
@@ -1409,7 +1983,11 @@ class HtmlParser(Utility):
                     txt = txt.strip()
                     table_object[str(row)][str(col)]["value"] = txt
 
-                item = set_cell_item(qtable, table_object[str(row)][str(col)], qtable_row, qtable_col, no_image_download=no_image_download)
+                if smart_cell_width:
+                    max_cell_width = int(table_width / 3)
+                    item = set_cell_item(qtable, table_object[str(row)][str(col)], qtable_row, qtable_col, no_image_download=no_image_download, cell_max_width=max_cell_width)
+                else:
+                    item = set_cell_item(qtable, table_object[str(row)][str(col)], qtable_row, qtable_col, no_image_download=no_image_download)
                 if feedback_function:
                     response = feedback_function((count, total_count))
                     count += 1
@@ -1438,6 +2016,10 @@ class HtmlParser(Utility):
         height = sum(qtable.rowHeight(row) for row in range(qtable.rowCount())) + vertical_spacing
         if has_col_header:
             height += max(qtable.horizontalHeader().height(), row_sizes[0])
+        
+        if table_width:
+            width = table_width
+
         qtable.resize(width, height)
 
         # Set ScrollBars visibility
@@ -1453,8 +2035,322 @@ class HtmlParser(Utility):
 
         return qtable
 
+    def get_PYQT5_table_ver2(self,
+                             html_code: str,
+                             parent_widget,
+                             max_table_width: int = None,
+                             font_size: int = 12,
+                             text_link_feedback = None,
+                             image_link_feedback = None,
+                             fix_url_function = None):
 
+        from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QLabel, QFrame
+        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor, QFont
+        from PyQt5.QtCore import QSize, Qt
 
+        html_code = self._quick_format_html(html_code)
 
+        qtable = QTableWidget(parent_widget)
+        qtable.setContentsMargins(0,0,0,0)
+        qtable.verticalHeader().setVisible(False)
+        qtable.horizontalHeader().setVisible(False)
+        qtable.setSelectionMode(QTableWidget.SingleSelection)
+        qtable.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        qtable.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+
+        # Get data
+        data = self._qtable_v2_get_data(html=html_code, parent_widget=qtable, font_size=font_size, max_table_width=max_table_width)
+        if not data:
+            qtable.resize(0, 0)
+            return qtable
+
+        # Calculate table size
+        col_count = max([len(x) for x in data])
+        row_count = len(data)
+        qtable.setRowCount(row_count)
+        qtable.setColumnCount(col_count)
+
+        # Populate table with data
+        font = qtable.font()
+        font.setPointSize(font_size)
+        row_idx = 0
+        for row in data:
+            col_idx = 0
+            for col in row:
+                frame = self._qtable_v2_get_cell_frame(col, font=font, text_link_feedback=text_link_feedback, image_link_feedback=image_link_feedback, fix_url_function=fix_url_function, max_table_width=max_table_width)
+                qtable.setCellWidget(row_idx, col_idx, frame)
+                if col["row_span"] > 1 or col["col_span"] > 1:
+                    qtable.setSpan(row_idx, col_idx, col["row_span"], col["col_span"])
+                
+                qtable.setRowHeight(row_idx, max(qtable.rowHeight(row_idx), frame.height()))
+                qtable.setColumnWidth(col_idx, max(qtable.columnWidth(col_idx), frame.width()))
+
+                col_idx += col["col_span"]
+            row_idx += col["row_span"]
+
+        w = 0
+        h = 0
+        for row in range(qtable.rowCount()):
+            h += qtable.rowHeight(row)
+        for col in range(qtable.columnCount()):
+            w += qtable.columnWidth(col)
+        if max_table_width and max_table_width < w:
+            w = max_table_width
+            qtable.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+            h += qtable.horizontalScrollBar().height()
+
+        qtable.resize(w + 2, h + 2)
+        return qtable
+
+    def _qtable_v2_get_cell_frame(self, data: dict, font, text_link_feedback, image_link_feedback, fix_url_function, max_table_width: int):
+        from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QLabel, QFrame
+        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor, QFont
+        from PyQt5.QtCore import QSize, Qt
+
+        frame = QFrame()
+        frame.setFont(font)
+        frame.setFrameShape(QFrame.Box)
+        frame.setFrameShadow(QFrame.Plain)
+        frame.setLineWidth(0)
+
+        # If data is table, just set table to frame and return frame
+        if data["table_obj"]:
+            data["table_obj"].setParent(frame)
+            data["table_obj"].move(0, 0)
+            frame.resize(data["table_obj"].width(), data["table_obj"].height())
+            return frame
+        
+        # Find data type
+        if data["type"] == "th":
+            word_wrap = False
+        else:
+            word_wrap = True
+        
+        # Group data by type
+        frame_items = []
+        widget_type = None
+        for item in data["data"]:
+            if isinstance(item, TextObject):
+                cur_type = "text"
+            elif isinstance(item, ImageObject):
+                cur_type = "image"
+
+            if cur_type != widget_type:
+                frame_items.append([cur_type, [item], data["type"], data["bg_color"]])
+                widget_type = cur_type
+            else:
+                frame_items[len(frame_items) - 1][1].append(item)
+        
+        # Create frame widgets
+        frame_widgets = []
+        for widget_type, widget_list, data_type, bg_color in frame_items:
+            if widget_type == "text":
+                lbl = QLabel(frame)
+                if data_type == "th":
+                    lbl.setAlignment(Qt.AlignCenter)
+                if bg_color:
+                    if bg_color in ["#000000", " #000000", "#0", "rgb(0,0,0)"]:
+                        bg_color = "#b2dcc4"
+                    frame.setStyleSheet(f"color: {bg_color};")
+                lbl.setFont(font)
+                lbl.setText(self._qtable_v2_format_label_text(widget_list, font.pointSize(), fix_url_function=fix_url_function))
+                lbl.adjustSize()
+                fixed_w = int(max_table_width * 0.8)
+                fixed_w = min(fixed_w, lbl.width())
+                lbl.setFixedWidth(fixed_w)
+                lbl.setWordWrap(word_wrap)
+                lbl.adjustSize()
+                if text_link_feedback:
+                    lbl.linkActivated.connect(lambda url: text_link_feedback(url))
+                frame_widgets.append(lbl)
+            elif widget_type == "image":
+                for image in widget_list:
+                    image: ImageObject
+                    lbl = QLabel(frame)
+                    lbl.setAlignment(Qt.AlignCenter)
+                    # lbl.setScaledContents(True)
+
+                    if image.img_height and image.img_width:
+                        lbl.resize(image.img_width, image.img_height)
+                    else:
+                        lbl.resize(200, 200)
+                    
+                    if fix_url_function:
+                        image_url = fix_url_function(image.img_src)
+                    else:
+                        image_url = image.img_src
+                    img = None
+                    has_image = False
+                    try:
+                        img = None
+                        response = urllib.request.urlopen(image_url, timeout=2).read()
+                        img = QPixmap()
+                        has_image = img.loadFromData(response)
+                        if not has_image:
+                            response = requests.get(image_url, timeout=2)
+                            has_image = img.loadFromData(response.content)
+                    except:
+                        img = None
+
+                    if img:
+                        lbl.setPixmap(img)
+                        lbl.resize(img.width(), img.height())
+                        if image.img_link:
+                            image_link = fix_url_function(image.img_link)
+                            lbl.mousePressEvent = lambda _, url=image_link: image_link_feedback(url)
+                        if '<span class="flagicon' in image.tag_list:
+                            lbl.setObjectName("flagicon")
+                    frame_widgets.append(lbl)
+
+        # Find max width and arange widgets
+        max_w = 0
+        for widget in frame_widgets:
+            max_w = max(max_w, widget.width())
+        
+        y = 0
+        x = 0
+        for widget in frame_widgets:
+            if widget.text():
+                widget.resize(max_w, widget.height())
+                widget.setFixedWidth(max_w)
+                widget.adjustSize()
+                widget.resize(max_w, widget.height() + 3)
+            widget.move(x, y)
+            if x > 0:
+                max_w = max(max_w, widget.width() + x)
+            
+            if widget.objectName() == "flagicon":
+                x = widget.width() + 10
+            else:
+                x = 0
+                y += widget.height()
+        
+        frame.resize(max_w + 15, y)
+        return frame
+
+    def _qtable_v2_format_label_text(self, text_slices: list, font_size, fix_url_function) -> str:
+        import utility_cls
+        text_to_html = utility_cls.TextToHTML()
+        text_to_html.general_rule.font_size = font_size
+        text = ""
+        count = 1
+        for text_slice in text_slices:
+            text_slice: TextObject
+            rule_id = "#" + "-" * (6 - len(str(count))) + str(count)
+            rule = utility_cls.TextToHtmlRule(
+                text=rule_id,
+                replace_with=text_slice.txt_value
+            )
+            if text_slice.txt_link:
+                if fix_url_function:
+                    rule.link_href = fix_url_function(text_slice.txt_link)
+                else:
+                    rule.link_href = text_slice.txt_link
+
+                if "wikipedia.org" in rule.link_href:
+                    rule.fg_color = "#aaffff"
+                else:
+                    rule.fg_color = "#eab8ff"
+
+            text += rule_id + " "
+            text_to_html.add_rule(rule)
+            count += 1
+        
+        text_to_html.set_text(text.strip())
+        return text_to_html.get_html()
+
+    def _qtable_v2_get_data(self, html: str, parent_widget, font_size: int = 12, max_table_width: int = 400) -> dict:
+        data = []
+
+        tables = self.get_tags(html_code=html, tag="table")
+        if not tables:
+            return data
+        
+        table_code = tables[0]
+        rows_code = self.get_tags(html_code=table_code, tag="tr")
+
+        for row_code in rows_code:
+            row_data = []
+            data.append(row_data)
+            bg_color = self._qtable_v2_get_style_property(row_code, style_property="background:")
+
+            row_span = self.get_tag_property_value(html_code=row_code, tag="tr", tag_property="rowspan")
+            if not row_span:
+                row_span = 1
+
+            cols_code = self._qtable_v2_sort_tags(row_code, tags=["th", "td"])
+            for col_code in cols_code:
+                col_span = self.get_tag_property_value(html_code=col_code, tag_property="colspan")
+                if not col_span:
+                    col_span = 1
+
+                cell_objects = self._qtable_v2_sort_text_and_images(html=col_code)
+                if not bg_color:
+                    bg_color = self._qtable_v2_get_style_property(col_code, style_property="background:")
+                
+                cell_type = ""
+                if col_code.startswith("<th"):
+                    cell_type = "th"
+                elif col_code.startswith("td"):
+                    cell_type = "td"
+
+                raw_text = ""
+                for item in cell_objects:
+                    if isinstance(item, TextObject):
+                        raw_text += item.txt_value + " "
+                raw_text = raw_text.strip()
+
+                tables = self.get_tags(html_code=col_code, tag="table")
+                table_obj = None
+                if tables:
+                    table_obj = self.get_PYQT5_table_ver2(html_code=tables[0], parent_widget=parent_widget, font_size=font_size, max_table_width=max_table_width)
+
+                cell_data = {
+                    "col_span": int(col_span),
+                    "row_span": int(row_span),
+                    "raw_text": raw_text,
+                    "data": cell_objects,
+                    "bg_color": bg_color,
+                    "type": cell_type,
+                    "table_obj": table_obj
+                }
+                row_data.append(cell_data)
+        
+        return data
+                
+    def _qtable_v2_get_style_property(self, code_line: str, style_property: str) -> str:
+        code_line = code_line.splitlines()[0]
+        style = self.get_tag_property_value(html_code=code_line, tag_property="style")
+        result = ""
+        if style:
+            start = style.find(style_property)
+            if start != -1:
+                end = style.find(";", start)
+                if end != -1:
+                    result = style[start+len(style_property):end]
+        return result
+
+    def _qtable_v2_sort_tags(self, html: str, tags: list) -> list:
+        tag_codes = []
+
+        for tag in tags:
+            tag_codes += self.get_tags(html_code=html, tag=tag, return_line_numbers=True)
+        
+        sorted_tag_codes = sorted(tag_codes, key=lambda x: x[1])
+        return [x[0] for x in sorted_tag_codes]
+
+    def _qtable_v2_sort_text_and_images(self, html: str) -> list:
+        tag_codes = []
+
+        text_slices = self.get_all_text_slices(load_html_code=html)
+        for text_slice in text_slices:
+            tag_codes.append([text_slice, text_slice.in_tag_pos])
+
+        images_code = self.get_all_images(load_html_code=html)
+        for image in images_code:
+            tag_codes.append([image, image.in_tag_pos])
+        
+        sorted_tag_codes = sorted(tag_codes, key=lambda x: x[1])
+        return [x[0] for x in sorted_tag_codes]
 
 

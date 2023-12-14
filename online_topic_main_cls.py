@@ -283,7 +283,9 @@ class Main(AbstractTopic):
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             return
 
-        loaded_url = self.rashomon.get_segment_selection("page_url_000")
+        # loaded_url = self.rashomon.get_segment_selection("page_url_000")
+        loaded_url = self.rashomon.get_source()
+
         if not loaded_url:
             for i in self.rashomon.errors():
                 self.topic_info_dict["msg"] = self.getl("topic_msg_weather") + ", " + i
@@ -291,7 +293,7 @@ class Main(AbstractTopic):
             QCoreApplication.processEvents()
             return
 
-        if loaded_url.find("?query=") != -1:
+        if not self.rashomon.get_segment_selection("main_look_000"):
             result = self._we_show_search_results()
         elif loaded_url.find("@") == -1:
             self._we_show_country_weather()
@@ -475,11 +477,19 @@ class Main(AbstractTopic):
         
         scale = 1.8
 
+        images[0].img_width = images[0].img_width if images[0].img_width is not None else 320
+        images[0].img_height = images[0].img_height if images[0].img_height is not None else 160
+
         self.lbl_we_map.resize(int(images[0].img_width * scale), int(images[0].img_height * scale))
         self.set_image_to_label(images[0], self.lbl_we_map, strech_to_label=True)
         self.lbl_we_map.setVisible(True)
 
         if len(images) > 1:
+            images[1].img_x = images[1].img_x if images[1].img_x is not None else 0
+            images[1].img_y = images[1].img_y if images[1].img_y is not None else 0
+            images[1].img_width = images[1].img_width if images[1].img_width is not None else 10
+            images[1].img_height = images[1].img_height if images[1].img_height is not None else 10
+
             self.set_image_to_label(images[1], self.lbl_we_map_loc)
             loc_x = self.lbl_we_map.pos().x() + (images[1].img_x * scale + (images[1].img_width * scale - images[1].img_width) / 2)
             loc_y = self.lbl_we_map.pos().y() + images[1].img_y * scale + (images[1].img_height * scale - images[1].img_height)
@@ -633,7 +643,7 @@ class Main(AbstractTopic):
         self.tbl_14d.setStyleSheet("color: #aaff7f")
         self.tbl_14d.show()
         self.prg_we.setVisible(False)
-        self.setFixedSize(self.tbl_14d.pos().x() + self.tbl_14d.width() + 10, self.tbl_14d.pos().y() + self.tbl_14d.height() + 10)
+        self.setFixedSize(max(self.tbl_14d.pos().x() + self.tbl_14d.width() + 10, self.width()), self.tbl_14d.pos().y() + self.tbl_14d.height() + 10)
         return True
 
     def _we_near(self):

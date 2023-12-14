@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridL
                              QSizePolicy, QListWidget, QFileDialog, QDialog, QLabel, QListWidgetItem, 
                              QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout, QComboBox, 
                              QProgressBar, QCheckBox, QFileIconProvider, QTreeWidget, QTreeWidgetItem, 
-                             QRadioButton, QGroupBox)
+                             QRadioButton, QGroupBox, QMessageBox)
 from PyQt5.QtGui import (QIcon, QFont, QFontMetrics, QPixmap, QCursor, QImage, QClipboard, QColor)
 from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,QPoint, QTimer, 
                           QDate, QFileInfo, QMimeDatabase)
@@ -2656,6 +2656,22 @@ class FileDialog():
             result, _ = QFileDialog.getOpenFileNames(None, title, directory=directory)
         else:
             result, _ = QFileDialog.getOpenFileName(None, title, directory=directory)
+
+        return result
+
+    def show_dialog_select_folder(self, title: str = "Select folder:", directory: str = "", multi_select: bool = False):
+        if os.path.isfile(directory):
+            directory = os.path.split(directory)[0]
+        
+        if not os.path.isdir(directory):
+            directory = ""
+
+        if multi_select:
+            result = QFileDialog.getExistingDirectory(None, title, directory=directory)
+            if result:
+                result = result.split(",")
+        else:
+            result = QFileDialog.getExistingDirectory(None, title, directory=directory)
 
         return result
 
@@ -7091,10 +7107,14 @@ class Clipboard():
         for idx, file in enumerate(self._clip["os"]):
             if file[2]:
                 result = self._add_image_to_database(file[1])
+                if result is None:
+                    return
                 self._clip["os"][idx] = [result, file[1], file[2]]
                 self.copy_to_clip(result, add_to_clip=True)
             else:
                 result = self._add_file_to_database(file[1])
+                if result is None:
+                    return
                 self._clip["os"][idx] = [result, file[1], file[2]]
                 self.copy_to_clip(result, add_to_clip=True)
 
@@ -7253,6 +7273,9 @@ class Clipboard():
         self._stt.custom_dict_save(self.getv("clipboard_file_path"), self._clip)        
 
     def _add_file_to_database(self, file: str) -> int:
+        if not os.path.isfile(file):
+            QMessageBox.critical(None, self.getl("error_text"), self.getl("error_file_not_found_text") + "\n" + file, QMessageBox.Ok)
+            return None
         # Find user file folder name
         user_folder = os.path.split(self.get_appv("user").db_path)[0] + f'/{self.get_appv("user").id}files/'
 
@@ -7285,6 +7308,9 @@ class Clipboard():
         return file_id
 
     def _add_image_to_database(self, file: str) -> int:
+        if not os.path.isfile(file):
+            QMessageBox.critical(None, self.getl("error_text"), self.getl("error_file_not_found_text") + "\n" + file, QMessageBox.Ok)
+            return None
         # Find user images folder name
         user_folder = os.path.split(self.get_appv("user").db_path)[0] + f'/{self.get_appv("user").id}images/'
 
@@ -10183,8 +10209,8 @@ class TextToHtmlRule():
                 style += " font-weight: bold; "
         else:
             if general_rule:
-                if general_rule.font_size:
-                    style += f" font-size: {general_rule.font_size}px; "
+                if general_rule.font_bold:
+                    style += f" font-weight: bold; "
 
         if self.font_italic is not None:
             if self.font_italic:
@@ -10372,6 +10398,8 @@ class TextToHTML():
 
         if isinstance(rule, TextToHtmlRule):
             return self._delete_rule(rule)
+        elif rule is None:
+            return self._delete_rule()
         else:
             success = True
             for item in rule:

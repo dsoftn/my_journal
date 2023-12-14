@@ -1,0 +1,150 @@
+3 (three)-point-play - Kad igrač koji je fauliran u toku uspešnog šuta za dva poena iskoristi dodatno slobodno bacanje (2 + 1) 
+4 (four)-point play - Kad igrač koji je fauliran u toku uspešnog šuta za tri poena iskoristi dodatno slobodno bacanje (3 + 1) 
+50-40-90 - U NBA ligi statistička vrednost koja odlikuje izuzetno dobre šutere. Brojke se odnose na poene napravljene ispod koša ili sa srednje distance (50%), iza linije za tri poena (40%) i sa linije za slobodna bacanja (90%) (naravno, što više šuteva to je učinak bolji)
+Air ball - Promašen šut na koš, bez pogadjanja table ili obruča
+Alley-oop - Zakucavanje prilikom pijema dobačene lopte u skoku 
+Assist - Dodavanje koje neposredno dovodi do poentiranja
+Assistant coach - Pomoćni trener 
+Average - Prosečne vrednosti u statistici
+Backboard - Tabla koša na kojoj je pričvršćen obruč
+Backcourt - Pozadinski igrač koj ima zadatak da šutira sa veće distance
+Backdoor - Napadački igrač prolazi iza ledja odbranbenog igrača da bi omogućio slobodan pas
+Backup - Rezervni igrač
+Bank shot - Šut u koš od tablu
+Baseball-pass - Dodavanje jednom rukom na većoj distanci
+Baseline - Osnovna linija iza koša 
+Basket - Kompletan koš (tabla, obruč i mrežica)
+Behind-the-back-pass - Dodavanje iza ledja 
+Block - Blokiranje protivnika po pravilima 
+Blocked shot - Blokiranje šuta bez faula 
+Box - Vidi „Zone“
+Box and one - Forma odbrane, pri čemu jedan igrač brani čovek na čoveka, a ostala četiri igrača igraju slobodno
+Box-out - Čvršći telesni kontakt (ali po pravilima) sa ciljem da se protivniku onemogući unakrsno kretanje
+Bump - Borba za najbolju „Rebound“ poziciju 
+Buzzer beater - Koš u zadnjoj sekundi
+Call - Sudijski zvižduk
+Carrying - Nedozvoljeno vodjenje lopte pri driblingu (nošenje)
+Center - Najviši igrač u timu, koji najčešće igra u blizini koša
+Charging - Ofanzivni faul, utrčavanje u protivničkog igrača koji stoji 
+Cheerleader - Šou devojke koje igraju u Pauzama na terenu i zabavljaju mušku publiku
+Coach - Trener, odlučuje o sastavu tima i taktici
+Coast to coast - Brzi dribling od jedne do druge osnovne linije
+Court - Košarkaški teren (standardne mere košarkaškog terena)
+Cross over - Dribling u kome se prebacivanjem iz jedne u drugu ruku brzo menja pravac kretanja  
+Crunchtime - Odlučujuća faza pred kraj utakmice (isto zvana „money-time“)
+Curl - Brza promena pravca u uskom luku kretanja
+Cutting Presecanje napada
+Defense - Opšti pojam za različite odbrambene taktike
+Defensiv rebound - Hvatanje lopte ispod svog koša posle promašenog protivničkog šuta
+Delayed offense - Spori napad u svrsi dobijanja na vremenu
+Disqualification - Izbacivanje iz igre posle 5.og faula, ili direktno izbacivanje 
+Distance shot - Šut na koš sa veće udaljenosti
+Double dribbling - Ponovno vodjenje lopte, nakon što je lopta uhvaćena (dupla greška) 
+Double foul - Dupli faul; dva igrača se istovremeno fauliraju
+Double team - Branjenje lopte sa dva igrača 
+Dribbling - Tapkanje lopte po terenu uz kretanje
+Dunk - Poentiranje kroz zakucavanje lopte u obruč
+Eight-second line - Srednja linija, koja mora u toku osam sekundi da se predje
+Facing - Okretanje ka košu posle primanja lopte
+Fadeawayjumpshot - Šut iz skoka sa cimanjem 
+Fake - Finta telom radi zbinjivanja protivnika 
+Fastbreak - Brzi kontra napad, najčešće prilikom oduzimanja lopte
+Field goal - Davanje koša iz igre 
+Flagrant foul - Grubi nesportski faul ili namerni faul
+Forward - Igrač na poziciji krila 
+Foul - Nepropisni telesni kontakt
+Foul trouble - Prevremeno zaradjen veći broj ličnih grešaka pojedinačnog igrača
+Free throw - Slobodno bacanje posle faula 
+Fronting - Frontalno zagradjivanje protivničkog igrača
+Fumbling - Greška u hvatanju, koja se ne vrednuje kao dribling
+Give and go - Jednostavan sistem napada, dodavanje, trčanje i traženje pasa - u principu ništa drugo nego direktan dupli pas 
+Goaltending - Nepravilno blokiranje šuta u kretanju na dole
+Go-to-guy - Igrač za odlučujuće šuteve 
+Guard - Igrač na konstruktivnoj poziciji
+Half-court press - Defanzivna taktika pri kojoj odbranbeni igrači prave presing čim protivnički igrači predju polovinu terena
+Hall of fame - Muzej za posebno važne igrače i trenere
+Helping out - Ispomaganje kad jedan igrač bude izigran
+Helpside - Odbranbena polovina gde se ne nalazi lopta 
+High post - Centar (igrač), koji deluje da linije slobodnog bacanja
+Hook shot - Horog ili udica, šut na koš sa strane preko glave 
+In your face - Pokušaj šuta na koš i pored neposrednog čuvanja
+Jab step - Brza finta nogama
+Jump ball - Visoko bačena lopta od sudije izmedju dva suparnička igrača, koji se skokom bore za loptu, a smeju samo da je udare a ne i da je uhvate 
+Jump shot - Šut iz skoka, pri čemu lopta napušta ruku u najvišoj tački skoka
+Key - Prostor koji čini krug slobodnog bacanja i linije zone
+Lane - 3,65 metara široka zona izmedju osnovne i linije za slobodna bacanja
+Lay-up - Polaganje, šut na koš u pokretu u neposrednoj blizini koša 
+Lob pass - Visoki lučni pas preko odbranbenog igrača
+Low post - Centar (igrač), koji deluje ispod koša
+Man-to-man - Odbrana čovek na čoveka sa fiksnom dodelom suparničkog igrača
+Mid post - Pozicija sa strane od zone u sredini izmedju linije za slobodno bacanje i osnovne linije
+Mismatch - Izraz za izuzetnu razliku u visini direktnih protivničkih igrača
+Most valuable player - Najbolji igrač, najveće odlikovanje u NBA
+Motion offense - Ofanzivni potezi, pri kojima su svi igrači u stalnom pokretu
+Move - Opšti pojam za kompleksna kretanja
+No-look-pass - Dodavanje bez gledanja
+Offense - Opšti pojam za raznovrsne varijante napada
+Offensive foul - Lična greška u napadu 
+Offensive rebounds - Uhvaćena lopta posle promašenog šuta ispod protivničkog koša 
+Officials - Sudije, trojica nadgledaju utakmicu
+One-on-one - Situacija u igri jedan na jedan 
+Open shot - Šut na koš bez ometanja sa strane protivnika
+Out of bounds - Izraz za „lopta u autu“ 
+Outlet pass - Prvi brzi pas posle defanzivnog „rebound“-a
+Overtime - Produžetak igre pri izjednačenom rezultatu
+Paint - Naziv za u boji označeni 3 sekunde prostor u SAD
+Pass - Opšti pojam za rezličita dodavanja 
+Penetration - Sposobnost igrača da u prostoru za 3 sekunde driblingom poentira iz blizine ili da doda loptu
+Percentage - Procenat šuta izračunat na osnovu broja pokušaja i pogodaka
+Pick and roll - Osnovna ofanzivna taktika, pri kojoj jedan igrač bez lopte pravi blok, a zatim se odmah kreće ka košu i oslobadja se za direktan pas ispod koša
+Pivot - Kružno kretanje oko jedne noge pod pritiskom protivničkog igrača  
+Playoffs - Završne utakmice za šampionsku titulu
+Point guard - Plejmejker, igrač zadužen za organizovanje igre na poziciji broj 1 (ostale pozicije igrača: 2 bek, 3 krilo, 4 krilni centar i 5 centar)
+Post player - Se naziva igrač na poziciji centra, koji deluje sa linije za slobodno bacanje ili u blizini. Postoji „high“ pozicija ( u krugu slobodnog bacanja) i „low“ pozicija (bliže košu)
+Posting up - Pozicioniranje u blizini koša, ispred protivničkog igrača i ledjima okrenut ka košu, da bi se poentiralo na primer sa skok šutom iz okreta 
+Power forward - Jak igrač na poziciji krila sa efikasnim prodorom ka košu
+Press - Opšti pojam za posebno agresivnu formu odbrane 
+Rebound - Uhvaćena lopta posle promašenog šuta (odbijena od tablu ili obruč)
+Referee - Sudija
+Reverse dunk - Zakucavanje iza ledja 
+Reverse layer - Polaganje u nazad iznad glave 
+Rim - Obruč na tabli koša
+Rookie - Igrač u prvoj profesionalnoj sezoni 
+Run and gun - Brz šut bez prethodnog dodavanja
+Safety - Poslednji čovek u napadu, pokušava da spreči „Fast Break“
+Score - Opšti pojam za ukupni učinak tima i igrača
+Scoring board - Ukupna statistika sa svim pojedinačnim učincima
+Scoring play - Potez u igri, koji se završava poentiranjem
+Scout-coach - Specijalni pomoćni trener, koji posmatra talente
+Screen - Suigrač omogućava postavljanjem bloka šuteru poziciju za neometan šut na koš 
+Set play - Opšti naziv za sisteme napada iz smirene situacije
+Shooting guard - Plejmejker sa jako efikasnim šutom
+Shot - Opšti naziv za šutiranje na koš sa distance
+Shot dock - Pokazuje preostalo vreme za napad. Na raspolaganju stoje ukupno 24 sekunde za napad
+Sixth man - Najbitniji rezervni igrač, koji može da igra na različitim pozicijama
+Slam dunk - Izraz za spektakularna zakucavanja
+Small forward - Igrač na poziciji krila sa efikasnim šutom
+Sneaker - Patike za košarku
+Starting five - Pet igrača koji počinju igru 
+Steal - Oduzimanje lopte protivničkoj ekipi dobrom odbranom
+Streak shooter - Naziv za igrača koji u više napada za redom uspešno poentira 
+Streetball - Varijanta košarke (basket) koja se igra na javnim igralištima
+Strong side - Polovina terena na kojoj se trenutno nalazi lopta
+Switch - Primorano menjanje igrača pri odbrani čovek na čoveka
+Technical foul - Tehnički faul za nesportsko ponašanje
+Three-point field goals - Šut za tri poena sa razdaljine od najmanje 6,75 metara
+Three-second rule - Pravilo maksimalnog zadržavanja od 3 sekunde u protivničkoj zoni 
+Time-out - Pauza za taktičko savetovanje sa trenerom
+Tip-in - „Rebound“ i poentiranje u jednom, kroz kratko dodirivanje lopte
+Tip-of f - Borba za loptu na početku utakmice koju sudija baca u vis izmedju dva suparnička igrača
+Touching - Lagano dodirivanje protivničkog igrača pri odbrani
+Trailer - Igrač koji pri „Fast Break“-u u drugom napadačkom talasu nailazi 
+Transition - Prebacivanje sa ofanzivne na defanzivnu igru
+Trap - Munjevito duplo blokiranje napadača (takozvana „zamka“)
+Trash talk - Opšti naziv za grubo vredjanje protivničkog igrača 
+Traveling - Greška u koracima: u pokretu su dozvoljena samo dva koraka a iz stajanja samo jedan
+Triple double - Dvocifreni broj poena u tri kategorije u jednoj utakmici
+Turnover - Gubitak lopte u napadu
+Weak side - Naziv za stranu u napadu i odbrani na kojoj se lopta trenutno ne nalazi i zbog toga se ne mora jako čuvati
+Zone - Označeni prostor ispod koša
+

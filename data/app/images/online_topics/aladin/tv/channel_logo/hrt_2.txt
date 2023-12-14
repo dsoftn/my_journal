@@ -1,0 +1,28 @@
+HRT 2
+
+Country	Croatia
+Broadcast area	Croatia
+Network	Hrvatska radiotelevizija
+Headquarters	Zagreb
+Programming
+Language(s)	Croatian
+Picture format	1080p HDTV
+Ownership
+Owner	Croatian Government
+Sister channels	
+HRT 1
+HRT 3
+HRT 4
+HRT International
+History
+Launched	27 August 1972 20 November 2022, online only no latency channel upon opening of the FIFA World Cup Qatar 2022
+Closed	December 18, 2022, (HRT2 Low Latency channel)
+Former names	
+Radiotelevizija Zagreb (RTZ), part of Jugoslavenska radiotelevizija (JRT) (1956–1990)
+Links
+Website	hrt.hr
+Availability
+Terrestrial
+OiV	MUX M1
+Streaming media
+HRTi	Watch live (Croatia only)

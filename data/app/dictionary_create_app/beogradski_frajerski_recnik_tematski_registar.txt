@@ -1,0 +1,146 @@
+alkohol:
+alkos, bambus, barkati, beton, betoniran, bombica, brlja, cevčiti, cirisanje, cirisati, cirka, cirke, cirkati, cirnuti, cuga, cugaroš, cugati, cugnuti, ćepi, drinker, drinkisati, džibra, džibrisati, džokanje, džokati, gemišt, gromovača, istresti, janpi, janpika, kilać, kilovača, lokator, lumperaj, Ijuštili, mazut, metilka, miš-maš, mokar, morka, mortus, mučenica, musolini, nabaren, nabariti se, nacirkati se, nadžibriti se, nadžokati se, nadodati se, naflekati se, nafrulan, nafrulati se, nafta, nakititi se, naljoskati se, nameštaj, naprstak, naroljati se, nasvirati se, našljeman, našljemati se, našljokati se, našminkati se, nalreskati se, navozati se, oljuštili, overen, overiti se, paprikara, patosiran, pićence, pijanista, pijara, pijuckati, pišaćka, potegnuti, prebiti se, preseći, presisati, rakijaš, rokanje, rokati, saugati, sisar, skinuti se, sljuštiti, specijalka, sunder, šećeruša, šikati, šljamčiti, šljemanje, šljemati, šljiskanje, šljisnuti, šljivka, šljoka, šljokadžija, šljokara, šljokati, šljokenzi, taraba, travka, truba, truba­ dur, ubarkati se, ubijati, ubijati se*, ubiti, ubiti se, ucirkati se, ucugati se, udesiti se, udžibriti se, udžokati se, ujanpiti se, ukantati se, ukenjati se, ukokati se, unuče, upucati se, upijanje, uraditi se, urokati se', uroljati se, usvirati se, ušibati se, ušikati se, ušljiskati se, utabati se, utamburiti se, uvoštiti se, vinčuga, vinjoza, zaginuti, zaliti se, zemljotres, Vinko Lozić, armirani beton, bela dama, beli Rus, šumadijski čaj, brza vožnja, vatrena voda, krstiti vino, preseći vino rakijom, prima se na vino, mokri brat, mrtav pijan, pijan ko bulja, pijan ko čep, pijan ko ćuskija, pijan ko dupe, pijan ko lena, pijan ko majka, pijan ko zemlja, pijan ko panj, pijan ko taraba, pijan do daske, probiti crtu, šiba šljoku, videti duplo, ubio se ko Nemac, nabio je kilometražu, nasvirao se ko taraba
+
+glava:
+čonta, čontara, čontaš, glavudža, glupača, kefalo, tikva, tinta, tintara, vugla
+
+lice:
+faca, fejs, njuška
+
+kosa:
+kosijaner
+
+nos:
+flauta, flautista, frnjokalica, frula, kljun, kuka, kvaka, noske, njokaiica, njonja, njonjara, pajser, puška, surla, truba
+
+oči:
+far, trakalica, zrakalice
+
+usta:
+frnjokalica, kljun, labrnja, lapara, laprdalo, pička, pljuca, hale
+
+uvo:
+radar
+
+noge:
+bataci, batačići, butke, butkice, geno, giljarke, hodalice, hodulje,
+
+ruke:
+vile 
+
+šaka:
+šapa
+
+nokti:
+kandže
+
+mišici:
+kifle, meso, trbušnjaci
+
+srce: 
+čuka, čukarac, čukica, herc
+
+ženske grudi:
+amortizeri, bacači, balkoni, baloni, dude, dudice, pluća, rusija, sifoni, sika, sike, sisice, sisiči, siske, sisurde
+
+zadnjica:
+auspuh, bulja, buljasker, buljina, dupe, dupence, dupinger, ekran, fanfulja, guz, guza, guzica, guzičica, guzičina, kanta, karoserija, kenjara, kenjaža, ljabu, pozadina, prdalo, rora, starka, tetka, trta-, trtanjak, trtoguz, zagu
+
+čmar:
+auspuh, čmarina, čmarulja, šupa, šupak
+
+himen:
+džana, džanifer, dana, junfer
+
+ženski polni organ:
+cana, čanta, čavka, čkapi, dvocevka, flondža, flonđa, maca, mindža, minđa, muf, mufič, muka, pica, picokara, picuša, pičica, pičić, pička, pičkica, pičoka, pika, pizda, pizdurina, rema, riba, ribetina, ribica, rondža, ronda, runda, rupa, rupetina, rupica, šljiva, štuka, šubara, trakalica, zevalica, žbun, crna ljubičica
+
+muški polni organ:
+alatka, anđelak, balavko, batina, budža, buzdovan, čuka, čuna, džamutka, džoni, doka, familija, gnjecopic, igla, kajla, kalabaster, kalauz, kara, karamela, kardan, karon, karondža, kita, kitać, klinac, kolac, kurac, kurajber, kurčekanja, kurčina, kuromicin, kuronja, landaralo, luđak, mačor, mačorčina, majmun, mali, mališa, mandrak, menjač, meso, miš, miško, mrčos, muštikla, pajser, palamar, patka, pendrek, penkalo, pevac, picožderac, pimpek, piša, pišalo, piška, pištolj, piton, plajvaz, poro­ dica, prasac, stojko, stvarčica, ševac, ševčina, špic, surka, tompus, trola, tuki, tvrtko, visuljak
+
+automobili:
+ajkula, amerikanac, bavarac, beemvejac, benzinac, britanac, brzinac, cepati, Čeh, četvrtak, čukanje, čuknut, čuknuti, čuknuti se, dizelaš, domaćica, đunta, emzejac, fića, folcika, fordaljka, fordić, francuz, gariti, jaje, japanac, jugič, kec, kolca, kolica, konjaža, kresati, kresnuti, krk, krntija, krš, krštenica, makina, mašina, meča, mečka, merđa, motati, nagariti, naftaš, nekršten, pauk, peglica, petak, polupati se, polovnjak, poljubiška, prdalo, saobračajka, sic, skecati se, skucati se, slupati se, sporać, sportnjak, starudija, stojadin, stranac, šestak, šklopocija, šporet, terenac, tristač, tucing, zgužvati, našminkati auto, plavi kec, ručni rad, srpski rulet, skinuti sa osiguranja, štekovati auto, uraditi auto, ima majku i oca
+
+bežanje pobeći:
+beg, begati, bežanija, bris, brisanje, brisati, brisnuti, briši!, čistac, džada, džadisati, džadnuti, fur, biranje, birati, furka, furnuti, ikati, ispariti, kidati, kidnuti, klisnuti, otperjati, paliti, paljba, sevati, struganje, strugati, strugnuti, šibati, šimati, šimiti, šmugnuti, štukati, štura, šturati, šturnuti, tutanj, zadžadili, zapaliti, zbrisati, zdi­ miti, ubiti nokat, vataj džadu!, vatati nokat, vatati maglu, uvatiti avion, seči krivinu, otkinuti fleku, uvatiti štraftu, vatati šutu, uvatiti tutanj, ubiti tutanj, udariti džadu
+
+fizički izgled:
+ajkula, akrep, aligatorka, bambus, bedevija, bidža, bomba, bom­ bona, bos, bosoglav, buljasker, buljaš, cvikeraš, čaplja, čontaš, ču­ pavac, čelavica, čelenka, ćorča, daska, divča, droplja, dupetara, faca, fišbajn, flautista, gabor-, gerla, grob-, grobarka, grđa, guzičarka, horor, izrezbaren, kamila, kantača, kiki, kikirez, kiklop, klempa, kockast, kraka, krakatilos, krampača, krava, kravulja, krš, kurajber, kuronja, leš, lopata, maca, macan, macana, mačo, malac, malečak, mesište, meso, mrtvak, mudonja, nabudžen, napredna, nazadna, neopevana, noske, parče, pevac, picopevac, pičič, pičorak, pikavac, prca, porpa, prakljača, punoglavac, pupavac, puška, razvijotka , regal, riba, ribetina, rusija, sića, skot, skrndelj, slatkiš, sovuljaga, surlaš, šifonjer, špiconoga, štakara, štakor, švajsovan, tipčina, trokrilac, trokrilni, trta, zašvajsovan, haos riba, mrak riba, luda riba, strava riba, zmaj riba, kosmička pička, straobalna riba, riba je ko avion, lepa ko upisana, aut riba (ili frajer), mrtav dasa, strašan dasa, strava frajer, gotivan do bola, jebeno zgodan, gomila mesa, krava muzara, metar i žilet, trokrilni orman, ko govnarska kofa, ko iz dupeta, ko podgrejani leš, nesrečan (ili žalostan) slučaj, ružan ko kurac
+
+fizički obračun:
+akanje, akati (se), aknuti, aplauz, ameriken, bambusati, bubetati, cepaža, cepnuti, čekićati, čuknuti, čvaknuti, dandara, danga, dokačiti, drajfnuti, drknuti, drmnuti, dirnuti, džapati se, fajt, fajtati, ferka, gaziti, gemblati, iskantati, ispolomiti, isponalupati, isponapikati, izbubetati, izgaziti, izlemati, izlomiti, izmarisati, izrezbaren, izrezbariti, jabuka, kalpiš, kantanje, kantati, kembečiti (se), kla­ nje, koljaža, kok, kokati (se), kokavac, koknuti, krema, kresnuti, krknuti, krljnuti, krnuti, lemanje, lemali (se), lešiti, Ijoljnuti, ljosnuti, macola, makija, makljada, makljaroš, makljati (se), makljaža, mar, mara, marisati (se), mamuti, masovka, munuti, nabosti, naduvati, nalomiti, nalupati, napenaliti, napičiti, naplaviti, naplavljen, napolomiti, napucali, naslagati, odalamiti, odrapiti, odva­ liti, okrpiti, olešiti, omanuti, opaliti, opaučiti, opendrečiti, opičiti, opizditi, oplajvaziti, oplaviti, ošajdariti, palačinka, pampas, patosiran, patosirati, pičiti, pičkaža, pičvajz, pocepati, pođapati se, ponalupati, pošibati se, pošorati (se), potkačiti, prelistavati, pri­ kucati, pripaliti, puknuti, raskrojiti, raspičiti, raspizditi, rasturati, rasturiti, raščepiti, razbijati, razbiti, razbucati, razmontirati, raz­ valiti, rebnuti, rezbarenje, rknuti, rokanje, rokati, roknuti, sapunjati, sečka, smazati, spičiti, svirnuti, šibanje, šibati (se), sibaza, sinuti, šljaga, šljiskanje, šljisnuti, šora, šorati, šoraža, šorka, šornuti, štiklirati, taba, tabač, tabačina, tabadžija, tabanje, tabati se, tabator, tabaža, tepati, trefiti, udesiti, ukantati, ukokati, ulemati, unakaziti, upucati, utabati, utepati, uvoštiti, zabiti, zaheftati, zakovati, zakucati, zapucati, zauška, zavaliti, zgaziti, zgemblati, zgovnati, zveknuti, zviznuti, zvrčka-*, žara, žurka, pozvati nacrtu, fajt do jaja, lomiti kosti, uvaliti maru, pala je makljaža (šorka, tabaža), nastao je pičvajz, propišati firnajz, pišati bubreg, ošamariti patos, popiti batine, pući među rogove, udariti po pički, popiti šljagu, udariti aplauz, kresnuti šamar, lupati šamare, isponalupati šamare, nalupati šamare, odalamiti šamarčinu, odvaliti šamar, prilepiti šamar, šibnuti šamar, zalepio mu je šljagu, zez glavom, udariti vaspitnu, povaditi jaja kome, promeniti lični opis, premlatiti na mrtvo ime
+
+mala nužda:
+baciti, izviždati se, olakšati se, pišačka, piškiti, pošorati, šoračka, šorati, zalivati, zviždati, žuboriti, forsirati potok, iscediti doku, pustiti pevca, zavrnuti pevcu šiju
+
+velika nužda:
+iskenjati se, israti se, izbaciti, kakiti, kenjanje, kenjati, kenjaža																															
+
+spavanje:
+banjati, čmavati, ćoriti, džonjati, knoriti, knjava, knjavanje, knjavati, kunt, kuntati, lalati, lavanje, naknjavati se, otknjavati, pajkiti, slipati, sova, sovaž, sovčiti, sovijaner, sovisati, soviti, sovka, spavanjac, debela knjava, ubiti sovu
+
+muška homoseksualnost:
+buč, buzer, buzerant, derpe, derpenja, dupedavac, dupejebac, fačkariti, feder, fišbajn, gej, gospođica, guzičar, hadžija, homić, homos, kurcoliz, lastiš, mačak, munara, mušmula, naguz(ac), orka, peca, pečurka, peda, peder, pederaš, peder-bal, pederčina, pederski, pedikir, pedos, pele, pepeljuga, pepi, peša, pešak, peškir, peško, pešovan, pešovander, pešovanski, perkan, pozadinac, tetka, tetkica, zguziti, guz sprega, topli brat, muška tetka, careva devojka
+
+ženska homoseksualnost:
+buč, fem, gej, lepšanka, lezbača, lezbejuša, lezbos, pederica, sapunjarka, dama u fazonu
+
+karakterne osobine:
+balerina, baraba, bekan, bezveznjak, bilmez, bizgov, bizon, brzopalac, bubuleja, budalesa, buljarenje, buljouvlakač, buzda, buzdo­ van, cakaroš, cava, cavulja, cehulja, cimati se-, cinkariti, cinkaroš, cvikaroš, cvikati, cviketan, čep, čepa, čepulja, češati se, češator, čir, čmar, čmarko, čmarulja, dasa , davež, davitelj, de­ bil, debilka, dileja, divčibarac, divčibare, dripac, dripčina, drkadžija , drkaroš, drkelja-, drndos, drolja , dupe, dupelizac, dupeuvlakač, duvander, džabalebaroš, džiber, džibra, džimrija, džudža, džukac, džukela, džulov, đubre, facko, femka, finac, folirant, folkuša, foteljaš, frajer ’, frajerčina, frajerisati se---, frajerka, frajla, frkator, frkaroš, fuksa, funjara, ganfer, gazdaroš, gelipter, genije, gladiti, glupačica, glupačina, glupander, glupantrop, glupča, glupenda, gluperda, glupson, gluvar, gluvara, gluvarenje, gmaz, gnjavator, gnjavež, govance, gušač, mandov, govedo, gov­ nar, govnara, govnarčina, govnarko, govnaruša-, govnjiv, gov­ no, grebaroš, grebati se, guzica, indijanac, izmotant, jaje, jajoglavi, janpi, janjičar, kalaštura, kenjac, kenjač, kenjalo, kenjator, ker, kešator, kitoje, klinac, komplikator, kontraš, kragna, krava, krivinaš, kulov-, kulovka, kurton, kuna , kurvača, kurvarčina, kurveština, kurveštija, kurvisati se, kvaran, kvarnjak, laf, lafcina , lafica, lagator, lajaroš, laktaroš, laprdalo, Iažnjak, le­ genda, lizguz, lovaran, ložač, luduša, lufter, luftiguz, lujka ‘, lujkača, lupetara, lupetarka, ljuštura, mali, malicana, malina, mangov, mangup , maser, mrsnik, mrsoje, mrsomud, mrsomuditi, mućkaroš, mudroser, muftaroš, muvara, muvator, otrov, otro­ van, ovca \ ovčica, pacijent, pacov, padavičar, padavičarka, pališa, paljevina, pandur, papak, peder , pederaš , pederčina, pičketina, pička , pičkica , pizda , pizdar, pizdek, pizdica, pizdulja, pizdun, pizdurina, plivač, plombiran, pogan, praziluk, prdač, prdeka, prdikara, prdoca, preletač, prelivoda, prevrtač, pri­ mati se, profuknjača , proliv, puvač, puvadžija, puvalo, sapun, seiz, seljančuga, seljančura, seljak, seljdžov, seljober, seljoberka, semafor, selotejp, sentimentalac, serator, seronja , sirovina, sisa, sisoje, skot, slepac, smarač, smor, smrad, smradina, smrda, smrdoje, sponzor, sponzorka, sponzoruša, stipsa, stiskavac, strejt, sunder*, svirač, šampanjac, šana, šibadžija, šibadžika, šibicar, šizika, šlihtar(a), šmizla, šoder , štakor, štroka, šuft, šugav, šumi(n)der, tip, tipčina, titrati, top, topčina, tranzistor, trema* roš, triper, triša, tronja, tronjav, trta, trtaš, tupadžija-, tupadžika, tupak, tupamaros, tupson, tuta-muta, tvrtko, udav, upisan* ko, uvlakač, uvući se, uvlačenje, uvlačiti se, verglaš, veverica, voajer, zabušant, zajebant, zekavac, zentara, zezač, zezator, zezov, ziheraš, debela ovca, glavno govno, trudna buva, knjiški moljac, kvaran ko šupalj zub, pokvaren je ko mućak, živa komplikacija, lako se pali
+
+kartanje kockanje:
+as, baciti, banka, bleP, blefirati, čip, dama, dečko, dignuti se, dobar!, džiga, fliperana, flop, fuljiti, guliti, istapijati, istapirati, izgoreti, jauknuti, kec, kečiga, kocoš, kova, munte, nadlicitirati, napakovati, ofuljiti, oguliti, opelješiti, pacer, paker, paket, pakovanje, pakovati, pasirati, pelješiti, piksla, plafon, platka, pokerana, pokeraš, pokerica, pokeriška, pop, pref, pub, puknuti, sanac, sed­ mica, šibicar, šnjur, štih, tandrknuti, tapi, taraba, ters, tiltovanje, trojica, tropa, tropirati, uleteti, uplatkati se, utrčati, trange-frange, žandar, slaba (ili jaka) ruka, ispod kape, ispod šešira, profi kockar, pokupiti šnjur, pala karta, pata karte, šlepa licitacija, ljuštiti karte, sere ga karta!, porodični poker, kockarska kurva
+
+kriminal (v. zatvor):
+ajkula, alkalac, alkaponisati, apisati, apiti, bombaš, bunarenje, bunariti, bunardžija, bunker, but, čarapan, čistač, čuknuti, čvaka, ćapisanje, ćapisati, čapiti, ćorisanje, ćorisati, ćoriti, ćornuti, dignuti, drmnuti, drpež, drpisanje, drpisati, drpiti, drpljen, drpnuti, drukati, drukator, druker, druknuti, dumbara, džeparenje, džepariti, đakra, đapiti, ekipa, fantomka, gančester, gangsteraj, gepa, gepar, gepavac, gepiti, hijena, igrač, ispaliti, isprangijati, izbunariti, izbušiti, izdrkeljisati, izdžepariti, izšamarati, izšanirati, jajara, jajarenje, kasiran, kasirati, kleptos, koknuti, kokošar, kombinacija, kraduckati, krimos, krimoski, krknuti, kupiti, ladiša, laditi, laki, lapiti, liske, lomilica, lopina, lopov, lopovka, lopurda, lopužina, lota, lufter, mačkar, maknuti, mar, marela, marisanje, marisati, mariška, mamuti, marnjavati, maz, mazdisati, maznuti, mažnjavanje, mažnjavati, motati, mrknuti, marela, mariška, miner, minerski, muljator, namarisati se, njamiti, obrada, obraditi , očerupati, odneti, odraditi, odrukati, oladiti, olakšati, operisati, ošamariti, ošamaren, ovca, overiti, paliti', paljevina, pečurkar, pičkavanje, piličar, pistoljeros, pištoljaš, pokupiti, pomažnjavati, popaliti, poslo­ vati, prangijaš, prangijati, provališka, prsnuti, pucačina, raditi, re­ ket, reketaš, reketiranje, reketirati, roknuti, samostalac, sekundara, silos, skenjati , skinuti, skokati, skratiti, smotati, soler-reketaš, sover, srediti, srokati, suvarak, šana, šaner, saniranje, sanirati, šanž, šanžirati, šap, šapa, šljakati, šljakator, štep, štucer, tal, tata, terenac, ucmekati, ućorisati, ukantati, ukokati, uraditi, upucati, urokati, ušanirati, utepati, vala, valator, valer, val ista, valjanje, va­ ljati, valjatorl, vrisnuti, zapaliti', zdipiti, zgepili, zidar, zidati, zveknuti, brze patike, metalni doka, žestoka kombinacija, zona sumraka, primenjena umetnost, udariti maru, uzeti na popust, raditi džep, svirnuti metak, zagristi metak, pušili cevku
+
+narkomanija:
+adam, akapulko, albanka, amfi, ap, apotekar, aut, autirati, avganistanac, belo, beng, biciklista, bodenje, bosti se, brazilac, cent, crno, crta, crtati, čarli, čekić, četvrtak, čistak, čami, čelavac, dignuti se, diler, dim, dizati se, domaćica, dop, dopčina, dopić, drogaš, drogeraš, drogos, droza, drozirati (se), duvač, duvanje, duvati, duvka, džega, džoint, džuganje, dank, đanki, đanki-franki, đankoza, eks, ekser, ekserčić, ekstazi, energija, fiknuti, fiks, fiksa, fiksanje, fiksati se, fikser, fit, fleš, flešbek, flip, folijati, frik, friker, frka', frulica, furka, gadro, gajba, ganja, gicavi, golubica, grana, gras, gudra, h, haj, haki, hašisar, hernija, heptos, hors, hot šot, igla, iskrstiti, iskulirati, istripovati, izgudriran, izgudrirati se, jedinica, juzer, juzirati, k, kaja, kaming daun, kec\ keks, ketić, ketpa, ki­ selina, koka, kokica, koks, koknuti se, kokošar, koman, konjina, kouk, krajcovati, krek, krizirati, krljanje, krljati se, kučka, kvoter, lajn, lapo, lepak, ler, lobe, lutka, malinica, mara, marica, mari ja, marika, mariš, marokanac, Meri Džejn, meriš, mić, mića, mrav, naći se, naduvan, naduvati se, nafiksan, nafurati se, narkić, narko-diler, našmrkati se, narkomančina, narkos, našmrkati se, navaren, navariti se, navučen, navući se, nenavučen, nevenka, nedl frend, nepalac, obraditi se, okica, okinuti, otkinuti se, overdoz, overdoziranje, overiti, paja, pajdika, pajdo, pajp, paketić, panj, peglanje, petarda, petica, pljuga, pljuganje, pljugati, polutka, pot, prah, prangija, praskavci, prebirati, probator, pucanje, puknuti se, raditi, raditi se, rejv, riknutf, rob, roba, rokanje, rokati se, rokić, roknuti se, sečenje, skanka, skidanje, skidati se, skinuti se, skockati se, srnejavac, sneg, snif, snifaljka, snifanje, snifati, snifer, sofronije, spid, spidbol, sprava, spustiti se, srediti se, staf, stereo-sistem, Ston, stond, stodiran, stondiranje, stondirati, šat, šema, šerif, šibica, šika, šmrk, šmrkač, šmrkanje, šmrljuckati, špricanje, step, šut, šutnuti se, tableta, ter, terkvo, tetka, torpedo, trava, travica, travka, treska, trip-, trojka, ubadati se, uduvan, uduvati se, ufiksati se, ufurati se, ukomirati se, upijati, uraditi se, urađen, uremiti, uroknuti se, usvirati se, varenje, variti, vuspra, vutra, vutrica, zakuc, zakucati se, zavijanje, zelje, ženka, zezanje, zgranuti se, zikra, žica, žiža, žuto, laka droga, meka droga, miksovana droga, tvrda droga, zlatni šut, zlatni metak, stereo fiks, golub ljubavi, zaljubljene golubice, đanki žurka, biti na danku, furati fazon, diže se, biti u frci, juriti zmaja, lečenje travkom, izvući crtu, šaržirati mić, imati trip, bodenje u granu, rokati u venu, pucati u tetku, udariti u tetku, pucanje po centrali, sjebani narkos, put na Mars, put na Mesec, horor trip, pumpati žilu, raditi drogu, biti na žici, duvanje lepka, čist je, brza vožnja, duvanje po veni, duvanje po nosu, napuderisati nos, ošamariti po nosu, motati džoint, pušiti travu, aut gucnuti, istripo se skroz, čiste stvari, skidanje na suvo, spustiti se na suvo, na suvaka, skinuo se načisto, samoubilačka pilula
+
+narodi rase:
+Amer, Baćuška, balija, Bosančeros, Ciga, Ciganija, Cigojner, Cigoš, crnčina, crnčuga, crnja, čama, čamac, čamuga, čamulja, čokolada, Čokalija, čokoladirani, Dalmoš, Đetići, Ganac, Ganjci, Garagan, Garaganka, Janez, Ješa, Ješinica, Jugović, Jugovina, Kalofonci, Mandov, Mandovka, Mađaron, mrak, musloš, Pišla, Ptarši, Purger, Ruja, Srbogorac, Srbos, Šica, Šipac, Šipos, Šiptar, Šiptarija, Siptarčina, Šiptariška, Škipac, Šok, Švaba, Švabija, Tot, Uglješa, uja, vaterpolista, Zuska, Zuza, Zabar, Žutaći, Žutara, Žuti, bela guzica, crna guzica
+
+novac:
+baja, banka, bara, barka, buđelar, bumbarka, cigla, crvendać, ćelav, dekintiran, dekintirati, dinarci, dinđa, evrići, filer, fraj, glava, glavica, genge, iljadarka, kebara, keke, kemar, kerma, kermica, kilo, kinta, klošariti, kriza, larka, lešinar, lešinariti, lova, lovan, lovanka, lovaner, lovator, lovčuga, lovica, lovina, loviška, lovudža, ljuljnuti, mani, maron, mortus, mastan, nafatiran, nafatirati se, namlatiti (se), nardi, oguliti, okrpiti se, očešati se, odrati, oguliti, okretati, paretine, paružine, perionica, petljarka, pljunuti, pokupiti, pova, puknuti, pula, pun, repa, riknjavati, rkema, slupati, solarno, som, somić, somine, sponzoruša, stotka, stući, suvarak, šaran, štekati, štuka, šuške, šušnuti, švorc, težak, trange-frange, transfu­ zija, turbo-bogataš, ući, ufuljiti, uleteti, ulje, uremiti, vrisnuti, zelembać, zelje, žicar, žicati, žickati, žicnuti (se), biti u čabru, jaka faca, gojenje love, zgrtati lovu, pun ko brod, klopati lovu, kratak je s lovom, navato sam love, šija lovu, šljašti lova, prosuti lovu, ne serem lovu, šišati ovce, živeti na foru
+
+odevni predmeti:
+apostolke, bokserica, cipeliške, ciposi, dopičnjak, duks, dukserica, džubretarac, fantomka, frularice, gaćeroni, giljara, giljarke, gilje, giljka, hulahopke, japanke, jaša, kaputiška, kaubojac, košuljiška, kožnjak, leptiriška, Ione, mašnijaner, mašnjak, minić, minjak, mondiš, mondiške, montiran, montirati se, motorka, najke, namontirati se, napičnjak, padobranci, perje, pičenjak, rokerica, rokerka, rolka, starke, šimike, šimi cipele, šiptarka, špicojke, štikletina, štucne, šulja, šuškavac, suze, teniske, tika, tikepa, tregerke, vijetnamka, znojalice, zvoncare, džak haljina, frula pantalone, pačji kljun, teški minić, furaju miniće, snimila je cipele, crta mu se stomak, šetati perje
+
+onanija (v. seks):
+drk, drkanje, drkati, guliti, šibati, Desanka Šakić, ručni rad, šamarati majmuna, šetati kožu, šiljiti ga, drkati pičku
+
+oružje:
+apovka, bebica, devetka, gvožđe, gvožđurija, helderica, kašikara, kratež, lažnjak, lupara, plašljivac, pljuca, popovka, pumparica, prangija, puca, pucaljka, rukodelka, samodelka, skakavac, snajperka, stvarčica, škorpion, štoljpi, tandžara, tetejac, utoka, valjevka, zigi, zolja, crna dama, duga devetka, kratka devetka, metalni doka, praskava olovka
+
+policija (v. zatvor):
+agiš, ala, anđeo, aver, čaja, cajac, cajkan, čija, ćoškar, drot, jamuri, ker, kljun, kondor, leha, mandrak, mara, marica, mariola, mica, milicajac, mile, milkan, murija, murijaš, murijaši, murja, murjak, murka, murkan, murke, narukvica, novi, organ, paja, pajkan, pajkos, pandur, panduracija, panduraši, plavac, policajka, pop, pub, pubijaner, rija, rijala, šetač, špiclov, tabanaš, vucibatina -, zub, žaca, žandar, anđeo čuvar, plavi anđeo, trudna mara, biti na pevanju, proradio je pendrek
+
+prostitucija:
+cana, cava, cavulja, čilara, daša, domaćica, droca, drocoš, droculja, droksa, drolja, drombulja, drfonfulja, droplja, faćkariti, fačkati, fanfulja, flondra, frajla, galeb, harem, kamen, kamenac, kamenjarka, kecara, koka, kurožderka, kuna, kunaluk, kurvanje, kur­ vati se, kurvetina, kunisati se, leš\ madam, mamica, mandovka, miško, oklopnjača, peza, peziti, picopevka, popušiti, prangija, profesionalka, rava, ravako, ravulja, ribizle, roksa, seka, sekadaša, sova, starka, šefkana, šoder, štajga, štajgerka, štuka, tetka, trotoarka, uličarka, prodavačica ljubičica, poslovna pratnja, profi riba, časna seka, mala kunića, pica senis, Picin park, Plavi most, džeparenje šliceva, skidali pičku 
+
+pušenje:
+cigaret-pauza, čibučenje, čik, čuriti, čvariti, čortan, karton, krdža, mrtvac, pikavac, pljuga, pijuganje, pljugati, popljugati, puš-pauza, variti, zadimiti, spržiti cigaru, žickati cigare
+
+seks (v, homoseksulnost, onanija, prostitucija):
+akanje, akati (se), analitika, arčiti, babojeb, babojebac, bambusati, bembanje, bembati, bodenje, bocnuti, bušiti, bušna, butnuti, cajper, cepanje, cepati, cepati se, čerečiti, čuknuti, deljati, dojebati, drk, drkadžija, drknuti, drmnuti, dudlati, gađati, gajba, gnječiti, golubamik, grupnjak, gumica, guslati, guziti, heftovati, isfrulati, iskecati, iskokati se, isponajebati (se), isponapikati, isprcana, isprcati (se), ispušiti, istresti, izbambusati, izbušiti, izlupati, jarac, jebati, jebežljiv, jebežljiva, jebozovan, jebozovna, jebozovno, karabudžiti, karati, kecati, klasika, kokati, kresati, kres­ nuti, krknuti, krpiti, kurcoliz, kurcolomka, kurton, lilovanje, lilovati, liz, lizati, Ijuljnuti, metak, močnuti, mrčiti, munuti, nabiti, nabosti, nagaziti, nagurati, naguziti, nakariti, nakundačiti, nalo­ žiti, naložiti se, napatiti, napatiti se, napaljen, napaljivanje, napičiti, naprčiti, napušiti se, narokati, nasaditi, nataknuti, nategnuti, natrčati, natrtiti, navući, nažuljati, nedojebana, nejebana, nejebica, nimfos, okinuti, okrpiti, okvasiti se, olešiti, opaliti, opaučiti, oralitika, ošajdariti, overiti, ovlažiti se, paljevina, pičkolizac, pocepati, pojebati, pojebulja, pokarati, polivati, ponajebati se, ponatrpati, popaliti se, poprcati, posisati, poševiti, poterati, potucati (se), povaliti, pre, preaža, prcati, prčiti, pričepiti, pričvrljiti, priheftovati, prijebati (se), priklati, prikucati, primati se, proburaziti, probušiti, prodžarati, provozati, prskati, prsnuti, prstać, prstenac, pušenje, pušikara, pušiko, pušiti, radiša, radnja, raspaliti, raspaljen, rastu­ riti, raščepiti, razbiti, razbucati, razšrafiti, rebnuti, redalica, redaIjka, rendisati, rknuti, saterati, sisati, sjuriti, skarabudžiti, skra­ titi, skrkati, smestiti, smuvati se, spaliti, sprčiti, srediti, sterati, suknuti, sunuti, svinger, svingeraj, svingerisati, svirnuti, svrš, svršavanje, svršavati, svršiti, ševa, šefkati (se), ševac, ševaljka, ševanje, ševati, ševiti (se), ševkati (se), ševnuti, trnđanje, trnđati, trošiti (se), trpanje, trpati, trpati se, trtiti, ubod, ubosti, učerati, ufur, ufurati, umakanje, umočiti, umuvati, upaliti se, uraditi, uspaljenica, lite­ rati, utrpati, uturiti, uvaliti, uvući, uznemiriti se, vaćarenje, vaćariti, vačariti se, vaćkati se, vasprcana, vlažiti, zabiti, zabosti, začepiti, zaglaviti, zagoreti, zagoreo, zagorela, zakucati, zamočiti, zapaliti se, zaskočiti, zatući, zavaliti, zavući, zbiberiti, zduvati, zekati, zgnječiti, zguziti, zgužvati, zveknuti, zviznuti, bapnuti ša­ rana, popiti kurac, staviti pod jaja, lupiti kurac, nalupati kurac, okinuti mačora, okinuti metak, privesti ribu, uvaliti miška, uvaliti mačora, uvaliti luđaka, uvaliti kurac, ima nezasitu patku, satirati se od kurca, udariti kajlu, udariti nitnu, oladiti pičicu, udariti po pički, prskati ribu, šibnuti kurac, skratiti trebu, utrčati zguza, skinuti mrak, liz masaža
+
+fudbal:
+Azuri, bambusati, Brđani, buba-mara, bušiti, cepati', Cigani, čistač, fuca, fudbalica, Gaučosi, Građevinari, Grobari, Inva­ lidi, izbambusati, kop, krljač, krljanje, krljaroš, krljati, libero, Pa­ cijenti, petliči, pikati, pimpler, pimpleraj, pimplovanje, Purgeri, Romantičari, ruka-grlo, Skijaši, slobodnjak, statista, ševa , šorka, špic-igrač, tobdzija, trovati, United Force, viktorija, Vitezovi, kenjaj Zvezdo!
+
+košarka:
+basket, basketaš, košarac, sketba, ubosti
+
+škola:
+as, bežanija, bios, buger, cediti, četvrtaci, digitron, eskivirati, fis, fiskiš, fiza, gegiš, geos, hemiš, hemos, kec, kečiga, kečina, klasičar, kolac, kontiš, krš, kvrga, mata, mentol, okinava, okinuti, osmak, pametnica, pandrknuti, petaci, petak, profa, profan, profander, profanderka, puškarati, puškica, sedmak, sunder, šestak, šlihtara, štrebanje, štrebati, štreber, štreberčina, štreberski, tam­ bura, top, tropa, tropađoz, tropirati, tropiti, tropnuti, truti-fruti, ubiti, Zvonko Spasič, brisati sa časa, furamo sa časova, kec ko vrata, ubo sam (,,,), uvalio mi keca, popiti keca, odjebao sam školu, otkačio sam školu, omanuti petaka, rasturati znanje, tresti znanje
+
+studenti:
+Akvarijum, brucoš, brucoškinja, faks, fakiš, jezičar, li­ kovnjak, likvidirati, muzičari, primenjaši, studentarija, Studenjak, sjebani student
+
+vojska:
+askara, čvarak, čata, dvojka, džomba, fazan, gene, geša, guja, gušter, kašikara, kaplar, klasič, KKK, oficiruša, prašinar, rema, remac, reponja, skidanje, skidati se, staža, zolja, žabar, stara kajla, stara koska, stara kvrga, stari borac, dobiti dvojku
+
+zatvor:
+bajbok, bajbokana, buvara, Ce-Ze (C-Z), čučati, ćorka, čorkana, čorkirati, ćuza, čuzirati, dugoprugaš, frižider, gluvara, govnar, iguman, istražnjak, kavez, kuća, kuka, kulana, kvrga, ladara, lider, mardelj, mardeljaš, mardeljati, novak, obrada, obraditi, odrezati, oduvati, odvaliti, oladiti, Padinjak, panj, rknuti, robija, rupa, serviser, sing, skinuti, učorkirati, zaglaviti, zatvorenjak, iza brave, popili mardelj, odležao je pet metara, odraditi kaznu, tucati kamen, žestoka robija
+
+ženska osoba:
+bara, bira, birka, coma, čupi, cuši, čavka, čkicapi, gerla, klinčića, klinka, mače, mačka, mačos, mala, moca, mušmula, pica, picuša, piče, pičica, pičič, pička, pičkica, pičorak, pizdetina, pizdurina, pizdulja, popišulja, riba, ribica, ribičon, ribič, ribizle, ribon, rondža, sisa, sojka, sova, tetka, treba, ženskać

@@ -2,6 +2,7 @@ import os
 import json
 import urllib.request
 import requests
+import html as HtmlLib
 
 
 class Data():
@@ -2297,7 +2298,7 @@ class Rashomon():
         if project_filename:
             self.load_project(project_filename)
 
-    def get_segment_selection(self, segment_name: str, remove_tags: bool = False, remove_double_lf: bool = True, join_in_one_line: bool = False, strip_spaces: bool = True) -> str:
+    def get_segment_selection(self, segment_name: str, remove_tags: bool = False, remove_double_lf: bool = True, join_in_one_line: bool = False, strip_spaces: bool = True, remove_comments: bool = True) -> str:
         if not self.project_name:
             self.errors(error_message="No project loaded.")
             return None
@@ -2320,23 +2321,32 @@ class Rashomon():
         if remove_tags:
             txt = self.remove_tags(txt, join_in_one_line=join_in_one_line)
 
-        if remove_double_lf:
-            txt_list = [x.strip() for x in txt.split("\n") if x.strip()]
-            txt = "\n".join(txt_list)
-
         if strip_spaces:
             txt = txt.strip()
         
-        while True:
-            start = txt.find("<!--")
-            if start != -1:
-                end = txt.find("-->")
-                if end != -1:
-                    txt = txt[:start] + txt[end+3:]
+        if remove_comments:
+            while True:
+                start = txt.find("<!--")
+                if start != -1:
+                    one_line_comment = True
+                    end = txt.find("-->", start)
+                    if end != -1:
+                        comment_text = txt[start:end+3]
+                        if comment_text.count("\n") < 3:
+                            txt = txt[:start] + txt[end+3:]
+                            one_line_comment = False
+                    if one_line_comment:
+                        end = txt.find("\n", start)
+                        if end == -1:
+                            txt = txt[:start]
+                        else:
+                            txt = txt[:start] + txt[end+1:]
                 else:
                     break
-            else:
-                break
+
+        if remove_double_lf:
+            txt_list = [x.strip() for x in txt.split("\n") if x.strip()]
+            txt = "\n".join(txt_list)
 
         return txt
 
@@ -2510,12 +2520,21 @@ class Rashomon():
         in_tag = False
         for line in html.splitlines():
             if line.startswith("<"):
+                html_clean += line.replace("'", '"')
                 in_tag = True
+                if line.endswith(">"):
+                    html_clean += "\n"
+                    in_tag = False
+                continue
+            if in_tag:
+                html_clean += " " + line.replace("'", '"')
             if line.endswith(">"):
                 in_tag = False
-            html_clean += line
-            if not in_tag:
                 html_clean += "\n"
+                continue
+
+            if not in_tag:
+                html_clean += HtmlLib.unescape(line) + "\n"
 
         html_clean = self.remove_extra_spaces(text=html_clean, only_remove_double="\n", remove_tabs=True)
         return html_clean
@@ -2591,15 +2610,21 @@ class Rashomon():
     def _is_tag_mark_valid(self, tag_code: str, rules: list) -> bool:
         for rule in rules:
             if rule[1]:
-                mark = rule[0] + '="'
+                mark = rule[0] + '='
                 if mark not in tag_code:
                     return False
                 else:
                     start = tag_code.find(mark)
-                    end = tag_code.find('"', start + len(mark))
+                    bound_char = " "
+                    if start != -1:
+                        if tag_code[start+len(mark):start+len(mark)+1] in "\"'":
+                            bound_char = tag_code[start+len(mark):start+len(mark)+1]
+                    end = tag_code.find(bound_char, start + len(mark) + 1)
+                    if end == -1:
+                        end = tag_code.find('>', start + len(mark))
                     if end == -1:
                         return None
-                    value = tag_code[start+len(mark):end]
+                    value = tag_code[start+len(mark):end].strip(" '\"")
                     if rule[1] not in value:
                         return False
         return True
@@ -2636,7 +2661,7 @@ class Rashomon():
         if text is None:
             return None
         
-        remove = [" ", "n"]
+        remove = [" ", "\n"]
         if only_remove_double:
             if isinstance(only_remove_double, str):
                 remove = [only_remove_double]
@@ -2690,13 +2715,12 @@ class Rashomon():
         if change_source:
             self._data_source["source"] = change_source
 
-        if not self._data_source["text"]:
-            result = self.download_text_from_source()
-            if not result:
-                self.errors(error_message="The text could not be retrieved from the source.")
-                self._data_source = None
-                self.project_name = None
-                return False
+        result = self.download_text_from_source()
+        if not result:
+            self.errors(error_message="The text could not be retrieved from the source.")
+            self._data_source = None
+            self.project_name = None
+            return False
 
         self.project_name = project_filename
         self.script.load_data_source(self._data_source)
@@ -2736,10 +2760,7 @@ class Rashomon():
             self._data_source["formated_text"] = ""
             return
         
-        from bs4 import BeautifulSoup as bs
-
-        soup = bs(self._data_source["text"], 'html.parser')
-        formatted_text = soup.prettify()
+        formatted_text = self._quick_format_html(self._data_source["text"])
         self._data_source["formated_text"] = formatted_text
     
     def is_compatible_mode(self) -> bool:
@@ -2813,7 +2834,6 @@ class Rashomon():
             result_page = requests.get(self._data_source["source"])
             result_page.raise_for_status()
             result = result_page.text
-            # result = urllib.request.urlopen(url, timeout=self.timeout_for_retriving_from_url).read().decode("utf-8")
         except:
             try:
                 result = urllib.request.urlopen(url, timeout=self.timeout_for_retriving_from_url).read().decode("utf-8")

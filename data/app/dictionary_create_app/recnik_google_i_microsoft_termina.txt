@@ -1,0 +1,396 @@
+access point –  pristupna tačka: Uređaj  koji se koristi za povezivanje bežičnih računara i drugih bežičnih uređaja sa žičnom mrežom.
+account – nalog: Sredstvo kojim korisnik potvrđuje svoj identitet sistemu i dobija ovlašćenje za pristup uslugama sistema; način na koji sistem vodi evidenciju o ovlašćenim korisnicima.
+ad targeting – ciljanje oglasa: Postavljanje oglasa kako bi se doprelo do potrošača na osnovu različitih karakteristika – demografskih kategorija, psiholoških profila, istorije kupovine proizvoda itd.
+address bar – traka za adresu (G); traka adresa (MS): Element za navigaciju koji se obično nalazi pri vrhu prozora i koji omogućava korisnicima da vide trenutnu URL adresu lokacije, kao i da unesu novu URL adresu i time budu preusmereni na novu lokaciju.
+add-in – programski dodatak: Dodatni softver koji proširuje mogućnosti postojeće
+aplikacije. Videti: add-on i plug-in (sinonimi)
+adjust – prilagoditi: Izmeniti određena podešavanja, podesiti;
+add-on – dodatak, dodatni program: Softver koji poboljšava drugu softversku aplikaciju i obično ne može da se pokreće nezavisno. Videti: add-in i plug-in (sinonimi)
+advanced – napredno: Poboljšano, detaljnije, sa mogućnošću prilagođavanja;
+adware – adver: 1. Softver koji prikazuje oglase i koji je integrisan u drugi program koji se nudi besplatno ili po niskoj ceni. 2. Vrsta špijunskog softvera koja prikuplja informacije o korisnikovim navikama pregledanja interneta kako bi prikazivao ciljane oglase.
+alert –  Vid informisanja korisnika o nekoj radnji koja zahteva reagovanje; može biti tekstualno (poruke e-pošte ili tekstovi u iskačućim prozorima), zvučno ili kombinacija ova dva načina
+antivirus program – antivirusni program: Računarski program osmišljen da otkriva i reaguje na zlonamerni softver, poput virusa i crva. Reagovanje podrazumeva blokiranje pristupa zaraženim datotekama, čišćenje zaraženih datoteka ili obaveštavanje korisnika. Videti: antimalware (sinonim)
+antimalware – antimalver: Resurs koji štiti računare i sisteme od malvera, uključujući viruse, špijunski softver i druge štetne programe. Videti: antivirus program (sinonim)
+application – aplikacija: Skup komandi koje računar koristi za obavljanje određenog zadatka, poput obrade teksta, računovodstva ili upravljanja podacima.
+apply – primeniti: Pokrenuti ili iskoristiti. Primer: Apply changes made to document – Primeniti promene unete u dokument
+ 
+
+assign – dodeliti: Navesti vlasnika zapisa, poput naloga, ili aktivnosti, poput poruke e-
+pošte ili telefonskog poziva.
+attachment – prilog: Spoljna datoteka koja se dodaje poruci e-pošte.
+authentication – potvrda autentičnosti (G); potvrda identiteta (MS): Postupak verifikacije identiteta korisnika, računara, procesa ili drugog entiteta proverom valjanosti akreditiva koje taj entitet navodi.
+authorization  –  davanje  ovlašćenja  (G);  autorizacija  (MS):  Postupak  u kome  se  osobi, računarskom procesu ili uređaju dozvoljava pristup određenim informacijama, uslugama ili funkcijama.
+B
+backup – napraviti rezervnu kopiju: Napraviti duplikat programa, diska ili podataka radi arhiviranja ili iz sigurnosnih razloga.
+bandwith – propusni opseg: Kapacitet prenosa podataka, tj. brzina sistema za digitalnu komunikaciju; meri se u bitima u sekundi (bps).
+battery charge – nivo napunjenosti baterije (G); napunjenost baterije (MS): Količina energije baterije koja je preostala na određenom sistemu; meri se u procentima.
+body  of  e-mail  –  telo  poruke  e-pošte  (G);  telo  e-poruke  (MS): Sadržaj  e-poruke;  sledi
+nakon zaglavlja poruke (pošiljalac, vreme slanja i primalac poruke).
+bookmark – obeleživač: 1. Veza do dela teksta u datoteci radi lakšeg kasnijeg pristupa; 2.
+Prečica do određene URL adrese na vebu koja se čuva radi lakšeg kasnijeg pristupa toj adresi.
+boot – pokretanje sistema: Početni skup radnji koje računarski sistem obavlja nakon uključivanja dovoda električne energije do procesora ili ponovnog pokretanja sistema.
+browser – pregledač: Softverski program koji se koristi za prikazivanje veb-stranica i kretanje po internetu.
+browse – pregledati: Kretati se kroz bazu podataka, kroz listu datoteka ili internetom u
+cilju pronalaženja konkretne stavke ili bilo čega interesantnog.
+browsing history – istorija pregledanja: Privatne informacije korisnika, poput privremenih datoteka, istorije, lozinki, unosa u veb-obrascima i kolačića, koje čine evidenciju aktivnosti pregledanja interneta i drugih aktivnosti na mreži.
+buffer – bafer: Deo memorije rezervisan za privremeno skladištenje podataka pre nego što te podatke upotrebi uređaj ili aplikacija koji primaju te podatke; to je zaštita od prekida toka podataka.
+bug – greška: Nepravilnost u kodu ili logici koja izaziva neispravno funkcionisanje programa.
+built-in – ugrađeno: Element koji je podrazumevano deo drugog elementa, bilo da se radi
+o fizičkom uređaju, softveru ili operativnom sistemu.
+bulk e-mail – masovna e-pošta: Sistemski zadatak koji šalje više e-poruka većem broju
+primalaca koje navede korisnik.
+bulk upload – grupno otpremanje (G) masovno otpremanje (MS): Sistemski zadatak koji
+otprema više datoteka istovremeno na konkretno odredište.
+by default – podrazumevano: Način na koji program utvrđuje tok daljih radnji (podešavanja) kada korisnik ne izabere konkretne vrednosti za podešavanja.
+ 
+
+C
+cache – keš: Specijalni memorijski podsistem u kome se prave duplikati vrednosti često korišćenih podataka radi brzog pristupa.
+carrier – operater: Kompanija koja potrošačima pruža telefonske usluge u druge usluge
+komunikacije.
+certificate – sertifikat (G); certifikat (MS): Digitalni dokument koji se obično koristi za potvrdu autentičnosti i obezbeđivanje informacija na mreži. Sertifikat povezuje javni ključ sa entitetom koji ima odgovarajući privatni ključ. Sertifikati imaju digitalni potpis autoriteta za izdavanje sertifikata i mogu da se izdaju korisniku, računaru ili usluzi.
+checkbox – polje za potvrdu: Mali okvir koji pokazuje da li je opcija izabrana ili nije.
+Kada se opcija izabere, u polju se pojavi znak za potvrdu ili „x“.
+check checkbox – označiti polje za potvrdu: Izabrati opciju ispred koje se nalazi polje za
+potvrdu. Kada se polje označi, u polju se pojavi znak za potvrdu ili „x“.
+client – klijent: Računar koji koristi veb-server.
+code – kôd: 1. Bilo koji skup računarskih instrukcija koje su napisane pomoću nekog računarskog jezika koji čovek može da pročita, obično u vidu teksta 2. Niz znakova koje korisnik unosi da bi potvrdio svoj identitet mreži, računaru, uređaju, klijentu, kao i radi prijave na nalog itd.
+conference call – konferencijski poziv: Telefonski ili video razgovor između tri ili više
+osoba.
+comma separated values file – datoteka sa vrednostima razdvojenim zarezima, CSV datoteka: Datoteka sa podacima koja se sastoji od polja i zapisa u vidu teksta koji su međusobno razdvojeni zarezima.
+comment – komentar: Doprinos ili povratne informacije koje ostavlja neko ko pregleda sadržaj na sajtu. Osoba koja pregleda video, fotografije ili datoteke može da ostavi komentar ako za to ima dozvolu.
+compress – komprimovati: Smanjiti veličinu skupa podataka, poput datoteke ili komunikacione poruke, kako bi koristio manje skladišnog prostora ili bio prenet korišćenjem manjeg propusnog opsega.
+computing – računarstvo: Korišćenje računara za obradu podataka ili obavljanje proračuna.
+cookies – kolačići: Blok podataka čiju kopiju pregledač šalje serveru kada korisnik ponovo poseti isti veb-sajt. Ovaj skup podataka omogućava identifikaciju korisnika, a server dobija naredbu da prikaže prilagođenu verziju veb-stranice.
+create – napraviti (G); kreirati (MS): Stvoriti novi sadržaj.
+create an account – otvoriti nalog: Napraviti novi korisnički nalog sa jedinstvenim korisničkim imenom i lozinkom.
+credentials – akreditivi: Informacije koje se koriste za identifikaciju radi pristupa lokalnim i mrežnim resursima. Primeri akreditiva su korisnička imena i lozinke, pametne kartice i sertifikati.
+crop – opseći (G); izrezati (MS): Iseći vertikalne i horizontalne ivice objekta. Slike se često opsecaju da bi se istakla određena oblast.
+cursor –  pokazivač  miša  (G);  kursor  (MS): mesto  označeno  strelicom  ili  nekim  drugim znakom koje pokazuje gde će se sledeći ulazni podatak ili slovo prikazati na ekranu.
+ 
+
+customize – prilagoditi: Izmeniti hardver ili softver radi prilagođavanja potrebama konkretnog preduzeća ili klijenta.
+customer – klijent: Osoba ili kompanija kojima druge kompanija prodaje proizvode ili usluge.
+D
+data – podaci: Predstavljanje činjenica, koncepata i naredbi na formalizovan način, koji je prikladan za komunikaciju, tumačenje i obradu.
+database – baza podataka: Skup podataka formatiranih/uređenih tako da omogućavaju
+laku pretragu i pristup.
+data plan – tarifni paket (G); tarifni plan (MS): Standardizovani ugovor o pružanju usluge između korisnika mobilnog telefona i mobilnog operatera koji utvrđuje detalje usluge prenosa podataka, poput cene, vrste usluga, tipova usluga i propusnog opsega.
+data provider – dobavljač usluge prenosa podataka: Kompanija koja pruža usluge prenosa podataka korisnicima za određenu naknadu.
+data transfer – prenos podataka: Kretanje informacija sa jednog na drugo mesto, ili u okviru računara, između računara i spoljnog uređaja (npr. servera na mreži) i između dva odvojena računara.
+default – podrazumevano: Način na koji program reaguje ako korisnik ne izabere neku od
+opcija ili ne unese zahtevanu vrednost.
+desktop – radna površina: Radna oblast na ekranu računara koja simulira površinu pravog radnog stola. Na radnoj površini se nalazi Korpa za otpatke i druge ikone (prečice do programa, datoteke, direktorijumi i razni tipovi dokumenata, poput pisama, izveštaja ili slika).
+dialog box – dijalog: Sekundarni prozor koji omogućava korisnicima da obavljaju
+komande, postavlja korisnicima pitanja ili im navodi informacije.
+dial-up connection – pozivna veza: Veza sa drugim računarima ili internetom koja se uspostavlja preko telefonske mreže.
+disable – onemogućiti: Učiniti da uređaj, komponenta ili funkcija ne funkcionišu.
+display – ekran: Uređaj za vizuelni izlaz čiji je cilj prikaz različitih vidova informacija.
+download – preuzeti: Prebaciti kopiju datoteke sa udaljenog uređaja na uređaj koji šalje zahtev preko modema ili mreže.
+dpi – tačaka po inču (dots per inch): Standard koji se koristi za merenje rezolucije ekrana
+i štampača iskazan kao broj tačaka koje uređaj može da prikaže ili odštampa po linearnom inču.
+drag  –  prevući:  Premestiti  stavku  na  ekranu  (1)  dodirom  stavke na  dodirnom  ekranu  i prevlačenjem prsta preko ekrana (2) pritiskom i držanjem levog tastera miša prilikom pomeranja miša.
+drag  and  drop  –  „prevuci  i  otpusti“:  Oznaka  za  postupak  ili  funkciju  koji  obuhvataju
+premeštanje objekata na ekranu pomoću miša ili sličnog uređaja za unos. Videti: drag
+drive – disk jedinica: Skladišni prostor koji je formatiran pomoću sistema datoteka i dodeljeno mu je slovo. Skladišni prostor može da ima oblik flopi diska, CD-a, DVD diska, čvrstog diska ili drugog tipa diska.
+driver – upravljački program: Softver koji omogućava hardveru ili periferijskim uređajima (poput štampača, miša ili tastature) da funkcioniše sa računarom ili mobilnim uređajem.
+dropdown  menu –  padajući meni: Meni koji se spusti nadole  iz trake menija  na  zahtev korisnika i koji je otvoren dok korisnik ne reaguje, odnosno zatvori ga ili izabere stavku iz njega.
+ 
+
+E
+e-mail – 1. e-pošta: Razmena poruka preko komunikacione mreže poput lokalne mreže ili interneta. 2. poruka e-pošte (G); e-poruka (MS): Poruka koja se šalje preko komunikacione mreže poput lokalne mreže ili interneta.
+e-mail address – adresa e-pošte (G); e-poruka (MS): Niska koja identifikuje korisnika da bi mogao da bi mogao da prima e-poštu preko interneta.
+embed – ugraditi: Umetnuti informacije napravljene u jednom programu, poput grafikona,
+jednačine, slike, videa ili fonta, u drugi program ili veb-stranicu.
+enable  –  omogućiti  (G);  aktivirati  (MS):  Učiniti  da  uređaj,  komponenta  ili  funkcija funkcionišu. Aktivirati ili uključiti.
+encrypt – šifrovati: Programski zamaskirati sadržaj radi sakrivanja njegove suštine.
+enhanced – poboljšan: Koji poseduje naprednije ili sofisticiranije karakteristike.
+export – izvesti: Prebaciti podatke i objekte iz jedne baze podataka u drugu bazu podataka, tabelu ili format datoteke kako bi druga baza podataka, aplikacija ili program mogli da koriste podatke ili objekte baze podataka.
+extension   –   1.   dodatak   (G);   proširenje   (MS):   Program   koji   proširuje   mogućnosti pregledača. Dodaci se obično pojavljuju kao nova dugmad, trake sa alatkama ili stavke menija.
+2. oznaka tipa datoteke: Niz znakova koji slede naziv datoteke i koji su od nje odvojeni tačkom, a
+kojima se identifikuje vrsta datoteke.
+F
+FAQ – Frequently Asked Questions : česta pitanja (G); najčešća pitanja (MS): Dokument
+u kome su navedena uobičajena pitanja i odgovori u vezi sa određenom temom.
+feature – funkcija: Opcija koja obavlja određenu ulogu.
+file – datoteka: Skup povezanih podataka ili programskih zapisa koji se čuvaju kao jedinica
+je jedinstvenim imenom.
+filter – filtrirati: Propustiti podatke kroz šablon da bi se izdvojile konkretne stavke.
+fire wall  –  zaštitni  zid:  Bezbednosno  rešenje  koje  odvaja jedan  deo  mreže  od  drugog  i omogućava samo ovlašćenom mrežnom saobraćaju da prolazi iz jednog u drugi deo u skladu sa pravilima filtriranja.
+folder – direktorijum (G); fascikla (MS): Skladišni prostor sa nazivom na računaru koji sadrži datoteke i druge direktorijume. Koristi se za elektronsku organizaciju informacija, slično pravim fasciklama.
+format – formatirati (G); oblikovati (MS): Postupak uređivanja podataka za skladištenje
+ili prikaz.
+frame rate – broj kadrova u sekundi (G); broj slika u sekundi (MS): Broj kadrova u video snimku koji se emituju svake sekunde. Veći broj kadrova u sekundi označava neometanije pokrete u video snimku.
+full installation – kompletna instalacija (G); puna instalacija (MS): Tip instalacije u kojoj
+su sve datoteke potrebne za dovršavanje postupka instalacije u jednom paketu.
+G
+gadget – gedžet: Dodatni program koji obavlja određeni zadatak i koji se integriše sa
+aplikacijama da bi brzo prikazao podatke.
+ 
+
+gateway  –  mrežni  prolaz:  Uređaj  koji  povezuje  mreže  pomoću  različitih  protokola  za komunikaciju kako bi se informacije prenele sa jedne na drugu mrežu. Mrežni prolaz prenosi informacije, ali ih i prebacuje u oblik prilagođen protokolima koje koristi mreža primalac.
+graph – grafikon: Slikovno sredstvo kojim se ilustruju kvantitativni odnosi, poput kružnog
+ili trakastog dijagrama.
+guidelines – smernice: Pravilo ili skup pravila koje utvrđuje tok aktivnosti koje treba
+preduzeti.
+H
+hard  drive  –  hard  disk  (G);  čvrsti disk  (MS): Uređaj  za  skladištenje  podataka koji  se koristi za čuvanje ili preuzimanje digitalnih informacija pomoću diskova koji se okreću velikom brzinom koji su premazani magnetnim materijalom.
+hash – heš: Rezultat fiksirane veličine koji se dobija primenom jednostrane matematičke funkcije (koja se nekada naziva heš algoritam) na proizvoljnoj količini podataka. Heš se koristi u mnogo operacija, uključujući potvrdu autentičnosti i digitalno potpisivanje.
+header – zaglavlje: Identifikacioni red ili redovi odštampani pri vrhu stranice. Zaglavlje
+može da sadrži broj stranice, datum, ime autora i naslov dokumenta.
+highlight – markirati: Istaknuti prikazane znake zamenom boja znakova i pozadine (svetli znaci na tamnoj pozadini i obrnuto) ili bojenjem pozadine konkretnih znakova.
+highlighter tool – marker: Alatka za dodavanje napomena koja se koristi za markiranje oblasti slajda.
+home – početna (G); matična stranica (MS): Ikona li link koji preusmeravaju korisnike na
+prilagođenu početnu stranicu.
+home page  – početna stranica (G); matična stranica (MS): Na vebu je to polazna stranica za skup veb-stranica i drugih datoteka na veb-sajtu. Početna stranica se prikazuje podrazumevano kada posetilac poseti sajt pomoću veb-pregledača.
+home screen – početni ekran: Glavni ili podrazumevani ekran koji se prikazuje pri pokretanju.
+host – host: Računar koji ima ulogu izvora informacija ili signala. Host računar pruža usluge, poput vesti, pošte ili podataka, računarima koji se povezuju sa njim. Termin može da se odnosi skoro na svaki računar, počev od servera koji je host klijentima, pa sve do desktop računara koji je host povezanim uređajima, poput štampača i skenera.
+hotspot – hotspot: Javno mesto (poput kafea, aerodroma ili hotela) sa bežičnom mrežom gde možete da se povežete sa internetom.
+hover –  zadržati pokazivač  miša  iznad:  Postaviti  pokazivač  iznad  elementa korisničkog interfejsa tokom određenog vremenskog perioda u cilju interakcije sa tim elementom .
+I
+icon – ikona: Mala slika koja predstavlja datoteku, direktorijum, program ili drugi objekat ili funkciju.
+image – slika: Grafički prikaz, poput digitalne fotografije ili ilustracije.
+import – uvesti: Prebaciti informacije iz jednog sistema ili programa u drugi. Sistem ili program koji prima podatke mora na neki način da podržava unutrašnji format ili strukturu podataka.
+incognito mode  – režim Bez arhiviranja: Funkcija u Google Chrome pregledaču pomoću koje se u istoriji ne čuvaju pregledane stranice, preuzete datoteke i kolačići.
+ 
+
+index – indeks: Lista ključnih reči i povezanih podataka koji se odnose na lokaciju ili
+detaljne informacije, poput datoteka i zapisa na disku ili zapisa u bazi podataka.
+input – ulaz: Prva od dve komplementarne radnje prikupljanja ili distribucije podataka.
+Ulaz predstavlja podatke koji se prikupljaju sa uređaja ili koje korisnik unosi pomoću uređaja.
+input method – metod unosa: Komponenta ili program operativnog sistema koja omogućava da sistem prepoznaje bilo koje podatke, poput pritiska na tastere tastature ili miša, kao unos podataka, čime korisnici mogu da unose znake koji se ne nalaze na uređajima za unos.
+insert – umetnuti: Postaviti objekat između dva druga objekta. Umetanje znakova, reči, pasusa i dokumenata je uobičajeno za obradu teksta.
+installer – instalacioni program: Softver koji instalira određeni program na sistem.
+internet – internet: Skup mreža i mrežnih prolaza iz celog sveta koji koriste TCP/IP protokole za međusobnu komunikaciju.
+internet connection – veza sa internetom (G); internet veza (MS): Veza između korisničkog uređaja i servera koja omogućava pristup internetu, obično preko dobavljača internet usluge.
+internet service provider – dobavljač internet usluge: Preduzeće koje pruža usluge veze sa internetom pojedincima, preduzećima i drugim organizacijama.
+J
+jack  –  priključak: Otvor odgovarajuće veličine koji se koristi za povezivanje uređaja sa drugim uređajima.
+K
+key  –  šifra  (G);  ključ  (MS):  Vrednost  koja  se  koristi  u  kombinaciji  sa  algoritmom  za
+šifrovanje ili dešifrovanje podataka.
+keyboard  shortcut  –  tasterska  prečica:  Bilo  koja  kombinacija  tastera koja može  da  se koristi da obavljanje određenog zadatka za koji bi inače bio potreban miš ili drugi uređaj za pokazivanje.
+L
+launch – 1. pokrenuti: Uključiti određenu aplikaciju, softver ili funkciju; 2. pustiti u prodaju: Predstaviti proizvod javnosti i tržištu i učini ga komercijalno dostupnim.
+launcher – pokretač: Funkcija osmišljena za jednostavno pokretanje aplikacija ili funkcija.
+layout – raspored: Opšti dizajn stranica ili skupa sadržaja, uključujući tekstualne elemente,
+kontrole i grafičke sadržaje.
+library – biblioteka: Skup standardnih programa i potprograma namenjenih trenutnom
+korišćenju, a koji je obično uskladišten na disku ili drugim memorijskim uređajima.
+link – link (G); veza (MS): Segment teksta ili grafička stavka koja služi kao referenca između delova dokumenta sa hipertekstom ili između datoteka i dokumenata sa hipertekstom .
+load – učitati: Preneti (podatke) sa uređaja za skladištenje u memoriju računara.
+loader – punilac: Računarski program koji prenosi podatke sa memorije van mreže u unutrašnju memoriju.
+log – evidencija: Zapis transakcija koje se dešavaju u okruženju kojim se upravlja pomoću
+informacionih tehnologija.
+ 
+
+log in – prijaviti se: Dobiti pristup konkretnom računaru, programu ili mreži identifikacijom pomoću korisničkog imena i lozinke. Videti: log on
+logo – logotip: Prepoznatljivi simbol koji identifikuje osobu, preduzeće ili organizaciju; može da predstavlja kombinaciju naziva, mota i grafičkih elemenata.
+log on – prijaviti se: Uneti u računar informacije potrebne da bi se započela sesija. Videti:
+log in (sinonim)
+log off –   odjaviti se: Prekinuti sesiju   sa   računarom   kojem ste pristupili preko
+komunikacione linije, a koji je obično udaljeni računar kome pristupa veći broj korisnika.
+log out – odjaviti se: Prekinuti vezu sa udaljenim terminalom sa sistema sa višestrukim
+pristupom. Videti: log off M
+mailing list – lista slanja: Lista imena i e-adresa koje se grupišu pod istim nazivom. Kada
+korisnik stavi ime grupe u polje za prima oca, poruka se automatski šalje svim adresama na listi.
+malicious software – zlonamerni softver: Softver čija je namena štetan uticaj na sistem
+prilikom pokretanja.
+malware – malver: Zlonamerni softver koji ometa normalne funkcije računara ili šalje lične informacije o korisniku neovlašćenim stranama preko interneta.
+manage – upravljati: Imati kontrolu nad nekom funkcijom, sistemom ili uređajem, odnosno
+rukovati njima.
+markup – naznaka: Komentari i praćenje promena poput ubačenog i izbrisanog sadržaja i
+promena u formatiranju.
+medium – medijum: Predmet ili uređaj za skladištenje podataka, poput diska ili USB
+memorije.
+media – 1. medijumi: Množina imenice medium – predmeti ili uređaji za skladištenje podataka, poput diskova ili USB memorije. 2. mediji: Vid masovne komunikacije, poput štampe, radija, televizije ili interneta.
+menu – meni: Lista dostupnih opcija koja se prikazuje na ekranu.
+merge – objediniti: Spojiti više stavki u jednu.
+mobile – za mobilne uređaje: Namenjeno mobilnim uređajima poput tableta, telefona i sl.
+Pogrešno se prevodi kao mobilan/na/no.
+mobile  device  – mobilni uređaj: Prenosiva oprema, poput prenosivih muzičkih ili i video plejera, mobilnih telefona, tableta itd. koji mogu da funkcionišu samostalno, ali i da se povežu sa računarom.
+mode – režim: Operativno stanje računara ili programa. Na primer, režim rada u avionu je stanje u kome su mreža, Wi-Fi i Bluetooth isključeni, a ostale funkcije dostupne.
+mouse  pointer – pokazivač  miša: Element  čija se  lokacija menja kako korisnik  pomera miša. U zavisnosti od položaja pokazivača miša i programa, oblast ekrana gde se pokazivač prikazuje služi kao cilj radnje kada korisnik pritisne jedno od dugmadi.
+mute  –  1. isključiti zvuk: Eliminisati  ili privremeno prigušiti zvuk koji proizvodi uređaj.
+Vrednost jačine zvuka je tada 0; 2. ignorisati: Isključiti naknadna obaveštenja.
+ 
+
+N
+network – mreža: Grupa računara ili drugih uređaja, poput štampača ili skenera, koji komuniciraju međusobno bežično ili pomoću fizičke veze.
+network  card  –  mrežna  kartica:  Hardverska  komponenta  koja  povezuje  računar  sa računarskom mrežom.
+ne wsletter – bilten: Izveštaj koji sadrži vesti ili informacije, a može da bude štampan ili da
+se distribuira u elektronskom obliku.
+note  –  beleška: Priloženi  (uglavnom) tekstualni sadržaj  k oji daje dodatne informacije o
+određenom dokumentu ili delu dokumenta.
+O
+offline  –  oflajn  (G);  van  mreže  (MS):  U  stanju  u kome  nije  povezano  sa  računarom, računarskom mrežom ili internetom.
+online  –  onlajn  (G);  na  mreži  (MS):  U  stanju  u  kome  je  povezano  sa  računarom, računarskom mrežom ili internetom.
+open source – otvoreni kod: Pristup u programiranju koji promoviše univerzalan pristup dizajnu proizvoda putem besplatne licence i univerzalnu naknadnu distribuciju tog dizajna i svih naknadnih izmena.
+options – opcije: Podešavanja ili postavke koje su dostupne korisnicima.
+OS –operativni sistem: Softver koji kontroliše raspodelu i korišćenje hardverskih resursa, poput memorije, kapaciteta procesora, prostora na disku i perifernih uređaja. Operativni sistem je osnova na kojoj se zasnivaju svi programi.
+overwrite – zameniti: Snimiti nove podatke preko postojećih sačuvanih podataka, time uništavajući stare podatke.
+P
+pane – okno: Pravougaoni odeljak prozora u kome se nalaze određene funkcije.
+panel – tabla: Mali privremeni prozor u grafičkom korisničkom interfejsu u kome se zahtevaju informacije od korisnika; nakon navođenja informacija, korisnik može da zatvori okvir.
+parse  –  raščlaniti: Ra zbiti unete informacije u manje delove da  bi program mogao da  ih obradi.
+passphrase – pristupna fraza (G); fraza za prolaz (MS): Niz reči ili drugog teksta koji se koristi za dobijanje pristupa mreži, programu ili podacima.
+password – lozinka: Niz znakova koje korisnik unosi da bi verifikovao svoj identitet mreži
+ili lokalnom računaru, uređaju ili klijentu, kao i da bi se prijavio na nalog, u aplikaciju itd.
+patch – zakrpa: Deo koda koji se dodaje softveru da bi se ispravila greška, posebno kao privremena ispravka između dve verzije.
+path – putanja: Niz direktorijuma koji upućuje na određenu datoteku ili direktorijum.
+payment  method –  način plaćanja: Instrument  koji se koristi za plaćanje robe i usluga; najpoznatiji metodi su gotovina, kreditne i debitne kartice, transfer sa bankovnog računa itd.
+peer – ravnopravni sistem: Bilo koji od uređaja u slojevitoj mreži za komunikaciju koji funkcionišu na istom nivou protokola.
+pending – na čekanju: Proces čiji se ishod iščekuje i još nije utvrđen, potvrđen ili razrešen.
+ 
+
+permission – dozvola: Ovlašćenje za obavljanje operacija povezanih sa konkretnim deljenim resursom, poput datoteke, direktorijuma ili štampača. Dozvole mora da daje administrator sistema pojedinačnim korisničkim nalozima ili administrativnim grupama.
+personalize – personalizovati: Prilagoditi nešto ličnim potrebama.
+phishing  –  „pecanje“ (G); phishing (MS): Tehnika kojom  se korisnici  računa varaju da otkriju svoje lične ili finansijske podatke. Primer je poruka e-pošte iz navodno pouzdanog izvora koja primaocima traži da navedu informacije na veb-sajtu koji obavlja prevaru.
+photo – slika (G); fotografija (MS): Digitalna slika, optički formirani duplikat ili drugi vid
+reprodukcije objekta načinjen sočivom ili objektivom.
+PIN – PIN kod: Jedinstveni i tajni identifikacioni kôd sličan lozinki koji se daje ovlašćenom korisniku da bi dobio pristup ličnim informacijama i elektronskim resursima putem uređaja.
+pixel – piksel: Osnovna sastavna jedinica slike na televizijskom ekranu, računarskom monitoru ili sličnom ekranu.
+playlist – plejlista (G); spisak numera: Lista digitalnog medijskog sadržaja.
+plug-in – dodatna komponenta: Pomoćni softver koji proširuje ili poboljšava funkcije
+drugog softvera.
+policy – smernice: Utvrđeni skup opštih principa, pravila, radnji ili postupaka koji su u skladu sa načelima razboritosti ili efikasnosti.
+pool – objediniti: Grupisanje resursa (sredstava, opreme, osoblja, napora) u svrhe maksimalizacije koristi i minimalizacije rizika po korisnika.
+port – port: Hardverski portovi su fizičke veze koje su vidljive na spojnoj strani računara. Softverski portovi su numerisani mrežni prolazi u programima koje softverski programi koriste za razmenu informacija.
+post – post (G); poruka  (MS): Poruka  koja se pojavljuje u diskusionoj grupi, javnom
+direktorijumu ili drugom forumu kojoj može da pristupi više pojedinaca.
+power management – upravljanje napajanjem: Softverski i hardverski mehanizmi kojima se minimalizuje potrošnja energije sistema, upravlja se toplotnim ograničenjima sistema i do maksimuma se produžava trajanje baterije.
+preferences  –  podešavanja  (G);  željene  postavke  (MS):  Opcije  za  promenu  izgleda  ili funkcija aplikacije ili sistemskog softvera, poput operativnog sistema ili hardvera.
+predefined – unapred definisan/na/no: Nešto što je unapred objašnjeno ili navedeno.
+privacy policy – politika privatnosti: Dokument koji navodi stav kompanije o privatnosti i koji detaljno navodi koje informacije ona prikuplja, sa kim se one dele i kako korisnici mogu da kontrolišu korišćenje ličnih informacija.
+private browsing – privatno pregledanje: Funkcija u pregledaču pomoću koje se u istoriji ne čuvaju pregledane stranice, preuzete datoteke i kolačići.
+profile picture – slika profila: Fotografija koja služi kao naslovna fotografija na profilu na
+nekoj od društvenih mreža.
+prompt – upit (G); odziv (MS): Pomoć korisniku računara u obliku pitanja ili izjave koja se pojavljuje na ekranu, pokazuje da je uređaj spreman da nastavi i navodi dostupne opcije.
+provider – dobavljač usluge: Kompanija koja pruža usluge ili sadržaj svojim klijentima.
+proxy server – proksi server (G); proxy server (MS): Server koji se nalazi na mreži između klijentskog softvera, poput veb-pregledača, i drugog servera. Presreće sve zahteve serveru da bi utvrdio da li može da ih ispuni. Ako to nije slučaj, prosleđuje zahtev drugom serveru.
+ 
+
+Q
+query – upit: Formalizovano uputstvo bazi podataka da vrati skup zapisa ili obavi
+navedenu radnju na skupu zapisa, kao što je navedeno u upitu.
+R
+RAM – RAM: Privremeni skladišni prostor koji računar koristi za pokretanje programa i skladištenje podataka. Informacije koje se čuvaju u RAM-u su privremene i brišu se nakon gašenja računara. Videti: random access memory
+random access memory – radna memorija: Privremeni skladišni prostor koji računar koristi za pokretanje programa i skladištenje podataka. Informacije koje se čuvaju u RAM-u su privremene i brišu se nakon gašenja računara. Videti: RAM
+raw data – neobrađeni podaci: Podaci prikupljeni iz određenog izvora koji nisu podvrgnuti
+izmenama.
+real-time – u realnom vremenu: Operacije u realnom vremenu su one u kojima se računarske aktivnosti podudaraju sa ljudskim shvatanjem vremena ili one u kojima se računarske operacije odvijaju istim tempom kao fizički ili spoljni proces.
+recepient – primalac: Pojedinac ili sistem kome se šalje određena stavka.
+redirect – preusmeriti: Funkcija veb-servera gde se jedan URL zamenjuje drugim.
+reminder – podsetnik: Poruka koja se pojavljuje u navedenom intervalu pre sastanka ili nekog zadatka i navodi kada aktivnost treba da se odigra.
+render – prikazati: Predstaviti grafičku sliku iz datoteke na izlaznom uređaju kao što je ekran ili štampač.
+reset – ponovo postaviti (G); uspostaviti početne vrednosti (MS): Podesiti element, poput funkcije, konfiguracije ili objekta, na prvobitne postavke.
+restart – ponovo pokrenuti: Isključiti sistem ili funkciju i odmah ih ponovo uključiti.
+restore – vratiti (G); vratiti u prethodno stanje (MS): Ukloniti evidenciju ili stavku iz izbrisanog direktorijuma i ponovo je povezati sa zapisom sa kojim je bila u vezi.
+retrieve – preuzeti: Postupak pristupanja informacijama iz memorije ili drugih uređaja za skladištenje.
+root folder – matični direktorijum (G); osnovna fascikla (MS): Direktorijum najvišeg reda na računaru, particiji ili volumenu.
+royalties – naknada za autorska prava: Plaćanje jedne strane (sticaoca licence) drugoj strani (davaocu licence) za prava na kontinualno korišćenje materijala, ponekad intelektualne svojine.
+S
+save – sačuvati: Upisati podatke na medijum za skladištenje.
+scan – skenirati: Sistemski ispitati datoteke ili druge podatke radi identifikacije sadržaja ili šablona koji ispunjavaju određene kriterijume.
+screensaver – čuvar ekrana: Animirana slika koja se aktivira na ekranu računara kada određeni period nije bilo aktivnosti korisnika na računaru.
+script – skripta: Tip programa koji se sastoji od skupa uputstava za aplikaciju ili alatku. Skripta obično daje uputstva pomoću pravila ili sintakse te aplikacije ili alatke u kombinaciji sa jednostavnim kontrolnim strukturama poput petlji.
+ 
+
+search   –   pretražiti:   Pokušati   lociranje   objekta   (datoteke,   direktorijuma,   računara, teksta…).
+search box – okvir za pretragu (G); polje za pretragu (MS): Okvir za tekst u koji neko
+unosi reči radi započinjanja pretrage.
+search engine  – pretraživač: Računarski softver koji se koristi za pretraživanje podataka (poput teksta ili baza podataka) radi pronalaženja konkretnih informacija. Konkretnije, to je sajt na vebu koji koristi taj softver da bi pronašao ključne reči na drugim sajtovima.
+search   for   –   potražiti:  Pokušati  lociranje  konkretnog  termina  u  određenom   skupu podataka. Pretražuje se skup podataka, a u njemu korisnik može da potraži konkretan termin za pretragu. Videti: search
+search  page  –  stranica  za  pretraživanje:  Stranica  na  kojoj  možete  da  pronađete  druge internet sajtove i posetite ih. Mnoge stranice nude različite tipove pretrage: prema ključnoj reči, prema upitima korisnika itd.
+security  key  –  bezbednosni  ključ: Niz cifara  i  slova  koji  je  potrebno  uneti  za  pristup
+zaštićenoj funkciji, datoteci, softveru, bazi podataka itd.
+service pack – servisni paket: Testirani kumulativni skup hitnih ispravki, bezbednosnih ažuriranja, kritičnih ažuriranja i standardnih ažuriranja, kao i dodatnih ispravki problema koji su pronađeni interno od puštanja proizvoda u prodaju.
+shape – formatirati (G); oblikovati (MS): Postupak uređivanja podataka za skladištenje ili
+prikaz.
+share – deliti: Učiniti resurse, poput direktorijuma i štampača, dostupne drugima.
+shortcut key – tasterska prečica: Bilo koja kombinacija tastera koji moraju da se pritisnu istovremeno.
+sidebar – bočna traka: 1. Napomena pored glavnog teksta koja sadrži interesantne ili korisne informacije; 2. Bočna traka je element korisničkog interfejsa koji prikazuje listu opcija, a koji se pojavljuje kao kolona se leve ili desne strane ekrana.
+sign in – prijaviti se: Dobiti pristup konkretnom računaru, programu ili mreži identifikacijom pomoću korisničkog imena i lozinke. Videti: log in i log on
+sign out – odjaviti se: Prekinuti sesiju sa računarom kojem ste pristupili preko komunikacione linije, a koji je obično računar koji je udaljen i kome pristupa veći broj korisnika.
+Videti: log out i log off
+sign up – registrovati se (G); upisati se (MS): Prijaviti se za korišćenje usluge, što obično uključuje otvaranje novog naloga.
+site – sajt (G); lokacija (MS): Grupa povezanih veb-stranica koje hostuje HTTP server na vebu ili intranetu. Stranice na veb-sajtu su međusobno povezane hiperlinkovima.
+slider – klizač: Skala koja prikazuje kontinualni niz vrednosti i omogućava izbor neke od njih, poput jačine zvuka ili osvetljenosti ekrana.
+set – 1. skup: Grupa stavki iz izvora podataka koja ima naziv i tretira se kao jedinstveni element do kog se može navesti referenca ili se može koristiti više puta; 2. podesiti: Aktivirati određenu opciju.
+settings – podešavanja (G); postavke (MS): Lične opcije za konfiguraciju koje omogućavaju korisnicima da prilagode aplikaciju ili operativni sistem.
+setup – podešavanje: Postupci kojima se priprema softverski program ili aplikacija za
+funkcionisanje u računaru ili mobilnom uređaju.
+
+signature – potpis: Podaci koji povezuju identitet pošiljaoca sa informacijama koje se šalju.
+
+slideshow – projekcija slajdova: Skup stranica uređenih po redosledu koje sadrže tekst i
+ 
+slike radi prezentacije publici.
+software – softver: Kompjuterski programi, neopipljivi deo računara.
+sort – sortirati: Organizovati informacije, poput liste datoteka, u određeni redosled. Na primer, lista datoteka može da se sortira po abecednom, rastućem ili opadajućem redosledu.
+spam – neželjena pošta (G); bezvredna pošta (MS): Poruka koju niste zahtevali i koja često nije poželjna, a često je komercijalne ili političke prirode, koja se preko interneta masovno šalje velikom broju primalaca.
+spreadsheet – unakrsna tabela: Aplikacija koja se koristi za finansije, procene i druge finansijske zadatke, a koja organizuje vrednosti pomoću ćelija, gde su odnosi između ćelija definisani formulama.
+spyware – spajver (G); špijunski softver (MS): Program koji prikuplja informacije, poput veb-sajtova koje korisnik posećuje, bez odgovarajućeg pristanka. Instalacija može da se odigra bez vidljivog obaveštenja ili bez znanja korisnika.
+stock images – stok slike: Profesionalne fotografije uobičajenih mesta, znamenitosti, prirode ili ljudi koje se kupuju i prodaju bez autorskih prava i mogu da se koriste više puta u svrhe komercijalnog dizajna.
+storage  –  memorija  (G);  skladište  (MS):  Svaki  uređaj  na  kome  mogu  da  se  čuvaju
+informacije.
+stream – strimovati: Prenositi digitalne podatke u neprekidnom protoku preko mreže.
+string – niz (G); niska (MS): Grupa znakova ili bajtova znakova kojima se rukuje kao jednim entitetom. Računarski programi koriste niske da bi skladištili i prenosili podatke i komande.
+subject of e-mail – naslov poruke e-pošte (G); tema e-poruke (MS): Kratak rezime
+sadržaja poruke e-pošte koji govori primaocu o čemu će u poruci biti reči.
+subscribe – 1. pretplatiti se: Početi sa korišćenjem usluga dobavljača usluga, na primer, dobavljača internet usluga. Pretplata može da se plaća ili da bude besplatna; 2. prijaviti se: Početi sa praćenjem nekog kanala na YouTubeu, bloga, informativnog izdanja itd. koje obuhvata dobijanje redovnih novosti. Ova usluga je obično besplatna.
+synchronize – sinhronizovati: Uskladiti razlike između datoteka, e-pošte, zakazanih obaveza i drugih stavki sačuvanih na jednom računaru sa verzijama istih datoteka na drugom računaru. Kada se utvrde razlike, oba skupa datoteka se ažuriraju.
+T
+tab – kartica: Element korisničkog interfejsa koji je dizajniran da izgleda kao jezičak na fascikli. Kartice se obično raspoređuju horizontalno i omogućavaju korisnicima da se prebacuju sa jedne na drugu srodnu stranicu ili veb-stranicu.
+taskbar – traka zadataka: Traka koja sadrži dugme „Start“ i koja se podrazumevano pojavljuje u dnu radne površine. Klikom na dugmad na njoj menjate programe. Možete da je sakrijete, prebacite uz levu ili desnu ivicu ili u vrh radne površine, odnosno da je dodatno prilagođavate.
+template  –  predložak:  Datoteka  koja  služi  kao  početna  tačka  za  novi  dokument.  Kada otvorite predložak, on je unapred formatiran na neki način.
+ 
+
+terms of service – uslovi korišćenja usluge: Pravila kojih ljudi i organizacije moraju da se
+pridržavaju da bi koristili uslugu.
+text box – okvir za tekst: Pravougaoni izdvojeni deo ekrana u okviru koga može da se
+unosi tekst.
+text message – tekstualna poruka: Kratka alfanumerička poruka koja se razmenjuje između mobilnih telefona ili uređaja pomoću SMS protokola.
+timeout  –  isteći:  Stići  do  kraja  unapred  određenog  perioda  neaktivnosti  ili  odsustva očekivanog događaja ili radnje nakon koga uređaj, program ili proces obično budu deaktivirani. thumbnail – sličica: Minijaturna verzija slike koja se koristi za brzo pregledanje više slika.
+tip – savet: Beleška ili napomena koja pomaže korisnicima da primene tehnike i procedure opisane u tekstu. Savet navodi alternativne metode koje možda nisu očigledne i pomaže korisnicima da razumeju koristi i mogućnosti proizvoda.
+token – token: Tekstualni element koji nije moguće redukovati, a koji se nalaze u okviru podataka koji se razlažu. Na primer korišćenje naziva promenljive, rezervisane reči ili operatera. Skladištenje tokena kao kratkih kodova skraćuje datoteke i ubrzava izvršavanje.
+toggle  –  uključiti/isključiti:  Pritiskati  preklopno  dugme više  puta. Pri  prvom  pritisku  se određena funkcija uključuje, da bi se drugim pritiskom na isto dugme ponovo isključila.
+toggle button – preklopno dugme: Dugme u korisničkom interfejsu koje aktivira funkciju
+prvim pritiskom na njega, a deaktivira je drugim pritiskom.
+toolbar – traka s alatkama: Red, kolona ili blok dugmadi ili ikona, koji se obično prikazuju u vrhu ekrana i predstavljaju zadatke i komande programa. Dugmad na traci s alatkama su prečice do uobičajenih funkcija koje se koriste u menijima.
+tooltip – opis alatke: Mali iskačući prozor u kome se nalazi kratka napomena ili oznaka
+koja se odnosi na stavku ili komandu iznad koje se nalazi pokazivač miša.
+two-step verification – verifikacija u dva koraka: Dodatni nivo sigurnosti pri prijavljivanju na nalog koji podrazumeva unošenje lozinke i koda koji korisnik dobija na mobilni telefon.
+U
+user  interface   (UI)–  korisnički  interfejs:  Deo  programa  sa  kojim  korisnik  ostvaruje interakciju.
+uncheck checkbox – ukloniti oznaku iz polja za potvrdu: Deaktivirati opciju ispred koje se nalazi polje za potvrdu i opozvati izbor te opcije. Kada se klikne na polje, u nestaje znak za potvrdu ili „x“.
+uninstall – deinstalirati: Ukloniti softver sa računarskog sistema na poseban način pomoću posebno osmišljenog programa.
+update – ažurirati: Inkorporirati nove ili preciznije informacije u bazu podataka, program,
+proceduru itd. i time ispraviti greške u proizvodu.
+upgrade – nadograditi: Zameniti postojeću verziju softverskog paketa novijom, snažnijom i preciznijom verzijom istog proizvoda. Obično korisnički podaci i podešavanja ostaju isti, dok se softver zamenjuje novijom verzijom.
+upload – otpremiti: U komunikaciji je to postupak prenosa primerka datoteke sa lokalnog
+računara na udaljeni računar putem modema ili mreže.
+URL – URL (G); URL adresa (MS): Adresa koja na jedinstven način identifikuje lokaciju
+na internetu; obično joj prethodi http://.
+ 
+
+username   –  korisničko  ime:  Ime  pomoću  koga  se  korisnik  identifikuje  računarskom sistemu ili mreži. Tokom procesa prijavljivanja, korisnik mora da unese korisničko ime i tačnu lozinku.
+V
+verification – verifikacija: Utvrđivanje tačnosti, ispravnosti i toga da li određeni element ispunjava određene kriterijume.
+W
+warehousing   –   skladište:  Elektronsko  čuvanje  velike  količine   podataka  za   potrebe preduzeća; podaci moraju da se čuvaju na bezbedan i pouzdan način i uz to moraju da budu lako dostupni.
+Web – veb: Skraćeno od World Wide Web (svetska komunikaciona mreža); kompletan
+skup dokumenata koji se nalaze na svim internet serverima koji koriste HTTP protokol.
+we bmaster – vebmaster: Osoba koja upravlja veb-sajtom.
+we bsite – veb-sajt (G); veb lokacija (MS): Povezana grupa stranica na vebu koja se smatra pojedinačnim entitetom, a kojom obično upravlja jedna osoba ili organizacija i koja je usmerena ka jednoj temi ili nekoliko blisko povezanih tema.
+wireless   –   bežični:   Karakteristika  komunikacija  koje   se   odigravaju   bez  korišćenja povezanih žica ili kablova, na primer, putem radio talasa, mikrotalasa ili infracrvenog signala.
+workbook – radna sveska: Datoteka sa više povezanih radnih listova u programu za
+upravljanje unakrsnim tabelama.
+workflow – tok posla: Niz aktivnosti, radnji ili zadataka putem kojih se dokumenti ili
+stavke obrađuju u sklopu automatizovanog poslovnog procesa.
+Z
+ZIP code – ZIP kôd: U Sjedinjenim Američkim Državama su to poštanski k odovi koji se dodeljuju svakoj adresi.
+zoom – zumirati: Učiniti da tekst ili drugi grafički elementi izgledaju veći na ekranu.
+zoom  in  –  uvećati  prikaz: Učiniti  da  tekst  ili  drugi  grafički  elementi  izgledaju  veći  na
+ekranu. Videti: zoom (sinonim)
+zoom out – umanjiti prikaz: Učiniti da tekst ili drugi grafički elementi izgledaju manji na ekranu.
