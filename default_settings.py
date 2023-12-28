@@ -19,7 +19,7 @@ def default_language_dictionary(key_name: str = "") -> dict:
             [1, """Sreda"""] ],
         "week_day4": [
             [0, """Thursday"""],
-            [1, """Cetvrtak"""] ],
+            [1, """Četvrtak"""] ],
         "week_day5": [
             [0, """Friday"""],
             [1, """Petak"""] ],
@@ -103,7 +103,7 @@ def default_language_dictionary(key_name: str = "") -> dict:
             [1, """"""] ],
         "login_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "login_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -118,7 +118,7 @@ def default_language_dictionary(key_name: str = "") -> dict:
             [1, """"""] ],
         "login_txt_new_username_placeholder": [
             [0, """User name"""],
-            [1, """Korisnicko ime"""] ],
+            [1, """Korisničko ime"""] ],
         "login_txt_new_username_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -148,7 +148,7 @@ def default_language_dictionary(key_name: str = "") -> dict:
             [1, """"""] ],
         "login_btn_new_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "login_btn_new_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -166,32 +166,32 @@ def default_language_dictionary(key_name: str = "") -> dict:
             [1, """Uneli ste nedozvoljen karakter "" u polje za lozinku !"""] ],
         "login_msg_username_char_title": [
             [0, """Entering a username"""],
-            [1, """Unos korisnickog imena"""] ],
+            [1, """Unos korisničkog imena"""] ],
         "login_msg_username_char_text": [
             [0, """You have entered an illegal character in the username field!
 Username can contain letters, numbers and "_" character."""],
-            [1, """Uneli ste nedozvoljen karakter u polje za korisnicko ime !
-Korisnicko ime moze da sadrzi slova, brojeve i karakter "_" """] ],
+            [1, """Uneli ste nedozvoljen karakter u polje za korisničko ime !
+Korisničko ime može da sadrži slova, brojeve i karakter "_" """] ],
         "login_msg_new_pass_mismatch_title": [
             [0, """New user registration"""],
             [1, """Registracija novog korisnika"""] ],
         "login_msg_new_pass_mismatch_text": [
             [0, """Password input and password confirmation fields do not match. Please check your entry!"""],
-            [1, """Polja za unos lozinke i potvrdu lozinke se ne slazu. Molim  da proverite vas unos !"""] ],
+            [1, """Polja za unos lozinke i potvrdu lozinke se ne slažu. Molim  da proverite vaš unos !"""] ],
         "login_msg_new_user_exist_title": [
             [0, """New user registration"""],
             [1, """Registracija novog korisnika"""] ],
         "login_msg_new_user_exist_text": [
             [0, """A user with this username already exists. Please choose a different username!"""],
-            [1, """Korisnik sa ovim korisnickim imenom vec postoji. Molim vas izaberite drugacije korisnicko ime !"""] ],
+            [1, """Korisnik sa ovim korisničkim imenom već postoji. Molim vas izaberite drugačije korisničko ime !"""] ],
         "login_msg_new_user_added_title": [
             [0, """New user registration"""],
             [1, """Registracija novog korisnika"""] ],
         "login_msg_new_user_added_text": [
             [0, """New user registration was successful.
 Now you can log in and use the My Journal application."""],
-            [1, """Registracija novog korisnika je bila uspesna.
-Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
+            [1, """Registracija novog korisnika je bila uspešna.
+Sada možete da se prijavite i koristite My Journal aplikaciju."""] ],
         "login_incorrect_password_title": [
             [0, """Invalid password"""],
             [1, """Neispravna lozinka"""] ],
@@ -215,7 +215,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """"""] ],
         "menu_edit_title": [
             [0, """Edit"""],
-            [1, """Uredjivanje"""] ],
+            [1, """Uređivanje"""] ],
         "menu_edit_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -227,7 +227,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """"""] ],
         "menu_help_title": [
             [0, """Help"""],
-            [1, """Pomoc"""] ],
+            [1, """Pomoć"""] ],
         "menu_help_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -266,16 +266,16 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Pregled Dnevnika"""] ],
         "mnu_diary_sb_text": [
             [0, """Diary: Write down everything important that happens in your life"""],
-            [1, """Dnevnik: Zapisite sve vazno sto se desava u vasem zivotu"""] ],
+            [1, """Dnevnik: Zapišite sve važno što se dešava u vašem životu"""] ],
         "mnu_personal_info_text": [
             [0, """Personal information"""],
-            [1, """Licni podaci"""] ],
+            [1, """Lični podaci"""] ],
         "mnu_personal_info_tt": [
             [0, """Personal information"""],
-            [1, """Licni podaci"""] ],
+            [1, """Lični podaci"""] ],
         "mnu_personal_info_sb_text": [
             [0, """Personal data: Personal documents, credit cards, etc."""],
-            [1, """Licni podaci: Podaci o licnim dokumentima, kreditnim karticama itd..."""] ],
+            [1, """Lični podaci: Podaci o ličnim dokumentima, kreditnim karticama itd..."""] ],
         "mnu_web_pages_text": [
             [0, """Web Pages"""],
             [1, """Web stranice"""] ],
@@ -296,13 +296,13 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """YouTube video: Zanimljivi snimci na YouTube platformi."""] ],
         "mnu_expenses_text": [
             [0, """Expenses"""],
-            [1, """Troskovi"""] ],
+            [1, """Troškovi"""] ],
         "mnu_expenses_tt": [
             [0, """Expenses"""],
-            [1, """Troskovi"""] ],
+            [1, """Troškovi"""] ],
         "mnu_expenses_sb_text": [
             [0, """Expenses: Various daily expenses"""],
-            [1, """Troskovi: Razni dnevni troskovi"""] ],
+            [1, """Troškovi: Razni dnevni troškovi"""] ],
         "mnu_incomes_text": [
             [0, """Incomes"""],
             [1, """Prihodi"""] ],
@@ -311,7 +311,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Prihodi"""] ],
         "mnu_incomes_sb_text": [
             [0, """Income: All your income"""],
-            [1, """Prihodi: Svi vasi prihodi"""] ],
+            [1, """Prihodi: Svi vaši prihodi"""] ],
         "mnu_contacts_text": [
             [0, """Contacts"""],
             [1, """Kontakti"""] ],
@@ -329,7 +329,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Prevod"""] ],
         "mnu_translation_sb_text": [
             [0, """Translation: Translation of text, documents, etc. into the desired language"""],
-            [1, """Prevod: Prevod teksta, dokumenta i slicno na zeljeni jezik"""] ],
+            [1, """Prevod: Prevod teksta, dokumenta i slično na željeni jezik"""] ],
         "menu_user_title": [
             [0, """User"""],
             [1, """Korisnik"""] ],
@@ -356,25 +356,25 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Raspored"""] ],
         "mnu_schedule_sb_text": [
             [0, """Schedule: Reminder for important dates and tasks to be done."""],
-            [1, """Raspored: Podsetnik za vazne datume i poslove koje treba obaviti."""] ],
+            [1, """Raspored: Podsetnik za važne datume i poslove koje treba obaviti."""] ],
         "mnu_user_settings_text": [
             [0, """User Settings"""],
-            [1, """Podesavanja korisnika"""] ],
+            [1, """Podešavanja korisnika"""] ],
         "mnu_user_settings_tt": [
             [0, """User Settings"""],
-            [1, """Podesavanja korisnika"""] ],
+            [1, """Podešavanja korisnika"""] ],
         "mnu_user_settings_sb_text": [
             [0, """User settings: Language, password, personal data..."""],
-            [1, """Podesavanja korisnika: Jezik, sifra, licni podaci..."""] ],
+            [1, """Podešavanja korisnika: Jezik, šifra, lični podaci..."""] ],
         "mnu_important_dates_text": [
             [0, """Important Dates"""],
-            [1, """Vazni Datumi"""] ],
+            [1, """Važni Datumi"""] ],
         "mnu_important_dates_tt": [
             [0, """Important Dates"""],
-            [1, """Vazni Datumi"""] ],
+            [1, """Važni Datumi"""] ],
         "mnu_important_dates_sb_text": [
             [0, """Important Dates: Enter all dates that are important to you and that you want to remember in the calendar."""],
-            [1, """Vazni Datumi: Unesite sve datume koji su vam vazni i koje zelite da zapamtite u kalendar."""] ],
+            [1, """Važni Datumi: Unesite sve datume koji su vam važni i koje želite da zapamtite u kalendar."""] ],
         "scroll_area_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -383,58 +383,58 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Unesite podatke, izaberite oznake i snimite promene."""] ],
         "login_msg_invalid_username_title": [
             [0, """Invalid username"""],
-            [1, """Neispravno korisnicko ime"""] ],
+            [1, """Neispravno korisničko ime"""] ],
         "login_msg_invalid_username_text": [
             [0, """Error. Username not found."""],
-            [1, """Greska. Korisnicko ime nije pronadjeno."""] ],
+            [1, """Greška. Korisničko ime nije pronađeno."""] ],
         "tag_diary_name": [
             [0, """Diary"""],
             [1, """Dnevnik"""] ],
         "tag_diary_description": [
             [0, """Write under this tag everything you want to be in your diary."""],
-            [1, """Upisite pod ovim tagom sve sto zelite da se nalazi u vasem dnevniku."""] ],
+            [1, """Upišite pod ovim tagom sve sto želite da se nalazi u vašem dnevniku."""] ],
         "tag_general_description": [
             [0, """A general tag where everything that is not covered by some specific tags is entered. Under this tag, you will write most of your journal entries."""],
-            [1, """Uopsteni tag gde se upisuje sve sto nije obuhvaceno nekim specificnim tagovima. Pod ovim tagom cete upisivati vecinu vasih unosa u dnevnik."""] ],
+            [1, """Uopšteni tag gde se upisuje sve što nije obuhvaćeno nekim spečificnim tagovima. Pod ovim tagom ćete upisivati većinu vaših unosa u dnevnik."""] ],
         "tag_general_name": [
             [0, """General"""],
-            [1, """Uopsteno"""] ],
+            [1, """Uopšteno"""] ],
         "tag_events_name": [
             [0, """Event"""],
-            [1, """Dogadjaj"""] ],
+            [1, """Događaj"""] ],
         "tag_events_description": [
             [0, """All important events such as going to various celebrations, buying a car, house, getting a pet... are entered under this tag."""],
-            [1, """Pod ovim tagom se upisuju svi vazni dogadjaji kao sto su odlasci na razne proslave, kupovina automobila, kuce, nabavka kucnog ljubimca..."""] ],
+            [1, """Pod ovim tagom se upisuju svi važni događaji kao što su odlasci na razne proslave, kupovina automobila, kuće, nabavka kućnog ljubimca..."""] ],
         "tag_thoughts_name": [
             [0, """Thought"""],
-            [1, """Razmisljanje"""] ],
+            [1, """Razmišljanje"""] ],
         "tag_thoughts_description": [
             [0, """Under this tag you write all your thoughts on various topics."""],
-            [1, """Pod ovim tagom upisujete sva vasa razmisljanja o raznim temama."""] ],
+            [1, """Pod ovim tagom upisujete sva vaša razmišljanja o raznim temama."""] ],
         "tag_ideas_name": [
             [0, """Idea"""],
             [1, """Ideja"""] ],
         "tag_ideas_description": [
             [0, """Under this tag you write all your ideas for some new projects or changes."""],
-            [1, """Pod ovim tagom upisujete sve vase ideje za neke nove projekte ili promene."""] ],
+            [1, """Pod ovim tagom upisujete sve vaše ideje za neke nove projekte ili promene."""] ],
         "tag_health_name": [
             [0, """Health"""],
             [1, """Zdravlje"""] ],
         "tag_health_description": [
             [0, """Under this tag you enter everything related to health. Medicines you use, medical reports, diet reports..."""],
-            [1, """Pod ovim tagom upisujete sve sto ima veze sa zdravljem. Lekovi koje koristite, lekarski izvestaji, rezimi ishrane..."""] ],
+            [1, """Pod ovim tagom upisujete sve što ima veze sa zdravljem. Lekovi koje koristite, lekarski izveštaji, režimi ishrane..."""] ],
         "tag_expenses_name": [
             [0, """Expense"""],
-            [1, """Trosak"""] ],
+            [1, """Trošak"""] ],
         "tag_expenses_description": [
             [0, """You enter all your expenses under this tag."""],
-            [1, """Pod ovim tagom upisujete sve vase troskove."""] ],
+            [1, """Pod ovim tagom upisujete sve vaše troškove."""] ],
         "tag_incomes_name": [
             [0, """Income"""],
             [1, """Prihod"""] ],
         "tag_incomes_description": [
             [0, """You enter all your income under this tag."""],
-            [1, """Pod ovim tagom upisujete sve vase prihode."""] ],
+            [1, """Pod ovim tagom upisujete sve vaše prihode."""] ],
         "tag_web_pages_name": [
             [0, """Web Page"""],
             [1, """Web Stranica"""] ],
@@ -449,16 +449,16 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Pod ovim tagom upisujete zanimljive YouTube videe."""] ],
         "tag_dates_name": [
             [0, """Important dates"""],
-            [1, """Vazni datumi"""] ],
+            [1, """Važni datumi"""] ],
         "tag_dates_description": [
             [0, """Under this tag, you enter all important dates and, if necessary, set a reminder for those dates."""],
-            [1, """Pod ovim tagom upisujete sve vazne datume i po potrebi podesavate podsetnik za te datume."""] ],
+            [1, """Pod ovim tagom upisujete sve važne datume i po potrebi podešavate podsetnik za te datume."""] ],
         "tag_translation_name": [
             [0, """Translation"""],
             [1, """Prevod"""] ],
         "tag_translation_description": [
             [0, """Under this tag, you enter some of your text translated into a specific language. For example, a letter you sent and similar."""],
-            [1, """Pod ovim tagom upisujete neki vas tekst preveden na odredjeni jezik. Npr neko pismo koje ste poslali i slicno."""] ],
+            [1, """Pod ovim tagom upisujete neki vaš tekst preveden na određeni jezik. Npr neko pismo koje ste poslali i slično."""] ],
         "area_label_widget_text": [
             [0, """My Journal - Working Space"""],
             [1, """My Journal - Radni Prostor"""] ],
@@ -467,7 +467,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """"""] ],
         "area_label_widget_sb_text": [
             [0, """The workspace contains the open records you are working on."""],
-            [1, """Radni prostor sadrzi otvorene zapise na kojima radite."""] ],
+            [1, """Radni prostor sadrži otvorene zapise na kojima radite."""] ],
         "win_block_control_btn_date_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -494,19 +494,19 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """"""] ],
         "header_btn_diary_sb_text": [
             [0, """This is a diary tag, anything you write here will be displayed in the your diary."""],
-            [1, """Ovo je tag za dnevnik, sve sto napisete ovde bice prikazano u vasem dnevniku."""] ],
+            [1, """Ovo je tag za dnevnik, sve sto napišete ovde biće prikazano u vašem dnevniku."""] ],
         "header_btn_tag_tt": [
             [0, """"""],
             [1, """"""] ],
         "header_btn_tag_sb_text": [
             [0, """Everything you enter here can be found later under this tag."""],
-            [1, """Sve sto ovde upisete mozete kasnije pronaci pod ovim tagom."""] ],
+            [1, """Sve što ovde upišete možete kasnije pronaći pod ovim tagom."""] ],
         "header_btn_user_tt": [
             [0, """"""],
             [1, """"""] ],
         "header_btn_user_sb_text": [
             [0, """Everything you enter here can be found later under this tag."""],
-            [1, """Sve sto ovde upisete mozete kasnije pronaci pod ovim tagom."""] ],
+            [1, """Sve što ovde upišete možete kasnije pronaći pod ovim tagom."""] ],
         "footer_btn_save_text": [
             [0, """Save"""],
             [1, """Snimi"""] ],
@@ -515,7 +515,7 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
             [1, """Snimi unos"""] ],
         "footer_btn_save_sb_text": [
             [0, """Saves the contents of the block to the database"""],
-            [1, """Snima sadrzaj bloka u bazu podataka"""] ],
+            [1, """Snima sadržaj bloka u bazu podataka"""] ],
         "footer_btn_add_new_text": [
             [0, """Add a new block"""],
             [1, """Dodaj novi blok"""] ],
@@ -528,11 +528,11 @@ Sada mozete da se prijavite i koristite My Journal aplikaciju."""] ],
         "footer_btn_detection_tt": [
             [0, """Shows enabled commands in the text editor.
 Commands start with '@' + 'command name' followed by pressing ENTER."""],
-            [1, """Prikazuje omogucene komande u tekst editoru.
-Komande pocinju znakom '@' + 'naziv komande' praceno pritiskom na ENTER."""] ],
+            [1, """Prikazuje omogućene komande u tekst editoru.
+Komande počinju znakom '@' + 'naziv komande' praćeno pritiskom na ENTER."""] ],
         "footer_btn_detection_sb_text": [
             [0, """Shows enabled commands in the text editor."""],
-            [1, """Prikazuje omogucene komande u tekst editoru."""] ],
+            [1, """Prikazuje omogućene komande u tekst editoru."""] ],
         "body_txt_box_text": [
             [0, """"""],
             [1, """"""] ],
@@ -541,19 +541,19 @@ Komande pocinju znakom '@' + 'naziv komande' praceno pritiskom na ENTER."""] ],
             [1, """"""] ],
         "body_txt_box_sb_text": [
             [0, """This is the content of the block"""],
-            [1, """Ovo je sadrzaj bloka"""] ],
+            [1, """Ovo je sadržaj bloka"""] ],
         "body_txt_box_placeholder_text": [
             [0, """"""],
             [1, """"""] ],
         "footer_btn_delete_text": [
             [0, """Delete block"""],
-            [1, """Obrisi blok"""] ],
+            [1, """Obriši blok"""] ],
         "footer_btn_delete_tt": [
             [0, """"""],
             [1, """"""] ],
         "footer_btn_delete_sb_text": [
             [0, """Deletes a block from the database"""],
-            [1, """Brise blok iz baze podataka"""] ],
+            [1, """Briše blok iz baze podataka"""] ],
         "win_block_control_btn_day_text": [
             [0, """Day"""],
             [1, """Dan"""] ],
@@ -574,10 +574,10 @@ Komande pocinju znakom '@' + 'naziv komande' praceno pritiskom na ENTER."""] ],
             [1, """"""] ],
         "win_block_control_btn_expand_tt": [
             [0, """Expand the block"""],
-            [1, """Prosiri blok"""] ],
+            [1, """Proširi blok"""] ],
         "win_block_control_btn_expand_sb_text": [
             [0, """Expands the block so you can write to it."""],
-            [1, """Prosiruje blok da bi mogli da upisujete u njega."""] ],
+            [1, """Proširuje blok da bi mogli da upisujete u njega."""] ],
         "win_block_control_btn_collapse_text": [
             [0, """"""],
             [1, """"""] ],
@@ -598,13 +598,13 @@ Komande pocinju znakom '@' + 'naziv komande' praceno pritiskom na ENTER."""] ],
             [1, """Dodaje novi tag pod kojim unosite zapis"""] ],
         "mnu_expand_all_text": [
             [0, """Expand all"""],
-            [1, """Prosiri sve"""] ],
+            [1, """Proširi sve"""] ],
         "mnu_expand_all_tt": [
             [0, """Expand all"""],
-            [1, """Prosiri sve"""] ],
+            [1, """Proširi sve"""] ],
         "mnu_expand_all_sb_text": [
             [0, """Expands all blocks"""],
-            [1, """Prosiruje sve blokove"""] ],
+            [1, """Proširuje sve blokove"""] ],
         "mnu_collapse_all_text": [
             [0, """Collapse all"""],
             [1, """Skupi sve"""] ],
@@ -626,8 +626,8 @@ Komande pocinju znakom '@' + 'naziv komande' praceno pritiskom na ENTER."""] ],
         "open_drafts_at_start_menu_title": [
             [0, """You have some unfinished entries.
 Select which entries you want to open ?"""],
-            [1, """Imate neke nedovrsene unose.
-Izaberite koje unose zelite da otvorite ?"""] ],
+            [1, """Imate neke nedovršene unose.
+Izaberite koje unose želite da otvorite ?"""] ],
         "open_records_on_start_no_name": [
             [0, """>> No Name <<"""],
             [1, """>> Bez Imena <<"""] ],
@@ -639,13 +639,13 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """Nema izabranih stavki."""] ],
         "mnu_unfinished_show_text": [
             [0, """Show unfinished entries"""],
-            [1, """Pokazi nezavrsene unose"""] ],
+            [1, """Pokazi nezavršene unose"""] ],
         "mnu_unfinished_show_tt": [
             [0, """Show unfinished entries"""],
-            [1, """Pokazi nezavrsene unose"""] ],
+            [1, """Pokazi nezavršene unose"""] ],
         "mnu_unfinished_show_sb_text": [
             [0, """Displays a list of all unfinished entries."""],
-            [1, """Prikazuje listu svih nezavrsenih unosa."""] ],
+            [1, """Prikazuje listu svih nezavršenih unosa."""] ],
         "selection_btn_select_text": [
             [0, """Select"""],
             [1, """Izaberi"""] ],
@@ -654,13 +654,13 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """"""] ],
         "selection_btn_select_sb_text": [
             [0, """Confirms selected items"""],
-            [1, """Potvrdjuje izabrane stavke"""] ],
+            [1, """Potvrđuje izabrane stavke"""] ],
         "selection_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "selection_btn_cancel_tt": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "selection_btn_cancel_sb_text": [
             [0, """Cancels the selection of items"""],
             [1, """Otkazuje izbor stavki"""] ],
@@ -675,7 +675,7 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """Selektuje sve stavke u listi"""] ],
         "selection_btn_clear_all_text": [
             [0, """Clear all"""],
-            [1, """Ocisti sve"""] ],
+            [1, """Očisti sve"""] ],
         "selection_btn_clear_all_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -684,7 +684,7 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """Deselektuje sve stavke u listi"""] ],
         "notification_default_title": [
             [0, """Notification"""],
-            [1, """Obavestenje"""] ],
+            [1, """Obaveštenje"""] ],
         "notification_btn_ok_text": [
             [0, """Ok"""],
             [1, """U redu"""] ],
@@ -705,10 +705,10 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """"""] ],
         "notification_block_data_saved": [
             [0, """The block was successfully saved!"""],
-            [1, """Blok je uspesno snimljen !"""] ],
+            [1, """Blok je uspešno snimljen !"""] ],
         "notification_block_data_already_saved": [
             [0, """The data has already been saved"""],
-            [1, """Podaci su vec snimljeni"""] ],
+            [1, """Podaci su već snimljeni"""] ],
         "welcome_notification_title": [
             [0, """MyJournal"""],
             [1, """MyJournal"""] ],
@@ -723,14 +723,14 @@ Izaberite koje unose zelite da otvorite ?"""] ],
             [1, """Potvrdite unos"""] ],
         "input_box_btn_resize_tt": [
             [0, """Drag to resize the input field"""],
-            [1, """Povucite da promenite velicinu polja za unos"""] ],
+            [1, """Povucite da promenite veličinu polja za unos"""] ],
         "closing_notification_title": [
             [0, """Closing the application"""],
             [1, """Zatvaranje aplikacije"""] ],
         "closing_notification_text": [
             [0, """Please wait, the application is closing
 All open blocks are being recorded."""],
-            [1, """Molim sacekajte, aplikacija se zatvara
+            [1, """Molim sačekajte, aplikacija se zatvara
 U toku je snimanje svih otvorenih blokova."""] ],
         "block_input_box_name_description_text": [
             [0, """Enter a block name"""],
@@ -743,10 +743,10 @@ U toku je snimanje svih otvorenih blokova."""] ],
             [1, """"""] ],
         "calendar_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "calendar_btn_cancel_tt": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "calendar_cal_widget_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -772,7 +772,7 @@ U toku je snimanje svih otvorenih blokova."""] ],
             [0, """The date you entered could not be recognized.
 Please try again or use the calendar!"""],
             [1, """Datum koji ste uneli nije mogao biti prepoznat.
-Molimo pokusajte ponovo ili koristite kalendar !"""] ],
+Molimo pokušajte ponovo ili koristite kalendar !"""] ],
         "header_btn_date_context_set_date": [
             [0, """Enter Date"""],
             [1, """Unesite datum"""] ],
@@ -784,7 +784,7 @@ Molimo pokusajte ponovo ili koristite kalendar !"""] ],
             [1, """Kalendar"""] ],
         "header_btn_date_context_calendar_pick_desc": [
             [0, """Select a date using the calendar"""],
-            [1, """Izaberite datum koristeci kalendar"""] ],
+            [1, """Izaberite datum koristeći kalendar"""] ],
         "header_btn_date_context_set_display_desc": [
             [0, """Choose the format in which the date will be displayed in the title of the block"""],
             [1, """Izaberite format u kome ce se datum prikazivatio u naslovu bloka"""] ],
@@ -796,13 +796,13 @@ Molimo pokusajte ponovo ili koristite kalendar !"""] ],
             [1, """Kratki datum"""] ],
         "header_btn_date_context_format_short_desc": [
             [0, """The shortest display of the date, without the name of the day of the week and the name of the month."""],
-            [1, """Najkraci prikaz datuma, bez imena dana u nedelji i imena meseca."""] ],
+            [1, """Najkraći prikaz datuma, bez imena dana u nedelji i imena meseca."""] ],
         "header_btn_date_context_format_day": [
             [0, """With day name"""],
             [1, """Sa imenom dana"""] ],
         "header_btn_date_context_format_day_desc": [
             [0, """Display of the name of the day of the week with the following short date"""],
-            [1, """Prikaz imena dana u nedelji sa sledujucim kratkim datumom"""] ],
+            [1, """Prikaz imena dana u nedelji sa sledujućim kratkim datumom"""] ],
         "header_btn_date_context_format_month": [
             [0, """With month name"""],
             [1, """Sa imenom meseca"""] ],
@@ -829,7 +829,7 @@ Molimo pokusajte ponovo ili koristite kalendar !"""] ],
             [1, """"""] ],
         "block_titlebar_context_expand_text": [
             [0, """Expand block"""],
-            [1, """Prosiri blok"""] ],
+            [1, """Proširi blok"""] ],
         "block_titlebar_context_expand_desc": [
             [0, """"""],
             [1, """"""] ],
@@ -876,7 +876,7 @@ Azuriran: #4
 
 Oznake: #5
 
-Broj znakova: #6 ,  Broj reci: #7"""] ],
+Broj znakova: #6 ,  Broj reči: #7"""] ],
         "close": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -888,15 +888,15 @@ Broj znakova: #6 ,  Broj reci: #7"""] ],
             [1, """"""] ],
         "block_header_btn_add_context_user_text": [
             [0, """Add a custom tag"""],
-            [1, """Dodaj korisnicki definisanu oznaku"""] ],
+            [1, """Dodaj korisnički definisanu oznaku"""] ],
         "block_header_btn_add_context_user_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_header_diary_context_notification_text": [
             [0, """If you remove this tag, the contents of the block will not be in the diary.
 You can always add this tag again."""],
-            [1, """Ako uklonite ovu oznaku, sadrzaj bloka nece biti u dnevniku.
-Uvek mozete dodati ovu oznaku ponovo."""] ],
+            [1, """Ako uklonite ovu oznaku, sadržaj bloka neće biti u dnevniku.
+Uvek možete dodati ovu oznaku ponovo."""] ],
         "block_header_diary_context_remove_text": [
             [0, """Remove this tag"""],
             [1, """Ukloni ovu oznaku"""] ],
@@ -917,15 +917,15 @@ Uvek mozete dodati ovu oznaku ponovo."""] ],
             [1, """"""] ],
         "mnu_unfinished_msg_no_data_text": [
             [0, """You have no more unfinished blocks in the database!"""],
-            [1, """Nemate vise nedovrsenih blokova u bazi podataka !"""] ],
+            [1, """Nemate više nedovršenih blokova u bazi podataka !"""] ],
         "block_footer_btn_delete_msg_title": [
             [0, """Deleting a block"""],
             [1, """Brisanje bloka"""] ],
         "block_footer_btn_delete_msg_text": [
             [0, """Are you sure you want to delete this block?
 The block will be permanently deleted from the database!"""],
-            [1, """Da li ste sigurni da zelite da obrisete ovaj blok ?
-Blok ce biti trajno obrisan iz baze podataka !"""] ],
+            [1, """Da li ste sigurni da želite da obrišete ovaj blok ?
+Blok će biti trajno obrisan iz baze podataka !"""] ],
         "btn_yes": [
             [0, """Yes"""],
             [1, """Da"""] ],
@@ -934,7 +934,7 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
             [1, """Ne"""] ],
         "btn_cancel": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "win_block_notification_block_deleted_title": [
             [0, """"""],
             [1, """"""] ],
@@ -943,7 +943,7 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
             [1, """Blok je obrisan !"""] ],
         "block_footer_btn_delete_menu_delete_text": [
             [0, """Delete the block"""],
-            [1, """Obrisi blok"""] ],
+            [1, """Obriši blok"""] ],
         "block_footer_btn_delete_menu_delete_desc": [
             [0, """"""],
             [1, """"""] ],
@@ -976,10 +976,10 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
             [1, """AutoComplete"""] ],
         "ac_msg_text": [
             [0, """Please wait, updating database in progress..."""],
-            [1, """Molim sacekajte, azuriranje baze u toku..."""] ],
+            [1, """Molim sačekajte, ažuriranje baze u toku..."""] ],
         "block_txt_box_menu_undo_text": [
             [0, """Undo"""],
-            [1, """Ponisti"""] ],
+            [1, """Poništi"""] ],
         "block_txt_box_menu_redo_text": [
             [0, """Redo"""],
             [1, """Ponovi"""] ],
@@ -1009,7 +1009,7 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
             [1, """"""] ],
         "block_txt_box_menu_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "block_txt_box_menu_delete_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1021,49 +1021,49 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
             [1, """"""] ],
         "block_txt_box_menu_highlight_text": [
             [0, """Word Highlight"""],
-            [1, """Oznaci rec"""] ],
+            [1, """Označi reč"""] ],
         "block_txt_box_menu_highlight_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_autocomplete_on_text": [
             [0, """Turn on"""],
-            [1, """Ukljuci"""] ],
+            [1, """Uključi"""] ],
         "block_txt_box_menu_autocomplete_on_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_autocomplete_off_text": [
             [0, """Turn Off"""],
-            [1, """Iskljuci"""] ],
+            [1, """Isključi"""] ],
         "block_txt_box_menu_autocomplete_off_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_highlight_on_text": [
             [0, """Turn on"""],
-            [1, """Ukljuci"""] ],
+            [1, """Uključi"""] ],
         "block_txt_box_menu_highlight_on_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_highlight_off_text": [
             [0, """Turn Off"""],
-            [1, """Iskljuci"""] ],
+            [1, """Isključi"""] ],
         "block_txt_box_menu_highlight_off_tt": [
             [0, """"""],
             [1, """"""] ],
         "text_on": [
             [0, """On"""],
-            [1, """Ukljucen"""] ],
+            [1, """Uključen"""] ],
         "text_off": [
             [0, """Off"""],
-            [1, """Iskljucen"""] ],
+            [1, """Isključen"""] ],
         "block_txt_box_menu_def_sel_text": [
             [0, """Define selected"""],
-            [1, """Definisi selektovano"""] ],
+            [1, """Definiši selektovano"""] ],
         "block_txt_box_menu_def_sel_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_high_text": [
             [0, """Define highlighted word"""],
-            [1, """Definisi oznacenu rec"""] ],
+            [1, """Definiši označenu reč"""] ],
         "block_txt_box_menu_def_high_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1073,16 +1073,16 @@ Blok ce biti trajno obrisan iz baze podataka !"""] ],
         "def_msg_word_to_short_text": [
             [0, """The term you want to define is too short. (#1).
 The minimum length of an expression that can be defined is #2."""],
-            [1, """Izraz koji zelite da definisete je suvise kratak. (#1).
-Minimalna duzina izraza koji moze da se definise je #2."""] ],
+            [1, """Izraz koji želite da definišete je suviše kratak. (#1).
+Minimalna dužina izraza koji može da se definiše je #2."""] ],
         "def_msg_word_to_long_title": [
             [0, """Definition of the term"""],
             [1, """Definicija izraza"""] ],
         "def_msg_word_to_long_text": [
             [0, """The term you want to define is too long.
 The maximum length of an expression that can be defined is #1."""],
-            [1, """Izraz koji zelite da definisete je suvise dugacak.
-Maksimalna duzina izraza koji moze da se definise je #1."""] ],
+            [1, """Izraz koji želite da definišete je suviše dugačak.
+Maksimalna dužina izraza koji može da se definiše je #1."""] ],
         "definition_edit_title_text": [
             [0, """Edit the expression definition"""],
             [1, """Izmenite definiciju izraza"""] ],
@@ -1097,7 +1097,7 @@ Maksimalna duzina izraza koji moze da se definise je #1."""] ],
             [1, """"""] ],
         "definition_add_expr_placeholder": [
             [0, """Enter the expression you want to define"""],
-            [1, """Unesite izraz koji zelite da definisete"""] ],
+            [1, """Unesite izraz koji želite da definišete"""] ],
         "definition_add_expr_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1115,7 +1115,7 @@ Maksimalna duzina izraza koji moze da se definise je #1."""] ],
             [1, """Dodaj novu definiciju"""] ],
         "definition_add_btn_update_text": [
             [0, """Update definition"""],
-            [1, """Azuriraj definiciju"""] ],
+            [1, """Ažuriraj definiciju"""] ],
         "definition_add_win_title_text": [
             [0, """Expression Definition"""],
             [1, """Definicija izraza"""] ],
@@ -1130,7 +1130,7 @@ Maksimalna duzina izraza koji moze da se definise je #1."""] ],
             [1, """"""] ],
         "picture_add_lbl_file_text": [
             [0, """Enter the URL or path to the file containing the image:"""],
-            [1, """Unesite URL ili put do datoteke koja sadrzi sliku:"""] ],
+            [1, """Unesite URL ili put do datoteke koja sadrži sliku:"""] ],
         "picture_add_lbl_file_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1148,22 +1148,22 @@ Maksimalna duzina izraza koji moze da se definise je #1."""] ],
             [1, """"""] ],
         "picture_add_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "picture_add_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
         "picture_add_btn_show_text": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "picture_add_btn_show_tt": [
             [0, """"""],
             [1, """"""] ],
         "picture_add_no_loaded_pic_text": [
             [0, """The image could not be loaded!"""],
-            [1, """Slika nije mogla biti ucitana !"""] ],
+            [1, """Slika nije mogla biti učitana !"""] ],
         "please_wait": [
             [0, """Please wait..."""],
-            [1, """Molim sacekajte..."""] ],
+            [1, """Molim sačekajte..."""] ],
         "picture_add_cm_name_text": [
             [0, """Add a name for the image"""],
             [1, """Dodajte ime za sliku"""] ],
@@ -1208,17 +1208,17 @@ Maksimalna duzina izraza koji moze da se definise je #1."""] ],
             [1, """Dodavanje Slike"""] ],
         "definition_add_msg_img_exist_text": [
             [0, """The picture you selected has already been added!"""],
-            [1, """Slika koju ste izabrali je vec dodata !"""] ],
+            [1, """Slika koju ste izabrali je već dodata !"""] ],
         "definition_add_lbl_syn_text": [
             [0, """Enter all expressions that are similar to the expression you are defining.
 Example:
      house
      houses
      home"""],
-            [1, """Unesite sve izraze koji su slicni izrazu koji definisete.
+            [1, """Unesite sve izraze koji su slični izrazu koji definišete.
 Primer:
-     kuca
-     kuce
+     kuća
+     kuće
      dom"""] ],
         "definition_add_lbl_syn_tt": [
             [0, """"""],
@@ -1228,7 +1228,7 @@ Primer:
             [1, """...opis izraza"""] ],
         "definition_add_syn_placeholder": [
             [0, """...list of similar expressions"""],
-            [1, """...lista slicnih izraza"""] ],
+            [1, """...lista sličnih izraza"""] ],
         "picture_view_win_title_text": [
             [0, """View images"""],
             [1, """Pregled slika"""] ],
@@ -1246,7 +1246,7 @@ Primer:
             [1, """"""] ],
         "picture_view_btn_next_text": [
             [0, """Next"""],
-            [1, """Sledeca"""] ],
+            [1, """Sledeća"""] ],
         "picture_view_btn_next_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1258,28 +1258,28 @@ Primer:
             [1, """"""] ],
         "picture_view_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "picture_view_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
         "picture_view_no_data_msg_title": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "picture_view_no_data_msg_text": [
             [0, """No images to display!"""],
             [1, """Nema slika za prikazivanje !"""] ],
         "picture_view_ntf_saved_text": [
             [0, """The image has been updated."""],
-            [1, """Slika je azurirana."""] ],
+            [1, """Slika je ažurirana."""] ],
         "definition_media_item_menu_view_text": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "definition_media_item_menu_view_tt": [
             [0, """"""],
             [1, """"""] ],
         "picture_add_cm_load_clip_text": [
             [0, """Load from clipboard"""],
-            [1, """Ucitaj iz clipboarda"""] ],
+            [1, """Učitaj iz clipboarda"""] ],
         "picture_add_cm_load_clip_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1306,40 +1306,40 @@ Primer:
             [1, """"""] ],
         "block_txt_box_menu_def_show_text": [
             [0, """Show the definition of the term"""],
-            [1, """Prikazi definiciju izraza"""] ],
+            [1, """Prikaži definiciju izraza"""] ],
         "block_txt_box_menu_def_show_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_mark_on_text": [
             [0, """On"""],
-            [1, """Ukljuceno"""] ],
+            [1, """Uključeno"""] ],
         "block_txt_box_menu_def_mark_on_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_mark_off_text": [
             [0, """Off"""],
-            [1, """Iskljuceno"""] ],
+            [1, """Isključeno"""] ],
         "block_txt_box_menu_def_mark_off_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_view_simple_on_off_text": [
             [0, """Show the definition when the mouse is over the expression"""],
-            [1, """Prikazi definiciju kada je mis iznad izraza"""] ],
+            [1, """Prikaži definiciju kada je miš iznad izraza"""] ],
         "block_txt_box_menu_def_view_simple_on_off_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_view_simple_on_text": [
             [0, """On"""],
-            [1, """Ukljuceno"""] ],
+            [1, """Uključeno"""] ],
         "block_txt_box_menu_def_view_simple_on_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_def_view_simple_off_text": [
             [0, """Off"""],
-            [1, """Iskljuceno"""] ],
+            [1, """Isključeno"""] ],
         "block_txt_box_menu_def_view_simple_off_tt": [
             [0, """Off"""],
-            [1, """Iskljuceno"""] ],
+            [1, """Isključeno"""] ],
         "block_txt_box_menu_add_image_text": [
             [0, """Add an image to the block"""],
             [1, """Dodaj sliku u blok"""] ],
@@ -1348,13 +1348,13 @@ Primer:
             [1, """"""] ],
         "block_add_image_already_exist": [
             [0, """The image you want to add already exists in the block."""],
-            [1, """Slika koju zelite da dodate vec postoji u bloku."""] ],
+            [1, """Slika koju želite da dodate već postoji u bloku."""] ],
         "block_add_image_already_exist_title": [
             [0, """The picture is already in the block"""],
-            [1, """Slika je vec u bloku"""] ],
+            [1, """Slika je već u bloku"""] ],
         "block_image_item_menu_view_image_text": [
             [0, """View image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "block_image_item_menu_view_image_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1372,10 +1372,10 @@ Primer:
             [1, """Dodaj novu sliku"""] ],
         "block_area_item_menu_view_image_text": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "block_area_item_menu_view_image_tt": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "main_area_lbl_menu_add_new_text": [
             [0, """Add a new block"""],
             [1, """Dodaj novi blok"""] ],
@@ -1384,7 +1384,7 @@ Primer:
             [1, """"""] ],
         "main_area_lbl_menu_unfinnished_text": [
             [0, """Select unfinished blocks"""],
-            [1, """Izaberi nezavrsene blokove"""] ],
+            [1, """Izaberi nezavršene blokove"""] ],
         "main_area_lbl_menu_unfinnished_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1411,13 +1411,13 @@ Primer:
             [1, """Iz jezika"""] ],
         "translation_from_tt": [
             [0, """The language from which the text will be translated"""],
-            [1, """Jezik sa koga ce tekst biti preveden"""] ],
+            [1, """Jezik sa koga će tekst biti preveden"""] ],
         "translation_detected_text": [
             [0, """Language detected:"""],
             [1, """Detektovan jezik: """] ],
         "translation_detected_tt": [
             [0, """The language that was detected based on the text input for translation"""],
-            [1, """Jezik koji je detektovan na osnovu unosa teksta za prevodjenje"""] ],
+            [1, """Jezik koji je detektovan na osnovu unosa teksta za prevođenje"""] ],
         "translation_to_text": [
             [0, """On the language"""],
             [1, """Na jezik"""] ],
@@ -1444,7 +1444,7 @@ Primer:
             [1, """"""] ],
         "translation_detected_none_text": [
             [0, """The language to be translated from has not yet been detected"""],
-            [1, """Jezik sa koga se prevodi jos nije detektovan"""] ],
+            [1, """Jezik sa koga se prevodi još nije detektovan"""] ],
         "translation_btn_detect_text": [
             [0, """Detect language"""],
             [1, """Detektuj jezik"""] ],
@@ -1484,25 +1484,25 @@ Name: #2
 Used #3 times."""],
             [1, """ID oznake (#1)
 Naziv: #2
-Koristena #3 puta."""] ],
+Korištena #3 puta."""] ],
         "tag_view_lbl_info_tt": [
             [0, """"""],
             [1, """"""] ],
         "tag_view_btn_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "tag_view_btn_delete_tt": [
             [0, """"""],
             [1, """"""] ],
         "tag_view_btn_apply_text": [
             [0, """Apply"""],
-            [1, """Azuriraj"""] ],
+            [1, """Ažuriraj"""] ],
         "tag_view_btn_apply_tt": [
             [0, """"""],
             [1, """"""] ],
         "tag_view_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "tag_view_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1511,10 +1511,10 @@ Koristena #3 puta."""] ],
             [1, """Dodaj novi"""] ],
         "tag_view_btn_add_tt": [
             [0, """Enter the name and description of the new tag and click this button to save the new tag"""],
-            [1, """Upisite ime i opis nove oznake i kliknite na ovo dugme da vi sacuvali novu oznaku"""] ],
+            [1, """Upišite ime i opis nove oznake i kliknite na ovo dugme da vi sačuvali novu oznaku"""] ],
         "tag_view_notif_data_updated": [
             [0, """Tag is updated"""],
-            [1, """Oznaka je azurirana"""] ],
+            [1, """Oznaka je ažurirana"""] ],
         "tag_view_notif_data_not_updated": [
             [0, """Tag name does not exist!"""],
             [1, """Naziv oznake ne postoji !"""] ],
@@ -1532,7 +1532,7 @@ Koristena #3 puta."""] ],
             [1, """Obrisati oznaku ?"""] ],
         "tag_view_delete_question_text": [
             [0, """Are you sure you want to delete tag #1?"""],
-            [1, """Da li stvarno zelite da obrisete oznaku #1 ?"""] ],
+            [1, """Da li stvarno želite da obrišete oznaku #1 ?"""] ],
         "tag_view_delete_question_btn_yes": [
             [0, """Yes"""],
             [1, """Da"""] ],
@@ -1541,7 +1541,7 @@ Koristena #3 puta."""] ],
             [1, """Ne"""] ],
         "tag_view_delete_question_btn_cancel": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "tag_view_notif_data_not_deleted": [
             [0, """Tag does not exist!"""],
             [1, """Oznaka ne postoji !"""] ],
@@ -1550,24 +1550,24 @@ Koristena #3 puta."""] ],
             [1, """Brisanje dnevnika"""] ],
         "tag_view_delete_msg_no_diary_text": [
             [0, """The Diary is a basic tag and cannot be deleted"""],
-            [1, """Dnevnik je osnovni tag i ne moze biti obrisan"""] ],
+            [1, """Dnevnik je osnovni tag i ne može biti obrisan"""] ],
         "tag_view_delete_msg_no_diary_btn_ok_text": [
             [0, """Ok"""],
             [1, """U redu"""] ],
         "tag_view_delete_msg_in_use_title": [
             [0, """The tag is used"""],
-            [1, """Oznaka je koristena"""] ],
+            [1, """Oznaka je korištena"""] ],
         "tag_view_delete_msg_in_use_text": [
             [0, """A tag used in a block cannot be deleted.
 Remove this tag first from the blocks where you used it."""],
-            [1, """Oznaka koja je koristena u nekom bloku ne moze biti obrisana.
+            [1, """Oznaka koja je korištena u nekom bloku ne može biti obrisana.
 Uklonite prvo ovu oznaku iz blokova gde ste je koristili."""] ],
         "edit_tags_cm_text": [
             [0, """Edit tags"""],
             [1, """Uredi oznake"""] ],
         "edit_tags_cm_tt": [
             [0, """Edit tags, add new ones or delete old ones."""],
-            [1, """Izmeni oznake, dodaj nove ili obrisi stare."""] ],
+            [1, """Izmeni oznake, dodaj nove ili obriši stare."""] ],
         "definition_add_illegal_msg_title": [
             [0, """Illegal entry"""],
             [1, """Nedozvoljeni unos"""] ],
@@ -1576,8 +1576,8 @@ Uklonite prvo ovu oznaku iz blokova gde ste je koristili."""] ],
 or you have entered a synonym that is already attached to another definition.
 Check your entry, the error is marked with a different color!"""],
             [1, """Uneli ste naziv definicije koji postoji kao sinonim u nekoj drugoj definiciji,
-ili ste uneli sinonim koji je vec pridruzen drugoj definiciji.
-Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
+ili ste uneli sinonim koji je već pridružen drugoj definiciji.
+Proverite vaš unos, greška je označena drugačijom bojom !"""] ],
         "mnu_edit_tags_text": [
             [0, """Edit tags"""],
             [1, """Uredi oznake"""] ],
@@ -1586,7 +1586,7 @@ Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
             [1, """Uredi oznake"""] ],
         "mnu_edit_tags_sb_text": [
             [0, """Edit existing tags or add new ones."""],
-            [1, """Izmenite postojece oznake ili dodajte nove."""] ],
+            [1, """Izmenite postojeće oznake ili dodajte nove."""] ],
         "mnu_edit_definitions_text": [
             [0, """Edit definitions"""],
             [1, """Uredi definicije"""] ],
@@ -1595,7 +1595,7 @@ Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
             [1, """Uredi definicije"""] ],
         "mnu_edit_definitions_sb_text": [
             [0, """Modify existing definitions or add new ones."""],
-            [1, """Izmenite postojece definicije ili dodajte nove."""] ],
+            [1, """Izmenite postojeće definicije ili dodajte nove."""] ],
         "mnu_view_tags_text": [
             [0, """View tags"""],
             [1, """Pregledaj oznake"""] ],
@@ -1625,7 +1625,7 @@ Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
             [1, """Pregledaj sve slike.,"""] ],
         "definition_view_simple_btn_resize_tt": [
             [0, """Resize the window."""],
-            [1, """Promeni velicinu prozora."""] ],
+            [1, """Promeni veličinu prozora."""] ],
         "definition_view_simple_btn_close_tt": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -1652,10 +1652,10 @@ Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
             [1, """Izmenite ovu definiciju"""] ],
         "browse_def_btn_delete_tt": [
             [0, """Delete this definition"""],
-            [1, """Obrisite ovu definiciju"""] ],
+            [1, """Obrišite ovu definiciju"""] ],
         "browse_def_btn_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "browse_def_btn_close_text": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -1668,25 +1668,25 @@ Proverite vas unos, greska je oznacena drugacijom bojom !"""] ],
         "browse_def_delete_conf_msg_text": [
             [0, """Are you sure you want to delete the definition:
 """],
-            [1, """Da li ste sigurni da zelite da obrisete definiciju:
+            [1, """Da li ste sigurni da želite da obrišete definiciju:
 """] ],
         "browse_def_delete_no_item_msg_title": [
             [0, """Deleting a definition"""],
             [1, """Brisanje definicije"""] ],
         "browse_def_delete_no_item_msg_text": [
             [0, """The definition you want to delete is not selected!"""],
-            [1, """Nije izabrana definicija koju zelite da obrisete !"""] ],
+            [1, """Nije izabrana definicija koju želite da obrišete !"""] ],
         "browse_def_notiff_item_deleted_text": [
             [0, """Definition: #1
 was successfully deleted."""],
             [1, """Definicija: #1
-je uspesno obrisana."""] ],
+je uspešno obrisana."""] ],
         "picture_browse_win_title_text": [
             [0, """Image browser"""],
-            [1, """Pregledac slika"""] ],
+            [1, """Pregledač slika"""] ],
         "picture_browse_lbl_title_text": [
             [0, """Image browser"""],
-            [1, """Pregledac slika"""] ],
+            [1, """Pregledač slika"""] ],
         "picture_browse_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -1716,7 +1716,7 @@ je uspesno obrisana."""] ],
             [1, """"""] ],
         "picture_view_btn_update_text": [
             [0, """Update"""],
-            [1, """Azuriraj"""] ],
+            [1, """Ažuriraj"""] ],
         "picture_view_btn_update_tt": [
             [0, """Save all changed data"""],
             [1, """Snimi sve izmenjene podatke"""] ],
@@ -1728,19 +1728,19 @@ je uspesno obrisana."""] ],
             [1, """"""] ],
         "picture_view_btn_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "picture_view_btn_delete_tt": [
             [0, """Delete image"""],
-            [1, """Obrisi sliku."""] ],
+            [1, """Obriši sliku."""] ],
         "picture_browse_lbl_title_wait_text": [
             [0, """Please wait ..."""],
-            [1, """Molim sacekajte ..."""] ],
+            [1, """Molim sačekajte ..."""] ],
         "picture_browse_lbl_count_text": [
             [0, """Total #1 images shown."""],
             [1, """Ukupno #1 slika prikazano."""] ],
         "def_editor_lbl_title_text": [
             [0, """Definitions Editor"""],
-            [1, """Uredjivanje definicija"""] ],
+            [1, """Uređivanje definicija"""] ],
         "def_editor_lbl_base_text": [
             [0, """The base of the expression"""],
             [1, """Osnova izraza"""] ],
@@ -1752,27 +1752,27 @@ je uspesno obrisana."""] ],
             [1, """Dodaj na kraj"""] ],
         "def_editor_chk_add_end_tt": [
             [0, """Create a list of strings to be appended to the end of the base string"""],
-            [1, """Napravite listu stringova koja ce se dodati na kraj baznog stringa"""] ],
+            [1, """Napravite listu stringova koja će se dodati na kraj baznog stringa"""] ],
         "def_editor_chk_add_beggining_text": [
             [0, """Add at beginning"""],
-            [1, """Dodaj na pocetak"""] ],
+            [1, """Dodaj na početak"""] ],
         "def_editor_chk_add_beggining_tt": [
             [0, """Append to the beginning of the base string"""],
-            [1, """Dodaj na pocetak baznog stringa"""] ],
+            [1, """Dodaj na početak baznog stringa"""] ],
         "def_editor_chk_first_up_text": [
             [0, """Capital first letter"""],
             [1, """Veliko prvo slovo"""] ],
         "def_editor_chk_first_up_tt": [
             [0, """The case when the first letter is uppercase will also be added to the list"""],
-            [1, """Na listu ce biti dodan i slucaj kada je prvo slovo veliko"""] ],
+            [1, """Na listu će biti dodan i slučaj kada je prvo slovo veliko"""] ],
         "def_editor_chk_combo_add_text": [
             [0, """Combine the addition at the beginning and end"""],
-            [1, """Kombinuj dodavanje na pocetak i kraj"""] ],
+            [1, """Kombinuj dodavanje na početak i kraj"""] ],
         "def_editor_chk_combo_add_tt": [
             [0, """In addition to the string that will be added to the beginning and the string that will be added to the end of the base string,
 this option will also create a combination entry when adding a string to both the beginning and the end"""],
-            [1, """Pored stringa koji ce biti dodat na pocetak i stringa koji ce biti dodat na kraj baznog stringa,
-ova opcija ce napraviti i unos kombinacija kada se dodaje string i na pocetak i na kraj"""] ],
+            [1, """Pored stringa koji će biti dodat na početak i stringa koji ce biti dodat na kraj baznog stringa,
+ova opcija će napraviti i unos kombinacija kada se dodaje string i na početak i na kraj"""] ],
         "def_editor_chk_combo_prev_text": [
             [0, """Combine with previous base string"""],
             [1, """Kombinuj sa prethodnim baznim stringom"""] ],
@@ -1780,21 +1780,21 @@ ova opcija ce napraviti i unos kombinacija kada se dodaje string i na pocetak i 
             [0, """This option is useful if you have a base string of several words.
 When enabled each subsequent base string will not be added to the end of the list,
 rather, it will be combined with the already existing previous base string."""],
-            [1, """Ova opcija je korisna ako imate bazni string od nekoliko reci.
-Kada je ukljucena svaki sledeci bazni string nece biti dodat na kraj liste, 
-nego ce biti kombinovan sa vec postojecim prethodnim baznim stringom."""] ],
+            [1, """Ova opcija je korisna ako imate bazni string od nekoliko reči.
+Kada je uključena svaki sledeći bazni string neće biti dodat na kraj liste, 
+nego će biti kombinovan sa već postojećim prethodnim baznim stringom."""] ],
         "def_editor_chk_remember_text": [
             [0, """Remember settings and data"""],
-            [1, """Zapamti podesavanja i podatke"""] ],
+            [1, """Zapamti podešavanja i podatke"""] ],
         "def_editor_chk_remember_tt": [
             [0, """Turn on this option if you need the same data and settings often."""],
-            [1, """Ukljucite ovu opciju ako su vam isti podaci i podesavanje cesto potrebni."""] ],
+            [1, """Uključite ovu opciju ako su vam isti podaci i podešavanje često potrebni."""] ],
         "def_editor_btn_generate_text": [
             [0, """Generate"""],
-            [1, """Generisi"""] ],
+            [1, """Generiši"""] ],
         "def_editor_btn_generate_tt": [
             [0, """Generates output based on the data and settings you enter"""],
-            [1, """Generise izlaz na osnovu podataka i podesavanja koja ste uneli"""] ],
+            [1, """Generiše izlaz na osnovu podataka i podešavanja koja ste uneli"""] ],
         "def_editor_btn_copy_text": [
             [0, """Copy output"""],
             [1, """Kopiraj izlaz"""] ],
@@ -1803,16 +1803,16 @@ nego ce biti kombinovan sa vec postojecim prethodnim baznim stringom."""] ],
             [1, """Kopira izlaznu listu u clipboard"""] ],
         "def_editor_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "def_editor_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
         "def_editor_btn_clear_text": [
             [0, """Clear"""],
-            [1, """Ocisti"""] ],
+            [1, """Očisti"""] ],
         "def_editor_btn_clear_tt": [
             [0, """Deletes the data from the box."""],
-            [1, """Brise podatke iz boks-a."""] ],
+            [1, """Briše podatke iz boks-a."""] ],
         "definition_add_btn_editor_text": [
             [0, """Editor"""],
             [1, """Editor"""] ],
@@ -1821,17 +1821,17 @@ nego ce biti kombinovan sa vec postojecim prethodnim baznim stringom."""] ],
 or you want to add all expressions with a capital letter,
 The editor will help you to do it quickly."""],
             [1, """Ukoliko dodajete mnogo izraza koji se razlikuju samo poslednjem slovu,
-ili zelite da dodate sve izraze sa velikim pocetnim slovom,
-Editor ce vam pomoci da to brze uradite."""] ],
+ili želite da dodate sve izraze sa velikim početnim slovom,
+Editor će vam pomoći da to brže uradite."""] ],
         "picture_browse_lbl_load_text": [
             [0, """Loading images..."""],
-            [1, """Ucitavam slike..."""] ],
+            [1, """Učitavam slike..."""] ],
         "picture_browse_lbl_load_tt": [
             [0, """"""],
             [1, """"""] ],
         "picture_browse_msg_data_updated_text": [
             [0, """The data has been updated."""],
-            [1, """Podaci su azurirani."""] ],
+            [1, """Podaci su ažurirani."""] ],
         "picture_browse_item_deleted_text": [
             [0, """Deleted!"""],
             [1, """Obrisan !"""] ],
@@ -1843,19 +1843,19 @@ Editor ce vam pomoci da to brze uradite."""] ],
             [1, """Brisanje slike"""] ],
         "picture_browse_msg_cant_delete_text": [
             [0, """The image cannot be deleted because it is used in a block or expression definition!"""],
-            [1, """Slika ne moze biti obrisana zato sto se koristi u nekom bloku ili definiciji izraza !"""] ],
+            [1, """Slika ne može biti obrisana zato što se koristi u nekom bloku ili definiciji izraza !"""] ],
         "picture_browse_msg_confirm_title": [
             [0, """Deleting an image"""],
             [1, """Brisanje slike"""] ],
         "picture_browse_msg_confirm_text": [
             [0, """Are you sure you want to delete the image?"""],
-            [1, """Da li ste sigurni da zelite da obrisete sliku ?"""] ],
+            [1, """Da li ste sigurni da želite da obrišete sliku ?"""] ],
         "def_editor_btn_edit_output_text": [
             [0, """Edit Output"""],
             [1, """Uredi izlaz"""] ],
         "def_editor_btn_edit_output_tt": [
             [0, """It enables performing various operations on the output list"""],
-            [1, """Omogucava vrsenje raznih operacija nad izlaznom listom"""] ],
+            [1, """Omogućava vršenje raznih operacija nad izlaznom listom"""] ],
         "def_editor_btn_edit_replace_text": [
             [0, """Replace"""],
             [1, """Zameni"""] ],
@@ -1863,9 +1863,9 @@ Editor ce vam pomoci da to brze uradite."""] ],
             [0, """This operation will replace all characters from the 'Replace' field with characters
 in the 'With' field that are inside the expression in the 'In Expression' field.
 If the 'In Expression' field is empty, characters will be replaced everywhere."""],
-            [1, """Ova operacija ce zameniti sve karaktere iz polja 'Zameni' sa karakterima
+            [1, """Ova operacija će zameniti sve karaktere iz polja 'Zameni' sa karakterima
 u polju 'Sa' koji se nalaze unutar izraza u polju 'U Izrazu'.
-Ako je polje 'U Izrazu' prazno karakteri ce biti zamenjeni svuda."""] ],
+Ako je polje 'U Izrazu' prazno karakteri će biti zamenjeni svuda."""] ],
         "def_editor_btn_edit_replace_add_text": [
             [0, """Add"""],
             [1, """Dodaj"""] ],
@@ -1874,48 +1874,48 @@ Ako je polje 'U Izrazu' prazno karakteri ce biti zamenjeni svuda."""] ],
 in the 'With' field that are inside the expression in the 'In Expression' field.
 All changed items will be added to the end of the list.
 If the 'In Expression' field is empty, characters will be replaced everywhere."""],
-            [1, """Ova operacija ce zameniti sve karaktere iz polja 'Zameni' sa karakterima
+            [1, """Ova operacija će zameniti sve karaktere iz polja 'Zameni' sa karakterima
 u polju 'Sa' koji se nalaze unutar izraza u polju 'U Izrazu'.
-Sve izmenjene stavke ce biti dodate na kraj liste.
-Ako je polje 'U Izrazu' prazno karakteri ce biti zamenjeni svuda."""] ],
+Sve izmenjene stavke će biti dodate na kraj liste.
+Ako je polje 'U Izrazu' prazno karakteri će biti zamenjeni svuda."""] ],
         "def_editor_btn_edit_add_beg_text": [
             [0, """Add"""],
             [1, """Dodaj"""] ],
         "def_editor_btn_edit_add_beg_tt": [
             [0, """These operations will add the specified characters to the beginning of each item in the list"""],
-            [1, """Ova operacije ce dodati navedene karaktere na pocetak svake stavke u listi"""] ],
+            [1, """Ova operacije će dodati navedene karaktere na početak svake stavke u listi"""] ],
         "def_editor_btn_edit_add_end_text": [
             [0, """Add"""],
             [1, """Dodaj"""] ],
         "def_editor_btn_edit_add_end_tt": [
             [0, """These operations will append the specified characters to the end of each item in the list"""],
-            [1, """Ova operacije ce dodati navedene karaktere na kraj svake stavke u listi"""] ],
+            [1, """Ova operacije će dodati navedene karaktere na kraj svake stavke u listi"""] ],
         "def_editor_btn_edit_spaces_text": [
             [0, """Remove extra spaces"""],
-            [1, """Ukloni suvisne razmake"""] ],
+            [1, """Ukloni suvišne razmake"""] ],
         "def_editor_btn_edit_spaces_tt": [
             [0, """This operation will remove all redundant spaces in the items in the list.
 Wherever there is more than one space, it will be converted to a single space."""],
-            [1, """Ova operacija ce ukloniti sve suvisne razmake u stavkama na listi.
-Gde god se nalazi vise od jednog razmaka ce biti pretvoreno u jedan razmak."""] ],
+            [1, """Ova operacija če ukloniti sve suvišne razmake u stavkama na listi.
+Gde god se nalazi više od jednog razmaka će biti pretvoreno u jedan razmak."""] ],
         "def_editor_chk_edit_case_text": [
             [0, """Case Sensitive"""],
             [1, """Velika i mala slova"""] ],
         "def_editor_chk_edit_case_tt": [
             [0, """When replacing characters, the search will make sure that uppercase and lowercase letters match."""],
-            [1, """Prilikom zamene karaktera pretraga ce paziti da se velika i mala slova slazu."""] ],
+            [1, """Prilikom zamene karaktera pretraga će paziti da se velika i mala slova slažu."""] ],
         "def_editor_lbl_edit_replace_text": [
             [0, """Replace:"""],
             [1, """Zameni:"""] ],
         "def_editor_lbl_edit_replace_tt": [
             [0, """Enter the characters you want to replace."""],
-            [1, """Unesite karaktere koje zelite da zamenite."""] ],
+            [1, """Unesite karaktere koje želite da zamenite."""] ],
         "def_editor_lbl_edit_with_text": [
             [0, """With:"""],
             [1, """Sa:"""] ],
         "def_editor_lbl_edit_with_tt": [
             [0, """Enter the characters you want to replace the characters listed in the 'Replace' field with"""],
-            [1, """Unesite karaktere sa kojima zelite da zamenite karaktere navedene u polju 'Zameni'"""] ],
+            [1, """Unesite karaktere sa kojima želite da zamenite karaktere navedene u polju 'Zameni'"""] ],
         "def_editor_lbl_edit_in_string_text": [
             [0, """In Expression:"""],
             [1, """U Izrazu:"""] ],
@@ -1923,13 +1923,13 @@ Gde god se nalazi vise od jednog razmaka ce biti pretvoreno u jedan razmak."""] 
             [0, """Replace characters only if they appear in the specified expression.
 If you leave this field empty, characters will be replaced everywhere."""],
             [1, """Zameni karaktere samo ako se pojavljuju u navedenom izrazu.
-Ako ovo polje ostavite prazno, karakteri ce biti zamenjeni svuda."""] ],
+Ako ovo polje ostavite prazno, karakteri će biti zamenjeni svuda."""] ],
         "def_editor_lbl_edit_add_beg_text": [
             [0, """Add at beginning:"""],
-            [1, """Dodaj na pocetak:"""] ],
+            [1, """Dodaj na početak:"""] ],
         "def_editor_lbl_edit_add_beg_tt": [
             [0, """Append characters to the beginning of each expression in the list."""],
-            [1, """Dodaj karaktere na pocetak svakog izraza u listi."""] ],
+            [1, """Dodaj karaktere na početak svakog izraza u listi."""] ],
         "def_editor_lbl_edit_add_end_text": [
             [0, """Add to the end:"""],
             [1, """Dodaj na kraj:"""] ],
@@ -1938,18 +1938,18 @@ Ako ovo polje ostavite prazno, karakteri ce biti zamenjeni svuda."""] ],
             [1, """Dodaj karaktere na kraj svakog izraza u listi."""] ],
         "def_editor_txt_edit_replace_tt": [
             [0, """Enter the characters you want to replace."""],
-            [1, """Unesite karaktere koje zelite da zamenite."""] ],
+            [1, """Unesite karaktere koje želite da zamenite."""] ],
         "def_editor_txt_edit_with_tt": [
             [0, """Enter the characters you want to replace the characters listed in the 'Replace' field with"""],
-            [1, """Unesite karaktere sa kojima zelite da zamenite karaktere navedene u polju 'Zameni'"""] ],
+            [1, """Unesite karaktere sa kojima želite da zamenite karaktere navedene u polju 'Zameni'"""] ],
         "def_editor_txt_edit_in_string_tt": [
             [0, """Replace characters only if they appear in the specified expression.
 If you leave this field empty, characters will be replaced everywhere."""],
             [1, """Zameni karaktere samo ako se pojavljuju u navedenom izrazu.
-Ako ovo polje ostavite prazno, karakteri ce biti zamenjeni svuda."""] ],
+Ako ovo polje ostavite prazno, karakteri će biti zamenjeni svuda."""] ],
         "def_editor_txt_edit_add_beg_tt": [
             [0, """Append characters to the beginning of each expression in the list."""],
-            [1, """Dodaj karaktere na pocetak svakog izraza u listi."""] ],
+            [1, """Dodaj karaktere na početak svakog izraza u listi."""] ],
         "def_editor_txt_edit_add_end_tt": [
             [0, """Add characters to the end of each expression in the list."""],
             [1, """Dodaj karaktere na kraj svakog izraza u listi."""] ],
@@ -1959,20 +1959,20 @@ Ako ovo polje ostavite prazno, karakteri ce biti zamenjeni svuda."""] ],
         "def_editor_chk_add_base_tt": [
             [0, """In addition to the combinations that will be created by adding to the beginning and end of the base expression,
 this option adds the base expression itself to the list."""],
-            [1, """Pored kombinacija koje ce nastati dodavanjem na pocetak i kraj baznog izraza,
+            [1, """Pored kombinacija koje će nastati dodavanjem na početak i kraj baznog izraza,
 ova opcija dodaje i sam bazni izraz u listu."""] ],
         "def_editor_msg_replaced_text": [
             [0, """Replaced #1 appearance of selected characters."""],
             [1, """Zamenjeno je #1 pojavljivanja odabranih karaktera."""] ],
         "def_editor_msg_no_replaced_text": [
             [0, """No replacement characters found."""],
-            [1, """Karakteri za zamenu nisu pronadjeni."""] ],
+            [1, """Karakteri za zamenu nisu pronađeni."""] ],
         "def_editor_lbl_msg_spaces_text": [
             [0, """A total of #1 redundant spaces were thrown."""],
-            [1, """Ukupno je izbaceno #1 suvisnih razmaka."""] ],
+            [1, """Ukupno je izbačeno #1 suvišnih razmaka."""] ],
         "def_editor_lbl_msg_no_spaces_text": [
             [0, """The list has no extra spaces."""],
-            [1, """Lista nema suvisnih razmaka."""] ],
+            [1, """Lista nema suvišnih razmaka."""] ],
         "block_view_lbl_title_text": [
             [0, """Block Browser"""],
             [1, """Pregled Blokova"""] ],
@@ -1999,13 +1999,13 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """Dodaj novi blok"""] ],
         "block_view_add_new_msg_text": [
             [0, """This is only an overview of blocks, you cannot add a new block here!"""],
-            [1, """Ovo je samo pregled blokova, ne mozete ovde dodavati novi blok !"""] ],
+            [1, """Ovo je samo pregled blokova, ne možete ovde dodavati novi blok !"""] ],
         "block_view_msg_block_exist_title": [
             [0, """The block is already open!"""],
-            [1, """Blok je vec otvoren !"""] ],
+            [1, """Blok je već otvoren !"""] ],
         "block_view_msg_block_exist_text": [
             [0, """The block you want to open is already open in the main window!"""],
-            [1, """Blok koji zelite da otvorite je vec otvoren u glavnom prozoru !"""] ],
+            [1, """Blok koji želite da otvorite je već otvoren u glavnom prozoru !"""] ],
         "frm_tags_lbl_title_text": [
             [0, """Tags to filter by:"""],
             [1, """Oznake po kojima se filtrira:"""] ],
@@ -2014,7 +2014,7 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "frm_tags_btn_tag_reset_text": [
             [0, """Reset"""],
-            [1, """Ponisti"""] ],
+            [1, """Poništi"""] ],
         "frm_tags_btn_tag_reset_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2026,7 +2026,7 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "frm_tags_btn_tag_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "frm_tags_btn_tag_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2047,7 +2047,7 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """Zatvara sve trenutno otvorene blokove."""] ],
         "block_view_list_menu_show_block_text": [
             [0, """Show block"""],
-            [1, """Prikazi blok"""] ],
+            [1, """Prikaži blok"""] ],
         "block_view_list_menu_show_block_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2059,37 +2059,37 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "block_view_list_menu_delete_text": [
             [0, """Delete the block"""],
-            [1, """Obrisi blok"""] ],
+            [1, """Obriši blok"""] ],
         "block_view_list_menu_delete_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_view_menu_setup_view_date_text": [
             [0, """Show date"""],
-            [1, """Prikazi datum"""] ],
+            [1, """Prikaži datum"""] ],
         "block_view_menu_setup_view_date_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_view_menu_setup_view_tags_text": [
             [0, """Show tags"""],
-            [1, """Prikazi oznake"""] ],
+            [1, """Prikaži oznake"""] ],
         "block_view_menu_setup_view_tags_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_view_menu_setup_view_name_text": [
             [0, """Show block name"""],
-            [1, """Prikazi ime bloka"""] ],
+            [1, """Prikaži ime bloka"""] ],
         "block_view_menu_setup_view_name_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_view_menu_setup_view_body_text": [
             [0, """Show part of the content of the block"""],
-            [1, """Prikazi deo sadrzaja bloka"""] ],
+            [1, """Prikaži deo sadržaja bloka"""] ],
         "block_view_menu_setup_view_body_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_view_menu_setup_view_body_tooltip_text": [
             [0, """Show entire content as a tooltip"""],
-            [1, """Prikazi ceo sadrzaj kao tooltip"""] ],
+            [1, """Prikaži ceo sadržaj kao tooltip"""] ],
         "block_view_menu_setup_view_body_tooltip_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2113,7 +2113,7 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "block_view_list_menu_show_block_images_text": [
             [0, """Display block images"""],
-            [1, """Prikazi slike u bloku"""] ],
+            [1, """Prikaži slike u bloku"""] ],
         "block_view_list_menu_show_block_images_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2137,10 +2137,10 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "block_image_item_menu_view_all_images_text": [
             [0, """View all images"""],
-            [1, """Prikazi sve slike"""] ],
+            [1, """Prikaži sve slike"""] ],
         "block_image_item_menu_view_all_images_tt": [
             [0, """View all images"""],
-            [1, """Prikazi sve slike"""] ],
+            [1, """Prikaži sve slike"""] ],
         "footer_btn_add_new_image_text": [
             [0, """Add image"""],
             [1, """Dodaj sliku"""] ],
@@ -2155,16 +2155,16 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """Definicija"""] ],
         "find_def_url_not_found_text": [
             [0, """There is no data for the search expresion."""],
-            [1, """Nema podataka za trazeni izraz."""] ],
+            [1, """Nema podataka za traženi izraz."""] ],
         "find_def_lbl_load_text": [
             [0, """Loading data..."""],
-            [1, """Ucitavam podatke..."""] ],
+            [1, """Učitavam podatke..."""] ],
         "find_def_lbl_load_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_txt_box_menu_find_def_text": [
             [0, """Search for a definition for a marked term on the Internet"""],
-            [1, """Trazi definiciju za oznaceni izraz na internetu"""] ],
+            [1, """Traži definiciju za označeni izraz na internetu"""] ],
         "block_txt_box_menu_find_def_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2176,19 +2176,19 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [1, """"""] ],
         "find_def_btn_open_images_text": [
             [0, """Open more images in the browser"""],
-            [1, """Otvori jos slika u pretrazivacu"""] ],
+            [1, """Otvori još slika u pretraživaču"""] ],
         "find_def_btn_open_images_tt": [
             [0, """Open more images in the browser"""],
-            [1, """Otvori jos slika u pretrazivacu"""] ],
+            [1, """Otvori još slika u pretraživaču"""] ],
         "find_def_image_menu_show_images_text": [
             [0, """View more images in the browser"""],
-            [1, """Prikazi jos slika u pretrazivacu"""] ],
+            [1, """Prikaži još slika u pretraživaču"""] ],
         "find_def_image_menu_show_images_tt": [
             [0, """"""],
             [1, """"""] ],
         "find_def_image_menu_show_trans_images_text": [
             [0, """Displays images with a transparent background in the browser"""],
-            [1, """Prikazi u pretrazivacu slike sa transparentnom pozadinom"""] ],
+            [1, """Prikaži u pretraživaču slike sa transparentnom pozadinom"""] ],
         "find_def_image_menu_show_trans_images_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2199,13 +2199,13 @@ ova opcija dodaje i sam bazni izraz u listu."""] ],
             [0, """The changes you made to the tag definition were not saved!
 Are you sure you don't want to save the changes?"""],
             [1, """Promene koje ste uradili na definiciji oznake nisu snimljene !
-Da li ste sigurni da ne zelite da snimite promene ?"""] ],
+Da li ste sigurni da ne želite da snimite promene ?"""] ],
         "block_view_chk_tag_text": [
             [0, """Show blocks that do not contain tags"""],
-            [1, """Prikazi blokove koji ne sadrze oznake"""] ],
+            [1, """Prikaži blokove koji ne sadrže oznake"""] ],
         "block_view_chk_tag_tt": [
             [0, """Shows all blocks that do not contain the selected tags."""],
-            [1, """Prikazuje sve blokove koji ne sadrze izabrane oznake."""] ],
+            [1, """Prikazuje sve blokove koji ne sadrže izabrane oznake."""] ],
         "diary_view_win_title": [
             [0, """Diary view"""],
             [1, """Pregled dnevnika"""] ],
@@ -2244,12 +2244,12 @@ Da li ste sigurni da ne zelite da snimite promene ?"""] ],
             [1, """Sve"""] ],
         "diary_view_lbl_loading_text": [
             [0, """Loading..."""],
-            [1, """Ucitavam..."""] ],
+            [1, """Učitavam..."""] ],
         "diary_view_lbl_loading_tt": [
             [0, """Loading data...
 If you press the 'STOP' button, the data will not be completely loaded!"""],
-            [1, """Podaci se ucitavaju...
-Ukoliko pritisnete dugme 'STOP' podaci nece biti kompletno ucitani !"""] ],
+            [1, """Podaci se učitavaju...
+Ukoliko pritisnete dugme 'STOP' podaci neće biti kompletno učitani !"""] ],
         "diary_view_lbl_count_text": [
             [0, """Showing #1 of a total of #2 blocks."""],
             [1, """Prikazano #1 od ukupno #2 blokova."""] ],
@@ -2259,37 +2259,37 @@ Ukoliko pritisnete dugme 'STOP' podaci nece biti kompletno ucitani !"""] ],
         "diary_view_chk_case_tt": [
             [0, """Check this option if you want to find the exact expression,
 case sensitive."""],
-            [1, """Cekirajte ovu opciju ako zelite da pronadjete tacan izraz,
-uzimajuci u obzir velika i mala slova."""] ],
+            [1, """Čekirajte ovu opciju ako želite da pronađete tačan izraz,
+uzimajući u obzir velika i mala slova."""] ],
         "diary_view_btn_view_txt_text": [
             [0, """Show text only"""],
-            [1, """Prikazi samo tekst"""] ],
+            [1, """Prikaži samo tekst"""] ],
         "diary_view_btn_view_txt_tt": [
             [0, """"""],
             [1, """"""] ],
         "diary_view_btn_view_detail_text": [
             [0, """Show details"""],
-            [1, """Prikazi detalje"""] ],
+            [1, """Prikaži detalje"""] ],
         "diary_view_btn_view_detail_tt": [
             [0, """"""],
             [1, """"""] ],
         "block_text_editor_command_list_text": [
             [0, """Start the list (@l)"""],
-            [1, """Zapocni listu (@l)"""] ],
+            [1, """Započni listu (@l)"""] ],
         "block_text_editor_command_list_tt": [
             [0, """This command starts adding items to the list.
 When you have finished entering, press ESC to exit the list.
 Commands in the editor:
 @l
 @list"""],
-            [1, """Ova komanda zapocinje unosenje stavki u listu.
-Kada zavrsite sa unosom pritisnite ESC da bi izasli iz liste.
+            [1, """Ova komanda započinje unošenje stavki u listu.
+Kada završite sa unosom pritisnite ESC da bi izašli iz liste.
 Komande u editoru:
 @l
 @list"""] ],
         "diary_view_item_image_menu_show_text": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "diary_view_item_image_menu_show_tt": [
             [0, """Displays the selected image"""],
             [1, """Prikazuje selektovanu sliku"""] ],
@@ -2304,28 +2304,28 @@ Komande u editoru:
             [1, """Prikazano #1 od ukupno #2 definicija"""] ],
         "win_block_notif_block_updated_text": [
             [0, """The block has been updated!"""],
-            [1, """Blok je azuriran !"""] ],
+            [1, """Blok je ažuriran !"""] ],
         "picture_add_chk_auto_load_text": [
             [0, """Automatically display the image from the clipboard if it exists"""],
-            [1, """Automatski prikazi sliku iz clipboard-a ako postoji"""] ],
+            [1, """Automatski prikaži sliku iz clipboard-a ako postoji"""] ],
         "picture_add_chk_auto_load_tt": [
             [0, """If this option is enabled, the clipboard will be displayed automatically
 if there is an image in it or if there is a url to the image."""],
-            [1, """Ako je ova opcija ukljucena, clipboard ce biti automatski prikazan
+            [1, """Ako je ova opcija uključena, clipboard će biti automatski prikazan
 ukoliko postoji slika u njemu ili ukoliko postoji url ka slici."""] ],
         "picture_view_menu_copy_image_text": [
             [0, """Copy the image to the clipboard"""],
             [1, """Kopiraj sliku u clipboard"""] ],
         "picture_view_menu_copy_image_tt": [
             [0, """Deletes the contents of the clipboard and copies this image to the clipboard"""],
-            [1, """Brise sadrzaj clipboarda i kopira ovu sliku u clipboard"""] ],
+            [1, """Briše sadržaj clipboarda i kopira ovu sliku u clipboard"""] ],
         "picture_view_menu_open_with_external_text": [
             [0, """Open with default app"""],
             [1, """Otvori sa podrazumevanom aplikacijom"""] ],
         "picture_view_menu_open_with_external_tt": [
             [0, """Opens the image with the default application on your operating system.
 """],
-            [1, """Otvara sliku sa podrazumevanom aplikacijom na vasem operativnom sistemu.
+            [1, """Otvara sliku sa podrazumevanom aplikacijom na vašem operativnom sistemu.
 """] ],
         "block_body_txt_box_hyperlink_tooltip": [
             [0, """A link to the website was detected:
@@ -2333,92 +2333,92 @@ Click to open the link in the browser, the link will be opened in a new tab!
 
 #1"""],
             [1, """Detektovan je link ka web stranici:
-Kliknite da otvorite link u browseru, Link ce biti otvoren u novom tabu !
+Kliknite da otvorite link u browseru, Link će biti otvoren u novom tabu !
 
 #1"""] ],
         "definition_view_simple_cm_show_all_images_text": [
             [0, """View all images (#1 images)"""],
-            [1, """Prikazi sve slike (#1 slika)"""] ],
+            [1, """Prikaži sve slike (#1 slika)"""] ],
         "definition_view_simple_cm_show_all_images_tt": [
             [0, """Shows all images associated with this definition"""],
-            [1, """Prikazuje sve slike pridruzene ovoj definiciji"""] ],
+            [1, """Prikazuje sve slike pridružene ovoj definiciji"""] ],
         "definition_add_chk_auto_add_text": [
             [0, """Automatically add a picture from the clipboard!"""],
             [1, """Automatski dodaj sliku iz clipboarda !"""] ],
         "definition_add_chk_auto_add_tt": [
             [0, """When this option is enabled, all images you copy to the clipboard will be automatically added to the definition."""],
-            [1, """Kada je ova opcija ukljucena, sve slike koje kopirate u clipboard ce biti automatski dodane u definiciju."""] ],
+            [1, """Kada je ova opcija uključena, sve slike koje kopirate u clipboard će biti automatski dodane u definiciju."""] ],
         "definition_add_chk_auto_add_working_text": [
             [0, """Adding image in progress..."""],
             [1, """Dodavanje slike u toku..."""] ],
         "definition_add_chk_auto_add_full_text": [
             [0, """It is not possible to add more pictures!"""],
-            [1, """Nije moguce dodavati jos slika !"""] ],
+            [1, """Nije moguće dodavati jos slika !"""] ],
         "auto_add_image_frame_lbl_title_text": [
             [0, """Auto add images"""],
             [1, """Automatsko dodavanje slika"""] ],
         "auto_add_image_frame_lbl_info_start_text": [
             [0, """Copy the image you want to add to the clipboard.
 The image will be automatically added to the block."""],
-            [1, """Kopirajte sliku koju zelite da dodate u clipboard.
-Slika ce automatski biti dodana u blok."""] ],
+            [1, """Kopirajte sliku koju želite da dodate u clipboard.
+Slika će automatski biti dodana u blok."""] ],
         "auto_add_image_frame_btn_exit_text": [
             [0, """Close auto-add"""],
             [1, """Zatvori automatsko dodavanje"""] ],
         "auto_add_image_frame_btn_exit_tt": [
             [0, """Closes automatic image addition, and returns to normal operation mode."""],
-            [1, """Zatvara automatsko dodavanje slika, i vraca se u normalan mod rada."""] ],
+            [1, """Zatvara automatsko dodavanje slika, i vraća se u normalan mod rada."""] ],
         "block_area_item_menu_view_all_images_text": [
             [0, """View all images"""],
-            [1, """Prikazi sve slike"""] ],
+            [1, """Prikaži sve slike"""] ],
         "block_area_item_menu_view_all_images_tt": [
             [0, """Shows all images added to the block"""],
             [1, """Prikazuje sve slike dodate u blok """] ],
         "block_image_item_menu_start_auto_add_image_text": [
             [0, """Start the auto add images mode"""],
-            [1, """Pocni mod automatskog dodavanja slika"""] ],
+            [1, """Počni mod automatskog dodavanja slika"""] ],
         "block_image_item_menu_start_auto_add_image_tt": [
             [0, """Starts the mode of automatically adding images to the block.
 When this mode is active, all images that you copy to the clipboard will be automatically added to the block."""],
-            [1, """Pokrece mod automatskog dodavanja slika u blok.
-Kada je ovaj mod aktivan sve slike koje kopirate u clipboard ce automatski biti dodane u blok."""] ],
+            [1, """Pokreće mod automatskog dodavanja slika u blok.
+Kada je ovaj mod aktivan sve slike koje kopirate u clipboard će automatski biti dodane u blok."""] ],
         "auto_add_image_frame_lbl_info_working_text": [
             [0, """Loading image..."""],
-            [1, """Ucitavam sliku..."""] ],
+            [1, """Učitavam sliku..."""] ],
         "auto_add_image_frame_lbl_info_error_text": [
             [0, """Error !
 
 The image could not be loaded!"""],
-            [1, """Greska !
+            [1, """Greška !
 
-Slika nije mogla biti ucitana !"""] ],
+Slika nije mogla biti učitana !"""] ],
         "auto_add_image_frame_lbl_info_loaded_text": [
             [0, """The image has been successfully added to the block!"""],
-            [1, """Slika je uspesno dodana u blok !"""] ],
+            [1, """Slika je uspešno dodana u blok !"""] ],
         "auto_add_image_frame_lbl_info_exists_text": [
             [0, """Error !
 
 The picture is already in the block!"""],
-            [1, """Greska !
+            [1, """Greška !
 
-Slika se vec nalazi u bloku !"""] ],
+Slika se već nalazi u bloku !"""] ],
         "block_txt_box_menu_browse_images_text": [
             [0, """View all images"""],
-            [1, """Prikazi sve slike"""] ],
+            [1, """Prikaži sve slike"""] ],
         "block_txt_box_menu_browse_images_tt": [
             [0, """Shows all images added to the block"""],
             [1, """Prikazuje sve slike dodate u blok """] ],
         "block_txt_box_menu_auto_add_image_text": [
             [0, """Start the auto add images mode"""],
-            [1, """Pocni mod automatskog dodavanja slika"""] ],
+            [1, """Počni mod automatskog dodavanja slika"""] ],
         "block_txt_box_menu_auto_add_image_tt": [
             [0, """Starts the mode of automatically adding images to the block.
 When this mode is active, all images that you copy to the clipboard will be automatically added to the block."""],
-            [1, """Pokrece mod automatskog dodavanja slika u blok.
-Kada je ovaj mod aktivan sve slike koje kopirate u clipboard ce automatski biti dodane u blok."""] ],
+            [1, """Pokreće mod automatskog dodavanja slika u blok.
+Kada je ovaj mod aktivan sve slike koje kopirate u clipboard će automatski biti dodane u blok."""] ],
         "block_text_editor_command_auto_images_text": [
             [0, """Start auto adding images (@i)"""],
-            [1, """Zapocni automatsko dodavanje slika (@i)"""] ],
+            [1, """Započni automatsko dodavanje slika (@i)"""] ],
         "block_text_editor_command_auto_images_tt": [
             [0, """Starts the mode of automatically adding images to the block.
 When this mode is active, all images that you copy to the clipboard will be automatically added to the block.
@@ -2430,8 +2430,8 @@ Commands in the editor:
 @pic
 @picture
 @pictures"""],
-            [1, """Pokrece mod automatskog dodavanja slika u blok.
-Kada je ovaj mod aktivan sve slike koje kopirate u clipboard ce automatski biti dodane u blok.
+            [1, """Pokreće mod automatskog dodavanja slika u blok.
+Kada je ovaj mod aktivan sve slike koje kopirate u clipboard će automatski biti dodane u blok.
 Komande u editoru:
 @i
 @img
@@ -2442,22 +2442,22 @@ Komande u editoru:
 @pictures"""] ],
         "diary_view_item_image_menu_show_all_text": [
             [0, """Show all images in block"""],
-            [1, """Prikazi sve slike u bloku"""] ],
+            [1, """Prikaži sve slike u bloku"""] ],
         "diary_view_item_image_menu_show_all_tt": [
             [0, """It shows all the images that are in this block"""],
             [1, """Prikazuje sve slike koje se nalaze u ovom bloku"""] ],
         "browse_def_menu_show_pic_text": [
             [0, """Show image"""],
-            [1, """Prikazi sliku"""] ],
+            [1, """Prikaži sliku"""] ],
         "browse_def_menu_show_pic_tt": [
             [0, """"""],
             [1, """"""] ],
         "browse_def_menu_show_all_pic_tt": [
             [0, """Show all images associated with this definition"""],
-            [1, """Prikazi sve slike povezane sa ovom definicijom"""] ],
+            [1, """Prikaži sve slike povezane sa ovom definicijom"""] ],
         "browse_def_menu_show_all_pic_text": [
             [0, """View all images"""],
-            [1, """Prikazi sve slike"""] ],
+            [1, """Prikaži sve slike"""] ],
         "browse_def_menu_rename_def_text": [
             [0, """Rename the definition"""],
             [1, """Preimenuj definiciju"""] ],
@@ -2481,7 +2481,7 @@ Slike: #4"""] ],
             [1, """Promena imena"""] ],
         "browse_def_menu_rename_def_notification_text": [
             [0, """The definition was successfully renamed"""],
-            [1, """Definicija je uspesno preimenovana"""] ],
+            [1, """Definicija je uspešno preimenovana"""] ],
         "pic_info_lbl_title_text": [
             [0, """Image information"""],
             [1, """Informacije o slici"""] ],
@@ -2523,25 +2523,25 @@ Slike: #4"""] ],
             [1, """Otvori u podrazumevanoj aplikaciji"""] ],
         "pic_info_btn_open_default_tt": [
             [0, """Opens the image in the default image viewer on your system."""],
-            [1, """Otvora sliku u podrazumevanoj aplikaciji za pregled slika na vasem sistemu."""] ],
+            [1, """Otvora sliku u podrazumevanoj aplikaciji za pregled slika na vašem sistemu."""] ],
         "pic_info_btn_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "pic_info_btn_delete_tt": [
             [0, """Deletes the image from the database"""],
-            [1, """Brise sliku iz baze podataka"""] ],
+            [1, """Briše sliku iz baze podataka"""] ],
         "pic_info_btn_update_text": [
             [0, """Update"""],
-            [1, """Azuriraj"""] ],
+            [1, """Ažuriraj"""] ],
         "pic_info_btn_update_tt": [
             [0, """Updates the name and description of the image."""],
-            [1, """Azurira naziv i opis slike."""] ],
+            [1, """Ažurira naziv i opis slike."""] ],
         "pic_info_lbl_used_text": [
             [0, """This image was used in:"""],
-            [1, """Ova slika je koristena u:"""] ],
+            [1, """Ova slika je korištena u:"""] ],
         "pic_info_lbl_used_tt": [
             [0, """Displays a list of blocks and definitions where this image is used"""],
-            [1, """Prikazuje listu blokova i definicija gde je ova slika koristena"""] ],
+            [1, """Prikazuje listu blokova i definicija gde je ova slika korištena"""] ],
         "pic_info_btn_close_text": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -2556,7 +2556,7 @@ Slike: #4"""] ],
             [1, """DEFINICIJA: """] ],
         "picture_info_lst_used_item_no_data_text": [
             [0, """Not used!"""],
-            [1, """Nije koristeno !"""] ],
+            [1, """Nije korišteno !"""] ],
         "diary_view_item_lbl_tag_tt": [
             [0, """Tag list:
 """],
@@ -2564,10 +2564,10 @@ Slike: #4"""] ],
 """] ],
         "picture_info_msg_no_media_title": [
             [0, """Image not found"""],
-            [1, """Slika nije pronadjena"""] ],
+            [1, """Slika nije pronađena"""] ],
         "picture_info_msg_no_media_text": [
             [0, """Image ID #1 could not be found!"""],
-            [1, """Slika sa ID brojem #1 nije mogla biti pronadjena !"""] ],
+            [1, """Slika sa ID brojem #1 nije mogla biti pronađena !"""] ],
         "pic_info_menu_copy_text": [
             [0, """Copy the image"""],
             [1, """Kopiraj sliku"""] ],
@@ -2585,18 +2585,18 @@ Slike: #4"""] ],
             [1, """Otvori sve blokove (#1 bloka)"""] ],
         "pic_info_lst_menu_open_all_tt": [
             [0, """Open all blocks that contain this image"""],
-            [1, """Otvori sve blokove koji sadrze ovu sliku"""] ],
+            [1, """Otvori sve blokove koji sadrže ovu sliku"""] ],
         "picture_view_menu_image_info_text": [
             [0, """Image information"""],
             [1, """Informacije o slici"""] ],
         "picture_view_menu_image_info_tt": [
             [0, """Show information about the image and data where it is used"""],
-            [1, """Prikazi informacije o slici i podatke gde se koristi"""] ],
+            [1, """Prikaži informacije o slici i podatke gde se koristi"""] ],
         "multi_urls_selection_title": [
             [0, """Clipboard contains multiple urls!
 Choose which images you want to add"""],
-            [1, """Clipboard sadrzi visestruke url-ove !
-Izaberite koje slike zelite da dodate"""] ],
+            [1, """Clipboard sadrži višestruke url-ove !
+Izaberite koje slike želite da dodate"""] ],
         "multi_urls_user_msg_text": [
             [0, """Adding image #1 of #2 ..."""],
             [1, """Dodajem sliku #1 od #2 ..."""] ],
@@ -2613,28 +2613,28 @@ Ovo je lista slika koje nisu dodate."""] ],
             [1, """Maksimalni broj slika dostignut !"""] ],
         "auto_adding_images_not_added_reason_load_error_text": [
             [0, """Error loading image!"""],
-            [1, """Greska u ucitavanju slike !"""] ],
+            [1, """Greška u učitavanju slike !"""] ],
         "auto_add_image_frame_lbl_info_starting_multi_add_text": [
             [0, """Multi-adding images starts..."""],
-            [1, """Zapocinje visestruko dodavanje slika..."""] ],
+            [1, """Započinje višestruko dodavanje slika..."""] ],
         "def_add_btn_save_menu_save_and_exit_text": [
             [0, """Save the changes and close the window"""],
             [1, """Snimi promene i zatvori prozor"""] ],
         "def_add_btn_save_menu_save_and_exit_tt": [
             [0, """Saves the changes made and closes the definition entry dialog."""],
-            [1, """Snima nacinjene promene i zatvara dijalog za unos definicije."""] ],
+            [1, """Snima načinjene promene i zatvara dijalog za unos definicije."""] ],
         "def_add_btn_save_menu_save_and_no_exit_text": [
             [0, """Save the changes and don't close the window"""],
             [1, """Snimi promene i nemoj zatvarati prozor"""] ],
         "def_add_btn_save_menu_save_and_no_exit_tt": [
             [0, """Saves the changes made but does not close the definition input dialog."""],
-            [1, """Snima nacinjene promene ali ne zatvara dijalog za unos definicija."""] ],
+            [1, """Snima načinjene promene ali ne zatvara dijalog za unos definicija."""] ],
         "block_footer_btn_save_menu_update_text": [
             [0, """Update changes in block (Ctrl+S)"""],
-            [1, """Azuriraj promene u bloku (Ctrl+S)"""] ],
+            [1, """Ažuriraj promene u bloku (Ctrl+S)"""] ],
         "block_footer_btn_save_menu_update_tt": [
             [0, """All changes in the block will be recorded, the block will remain marked as open."""],
-            [1, """Sve promene u bloku ce biti snimljene, blok ce ostati oznacen kao otvoren."""] ],
+            [1, """Sve promene u bloku ce biti snimljene, blok će ostati označen kao otvoren."""] ],
         "block_footer_btn_menu_add_new_and_close_me_text": [
             [0, """Add a new block and close this one"""],
             [1, """Dodaj novi blok i zatvori ovaj"""] ],
@@ -2658,19 +2658,19 @@ Ovo je lista slika koje nisu dodate."""] ],
             [1, """Izaberite datoteke:"""] ],
         "file_add_lbl_select_tt": [
             [0, """Select the files you want to add to the block."""],
-            [1, """Izaberite datoteke koje zelite da dodate u blok."""] ],
+            [1, """Izaberite datoteke koje želite da dodate u blok."""] ],
         "file_add_lbl_count_no_text": [
             [0, """No files."""],
             [1, """Nema datoteka."""] ],
         "file_add_lbl_count_no_tt": [
             [0, """Add files to the list and select the ones you want to add to the block."""],
-            [1, """Dodajte datoteke u listu i izabrite one koje zelite da dodate u blok."""] ],
+            [1, """Dodajte datoteke u listu i izabrite one koje želite da dodate u blok."""] ],
         "file_add_lbl_count_text": [
             [0, """Selected #1 of #2 files."""],
             [1, """Izabrano #1 od #2 datoteka."""] ],
         "file_add_lbl_count_tt": [
             [0, """The number of selected files that will be added to the block."""],
-            [1, """Broj izabranih datoteka koje ce biti dodane u blok."""] ],
+            [1, """Broj izabranih datoteka koje će biti dodane u blok."""] ],
         "file_add_btn_add_to_list_text": [
             [0, """Add to list"""],
             [1, """Dodaj u listu"""] ],
@@ -2685,7 +2685,7 @@ Ovo je lista slika koje nisu dodate."""] ],
             [1, """Dodaj izabrane datoteke u blok"""] ],
         "file_add_btn_cancel_text": [
             [0, """Cancel"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "file_add_btn_cancel_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -2697,7 +2697,7 @@ Modified: #4
 Last read: #5
 Default application: #6"""],
             [1, """Datoteka: #1
-Velicina: #2
+Veličina: #2
 Kreirana: #3
 Izmenjena: #4
 Poslednje citanje: #5
@@ -2711,7 +2711,7 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Datoteka"""] ],
         "file_add_msg_file_not_found_text": [
             [0, """File not found:"""],
-            [1, """Datoteka nije pronadjena:"""] ],
+            [1, """Datoteka nije pronađena:"""] ],
         "file_add_win_title_text": [
             [0, """Adding a file"""],
             [1, """Dodavanje datoteke"""] ],
@@ -2726,19 +2726,19 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Otvori datoteku"""] ],
         "file_add_list_menu_open_tt": [
             [0, """Opens a file with a default application on your operating system."""],
-            [1, """Otvara datoteku sa predefinisanim programom na vasem operativnom sistemu."""] ],
+            [1, """Otvara datoteku sa predefinisanim programom na vašem operativnom sistemu."""] ],
         "file_add_list_menu_remove_text": [
             [0, """Remove from list"""],
             [1, """Ukloni sa liste"""] ],
         "file_add_list_menu_remove_tt": [
             [0, """Deletes a file from the list"""],
-            [1, """Brise datoteku iz liste"""] ],
+            [1, """Briše datoteku iz liste"""] ],
         "file_add_msg_cannot_open_title": [
             [0, """Error !"""],
-            [1, """Greska !"""] ],
+            [1, """Greška !"""] ],
         "file_add_msg_cannot_open_text": [
             [0, """Error in opening the file:"""],
-            [1, """Greksa u otvaranju datoteke:"""] ],
+            [1, """Greška u otvaranju datoteke:"""] ],
         "file_add_input_name_title": [
             [0, """File name:"""],
             [1, """Naziv datoteke:"""] ],
@@ -2756,10 +2756,10 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Unesite opis datoteke"""] ],
         "file_add_list_menu_set_desc_tt": [
             [0, """The description of the file serves to explain the purpose in detail."""],
-            [1, """Opis datoteke sluzi da poblize objasni svrhu i namenu."""] ],
+            [1, """Opis datoteke služi da pobliže objasni svrhu i namenu."""] ],
         "file_add_lbl_title_working": [
             [0, """Processing file #1 of #2 ..."""],
-            [1, """Obradjujem datoteku #1 od #2 ..."""] ],
+            [1, """Obrađujem datoteku #1 od #2 ..."""] ],
         "file_info_win_title_text": [
             [0, """File information"""],
             [1, """Informacije o datoteci"""] ],
@@ -2774,7 +2774,7 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Ime datoteke:"""] ],
         "file_info_lbl_name_tt": [
             [0, """Enter a name that will associate you with the contents of the file."""],
-            [1, """Unesite ime koje ce vas asocirati na sadrzaj datoteke."""] ],
+            [1, """Unesite ime koje će vas asocirati na sadržaj datoteke."""] ],
         "file_info_lbl_desc_text": [
             [0, """File Description:"""],
             [1, """Opis datoteke:"""] ],
@@ -2783,7 +2783,7 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Unesite detaljan opis datoteke."""] ],
         "file_info_lbl_icon_tt": [
             [0, """File icon determined by your operating system settings."""],
-            [1, """Ikona datoteke odredjena postavkama vaseg operativnog sistema."""] ],
+            [1, """Ikona datoteke odredjena postavkama vašeg operativnog sistema."""] ],
         "file_info_lbl_ext_tt": [
             [0, """File extension"""],
             [1, """Ekstenzija datoteke"""] ],
@@ -2804,7 +2804,7 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Predefinisana aplikacija:"""] ],
         "file_info_lbl_def_app_tt": [
             [0, """The application used on your operating system to open this type of file."""],
-            [1, """Aplikacija koja se koristi na vasem operativnom sistemu za otvaranje ove vrste datoteka."""] ],
+            [1, """Aplikacija koja se koristi na vašem operativnom sistemu za otvaranje ove vrste datoteka."""] ],
         "file_info_lbl_file_src_text": [
             [0, """File source:"""],
             [1, """Izvor datoteke:"""] ],
@@ -2813,10 +2813,10 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Lokacija odakle je datoteka dobavljena."""] ],
         "file_info_lbl_size_text": [
             [0, """File size:"""],
-            [1, """Velicina datoteke:"""] ],
+            [1, """Veličina datoteke:"""] ],
         "file_info_lbl_size_tt": [
             [0, """File size on local disk."""],
-            [1, """Velicina datoteke na lokalnom disku."""] ],
+            [1, """Veličina datoteke na lokalnom disku."""] ],
         "file_info_lbl_created_text": [
             [0, """Created:"""],
             [1, """Vreme kreiranja:"""] ],
@@ -2828,7 +2828,7 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Vreme promene:"""] ],
         "file_info_lbl_modified_tt": [
             [0, """The time when the contents of the file were last modified."""],
-            [1, """Vreme kada je sadrzaj datoteke poslednji puta izmenjen."""] ],
+            [1, """Vreme kada je sadržaj datoteke poslednji puta izmenjen."""] ],
         "file_info_lbl_accessed_text": [
             [0, """Accessed:"""],
             [1, """Vreme pristupa:"""] ],
@@ -2837,13 +2837,13 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Vreme kada je poslednji puta pristupljeno ovoj datoteci."""] ],
         "file_info_lbl_size_val_tt": [
             [0, """File size on local disk."""],
-            [1, """Velicina datoteke na lokalnom disku."""] ],
+            [1, """Veličina datoteke na lokalnom disku."""] ],
         "file_info_lbl_created_val_tt": [
             [0, """The time the file was created."""],
             [1, """Vreme kada je datoteka kreirana."""] ],
         "file_info_lbl_modified_val_tt": [
             [0, """The time when the contents of the file were last modified."""],
-            [1, """Vreme kada je sadrzaj datoteke poslednji puta izmenjen."""] ],
+            [1, """Vreme kada je sadržaj datoteke poslednji puta izmenjen."""] ],
         "file_info_lbl_accessed_val_tt": [
             [0, """The time this file was last accessed."""],
             [1, """Vreme kada je poslednji puta pristupljeno ovoj datoteci."""] ],
@@ -2858,47 +2858,47 @@ Predefinisana aplikacija za otvaranje: #6
             [1, """Otvori datoteku"""] ],
         "file_info_btn_open_tt": [
             [0, """Opens the file using a default application in your operating system."""],
-            [1, """Otvara datoteku pomocu predefinisane aplikacije u vasem operativnom sistemu."""] ],
+            [1, """Otvara datoteku pomoću predefinisane aplikacije u vašem operativnom sistemu."""] ],
         "file_info_unknown_default_app_text": [
             [0, """Unknown"""],
             [1, """Nepoznato"""] ],
         "file_info_btn_update_text": [
             [0, """Update"""],
-            [1, """Azuriraj"""] ],
+            [1, """Ažuriraj"""] ],
         "file_info_btn_update_tt": [
             [0, """Update file name and description information."""],
-            [1, """Azuriraj podatke o imenu i opisu datoteke."""] ],
+            [1, """Ažuriraj podatke o imenu i opisu datoteke."""] ],
         "file_info_msg_updated_title": [
             [0, """Update"""],
-            [1, """Azuriranje"""] ],
+            [1, """Ažuriranje"""] ],
         "file_info_msg_updated_text": [
             [0, """The data has been updated successfully!"""],
-            [1, """Podaci su uspesno azurirani !"""] ],
+            [1, """Podaci su uspešno ažurirani !"""] ],
         "file_info_msg_open_failed_title": [
             [0, """Opening the file"""],
             [1, """Otvaranje datoteke"""] ],
         "file_info_msg_open_failed_text": [
             [0, """The file cannot be opened!"""],
-            [1, """Datoteka ne moze biti otvorena !"""] ],
+            [1, """Datoteka ne može biti otvorena !"""] ],
         "save_file_dialog_title": [
             [0, """Save the file as:"""],
             [1, """Snimi fajl kao:"""] ],
         "file_info_msg_file_exist_title": [
             [0, """The file already exists!"""],
-            [1, """Datoteka vec postoji !"""] ],
+            [1, """Datoteka već postoji !"""] ],
         "file_info_msg_file_exist_text": [
             [0, """A file with this name already exists!
 Do you want to overwrite the content of the old file?
 All data in the old file will be lost!"""],
-            [1, """Datoteka sa ovim imenom vec postoji !
-Da li zelite da prebrisete sadrzaj stare datoteke ?
-Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
+            [1, """Datoteka sa ovim imenom već postoji !
+Da li želite da prebrišete sadržaj stare datoteke ?
+Svi podaci u staroj datoteci će biti izgubljeni !"""] ],
         "file_info_msg_copied_title": [
             [0, """The file has been saved"""],
             [1, """Datoteka je snimljena"""] ],
         "file_info_msg_copied_text": [
             [0, """The file was successfully saved under the name:"""],
-            [1, """Datoteka je uspesno snimljena pod imenom:"""] ],
+            [1, """Datoteka je uspešno snimljena pod imenom:"""] ],
         "file_info_msg_invalid_file_id_title": [
             [0, """The file does not exist"""],
             [1, """Datoteka ne postoji"""] ],
@@ -2910,13 +2910,13 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Oznaci web adrese"""] ],
         "block_txt_box_menu_hyperlink_tt": [
             [0, """Detects all hyperlinks in a block and marks them as underlined."""],
-            [1, """Detektuje sve hyperlinkove u bloku i markira ih podvuceno."""] ],
+            [1, """Detektuje sve hyperlinkove u bloku i markira ih podvučeno."""] ],
         "block_txt_box_menu_hyperlink_on_and_mark_text": [
             [0, """Detect and mark hyperlinks"""],
             [1, """Detektuj i markiraj web adrese"""] ],
         "block_txt_box_menu_hyperlink_on_and_mark_tt": [
             [0, """Detects all hyperlinks and marks them underlined in a block"""],
-            [1, """Detektuje sve hiperlinkove i markira ih podvuceno u bloku"""] ],
+            [1, """Detektuje sve hiperlinkove i markira ih podvučeno u bloku"""] ],
         "block_txt_box_menu_hyperlink_on_and_not_mark_text": [
             [0, """Detect hyperlinks but do not mark them"""],
             [1, """Detektuj web adrese ali nemoj ih markirati"""] ],
@@ -2928,7 +2928,7 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Nemoj detektovati ni markirati web adrese"""] ],
         "block_txt_box_menu_hyperlink_off_tt": [
             [0, """Detection and marking of hyperlinks is disabled."""],
-            [1, """Detektovanje i markiranje hiperlinkova je iskljuceno."""] ],
+            [1, """Detektovanje i markiranje hiperlinkova je isključeno."""] ],
         "block_txt_box_menu_hyperlink_on_and_mark_text_add": [
             [0, """Detected & Marked"""],
             [1, """Detektovan i Markiran"""] ],
@@ -2937,7 +2937,7 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Samo Detektovan"""] ],
         "block_txt_box_menu_hyperlink_off_text_add": [
             [0, """Turned off"""],
-            [1, """Iskljucen"""] ],
+            [1, """Isključen"""] ],
         "block_txt_box_menu_numbers_text": [
             [0, """Mark the numbers in the block"""],
             [1, """Markiraj brojeve u bloku"""] ],
@@ -2946,16 +2946,16 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Markira sve brojeve u bloku"""] ],
         "block_txt_box_menu_numbers_on_text": [
             [0, """Turn on number marking"""],
-            [1, """Ukljuci markiranje brojeva"""] ],
+            [1, """Uključi markiranje brojeva"""] ],
         "block_txt_box_menu_numbers_on_tt": [
             [0, """All numbers in the block will be marked"""],
-            [1, """Svi brojevi u bloku ce biti markirani"""] ],
+            [1, """Svi brojevi u bloku će biti markirani"""] ],
         "block_txt_box_menu_numbers_off_text": [
             [0, """Turn off number marking"""],
-            [1, """Iskljuci markiranje brojeva"""] ],
+            [1, """Isključi markiranje brojeva"""] ],
         "block_txt_box_menu_numbers_off_tt": [
             [0, """The numbers in the block will not be marked."""],
-            [1, """Brojevi u bloku nece biti markirani.,"""] ],
+            [1, """Brojevi u bloku neće biti markirani.,"""] ],
         "browse_def_menu_edit_def_text": [
             [0, """Edit definition"""],
             [1, """Uredi definiciju"""] ],
@@ -2970,10 +2970,10 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Dodaje datoteku u blok"""] ],
         "block_add_file_already_exist_title": [
             [0, """The file is already in the block"""],
-            [1, """Datoteka je vec u bloku"""] ],
+            [1, """Datoteka je već u bloku"""] ],
         "block_add_file_already_exist": [
             [0, """The file you want to add already exists in the block."""],
-            [1, """Datoteka koju zelite da dodate vec postoji u bloku."""] ],
+            [1, """Datoteka koju želite da dodate već postoji u bloku."""] ],
         "block_image_item_menu_view_file_text": [
             [0, """File information"""],
             [1, """Informacije o datoteci"""] ],
@@ -2985,24 +2985,24 @@ Svi podaci u staroj datoteci ce biti izgubljeni !"""] ],
             [1, """Otvori datoteku"""] ],
         "block_image_item_menu_open_file_tt": [
             [0, """Opens a file with a default application on your operating system."""],
-            [1, """Otvara datoteku sa predefinisanom aplikacijom na vasem operativnom sistemu."""] ],
+            [1, """Otvara datoteku sa predefinisanom aplikacijom na vašem operativnom sistemu."""] ],
         "block_image_item_menu_remove_file_text": [
             [0, """Remove the file from the block"""],
             [1, """Ukloni datoteku iz bloka"""] ],
         "block_image_item_menu_remove_file_tt": [
             [0, """Deletes the file from the block"""],
-            [1, """Brise datoteku iz bloka"""] ],
+            [1, """Briše datoteku iz bloka"""] ],
         "block_image_item_menu_open_file_error_title": [
             [0, """Error opening file"""],
-            [1, """Greska u otvaranju datoteke"""] ],
+            [1, """Greška u otvaranju datoteke"""] ],
         "block_image_item_menu_open_file_error_text": [
             [0, """An error occurred while opening the file:
 #1
 The file cannot be opened.
 Select "File information" and check if there is a default application for opening this type of files."""],
-            [1, """Dogodila se greksa u otvaranju datoteke:
+            [1, """Dogodila se greška u otvaranju datoteke:
 #1
-Datoteka ne moze biti otvorena.
+Datoteka ne može biti otvorena.
 Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplikacija za otvaranje ove vrste datoteka."""] ],
         "diary_view_item_image_menu_file_info_text": [
             [0, """File information"""],
@@ -3015,25 +3015,25 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """Otvori datoteku"""] ],
         "diary_view_item_image_menu_file_open_tt": [
             [0, """Opens a file with a default application on your operating system."""],
-            [1, """Otvara datoteku sa predefinisanom aplikacijom na vasem operativnom sistemu."""] ],
+            [1, """Otvara datoteku sa predefinisanom aplikacijom na vašem operativnom sistemu."""] ],
         "file_text": [
             [0, """File"""],
             [1, """Datoteka"""] ],
         "fun_fact_show_lbl_title_text": [
             [0, """Fun Facts"""],
-            [1, """Zanimljive Cinjenice"""] ],
+            [1, """Zanimljive Činjenice"""] ],
         "fun_fact_show_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
         "fun_fact_show_lbl_next_text": [
             [0, """Next:"""],
-            [1, """Sledeca:"""] ],
+            [1, """Sledeća:"""] ],
         "fun_fact_show_lbl_next_tt": [
             [0, """The next fun fact"""],
-            [1, """Sledeca zanimljiva cinjenica"""] ],
+            [1, """Sledeća zanimljiva činjenica"""] ],
         "fun_fact_show_lbl_next_val_tt": [
             [0, """The next fun fact"""],
-            [1, """Sledeca zanimljiva cinjenica"""] ],
+            [1, """Sledeća zanimljiva činjenica"""] ],
         "fun_fact_show_chk_translate_text": [
             [0, """Translate"""],
             [1, """Prevedi"""] ],
@@ -3042,19 +3042,19 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """Prevedi text u odabrani jezik."""] ],
         "fun_fact_show_cmb_lang_tt": [
             [0, """Select the language you want to translate the text into."""],
-            [1, """Izaberite jezik u koji zelite da prevedete tekst."""] ],
+            [1, """Izaberite jezik u koji želite da prevedete tekst."""] ],
         "fun_fact_show_chk_show_on_start_text": [
             [0, """Show on start"""],
-            [1, """Prikazi na startu"""] ],
+            [1, """Prikaži na startu"""] ],
         "fun_fact_show_chk_show_on_start_tt": [
             [0, """It displays fun facts every time you open the MyJournal app."""],
-            [1, """Prikazuje zanimljive cinjenice svaki puta kada otvorite aplikaciju MyJournal."""] ],
+            [1, """Prikazuje zanimljive činjenice svaki puta kada otvorite aplikaciju MyJournal."""] ],
         "fun_fact_show_btn_next_text": [
             [0, """Next"""],
-            [1, """Sledeca"""] ],
+            [1, """Sledeća"""] ],
         "fun_fact_show_btn_next_tt": [
             [0, """Show the next fun fact"""],
-            [1, """Prikazi sledecu zanimljivu cinjenicu"""] ],
+            [1, """Prikaži sledeću zanimljivu činjenicu"""] ],
         "fun_fact_show_btn_close_text": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -3063,19 +3063,19 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """"""] ],
         "fun_fact_show_win_title_text": [
             [0, """Fun Facts"""],
-            [1, """Zanimljive Cinjenice"""] ],
+            [1, """Zanimljive Činjenice"""] ],
         "fun_fact_show_lbl_title_working_text": [
             [0, """Translating..."""],
             [1, """Prevodim..."""] ],
         "mnu_view_fun_fact_text": [
             [0, """Fun facts"""],
-            [1, """Zanimljive cinjenice"""] ],
+            [1, """Zanimljive činjenice"""] ],
         "mnu_view_fun_fact_tt": [
             [0, """View fun facts"""],
-            [1, """Pregledaj zanimljive cinjenice"""] ],
+            [1, """Pregledaj zanimljive činjenice"""] ],
         "mnu_view_fun_fact_sb_text": [
             [0, """It displays a dialogue with fun facts"""],
-            [1, """Prikazuje dijalog sa zanimljivim cinjenicama"""] ],
+            [1, """Prikazuje dijalog sa zanimljivim činjenicama"""] ],
         "clipboard_file_tooltip_no_file": [
             [0, """There are no files in the clipboard!"""],
             [1, """Nema datoteka u clipboardu !"""] ],
@@ -3097,19 +3097,19 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """Dodaj u clipboard"""] ],
         "picture_view_menu_add_to_clip_image_tt": [
             [0, """Adds an image to the already existing images in the clipboard"""],
-            [1, """Dodaje sliku na vec postojece slike u clipboardu"""] ],
+            [1, """Dodaje sliku na već postojeće slike u clipboardu"""] ],
         "image_menu_copy_text": [
             [0, """Copy the image to the clipboard"""],
             [1, """Kopiraj sliku u clipboard"""] ],
         "image_menu_copy_tt": [
             [0, """Deletes the contents of the clipboard and copies this image to the clipboard"""],
-            [1, """Brise sadrzaj clipboarda i kopira ovu sliku u clipboard"""] ],
+            [1, """Briše sadržaj clipboarda i kopira ovu sliku u clipboard"""] ],
         "image_menu_add_to_clip_text": [
             [0, """Add image to clipboard"""],
             [1, """Dodaj sliku u clipboard"""] ],
         "image_menu_add_to_clip_tt": [
             [0, """Add an image to the existing content in the clipboard."""],
-            [1, """Dodaj sliku na vec postojeci sadrzaj u clipboardu."""] ],
+            [1, """Dodaj sliku na vec postojeći sadrzaj u clipboardu."""] ],
         "image_menu_paste_clip_text": [
             [0, """Add images from clipboard"""],
             [1, """Dodaj slike iz clipboarda"""] ],
@@ -3124,19 +3124,19 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """Isprazni clipboard"""] ],
         "image_menu_clear_clipboard_tt": [
             [0, """Deletes all contents of the clipboard."""],
-            [1, """Brise sav sadrzaj clipboarda."""] ],
+            [1, """Briše sav sadržaj clipboarda."""] ],
         "file_menu_copy_text": [
             [0, """Copy the file to the clipboard"""],
             [1, """Kopiraj datoteku u clipboard"""] ],
         "file_menu_copy_tt": [
             [0, """Deletes the contents of the clipboard and copies this file to the clipboard"""],
-            [1, """Brise sadrzaj clipboarda i kopira ovu datoteku u clipboard"""] ],
+            [1, """Briše sadržaj clipboarda i kopira ovu datoteku u clipboard"""] ],
         "file_menu_add_to_clip_text": [
             [0, """Add file to clipboard"""],
             [1, """Dodaj datoteku u clipboard"""] ],
         "file_menu_add_to_clip_tt": [
             [0, """Add the file to the existing content in the clipboard."""],
-            [1, """Dodaj datoteku na vec postojeci sadrzaj u clipboardu."""] ],
+            [1, """Dodaj datoteku na već postojeći sadržaj u clipboardu."""] ],
         "file_menu_paste_clip_text": [
             [0, """Add files from clipboard"""],
             [1, """Dodaj datoteke iz clipboarda"""] ],
@@ -3148,7 +3148,7 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """"""] ],
         "clipboard_view_lbl_size_text": [
             [0, """File size:"""],
-            [1, """Velicina fajla:"""] ],
+            [1, """Veličina fajla:"""] ],
         "clipboard_view_lbl_size_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -3160,7 +3160,7 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """"""] ],
         "clipboard_view_lbl_clip_text": [
             [0, """Clipboard content:"""],
-            [1, """Sadrzaj clipboarda:"""] ],
+            [1, """Sadržaj clipboarda:"""] ],
         "clipboard_view_lbl_clip_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -3175,7 +3175,7 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [1, """Isprazni clipboard kada su podaci nalepljeni"""] ],
         "clipboard_view_chk_del_paste_tt": [
             [0, """Every time you select the 'Copy from clipboard' option, the data in the clipboard will be deleted after copying."""],
-            [1, """Svaki puta kada izaberete opciju 'Kopiraj iz clipboarda' podaci u clipboardu ce biti obrisani nakon kopiranja."""] ],
+            [1, """Svaki puta kada izaberete opciju 'Kopiraj iz clipboarda' podaci u clipboardu če biti obrisani nakon kopiranja."""] ],
         "clipboard_view_chk_del_tmp_text": [
             [0, """Empty the temporary folder ('temp' folder)"""],
             [1, """Isprazni privremeni folder ('temp' folder)"""] ],
@@ -3183,9 +3183,9 @@ Izaberite "Informacije o datoteci" i proverite da li postoji predefinisana aplik
             [0, """Some data that came to the clipboard from the Internet are stored in a temporary folder.
 If there is a lot of data, the temporary folder can become quite large.
 It is recommended that you enable this option."""],
-            [1, """Neki podaci koji su u clipboard dosli sa interneta se cuvaju u privremenom folderu.
-Ukoliko ima puno podataka privremeni folder moze postati prilicno velik.
-Preporucljivo je da ukljucite ovu opciju."""] ],
+            [1, """Neki podaci koji su u clipboard dosli sa interneta se čuvaju u privremenom folderu.
+Ukoliko ima puno podataka privremeni folder može postati prilično velik.
+Preporučljivo je da uključite ovu opciju."""] ],
         "clipboard_view_btn_del_tmp_text": [
             [0, """Empty the 'temp' folder now"""],
             [1, """Isprazni 'temp' folder sada"""] ],
@@ -3215,7 +3215,7 @@ Preporucljivo je da ukljucite ovu opciju."""] ],
             [1, """Isprazni Clipboard"""] ],
         "clipboard_view_btn_clear_tt": [
             [0, """Deletes all items in the clipboard"""],
-            [1, """Brise sve stavke u clipboardu
+            [1, """Briše sve stavke u clipboardu
 """] ],
         "clipboard_view_tree_item_tmp_text": [
             [0, """Temporary folder"""],
@@ -3225,96 +3225,96 @@ Preporucljivo je da ukljucite ovu opciju."""] ],
             [1, """Clipboard"""] ],
         "mnu_view_clipboard_tt": [
             [0, """Viewing and editing the clipboard"""],
-            [1, """Pregled i uredjivanje clipboarda"""] ],
+            [1, """Pregled i uređivanje clipboarda"""] ],
         "mnu_view_clipboard_sb_text": [
             [0, """View and edit the clipboard, set various options."""],
             [1, """Pregledaj i uredi clipboard, podesi razne opcije."""] ],
         "definition_add_lbl_loading_text": [
             [0, """Loading data
 Please wait..."""],
-            [1, """Ucitavam podatke
-Molim sacekajte..."""] ],
+            [1, """Učitavam podatke
+Molim sačekajte..."""] ],
         "definition_add_lbl_loading_tt": [
             [0, """"""],
             [1, """"""] ],
         "clipboard_view_btn_refresh_text": [
             [0, """Refresh data"""],
-            [1, """Osvezi podatke"""] ],
+            [1, """Osveži podatke"""] ],
         "clipboard_view_btn_refresh_tt": [
             [0, """"""],
             [1, """"""] ],
         "media_explorer_win_title_text": [
             [0, """Multimedia explorer"""],
-            [1, """Pretrazivac multimedije"""] ],
+            [1, """Pretraživač multimedije"""] ],
         "media_explorer_lbl_title_text": [
             [0, """Multimedia explorer"""],
-            [1, """Pretrazivac multimedije"""] ],
+            [1, """Pretraživač multimedije"""] ],
         "media_explorer_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
         "media_explorer_rbt_both_text": [
             [0, """Show images and files"""],
-            [1, """Prikazi slike i datoteke"""] ],
+            [1, """Prikaži slike i datoteke"""] ],
         "media_explorer_rbt_both_tt": [
             [0, """Shows all images and files in the database"""],
             [1, """Prikazuje sve slike i datoteke u bazi podataka"""] ],
         "media_explorer_rbt_img_text": [
             [0, """Show images only"""],
-            [1, """Prikazi samo slike"""] ],
+            [1, """Prikaži samo slike"""] ],
         "media_explorer_rbt_img_tt": [
             [0, """It only displays images from the database"""],
             [1, """Prikazuje samo slike iz baze podataka"""] ],
         "media_explorer_rbt_file_text": [
             [0, """Show files only"""],
-            [1, """Prikazi samo datoteke"""] ],
+            [1, """Prikaži samo datoteke"""] ],
         "media_explorer_rbt_file_tt": [
             [0, """It only shows files from the database"""],
             [1, """Prikazuje samo datoteke iz baze podataka"""] ],
         "media_explorer_chk_not_used_text": [
             [0, """Show unused only"""],
-            [1, """Prikazi samo nekoristene"""] ],
+            [1, """Prikaži samo nekorištene"""] ],
         "media_explorer_chk_not_used_tt": [
             [0, """Show only items that are not used in a block or definition."""],
-            [1, """Prikazi samo stavke koje nisu koristene u nekom bloku ili definiciji."""] ],
+            [1, """Prikaži samo stavke koje nisu korištene u nekom bloku ili definiciji."""] ],
         "media_explorer_lbl_progress_text": [
             [0, """Please wait..."""],
-            [1, """Molim sacekajte..."""] ],
+            [1, """Molim sačekajte..."""] ],
         "media_explorer_lbl_progress_tt": [
             [0, """"""],
             [1, """"""] ],
         "media_explorer_lbl_used_text": [
             [0, """This item is used in:"""],
-            [1, """Ova stavka je koristena u:"""] ],
+            [1, """Ova stavka je korištena u:"""] ],
         "media_explorer_lbl_used_tt": [
             [0, """Displays a list of blocks and definitions where the selected image or file is used."""],
-            [1, """Prikazuje listu blokova i definicija gde je koristena selektovana slika ili datoteka."""] ],
+            [1, """Prikazuje listu blokova i definicija gde je korištena selektovana slika ili datoteka."""] ],
         "media_explorer_btn_delete_text": [
             [0, """Delete"""],
-            [1, """Obrisi"""] ],
+            [1, """Obriši"""] ],
         "media_explorer_btn_delete_tt": [
             [0, """Deletes the selected image or file from the database."""],
-            [1, """Brise izabranu sliku ili datoteku iz baze podataka."""] ],
+            [1, """Briše izabranu sliku ili datoteku iz baze podataka."""] ],
         "media_explorer_btn_delete_all_text": [
             [0, """Delete all unused"""],
-            [1, """Obrisi sve nekoristeno"""] ],
+            [1, """Obriši sve nekorišteno"""] ],
         "media_explorer_btn_delete_all_tt": [
             [0, """Deletes any unused images or files from the database"""],
-            [1, """Brise sve nekoristene slike ili datoteke iz baze podataka"""] ],
+            [1, """Briše sve nekorištene slike ili datoteke iz baze podataka"""] ],
         "media_explorer_btn_progress_abort_text": [
             [0, """Abort"""],
             [1, """Prekini"""] ],
         "media_explorer_btn_progress_abort_tt": [
             [0, """Aborts the execution of the operation."""],
-            [1, """Prekida izvrsenje operacije."""] ],
+            [1, """Prekida izvršenje operacije."""] ],
         "media_explorer_btn_duplicates_text": [
             [0, """Show duplicates"""],
-            [1, """Prikazi duplikate"""] ],
+            [1, """Prikaži duplikate"""] ],
         "media_explorer_btn_duplicates_tt": [
             [0, """Displays a list of all images and files that are assumed to have a duplicate in the database."""],
             [1, """Prikazuje listu svih slika i datoteka za koje se pretpostavi da imaju duplikat u bazi podataka."""] ],
         "media_explorer_btn_find_text": [
             [0, """Find"""],
-            [1, """Pronadji"""] ],
+            [1, """Pronađi"""] ],
         "media_explorer_btn_find_tt": [
             [0, """Filters the list according to the selected criteria.
 You can use AND and OR operators. In the same search, there can be only one type of operator, either AND or OR.
@@ -3340,17 +3340,17 @@ Primjer:
             [1, """"""] ],
         "media_explorer_btn_delete_duplicates_text": [
             [0, """Delete all duplicates"""],
-            [1, """Obrisi sve duplikate"""] ],
+            [1, """Obriši sve duplikate"""] ],
         "media_explorer_btn_delete_duplicates_tt": [
             [0, """Deletes from the database all duplicates that are not used in a block or definition."""],
-            [1, """Brise iz baze podataka sve duplikate koji nisu koristeni u nekom bloku ili definiciji."""] ],
+            [1, """Briše iz baze podataka sve duplikate koji nisu korišteni u nekom bloku ili definiciji."""] ],
         "media_explorer_msg_aborted_title": [
             [0, """Abort"""],
             [1, """Prekid"""] ],
         "media_explorer_msg_aborted_text": [
             [0, """The operation was not completed!
 Termination by user!"""],
-            [1, """Operacija nije dovrsena !
+            [1, """Operacija nije dovršena !
 Prekid od strane korisnika !"""] ],
         "media_explorer_lbl_count_text": [
             [0, """Showing #1 of #2 items."""],
@@ -3360,12 +3360,12 @@ Prekid od strane korisnika !"""] ],
             [1, """"""] ],
         "media_explorer_btn_refresh_text": [
             [0, """Refresh data"""],
-            [1, """Osvezi podatke"""] ],
+            [1, """Osveži podatke"""] ],
         "media_explorer_btn_refresh_tt": [
             [0, """Data loading is not complete!
 Press this button to reload the data."""],
-            [1, """Ucitavanje podataka nije dovrseno !
-Pritisnite ovo dugme da bi ponovo ucitali podatke."""] ],
+            [1, """Učitavanje podataka nije dovršeno !
+Pritisnite ovo dugme da bi ponovo učitali podatke."""] ],
         "image_text": [
             [0, """Image"""],
             [1, """Slika"""] ],
@@ -3378,44 +3378,42 @@ Pritisnite ovo dugme da bi ponovo ucitali podatke."""] ],
         "media_explorer_delete_text": [
             [0, """Are you sure you want to delete this item:
 #1"""],
-            [1, """Da li ste sigurni da zelite da obrisete ovu stavku:
+            [1, """Da li ste sigurni da želite da obrišete ovu stavku:
 #1"""] ],
         "media_explorer_msg_media_used_title": [
             [0, """The item cannot be deleted!"""],
-            [1, """Stavka ne moze biti obrisana !"""] ],
+            [1, """Stavka ne može biti obrisana !"""] ],
         "media_explorer_msg_media_used_text": [
-            [0, """The selected item cannot be deleted because it is used in a block or definition.<br>
-First remove this image or file from the blocks and definitions where it is used.
-#1"""],
-            [1, """Izabrana stvaka ne moze biti obisana zato sto se koristi u nekom bloku ili definiciji.<br>
-Prvo uklonite ovu sliku ili datoteku iz blokova i definicija gde se ona koristi.
-#1"""] ],
+            [0, """The selected item cannot be deleted because it is used in a block or definition.
+First remove this image or file from the blocks and definitions where it is used. #1"""],
+            [1, """Izabrana stvaka ne može biti obisana zato što se koristi u nekom bloku ili definiciji.
+Prvo uklonite ovu sliku ili datoteku iz blokova i definicija gde se ona koristi. #1"""] ],
         "media_explorer_msg_media_deleted_title": [
             [0, """Deleted"""],
             [1, """Obrisano"""] ],
         "media_explorer_msg_media_deleted_text": [
             [0, """The item was successfully deleted!"""],
-            [1, """Stavka je uspesno obrisana !"""] ],
+            [1, """Stavka je uspešno obrisana !"""] ],
         "media_explorer_delete_all_title": [
             [0, """Delete all unused items"""],
-            [1, """Obrisi sve nekoristene stavke"""] ],
+            [1, """Obriši sve nekorištene stavke"""] ],
         "media_explorer_delete_all_text": [
             [0, """Are you sure you want to delete all images and files that are not used in a block or definition?"""],
-            [1, """Da li ste sigurni da zelite da obrisete sve slike i datoteke koji nisu koristeni u nekom bloku ili definiciji ?"""] ],
+            [1, """Da li ste sigurni da želite da obrišete sve slike i datoteke koji nisu korišteni u nekom bloku ili definiciji ?"""] ],
         "media_explorer_msg_media_deleted_all_title": [
             [0, """Deleted items"""],
             [1, """Obrisane stavke"""] ],
         "media_explorer_msg_media_deleted_all_text": [
             [0, """#1 unused items deleted in total."""],
-            [1, """Ukupno je obrisano #1 nekoristenih stavki."""] ],
+            [1, """Ukupno je obrisano #1 nekorištenih stavki."""] ],
         "media_explorer_menu_remove_duplicates_text": [
             [0, """Remove duplicates"""],
             [1, """Ukloni duplikate"""] ],
         "media_explorer_menu_remove_duplicates_tt": [
             [0, """Deletes any duplicates this item has.
 Duplicates will be replaced with this item."""],
-            [1, """Brise sve duplikate koje ova stavka ima.
-Duplikati ce biti zamenjeni sa ovom stavkom."""] ],
+            [1, """Briše sve duplikate koje ova stavka ima.
+Duplikati će biti zamenjeni sa ovom stavkom."""] ],
         "media_explorer_lbl_pic_menu_image_open_text": [
             [0, """Open in default application"""],
             [1, """Otvori u podrazumevanoj aplikaciji"""] ],
@@ -3433,10 +3431,10 @@ Duplikati ce biti zamenjeni sa ovom stavkom."""] ],
             [1, """Pregled Multimedije"""] ],
         "mnu_view_media_explorer_tt": [
             [0, """View and edit all images and files."""],
-            [1, """Pregled i uredjivanje svih slika i datoteka."""] ],
+            [1, """Pregled i uređivanje svih slika i datoteka."""] ],
         "mnu_view_media_explorer_sb_text": [
             [0, """View and edit all images and files."""],
-            [1, """Pregled i uredjivanje svih slika i datoteka."""] ],
+            [1, """Pregled i uređivanje svih slika i datoteka."""] ],
         "media_explorer_msg_question_delete_all_duplicates_title": [
             [0, """Deleting duplicates"""],
             [1, """Brisanje duplikata"""] ],
@@ -3444,15 +3442,15 @@ Duplikati ce biti zamenjeni sa ovom stavkom."""] ],
             [0, """Do you want to remove all duplicates from the database?
 Duplicates will be replaced in all blocks and definitions,
 and unused entries will be deleted."""],
-            [1, """Da li zelite da uklonite sve duplikate iz baze podataka ?
-Duplikati ce biti zamenjeni u svim blokovima i definicijama,
-a nekoristeni unosi ce biti obrisani."""] ],
+            [1, """Da li želite da uklonite sve duplikate iz baze podataka ?
+Duplikati će biti zamenjeni u svim blokovima i definicijama,
+a nekorišteni unosi ce biti obrisani."""] ],
         "find_in_app_win_title_text": [
             [0, """Find in the app"""],
-            [1, """Pronadji u aplikaciji"""] ],
+            [1, """Pronađi u aplikaciji"""] ],
         "find_in_app_lbl_title_text": [
             [0, """Find in the application"""],
-            [1, """Pronadji u aplikaciji"""] ],
+            [1, """Pronađi u aplikaciji"""] ],
         "find_in_app_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -3461,144 +3459,144 @@ a nekoristeni unosi ce biti obrisani."""] ],
             [1, """Rezultat:"""] ],
         "find_in_app_lbl_result_tt": [
             [0, """List of all items in which the search term was found."""],
-            [1, """Lista svih stavki u kojima je pronadjen trazeni termin."""] ],
+            [1, """Lista svih stavki u kojima je pronađen traženi termin."""] ],
         "find_in_app_chk_case_text": [
             [0, """Match Case"""],
             [1, """Velika i mala slova"""] ],
         "find_in_app_chk_case_tt": [
             [0, """If this option is enabled, a term that corresponds to the use of upper and lower case letters in the search term will be searched.
 Turn off this option if you want to ignore upper and lower case letters."""],
-            [1, """Ako je ova opcija ukljucena trazice se termin koji odgovara upotrebi velikih i malih slova u trazenom izrazu.
-Iskljucite ovu opciju ako zelite da zanemarite velika i mala slova."""] ],
+            [1, """Ako je ova opcija uključena tražiće se termin koji odgovara upotrebi velikih i malih slova u traženom izrazu.
+Isključite ovu opciju ako želite da zanemarite velika i mala slova."""] ],
         "find_in_app_chk_auto_search_text": [
             [0, """Search as i type"""],
-            [1, """Pretrazuj dok kucam"""] ],
+            [1, """Pretražuj dok kucam"""] ],
         "find_in_app_chk_auto_search_tt": [
             [0, """With this option enabled, a search will be performed on each text entry in the search field."""],
-            [1, """Sa ovom opcijom ukljucenom pretraga ce se izvrsiti na svaki unos teksta u polje za pretragu."""] ],
+            [1, """Sa ovom opcijom uključenom pretraga ce se izvršiti na svaki unos teksta u polje za pretragu."""] ],
         "find_in_app_lbl_blocks_text": [
             [0, """Blocks:"""],
             [1, """Blokovi:"""] ],
         "find_in_app_lbl_blocks_tt": [
             [0, """Fields that will be searched in blocks."""],
-            [1, """Polja koja ce se pretrazivati u blokovima."""] ],
+            [1, """Polja koja ce se pretraživati u blokovima."""] ],
         "find_in_app_lbl_defs_text": [
             [0, """Definitions:"""],
             [1, """Definicije:"""] ],
         "find_in_app_lbl_defs_tt": [
             [0, """Fields to be searched in definitions."""],
-            [1, """Polja koja ce se pretrazivati u definicijama."""] ],
+            [1, """Polja koja ce se pretraživati u definicijama."""] ],
         "find_in_app_lbl_images_text": [
             [0, """Images:"""],
             [1, """Slike:"""] ],
         "find_in_app_lbl_images_tt": [
             [0, """Fields to be searched in images."""],
-            [1, """Polja koja ce se pretrazivati u slikama."""] ],
+            [1, """Polja koja ce se pretraživati u slikama."""] ],
         "find_in_app_lbl_files_text": [
             [0, """Files:"""],
             [1, """Datoteke:"""] ],
         "find_in_app_lbl_files_tt": [
             [0, """Fields to be searched in files."""],
-            [1, """Polja koja ce se pretrazivati u datotekama."""] ],
+            [1, """Polja koja ce se pretraživati u datotekama."""] ],
         "find_in_app_chk_block_date_text": [
             [0, """Date"""],
             [1, """Datum"""] ],
         "find_in_app_chk_block_date_tt": [
             [0, """Include a date in the search."""],
-            [1, """Ukljuci datum u pretragu."""] ],
+            [1, """Uključi datum u pretragu."""] ],
         "find_in_app_chk_block_name_text": [
             [0, """Name"""],
             [1, """Naziv"""] ],
         "find_in_app_chk_block_name_tt": [
             [0, """Include the name in the search."""],
-            [1, """Ukljuci naziv u pretragu."""] ],
+            [1, """Uključi naziv u pretragu."""] ],
         "find_in_app_chk_block_text_text": [
             [0, """Block text"""],
             [1, """Tekst bloka"""] ],
         "find_in_app_chk_block_text_tt": [
             [0, """Include block text in the search."""],
-            [1, """Ukljuci tekst bloka u pretragu."""] ],
+            [1, """Uključi tekst bloka u pretragu."""] ],
         "find_in_app_chk_def_name_text": [
             [0, """Name"""],
             [1, """Naziv"""] ],
         "find_in_app_chk_def_name_tt": [
             [0, """Include the name in the search."""],
-            [1, """Ukljuci naziv u pretragu."""] ],
+            [1, """Uključi naziv u pretragu."""] ],
         "find_in_app_chk_def_syn_text": [
             [0, """Synonyms"""],
             [1, """Sinonimi"""] ],
         "find_in_app_chk_def_syn_tt": [
             [0, """Include a list of all synonyms in the search."""],
-            [1, """Ukljuci listu svih sinonima u pretragu."""] ],
+            [1, """Uključi listu svih sinonima u pretragu."""] ],
         "find_in_app_chk_def_desc_text": [
             [0, """Description"""],
             [1, """Opis"""] ],
         "find_in_app_chk_def_desc_tt": [
             [0, """Include a description in the search"""],
-            [1, """Ukljuci opis u pretragu"""] ],
+            [1, """Uključi opis u pretragu"""] ],
         "find_in_app_chk_img_name_text": [
             [0, """Name"""],
             [1, """Naziv"""] ],
         "find_in_app_chk_img_name_tt": [
             [0, """Include the name in the search."""],
-            [1, """Ukljuci naziv u pretragu."""] ],
+            [1, """Uključi naziv u pretragu."""] ],
         "find_in_app_chk_img_desc_text": [
             [0, """Description"""],
             [1, """Opis"""] ],
         "find_in_app_chk_img_desc_tt": [
             [0, """Include a description in the search"""],
-            [1, """Ukljuci opis u pretragu"""] ],
+            [1, """Uključi opis u pretragu"""] ],
         "find_in_app_chk_img_file_text": [
             [0, """File path"""],
             [1, """Putanja do datoteke"""] ],
         "find_in_app_chk_img_file_tt": [
             [0, """Include the file path in the search"""],
-            [1, """Ukljuci putanju do datoteke u pretragu"""] ],
+            [1, """Uključi putanju do datoteke u pretragu"""] ],
         "find_in_app_chk_img_src_text": [
             [0, """Source"""],
             [1, """Izvor"""] ],
         "find_in_app_chk_img_src_tt": [
             [0, """Include the url of the file from where it was originally downloaded in the search"""],
-            [1, """Ukljuci url datoteke odakle je izvorno preuzeta u pretragu"""] ],
+            [1, """Uključi url datoteke odakle je izvorno preuzeta u pretragu"""] ],
         "find_in_app_chk_file_name_text": [
             [0, """Name"""],
             [1, """Naziv"""] ],
         "find_in_app_chk_file_name_tt": [
             [0, """Include the name in the search."""],
-            [1, """Ukljuci naziv u pretragu."""] ],
+            [1, """Uključi naziv u pretragu."""] ],
         "find_in_app_chk_file_desc_text": [
             [0, """Description"""],
             [1, """Opis"""] ],
         "find_in_app_chk_file_desc_tt": [
             [0, """Include a description in the search"""],
-            [1, """Ukljuci opis u pretragu"""] ],
+            [1, """Uključi opis u pretragu"""] ],
         "find_in_app_chk_file_file_text": [
             [0, """File path"""],
             [1, """Putanja do datoteke"""] ],
         "find_in_app_chk_file_file_tt": [
             [0, """Include the file path in the search"""],
-            [1, """Ukljuci putanju do datoteke u pretragu"""] ],
+            [1, """Uključi putanju do datoteke u pretragu"""] ],
         "find_in_app_chk_file_src_text": [
             [0, """Source"""],
             [1, """Izvor"""] ],
         "find_in_app_chk_file_src_tt": [
             [0, """Include the url of the file from where it was originally downloaded in the search"""],
-            [1, """Ukljuci url datoteke odakle je izvorno preuzeta u pretragu"""] ],
+            [1, """Uključi url datoteke odakle je izvorno preuzeta u pretragu"""] ],
         "find_in_app_grp_search_text": [
             [0, """Search in:"""],
-            [1, """Trazi u:"""] ],
+            [1, """Traži u:"""] ],
         "find_in_app_btn_find_text": [
             [0, """Search"""],
-            [1, """Trazi"""] ],
+            [1, """Traži"""] ],
         "find_in_app_btn_find_tt": [
             [0, """Searches all selected fields for the search term"""],
-            [1, """Pretrazuje sva izabrana polja u potrazi za trazenim izrazom"""] ],
+            [1, """Pretražuje sva izabrana polja u potrazi za traženim izrazom"""] ],
         "find_in_app_btn_search_all_text": [
             [0, """Search everywhere"""],
-            [1, """Trazi svuda"""] ],
+            [1, """Traži svuda"""] ],
         "find_in_app_btn_search_all_tt": [
             [0, """Checks all the fields in which the search is performed"""],
-            [1, """Cekira sva polja u kojima se vrsi pretraga"""] ],
+            [1, """Čekira sva polja u kojima se vrši pretraga"""] ],
         "find_in_app_btn_close_text": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -3607,16 +3605,16 @@ Iskljucite ovu opciju ako zelite da zanemarite velika i mala slova."""] ],
             [1, """"""] ],
         "mnu_view_find_in_app_text": [
             [0, """Find in the app"""],
-            [1, """Pronadji u aplikaciji"""] ],
+            [1, """Pronađi u aplikaciji"""] ],
         "mnu_view_find_in_app_tt": [
             [0, """It searches blocks, definitions, images... in search of the required expression"""],
-            [1, """Pretrazuje blokove, definicije, slike... u potrazi za trazenim izrazom"""] ],
+            [1, """Pretražuje blokove, definicije, slike... u potrazi za traženim izrazom"""] ],
         "mnu_view_find_in_app_sb_text": [
             [0, """It searches blocks, definitions, images... in search of the required expression"""],
-            [1, """Pretrazuje blokove, definicije, slike... u potrazi za trazenim izrazom"""] ],
+            [1, """Pretražuje blokove, definicije, slike... u potrazi za traženim izrazom"""] ],
         "searching_text": [
             [0, """Searching..."""],
-            [1, """Pretrazujem..."""] ],
+            [1, """Pretražujem..."""] ],
         "block_text": [
             [0, """Block"""],
             [1, """Blok"""] ],
@@ -3625,7 +3623,7 @@ Iskljucite ovu opciju ako zelite da zanemarite velika i mala slova."""] ],
             [1, """Definicija"""] ],
         "find_in_app_lbl_counter_text": [
             [0, """Total #1 items found."""],
-            [1, """Ukupno pronadjeno #1 stavki."""] ],
+            [1, """Ukupno pronađeno #1 stavki."""] ],
         "find_in_app_menu_open_block_text": [
             [0, """Open block"""],
             [1, """Otvori blok"""] ],
@@ -3664,22 +3662,22 @@ Iskljucite ovu opciju ako zelite da zanemarite velika i mala slova."""] ],
             [1, """"""] ],
         "check_all_text": [
             [0, """Check all"""],
-            [1, """Cekiraj sve"""] ],
+            [1, """Čekiraj sve"""] ],
         "check_none_text": [
             [0, """Uncheck all"""],
-            [1, """Odcekiraj sve"""] ],
+            [1, """Odčekiraj sve"""] ],
         "block_txt_box_menu_find_in_app_text": [
             [0, """Find in the app"""],
-            [1, """Pronadji u aplikaciji"""] ],
+            [1, """Pronađi u aplikaciji"""] ],
         "block_txt_box_menu_find_in_app_tt": [
             [0, """Search for the given expression in all blocks, definitions..."""],
-            [1, """Trazi zadati izraz u svim blokovima, definicijama..."""] ],
+            [1, """Traži zadati izraz u svim blokovima, definicijama..."""] ],
         "fun_fact_show_lbl_rec_text": [
             [0, """Total: #1 facts in the database."""],
-            [1, """Ukupno #1 cinjenica u bazi podataka."""] ],
+            [1, """Ukupno #1 činjenica u bazi podataka."""] ],
         "fun_fact_show_lbl_rec_tt": [
             [0, """The total number of interesting facts contained in the database."""],
-            [1, """Ukupan broj zanimljivih cinjenica koji sadrzi baza podataka."""] ],
+            [1, """Ukupan broj zanimljivih činjenica koji sadrži baza podataka."""] ],
         "pic_info_lbl_created_text": [
             [0, """Created at """],
             [1, """Kreirana u """] ],
@@ -3688,47 +3686,47 @@ Iskljucite ovu opciju ako zelite da zanemarite velika i mala slova."""] ],
             [1, """Sinonimi u tekstu"""] ],
         "find_in_app_chk_block_def_syn_tt": [
             [0, """Include in the search all synonyms of the definitions that appear in the text of the block."""],
-            [1, """Ukljuci u pretragu sve sinonime definicija koje se pojavljulju u tekstu bloka."""] ],
+            [1, """Uključi u pretragu sve sinonime definicija koje se pojavljulju u tekstu bloka."""] ],
         "find_in_app_lbl_searching_text": [
             [0, """Searching ... Please wait ..."""],
-            [1, """Pretrazujem ... Molim sacekajte ..."""] ],
+            [1, """Pretražujem ... Molim sačekajte ..."""] ],
         "find_in_app_lbl_searching_tt": [
             [0, """Search by search term is in progress..."""],
-            [1, """Pretraga po trazenom izrazu je u toku..."""] ],
+            [1, """Pretraga po traženom izrazu je u toku..."""] ],
         "find_in_app_chk_words_text": [
             [0, """Whole words only"""],
-            [1, """Samo cele reci"""] ],
+            [1, """Samo cele reči"""] ],
         "find_in_app_chk_words_tt": [
             [0, """Search only for whole words, do not search for an expression as part of a word."""],
-            [1, """Trazi samo samo cele reci, nemoj traziti izraz kao deo reci."""] ],
+            [1, """Traži samo samo cele reči, nemoj tražiti izraz kao deo reči."""] ],
         "calendar_win_title_text": [
             [0, """Calendar"""],
             [1, """Kalendar"""] ],
         "def_add_crash_msg_title": [
             [0, """App crashed"""],
-            [1, """Aplikacija: Greska"""] ],
+            [1, """Aplikacija: Greška"""] ],
         "def_add_crash_msg_text": [
             [0, """In the previous session, the application was not properly closed.
 An error occurred while entering data in the definition.
 The definition data you entered will now be restored!"""],
             [1, """U prethodnoj sesiji aplikacija nije propisno zatvorena.
-Greska se dogodila prilikom unosa definicije.
-Podaci o definiciji koje ste uneli ce sada biti prikazani !"""] ],
+Greška se dogodila prilikom unosa definicije.
+Podaci o definiciji koje ste uneli će sada biti prikazani !"""] ],
         "find_in_app_menu_open_all_blocks_text": [
             [0, """Open all blocks"""],
             [1, """Otvori sve blokove"""] ],
         "find_in_app_menu_open_all_blocks_tt": [
             [0, """Opens all found blocks"""],
-            [1, """Otvara sve pronadjene blokove"""] ],
+            [1, """Otvara sve pronađene blokove"""] ],
         "find_in_app_menu_open_all_diary_text": [
             [0, """Display the contents of all blocks"""],
-            [1, """Prikazi sadrzaj svih blokova"""] ],
+            [1, """Prikaži sadržaj svih blokova"""] ],
         "find_in_app_menu_open_all_diary_tt": [
             [0, """Opens a diary with the contents of all found blocks."""],
-            [1, """Otvara dnevnik sa sadrzajem svih pronadjenih blokova."""] ],
+            [1, """Otvara dnevnik sa sadržajem svih pronađenih blokova."""] ],
         "def_editor_c_menu_pref_suf_imenica_text": [
             [0, """Noun - Generic"""],
-            [1, """Imenica - Genericka"""] ],
+            [1, """Imenica - Generička"""] ],
         "def_editor_c_menu_pref_suf_imenica_tt": [
             [0, """Noun changed through cases"""],
             [1, """Imenica promenjena kroz padeze"""] ],
@@ -3740,29 +3738,29 @@ Podaci o definiciji koje ste uneli ce sada biti prikazani !"""] ],
             [1, """Pridev promenjen kroz rodove i padeze"""] ],
         "def_editor_c_menu_pref_suf_glagol_text": [
             [0, """Verb - Generic"""],
-            [1, """Glagol - Genericki"""] ],
+            [1, """Glagol - Generički"""] ],
         "def_editor_c_menu_pref_suf_glagol_tt": [
             [0, """Verb - Generic
 It changes verbs through all three persons singular and plural"""],
-            [1, """Glagol - Genericki
-Menja glagole kroz sva tri lica jednine i mnozine"""] ],
+            [1, """Glagol - Generički
+Menja glagole kroz sva tri lica jednine i množine"""] ],
         "def_editor_c_menu_pref_suf_glagol_bez_buduc_proslo_text": [
             [0, """Verb - Without past and future tense"""],
-            [1, """Glagol - Bez proslog i buduceg vremena"""] ],
+            [1, """Glagol - Bez prošlog i budućeg vremena"""] ],
         "def_editor_c_menu_pref_suf_glagol_bez_buduc_proslo_tt": [
             [0, """Verb - Generic
 It changes verbs through all three persons singular and plural
 Only in the present"""],
-            [1, """Glagol - Genericki
-Menja glagole kroz sva tri lica jednine i mnozine
-Samo u sadasnjosti"""] ],
+            [1, """Glagol - Generički
+Menja glagole kroz sva tri lica jednine i množine
+Samo u sadašnjosti"""] ],
         "def_editor_c_menu_pref_suf_imenica_naziv_sa_crticom_text": [
             [0, """Noun - Name with a hyphen (-)"""],
             [1, """Imenica - Naziv sa crticom (-)"""] ],
         "def_editor_c_menu_pref_suf_imenica_naziv_sa_crticom_tt": [
             [0, """Noun changed through cases
 With a dash"""],
-            [1, """Imenica promenjena kroz padeze
+            [1, """Imenica promenjena kroz padeže
 Sa crticom"""] ],
         "def_editor_c_menu_pref_suf_imenica_naziv_bez_crtice_text": [
             [0, """Noun - A noun without a hyphen"""],
@@ -3770,7 +3768,7 @@ Sa crticom"""] ],
         "def_editor_c_menu_pref_suf_imenica_naziv_bez_crtice_tt": [
             [0, """Noun changed through cases
 Without a dash"""],
-            [1, """Imenica promenjena kroz padeze
+            [1, """Imenica promenjena kroz padeže
 Bez crtice"""] ],
         "pic_info_lbl_created_before_days_text": [
             [0, """#1 days ago."""],
@@ -3801,16 +3799,16 @@ Bez crtice"""] ],
             [1, """Menja prvo slovo svake stavke u listi u malo."""] ],
         "def_editor_btn_edit_case_menu_all_word_up_text": [
             [0, """Change the first letter of each word to uppercase"""],
-            [1, """Promeni prvo slovo svake reci u veliko"""] ],
+            [1, """Promeni prvo slovo svake reči u veliko"""] ],
         "def_editor_btn_edit_case_menu_all_word_up_tt": [
             [0, """Changes the first letter of each word in each item in the list to uppercase."""],
-            [1, """Menja prvo slovo svake reci u svakoj stavci u listi u veliko."""] ],
+            [1, """Menja prvo slovo svake reči u svakoj stavci u listi u veliko."""] ],
         "def_editor_btn_edit_case_menu_all_word_low_text": [
             [0, """Change the first letter of each word to lower case"""],
-            [1, """Promeni prvo slovo svake reci u malo"""] ],
+            [1, """Promeni prvo slovo svake reči u malo"""] ],
         "def_editor_btn_edit_case_menu_all_word_low_tt": [
             [0, """Changes the first letter of each word in each item in the list to uppercase."""],
-            [1, """Menja prvo slovo svake reci u svakoj stavci u listi u malo."""] ],
+            [1, """Menja prvo slovo svake reči u svakoj stavci u listi u malo."""] ],
         "def_editor_btn_edit_case_menu_all_up_text": [
             [0, """Change all letters to uppercase"""],
             [1, """Promeni sva slova u velika"""] ],
@@ -3830,7 +3828,7 @@ Bez crtice"""] ],
             [0, """Noun - Default
 Noun with predetermined suffixes, without translation and control of the last letter."""],
             [1, """Imenica - Default
-Imenica sa predodredjenim nastavcima, bez prevodjenja i kontrole poslednjeg slova."""] ],
+Imenica sa predodređenim nastavcima, bez prevođenja i kontrole poslednjeg slova."""] ],
         "def_editor_btn_first_letter_text": [
             [0, """First letter"""],
             [1, """Prvo slovo"""] ],
@@ -3849,7 +3847,7 @@ Prvo slovo ostaje onako kako jeste."""] ],
             [0, """Saving data
 Please wait..."""],
             [1, """Snimam podatke
-Molim sacekajte..."""] ],
+Molim sačekajte..."""] ],
         "mnu_file_save_active_block_text": [
             [0, """Save open blocks"""],
             [1, """Snimi otvorene blokove"""] ],
@@ -3861,19 +3859,19 @@ Molim sacekajte..."""] ],
             [1, """Snima trenutno otvorene blokove i ostavlja ih otvorenim"""] ],
         "main_win_notif_blocks_updated_text": [
             [0, """All blocks are updated!"""],
-            [1, """Svi blokovi su azurirani !"""] ],
+            [1, """Svi blokovi su ažurirani !"""] ],
         "calculator_mode_title": [
             [0, """@ CALCULATOR"""],
             [1, """@ KALKULATOR"""] ],
         "calculator_mode_text": [
             [0, """Enter the math expression and press ENTER or "=" to get the result:"""],
-            [1, """Unesite matematicki izraz i pritisnite ENTER ili "=" da bi dobili rezultat:"""] ],
+            [1, """Unesite matematički izraz i pritisnite ENTER ili "=" da bi dobili rezultat:"""] ],
         "error_text": [
             [0, """Error."""],
-            [1, """Greska."""] ],
+            [1, """Greška."""] ],
         "block_text_editor_command_calculator_text": [
             [0, """Starts a simple calculator (@c)"""],
-            [1, """Pokrece jednostavan kalkulator (@c)"""] ],
+            [1, """Pokreće jednostavan kalkulator (@c)"""] ],
         "block_text_editor_command_calculator_tt": [
             [0, """Starts a simple calculator in a text box.
 Enter the expression you want to calculate and press ENTER.
@@ -3897,9 +3895,9 @@ sin(x) The sine of x measured in radians
 cos(x) Cosine of x measured in radians
 ....
 ceil(x), tan(x), atan(x), asin(x), acos(x), factorial(x) ... constants pi, e, tau"""],
-            [1, """Pokrece jednostavan kalkulator u tekst boksu.
-Unesite izraz koji zelite da izracunate i pritisnite ENTER.
-Rezultat racunanja je pohranjen u clipboard.
+            [1, """Pokreće jednostavan kalkulator u tekst boksu.
+Unesite izraz koji želite da izračunate i pritisnite ENTER.
+Rezultat računanja je pohranjen u clipboard.
 Izlazite iz kalkulatora pritiskom na ESC.
 Komande u editoru:
 @c
@@ -3921,13 +3919,13 @@ cos(x)   Kosinus od x meren u radijanima
 ceil(x), tan(x), atan(x), asin(x), acos(x), factorial(x) ... konstante pi, e, tau"""] ],
         "calculator_mode_help_text": [
             [0, """The result will be automatically copied to the clipboard.    Operators: [+ - * /]     x**y Power sqrt(x)     Square root     log(x, y) log2(x) log10(x)     constants pi, e, tau"""],
-            [1, """Rezultat ce automatski biti kopiran u clipboard.   Operatori: [+ - * /]     x**y Stepen     sqrt(x) Kvadratni koren     log(x, y) log2(x) log10(x)      konstante pi, e, tau"""] ],
+            [1, """Rezultat će automatski biti kopiran u clipboard.   Operatori: [+ - * /]     x**y Stepen     sqrt(x) Kvadratni koren     log(x, y) log2(x) log10(x)      konstante pi, e, tau"""] ],
         "block_txt_box_menu_def_simple_extra_options_text": [
             [0, """Additional images in definition view - Options"""],
             [1, """Dodatne slike u prikazu definicije - Opcije"""] ],
         "block_txt_box_menu_def_simple_extra_options_tt": [
             [0, """Options for setting the way additional images are displayed when the definition is displayed."""],
-            [1, """Opcije za podesavanje nacina prikaza dodatnih slika kada je prikazana definicija."""] ],
+            [1, """Opcije za podešavanje načina prikaza dodatnih slika kada je prikazana definicija."""] ],
         "block_txt_box_menu_def_simple_img_number_text": [
             [0, """Number of simultaneously displayed images"""],
             [1, """Broj istovremeno prikazanih slika"""] ],
@@ -3936,42 +3934,42 @@ ceil(x), tan(x), atan(x), asin(x), acos(x), factorial(x) ... konstante pi, e, ta
             [1, """Maksimalni broj slika koje mogu biti istovremeno prikazane."""] ],
         "block_txt_box_menu_def_simple_delay_text": [
             [0, """Delay before display starts"""],
-            [1, """Odlaganje pre pocetka prikaza"""] ],
+            [1, """Odlaganje pre početka prikaza"""] ],
         "block_txt_box_menu_def_simple_delay_tt": [
             [0, """The number of seconds from the display of the definition to the start of the display of additional images."""],
-            [1, """Broj sekundi od prikaza definicije do pocetka prikaza dodatnih slika."""] ],
+            [1, """Broj sekundi od prikaza definicije do početka prikaza dodatnih slika."""] ],
         "block_txt_box_menu_def_simple_img_duration_text": [
             [0, """Image display duration"""],
             [1, """Trajanje prikaza slike"""] ],
         "block_txt_box_menu_def_simple_img_duration_tt": [
             [0, """The number of seconds the image will be displayed."""],
-            [1, """Broj sekundi koliko ce slika biti prikazana."""] ],
+            [1, """Broj sekundi koliko će slika biti prikazana."""] ],
         "block_txt_box_menu_def_simple_img_fade_duration_text": [
             [0, """Image Fade-Out duration"""],
-            [1, """Trajanje iscezavanja slike"""] ],
+            [1, """Trajanje iščezavanja slike"""] ],
         "block_txt_box_menu_def_simple_img_fade_duration_tt": [
             [0, """The total number of seconds it will take to remove the image.
 The image will slowly fade from the screen during this period."""],
-            [1, """Broj sekundi koliko ce ukupno trajati uklanjanje slike.
-Slika ce u ovom periodu da polako izbledi sa ekrana."""] ],
+            [1, """Broj sekundi koliko će ukupno trajati uklanjanje slike.
+Slika će u ovom periodu da polako izbledi sa ekrana."""] ],
         "block_txt_box_menu_def_simple_img_next_image_text": [
             [0, """Continuous rendering"""],
             [1, """Neprekidno prikazivanje"""] ],
         "block_txt_box_menu_def_simple_img_next_image_tt": [
             [0, """After the image is displayed and removed from the screen, automatically display the next image."""],
-            [1, """Nakon sto slika bude prikazana i uklonjena sa ekrana automatski prikazi sledecu sliku."""] ],
+            [1, """Nakon što slika bude prikazana i uklonjena sa ekrana automatski prikaži sledeću sliku."""] ],
         "block_txt_box_menu_def_simple_img_source_text": [
             [0, """Image source"""],
             [1, """Izvor slika"""] ],
         "block_txt_box_menu_def_simple_img_source_tt": [
             [0, """Source from where additional images will be delivered."""],
-            [1, """Izvor odakle ce biti dopremane dodatne slike."""] ],
+            [1, """Izvor odakle će biti dopremane dodatne slike."""] ],
         "block_txt_box_menu_def_simple_img_state_text": [
             [0, """Show additional images"""],
-            [1, """Prikazi dodatne slike"""] ],
+            [1, """Prikaži dodatne slike"""] ],
         "block_txt_box_menu_def_simple_img_state_tt": [
             [0, """Determines whether additional images will be displayed along with the definition display."""],
-            [1, """Odredjuje da li ce biti prikazivane dodatne slike uz prikaz definicije."""] ],
+            [1, """Određuje da li će biti prikazivane dodatne slike uz prikaz definicije."""] ],
         "block_txt_box_menu_def_simple_img_number_1-5_text": [
             [0, """Number of images displayed: #1"""],
             [1, """Broj prikazanih slika: #1"""] ],
@@ -3986,7 +3984,7 @@ Slika ce u ovom periodu da polako izbledi sa ekrana."""] ],
             [1, """Period odlaganja: #1"""] ],
         "block_txt_box_menu_def_simple_delay_cus_text": [
             [0, """Custom delay..."""],
-            [1, """Definisi odlaganje..."""] ],
+            [1, """Definiši odlaganje..."""] ],
         "custom": [
             [0, """Custom"""],
             [1, """Proizvoljno"""] ],
@@ -4004,60 +4002,60 @@ Slika ce u ovom periodu da polako izbledi sa ekrana."""] ],
             [1, """Odmah"""] ],
         "block_txt_box_menu_def_simple_fade_num_text": [
             [0, """Fade duration: #1"""],
-            [1, """Trajanje izbledjivanja: #1"""] ],
+            [1, """Trajanje izbleđivanja: #1"""] ],
         "block_txt_box_menu_def_simple_fade_cus_text": [
             [0, """Custom fade-out..."""],
-            [1, """Definisi trajanje..."""] ],
+            [1, """Definiši trajanje..."""] ],
         "block_txt_box_menu_def_simple_img_source_toon_text": [
             [0, """Random cartoon characters"""],
             [1, """Razni crtani karakteri"""] ],
         "block_txt_box_menu_def_simple_img_source_toon_tt": [
             [0, """The image source will be random cartoon characters from the internal database."""],
-            [1, """Izvor slika ce biti proizvoljni crtani karakteri iz interne baze podataka."""] ],
+            [1, """Izvor slika će biti proizvoljni crtani karakteri iz interne baze podataka."""] ],
         "block_txt_box_menu_def_simple_img_source_def_text": [
             [0, """Current definition"""],
             [1, """Trenutna definicija"""] ],
         "block_txt_box_menu_def_simple_img_source_def_tt": [
             [0, """The image source will be all images that are attached to the current definition."""],
-            [1, """Izvor slika ce biti sve slike koje su pridruzene trenutnoj definiciji."""] ],
+            [1, """Izvor slika će biti sve slike koje su pridružene trenutnoj definiciji."""] ],
         "block_txt_box_menu_def_simple_img_source_blocks_text": [
             [0, """All blocks"""],
             [1, """Svi blokovi"""] ],
         "block_txt_box_menu_def_simple_img_source_blocks_tt": [
             [0, """The image source will be all images that are attached to one of the blocks in the application."""],
-            [1, """Izvor slika ce biti sve slike koje su pridruzene nekom od blokova u aplikaciji."""] ],
+            [1, """Izvor slika će biti sve slike koje su pridružene nekom od blokova u aplikaciji."""] ],
         "block_txt_box_menu_def_simple_img_source_app_text": [
             [0, """All images in the application"""],
             [1, """Sve slike u aplikaciji"""] ],
         "block_txt_box_menu_def_simple_img_source_app_tt": [
             [0, """The image source will be all the images that are in the application."""],
-            [1, """Izvor slika ce biti sve slike koje su nalaze u aplikaciji."""] ],
+            [1, """Izvor slika će biti sve slike koje su nalaze u aplikaciji."""] ],
         "block_txt_box_menu_def_simple_img_source_cus_text": [
             [0, """User folder(s)"""],
-            [1, """Korisnicki folder(i)"""] ],
+            [1, """Korisnički folder"""] ],
         "block_txt_box_menu_def_simple_img_source_cus_tt": [
             [0, """The source of the images will be the folders selected by the user."""],
-            [1, """Izvor slika ce biti folderi izabrani od strane korisnika."""] ],
+            [1, """Izvor slika će biti folder izabran od strane korisnika."""] ],
         "def_extra_image_max_number_of_images_info_box_desc": [
             [0, """Enter the maximum number of images that can be displayed simultaneously when displaying the definition."""],
             [1, """Unesite maksimalni broj slika koje mogu biti prikazane istovremeno prilikom prikaza definicije."""] ],
         "def_extra_image_delay_info_box_desc": [
             [0, """Enter the number of seconds after which additional images will be displayed.
 The number can be decimal (eg 2.5)"""],
-            [1, """Unesite broj sekundi nakon koga ce dodatne slike biti prikazane.
-Broj moze biti i decimalni (npr 2.5)"""] ],
+            [1, """Unesite broj sekundi nakon koga će dodatne slike biti prikazane.
+Broj može biti i decimalni (npr 2.5)"""] ],
         "def_extra_image_duration_info_box_desc": [
             [0, """Enter the number of seconds the image will be displayed.
 The number can be decimal (eg 2.5)"""],
-            [1, """Unesite broj sekundi koliko ce slika biti prikazana.
-Broj moze biti i decimalni (npr 2.5)"""] ],
+            [1, """Unesite broj sekundi koliko će slika biti prikazana.
+Broj može biti i decimalni (npr 2.5)"""] ],
         "def_extra_image_fade_duration_info_box_desc": [
             [0, """Enter the number of seconds it will take to remove the image.
 The image will slowly fade during that period until it disappears completely.
 The number can be decimal (eg 2.5)"""],
-            [1, """Unesite broj sekundi koliko ce trajati uklanjaje slike.
-Slika ce polako izbledjivati u tom periodu dok potpuno ne nestane.
-Broj moze biti i decimalni (npr 2.5)"""] ],
+            [1, """Unesite broj sekundi koliko će trajati uklanjaje slike.
+Slika ce polako izbleđivati u tom periodu dok potpuno ne nestane.
+Broj može biti i decimalni (npr 2.5)"""] ],
         "block_txt_box_menu_def_simple_img_layout_text": [
             [0, """Image layout options..."""],
             [1, """Opcije rasporeda slika..."""] ],
@@ -4066,34 +4064,34 @@ Broj moze biti i decimalni (npr 2.5)"""] ],
             [1, """"""] ],
         "block_txt_box_menu_def_simple_img_layout_random_text": [
             [0, """Randomly selected position"""],
-            [1, """Slucajno izabrana pozicija"""] ],
+            [1, """Slučajno izabrana pozicija"""] ],
         "block_txt_box_menu_def_simple_img_layout_random_tt": [
             [0, """If the image source is "Cartoon characters", the images will be placed in default positions.
 In the case of other sources, the images will be randomly placed anywhere on the screen."""],
-            [1, """Ako je izvor slika "Crtani karakteri" slike ce biti postavljene na predefinisane pozicije.
-U slucaju drugih izvora slike ce biti slucajno postavljene bilo gde na ekranu."""] ],
+            [1, """Ako je izvor slika "Crtani karakteri" slike će biti postavljene na predefinisane pozicije.
+U slučaju drugih izvora slike će biti slučajno postavljene bilo gde na ekranu."""] ],
         "block_txt_box_menu_def_simple_img_layout_tile_text": [
             [0, """Images arranged around the definition"""],
-            [1, """Slike poslozene oko definicije"""] ],
+            [1, """Slike posložene oko definicije"""] ],
         "block_txt_box_menu_def_simple_img_layout_tile_tt": [
             [0, """Images will be placed around the displayed definition.
 The maximum number of images that can be displayed is 10."""],
             [1, """Slike ce biti postavljene oko prikazane definicije.
-Maksimalni broj slika koji moze biti prikazan je 10."""] ],
+Maksimalni broj slika koji može biti prikazan je 10."""] ],
         "text_random": [
             [0, """Random"""],
-            [1, """Slucajno"""] ],
+            [1, """Slučajno"""] ],
         "text_around_def": [
             [0, """Around definition"""],
             [1, """Oko definicije"""] ],
         "user_input_error_not_number_title": [
             [0, """Number expected"""],
-            [1, """Broj ocekivan"""] ],
+            [1, """Broj očekivan"""] ],
         "user_input_error_not_number_text": [
             [0, """The data you entered is not a number.
 The data is not updated!"""],
             [1, """Podatak koji ste uneli nije broj.
-Podaci nisu azurirani !"""] ],
+Podaci nisu ažurirani !"""] ],
         "user_input_error_number_not_in_range_title": [
             [0, """The number is out of range"""],
             [1, """Broj nije u opsegu"""] ],
@@ -4101,74 +4099,74 @@ Podaci nisu azurirani !"""] ],
             [0, """The number you entered is not within the allowed range.
 The number must be greater than #1 and less than #2!"""],
             [1, """Broj koji ste uneli nije u dozvoljenom opsegu.
-Broj mora biti veci od #1 i manji od #2 !"""] ],
+Broj mora biti veći od #1 i manji od #2 !"""] ],
         "block_txt_box_menu_def_enum_text": [
             [0, """Show all definitions in this block"""],
-            [1, """Prikazi sve definicije u ovom bloku"""] ],
+            [1, """Prikaži sve definicije u ovom bloku"""] ],
         "block_txt_box_menu_def_enum_tt": [
             [0, """Display a list of all definitions that are in the currently active block."""],
-            [1, """Prikazi spisak svih definicija koje se nalaze u trenutno aktivnom bloku."""] ],
+            [1, """Prikaži spisak svih definicija koje se nalaze u trenutno aktivnom bloku."""] ],
         "def_list_menu_item_next_text": [
             [0, """More definitions..."""],
-            [1, """Jos definicija..."""] ],
+            [1, """Još definicija..."""] ],
         "def_list_menu_item_next_tt": [
             [0, """More definitions that are in the currently active block."""],
-            [1, """Jos definicija koje se nalaze u trenutno aktivnom bloku."""] ],
+            [1, """Još definicija koje se nalaze u trenutno aktivnom bloku."""] ],
         "block_txt_box_menu_def_simple_img_apperance_text": [
             [0, """The way images appear"""],
-            [1, """Nacin pojavljivanja slika"""] ],
+            [1, """Način pojavljivanja slika"""] ],
         "block_txt_box_menu_def_simple_img_apperance_tt": [
             [0, """Choose different image display styles.
 Also specify the duration of the appearance."""],
-            [1, """Iazberite razlicite stilove pojavljivanja slika.
-Takodje odredite i vreme trajanja pojavljivanja."""] ],
+            [1, """Iazberite različite stilove pojavljivanja slika.
+Takođe odredite i vreme trajanja pojavljivanja."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_random_text": [
             [0, """Random style"""],
-            [1, """Slucajni stil"""] ],
+            [1, """Slučajni stil"""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_random_tt": [
             [0, """When a new image appears, the style will be randomly selected."""],
-            [1, """Prilikom pojavljivanja nove slike stil ce biti slucajno izabran."""] ],
+            [1, """Prilikom pojavljivanja nove slike stil će biti slučajno izabran."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_instant_text": [
             [0, """Instant appearing without animation"""],
             [1, """Pojavljivanje bez animacije"""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_instant_tt": [
             [0, """The image will appear on the screen without animation."""],
-            [1, """Slika ce se pojaviti na ekranu bez animacije."""] ],
+            [1, """Slika će se pojaviti na ekranu bez animacije."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_grove_text": [
             [0, """Grove in place"""],
-            [1, """Rastuci stil"""] ],
+            [1, """Rastući stil"""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_grove_tt": [
             [0, """The dimensions of the image will be increased in the place where it will be displayed."""],
-            [1, """Dimenzije slike ce se povecavati na mestu gde ce biti prikazana."""] ],
+            [1, """Dimenzije slike ce se povećavati na mestu gde će biti prikazana."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_left_up_text": [
             [0, """Animation from the upper left corner."""],
             [1, """Animacija iz gornjeg levog ugla."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_left_up_tt": [
             [0, """The image will be animated from the top left corner to where it will be placed.
 During the animation, the dimensions of the image will increase."""],
-            [1, """Slika ce biti animirana iz gorenjeg levog ugla do mesta gde ce biti postavljena.
-U toku animacije dimenzije slike ce se povecavati."""] ],
+            [1, """Slika će biti animirana iz gorenjeg levog ugla do mesta gde će biti postavljena.
+U toku animacije dimenzije slike će se povećavati."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_right_up_text": [
             [0, """Animation from the top right corner."""],
             [1, """Animacija iz gornjeg desnog ugla."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_right_up_tt": [
             [0, """The image will be animated from the top right corner to where it will be placed.
 During the animation, the dimensions of the image will increase."""],
-            [1, """Slika ce biti animirana iz gorenjeg desnog ugla do mesta gde ce biti postavljena.
-U toku animacije dimenzije slike ce se povecavati."""] ],
+            [1, """Slika će biti animirana iz gorenjeg desnog ugla do mesta gde će biti postavljena.
+U toku animacije dimenzije slike će se povećavati."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_bot_left_text": [
             [0, """Animation from the bottom left corner."""],
             [1, """Animacija iz donjeg levog ugla."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_bot_left_tt": [
             [0, """The image will be animated from the bottom left corner to where it will be placed.
 During the animation, the dimensions of the image will increase."""],
-            [1, """Slika ce biti animirana iz donjeg levog ugla do mesta gde ce biti postavljena.
-U toku animacije dimenzije slike ce se povecavati."""] ],
+            [1, """Slika će biti animirana iz donjeg levog ugla do mesta gde će biti postavljena.
+U toku animacije dimenzije slike će se povećavati."""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_bot_right_tt": [
             [0, """The image will be animated from the bottom right corner to where it will be placed.
 During the animation, the dimensions of the image will increase."""],
-            [1, """Slika ce biti animirana iz donjeg desnog ugla do mesta gde ce biti postavljena.
-U toku animacije dimenzije slike ce se povecavati."""] ],
+            [1, """Slika će biti animirana iz donjeg desnog ugla do mesta gde će biti postavljena.
+U toku animacije dimenzije slike će se povećavati."""] ],
         "block_txt_box_menu_def_simple_img_apperance_duration_text": [
             [0, """Image apperance duration"""],
             [1, """Trajanje pojavljivanja slike"""] ],
@@ -4177,71 +4175,71 @@ U toku animacije dimenzije slike ce se povecavati."""] ],
 This value can be decimal.
 If the value is 0, the image will appear without animation."""],
             [1, """Trajanje animacije prilikom pojavljivanja slike u sekundama.
-Ova vrednost moze biti decimalna.
-Ukoliko je vrednost 0 slika ce se pojaviti bez animacije."""] ],
+Ova vrednost može biti decimalna.
+Ukoliko je vrednost 0 slika će se pojaviti bez animacije."""] ],
         "def_extra_image_apperance_duration_info_box_desc": [
             [0, """Enter the number of seconds that the image will appear in total.
 The way the image will appear depends on the style you have chosen.
 The number can be decimal (eg 0.5)"""],
             [1, """Unesite broj sekundi koliko ce ukupno pojavljivanje slike trajati.
-Nacin na koji ce se pojavljivati slika zavisi od stila koji ste izabrali.
-Broj moze biti i decimalni (npr 0.5)"""] ],
+Način na koji ce se pojavljivati slika zavisi od stila koji ste izabrali.
+Broj može biti i decimalni (npr 0.5)"""] ],
         "block_txt_box_menu_def_simple_img_apperance_style_bot_right_text": [
             [0, """Animation from the bottom right corner."""],
             [1, """Animacija iz donjeg desnog ugla."""] ],
         "app_settings_win_title_text": [
             [0, """Application Settings"""],
-            [1, """Podesavanje Aplikacije"""] ],
+            [1, """Podešavanje Aplikacije"""] ],
         "app_settings_lbl_title_text": [
             [0, """Application Settings"""],
-            [1, """Podesavanje Aplikacije"""] ],
+            [1, """Podešavanje Aplikacije"""] ],
         "app_settings_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
         "app_settings_btn_save_text": [
             [0, """Save & Exit"""],
-            [1, """Snimi i izadji"""] ],
+            [1, """Snimi i izađi"""] ],
         "app_settings_btn_save_tt": [
             [0, """Save all changes and close the dialog."""],
             [1, """Snimi sve promene i zatvori dijalog."""] ],
         "app_settings_lbl_menu_general_title_text": [
             [0, """General Settings"""],
-            [1, """Opsta Podesavanja"""] ],
+            [1, """Opšta Podešavanja"""] ],
         "app_settings_lbl_menu_general_title_tt": [
             [0, """General application-level settings."""],
-            [1, """Opsta podesavanja na nivou aplikacije."""] ],
+            [1, """Opšta podešavanja na nivou aplikacije."""] ],
         "definition_hint_lbl_title_text": [
             [0, """Definition Hint"""],
             [1, """Predlog Definicije"""] ],
         "definition_hint_lbl_title_tt": [
             [0, """You can disable this option in the context menu of the block.
 You can find more options in the application settings."""],
-            [1, """Mozete iskljuciti ovu opciju u kontekstnom meniju bloka.
-Vise opcija mozete naci u podesavanju aplikacije."""] ],
+            [1, """Možete isključiti ovu opciju u kontekstnom meniju bloka.
+Više opcija možete naći u podešavanju aplikacije."""] ],
         "definition_hint_lbl_text_text": [
             [0, """Do you want to associate the word "#1" with the definition #2 ?"""],
-            [1, """Da li zelite da pridruzite rec "#1" definiciji #2 ?"""] ],
+            [1, """Da li želite da pridružite reč "#1" definiciji #2 ?"""] ],
         "definition_hint_lbl_text_tt": [
             [0, """The word "#1" may refer to the definition of #2.
 If it is correct, select "Open Definition" and make the necessary changes.
 If the suggestion is incorrect, you can choose "Do not show again for..." to disable future suggestions for this word."""],
-            [1, """Rec "#1" se mozda odnosi na definiciju #2.
-Ukoliko je to tacno izaberite "Otvori Definiciju" i napravite neophodne promene.
-Ukoliko je sugestija netacna mozete izabrati "Nemoj vise prikazivati za #1" da bi onemogucili buduce sugestije za ovu rec."""] ],
+            [1, """Reč "#1" se možda odnosi na definiciju #2.
+Ukoliko je to tačno izaberite "Otvori Definiciju" i napravite neophodne promene.
+Ukoliko je sugestija netačna možete izabrati "Nemoj više prikazivati za #1" da bi onemogućili buduće sugestije za ovu reč."""] ],
         "definition_hint_btn_open_text": [
             [0, """Open Definition #2"""],
             [1, """Otvori Definiciju #2"""] ],
         "definition_hint_btn_open_tt": [
             [0, """Opens the Edit Definitions dialog and allows you to make the necessary changes."""],
-            [1, """Otvara dijalog za uredjivanje definicija i omogucava vam da napravite neophodne promene."""] ],
+            [1, """Otvara dijalog za uređivanje definicija i omogućava vam da napravite neophodne promene."""] ],
         "definition_hint_btn_dont_show_text": [
             [0, """Do not display again for #1"""],
-            [1, """Nemoj vise prikazivati za #1"""] ],
+            [1, """Nemoj više prikazivati za #1"""] ],
         "definition_hint_btn_dont_show_tt": [
             [0, """If the suggestion is incorrect, click this button.
 This will disable future suggestions for this word!"""],
-            [1, """Ukoliko je sugestija netacna kliknite ovo dugme.
-Ovo ce onemoguciti buduce sugestije za ovu rec !"""] ],
+            [1, """Ukoliko je sugestija netačna kliknite ovo dugme.
+Ovo će onemogućiti buduće sugestije za ovu reč !"""] ],
         "or_word_text": [
             [0, """or"""],
             [1, """ili"""] ],
@@ -4255,16 +4253,16 @@ Adds #1 to #2 automatically without additional dialogs."""],
 Dodaje automatski #1 u #2 bez dodatnih dijaloga."""] ],
         "def_hint_notif_updated_title": [
             [0, """Definition updated"""],
-            [1, """Definicija azurirana"""] ],
+            [1, """Definicija ažurirana"""] ],
         "def_hint_notif_updated_text": [
             [0, """Definition "#1" has been updated successfully!"""],
-            [1, """Definicija "#1" je uspesno azurirana !"""] ],
+            [1, """Definicija "#1" je uspešno ažurirana !"""] ],
         "block_txt_box_menu_def_hint_text": [
             [0, """Definition hint for the typed word"""],
-            [1, """Sugestija definicije za ukucanu rec"""] ],
+            [1, """Sugestija definicije za ukucanu reč"""] ],
         "block_txt_box_menu_def_hint_tt": [
             [0, """When I type a word that is not defined, if the word can be related to an existing definition, it opens a dialog and suggests further steps."""],
-            [1, """Kada ukucam rec koja nije definisana, ukoliko rec moze biti povezana sa nekom postojecom definicijom otvori dijalog i predlozi mi dalje korake."""] ],
+            [1, """Kada ukucam reč koja nije definisana, ukoliko reč može biti povezana sa nekom postojećom definicijom otvori dijalog i predloži mi dalje korake."""] ],
         "syn_hint_menu_options_text": [
             [0, """Base string options: (#01)   """],
             [1, """Opcije za bazni string: (#01)   """] ],
@@ -4284,27 +4282,27 @@ Dodaje automatski #1 u #2 bez dodatnih dijaloga."""] ],
             [0, """Base string: #91 - Creating a new schema
 A new schema will be created for base string #01:"""],
             [1, """Bazni string: #91 - Kreiranje nove sheme
-Za bazni string #01 ce biti kreirana nova shema:"""] ],
+Za bazni string #01 će biti kreirana nova shema:"""] ],
         "syn_hint_menu_update_text": [
             [0, """Update schema for base string: #01"""],
-            [1, """Azuriraj shemu za bazni string: #01"""] ],
+            [1, """Ažuriraj shemu za bazni string: #01"""] ],
         "syn_hint_menu_update_tt": [
             [0, """Base String: #91 - Schema Update
 Old scheme: ( #02 )
 The scheme for base string #01 will be updated:"""],
-            [1, """Bazni string: #91 - Azuriranje sheme
+            [1, """Bazni string: #91 - Ažuriranje sheme
 Stara shema: ( #02 )
-Shema za bazni string #01 ce biti azurirana:"""] ],
+Shema za bazni string #01 ce biti ažurirana:"""] ],
         "syn_hint_menu_delete_text": [
             [0, """Delete scheme for base string: #01"""],
-            [1, """Obrisi shemu za bazni string: #01"""] ],
+            [1, """Obriši shemu za bazni string: #01"""] ],
         "syn_hint_menu_delete_tt": [
             [0, """Base String: #91 - Delete Schema
 Old scheme: ( #02 )
 The pattern for base string #01 will be deleted."""],
             [1, """Bazni string: #91 - Brisanje sheme
 Stara shema: ( #02 )
-Shema za bazni string #01 ce biti obrisana."""] ],
+Shema za bazni string #01 će biti obrisana."""] ],
         "syn_hint_menu_item_text": [
             [0, """Scheme: #01"""],
             [1, """Shema: #01"""] ],
@@ -4315,16 +4313,16 @@ Scheme for base string #01:"""],
 Shema za bazni string #01:"""] ],
         "syn_hin_msg_general_title": [
             [0, """Suffix Manager"""],
-            [1, """Menadzer Sufiksa"""] ],
+            [1, """Menadžer Sufiksa"""] ],
         "syn_hin_msg_add_text": [
             [0, """Successfully created schema for base string "#1" !"""],
-            [1, """Uspesno je kreirana shema za bazni string "#1" !"""] ],
+            [1, """Uspešno je kreirana shema za bazni string "#1" !"""] ],
         "syn_hin_msg_update_text": [
             [0, """Successfully updated schema for base string "#1" !"""],
-            [1, """Uspesno je azurirana shema za bazni string "#1" !"""] ],
+            [1, """Uspešno je ažurirana shema za bazni string "#1" !"""] ],
         "syn_hin_msg_delete_text": [
             [0, """Successfully deleted schema for base string "#1" !"""],
-            [1, """Uspesno je obrisana shema za bazni string "#1" !"""] ],
+            [1, """Uspešno je obrisana shema za bazni string "#1" !"""] ],
         "syn_hin_msg_no_data_text": [
             [0, """There is no data!"""],
             [1, """Ne postoje podaci !"""] ],
@@ -4333,24 +4331,24 @@ Shema za bazni string #01:"""] ],
             [1, """Kopiraj sufikse u clipboard: #01"""] ],
         "syn_hint_menu_item_copy_words_text": [
             [0, """Copy the words to the clipboard: #01"""],
-            [1, """Kopiraj reci u clipboard: #01"""] ],
+            [1, """Kopiraj reči u clipboard: #01"""] ],
         "syn_hint_menu_item_delete_text": [
             [0, """Delete scheme: #01"""],
             [1, """Obrisi shemu: #01"""] ],
         "syn_hin_msg_item_copy_suffs_text": [
             [0, """Successfully copied suffixes to clipboard for base string "#1" !"""],
-            [1, """Uspesno su kopirani sufiksi u clipoard za bazni string "#1" !"""] ],
+            [1, """Uspešno su kopirani sufiksi u clipoard za bazni string "#1" !"""] ],
         "syn_hin_msg_item_copy_word_text": [
             [0, """Successfully copied words to clipboard for base string "#1" !"""],
-            [1, """Uspesno su kopirane reci u clipoard za bazni string "#1" !"""] ],
+            [1, """Uspešno su kopirane reči u clipoard za bazni string "#1" !"""] ],
         "syn_hint_menu_item_word_tt": [
             [0, """Base String: #91 - Scheme
 Changed schema for new word: #31:"""],
             [1, """Bazni string: #91 - Shema
-Izmenjena shema za novu rec: #31:"""] ],
+Izmenjena shema za novu reč: #31:"""] ],
         "synonyms_manager_lbl_title_text": [
             [0, """Synonym Manager"""],
-            [1, """Menadzer Sinonima"""] ],
+            [1, """Menadžer Sinonima"""] ],
         "synonyms_manager_lbl_title_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -4375,10 +4373,10 @@ The maximum number of schemes is 50"""],
 Maksimalni broj shema je 50"""] ],
         "synonyms_manager_btn_update_text": [
             [0, """Update schema"""],
-            [1, """Azuriraj shemu"""] ],
+            [1, """Ažuriraj shemu"""] ],
         "synonyms_manager_btn_update_tt": [
             [0, """Update changed data"""],
-            [1, """Azuriraj izmenjene podatke"""] ],
+            [1, """Ažuriraj izmenjene podatke"""] ],
         "synonyms_manager_btn_add_text": [
             [0, """Add a new scheme"""],
             [1, """Dodaj novu shemu"""] ],
@@ -4390,13 +4388,13 @@ Maksimalni broj shema je 50"""] ],
             [1, """Kopiraj"""] ],
         "synonyms_manager_btn_copy_tt": [
             [0, """Copies the contents of the suffix text box to the clipboard"""],
-            [1, """Kopira sadrzaj sufiks text boksa u clipboard"""] ],
+            [1, """Kopira sadržaj sufiks text boksa u clipboard"""] ],
         "synonyms_manager_btn_delete_text": [
             [0, """Delete schema"""],
-            [1, """Obrisi shemu"""] ],
+            [1, """Obriši shemu"""] ],
         "synonyms_manager_btn_delete_tt": [
             [0, """Delete the current schema from the database"""],
-            [1, """Obrisi trenutnu shemu iz baze"""] ],
+            [1, """Obriši trenutnu shemu iz baze"""] ],
         "synonyms_manager_btn_close_text": [
             [0, """Close"""],
             [1, """Zatvori"""] ],
@@ -4405,10 +4403,10 @@ Maksimalni broj shema je 50"""] ],
             [1, """"""] ],
         "synonyms_manager_btn_zoom_in_tt": [
             [0, """Increase the font size"""],
-            [1, """Povecaj velicinu slova"""] ],
+            [1, """Povećaj veličinu slova"""] ],
         "synonyms_manager_btn_zoom_out_tt": [
             [0, """Reduce the font size"""],
-            [1, """Smanji velicinu slova"""] ],
+            [1, """Smanji veličinu slova"""] ],
         "syn_hint_menu_copy_text": [
             [0, """Copy"""],
             [1, """Kopiraj"""] ],
@@ -4423,57 +4421,57 @@ Maksimalni broj shema je 50"""] ],
             [1, """Nalepi tekst iz clipboarda u tekst boks."""] ],
         "syn_hint_menu_start_manager_text": [
             [0, """Start the Synonym Manager"""],
-            [1, """Pokreni Menadzer Sinonima"""] ],
+            [1, """Pokreni Menadžer Sinonima"""] ],
         "syn_hint_menu_start_manager_tt": [
             [0, """Start the Synonym Manager
 Dialog for editing synonyms."""],
-            [1, """Pokreni Menadzer Sinonima
+            [1, """Pokreni Menadžer Sinonima
 Dijalog za uredjivanje sinonima."""] ],
         "synonyms_manager_lbl_additional_text": [
             [0, """Additional Suffixes (#1)"""],
             [1, """Dodatni Sufiksi (#1)"""] ],
         "synonyms_manager_lbl_additional_tt": [
             [0, """Suffixes you might want to use"""],
-            [1, """Sufiksi koje mozda zelite da upotrebite"""] ],
+            [1, """Sufiksi koje možda želite da upotrebite"""] ],
         "synonyms_manager_btn_additional_text": [
             [0, """Add to scheme"""],
             [1, """Dodaj u shemu"""] ],
         "synonyms_manager_btn_additional_tt": [
             [0, """Append additional suffixes to the existing suffix list"""],
-            [1, """Pridruzi dodatne sufikse listi sufiksa koja vec postoji"""] ],
+            [1, """Pridruži dodatne sufikse listi sufiksa koja već postoji"""] ],
         "translation_chk_latin_text": [
             [0, """Translate Cyrillic to Latin"""],
-            [1, """Prevedi cirilicu u latinicu"""] ],
+            [1, """Prevedi ćirilicu u latinicu"""] ],
         "translation_chk_latin_tt": [
             [0, """The translated text will be halved from Cyrillic to Latin if necessary."""],
-            [1, """Prevedeni tekst ce biti preslovljen iz cirilice u latinicu ako je potebno."""] ],
+            [1, """Prevedeni tekst će biti preslovljen iz ćirilice u latinicu ako je potebno."""] ],
         "dict_frame_lbl_find_text": [
             [0, """Search for:"""],
-            [1, """Trazi:"""] ],
+            [1, """Traži:"""] ],
         "dict_frame_lbl_find_tt": [
             [0, """Enter the word you want to find in the dictionaries."""],
-            [1, """Unesite rec koju zelite da pronadjete u recnicima."""] ],
+            [1, """Unesite reč koju želite da pronađete u rečnicima."""] ],
         "dict_frame_lbl_result_text": [
             [0, """Found #1 items."""],
-            [1, """Pronadjeno #1 stavki."""] ],
+            [1, """Pronađeno #1 stavki."""] ],
         "dict_frame_lbl_result_tt": [
             [0, """The total number of items found in the dictionaries."""],
-            [1, """Ukupan broj stavki koji je pronadjen u recnicima."""] ],
+            [1, """Ukupan broj stavki koji je pronađen u rečnicima."""] ],
         "dict_frame_btn_find_text": [
             [0, """Find"""],
-            [1, """Trazi"""] ],
+            [1, """Traži"""] ],
         "dict_frame_btn_find_tt": [
             [0, """Find all items that meet the entered criteria"""],
-            [1, """Pronadji sve stavke koje zadovoljavaju uneti kriterijum"""] ],
+            [1, """Pronađi sve stavke koje zadovoljavaju uneti kriterijum"""] ],
         "dict_frame_lbl_items_text": [
             [0, """#1 items"""],
             [1, """#1 stavki"""] ],
         "dict_frame_lbl_items_tt": [
             [0, """The number of displayed items from the selected dictionary that correspond to the specified criteria."""],
-            [1, """Broj prikazanih stavki iz selektovanog recnika koje odgovaraju zadatom kriterijumu."""] ],
+            [1, """Broj prikazanih stavki iz selektovanog rečnika koje odgovaraju zadatom kriterijumu."""] ],
         "dict_name_mit": [
             [0, """Serbian Mythological Dictionary (Kulisic)"""],
-            [1, """Srpski Mitoloski Recnik (Kulisic)"""] ],
+            [1, """Srpski Mitološki Rečnik (Kulišić)"""] ],
         "dict_desc_mit": [
             [0, """Serbian Mythological Dictionary (Kulisic),
 Year of publication: 1970.
@@ -4505,7 +4503,7 @@ REČNIK OBUHVATA MITOLOGIJU SRBA I CRNOGORACA
 O RELIGIJI STARIH SRBA I JUŽNIH SLOVENA"""] ],
         "dict_name_vujaklija": [
             [0, """Dictionary of Foreign Words (Vujaklija)"""],
-            [1, """Recnik Stranih Reci (Vujaklija)"""] ],
+            [1, """Rečnik Stranih Reči (Vujaklija)"""] ],
         "dict_desc_vujaklija": [
             [0, """Dictionary of Foreign Words and Expressions (Milan Vujaklija),
 Year: 1980
@@ -4523,7 +4521,7 @@ Dr RADOMIR ALEKSIĆ i REDAKCIJA »P R O S V E T E «
 Prvo izdanje Leksikona stranih reči i izraza Milana Vujaklije objavljeno je 1937. godine. Drugo izdanje, u redakciji dr Svetomira Ristića i dr Radomira Aleksića, izišlo je 1954. godine i štampane, do danas, u tiražu od preko 200.000 primeraka. Dobar prijem na koji je Leksikon naišao u najširim krugovima korisnika podstakao je Redakciju Prosvete da pripremi ovo novo, popunjeno i ažurirano izdanje Leksikona Milana Vujaklije."""] ],
         "dict_name_san": [
             [0, """Interpretation of Dreams (Sanovnik)"""],
-            [1, """Tumacenje Snova (Sanovnik)"""] ],
+            [1, """Tumačenje Snova (Sanovnik)"""] ],
         "dict_desc_san": [
             [0, """Interpretation of Dreams (Sanovnik),
 Oniromancy - the meaning and interpretation of dreams, in addition to astrology, people have been dealing with this technique since ancient times. The interpretation of dreams is mentioned even in the Old Testament, where Joseph interprets Pharaoh's dreams. Science today believes that the contents of dreams reflect the random situation of the neural circuits of the brain, either due to a spontaneous outbreak or due to the influence of the environment, and the tendency of the brain to bring order to irregular activity. Psychologists have long been under the influence of Freud, who believed that dreams are a reflection of our suppressed and subconscious desires and thoughts, and especially our sexual conflicts. According to Freud, all our dreams are, without exception, the fulfillment of a wish. Physical stimulus alone is not responsible for creating dreams. Our desires are only the impulse for dreams. The mechanism of dreams is very subtle."""],
@@ -4531,7 +4529,7 @@ Oniromancy - the meaning and interpretation of dreams, in addition to astrology,
 Oniromantija – značenje i tumačenje snova, pored astrologije, ovom tehnikom ljudi se bave još od najstarijih vremena. Tumačenje snova je spominjano čak i u starom zavetu, gde Josip tumači faraonove snove. Nauka danas smatra da sadržaji snova odražavaju slučajnu situaciju neuralnih krugova mozga, bilo radi spontanog izbijanja ili zbog delovanja okoline, te tendencije mozga da unese red u nepravilnoj aktivnosti. Psiholozi su bili dugo pod uticajem Frojda koji je smatrao da su snovi odraz naših potisnutih i podsvesnih želja i misli, te naročito naših seksualnih konflikata. Prema Frojdu svi naši snovi su bez izuzetka ispunjenje neke želje. Fizički stimulans sam po sebi nije odgovoran za stvaranje snova. Naše želje su samo impuls za snove. Mehanizam snova je veoma suptilan."""] ],
         "dict_name_zargon": [
             [0, """Dictionary of Slang"""],
-            [1, """Recnik Zargona"""] ],
+            [1, """Rečnik Žargona"""] ],
         "dict_desc_zargon": [
             [0, """Dictionary of Jargon,
 Jargon is a specific type of word that belongs to a group, environment or informal group. The use of jargon can also be a closed communication within the group to protect its interests. Jargon is also used as an element of literary language.
@@ -4543,7 +4541,7 @@ Lexemes used in jargon are called jargonisms."""],
 Leksemi koji se koriste u žargonu nazivaju se žargonizmima."""] ],
         "dict_name_bos": [
             [0, """Dictionary of Bosnian Expressions"""],
-            [1, """Recnik Bosanskih Izraza"""] ],
+            [1, """Rečnik Bosanskih Izraza"""] ],
         "dict_desc_bos": [
             [0, """Dictionary of Bosnian Expressions,
 Expressions used in the territory of Bosnia and Herzegovina."""],
@@ -4551,7 +4549,7 @@ Expressions used in the territory of Bosnia and Herzegovina."""],
 Izrazi koji se koriste na podrucuju Bosne i Hercegovine."""] ],
         "dict_name_en_sr": [
             [0, """English-Serbian dictionary"""],
-            [1, """Englesko-Srpski Recnik"""] ],
+            [1, """Englesko-Srpski Rečnik"""] ],
         "dict_desc_en_sr": [
             [0, """English-Serbian dictionary,
 English-Serbian dictionary with pronunciation."""],
@@ -4559,7 +4557,7 @@ English-Serbian dictionary with pronunciation."""],
 Englesko-Srpski recnik sa izgovorom."""] ],
         "dict_name_psiho": [
             [0, """Dictionary of Psychology"""],
-            [1, """Recnik Psihologije"""] ],
+            [1, """Rečnik Psihologije"""] ],
         "dict_desc_psiho": [
             [0, """Dictionary of Psychology,
 Terms used in Psychology."""],
@@ -4567,7 +4565,7 @@ Terms used in Psychology."""],
 Izrazi koji se upotrebljavaju u Psihologiji."""] ],
         "dict_name_stari_izrazi": [
             [0, """Dictionary of Old Serbian Expressions"""],
-            [1, """Recnik Starih Srpskih Izraza"""] ],
+            [1, """Rečnik Starih Srpskih Izraza"""] ],
         "dict_desc_stari_izrazi": [
             [0, """Dictionary of Old Serbian Expressions,
 Old, often outdated, Serbian expressions that are rarely or not at all used anymore."""],
@@ -4575,7 +4573,7 @@ Old, often outdated, Serbian expressions that are rarely or not at all used anym
 Stari, cesto zastareli, srpski izrazi koji se retko ili uopste vise ne koriste."""] ],
         "dict_name_filoz": [
             [0, """Dictionary of Philosophy"""],
-            [1, """Recnik Filozofije"""] ],
+            [1, """Rečnik Filozofije"""] ],
         "dict_desc_filoz": [
             [0, """Dictionary of Philosophy,
 Glossary of terms used in Philosophy."""],
@@ -4583,7 +4581,7 @@ Glossary of terms used in Philosophy."""],
 Recnik termina koji se koriste u Filozofiji."""] ],
         "dict_name_emo": [
             [0, """Dictionary of Emotion Expressions"""],
-            [1, """Recnik Emocija"""] ],
+            [1, """Rečnik Emocija"""] ],
         "dict_desc_emo": [
             [0, """Dictionary of Emotion Expressions,
 List of terms used to describe various emotional states."""],
@@ -4591,7 +4589,7 @@ List of terms used to describe various emotional states."""],
 Spisak termina koji se koriste za opis raznih emotivnih stanja."""] ],
         "dict_name_biljke": [
             [0, """Dictionary of Plant Beliefs"""],
-            [1, """Recnik Verovanja o Biljkama"""] ],
+            [1, """Rečnik Verovanja o Biljkama"""] ],
         "dict_desc_biljke": [
             [0, """Dictionary of Plant Beliefs,
 Veselin Čajkanović
@@ -4602,7 +4600,7 @@ REČNIK SRPSKIH NARODNIH VEROVANjA O BILjKAMA
 """] ],
         "dict_name_it": [
             [0, """Dictionary of IT Terms"""],
-            [1, """Recnik IT Izraza"""] ],
+            [1, """Rečnik IT Izraza"""] ],
         "dict_desc_it": [
             [0, """Dictionary of IT Terms,
 Glossary of terms used in the IT sector."""],
@@ -4610,71 +4608,71 @@ Glossary of terms used in the IT sector."""],
 Recnik termina koji se koriste u IT sektoru."""] ],
         "block_txt_box_menu_show_dicts_text": [
             [0, """Search dictionaries #1"""],
-            [1, """Pretrazi recnike #1"""] ],
+            [1, """Pretraži rečnike #1"""] ],
         "block_txt_box_menu_show_dicts_tt": [
             [0, """Opens a dictionary search dialog."""],
-            [1, """Otvara dijalog za pretragu recnika."""] ],
+            [1, """Otvara dijalog za pretragu rečnika."""] ],
         "block_txt_box_menu_show_dicts_on_text": [
             [0, """Search dictionaries as I type"""],
-            [1, """Pretrazi recnike kako kucam"""] ],
+            [1, """Pretraži rečnike kako kucam"""] ],
         "block_txt_box_menu_show_dicts_on_tt": [
             [0, """When I type a word in the block, search all dictionaries and let me know if the word is found in any."""],
-            [1, """Kada ukucam rec u bloku, pretrazi sve recnike i obavesti me ako je rec pronadjena u nekom."""] ],
+            [1, """Kada ukucam reč u bloku, pretraži sve rečnike i obavesti me ako je reč pronađena u nekom."""] ],
         "block_txt_box_menu_show_dicts_off_text": [
             [0, """Do not look up dictionaries while I'm typing"""],
-            [1, """Nemoj pretrazivati recnike u toku kucanja"""] ],
+            [1, """Nemoj pretraživati rečnike u toku kucanja"""] ],
         "block_txt_box_menu_show_dicts_off_tt": [
             [0, """Don't look up dictionaries and give me notifications while I'm typing."""],
-            [1, """Nemoj pretrazivati recnike i davati mi obavestenja dok kucam."""] ],
+            [1, """Nemoj pretraživati rečnike i davati mi obaveštenja dok kucam."""] ],
         "dict_frame_lbl_searching_text": [
             [0, """Searching ... please wait ..."""],
-            [1, """Trazim ... molim sacekajte ..."""] ],
+            [1, """Tražim ... molim sačekajte ..."""] ],
         "dict_frame_lbl_searching_tt": [
             [0, """"""],
             [1, """"""] ],
         "dict_frame_btn_forward_tt": [
             [0, """Next word (#1)
 Right click for a list of words."""],
-            [1, """Sledeca rec (#1)
-Desni klik za spisak reci."""] ],
+            [1, """Sledeća reč (#1)
+Desni klik za spisak reči."""] ],
         "dict_frame_btn_back_tt": [
             [0, """Previous Word (#1)
 Right click for a list of words."""],
-            [1, """Prethodna rec (#1)
-Desni klik za spisak reci."""] ],
+            [1, """Prethodna reč (#1)
+Desni klik za spisak reči."""] ],
         "dict_frame_menu_item_next_text": [
             [0, """More words..."""],
-            [1, """Jos reci..."""] ],
+            [1, """Još reči..."""] ],
         "dict_frame_menu_item_next_tt": [
             [0, """More words that didn't fit in this menu..."""],
-            [1, """Jos reci koje nisu stale u ovaj meni..."""] ],
+            [1, """Još reči koje nisu stale u ovaj meni..."""] ],
         "mnu_view_dicts_text": [
             [0, """Dictionaries"""],
-            [1, """Recnici"""] ],
+            [1, """Rečnici"""] ],
         "mnu_view_dicts_tt": [
             [0, """Browsing the dictionary and finding words"""],
-            [1, """Listanje recnika i pronalazenje reci"""] ],
+            [1, """Listanje rečnika i pronalaženje reči"""] ],
         "mnu_view_dicts_sb_text": [
             [0, """Opens a dialog with dictionaries where you can find an explanation for the word you are interested in."""],
-            [1, """Otvara dijalog sa recnicima gde mozete pronaci objasnjenje za rec koja vas zanima."""] ],
+            [1, """Otvara dijalog sa rečnicima gde možete pronaći objašnjenje za reč koja vas zanima."""] ],
         "dict_frame_btn_item_back_tt": [
             [0, """Previous item"""],
             [1, """Prethodna stavka"""] ],
         "dict_frame_lbl_deep_text": [
             [0, """Searching
 Please wait..."""],
-            [1, """Pretrazujem
-Molim Sacekajte..."""] ],
+            [1, """Pretražujem
+Molim Sačekajte..."""] ],
         "dict_frame_btn_deep_abort_text": [
             [0, """Abort"""],
-            [1, """Otkazi"""] ],
+            [1, """Otkaži"""] ],
         "dict_frame_btn_find_deep_text": [
             [0, """Deep Search
 """],
-            [1, """Trazi detaljno"""] ],
+            [1, """Traži detaljno"""] ],
         "dict_frame_btn_find_deep_tt": [
             [0, """It searches all topic names as well as the text of the topic itself in search of the required or similar expression."""],
-            [1, """Pretrazuje sve nazive tema kao i tekst same teme u potrazi za trazenim ili slicnim izrazom."""] ],
+            [1, """Pretražuje sve nazive tema kao i tekst same teme u potrazi za traženim ili sličnim izrazom."""] ],
         "block_autosave_msg": [
             [0, """AutoSaved!"""],
             [1, """Blok je automatski snimljen !"""] ],
@@ -4683,39 +4681,39 @@ Molim Sacekajte..."""] ],
             [1, """Kalkulator mod je aktiviran !"""] ],
         "block_calc_mode_exit_msg": [
             [0, """Calculator mode is finished!"""],
-            [1, """Kalkulator mod je zavrsen !"""] ],
+            [1, """Kalkulator mod je završen !"""] ],
         "dict_frame_lbl_count_text": [
             [0, """Showing #1 of a total of #2 dictionaries."""],
-            [1, """Prikazano #1 od ukupno #2 recnika."""] ],
+            [1, """Prikazano #1 od ukupno #2 rečnika."""] ],
         "dict_frame_lbl_item_opt_dict_text": [
             [0, """Dictionary settings:"""],
-            [1, """Podesavanje za recnik:"""] ],
+            [1, """Podešavanje za rečnik:"""] ],
         "dict_frame_lbl_item_opt_dict_tt": [
             [0, """The settings will only be applied to this dictionary."""],
-            [1, """Podesavanja ce biti primenjena samo na ovaj recnik."""] ],
+            [1, """Podešavanja će biti primenjena samo na ovaj rečnik."""] ],
         "dict_frame_lbl_item_opt_pic_num_text": [
             [0, """Number of images displayed:"""],
             [1, """Broj prikazanih slika:"""] ],
         "dict_frame_lbl_item_opt_pic_num_tt": [
             [0, """Determines the number of images related to the topic that will be loaded.
 It's best to keep this number reasonably small. (1-10)"""],
-            [1, """Odredjuje broj slika vezanih za temu koje ce biti ucitane.
-Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
+            [1, """Određuje broj slika vezanih za temu koje će biti učitane.
+Najbolje je da ovaj broj držite razumno malim. (1-10)"""] ],
         "dict_frame_btn_item_opt_show_images_text": [
             [0, """Show images now"""],
-            [1, """Prikazi slike sada"""] ],
+            [1, """Prikaži slike sada"""] ],
         "dict_frame_btn_item_opt_show_images_tt": [
             [0, """Showing images only now and for this topic."""],
             [1, """Prikazuje slike samo sada i za ovu temu."""] ],
         "dict_frame_btn_item_opt_exp_tt": [
             [0, """Show options"""],
-            [1, """Prikazi opcije"""] ],
+            [1, """Prikaži opcije"""] ],
         "dict_frame_chk_item_opt_show_text": [
             [0, """Automatically show images"""],
             [1, """Automatski prikazi slike"""] ],
         "dict_frame_chk_item_opt_show_tt": [
             [0, """Enables automatic display of images for each topic in this dictionary."""],
-            [1, """Omogucava automatsko prikazivanje slika za svaku temu u ovom recniku."""] ],
+            [1, """Omogućava automatsko prikazivanje slika za svaku temu u ovom rečniku."""] ],
         "dict_frame_rbt_item_opt_now_text": [
             [0, """Immediately"""],
             [1, """Odmah"""] ],
@@ -4724,27 +4722,27 @@ Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
             [1, """Slike ce biti prikazane odmah po prikazu teme."""] ],
         "dict_frame_rbt_item_opt_del2_text": [
             [0, """Show after 2 seconds"""],
-            [1, """Prikazi nakon 2 sekunde"""] ],
+            [1, """Prikaži nakon 2 sekunde"""] ],
         "dict_frame_rbt_item_opt_del2_tt": [
             [0, """Images will be displayed with a delay of 2 seconds after displaying the theme."""],
-            [1, """Slike ce biti prikazane sa zadrskom od 2 sekunde nakon prikaza teme."""] ],
+            [1, """Slike će biti prikazane sa zadrškom od 2 sekunde nakon prikaza teme."""] ],
         "dict_frame_rbt_item_opt_del5_text": [
             [0, """Show after 5 seconds"""],
-            [1, """Prikazi nakon 5 sekundi"""] ],
+            [1, """Prikaži nakon 5 sekundi"""] ],
         "dict_frame_rbt_item_opt_del5_tt": [
             [0, """Images will be displayed with a delay of 5 seconds after displaying the theme."""],
-            [1, """Slike ce biti prikazane sa zadrskom od 5 sekundi nakon prikaza teme."""] ],
+            [1, """Slike će biti prikazane sa zadrškom od 5 sekundi nakon prikaza teme."""] ],
         "dict_frame_rbt_item_opt_del30_text": [
             [0, """Show after 30 seconds"""],
-            [1, """Prikazi nakon 30 sekundi"""] ],
+            [1, """Prikaži nakon 30 sekundi"""] ],
         "dict_frame_rbt_item_opt_del30_tt": [
             [0, """Images will be displayed with a delay of 30 seconds after displaying the theme."""],
-            [1, """Slike ce biti prikazane sa zadrskom od 30 sekundi nakon prikaza teme."""] ],
+            [1, """Slike će biti prikazane sa zadrškom od 30 sekundi nakon prikaza teme."""] ],
         "dict_frame_txt_item_opt_pic_num_tt": [
             [0, """Determines the number of images related to the topic that will be loaded.
 It's best to keep this number reasonably small. (1-10)"""],
-            [1, """Odredjuje broj slika vezanih za temu koje ce biti ucitane.
-Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
+            [1, """Određuje broj slika vezanih za temu koje ce biti učitane.
+Najbolje je da ovaj broj držite razumno malim. (1-10)"""] ],
         "dict_frame_lbl_item_opt_delay_sec_text": [
             [0, """seconds."""],
             [1, """sekundi."""] ],
@@ -4756,10 +4754,10 @@ Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
             [1, """Nakon"""] ],
         "dict_frame_rbt_item_opt_delx_tt": [
             [0, """The images will be displayed with a delay of the selected number of seconds after the theme is displayed."""],
-            [1, """Slike ce biti prikazane sa zadrskom od odabranog broja sekundi nakon prikaza teme."""] ],
+            [1, """Slike će biti prikazane sa zadrškom od odabranog broja sekundi nakon prikaza teme."""] ],
         "dict_frame_spin_item_opt_delay_tt": [
             [0, """The images will be displayed with a delay of the selected number of seconds after the theme is displayed."""],
-            [1, """Slike ce biti prikazane sa zadrskom od odabranog broja sekundi nakon prikaza teme."""] ],
+            [1, """Slike će biti prikazane sa zadrškom od odabranog broja sekundi nakon prikaza teme."""] ],
         "dict_frame_add_images_msg_starting": [
             [0, """Retrieving images information..."""],
             [1, """Dobavljam informacije o slikama..."""] ],
@@ -4771,10 +4769,10 @@ Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
             [1, """Otvori sliku u podrazumevanoj aplikaciji"""] ],
         "dict_frame_image_menu_open_image_tt": [
             [0, """Opens the image in your operating system's default image viewer."""],
-            [1, """Otvora sliku u podrazumevanoj aplikaciji za pregled slika na vasem operativnom sistemu."""] ],
+            [1, """Otvora sliku u podrazumevanoj aplikaciji za pregled slika na vašem operativnom sistemu."""] ],
         "dict_frame_image_menu_change_image_text": [
             [0, """Load another image..."""],
-            [1, """Ucitaj drugu sliku..."""] ],
+            [1, """Učitaj drugu sliku..."""] ],
         "dict_frame_image_menu_change_image_tt": [
             [0, """Displays another image if another image exists in the search result."""],
             [1, """Prikazuje neku drugu sliku ukoliko druga slika postoji u rezultatu pretrage."""] ],
@@ -4782,18 +4780,18 @@ Najbolje je da ovaj broj drzite razumno malim. (1-10)"""] ],
             [0, """I'm loading a picture
 Please wait...
 Try #1/#2"""],
-            [1, """Ucitavam sliku
-Molim sacekajte...
-Pokusaj #1/#2"""] ],
+            [1, """Učitavam sliku
+Molim sačekajte...
+Pokušaj #1/#2"""] ],
         "dict_frame_btn_lock_locked_tt": [
             [0, """The size and position of the "Dictionaries" window is currently locked.
 This mode protects you from accidental clicks and inadvertent window geometry changes.
 
 Click to be able to change the size and position of the window."""],
-            [1, """Velicina i pozicija prozora "Recnici" je trenutno zakljucana.
-Ovaj mod vas cuva od slucajnog klika misem i nehoticne promene geometrije prozora.
+            [1, """Veličina i pozicija prozora "Rečnici" je trenutno zaključana.
+Ovaj mod vas čuva od slučajnog klika mišem i nehotične promene geometrije prozora.
 
-Kliknite da bi mogli da menjate velicinu i poziciju prozora.
+Kliknite da bi mogli da menjate veličinu i poziciju prozora.
 """] ],
         "dict_frame_btn_lock_unlocked_tt": [
             [0, """The size and position of the "Dictionaries" window is currently unlocked.
@@ -4801,18 +4799,18 @@ Click to lock the window and disable resizing and repositioning the window.
 
 This is useful in a situation where you accidentally click on a window with your mind
 accidentally change its position, dimensions or element dimensions."""],
-            [1, """Velicina i pozicija prozora "Recnici" je trenutno otkljucana.
-Kliknite da zakljucate prozor i onemogucite promenu velicine i pozicije prozora.
+            [1, """Veličina i pozicija prozora "Rečnici" je trenutno otključana.
+Kliknite da zaključate prozor i onemogućite promenu veličine i pozicije prozora.
 
-Ovo je korisno u situaciji da nehotice kliknete misem na prozor i
-slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
+Ovo je korisno u situaciji da nehotice kliknete mišem na prozor i
+slučajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
 """] ],
         "dict_frame_txt_dict_find_placeholder": [
             [0, """Dictionary filter"""],
-            [1, """Filter recnika"""] ],
+            [1, """Filter rečnika"""] ],
         "dict_frame_txt_dict_find_tt": [
             [0, """Enter the expression by which the dictionary display will be filtered"""],
-            [1, """Unesite izraz po kome ce se filtrirati prikaz recnika"""] ],
+            [1, """Unesite izraz po kome ce se filtrirati prikaz rečnika"""] ],
         "dict_frame_txt_item_find_placeholder": [
             [0, """Item filter"""],
             [1, """Filter stavki"""] ],
@@ -4821,34 +4819,34 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Unesite izraz po kome ce se filtrirati prikaz stavki."""] ],
         "mnu_view_online_content_text": [
             [0, """Online Content"""],
-            [1, """Online Sadrzaj"""] ],
+            [1, """Online Sadržaj"""] ],
         "mnu_view_online_content_tt": [
             [0, """Display of various online content"""],
-            [1, """Prikaz raznog online sadrzaja"""] ],
+            [1, """Prikaz raznog online sadržaja"""] ],
         "mnu_view_online_content_sb_text": [
             [0, """Display of various online content"""],
-            [1, """Prikaz raznog online sadrzaja"""] ],
+            [1, """Prikaz raznog online sadržaja"""] ],
         "online_content_win_title": [
             [0, """Online Content"""],
-            [1, """Online Sadrzaj"""] ],
+            [1, """Online Sadržaj"""] ],
         "online_content_btn_refresh_text": [
             [0, """Refresh"""],
-            [1, """Osvezi"""] ],
+            [1, """Osveži"""] ],
         "online_content_btn_refresh_tt": [
             [0, """Reload the current page"""],
-            [1, """Ponovo ucitaj trenutnu stranicu"""] ],
+            [1, """Ponovo učitaj trenutnu stranicu"""] ],
         "online_content_btn_stop_text": [
             [0, """Stop"""],
             [1, """Stop"""] ],
         "online_content_btn_stop_tt": [
             [0, """Stop loading the current page"""],
-            [1, """Zaustavi ucitavanje trenutne stranice"""] ],
+            [1, """Zaustavi učitavanje trenutne stranice"""] ],
         "online_topic_main_title": [
             [0, """Main page"""],
             [1, """Glavna stranica"""] ],
         "topic_msg_dowloading": [
             [0, """Loading the website"""],
-            [1, """Ucitavam Web Sajt"""] ],
+            [1, """Učitavam Web Sajt"""] ],
         "topic_msg_location": [
             [0, """Location"""],
             [1, """Lokacija"""] ],
@@ -4857,13 +4855,13 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Prekinuto od strane korisnika."""] ],
         "topic_msg_getting_data": [
             [0, """Getting data"""],
-            [1, """Ucitavam podatke"""] ],
+            [1, """Učitavam podatke"""] ],
         "topic_main_lbl_location_text": [
             [0, """Location"""],
             [1, """Lokacija"""] ],
         "topic_main_lbl_location_tt": [
             [0, """The location of this device as seen by websites."""],
-            [1, """Lokacija ovog uredjaja kako ga vide web sajtovi."""] ],
+            [1, """Lokacija ovog uređaja kako ga vide web sajtovi."""] ],
         "topic_main_lbl_loc_city_text": [
             [0, """City"""],
             [1, """Grad"""] ],
@@ -4878,7 +4876,7 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """"""] ],
         "topic_main_lbl_loc_contry_text": [
             [0, """Country"""],
-            [1, """Drzava"""] ],
+            [1, """Država"""] ],
         "topic_main_lbl_loc_contry_tt": [
             [0, """"""],
             [1, """"""] ],
@@ -4887,19 +4885,19 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """IP"""] ],
         "topic_main_lbl_loc_ip_tt": [
             [0, """IP address of the device and provider"""],
-            [1, """IP adresa uredjaja i provajder"""] ],
+            [1, """IP adresa uređaja i provajder"""] ],
         "topic_main_lbl_loc_lon_text": [
             [0, """Longitude"""],
             [1, """Longituda"""] ],
         "topic_main_lbl_loc_lon_tt": [
             [0, """Longitude"""],
-            [1, """Geografska duzina"""] ],
+            [1, """Geografska dužina"""] ],
         "topic_main_lbl_loc_lat_text": [
             [0, """Latitude"""],
             [1, """Latituda"""] ],
         "topic_main_lbl_loc_lat_tt": [
             [0, """Latitude"""],
-            [1, """Geografska sirina"""] ],
+            [1, """Geografska širina"""] ],
         "topic_main_lbl_exc_text": [
             [0, """Exchange rate"""],
             [1, """Kurs valuta"""] ],
@@ -4914,10 +4912,10 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Iz valute"""] ],
         "topic_main_lbl_exc_from_tt": [
             [0, """Select the currency from which the conversion will be made."""],
-            [1, """Izaberite valutu iz koje ce se vrsiti konverzija."""] ],
+            [1, """Izaberite valutu iz koje će se vršiti konverzija."""] ],
         "topic_main_lbl_exc_to_tt": [
             [0, """Select the currency to be converted."""],
-            [1, """Izaberite valutu u koju ce se vrsiti konverzija."""] ],
+            [1, """Izaberite valutu u koju će se vršiti konverzija."""] ],
         "topic_main_lbl_exc_to_text": [
             [0, """In currency"""],
             [1, """U valutu"""] ],
@@ -4929,46 +4927,46 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Podaci za ovu valutu nisu dostupni !"""] ],
         "topic_main_btn_loc_map_show": [
             [0, """Show map"""],
-            [1, """Prikazi mapu"""] ],
+            [1, """Prikaži mapu"""] ],
         "topic_main_btn_loc_map_hide": [
             [0, """Hide map"""],
             [1, """Sakrij mapu"""] ],
         "online_topic_on_this_day_title": [
             [0, """On this day"""],
-            [1, """Na danasnji dan"""] ],
+            [1, """Na današnji dan"""] ],
         "topic_msg_weather": [
             [0, """Weather"""],
             [1, """Vreme"""] ],
         "topic_msg_data_error": [
             [0, """Data error."""],
-            [1, """Greska u podacima."""] ],
+            [1, """Greška u podacima."""] ],
         "topic_msg_na_danasnji_dan": [
             [0, """On this day"""],
-            [1, """Na Danasnji Dan"""] ],
+            [1, """Na Današnji Dan"""] ],
         "topic_na_danasnji_dan_btn_nav_date_text": [
             [0, """Pick a date"""],
             [1, """Izaberite datum"""] ],
         "topic_na_danasnji_dan_btn_nav_date_tt": [
             [0, """Select the date for which you want to see the events that happened on that day."""],
-            [1, """Izaberite datum za koji zelite da vidite dogadjaje koji su se dogodili na taj dan."""] ],
+            [1, """Izaberite datum za koji želite da vidite događaje koji su se dogodili na taj dan."""] ],
         "topic_on_this_day_item_btn_pic_has_image_text": [
             [0, """View additional images"""],
-            [1, """Prikazi dodatne slike"""] ],
+            [1, """Prikaži dodatne slike"""] ],
         "topic_on_this_day_item_btn_pic_no_image_text": [
             [0, """View related images"""],
-            [1, """Prikazi povezane slike"""] ],
+            [1, """Prikaži povezane slike"""] ],
         "topic_on_this_day_item_btn_pic_no_image_tt": [
             [0, """Find and display images related to this topic"""],
-            [1, """Pronadji i prikazi slike povezane sa ovom temom"""] ],
+            [1, """Pronađi i prikaži slike povezane sa ovom temom"""] ],
         "topic_on_this_day_item_btn_pic_has_image_tt": [
             [0, """Find and display images related to this topic"""],
-            [1, """Pronadji i prikazi slike povezane sa ovom temom"""] ],
+            [1, """Pronađi i prikžzi slike povezane sa ovom temom"""] ],
         "definition_add_save_notif_title": [
             [0, """Definitions"""],
             [1, """Definicije"""] ],
         "definition_add_save_notif_text": [
             [0, """Definitions updated successfully"""],
-            [1, """Definicije su uspesno azurirane"""] ],
+            [1, """Definicije su uspešno ažurirane"""] ],
         "online_topic_news_title": [
             [0, """Breaking news"""],
             [1, """Najnovije vesti"""] ],
@@ -4977,16 +4975,16 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Vesti"""] ],
         "online_topic_news_headline_item_lbl_read_more_text": [
             [0, """Read more..."""],
-            [1, """Procitaj vise..."""] ],
+            [1, """Pročitaj više..."""] ],
         "online_topic_news_headline_item_lbl_read_more_tt": [
             [0, """Open this page and read more details about this news."""],
-            [1, """Otvori ovu stranicu i procitaj vise detalja o ovoj vesti."""] ],
+            [1, """Otvori ovu stranicu i pročitaj više detalja o ovoj vesti."""] ],
         "online_source_news_lbl_open_in_browser_text": [
             [0, """Open in browser"""],
-            [1, """Otvori u pretrazivacu"""] ],
+            [1, """Otvori u pretraživaču"""] ],
         "online_source_news_lbl_open_in_browser_tt": [
             [0, """Opens this page in the browser."""],
-            [1, """Otvara ovu stranicu u pretrazivacu."""] ],
+            [1, """Otvara ovu stranicu u pretraživaču."""] ],
         "online_news_page_related_title_text": [
             [0, """Related to this topic:"""],
             [1, """Povezano sa ovom temom:"""] ],
@@ -4998,16 +4996,16 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Idi na prethodnu stranicu"""] ],
         "online_news_mondo_lbl_next_tt": [
             [0, """Go to the next page"""],
-            [1, """Idi na sledecu stranicu"""] ],
+            [1, """Idi na sledeću stranicu"""] ],
         "online_news_txt_search_placeholder_text": [
             [0, """Find a topic..."""],
-            [1, """Pronadji temu..."""] ],
+            [1, """Pronađi temu..."""] ],
         "online_news_btn_search_text": [
             [0, """Find on RTS"""],
-            [1, """Pronadji na RTS-u"""] ],
+            [1, """Pronađi na RTS-u"""] ],
         "online_news_btn_search_tt": [
             [0, """Enter the topic for which you want to find news and press the "Find" button."""],
-            [1, """Unesite temu za koju zelite da pronadjete vesti i pritisnite "Pronadji" dugme."""] ],
+            [1, """Unesite temu za koju želite da pronađete vesti i pritisnite "Pronađi" dugme."""] ],
         "online_topic_aladin_we_title": [
             [0, """Weather Forecast"""],
             [1, """Vremenska prognoza"""] ],
@@ -5097,22 +5095,22 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Aladin - TV Program"""] ],
         "online_topic_aladin_tv_channel_style_1_text": [
             [0, """Show logo and channel name"""],
-            [1, """Prikazi logo i naziv kanala"""] ],
+            [1, """Prikaži logo i naziv kanala"""] ],
         "online_topic_aladin_tv_channel_style_2_text": [
             [0, """Show channel logo only"""],
-            [1, """Prikazi samo logo kanala"""] ],
+            [1, """Prikaži samo logo kanala"""] ],
         "online_topic_aladin_tv_channel_style_3_text": [
             [0, """Show channel name only"""],
-            [1, """Prikazi samo naziv kanala"""] ],
+            [1, """Prikaži samo naziv kanala"""] ],
         "imdb_link": [
             [0, """Opens the IMDB page in your browser."""],
-            [1, """Otvara IMDB stranicu u vasem pretrazivacu."""] ],
+            [1, """Otvara IMDB stranicu u vašem pretraživaču."""] ],
         "online_topic_aladin_tv_find_title_text": [
             [0, """Search results"""],
             [1, """Rezultati pretrage"""] ],
         "online_topic_aladin_tv_find_supported_text": [
             [0, """Supported sites"""],
-            [1, """Podrzani sajtovi"""] ],
+            [1, """Podržani sajtovi"""] ],
         "online_topic_aladin_tv_find_unsupported_text": [
             [0, """All search results"""],
             [1, """Svi rezultati pretrage"""] ],
@@ -5133,39 +5131,39 @@ slucajno promenite njegovu poziciju, dimenzije ili dimenzije elemenata.
             [1, """Fajl nije pronadjen !"""] ],
         "wiki_lbl_search_title_text": [
             [0, """Search Wikipedia:"""],
-            [1, """Pretrazi Wikipediju:"""] ],
+            [1, """Pretraži Wikipediju:"""] ],
         "wiki_btn_search_text": [
             [0, """Find"""],
-            [1, """Pronadji"""] ],
+            [1, """Pronađi"""] ],
         "wiki_win_title_text": [
             [0, """Wikipedia"""],
             [1, """Wikipedija"""] ],
         "wiki_lbl_warning_text": [
             [0, """Please select at least one search engine!"""],
-            [1, """Molim vas izaberite najmanje jedan pretrazivac !"""] ],
+            [1, """Molim vas izaberite najmanje jedan pretraživač !"""] ],
         "wiki_lbl_content_pic_tt": [
             [0, """View Wikipedia content"""],
-            [1, """Prikazi Wikipedija sadrzaj"""] ],
+            [1, """Prikaži Wikipedija sadržaj"""] ],
         "wiki_lbl_search_pic_tt": [
             [0, """Show search results"""],
-            [1, """Prikazi rezultate pretrage"""] ],
+            [1, """Prikaži rezultate pretrage"""] ],
         "wiki_chk_any_tt": [
             [0, """Search Wikipedia using any of the search engines."""],
-            [1, """Pretrazi Wikipediju koristeci bilo koji od pretrazivaca."""] ],
+            [1, """Pretraži Wikipediju koristeći bilo koji od pretraživača."""] ],
         "wiki_chk_duckduckgo_tt": [
             [0, """Search Wikipedia using only the DuckDuckGo search engine.
 https://duckduckgo.com/"""],
-            [1, """Pretrazi Wikipediju koristeci samo DuckDuckGo pretrazivac.
+            [1, """Pretraži Wikipediju koristeći samo DuckDuckGo pretraživač.
 https://duckduckgo.com/"""] ],
         "wiki_chk_yahoo_tt": [
             [0, """Search Wikipedia using only the Yahoo search engine.
 https://www.yahoo.com/"""],
-            [1, """Pretrazi Wikipediju koristeci samo Yahoo pretrazivac.
+            [1, """Pretraži Wikipediju koristeći samo Yahoo pretraživač.
 https://www.yahoo.com/"""] ],
         "wiki_chk_brave_tt": [
             [0, """Search Wikipedia using only the Brave search engine.
 https://search.brave.com/"""],
-            [1, """Pretrazi Wikipediju koristeci samo Brave pretrazivac.
+            [1, """Pretraži Wikipediju koristeći samo Brave pretraživač.
 https://search.brave.com/"""] ],
         "wiki_search_title_text": [
             [0, """Search results"""],
@@ -5178,7 +5176,314 @@ https://search.brave.com/"""] ],
             [1, """Svi rezultati pretrage"""] ],
         "loading_text": [
             [0, """Loading..."""],
-            [1, """Ucitavam..."""] ]
+            [1, """Učitavam..."""] ],
+        "wiki_btn_refresh_text": [
+            [0, """Refresh"""],
+            [1, """Osveži"""] ],
+        "block_txt_box_menu_wiki_search_text": [
+            [0, """Find it on Wikipedia #1"""],
+            [1, """Pronađi na Wikipediji #1"""] ],
+        "block_txt_box_menu_wiki_search_tt": [
+            [0, """Wikipedia search engine"""],
+            [1, """Pretraživač Wikipedije"""] ],
+        "mnu_view_wiki_text": [
+            [0, """Wikipedia"""],
+            [1, """Wikipedija"""] ],
+        "mnu_view_wiki_tt": [
+            [0, """Wikipedia search engine"""],
+            [1, """Pretraživač Wikipedije"""] ],
+        "mnu_view_wiki_sb_text": [
+            [0, """Opens the Wikipedia browser."""],
+            [1, """Otvara pretraživač Wikipedije."""] ],
+        "def_finder_lbl_title_text": [
+            [0, """Definition data finder"""],
+            [1, """Pronalaženje podataka za definiciju"""] ],
+        "def_finder_lbl_head_def_text": [
+            [0, """Definition"""],
+            [1, """Definicija"""] ],
+        "def_finder_btn_head_find_text": [
+            [0, """All"""],
+            [1, """Sve"""] ],
+        "def_finder_lbl_head_syn_text": [
+            [0, """Synonyms"""],
+            [1, """Sinonimi"""] ],
+        "def_finder_btn_head_find_tt": [
+            [0, """Starts a search on the Internet and displays data related to the definition."""],
+            [1, """Počinje pretragu na internetu i prikazuje podatke vezane za definiciju."""] ],
+        "def_finder_lbl_head_img_text": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "def_finder_lbl_head_txt_text": [
+            [0, """Text"""],
+            [1, """Tekst"""] ],
+        "def_finder_btn_head_update_text": [
+            [0, """Update definition"""],
+            [1, """Ažuriraj definiciju"""] ],
+        "def_finder_lbl_progress_title_text": [
+            [0, """Collecting data..."""],
+            [1, """Prikupljam podatke..."""] ],
+        "def_finder_lbl_settings_title_text": [
+            [0, """Settings"""],
+            [1, """Podešavanja"""] ],
+        "def_finder_rbt_settings_syn_append_text": [
+            [0, """Add synonyms to the existing list of synonyms when updating"""],
+            [1, """Dodaj sinonime na postojeću listu sinonima prilikom ažuriranja"""] ],
+        "def_finder_rbt_settings_syn_append_tt": [
+            [0, """The existing list of synonyms for this definition will not be changed,
+selected synonyms will be added to that list."""],
+            [1, """Postojeća lista sinonima za ovu definiciju neće biti promenjena,
+na tu listu će se dodati selektovani sinonimi."""] ],
+        "def_finder_rbt_settings_syn_replace_text": [
+            [0, """Replace existing synonyms with the selected synonyms"""],
+            [1, """Zameni postojeće sinonime sa selektovanim sinonimima"""] ],
+        "def_finder_rbt_settings_syn_replace_tt": [
+            [0, """The existing list of synonyms will be deleted,
+a list with selected synonyms will be placed in its place."""],
+            [1, """Postojeća lista sinonima će biti obrisana,
+na njeno mesto će biti postavljena lista sa selektovanim sinonimima."""] ],
+        "def_finder_rbt_settings_img_append_text": [
+            [0, """Add images to existing image list when updating"""],
+            [1, """Dodaj slike na postojeću listu slika prilikom ažuriranja"""] ],
+        "def_finder_rbt_settings_img_append_tt": [
+            [0, """The existing list of images for this definition will not be changed,
+selected images will be added to that list."""],
+            [1, """Postojeća lista slika za ovu definiciju neće biti promenjena,
+na tu listu će se dodati selektovane slike."""] ],
+        "def_finder_rbt_settings_img_replace_text": [
+            [0, """Replace existing images with selected images"""],
+            [1, """Zameni postojeće slike sa selektovanim slikama"""] ],
+        "def_finder_rbt_settings_img_replace_tt": [
+            [0, """The existing list of images will be deleted,
+a list with selected images will be placed in its place."""],
+            [1, """Postojeća lista slika će biti obrisana,
+na njeno mesto će biti postavljena lista sa selektovanim slikama."""] ],
+        "def_finder_chk_settings_confirmation_text": [
+            [0, """Confirm changes before updating"""],
+            [1, """Potvrdi promene pre ažuriranja"""] ],
+        "def_finder_chk_settings_confirmation_tt": [
+            [0, """Before updating, user confirmation will be required."""],
+            [1, """Pre ažuriranja ce biti zahtevana potvrda od strane korisnika."""] ],
+        "def_finder_chk_settings_auto_close_text": [
+            [0, """Close the dialog when the update is complete"""],
+            [1, """Zatvori dijalog kada se ažuriranje završi"""] ],
+        "def_finder_chk_settings_auto_close_tt": [
+            [0, """When the definition update is finished, the dialog window will be closed automatically"""],
+            [1, """Kada se završi ažuriranje definicije, prozor sa dijalogom će biti automatski zatvoren"""] ],
+        "def_finder_progress_wiki_pages_search": [
+            [0, """Searching for Wikipedia pages..."""],
+            [1, """Tražim Wikipedija stranice..."""] ],
+        "def_finder_progress_preparing_search_results": [
+            [0, """Preparing search results..."""],
+            [1, """Pripremam rezultate pretrage..."""] ],
+        "def_finder_search_title_text": [
+            [0, """Select the Wikipedia page that best describes the definition you are adding ?"""],
+            [1, """Izaberite Wikipedia stranicu koja nabolje opisuje definiciju koju dodajete ?"""] ],
+        "def_finder_no_data_title": [
+            [0, """No data !"""],
+            [1, """Nema podataka !"""] ],
+        "def_finder_no_data_text": [
+            [0, """Unfortunately, the data for the requested definition was not found!"""],
+            [1, """Nažalost, podaci za traženu definiciju nisu pronađeni !"""] ],
+        "def_finder_progress_msg_loading_syn": [
+            [0, """Looking for synonyms..."""],
+            [1, """Tražim sinonime ... """] ],
+        "def_finder_progress_msg_loading_wikidata": [
+            [0, """Loading Wikipedia page ..."""],
+            [1, """Učitavam Wikipedia stranicu ... """] ],
+        "def_finder_progress_msg_found": [
+            [0, """found"""],
+            [1, """pronađeno"""] ],
+        "def_finder_progress_msg_done": [
+            [0, """done"""],
+            [1, """završeno"""] ],
+        "def_finder_progress_msg_loading_text": [
+            [0, """Loading definition text..."""],
+            [1, """Učitavam tekst definicije ... """] ],
+        "def_finder_progress_msg_loading_images": [
+            [0, """Loading images ..."""],
+            [1, """Učitavam slike ... """] ],
+        "def_finder_progress_msg_loading_completed": [
+            [0, """Completed !"""],
+            [1, """Završeno !"""] ],
+        "def_finder_rbt_settings_txt_all_text": [
+            [0, """Select all text sections"""],
+            [1, """Izaberi sve odeljke teksta"""] ],
+        "def_finder_rbt_settings_txt_all_tt": [
+            [0, """The complete text will be selected"""],
+            [1, """Kompletan tekst će biti izabran"""] ],
+        "def_finder_rbt_settings_txt_ignore_text": [
+            [0, """Ignore the following sections of text"""],
+            [1, """Ignoriši sledeće sekcije teksta"""] ],
+        "def_finder_rbt_settings_txt_ignore_tt": [
+            [0, """List of sections that will be ignored and will not be included in the text"""],
+            [1, """Spisak odeljaka koji će biti ignorisani i neće ući u tekst"""] ],
+        "def_finder_btn_settings_txt_ignore_edit_text": [
+            [0, """Edit list"""],
+            [1, """Uredi listu"""] ],
+        "def_finder_lbl_txt_ignore_title_text": [
+            [0, """List of ignored sections"""],
+            [1, """Lista ignorisanih odeljaka"""] ],
+        "def_finder_lbl_txt_ignore_section_text": [
+            [0, """The name of the section"""],
+            [1, """Naziv odeljka"""] ],
+        "def_finder_chk_txt_ignore_after_text": [
+            [0, """Ignore everything after this section"""],
+            [1, """Ignoriši sve posle ovog odeljka"""] ],
+        "def_finder_chk_txt_ignore_after_tt": [
+            [0, """Everything after this section, including that section, will be ignored"""],
+            [1, """Sve posle ovog odeljka, uključujući i taj odeljak, će biti ignorisano"""] ],
+        "def_finder_btn_txt_ignore_add_text": [
+            [0, """Add to list"""],
+            [1, """Dodaj u listu"""] ],
+        "def_finder_lst_txt_ignore_item_tt_after_on": [
+            [0, """Ignore section: #1
+and all sections after it."""],
+            [1, """Ignoriši odeljak: #1
+i sve odeljke posle njega. """] ],
+        "def_finder_lst_txt_ignore_item_tt_after_off": [
+            [0, """Ignore section: #1"""],
+            [1, """Ignoriši odeljak: #1
+"""] ],
+        "def_finder_lst_txt_ignore_menu_remove_item_text": [
+            [0, """Remove from list"""],
+            [1, """Ukloni iz liste"""] ],
+        "def_finder_lbl_txt_info_text": [
+            [0, """Total #1 characters, #2 words."""],
+            [1, """Ukupno #1 karaktera, #2 reči."""] ],
+        "def_finder_lbl_img_info_text": [
+            [0, """Total #1 image(s) found."""],
+            [1, """Ukupno pronađeno #1 slika."""] ],
+        "def_finder_syn_source_default": [
+            [0, """Existing list"""],
+            [1, """Postojeća lista"""] ],
+        "def_finder_lbl_img_info2_text": [
+            [0, """Images already added are not displayed (#1)"""],
+            [1, """Već dodate slike nisu prikazane (#1)"""] ],
+        "def_finder_lbl_settings_syn_section_text": [
+            [0, """Wikipedia section"""],
+            [1, """Wikipedija odeljak"""] ],
+        "def_finder_lbl_info_title_text": [
+            [0, """List of expressions"""],
+            [1, """Lista izraza"""] ],
+        "def_finder_syn_list_item_btn_list_text": [
+            [0, """View list"""],
+            [1, """Vidi listu"""] ],
+        "def_finder_syn_list_item_btn_more_text": [
+            [0, """Related expressions"""],
+            [1, """Povezani izrazi"""] ],
+        "def_finder_syn_list_item_info_related_text": [
+            [0, """Found #1 related terms"""],
+            [1, """Pronađeno #1 povezana izraza"""] ],
+        "def_finder_syn_list_item_info_no_related_text": [
+            [0, """There are no related expressions"""],
+            [1, """Nema povezanih izraza"""] ],
+        "def_finder_syn_list_item_info_list_count_text": [
+            [0, """Selected #1 of #2 items in the list"""],
+            [1, """Označeno #1 od #2 stavki u listi"""] ],
+        "def_finder_btn_syn_more_text": [
+            [0, """More options"""],
+            [1, """Više opcija"""] ],
+        "def_finder_lbl_syn_info_text": [
+            [0, """Selected #1 of #2 items"""],
+            [1, """Selektovano #1 od #2 stavki"""] ],
+        "def_finder_btn_head_find_syn_text": [
+            [0, """Synonyms"""],
+            [1, """Sinonimi"""] ],
+        "def_finder_btn_head_find_syn_tt": [
+            [0, """Search for synonyms on the Internet"""],
+            [1, """Traži sinonime na internetu"""] ],
+        "def_finder_lbl_lst_syn_all_tt": [
+            [0, """Check all"""],
+            [1, """Čekiraj sve"""] ],
+        "def_finder_lbl_lst_syn_none_tt": [
+            [0, """Uncheck all"""],
+            [1, """Odčekiraj sve"""] ],
+        "definition_add_btn_syn_find_text": [
+            [0, """Find Online"""],
+            [1, """Pronađi OnLine"""] ],
+        "definition_add_btn_syn_find_tt": [
+            [0, """Find information about the definition on the Internet."""],
+            [1, """Pronađi informacije o definiciji na internetu."""] ],
+        "definition_add_error_online_img_add_title": [
+            [0, """Error adding images"""],
+            [1, """Greška u dodavanju slika"""] ],
+        "definition_add_error_online_img_add_text": [
+            [0, """The following images are not added to the definition:"""],
+            [1, """Sledeće slike nisu dodane u definiciju:"""] ],
+        "def_finder_update_msg_title": [
+            [0, """Updating the definition"""],
+            [1, """Ažuriranje definicije"""] ],
+        "def_finder_update_msg_text": [
+            [0, """Are you sure you want to update the definition?"""],
+            [1, """Jeste li sigurni da želite da ažurirate definiciju ?"""] ],
+        "def_finder_lbl_progress_updating_msg": [
+            [0, """Updating data...
+Please wait..."""],
+            [1, """Ažuriram podatke ...
+Molim sačekajte..."""] ],
+        "def_finder_chk_settings_no_serbian_text": [
+            [0, """Add to synonyms the version without Serbian letters"""],
+            [1, """Dodaj na sinonime verziju bez srpskih slova"""] ],
+        "def_finder_chk_settings_no_serbian_tt": [
+            [0, """If there are words in the list of synonyms that contain Serbian letters, such as čćžšđ,
+then these words will be added to the list of synonyms where the Serbian letters have been replaced with the version without ticks."""],
+            [1, """Ako u listi sinonima postoje reci koje sadrže srpska slova, kao sto su čćžšđ,
+onda ce na listu sinonima biti dodane i ove reči gde su srpska slova zamenjena sa verzijom bez kvačica."""] ],
+        "def_finder_lbl_section_title_text": [
+            [0, """Choose your language"""],
+            [1, """Izaberite Vaš jezik"""] ],
+        "def_finder_btn_section_select_text": [
+            [0, """Select"""],
+            [1, """Izaberi"""] ],
+        "def_finder_lbl_expression_title_text": [
+            [0, """Choose an expression"""],
+            [1, """Izaberite izraz"""] ],
+        "def_finder_lbl_expression_expression_text": [
+            [0, """Expression"""],
+            [1, """Izraz"""] ],
+        "def_finder_btn_expression_select_text": [
+            [0, """Select"""],
+            [1, """Izaberi"""] ],
+        "def_finder_btn_syn_copy_text": [
+            [0, """Copy"""],
+            [1, """Kopiraj"""] ],
+        "def_finder_btn_syn_copy_tt": [
+            [0, """Copies the list of selected synonyms to the clipboard."""],
+            [1, """Kopira spisak selektovanih sinonima u clipboard."""] ],
+        "def_finder_lbl_section_legend1_text": [
+            [0, """The language with the most entered words is marked with this color."""],
+            [1, """Sa ovom bojom je označen jezik sa najviše unetih reči."""] ],
+        "def_finder_lbl_section_legend2_text": [
+            [0, """A language with 1,000,000+ entries is marked with this color"""],
+            [1, """Sa ovom bojom je označen jezik sa 1,000,000+ unosa"""] ],
+        "def_finder_lbl_section_legend3_text": [
+            [0, """A language with 100,000+ entries is marked with this color"""],
+            [1, """Sa ovom bojom je označen jezik sa 100,000+ unosa"""] ],
+        "def_finder_lbl_section_legend4_text": [
+            [0, """A language with 10,000+ entries is marked with this color"""],
+            [1, """Sa ovom bojom je označen jezik sa 10,000+ unosa"""] ],
+        "def_finder_lbl_section_legend5_text": [
+            [0, """A language with 1,000+ entries is marked with this color"""],
+            [1, """Sa ovom bojom je označen jezik sa 1,000+ unosa"""] ],
+        "def_finder_lbl_section_legend6_text": [
+            [0, """A language with 100+ entries is marked with this color"""],
+            [1, """Sa ovom bojom je označen jezik sa 100+ unosa"""] ],
+        "online_topic_dls_title": [
+            [0, """Serbian State Lottery"""],
+            [1, """Državna Lutrija Srbije"""] ],
+        "topic_msg_dls": [
+            [0, """State Lottery of Serbia"""],
+            [1, """Državna lutrija Srbije"""] ],
+        "definition_add_btn_format_desc_text": [
+            [0, """Format description"""],
+            [1, """Formatiraj opis"""] ],
+        "definition_add_btn_format_desc_tt": [
+            [0, """Formats the definition description text:
+ - removes extra spaces
+ - removes text in square brackets [text]"""],
+            [1, """Formatira tekst opisa definicije:
+ - uklanja suvišne razmake
+ - uklanja tekst u uglastim zagradama [tekst]"""] ]
     }
     if key_name in lang.keys():
         return lang[key_name]
@@ -13501,8 +13806,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "definition_add_btn_media_stylesheet": {
-            "value": """color: #00ffff ;""",
-            "default_value": """color: #00ffff ;""",
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -13596,8 +13901,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "definition_add_btn_save_stylesheet": {
-            "value": """color: #00ff00 ;""",
-            "default_value": """color: #00ff00 ;""",
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -13691,8 +13996,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "definition_add_btn_cancel_stylesheet": {
-            "value": """color: #e1ffb9;""",
-            "default_value": """color: #e1ffb9;""",
+            "value": """QPushButton {color: #00ff00; background-color: #5b1d2f;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(255, 69, 97), stop:1 rgb(255, 137, 145));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #5b1d2f;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(255, 69, 97), stop:1 rgb(255, 137, 145));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -17820,8 +18125,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "browse_def_btn_edit_stylesheet": {
-            "value": """color: #00ffff ;""",
-            "default_value": """color: #00ffff ;""",
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -17915,8 +18220,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "browse_def_btn_delete_stylesheet": {
-            "value": """color: #e60000 ;""",
-            "default_value": """color: #e60000 ;""",
+            "value": """QPushButton {color: #ff0000; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(255, 69, 97), stop:1 rgb(255, 137, 145));}""",
+            "default_value": """QPushButton {color: #ff0000; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(255, 69, 97), stop:1 rgb(255, 137, 145));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -18010,8 +18315,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "browse_def_btn_close_stylesheet": {
-            "value": """color: #e2e2e2 ;""",
-            "default_value": """color: #e2e2e2 ;""",
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -18790,8 +19095,8 @@ Example: Ctrl+W"""
 The width of the icon will be the same as the height."""
             },
         "definition_add_btn_editor_stylesheet": {
-            "value": """color: #00ff00 ;""",
-            "default_value": """color: #00ff00 ;""",
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -26960,8 +27265,8 @@ Example: Ctrl+W"""
             "description": """Location of the icon for the Widget"""
             },
         "wiki_txt_search_stylesheet": {
-            "value": """color: #ffff00; background-color: #005500;""",
-            "default_value": """color: #ffff00; background-color: #005500;""",
+            "value": """QLineEdit {color: #ffff00; background-color: #540082;} QLineEdit:hover {background-color: #6d00ad;}""",
+            "default_value": """QLineEdit {color: #ffff00; background-color: #540082;} QLineEdit:hover {background-color: #6d00ad;}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -27013,6 +27318,358 @@ Example: Ctrl+W"""
             "min_value": None,
             "max_value": None,
             "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_btn_refresh_stylesheet": {
+            "value": """QPushButton {color: yellow; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: yellow; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "wiki_logo_icon_path": {
+            "value": """data/app/images/wikipedia_logo.png""",
+            "default_value": """data/app/images/wikipedia_logo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_view_wiki_icon_path": {
+            "value": """data/app/images/wikipedia_logo.png""",
+            "default_value": """data/app/images/wikipedia_logo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_view_wiki_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_view_wiki_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_view_wiki_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "mnu_view_wiki_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_view_wiki_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "definition_data_find_icon_path": {
+            "value": """data/app/images/definition_data_find.png""",
+            "default_value": """data/app/images/definition_data_find.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "update_definition_icon_path": {
+            "value": """data/app/images/update_definition.png""",
+            "default_value": """data/app/images/update_definition.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "thumb_up_icon_path": {
+            "value": """data/app/images/thumb_up.png""",
+            "default_value": """data/app/images/thumb_up.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "thumb_down_icon_path": {
+            "value": """data/app/images/thumb_down.png""",
+            "default_value": """data/app/images/thumb_down.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "def_finder_ui_file_path": {
+            "value": """data/app/designer/definition_data_finder.ui""",
+            "default_value": """data/app/designer/definition_data_finder.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "cancel_icon_path": {
+            "value": """data/app/images/btn_cancel.png""",
+            "default_value": """data/app/images/btn_cancel.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "ok_icon_path": {
+            "value": """data/app/images/btn_ok.png""",
+            "default_value": """data/app/images/btn_ok.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "online_topic_dls_icon_path": {
+            "value": """data/app/images/dls.png""",
+            "default_value": """data/app/images/dls.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "online_topic_dls_ui_file_path": {
+            "value": """data/app/designer/frm_online_dls.ui""",
+            "default_value": """data/app/designer/frm_online_dls.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "download_icon_path": {
+            "value": """data/app/images/download.png""",
+            "default_value": """data/app/images/download.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "ball_red_icon_path": {
+            "value": """data/app/images/ball_red.png""",
+            "default_value": """data/app/images/ball_red.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "ball_blue_icon_path": {
+            "value": """data/app/images/ball_blue.webp""",
+            "default_value": """data/app/images/ball_blue.webp""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "definition_add_btn_format_desc_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "definition_add_btn_format_desc_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "definition_add_btn_format_desc_icon_path": {
+            "value": """data/app/images/format_text.png""",
+            "default_value": """data/app/images/format_text.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "definition_add_btn_format_desc_icon_height": {
+            "value": 70,
+            "default_value": 70,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be 100""",
+            "description": """The height of the icon in relation to the height of the button expressed as a percentage.
+100 = Icon height is same as button height (100%)
+The width of the icon will be the same as the height."""
+            },
+        "definition_add_btn_format_desc_stylesheet": {
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 85, 0), stop:1 rgb(0, 198, 0));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 85, 0), stop:1 rgb(0, 198, 0));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "definition_add_btn_format_desc_font_name": {
+            "value": """MS Shell Dlg 2""",
+            "default_value": """MS Shell Dlg 2""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Any font that is easily readable on screen.""",
+            "description": """Font family name.
+The value can be any fonts that are installed on your computer."""
+            },
+        "definition_add_btn_format_desc_font_size": {
+            "value": 9,
+            "default_value": 9,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that the value be between 8 and 12""",
+            "description": """Font size.
+The value cannot be less than 4."""
+            },
+        "definition_add_btn_format_desc_font_weight": {
+            "value": 50,
+            "default_value": 50,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Although you can enter any value from 0-100, it is recommended that you use one of the predefined values.""",
+            "description": """Font Weight.
+Values: 0-100
+( ExtraLight=12, Light=25, Normal=50, DemiBold=63, Bold=75, ExtraBold=81 )"""
+            },
+        "definition_add_btn_format_desc_font_italic": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Italic."""
+            },
+        "definition_add_btn_format_desc_font_underline": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Underline."""
+            },
+        "definition_add_btn_format_desc_font_strikeout": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Strikeout"""
+            },
+        "completed_sound_file_path": {
+            "value": """data/app/sounds/completed.wav""",
+            "default_value": """data/app/sounds/completed.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "select_sound_file_path": {
+            "value": """data/app/sounds/select.wav""",
+            "default_value": """data/app/sounds/select.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "archive_icon_path": {
+            "value": """data/app/images/archive.png""",
+            "default_value": """data/app/images/archive.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "edit_icon_path": {
+            "value": """data/app/images/edit.png""",
+            "default_value": """data/app/images/edit.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "remove_icon_path": {
+            "value": """data/app/images/remove.png""",
+            "default_value": """data/app/images/remove.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "add_item_icon_path": {
+            "value": """data/app/images/add_item.png""",
+            "default_value": """data/app/images/add_item.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "online_topic_dls_x_dark_icon_path": {
+            "value": """data/app/images/online_topics/dls/x_dark.png""",
+            "default_value": """data/app/images/online_topics/dls/x_dark.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
+            },
+        "online_topic_dls_x_light_icon_path": {
+            "value": """data/app/images/online_topics/dls/x_light.png""",
+            "default_value": """data/app/images/online_topics/dls/x_light.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
+            },
+        "online_topic_dls_clear_icon_path": {
+            "value": """data/app/images/online_topics/dls/clear.png""",
+            "default_value": """data/app/images/online_topics/dls/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
+            },
+        "online_topic_dls_shuffle_icon_path": {
+            "value": """data/app/images/online_topics/dls/shuffle.png""",
+            "default_value": """data/app/images/online_topics/dls/shuffle.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
+            },
+        "add_icon_path": {
+            "value": """data/app/images/add.png""",
+            "default_value": """data/app/images/add.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "save_red_disk_icon_path": {
+            "value": """data/app/images/save_red_disk.png""",
+            "default_value": """data/app/images/save_red_disk.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
             "description": """Location of the icon for the Widget"""
             }
     }

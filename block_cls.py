@@ -1,15 +1,11 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QMainWindow)
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QStaticText, QCursor
-from PyQt5.QtCore import QSize, Qt
+from PyQt5.QtWidgets import QFrame, QVBoxLayout, QWidget, QMainWindow
+from PyQt5.QtGui import QCursor
+from PyQt5.QtCore import Qt
 from PyQt5 import QtGui
 
 import copy
 
 import settings_cls
-import log_cls
-import users_cls
-import database_cls
 import db_record_cls
 import db_record_data_cls
 import utility_cls

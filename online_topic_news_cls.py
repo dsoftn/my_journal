@@ -1,12 +1,9 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QComboBox, QProgressBar,
-                             QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QSizePolicy, QVBoxLayout,
-                             QSpacerItem, QScrollBar)
-from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QFont, QFontMetrics
+from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QProgressBar, QTableWidget,
+                             QListWidget, QListWidgetItem, QSizePolicy, QVBoxLayout, QSpacerItem)
+from PyQt5.QtGui import QPixmap, QMouseEvent, QFont, QFontMetrics
 from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent, QUrl
-from PyQt5 import QtCore, QtGui, uic
+from PyQt5 import uic
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-from PyQt5.QtMultimediaWidgets import QVideoWidget
 import webbrowser
 
 import settings_cls

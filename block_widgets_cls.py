@@ -1,9 +1,8 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QLabel, QHBoxLayout)
-from PyQt5.QtGui import (QIcon, QFont, QFontMetrics, QStaticText, QMouseEvent, QCursor,
-    QGuiApplication, QClipboard, QPixmap)
-from PyQt5.QtCore import QSize, Qt, pyqtSignal, QObject, QPoint, QTimer
-from PyQt5 import QtGui, QtCore
+from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridLayout, QWidget,
+                             QSpacerItem, QSizePolicy, QLabel, QHBoxLayout)
+from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QMouseEvent, QCursor, QPixmap
+from PyQt5.QtCore import QSize, Qt, QTimer
+from PyQt5 import QtGui
 from PyQt5.QtMultimedia import QSound
 
 import os
@@ -12,9 +11,7 @@ import time
 import settings_cls
 import log_cls
 import users_cls
-import database_cls
 import db_record_cls
-import db_record_data_cls
 import utility_cls
 import db_tag_cls
 import text_handler_cls

@@ -193,7 +193,7 @@ class OnlineContent(QDialog):
         self.widgets = []
         for topic in self.topics_list:
             item = QListWidgetItem()
-            item.setSizeHint(QSize(350, 150))
+            item.setSizeHint(QSize(330, 150))
             self.lst_topics.addItem(item)
             widget = OnlineContentItem(
                 self.lst_topics,

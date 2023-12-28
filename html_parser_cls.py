@@ -1,7 +1,6 @@
 import urllib.request
 import requests
 import html as HtmlLib
-import os
 
 
 class Utility:
@@ -1682,7 +1681,7 @@ class HtmlParser(Utility):
         
         table_object = table_object.table
         from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
-        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor
+        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon
         from PyQt5.QtCore import QSize, Qt
 
         def set_cell_item(tbl: QTableWidget, cell_data: dict, qtable_row: int, qtable_col: int, no_image_download: bool = False, cell_max_width: int = None) -> QTableWidget:
@@ -2038,15 +2037,14 @@ class HtmlParser(Utility):
     def get_PYQT5_table_ver2(self,
                              html_code: str,
                              parent_widget,
-                             max_table_width: int = None,
+                             max_table_width: int = 1000,
                              font_size: int = 12,
                              text_link_feedback = None,
                              image_link_feedback = None,
                              fix_url_function = None):
 
-        from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QLabel, QFrame
-        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor, QFont
-        from PyQt5.QtCore import QSize, Qt
+        from PyQt5.QtWidgets import QTableWidget
+        from PyQt5.QtCore import Qt
 
         html_code = self._quick_format_html(html_code)
 
@@ -2103,9 +2101,9 @@ class HtmlParser(Utility):
         return qtable
 
     def _qtable_v2_get_cell_frame(self, data: dict, font, text_link_feedback, image_link_feedback, fix_url_function, max_table_width: int):
-        from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QLabel, QFrame
-        from PyQt5.QtGui import QPixmap, QFontMetrics, QIcon, QColor, QFont
-        from PyQt5.QtCore import QSize, Qt
+        from PyQt5.QtWidgets import QLabel, QFrame
+        from PyQt5.QtGui import QPixmap
+        from PyQt5.QtCore import Qt
 
         frame = QFrame()
         frame.setFont(font)
@@ -2229,15 +2227,17 @@ class HtmlParser(Utility):
         return frame
 
     def _qtable_v2_format_label_text(self, text_slices: list, font_size, fix_url_function) -> str:
-        import utility_cls
-        text_to_html = utility_cls.TextToHTML()
+        from utility_cls import TextToHTML
+        from utility_cls import TextToHtmlRule
+
+        text_to_html = TextToHTML()
         text_to_html.general_rule.font_size = font_size
         text = ""
         count = 1
         for text_slice in text_slices:
             text_slice: TextObject
             rule_id = "#" + "-" * (6 - len(str(count))) + str(count)
-            rule = utility_cls.TextToHtmlRule(
+            rule = TextToHtmlRule(
                 text=rule_id,
                 replace_with=text_slice.txt_value
             )

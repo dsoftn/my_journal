@@ -1,7 +1,5 @@
-import typing
-from PyQt5 import QtCore
-from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLineEdit, QStyle,
-                             QSlider, QFrame, QSizePolicy, QSpacerItem)
+from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QStyle, QSlider, 
+                             QFrame, QSizePolicy, QSpacerItem)
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtMultimediaWidgets import QVideoWidget
 from PyQt5.QtCore import Qt, QUrl

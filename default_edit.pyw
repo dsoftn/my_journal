@@ -961,6 +961,7 @@ class SettingsHandler(QDialog):
         self.scroll_lang.setWidget(widget)
         # Connect widget events with slots
         for txt_box in self.lang_txt_box:
+            txt_box[1].setAcceptRichText(False)
             txt_box[1].textChanged.connect(self.txt_language_box_text_changed)
             txt_box[2].clicked.connect(lambda checked, arg=txt_box[3]: self.translate_button_click(arg))
 

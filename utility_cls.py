@@ -28,7 +28,6 @@ import random
 from cyrtranslit import to_latin
 
 import settings_cls
-import text_handler_cls
 import db_media_cls
 import db_record_cls
 import db_record_data_cls

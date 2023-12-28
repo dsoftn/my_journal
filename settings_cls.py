@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import (QApplication, QListWidget, QLineEdit, QDialog, QLabel,
-    QFrame, QPushButton, QListWidgetItem, QMessageBox, QFileDialog)
-from PyQt5 import uic, QtGui
+from PyQt5.QtWidgets import QApplication, QListWidget, QLineEdit, QDialog, QLabel, QPushButton, QMessageBox, QFileDialog
+from PyQt5 import uic
 import json
 import os
 import copy

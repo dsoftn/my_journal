@@ -1,23 +1,16 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QComboBox, QProgressBar,
-                             QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QSizePolicy, QVBoxLayout,
-                             QSpacerItem, QScrollBar, QGridLayout)
-from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QFont, QFontMetrics, QResizeEvent
-from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent, QUrl, QPoint
-from PyQt5 import QtCore, QtGui, uic
+from PyQt5.QtWidgets import QFrame, QPushButton, QWidget, QLabel, QLineEdit, QComboBox, QProgressBar
+from PyQt5.QtGui import QPixmap, QMouseEvent, QResizeEvent
+from PyQt5.QtCore import QSize, Qt, QCoreApplication, QUrl, QPoint
+from PyQt5 import uic
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-from PyQt5.QtMultimediaWidgets import QVideoWidget
 
 import webbrowser
-import folium
 import os
 
 import settings_cls
 import utility_cls
-from rashomon_cls import Rashomon
 import html_parser_cls
 from online_abstract_topic import AbstractTopic
-from media_player_cls import MediaPlayer
 from wikipedia_card_cls import WikipediaCard
 
 

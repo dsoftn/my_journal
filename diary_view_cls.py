@@ -1,28 +1,19 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QListWidget, QFileDialog, QDialog,
-    QLabel, QListWidgetItem, QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout,
-    QCheckBox, QAction, QRadioButton, QProgressBar)
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QStaticText, QPixmap, QCursor, QTextCharFormat, QColor, QTextCursor
-from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,
-    QPoint, QTimer, QThread, QDate, QEvent)
-from PyQt5 import uic, QtGui, QtCore
+from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout, QWidget, QSpacerItem,
+                             QSizePolicy, QListWidget, QDialog, QLabel, QListWidgetItem, QLineEdit, QHBoxLayout,
+                             QCheckBox, QProgressBar)
+from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QPixmap, QCursor, QTextCharFormat, QColor
+from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent
+from PyQt5 import uic, QtGui
 
-import datetime
-import time
-import copy
 import os
 
 import settings_cls
-import log_cls
-import users_cls
-import database_cls
 import db_record_cls
 import db_record_data_cls
 import utility_cls
 import db_tag_cls
 import text_handler_cls
 import db_media_cls
-import tag_cls
 import block_cls
 
 

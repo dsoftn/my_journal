@@ -1,14 +1,8 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QListWidget, QFileDialog, QDialog,
-    QLabel, QListWidgetItem, QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout)
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QStaticText, QPixmap, QCursor
-from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,
-    QPoint, QTimer, QThread, QDate)
-from PyQt5 import uic, QtGui, QtCore
-
-import datetime
-import time
-import copy
+from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QListWidget, QDialog, QLabel, QListWidgetItem,
+                             QLineEdit)
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
+from PyQt5 import uic, QtGui
 
 import settings_cls
 import db_tag_cls

@@ -1,26 +1,16 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QComboBox, QProgressBar,
-                             QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QSizePolicy, QVBoxLayout,
-                             QSpacerItem, QScrollBar, QGridLayout, QToolTip, QDialog)
-from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QFont, QFontMetrics, QResizeEvent, QCursor, QCloseEvent
-from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent, QUrl, QPoint, pyqtSignal, QRect
-from PyQt5 import QtCore, QtGui, uic
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-from PyQt5.QtMultimediaWidgets import QVideoWidget
+from PyQt5.QtWidgets import QFrame, QWidget, QLabel, QComboBox, QTableWidget, QToolTip, QDialog
+from PyQt5.QtGui import QIcon, QPixmap, QMouseEvent, QFont, QFontMetrics, QResizeEvent, QCursor, QCloseEvent
+from PyQt5.QtCore import QSize, Qt, QCoreApplication, QPoint, pyqtSignal, QRect
 
 import webbrowser
-import folium
 import os
 import requests
 import urllib.request
-import json
 import html as HtmlLib
 
 import settings_cls
 import utility_cls
-from rashomon_cls import Rashomon
 import html_parser_cls
-from online_abstract_topic import AbstractTopic
 from media_player_cls import MediaPlayer
 
 
@@ -207,7 +197,6 @@ class WikiImageView(QDialog):
             self._clip.copy_to_clip(self.image_url, add_to_clip=True)
         elif self.get_appv("menu")["result"] == 30:
             self._clip.clear_clip()
-        
 
     def show_image(self):
         if not self.html:
@@ -470,6 +459,17 @@ class WikiData:
         
 
         elements_dict["c_text"] = self.html_parser.get_tags(html_code=self.html, tag="p", return_line_numbers=True)
+        elements_dict["c_text"] = self._remove_duplicate_CRLF(elements_dict["c_text"])
+        # Add TD elements if not in table
+        for item in self.html_parser.get_tags(html_code=self.html, tag="td", return_line_numbers=True):
+            is_in_table = False
+            for i in elements_dict['c_table']:
+                if item[1] >= i[1] and item[2] <= i[2]:
+                    is_in_table = True
+                    break
+            if not is_in_table:
+                elements_dict["c_text"].append(item)
+
         elements_dict["c_figure"] += self.html_parser.get_tags(html_code=self.html, tag="figure", return_line_numbers=True)
         elements_dict["c_section"] = self.html_parser.get_tags(html_code=self.html, tag="span", tag_class_contains="mw-headline", return_line_numbers=True)
         elements_dict["c_dl"] = self.html_parser.get_tags(html_code=self.html, tag="dl", return_line_numbers=True)
@@ -695,6 +695,24 @@ class WikiData:
             content_data.append(section_data)
         
         return content_data
+
+    def _remove_duplicate_CRLF(self, text_slices: list) -> list:
+        cleaned_text = []
+        
+        for text in text_slices:
+            has_text = False
+            text_slices = self.html_parser.get_all_text_slices(load_html_code=text[0]if isinstance(text, list) else text)
+            if text_slices:
+                for text_slice in text_slices:
+                    if text_slice.txt_value != "\n":
+                        has_text = True
+                        break
+                
+                if has_text:
+                    text_clean = self.html_parser.crop_html_code(text[0], starting_lines=1, ending_lines=0)
+                    cleaned_text.append([text_clean, text[1], text[2]])
+        
+        return cleaned_text
 
     def _format_code_snippet(self, code: str) -> str:
         return self.html_parser.get_raw_text(load_html_code=code)
@@ -1279,6 +1297,7 @@ class WikipediaCard(QFrame):
         self.set_appv = self._stt.app_setting_set_value
 
         # Define variables
+        self.parent_widget = parent_widget
         self.url = url
         self.card_id = card_id
         self.card_setting = card_setting
@@ -1401,6 +1420,10 @@ class WikipediaCard(QFrame):
             if item not in protected_widgets:
                 item.deleteLater()
         QCoreApplication.processEvents()
+
+    def refresh_card(self):
+        self.add_page(self.pages[self.current_page_index].url)
+        # self.parent_widget.resize(self.width(), self.height() + 20)
 
     def update_card(self):
         # Set main frame

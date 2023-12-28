@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QTextEdit, QFileDialog
-from PyQt5 import QtGui, QtCore
+from PyQt5 import QtGui
 from PyQt5.QtCore import QThread, QCoreApplication
 import sys
 import os

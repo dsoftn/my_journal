@@ -23,6 +23,7 @@ import app_settings_cls
 import dict_cls
 import online_content_cls
 import wikipedia_cls
+import definition_data_find_cls
 
 
 theme_adaptic1 = """/*Copyright (c) DevSec Studio. All rights reserved.
@@ -1378,6 +1379,7 @@ class MyJournal(QMainWindow):
         self.mnu_view_fun_fact.triggered.connect(self.mnu_view_fun_fact_triggered)
         self.mnu_view_media_explorer.triggered.connect(self.mnu_view_media_explorer_triggered)
         self.mnu_view_dicts.triggered.connect(self.mnu_view_dicts_triggered)
+        self.mnu_view_wiki.triggered.connect(self.mnu_view_wiki_triggered)
         self.mnu_view_online_content.triggered.connect(self.mnu_view_online_content_triggered)
         self.mnu_view_find_in_app.triggered.connect(self.mnu_view_find_in_app_triggered)
         self.mnu_view_clipboard.triggered.connect(self.mnu_view_clipboard_triggered)
@@ -1526,7 +1528,7 @@ class MyJournal(QMainWindow):
         return super().mousePressEvent(a0)
 
     def mnu_open_click(self):
-        wikipedia_cls.Wikipedia(self, stt)
+        definition_data_find_cls.DefinitionFinder(self, stt)
         # app_settings_cls.Settings(stt, self)
 
     def mnu_file_save_active_block_triggered(self) -> None:
@@ -1582,6 +1584,9 @@ class MyJournal(QMainWindow):
     def mnu_view_dicts_triggered(self) -> None:
         dict_view = dict_cls.DictFrame(stt, self)
         dict_view.show_word()
+
+    def mnu_view_wiki_triggered(self) -> None:
+        wikipedia_cls.Wikipedia(self, stt)
 
     def mnu_view_online_content_triggered(self) -> None:
         online_content_cls.OnlineContent(self, stt)
@@ -1856,6 +1861,7 @@ class MyJournal(QMainWindow):
         self._define_menu_item(self.mnu_view_clipboard, "mnu_view_clipboard")
         self._define_menu_item(self.mnu_view_media_explorer, "mnu_view_media_explorer")
         self._define_menu_item(self.mnu_view_dicts, "mnu_view_dicts")
+        self._define_menu_item(self.mnu_view_wiki, "mnu_view_wiki")
         self._define_menu_item(self.mnu_view_online_content, "mnu_view_online_content")
         self._define_menu_item(self.mnu_view_find_in_app, "mnu_view_find_in_app")
         self._define_menu_item(self.mnu_schedule, "mnu_schedule")
@@ -1980,6 +1986,9 @@ class MyJournal(QMainWindow):
         self.mnu_view_dicts.setText(getl("mnu_view_dicts_text"))
         self.mnu_view_dicts.setToolTip(getl("mnu_view_dicts_tt"))
         self.mnu_view_dicts.setStatusTip(getl("mnu_view_dicts_sb_text"))
+        self.mnu_view_wiki.setText(getl("mnu_view_wiki_text"))
+        self.mnu_view_wiki.setToolTip(getl("mnu_view_wiki_tt"))
+        self.mnu_view_wiki.setStatusTip(getl("mnu_view_wiki_sb_text"))
         self.mnu_view_online_content.setText(getl("mnu_view_online_content_text"))
         self.mnu_view_online_content.setToolTip(getl("mnu_view_online_content_tt"))
         self.mnu_view_online_content.setStatusTip(getl("mnu_view_online_content_sb_text"))
@@ -2048,6 +2057,7 @@ class MyJournal(QMainWindow):
         self.mnu_view_clipboard: QAction = self.findChild(QAction, "mnu_view_clipboard")
         self.mnu_view_media_explorer: QAction = self.findChild(QAction, "mnu_view_media_explorer")
         self.mnu_view_dicts: QAction = self.findChild(QAction, "mnu_view_dicts")
+        self.mnu_view_wiki: QAction = self.findChild(QAction, "mnu_view_wiki")
         self.mnu_view_online_content: QAction = self.findChild(QAction, "mnu_view_online_content")
         self.mnu_view_find_in_app: QAction = self.findChild(QAction, "mnu_view_find_in_app")
         self.mnu_schedule: QAction = self.findChild(QAction, "mnu_schedule")

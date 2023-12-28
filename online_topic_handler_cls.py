@@ -8,6 +8,7 @@ import online_topic_on_this_day_cls
 import online_topic_news_cls
 import online_topic_aladin_we_cls
 import online_topic_aladin_tv_cls
+import online_topic_dls_cls
 
 
 class OnLineTopicHandler(QObject):
@@ -29,7 +30,8 @@ class OnLineTopicHandler(QObject):
             "on_this_day": {"object": online_topic_on_this_day_cls.OnThisDay},
             "news": {"object": online_topic_news_cls.News},
             "aladin_we": {"object": online_topic_aladin_we_cls.AladinWE},
-            "aladin_tv": {"object": online_topic_aladin_tv_cls.AladinTV}
+            "aladin_tv": {"object": online_topic_aladin_tv_cls.AladinTV},
+            "gambling": {"object": online_topic_dls_cls.DLS}
             }
         self.parent_widget = parent_widget
         self.current_topic: AbstractTopic = None

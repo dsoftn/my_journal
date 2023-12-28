@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>989</width>
     <height>600</height>
    </rect>
   </property>
@@ -52,7 +52,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>989</width>
      <height>21</height>
     </rect>
    </property>
@@ -115,13 +115,15 @@
     <addaction name="mnu_view_fun_fact"/>
     <addaction name="mnu_view_clipboard"/>
     <addaction name="mnu_view_media_explorer"/>
-    <addaction name="mnu_view_dicts"/>
     <addaction name="separator"/>
+    <addaction name="mnu_view_dicts"/>
+    <addaction name="mnu_view_wiki"/>
     <addaction name="mnu_view_online_content"/>
     <addaction name="separator"/>
     <addaction name="mnu_view_find_in_app"/>
     <addaction name="separator"/>
     <addaction name="mnu_schedule"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuUser">
     <property name="title">
@@ -179,6 +181,7 @@
    <addaction name="mnu_collapse_all"/>
    <addaction name="mnu_expand_all"/>
    <addaction name="mnu_view_online_content"/>
+   <addaction name="mnu_view_wiki"/>
   </widget>
   <action name="mnu_open">
    <property name="text">
@@ -452,6 +455,15 @@
    </property>
    <property name="text">
     <string>OnLine Content</string>
+   </property>
+  </action>
+  <action name="mnu_view_wiki">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/wikipedia_logo.png</normaloff>../images/wikipedia_logo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Wikipedia</string>
    </property>
   </action>
  </widget>

@@ -1,7 +1,6 @@
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import (QFrame, QWidget, QLabel, QScrollArea, QGridLayout, QListWidget, QListWidgetItem,
-                             QSizePolicy, QSpacerItem)
-from PyQt5.QtGui import QPixmap, QFontMetrics, QFont, QMouseEvent
+from PyQt5.QtWidgets import QFrame, QLabel, QScrollArea
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QRect, pyqtSignal, QSize, Qt
 
 import os
@@ -578,6 +577,19 @@ class AbstractTopic(QFrame):
         
         return result
 
+    def _load_url(self, source_http: str) -> str:
+        try:
+            result_page = urllib.request.urlopen(source_http, timeout=3)
+            html = result_page.read().decode("utf-8")
+        except:
+            try:
+                result_page = requests.get(source_http, timeout=3)
+                html = result_page.content.decode("utf-8")
+                print ("Used REQUESTS !")
+            except:
+                return None
+        return html
+
     def _clean_search_string(self, search_string: str, remove_serbian_chars: bool = True) -> str:
         if remove_serbian_chars:
             search_string = self.clear_serbian_chars(search_string)
@@ -589,7 +601,7 @@ class AbstractTopic(QFrame):
 
         search_string = search_string.strip()
 
-        allowed_chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
+        allowed_chars = "abcdefghijklmnopqrstuvwxyzčćžšđČĆŽŠĐ ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
         cleaned_string = ""
         for char in search_string:
             if char in allowed_chars:

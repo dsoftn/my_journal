@@ -1,29 +1,17 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QComboBox, QProgressBar,
-                             QTableWidget, QTableWidgetItem, QListWidget, QListWidgetItem, QSizePolicy, QVBoxLayout,
-                             QSpacerItem, QScrollBar, QGridLayout, QToolTip, QDialog, QCheckBox)
-from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QFont, QFontMetrics, QResizeEvent, QCursor, QCloseEvent
-from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent, QUrl, QPoint, pyqtSignal, QRect
-from PyQt5 import QtCore, QtGui, uic
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtMultimedia import QMediaContent, QMediaPlayer
-from PyQt5.QtMultimediaWidgets import QVideoWidget
-
+from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QSizePolicy, QVBoxLayout,
+                             QSpacerItem, QDialog, QCheckBox)
+from PyQt5.QtGui import QIcon, QPixmap, QMouseEvent, QResizeEvent
+from PyQt5.QtCore import QSize, Qt, QCoreApplication
+from PyQt5 import QtGui
 
 from cyrtranslit import to_latin
 import webbrowser
-import folium
-import os
 import requests
 import urllib.request
-import json
-import html as HtmlLib
 
 import settings_cls
 import utility_cls
-from rashomon_cls import Rashomon
 import html_parser_cls
-from online_abstract_topic import AbstractTopic
-from media_player_cls import MediaPlayer
 import wikipedia_card_cls
 
 
@@ -44,6 +32,10 @@ class SearchCard(QFrame):
         self.html_parser = html_parser_cls.HtmlParser()
 
         self._create_find_card()
+
+    def refresh_card(self):
+        self._create_find_card()
+        self.parent_widget.resize(self.width(), self.height() + 20)
 
     def sort_data(self, data: list) -> list:
         rules = []
@@ -80,7 +72,8 @@ class SearchCard(QFrame):
         lbl_title = QLabel(self)
         lbl_title.setTextInteractionFlags(lbl_title.textInteractionFlags()|Qt.TextSelectableByMouse)
         lbl_title.setAlignment(Qt.AlignCenter)
-        text_to_html = utility_cls.TextToHTML(text=self.getl("wiki_search_title_text") + "\n(#--1)")
+        title_text = self.card_setting.get("title", self.getl("wiki_search_title_text"))
+        text_to_html = utility_cls.TextToHTML(text=title_text + "\n(#--1)")
         text_to_html.general_rule.font_size = 22
         text_to_html.general_rule.font_bold = True
         text_to_html.general_rule.fg_color = "#65cc97"
@@ -114,37 +107,39 @@ class SearchCard(QFrame):
         frm_sup.move(x, y)
         y += frm_sup.height() + 20
 
-        # All search results
-        lbl_all = QLabel(self)
-        lbl_all.setTextInteractionFlags(lbl_all.textInteractionFlags()|Qt.TextSelectableByMouse)
-        all_text = self.getl("wikipedia_all_search_results_text") + " (#--1)"
-        all_text_to_html = utility_cls.TextToHTML(text=all_text)
-        all_text_to_html.general_rule.font_size = 18
-        all_text_to_html.general_rule.fg_color = "#00ff00"
-        lbl_all.move(x, y)
-        lbl_all.resize(w, 35)
-        y += lbl_all.height()
-        
-        line2 = QFrame(self)
-        line2.setFrameShape(QFrame.HLine)
-        line2.setFrameShadow(QFrame.Sunken)
-        line2.move(0, y)
-        line2.resize(w, 3)
-        y += line2.height() + 5
+        if not self.card_setting.get("only_valid_links", False):
+            # All search results
+            lbl_all = QLabel(self)
+            lbl_all.setTextInteractionFlags(lbl_all.textInteractionFlags()|Qt.TextSelectableByMouse)
+            all_text = self.getl("wikipedia_all_search_results_text") + " (#--1)"
+            all_text_to_html = utility_cls.TextToHTML(text=all_text)
+            all_text_to_html.general_rule.font_size = 18
+            all_text_to_html.general_rule.fg_color = "#00ff00"
+            lbl_all.move(x, y)
+            lbl_all.resize(w, 35)
+            y += lbl_all.height()
+            
+            line2 = QFrame(self)
+            line2.setFrameShape(QFrame.HLine)
+            line2.setFrameShadow(QFrame.Sunken)
+            line2.move(0, y)
+            line2.resize(w, 3)
+            y += line2.height() + 5
 
-        # All Body
-        frm_all, all_items_no = self._create_find_card_all_frame()
-        frm_all.move(x, y)
-        y += frm_all.height()
+            # All Body
+            frm_all, all_items_no = self._create_find_card_all_frame()
+            frm_all.move(x, y)
+            y += frm_all.height()
 
         # Set item count text
         rule = utility_cls.TextToHtmlRule(text="#--1", replace_with=str(sup_items_no), fg_color="#ffffff")
         sup_text_to_html.add_rule(rule)
         lbl_sup.setText(sup_text_to_html.get_html())
 
-        rule = utility_cls.TextToHtmlRule(text="#--1", replace_with=str(all_items_no), fg_color="#ffffff")
-        all_text_to_html.add_rule(rule)
-        lbl_all.setText(all_text_to_html.get_html())
+        if not self.card_setting.get("only_valid_links", False):
+            rule = utility_cls.TextToHtmlRule(text="#--1", replace_with=str(all_items_no), fg_color="#ffffff")
+            all_text_to_html.add_rule(rule)
+            lbl_all.setText(all_text_to_html.get_html())
 
         self.resize(w, y)
 
@@ -283,7 +278,7 @@ class SearchCard(QFrame):
 
 
 class Wikipedia(QDialog):
-    def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, search_string: list = None, wiki_settings: dict = None):
+    def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, search_string: str = None, wiki_settings: dict = None, auto_show_dialog: bool = True):
         super().__init__(parent_widget)
         # Define settings object and methods
         self._stt = settings
@@ -296,6 +291,7 @@ class Wikipedia(QDialog):
         # Define variables
         self.parent_widget = parent_widget
         self.wiki_card = None
+        self.auto_show_dialog = auto_show_dialog
         self.html_parser = html_parser_cls.HtmlParser()
         self.ignore_checkbox_status_change = False
 
@@ -313,23 +309,41 @@ class Wikipedia(QDialog):
         self.chk_yahoo.stateChanged.connect(self.chk_yahoo_state_changed)
         self.chk_brave.stateChanged.connect(self.chk_brave_state_changed)
         self.btn_search.clicked.connect(self.btn_search_click)
+        self.btn_refresh.clicked.connect(self.btn_refresh_click)
         self.lbl_search_pic.mousePressEvent = self.lbl_search_pic_mouse_press
         self.lbl_content_pic.mousePressEvent = self.lbl_content_pic_mouse_press
 
-        self.show()
-        QCoreApplication.processEvents()
+        if self.auto_show_dialog:
+            self.show()
+            QCoreApplication.processEvents()
         if search_string:
+            self.txt_search.setText(search_string)
             self.show_search_results(search_string)
+
+    def btn_refresh_click(self):
+        self.loading(True)
+        QCoreApplication.processEvents()
+        if self.search_area_widget_layout.count():
+            if self.search_area_widget_layout.itemAt(0).widget():
+                self.search_area_widget_layout.itemAt(0).widget().card_setting["width"] = self.search_area.contentsRect().width() - 20
+                self.search_area_widget_layout.itemAt(0).widget().refresh_card()
+        if self.content_area_widget_layout.count():
+            if self.content_area_widget_layout.itemAt(0).widget():
+                self.content_area_widget_layout.itemAt(0).widget().wiki_frame_settings.wiki_width = self.content_area.contentsRect().width() - 20
+                self.content_area_widget_layout.itemAt(0).widget().refresh_card()
+        self.loading(False)
 
     def lbl_search_pic_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
             self.content_area.setVisible(False)
             self.search_area.setVisible(True)
+            self._check_engine_selection_status()
 
     def lbl_content_pic_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
             self.content_area.setVisible(True)
             self.search_area.setVisible(False)
+            self._check_engine_selection_status()
 
     def btn_search_click(self):
         self.show_search_results(self.txt_search.text())
@@ -371,6 +385,16 @@ class Wikipedia(QDialog):
             self.ignore_checkbox_status_change = True
             self.chk_any.setChecked(False)
             self.ignore_checkbox_status_change = False
+        
+        if self.search_area.isVisible():
+            self.lbl_search_pic.setStyleSheet("QLabel {border-bottom: 3px solid; border-bottom-color: #00ffff;} QLabel:hover {background-color: #00007f;}")
+        else:
+            self.lbl_search_pic.setStyleSheet("QLabel {border-bottom: 0px solid; border-bottom-color: #00ffff;} QLabel:hover {background-color: #00007f;}")
+
+        if self.content_area.isVisible():
+            self.lbl_content_pic.setStyleSheet("QLabel {border-bottom: 3px solid; border-bottom-color: #00ffff;} QLabel:hover {background-color: #00007f;}")
+        else:
+            self.lbl_content_pic.setStyleSheet("QLabel {border-bottom: 0px solid; border-bottom-color: #00ffff;} QLabel:hover {background-color: #00007f;}")
 
     def loading(self, value: bool):
         if value:
@@ -396,13 +420,14 @@ class Wikipedia(QDialog):
         self.content_area_widget.setContentsMargins(0,0,0,0)
         self.search_area.setVisible(False)
         self.content_area.setVisible(True)
+        self._check_engine_selection_status()
         QCoreApplication.processEvents()
 
         # Get WikiCard
-        card_settings = {
-            "width": self.content_area.contentsRect().width() - 20,
-            "size_changed_feedback": self.wiki_card_size_changed
-        }
+        card_settings = self.wiki_settings
+        card_settings["width"] = self.wiki_settings.get("width", self.content_area.contentsRect().width() - 20)
+        card_settings["size_changed_feedback"] = self.wiki_card_size_changed
+
         self.wiki_card = wikipedia_card_cls.WikipediaCard(self.content_area, self._stt, url=url, card_setting=card_settings)
         self.content_area_widget_layout.insertWidget(0, self.wiki_card)
         self.content_area_widget.resize(self.wiki_card.width(), self.wiki_card.height() + 20)
@@ -443,6 +468,7 @@ class Wikipedia(QDialog):
         self.search_area_widget.setContentsMargins(0,0,0,0)
         self.content_area.setVisible(False)
         self.search_area.setVisible(True)
+        self._check_engine_selection_status()
 
         # Get SearchCard frame
         search_card_settings = {
@@ -681,7 +707,7 @@ class Wikipedia(QDialog):
 
         search_string = search_string.strip()
 
-        allowed_chars = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
+        allowed_chars = "abcdefghijklmnopqrstuvwxyzčćžšđČĆŽŠĐ ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
         cleaned_string = ""
         for char in search_string:
             if char in allowed_chars:
@@ -745,9 +771,9 @@ class Wikipedia(QDialog):
             g["pos_y"] = self.pos().y()
             g["width"] = self.width()
             g["height"] = self.height()
-            g["engine_duckduckgo"] = self.chk_duckduckgo.isChecked()
-            g["engine_yahoo"] = self.chk_yahoo.isChecked()
-            g["engine_brave"] = self.chk_brave.isChecked()
+        g["engine_duckduckgo"] = self.chk_duckduckgo.isChecked()
+        g["engine_yahoo"] = self.chk_yahoo.isChecked()
+        g["engine_brave"] = self.chk_brave.isChecked()
 
         return super().closeEvent(a0)
 
@@ -760,6 +786,7 @@ class Wikipedia(QDialog):
         self.frm_search.resize(w, self.frm_search.height())
         self.lbl_loading.resize(self.frm_search.width() - 4, self.frm_search.height() - 4)
         self.btn_search.move(self.frm_search.contentsRect().width() - self.btn_search.width() - 20, self.btn_search.pos().y())
+        self.btn_refresh.move(self.frm_search.contentsRect().width() - self.btn_refresh.width() - 20, self.btn_refresh.pos().y())
         self.txt_search.resize((self.btn_search.pos().x() - 10) - (self.lbl_search_title.pos().x() + self.lbl_search_title.width() + 10), self.txt_search.height())
         self.lbl_warning.resize(self.txt_search.width(), self.txt_search.height())
 
@@ -840,6 +867,15 @@ class Wikipedia(QDialog):
         self.btn_search.setFont(font)
         self.btn_search.setStyleSheet(self.getv("wiki_btn_search_stylesheet"))
         self.btn_search.setDefault(False)
+
+        self.btn_refresh = QPushButton(self.frm_search)
+        self.btn_refresh.move(10, search_text_y + search_text_h + 5)
+        self.btn_refresh.resize(100, search_text_h)
+        self.btn_refresh.setText(self.getl("wiki_btn_refresh_text"))
+        font.setPointSize(10)
+        self.btn_refresh.setFont(font)
+        self.btn_refresh.setStyleSheet(self.getv("wiki_btn_refresh_stylesheet"))
+        self.btn_refresh.setDefault(False)
 
         # Engines
         self.chk_any = QCheckBox(self.frm_search)

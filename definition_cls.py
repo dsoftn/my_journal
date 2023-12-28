@@ -1,18 +1,12 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QListWidget, QFileDialog, QDialog,
-    QLabel, QListWidgetItem, QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout, QCheckBox, QAction,
-    QProgressBar , QComboBox)
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QStaticText, QPixmap, QCursor, QTextCharFormat, QColor, QImage, QClipboard
-from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,
-    QPoint, QTimer, QThread, QDate, QUrl)
+from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridLayout, QWidget, QListWidget, 
+                             QDialog, QLabel, QListWidgetItem, QLineEdit, QHBoxLayout, QCheckBox, QAction,
+                             QProgressBar , QComboBox, QMessageBox)
+from PyQt5.QtGui import QIcon, QFont, QPixmap, QCursor, QTextCharFormat, QColor, QImage, QClipboard
+from PyQt5.QtCore import (QSize, Qt, QCoreApplication, QPoint)
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtMultimedia import QSound
 
-import datetime
 import time
-import copy
-import urllib.request
-import requests
 import wikipedia
 from googletrans import Translator
 import googletrans
@@ -26,6 +20,7 @@ import utility_cls
 import db_definition_cls
 import db_media_cls
 import text_handler_cls
+import definition_data_find_cls
 
 
 class SynonymManager(QDialog):
@@ -2077,6 +2072,7 @@ class ImageThumbItem(QLabel):
         self._media_id = media_id
         self._definition_id =  definition_id
         self._is_default = self._am_i_default()
+        self.img_src = None
 
         self._setup_label()
 
@@ -2104,6 +2100,7 @@ class ImageThumbItem(QLabel):
 
     def _setup_label(self):
         db_media = db_media_cls.Media(self._stt, self._media_id)
+        self.img_src = db_media.media_http
         img = QPixmap(db_media.media_file)
         self.setFixedSize(self.getv("definition_image_thumb_size"), self.getv("definition_image_thumb_size"))
         size = self.maximumSize()
@@ -2161,6 +2158,8 @@ class AddDefinition(QDialog):
         self.sound_auto_image_off = QSound(self.getv("def_add_auto_added_image_off_sound_file_path"))
         self.sound_auto_image_maximum = QSound(self.getv("def_add_auto_added_image_maximum_sound_file_path"))
         self.sound_pop_up = QSound(self.getv("notification_pop_up_sound_file_path"))
+        self.sound_completed = QSound(self.getv("completed_sound_file_path"))
+        self.sound_select = QSound(self.getv("select_sound_file_path"))
 
         db_def = db_definition_cls.Definition(self._stt)
         self.exp_list = db_def.get_list_of_all_expressions()
@@ -2196,7 +2195,9 @@ class AddDefinition(QDialog):
         # self.btn_save.clicked.connect(self._btn_save_click)
         self.btn_save.mouseReleaseEvent = self.btn_save_mouse_release
         self.btn_editor.clicked.connect(self._btn_editor_click)
+        self.btn_format_desc.clicked.connect(self._btn_format_desc_click)
         self.chk_auto_add.stateChanged.connect(self.chk_auto_add_state_changed)
+        self.btn_syn_find.clicked.connect(self._btn_syn_find_click)
 
         self.area.mousePressEvent = self.area_mouse_press
 
@@ -2236,7 +2237,78 @@ class AddDefinition(QDialog):
         else:
             self.txt_expression.setFocus()
             self.exec_()
-    
+
+    def _btn_syn_find_click(self):
+        self.sound_select.play()
+        images = []
+        for i in range(self.horizontalLayout.count()):
+            img_src = self.horizontalLayout.itemAt(i).widget().img_src
+            images.append(img_src)
+
+        definition_data_find_cls.DefinitionFinder(parent_widget=self, 
+                                                  settings=self._stt, 
+                                                  search_string=self.txt_expression.text(), 
+                                                  syn_list=self.txt_syn.toPlainText(),
+                                                  image_list=images,
+                                                  update_def_function=self.definition_update_function)
+
+    def definition_update_function(self, data: dict):
+        # Text
+        if data.get("update_text", None):
+            if data["text"]:
+                self.txt_desc.setPlainText(data["text"])
+
+        # Images
+        if data.get("update_images", None):
+            if data["replace_images"]:
+                # Delete existing images
+                for _ in range(self.horizontalLayout.count()):
+                    item = self.horizontalLayout.itemAt(0)
+                    item.widget().close()
+                    item.widget().deleteLater()
+                    self.horizontalLayout.removeItem(item)
+
+            self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_working_text"))
+            QCoreApplication.processEvents()
+            silent_add = utility_cls.SilentPictureAdd(self._stt)
+
+            not_added_images = ""
+
+            for image in data["images"]:
+                result = silent_add.add_image(source=image)
+                if result:
+                    if self._is_media_already_added(result):
+                        self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
+                        continue
+
+                    self._add_image_to_layout(result)
+                    self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
+                    self.sound_image_added.play()
+                else:
+                    self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
+                    not_added_images += f"{image}\n"
+
+                if not_added_images:
+                    QMessageBox.warning(self, self.getl("definition_add_error_online_img_add_title"), self.getl("definition_add_error_online_img_add_text") + f"\n{not_added_images}")
+                
+        # Synonyms
+        if data.get("update_syn", None):
+            text = ""
+            if data["append_syn"]:
+                text = self.txt_syn.toPlainText() + "\n\n"
+            text += data["syn"]
+            self.txt_syn.setPlainText(text)
+
+        # Return data
+        if data.get("return_data", None):
+            images = []
+            for i in range(self.horizontalLayout.count()):
+                img_src = self.horizontalLayout.itemAt(i).widget().img_src
+                images.append(img_src)
+            return self.txt_syn.toPlainText(), images
+
+        self.sound_auto_image_on.play()
+
     def user_select_definition(self, def_list: list) -> int:
         items = []
         db_def = db_definition_cls.Definition(self._stt)
@@ -2577,6 +2649,7 @@ class AddDefinition(QDialog):
                 self.close()
 
     def _btn_editor_click(self):
+        self.sound_select.play()
         DefinitionEditor(self._stt, self, self.txt_expression.text())
 
     def _txt_expression_return_pressed(self):
@@ -2877,6 +2950,7 @@ class AddDefinition(QDialog):
             self.resize(g["width"], g["height"])
 
     def _btn_add_media_click(self):
+        self.sound_select.play()
         if self._clip.number_of_images_in_clip:
             menu_dict = {
                 "position": QCursor().pos(),
@@ -3138,11 +3212,47 @@ class AddDefinition(QDialog):
         self._text_handler.show_definition_on_mouse_hover(e)
         QTextEdit.mouseMoveEvent(self.txt_desc, e)
 
+    def _btn_format_desc_click(self):
+        self.sound_select.play()
+        QCoreApplication.processEvents()
+        self.txt_desc.setText(self._clear_unnecessary_spaces(self.txt_desc.toPlainText()))
+        self.txt_desc.setText(self._remove_wiki_from_text(self.txt_desc.toPlainText()))
+        self.sound_completed.play()
+
     def _txt_desc_double_click(self, e):
         if self.getv("definition_add_remove_wiki_[]_from_description"):
+            self.sound_select.play()
+            QCoreApplication.processEvents()
+            self.txt_desc.setText(self._clear_unnecessary_spaces(self.txt_desc.toPlainText()))
             self.txt_desc.setText(self._remove_wiki_from_text(self.txt_desc.toPlainText()))
+            self.sound_completed.play()
         QTextEdit.mouseDoubleClickEvent(self.txt_desc, e)
+
+    def _clear_unnecessary_spaces(self, txt: str) -> str:
+        replace_map = [
+            ["  ", " "],
+            [" .", "."],
+            [" ,", ","],
+            [" ?", "?"],
+            [" !", "!"],
+            [" :", ":"],
+            [" ;", ";"],
+            [" )", ")"],
+            ["( ", "("],
+            ["\n ", "\n"],
+            ["\t", " "]
+        ]
+        while True:
+            can_exit = True
+            for i in replace_map:
+                if i[0] in txt:
+                    txt = txt.replace(i[0], i[1])
+                    can_exit = False
+            if can_exit:
+                break
         
+        return txt
+
     def _remove_wiki_from_text(self, txt: str) -> str:
         items = self._find_wiki_links(txt)
         
@@ -3285,7 +3395,9 @@ class AddDefinition(QDialog):
 
     def _setup_widgets(self):
         self.lbl_title: QLabel = self.findChild(QLabel, "lbl_title")
-        self.lbl_syn: QLabel = self.findChild(QLabel, "lbl_syn")
+        self.frm_syn: QFrame = self.findChild(QFrame, "frm_syn")
+        self.btn_syn_find: QPushButton = self.findChild(QPushButton, "btn_syn_find")
+        self.lbl_syn_pic: QLabel = self.findChild(QLabel, "lbl_syn_pic")
         self.txt_expression: QLineEdit = self.findChild(QLineEdit, "txt_expression")
         self.txt_desc: QTextEdit = self.findChild(QTextEdit, "txt_desc")
         self.txt_syn: QTextEdit = self.findChild(QTextEdit, "txt_syn")
@@ -3293,6 +3405,7 @@ class AddDefinition(QDialog):
         self.btn_save: QPushButton = self.findChild(QPushButton, "btn_save")
         self.btn_cancel: QPushButton = self.findChild(QPushButton, "btn_cancel")
         self.btn_editor: QPushButton = self.findChild(QPushButton, "btn_editor")
+        self.btn_format_desc: QPushButton = self.findChild(QPushButton, "btn_format_desc")
         self.gridLayout: QGridLayout = self.findChild(QGridLayout, "gridLayout")
         self.frm_media: QFrame = self.findChild(QFrame, "frm_media")
         self.chk_auto_add: QCheckBox = self.findChild(QCheckBox, "chk_auto_add")
@@ -3314,6 +3427,12 @@ class AddDefinition(QDialog):
         self._widget.setLayout(self.horizontalLayout)
         self.area.setWidget(self._widget)
 
+    def resizeEvent(self, a0: QtGui.QResizeEvent) -> None:
+        self.btn_syn_find.move(max(int((self.frm_syn.width() - self.btn_syn_find.width()) / 2), 5), max(5, self.frm_syn.height() - self.btn_syn_find.height() - 5))
+        self.lbl_syn_pic.move(5, 5)
+        self.lbl_syn_pic.resize(self.frm_syn.width() - 10, self.frm_syn.height() - 33)
+        return super().resizeEvent(a0)
+
     def _setup_widgets_text(self):
         self.setWindowTitle(self.getl("definition_add_win_title_text"))
         if self._definition_id:
@@ -3323,8 +3442,8 @@ class AddDefinition(QDialog):
             self.lbl_title.setText(self.getl("definition_add_title_text"))
             self.lbl_title.setToolTip(self.getl("definition_add_title_tt"))
         
-        self.lbl_syn.setText(self.getl("definition_add_lbl_syn_text"))
-        self.lbl_syn.setToolTip(self.getl("definition_add_lbl_syn_tt"))
+        self.btn_syn_find.setText(self.getl("definition_add_btn_syn_find_text"))
+        self.btn_syn_find.setToolTip(self.getl("definition_add_btn_syn_find_tt"))
 
         self.txt_expression.setPlaceholderText(self.getl("definition_add_expr_placeholder"))
         self.txt_expression.setToolTip(self.getl("definition_add_expr_tt"))
@@ -3336,6 +3455,8 @@ class AddDefinition(QDialog):
         self.btn_add_media.setToolTip(self.getl("definition_add_btn_add_media_tt"))
         self.btn_editor.setText(self.getl("definition_add_btn_editor_text"))
         self.btn_editor.setToolTip(self.getl("definition_add_btn_editor_tt"))
+        self.btn_format_desc.setText(self.getl("definition_add_btn_format_desc_text"))
+        self.btn_format_desc.setToolTip(self.getl("definition_add_btn_format_desc_tt"))
         self.btn_cancel.setText(self.getl("btn_cancel"))
         self.btn_save.setText(self.getl("btn_save"))
 
@@ -3348,12 +3469,12 @@ class AddDefinition(QDialog):
     def _setup_widgets_apperance(self):
         self._define_definition_win_apperance()
         self._define_labels_apperance(self.lbl_title, "definition_add_title")
-        self._define_labels_apperance(self.lbl_syn, "definition_add_lbl_syn")
         
         self._define_buttons_apperance(self.btn_add_media, "definition_add_btn_media")
         self._define_buttons_apperance(self.btn_save, "definition_add_btn_save")
         self._define_buttons_apperance(self.btn_cancel, "definition_add_btn_cancel")
         self._define_buttons_apperance(self.btn_editor, "definition_add_btn_editor")
+        self._define_buttons_apperance(self.btn_format_desc, "definition_add_btn_format_desc")
         
         self._define_text_box_apperance(self.txt_expression, "definition_txt_expr")
         self._define_text_box_apperance(self.txt_syn, "definition_txt_syn")
@@ -3363,6 +3484,7 @@ class AddDefinition(QDialog):
         self.chk_auto_add.setStyleSheet(self.getv("definition_add_chk_auto_add_stylesheet"))
 
         self.lbl_loading.setStyleSheet(self.getv("definition_add_lbl_loading_stylesheet"))
+        self.lbl_syn_pic.setScaledContents(True)
 
     def _define_definition_win_apperance(self):
         self.setStyleSheet(self.getv("definition_add_win_stylesheet"))

@@ -1,41 +1,18 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QListWidget, QFileDialog, QDialog,
-    QLabel, QListWidgetItem, QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout,
-    QComboBox, QSlider, QProgressBar, QCheckBox, QFileIconProvider, QApplication, QTreeWidget,
-    QTreeWidgetItem, QRadioButton, QGroupBox, QGraphicsOpacityEffect, QSpinBox)
-from PyQt5.QtGui import (QIcon, QFont, QFontMetrics, QStaticText, QPixmap, QCursor, QDesktopServices,
-     QImage, QClipboard, QColor, QTextCharFormat)
-from PyQt5.QtCore import (QMetaMethod, QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,
-    QPoint, QTimer, QThread, QDate, QEvent, QUrl, QFileInfo, QMimeDatabase)
-from PyQt5 import uic, QtGui, QtCore
-from PyQt5.QtMultimedia import QSound
+from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QWidget, QListWidget, QLabel,
+                             QListWidgetItem, QLineEdit, QHBoxLayout, QCheckBox, QRadioButton, QGraphicsOpacityEffect,
+                             QSpinBox)
+from PyQt5.QtGui import QIcon, QFont, QPixmap, QCursor, QColor, QTextCharFormat
+from PyQt5.QtCore import QSize, Qt, QCoreApplication, QTimer, QEvent
+from PyQt5 import uic, QtGui
 
-
-from googletrans import Translator
-import googletrans
-import datetime
 import time
-import copy
-import hashlib
-import urllib.request
-from urllib.parse import urlparse
 import os
-import shlex
-import winreg
-import shutil
-import mimetypes
-import json
 import random
 import sqlite3
 
 import settings_cls
 import text_handler_cls
-import db_media_cls
-import db_record_cls
-import db_record_data_cls
-import db_definition_cls
 import text_handler_cls
-import definition_cls
 import utility_cls
 import net_cls
 

@@ -1,5 +1,3 @@
-import numpy as np
-
 import database_cls
 import settings_cls
 import db_media_cls

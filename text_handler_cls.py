@@ -1,12 +1,7 @@
-from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout,
-    QGridLayout, QWidget, QSpacerItem, QSizePolicy, QListWidget, QFileDialog, QDialog,
-    QLabel, QListWidgetItem, QDesktopWidget, QLineEdit, QCalendarWidget, QHBoxLayout,
-    QGraphicsOpacityEffect)
-from PyQt5.QtGui import (QIcon, QFont, QFontMetrics, QStaticText, QPixmap, QCursor,
-    QTextCharFormat, QColor)
-from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,
-    QPoint, QTimer, QThread, QDate, QPropertyAnimation)
-from PyQt5 import uic, QtGui, QtCore
+from PyQt5.QtWidgets import QFrame, QPushButton, QTextEdit, QLabel, QGraphicsOpacityEffect
+from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QPixmap, QCursor, QTextCharFormat, QColor
+from PyQt5.QtCore import Qt, QCoreApplication, QRect, QPoint, QTimer
+from PyQt5 import uic, QtGui
 from PyQt5.QtMultimedia import QSound
 
 import time
@@ -16,18 +11,13 @@ import difflib
 import os
 
 import settings_cls
-import log_cls
-import users_cls
-import database_cls
-import db_record_cls
 import db_record_data_cls
 import utility_cls
-import db_tag_cls
 import definition_cls
 import db_definition_cls
 import db_media_cls
 import webbrowser
-
+import wikipedia_cls
 import block_widgets_cls
 import dict_cls
 
@@ -1822,7 +1812,7 @@ class TextHandler():
             numbers_selection = 86020
 
         if not self.txt_box._data_dict["media"]:
-            disab.append(135)
+            disab.append(139)
 
         selected_items = [hl_stat, ac_stat, def_mark, def_show_simple, hyperlink_selected, numbers_selection]
         separator_items = [20, 60, 86, 105, 133, 145, 150, 160]
@@ -1948,7 +1938,7 @@ class TextHandler():
             selected_items.append(8720)
 
         # Dictionaries Notification
-        separator_items.append(134)
+        separator_items.append(135)
         if sel_text:
             dict_search_term = f"({sel_text})"
         elif hl_word:
@@ -2411,6 +2401,14 @@ class TextHandler():
                 ],
                 [
                     135,
+                    self.getl("block_txt_box_menu_wiki_search_text").replace("#1", dict_search_term),
+                    self.getl("block_txt_box_menu_wiki_search_tt"),
+                    True,
+                    [],
+                    self.getv("wiki_logo_icon_path")
+                ],
+                [
+                    139,
                     self.getl("block_txt_box_menu_browse_images_text"),
                     self.getl("block_txt_box_menu_browse_images_tt"),
                     True,
@@ -2573,7 +2571,7 @@ class TextHandler():
             self.setv("definition_show_on_mouse_hover", False)
         elif self.get_appv("menu")["result"] == 130:
             db_def = definition_cls.ViewDefinition(self._stt, self.txt_box, definition_id)
-        elif self.get_appv("menu")["result"] == 135:
+        elif self.get_appv("menu")["result"] == 139:
             if self.txt_box._data_dict["media"]:
                 utility_cls.PictureBrowse(self._stt, self._main_win, self.txt_box._data_dict["media"])
         elif self.get_appv("menu")["result"] == 140:
@@ -2810,6 +2808,11 @@ class TextHandler():
                     self.setv("def_extra_image_animate_show", rslt)
         elif self.get_appv("menu")["result"] == 134:
             self.dicts.show_word(dict_search_term.strip("()"))
+        elif self.get_appv("menu")["result"] == 135:
+            search_string = sel_text
+            if not search_string:
+                search_string = dict_search_term.strip("()")
+            wikipedia_cls.Wikipedia(self.txt_box, self._stt, search_string)
         elif self.get_appv("menu")["result"] == 134010:
             self.setv("dictionaries_search_notification", True)
         elif self.get_appv("menu")["result"] == 134020:

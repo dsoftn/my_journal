@@ -23,16 +23,6 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="3" column="1">
-     <widget class="QPushButton" name="btn_editor">
-      <property name="text">
-       <string>Editor</string>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0" colspan="3">
      <widget class="QLineEdit" name="txt_expression">
       <property name="font">
@@ -63,27 +53,12 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="1" colspan="2">
-     <widget class="QLabel" name="lbl_syn">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>150</height>
-       </size>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-      <property name="textInteractionFlags">
-       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-      </property>
-     </widget>
-    </item>
     <item row="9" column="2" alignment="Qt::AlignRight">
      <widget class="QPushButton" name="btn_cancel">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {color: #00ff00; background-color: #5b1d2f;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(255, 69, 97), stop:1 rgb(255, 137, 145));}
+</string>
+      </property>
       <property name="text">
        <string>Cancel</string>
       </property>
@@ -91,6 +66,9 @@
     </item>
     <item row="9" column="1" alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="btn_save">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}</string>
+      </property>
       <property name="text">
        <string>Save</string>
       </property>
@@ -139,6 +117,9 @@
          <width>171</width>
          <height>23</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}</string>
        </property>
        <property name="text">
         <string>Add Media</string>
@@ -227,6 +208,78 @@ color: rgb(255, 255, 0);</string>
         <bool>false</bool>
        </property>
       </widget>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="2">
+     <widget class="QFrame" name="frm_syn">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QPushButton" name="btn_syn_find">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>141</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}</string>
+       </property>
+       <property name="text">
+        <string>Find OnLine</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbl_syn_pic">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>5</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../images/definition_data_find.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="btn_editor">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}</string>
+      </property>
+      <property name="text">
+       <string>Editor</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="btn_format_desc">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 85, 0), stop:1 rgb(0, 198, 0));}
+</string>
+      </property>
+      <property name="text">
+       <string>Format description</string>
+      </property>
      </widget>
     </item>
    </layout>

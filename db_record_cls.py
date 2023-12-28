@@ -1,7 +1,6 @@
 import database_cls
 import settings_cls
 import utility_cls
-import db_record_data_cls
 
 
 class Record():
