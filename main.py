@@ -1528,7 +1528,7 @@ class MyJournal(QMainWindow):
         return super().mousePressEvent(a0)
 
     def mnu_open_click(self):
-        definition_data_find_cls.DefinitionFinder(self, stt)
+        app_settings_cls.Settings(stt, self)
         # app_settings_cls.Settings(stt, self)
 
     def mnu_file_save_active_block_triggered(self) -> None:

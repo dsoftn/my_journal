@@ -50,7 +50,7 @@ class Settings(QDialog):
             self._stt.app_setting_add("app_settings_shared_variable", {})
         self.data: dict = self.get_appv("app_settings_shared_variable")
 
-        # Define other variables
+        # Define variables
         self._parent_widget = parent_widget
 
         self._setup_widgets()

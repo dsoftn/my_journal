@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QWidget, QLabel, QLineEdit, QListWidget, QListWidgetItem,
-                             QSpinBox, QTextEdit)
-from PyQt5.QtGui import QPixmap, QMouseEvent, QResizeEvent, QIcon, QFontMetrics
+                             QSpinBox, QTextEdit, QScrollArea, QVBoxLayout, QProgressBar)
+from PyQt5.QtGui import QPixmap, QMouseEvent, QResizeEvent, QIcon, QFontMetrics, QColor, QFont
 from PyQt5.QtCore import QSize, Qt, QCoreApplication
 from PyQt5 import uic
 from PyQt5.QtMultimedia import QSound
@@ -17,7 +17,9 @@ from online_abstract_topic import AbstractTopic
 class Numbers(QFrame):
     def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, data: dict) -> None:
         """
+        data["width] = int | None
         data["border] = boolean
+        data["background"]: string
         data["hor_padding"] = int
         data["ver_padding"] = int
         data["hor_spacing"] = int
@@ -27,6 +29,9 @@ class Numbers(QFrame):
         data["number_height"] = int
         data["number_image_path"] = string
         data["feedback_click_function"] = function
+        data["has_cancel"] = boolean
+        data["marked_numbers"] = list of marked numbers
+        data["marked_numbers_icon_path"] = string
         """
         super().__init__(parent_widget)
         
@@ -64,7 +69,11 @@ class Numbers(QFrame):
         # Create new widgets
         for number in numbers:
             lbl_pic = QLabel(self)
-            lbl_pic.setPixmap(QPixmap(self.data["number_image_path"]))
+            lbl_pic.setStyleSheet("QLabel {border: 0px;}")
+            if number in self.data["marked_numbers"]:
+                lbl_pic.setPixmap(QPixmap(self.data["marked_numbers_icon_path"]))
+            else:
+                lbl_pic.setPixmap(QPixmap(self.data["number_image_path"]))
             lbl_pic.resize(self.data["number_width"], self.data["number_height"])
             lbl_pic.setScaledContents(True)
             lbl_pic.move(x, y)
@@ -75,21 +84,26 @@ class Numbers(QFrame):
             lbl_value.setFont(font)
             lbl_value.move(x, y)
             lbl_value.resize(self.data["number_width"] - 2, self.data["number_height"] - 2)
-            lbl_value.setStyleSheet("QLabel {color: rgb(255, 255, 0); background-color: rgba(255, 255, 255, 0);} QLabel:hover {color: rgb(230, 255, 0);}")
-            lbl_value.setCursor(Qt.PointingHandCursor)
+            lbl_value.setStyleSheet("QLabel {color: rgb(255, 255, 0); background-color: rgba(255, 255, 255, 0); border: 0px;} QLabel:hover {color: rgb(230, 255, 0); border: 0px;}")
+            # lbl_value.setCursor(Qt.PointingHandCursor)
             lbl_value.mousePressEvent = lambda event, number=number: self._on_number_clicked(event, number)
 
             x += self.data["number_width"] + self.data["hor_spacing"]
+            if self.data["width"]:
+                if x + self.data["number_width"] + self.data["hor_spacing"] > self.data["width"]:
+                    x = self.data["hor_padding"]
+                    y += self.data["number_height"] + self.data["ver_spacing"]
         
-        lbl_remove = QLabel(self)
-        lbl_remove.setPixmap(QPixmap(self.getv("cancel_icon_path")))
-        lbl_remove.resize(self.data["number_width"], self.data["number_height"])
-        lbl_remove.setScaledContents(True)
-        lbl_remove.move(x, y)
-        lbl_remove.setStyleSheet("QLabel:hover {background-color: #5ad9ff;}")
-        lbl_remove.setToolTip("Obriši ovu kombinaciju !")
-        x += self.data["number_width"] + self.data["hor_spacing"]
-        lbl_remove.mousePressEvent = lambda event, number=numbers: self._on_number_clicked(event, number)
+        if self.data["has_cancel"]:
+            lbl_remove = QLabel(self)
+            lbl_remove.setPixmap(QPixmap(self.getv("cancel_icon_path")))
+            lbl_remove.resize(self.data["number_width"], self.data["number_height"])
+            lbl_remove.setScaledContents(True)
+            lbl_remove.move(x, y)
+            lbl_remove.setStyleSheet("QLabel {border: 0px;} QLabel:hover {background-color: #5ad9ff; border: 0px;}")
+            lbl_remove.setToolTip("Obriši ovu kombinaciju !")
+            x += self.data["number_width"] + self.data["hor_spacing"]
+            lbl_remove.mousePressEvent = lambda event, number=numbers: self._on_number_clicked(event, number)
 
         self.resize(x - self.data["hor_spacing"] + self.data["hor_padding"], y + self.data["number_height"] + self.data["ver_padding"])
 
@@ -100,32 +114,47 @@ class Numbers(QFrame):
 
     def _populate_data(self, data: dict) -> dict:
         result = {
+            "width": data.get("width", None),
             "border": data.get("border", True),
-            "hor_padding": data.get("hor_padding", 0),
-            "ver_padding": data.get("ver_padding", 0),
-            "hor_spacing": data.get("hor_spacing", 0),
-            "ver_spacing": data.get("ver_spacing", 0),
+            "background": data.get("background", None),
+            "hor_padding": data.get("hor_padding", 5),
+            "ver_padding": data.get("ver_padding", 5),
+            "hor_spacing": data.get("hor_spacing", 5),
+            "ver_spacing": data.get("ver_spacing", 10),
             "numbers": data.get("numbers", []),
             "number_width": data.get("number_width", 0),
             "number_height": data.get("number_height", 0),
             "number_image_path": data.get("number_image_path", self.getv("ball_red_icon_path")),
-            "feedback_click_function": data.get("feedback_click_function", None)
+            "feedback_click_function": data.get("feedback_click_function", None),
+            "has_cancel": data.get("has_cancel", True),
+            "marked_numbers": data.get("marked_numbers", []),
+            "marked_numbers_icon_path": data.get("marked_numbers_icon_path", "")
         }
         return result
 
     def _create_frame(self):
         self.setFrameShadow(QFrame.Plain)
         self.setFrameShape(QFrame.Box)
-        if self.data["border"]:
-            self.setLineWidth(1)
+        self.setLineWidth(0)
+
+        if self.data["background"]:
+            bg_stylesheet = f"background-color: {self.data['background']};"
         else:
-            self.setLineWidth(0)
+            bg_stylesheet = ""
+
+        if self.data["border"]:
+            brd_stylesheet = "border-color: #d40000; border-style: solid; border-width: 1px;"
+        else:
+            brd_stylesheet = "border: 0px;"
+
+        stylesheet = "QFrame {" + bg_stylesheet + brd_stylesheet + "}"
+        self.setStyleSheet(stylesheet)
 
 
 class WorkingFrame(QFrame):
     def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, data: dict) -> None:
         """
-        data["type"] = string (add_komb, add_sys, edit_komb, edit_sys)
+        data["type"] = string (add_komb, add_sys, edit_komb, edit_sys, winnings)
         data["item_type"] = string (komb, sys)
         data["width"] = int
         data["item"] = dict
@@ -155,15 +184,963 @@ class WorkingFrame(QFrame):
             self.max_numbers_pool = 39
 
         self.selected_kombs = []
+
+        self.pick_numbers_update_function = None
+
         self.sound_max_numbers_reached = QSound(self.getv("def_add_auto_added_image_error_sound_file_path"))
+        self.sound_loto6 = QSound(self.getv("loto6_sound_file_path"))
+        self.sound_loto7 = QSound(self.getv("loto7_sound_file_path"))
+        self.sound_loto5 = QSound(self.getv("loto5_sound_file_path"))
+
 
         if "view" in self.data["type"]:
-            self._create_frame()
-        else:
             self._create_view_frame()
+        elif "winnings" in self.data["type"]:
+            self._create_winnings_frame()
+        else:
+            self._create_frame()
+
+    def _create_winnings_frame(self):
+        w = self.data["width"]
+        self.area = QScrollArea(self)
+        self.area_widget = QWidget(self.area)
+        self.area_widget_layout = QVBoxLayout(self.area_widget)
+        self.area_widget.setLayout(self.area_widget_layout)
+        self.area.setWidget(self.area_widget)
+        self.area.setWidgetResizable(True)
+        self.area.move(0, 0)
+        self.area.resize(w, self.data["height"])
+        # Set margins to 0
+        self.area_widget_layout.setContentsMargins(0, 0, 0, 0)
+        self.area_widget_layout.setSpacing(0)
+
+        # if len(self.data["kombs"] * len(self.data["rounds"])) > 20:
+        #     lbl = QLabel(self.area)
+        #     lbl.setText("Računam...\n\nMolim sačekajte...")
+        #     lbl.setAlignment(Qt.AlignCenter)
+        #     lbl.setFixedHeight(self.data["height"])
+        #     lbl.setFont(QFont("Arial", 26))
+        #     self.area_widget_layout.addWidget(lbl)
+        #     self.show()
+        #     QCoreApplication.processEvents()
+
+        for loto_komb in self.data["kombs"]:
+            if len(self.data["rounds"]) == 1:
+                expanded = True
+            else:
+                expanded = False
+            loto_winnning_frame = self._create_winning_komb_frame(loto_komb, self.data["rounds"], expanded=expanded)
+            self.area_widget_layout.addWidget(loto_winnning_frame)
+        
+        # if len(self.data["kombs"] * len(self.data["rounds"])) > 20:
+        #     self.area_widget_layout.takeAt(0)
+        #     lbl.deleteLater()
+        #     lbl = None
+        #     QCoreApplication.processEvents()
+
+        h = 10
+        for item in range(self.area_widget_layout.count()):
+            h += self.area_widget_layout.itemAt(item).widget().height()
+
+        if len(self.data["kombs"] * len(self.data["rounds"])) == 0:
+            h = self.data["height"] - 10
+            lbl = QLabel(self.area_widget)
+            lbl.setText("Nema izabrane kombinacije ili sistema !\n\nMolim odaberite kombinaciju i sistem !")
+            lbl.setAlignment(Qt.AlignCenter)
+            lbl.setFont(QFont("Arial", 26))
+            lbl.setWordWrap(True)
+            lbl.setStyleSheet("color: #ff0000; background-color: #000000;")
+            lbl.setFixedSize(w - 10, h)
+            self.area_widget_layout.addWidget(lbl)
+            lbl.show()
+            self.area_widget.resize(w-10, h)
+
+        self.area_widget.setFixedHeight(h)
+        self.area.show()
+
+    def _create_winning_komb_frame(self, loto_komb: dict, rounds: list, expanded: bool):
+        w = self.data["width"] - 20
+        h = self.data["height"]
+
+        # Frame
+        frm = QFrame(self.area_widget)
+        frm.setFrameShape(QFrame.NoFrame)
+        frm.setFrameShadow(QFrame.Plain)
+        frm.setLineWidth(0)
+        # frm.setStyleSheet("border: 1px solid rgb(0, 255, 0);")
+        frm.setFixedWidth(w)
+        w = w - 20
+
+        # Title
+        lbl_title = QLabel(frm)
+        if loto_komb["type"] == "sys":
+            lbl_title.setText(f"Sistem {loto_komb['name']}")
+        else:
+            lbl_title.setText(f"Kombinacija {loto_komb['name']}")
+        lbl_title.setAlignment(Qt.AlignCenter)
+        lbl_title.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        lbl_title.setWordWrap(True)
+        font = lbl_title.font()
+        font.setPointSize(20)
+        font.setBold(True)
+        lbl_title.setFont(font)
+        lbl_title.setStyleSheet("color: rgb(255, 255, 0); background-color: rgb(0, 61, 0);")
+        lbl_title.move(10, 5)
+        lbl_title.setFixedWidth(w - 20)
+        lbl_title.adjustSize()
+        y = lbl_title.height() + 10
+
+        x = 10
+        total_winings = 0
+        total_cost = 0
+        prg_data = {
+            "title": "Molim sačekajte...",
+            "max_value": len(rounds),
+            "value": 0,
+            "item_name": loto_komb["name"],
+            "action": "show",
+            "step": 4
+        }
+        self.data["feedback_function"](prg_data, "progress")
+        prg_data["action"] = "update"
+        for idx, round_item in enumerate(rounds):
+            prg_data["value"] = idx
+            self.data["feedback_function"](prg_data, "progress")
+
+            winings = self._get_winning_data(loto_komb, round_item)
+            if loto_komb["type"] == "sys":
+                data = {
+                    "width": w - 20,
+                    "border": False,
+                    "numbers": loto_komb["sys_selected_numbers"],
+                    "number_width": 20,
+                    "number_height": 20,
+                    "number_image_path": self.getv("ball_white_icon_path"),
+                    "has_cancel": False,
+                    "marked_numbers": [int(x) for x in round_item["loto_numbers"]],
+                    "marked_numbers_icon_path": self.getv("ball_red_icon_path")
+                }
+                frm_sys_numbers_loto = Numbers(frm, self._stt, data)
+                frm_sys_numbers_loto.setParent(frm)
+                frm_sys_numbers_loto.move(x, y)
+                
+                has_all_numbers = True
+                count = 0
+                for i in round_item["loto_numbers"]:
+                    if int(i) not in loto_komb["sys_selected_numbers"]:
+                        has_all_numbers = False
+                    else:
+                        count += 1
+                        
+                loto_sys_spacing = 50
+                if has_all_numbers:
+                    lbl_sedmica_loto = QLabel(frm)
+                    lbl_sedmica_loto.setAlignment(Qt.AlignCenter)
+                    lbl_sedmica_loto.setPixmap(QPixmap(self.getv("online_topic_dls_sedmica_icon_path")))
+                    lbl_sedmica_loto.setScaledContents(True)
+                    lbl_sedmica_loto.resize(108, 20)
+                    lbl_sedmica_loto.move(x + frm_sys_numbers_loto.width() + 10, y)
+                    loto_sys_spacing = 130
+                else:
+                    lbl_sedmica_loto = QLabel(frm)
+                    lbl_sedmica_loto.setAlignment(Qt.AlignCenter)
+                    lbl_sedmica_loto.setText(str(count))
+                    font = lbl_sedmica_loto.font()
+                    font.setPointSize(16)
+                    font.setBold(True)
+                    lbl_sedmica_loto.setFont(font)
+                    if count == 6:
+                        lbl_sedmica_loto.setStyleSheet("color: #00ff00; background-color: #ff0000;")
+                    elif count == 5:
+                        lbl_sedmica_loto.setStyleSheet("color: #00ff00;")
+                    elif count == 4 or count == 3:
+                        lbl_sedmica_loto.setStyleSheet("color: #ffffff;")
+                    else:
+                        lbl_sedmica_loto.setStyleSheet("color: #8b8b8b;")
+                    lbl_sedmica_loto.setFixedSize(30, 20)
+                    lbl_sedmica_loto.move(x + frm_sys_numbers_loto.width() + 10, y)
+
+                y += frm_sys_numbers_loto.height() + 5
+            
+                data = {
+                    "width": w - 20,
+                    "border": False,
+                    "numbers": loto_komb["sys_selected_numbers"],
+                    "number_width": 20,
+                    "number_height": 20,
+                    "number_image_path": self.getv("ball_white_icon_path"),
+                    "has_cancel": False,
+                    "marked_numbers": [int(x) for x in round_item["loto_plus_numbers"]],
+                    "marked_numbers_icon_path": self.getv("ball_blue_icon_path")
+                }
+                frm_sys_numbers_loto_plus = Numbers(frm, self._stt, data)
+                frm_sys_numbers_loto_plus.setParent(frm)
+                if frm_sys_numbers_loto.width() + loto_sys_spacing + frm_sys_numbers_loto_plus.width() < w:
+                    y -= (frm_sys_numbers_loto.height() + 5)
+                    x_loto_plus = x + frm_sys_numbers_loto.width() + loto_sys_spacing
+                else:
+                    x_loto_plus = x
+                frm_sys_numbers_loto_plus.move(x_loto_plus, y)
+
+                has_all_numbers = True
+                count = 0
+                for i in round_item["loto_plus_numbers"]:
+                    if int(i) not in loto_komb["sys_selected_numbers"]:
+                        has_all_numbers = False
+                    else:
+                        count += 1
+                if has_all_numbers:
+                    lbl_sedmica_loto_plus = QLabel(frm)
+                    lbl_sedmica_loto_plus.setAlignment(Qt.AlignCenter)
+                    lbl_sedmica_loto_plus.setPixmap(QPixmap(self.getv("online_topic_dls_sedmica_icon_path")))
+                    lbl_sedmica_loto_plus.setScaledContents(True)
+                    lbl_sedmica_loto_plus.resize(108, 20)
+                    lbl_sedmica_loto_plus.move(x_loto_plus + frm_sys_numbers_loto_plus.width() + 10, y)
+                else:
+                    lbl_sedmica_loto_plus = QLabel(frm)
+                    lbl_sedmica_loto_plus.setAlignment(Qt.AlignCenter)
+                    lbl_sedmica_loto_plus.setText(str(count))
+                    font = lbl_sedmica_loto_plus.font()
+                    font.setPointSize(16)
+                    font.setBold(True)
+                    lbl_sedmica_loto_plus.setFont(font)
+                    if count == 6:
+                        lbl_sedmica_loto_plus.setStyleSheet("color: #00ff00; background-color: #ff0000;")
+                    elif count == 5:
+                        lbl_sedmica_loto_plus.setStyleSheet("color: #00ff00;")
+                    elif count == 4 or count == 3:
+                        lbl_sedmica_loto_plus.setStyleSheet("color: #ffffff;")
+                    else:
+                        lbl_sedmica_loto_plus.setStyleSheet("color: #8b8b8b;")
+                    lbl_sedmica_loto_plus.setFixedSize(30, 20)
+                    lbl_sedmica_loto_plus.move(x_loto_plus + frm_sys_numbers_loto_plus.width() + 10, y)
+
+                y += frm_sys_numbers_loto_plus.height() + 5
+
+            # Label Info
+            if len(rounds) < 10:
+                font_size = 16
+                delim_char = "\n"
+            else:
+                font_size = 12
+                delim_char = "      "
+
+            lbl_info = QLabel(frm)
+            lbl_info.setTextInteractionFlags(lbl_info.textInteractionFlags() | Qt.TextSelectableByMouse)
+            lbl_info.setWordWrap(True)
+            lbl_info.move(x, y)
+            lbl_info.setFixedWidth(w - 20)
+
+            text_to_html = utility_cls.TextToHTML()
+            text_to_html.general_rule.fg_color = "rgb(170, 255, 127)"
+            text_to_html.general_rule.font_size = font_size
+            text = f'Kolo #--1  Godina #--2   Datum: #--3{delim_char}'
+            rule = utility_cls.TextToHtmlRule(
+                text="#--1",
+                replace_with=round_item["round"],
+                fg_color="rgb(255, 0, 0)"
+            )
+            text_to_html.add_rule(rule)
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#--2",
+                replace_with=round_item["year"],
+                fg_color="rgb(255, 0, 0)"
+            )
+            text_to_html.add_rule(rule)
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#--3",
+                replace_with=round_item["date"],
+                fg_color="#aa007f"
+            )
+            text_to_html.add_rule(rule)
+
+            text += "Loto dobici:  #--4"
+
+            if winings["loto_win7"]["winnings"]:
+                if len(rounds) == 1:
+                    self.sound_loto7.play()
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--4",
+                    replace_with="Sedmica: " + str(winings["loto_win7"]["winnings"]),
+                    fg_color="#ffff00",
+                    bg_color="#ff0000",
+                    font_size=50,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--4",
+                    replace_with="Sedmica: " + str(winings["loto_win7"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += "   #--5"
+            if winings["loto_win6"]["winnings"]:
+                if len(rounds) == 1:
+                    self.sound_loto6.play()
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--5",
+                    replace_with="Šestica: " + str(winings["loto_win6"]["winnings"]),
+                    fg_color="#ffff00",
+                    bg_color="#aa0000",
+                    font_size=36,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--5",
+                    replace_with="Šestica: " + str(winings["loto_win6"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += "   #--6"
+            if winings["loto_win5"]["winnings"]:
+                if len(rounds) == 1:
+                    self.sound_loto5.play()
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--6",
+                    replace_with="Petica: " + str(winings["loto_win5"]["winnings"]),
+                    fg_color="#ffff00",
+                    bg_color="#9e6900",
+                    font_size=26,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--6",
+                    replace_with="Petica: " + str(winings["loto_win5"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += "   #--7"
+            if winings["loto_win4"]["winnings"]:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--7",
+                    replace_with="Četvorka: " + str(winings["loto_win4"]["winnings"]),
+                    fg_color="#ffff00",
+                    font_size=16,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--7",
+                    replace_with="Četvorka: " + str(winings["loto_win4"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += "   #--8"
+            if winings["loto_win3"]["winnings"]:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--8",
+                    replace_with="Trojka: " + str(winings["loto_win3"]["winnings"]),
+                    fg_color="#ffff00",
+                    font_size=16,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--8",
+                    replace_with="Trojka: " + str(winings["loto_win3"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += f"{delim_char}Loto Plus dobitak: #--9"
+            if winings["loto_plus_win7"]["winnings"]:
+                if len(rounds) == 1:
+                    self.sound_loto7.play()
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--9",
+                    replace_with="Sedmica: " + str(winings["loto_plus_win7"]["winnings"]),
+                    fg_color="#ffff00",
+                    bg_color="#ff0000",
+                    font_size=50,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#--9",
+                    replace_with="Sedmica: " + str(winings["loto_plus_win7"]["winnings"]),
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
+            text += f"{delim_char}Prikaži detalje"
+            rule = utility_cls.TextToHtmlRule(
+                text="Prikaži detalje",
+                font_size=14,
+                fg_color="#aaffff",
+                link_href="show_kombs"
+            )
+            text_to_html.add_rule(rule)
+
+            text_to_html.set_text(text)
+
+            lbl_info.setText(text_to_html.get_html())
+            lbl_info.setFixedWidth(w - 20)
+
+            lbl_info.adjustSize()
+            y += lbl_info.height() + 10
+
+            # Kombinacije
+            frm_kombs = QFrame(frm)
+            frm_kombs.setFrameShape(QFrame.NoFrame)
+            frm_kombs.setFrameShadow(QFrame.Plain)
+            frm_kombs.setLineWidth(0)
+            frm_kombs.resize(w - 20, 1)
+            frm_kombs.move(10, y)
+            y += 1
+
+            lbl_info.linkActivated.connect(lambda url, lbl_info=lbl_info, frm_kombs=frm_kombs, frm=frm, loto_komb=loto_komb, round_item=round_item, winings=winings: self._show_kombs(url, lbl_info, frm_kombs, frm, loto_komb, round_item, winings))
+
+            total_winings += winings["loto_win7"]["total"] + winings["loto_win6"]["total"] + winings["loto_win5"]["total"] + winings["loto_win4"]["total"] + winings["loto_win3"]["total"] + winings["loto_plus_win7"]["total"]
+            total_cost += winings["loto_cost"] + winings["loto_plus_cost"]
+
+        prg_data["action"] = "hide"
+        self.data["feedback_function"](prg_data, "progress")
+        # Summary label
+        lbl_summ = QLabel(frm)
+        lbl_summ.setObjectName("lbl_summ")
+        lbl_summ.setTextInteractionFlags(lbl_summ.textInteractionFlags()|Qt.TextSelectableByMouse)
+        text_to_html = utility_cls.TextToHTML()
+        text_to_html.general_rule.fg_color = "#ffff00"
+        text_to_html.general_rule.font_size = font_size + 6
+        text = "Ukupan dobitak: #--1,  Potrošeno: #--2,   Profit: #--3"
+        rule = utility_cls.TextToHtmlRule(
+            text="#--1", 
+            replace_with=f"{total_winings:,.2f}",
+            fg_color="#ff0000")
+        text_to_html.add_rule(rule)
+        rule = utility_cls.TextToHtmlRule(
+            text="#--2", 
+            replace_with=f"{total_cost:,.2f}",
+            fg_color="#ff0000")
+        text_to_html.add_rule(rule)
+        profit = total_winings - total_cost
+        if total_winings - total_cost > 0:
+            rule = utility_cls.TextToHtmlRule(
+                text="#--3", 
+                replace_with=f"{profit:,.2f}",
+                fg_color="#00ff00",
+                font_size=font_size + 14,
+                font_bold=True)
+        else:
+            rule = utility_cls.TextToHtmlRule(
+                text="#--3", 
+                replace_with=f"{profit:,.2f}",
+                fg_color="#ff0000")
+            
+        text_to_html.add_rule(rule)
+        text_to_html.set_text(text)
+        lbl_summ.setText(text_to_html.get_html())
+        lbl_summ.move(10, y)
+        lbl_summ.setFixedWidth(w - 20)
+        lbl_summ.adjustSize()
+        y += lbl_summ.height() + 5
+
+        frm.setFixedSize(frm.width(), lbl_summ.pos().y() + lbl_summ.height() + 5)
+
+        return frm
+
+    def _show_kombs(self, url: str, lbl_info: QLabel, frm_kombs: QFrame, main_frame: QFrame, loto_komb: dict, round_item: dict, winings: dict):
+        frm_kombs_height = frm_kombs.height()
+
+        for widget in main_frame.children():
+            if widget.objectName() == "lbl_summ":
+                lbl_summ: QLabel = widget
+
+        if frm_kombs.height() > 1:
+            lbl_info.setText(lbl_info.text().replace("Sakrij detalje", "Prikaži detalje"))
+            frm_kombs.resize(frm_kombs.width(), 1)
+            frm_kombs.setStyleSheet("QFrame {border: 0px;}")
+        else:
+            frm_kombs.setStyleSheet("QFrame {border: 1px solid #aaffff;}")
+            lbl_info.setText(lbl_info.text().replace("Prikaži detalje", "Sakrij detalje"))
+            x = 10
+            y = 5
+            for komb in loto_komb["numbers"]:
+                marked_numbers = [int(x) for x in round_item["loto_numbers"]]
+                count = 0
+                for i in komb:
+                    if i in marked_numbers:
+                        count += 1
+                frm_background = ""
+                frm_border = False
+                if count > 2:
+                    frm_background = "#000000"
+                    frm_border = True
+
+                data = {
+                    "width": main_frame.width() - 20,
+                    "border": frm_border,
+                    "background": frm_background,
+                    "numbers": komb,
+                    "number_width": 20,
+                    "number_height": 20,
+                    "number_image_path": self.getv("ball_white_icon_path"),
+                    "has_cancel": False,
+                    "marked_numbers": marked_numbers,
+                    "marked_numbers_icon_path": self.getv("ball_red_icon_path")
+                }
+                frm_numbers = Numbers(frm_kombs, self._stt, data)
+                frm_numbers.setParent(frm_kombs)
+                frm_numbers.move(x, y)
+                frm_numbers.show()
+
+                x += frm_numbers.width() + 50
+                if x + frm_numbers.width() > frm_kombs.width() - 10:
+                    x = 10
+                    y += frm_numbers.height() + 10
+            
+            y += frm_numbers.height() + 5
+
+            # Recapitulation label
+            lbl_recap = QLabel(frm_kombs)
+            lbl_recap.setTextInteractionFlags(lbl_recap.textInteractionFlags()|Qt.TextSelectableByMouse)
+            lbl_recap.setWordWrap(True)
+            lbl_recap.setFixedWidth(frm_kombs.width() - 20)
+            lbl_recap.move(10, y)
+
+            text_to_html = utility_cls.TextToHTML()
+            text_to_html.general_rule.fg_color = "#ffff00"
+            text_to_html.general_rule.font_size = 14
+            text = "Sedmica: #--1 * #--2 din = #--3\n"
+            text += "Šestica: #--4 * #--5 din = #--6\n"
+            text += "Petica: #--7 * #--8 din = #--9\n"
+            text += "Četvorki: #-10 * #-11 din = #-12\n"
+            text += "Trojki: #-13 * #-14 din = #-15\n"
+            text += "Loto plus sedmica: #-16 * #-17 din = #-18\n\n"
+            text += f"Ukupan dobitak: #-19,  Potrošeno: #-20 + #-21 = #-22,   Profit: #-23\n\n"
+            
+            rule_has_wining_color = "#aaff00"
+            rule_no_wining_color = "#aaaaaa"
+            
+            wining_data_for_rule = [
+               [winings['loto_win7']['winnings'], winings['loto_win7']['amount'], winings['loto_win7']['total']],
+               [winings['loto_win6']['winnings'], winings['loto_win6']['amount'], winings['loto_win6']['total']],
+               [winings['loto_win5']['winnings'], winings['loto_win5']['amount'], winings['loto_win5']['total']],
+               [winings['loto_win4']['winnings'], winings['loto_win4']['amount'], winings['loto_win4']['total']],
+               [winings['loto_win3']['winnings'], winings['loto_win3']['amount'], winings['loto_win3']['total']],
+               [winings['loto_plus_win7']['winnings'], winings['loto_plus_win7']['amount'], winings['loto_plus_win7']['total']]
+            ]
+
+            count = 1
+            total_winings = 0
+            for i in range(len(wining_data_for_rule)):
+                item = wining_data_for_rule[i]
+                total_winings += item[2]
+                if item[0]:
+                    color = rule_has_wining_color
+                    color_amount = "#ff0000"
+                    font_bold = True
+                else:
+                    color_amount = rule_no_wining_color
+                    color = rule_no_wining_color
+                    font_bold = False
+
+                rule_id = "#" + "-"*(3-len(str(count))) + str(count)
+                rule = utility_cls.TextToHtmlRule(
+                    text=rule_id,
+                    replace_with=f"{item[0]}",
+                    fg_color=color_amount,
+                    font_bold=font_bold)
+                text_to_html.add_rule(rule)
+
+                count += 1
+                rule_id = "#" + "-"*(3-len(str(count))) + str(count)
+                rule = utility_cls.TextToHtmlRule(
+                    text=rule_id, 
+                    replace_with=f"{item[1]:,.2f}",
+                    fg_color="#ffffff",
+                    font_bold=False)
+                text_to_html.add_rule(rule)
+
+                count += 1
+                rule_id = "#" + "-"*(3-len(str(count))) + str(count)
+                rule = utility_cls.TextToHtmlRule(
+                    text=rule_id,
+                    replace_with=f"{item[2]:,.2f}",
+                    fg_color=color,
+                    font_bold=font_bold)
+                text_to_html.add_rule(rule)
+                
+                count += 1
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#-19",
+                replace_with=f"{total_winings:,.2f}",
+                fg_color="#ff0000",
+                font_bold=True
+            )
+            text_to_html.add_rule(rule)
+            
+            rule = utility_cls.TextToHtmlRule(
+                text="#-20",
+                replace_with=f"{winings['loto_cost']:,.2f}",
+                fg_color="#ffffff",
+                font_bold=False
+            )
+            text_to_html.add_rule(rule)
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#-21",
+                replace_with=f"{winings['loto_plus_cost']:,.2f}",
+                fg_color="#ffffff",
+                font_bold=False
+            )
+            text_to_html.add_rule(rule)
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#-22",
+                replace_with=f"{winings['loto_cost'] + winings['loto_plus_cost']:,.2f}",
+                fg_color="#ff0000",
+                font_bold=True
+            )
+            text_to_html.add_rule(rule)
+
+            if total_winings >= winings['loto_cost'] + winings['loto_plus_cost']:
+                color = "#00ff00"
+            else:
+                color = "#ff0000"
+
+            rule = utility_cls.TextToHtmlRule(
+                text="#-23",
+                replace_with=f"{total_winings - (winings['loto_cost'] + winings['loto_plus_cost']):,.2f}",
+                fg_color=color,
+                font_bold=True
+            )
+            if total_winings - (winings['loto_cost'] + winings['loto_plus_cost']) < 0:
+                rule.font_size = text_to_html.general_rule.font_size + 4
+            else:
+                rule.font_size = text_to_html.general_rule.font_size + 10
+
+            text_to_html.add_rule(rule)
+
+            text_to_html.set_text(text)
+            lbl_recap.setText(text_to_html.get_html())
+            lbl_recap.adjustSize()
+            lbl_recap.show()
+
+            y += lbl_recap.height() + 15
+
+            frm_kombs.resize(frm_kombs.width(), y)
+            frm_kombs.show()
+        
+        for widget in main_frame.children():
+            if widget.pos().y() > frm_kombs.pos().y():
+                widget.move(widget.pos().x(), widget.pos().y() + (frm_kombs.height() - frm_kombs_height))
+
+        main_frame.setFixedSize(main_frame.width(), lbl_summ.pos().y() + lbl_summ.height() + 5)
+
+        h = 10
+        for item in range(self.area_widget_layout.count()):
+            h += self.area_widget_layout.itemAt(item).widget().height()
+        
+        self.area_widget.setFixedHeight(h)
+
+    def _get_winning_data(self, loto_komb: dict, round: dict):
+        loto_win7 = 0
+        loto_win6 = 0
+        loto_win5 = 0
+        loto_win4 = 0
+        loto_win3 = 0
+        loto_cost = 0
+        loto_plus_cost = 0
+        loto_plus_win7 = 0
+
+        for komb in loto_komb["numbers"]:
+            numbers_hit = self._numbers_hit(komb, round["loto_numbers"])
+            if len(numbers_hit) == 7:
+                loto_win7 += 1
+            elif len(numbers_hit) == 6:
+                loto_win6 += 1
+            elif len(numbers_hit) == 5:
+                loto_win5 += 1
+            elif len(numbers_hit) == 4:
+                loto_win4 += 1
+            elif len(numbers_hit) == 3:
+                loto_win3 += 1
+            
+            loto_cost += self._get_amount(round["lbl_loto_price"])
+            
+            numbers_hit = self._numbers_hit(komb, round["loto_plus_numbers"])
+            if len(numbers_hit) == 7:
+                loto_plus_win7 += 1
+            
+            loto_plus_cost += self._get_amount(round["lbl_loto_plus_price"])
+
+        result = {
+            "loto_win7": {
+                "winnings": loto_win7,
+                "amount": self._get_amount(round["lbl_loto_prize_7_amount"]),
+                "total": loto_win7 * self._get_amount(round["lbl_loto_prize_7_amount"])
+            },
+            "loto_win6": {
+                "winnings": loto_win6,
+                "amount": self._get_amount(round["lbl_loto_prize_6_amount"]),
+                "total": loto_win6 * self._get_amount(round["lbl_loto_prize_6_amount"])
+            },
+            "loto_win5": {
+                "winnings": loto_win5,
+                "amount": self._get_amount(round["lbl_loto_prize_5_amount"]),
+                "total": loto_win5 * self._get_amount(round["lbl_loto_prize_5_amount"])
+            },
+            "loto_win4": {
+                "winnings": loto_win4,
+                "amount": self._get_amount(round["lbl_loto_prize_4_amount"]),
+                "total": loto_win4 * self._get_amount(round["lbl_loto_prize_4_amount"])
+            },
+            "loto_win3": {
+                "winnings": loto_win3,
+                "amount": self._get_amount(round["lbl_loto_prize_3_amount"]),
+                "total": loto_win3 * self._get_amount(round["lbl_loto_prize_3_amount"])
+            },
+            "loto_cost": loto_cost,
+            "loto_win_total": None,
+            "loto_plus_win7": {
+                "winnings": loto_plus_win7,
+                "amount": self._get_amount(round["lbl_loto_plus_winers"]),
+                "total": loto_plus_win7 * self._get_amount(round["lbl_loto_plus_winers"])
+            },
+            "loto_plus_cost": loto_plus_cost,
+        }
+
+        return result
+
+    def _numbers_hit(self, kombination: list, drawn_numbers: list):
+        result = []
+        for number in kombination:
+            if str(number) in drawn_numbers:
+                result.append(number)
+        return result
+
+    def _get_amount(self, text: str) -> float:
+        html_parser = html_parser_cls.HtmlParser(text)
+        text = html_parser.get_raw_text()
+        text = text.lower()
+        text = text.replace("дин", "")
+        text = text.replace("din", "")
+        text = text.replace(".", "")
+        text = text.replace("цена комбинације", "")
+        text = text.replace("cena kombinacije", "")
+        text = text.replace("број добитака", "")
+        text = text.replace("broj dobitaka", "")
+        text = text.replace(",", ".")
+        text = text.strip(" ,.")
+        return self._get_float(text)
+
+    def _get_float(self, text: str) -> float:
+        result = None
+        try:
+            result = float(text)
+        except:
+            result = None
+        return result
 
     def _create_view_frame(self):
-        pass
+        w = self.data["width"]
+        item_type_text = "Kombinacija" if self.data["item_type"] == "komb" else "Sistemska kombinacija"
+
+        lbl_title = QLabel(self)
+        lbl_title.setText(item_type_text)
+        lbl_title.setAlignment(Qt.AlignCenter)
+        lbl_title.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        lbl_title.setWordWrap(True)
+        font = lbl_title.font()
+        font.setPointSize(20)
+        font.setBold(True)
+        lbl_title.setFont(font)
+        lbl_title.setStyleSheet("color: rgb(0, 255, 0);")
+        lbl_title.move(10, 0)
+        lbl_title.resize(w - 20, 31)
+
+        lbl_name = QLabel(self)
+        lbl_name.setText(self.data["item"]["name"])
+        lbl_name.setAlignment(Qt.AlignCenter)
+        lbl_name.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        lbl_name.setWordWrap(True)
+        font = lbl_name.font()
+        font.setPointSize(14)
+        font.setBold(True)
+        lbl_name.setFont(font)
+        lbl_name.setStyleSheet("color: rgb(170, 255, 255);")
+        lbl_name.move(10, 40)
+        lbl_name.resize(w - 20, 31)
+
+        min_x = 0
+        if self.data["item_type"] == "sys":
+            btn_select_sys_numbers = QPushButton(self)
+            btn_select_sys_numbers.setText("Izaberi sistemske brojeve")
+            btn_select_sys_numbers.clicked.connect(self._on_select_sys_numbers_clicked)
+            font = btn_select_sys_numbers.font()
+            font.setPointSize(14)
+            btn_select_sys_numbers.setFont(font)
+            btn_select_sys_numbers.resize(270, 31)
+            btn_select_sys_numbers.setStyleSheet("QPushButton {background-color: #140b98; color: white; border-radius: 10px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}")
+            btn_select_sys_numbers.move(10, 80)
+            min_x = btn_select_sys_numbers.width() + 20
+        
+        btn_check_current = QPushButton(self)
+        btn_check_current.setText("Proveri za tekuće kolo")
+        btn_check_current.clicked.connect(self._on_check_current_clicked)
+        font = btn_check_current.font()
+        font.setPointSize(14)
+        btn_check_current.setFont(font)
+        btn_check_current.resize(270, 31)
+        btn_check_current.setStyleSheet("QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}")
+        x = int(w / 2 - btn_check_current.width() - 10)
+        if x < min_x:
+            x = min_x
+        btn_check_current.move(x, 80)
+
+        btn_check_all = QPushButton(self)
+        btn_check_all.setText("Proveri za sva kola")
+        btn_check_all.clicked.connect(self._on_check_all_clicked)
+        btn_check_all.move(btn_check_current.pos().x() + btn_check_current.width() + 20, btn_check_current.pos().y())
+        btn_check_all.setFont(font)
+        btn_check_all.resize(270, 31)
+        btn_check_all.setStyleSheet("QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}")
+
+        y = btn_check_all.pos().y() + btn_check_all.height() + 20
+
+        if self.data["item_type"] == "sys":
+            lbl_sys_numbers = QLabel(self)
+            lbl_sys_numbers.setText("Sistemski brojevi:")
+            lbl_sys_numbers.setTextInteractionFlags(Qt.TextSelectableByMouse)
+            font = lbl_sys_numbers.font()
+            font.setPointSize(14)
+            lbl_sys_numbers.setFont(font)
+            lbl_sys_numbers.setStyleSheet("color: rgb(203, 203, 203);")
+            lbl_sys_numbers.move(10, y)
+            lbl_sys_numbers.resize(w - 20, 31)
+
+            y += 40
+            data = {
+                "width": w - 20,
+                "border": False,
+                "numbers": self.data["item"]["sys_selected_numbers"],
+                "number_width": 35,
+                "number_height": 35,
+                "number_image_path": self.getv("ball_white_icon_path"),
+                "has_cancel": False
+            }
+            frm_sys_numbers = Numbers(self, self._stt, data)
+            frm_sys_numbers.move(10, y)
+            y += frm_sys_numbers.height() + 10
+        
+        lbl_kombs = QLabel(self)
+        lbl_kombs.setText("Kombinacije:")
+        lbl_kombs.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        font = lbl_kombs.font()
+        font.setPointSize(14)
+        lbl_kombs.setFont(font)
+        lbl_kombs.setStyleSheet("color: rgb(203, 203, 203);")
+        lbl_kombs.move(10, y)
+        lbl_kombs.resize(w - 20, 31)
+
+        y += 40
+        x = 10
+        for item in self.data["item"]["numbers"]:
+            data = {
+                "width": w - 20,
+                "border": False,
+                "numbers": item,
+                "number_width": 25,
+                "number_height": 25,
+                "number_image_path": self.getv("ball_red_icon_path"),
+                "has_cancel": False
+            }
+            frm_sys_numbers = Numbers(self, self._stt, data)
+            frm_sys_numbers.move(x, y)
+
+            x += frm_sys_numbers.width() + 50
+            if x + frm_sys_numbers.width() > w:
+                x = 10
+                y += frm_sys_numbers.height() + 10
+        
+        y += 30
+        self.resize(w, y + 10)
+
+    def _on_check_current_clicked(self):
+        self.data["feedback_function"](self.data["item"], "show_winnings_current")
+
+    def _on_check_all_clicked(self):
+        self.data["feedback_function"](self.data["item"], "show_winnings_all")
+
+    def _on_select_sys_numbers_clicked(self):
+        self.frm_numbers_pool = None
+        self.max_numbers = self.data["item"]["sys_numbers"]
+        self.max_numbers_pool = 39
+        
+        frm_select_numbers = QFrame(self)
+        frm_select_numbers.setFrameShape(QFrame.Box)
+        frm_select_numbers.setFrameShadow(QFrame.Plain)
+        frm_select_numbers.setLineWidth(1)
+        frm_select_numbers.setStyleSheet("border-color: #d40000; border-style: solid; border-width: 1px;")
+        frm_select_numbers.move(10, 120)
+        
+        self.frm_number_pick = self._number_pick_frame()
+        self.frm_number_pick.setParent(frm_select_numbers)
+        self.frm_number_pick.move(10, 10)
+        self.pick_numbers_update_function = self._update_pick_numbers_for_select_sys_numbers
+
+        self.frm_numbers_pool = QFrame(frm_select_numbers)
+        self.frm_numbers_pool.setFrameShape(QFrame.NoFrame)
+        self.frm_numbers_pool.setFrameShadow(QFrame.Plain)
+        self.frm_numbers_pool.setLineWidth(0)
+        self.frm_numbers_pool.setStyleSheet("border-width: 0px;")
+        self.frm_numbers_pool.move(self.frm_number_pick.width() + 20, 50)
+        
+        self.btn_update_sys_numbers = QPushButton(frm_select_numbers)
+        self.btn_update_sys_numbers.setText("Ažuriraj")
+        self.btn_update_sys_numbers.clicked.connect(lambda: self.pick_numbers_update_function("update"))
+        font = self.btn_update_sys_numbers.font()
+        font.setPointSize(14)
+        self.btn_update_sys_numbers.setFont(font)
+        self.btn_update_sys_numbers.setStyleSheet("QPushButton {background-color: #140b98; color: white; border-radius: 10px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}")
+        self.btn_update_sys_numbers.move(self.frm_number_pick.width() + 20, self.frm_number_pick.pos().y())
+        self.btn_update_sys_numbers.resize(150, 30)
+        self.btn_update_sys_numbers.setDisabled(True)
+
+        frm_select_numbers.resize(self.width() - 30, self.frm_number_pick.height() + 20)
+        self.frm_numbers_pool.resize(frm_select_numbers.width() - (self.frm_number_pick.width() + 30), self.frm_number_pick.height() - (self.btn_update_sys_numbers.height() + 10) - 10)
+        frm_select_numbers.show()
+        self.resize(self.width(), max(self.height(), frm_select_numbers.height() + 130))
+        self.parent_widget.parent().resize_me()
+
+    def _update_pick_numbers_for_select_sys_numbers(self, action: str):
+        if action == "update":
+            self.selected_numbers.sort()
+            self.data["item"]["sys_selected_numbers"] = self.selected_numbers
+            self.data["feedback_function"](self.data["item"], "update_sys_numbers")
+            return
+        
+        if not self.frm_numbers_pool:
+            return
+        
+        data = {
+            "width": self.frm_numbers_pool.width(),
+            "border": False,
+            "numbers": self.selected_numbers,
+            "number_width": 35,
+            "number_height": 35,
+            "number_image_path": self.getv("ball_white_icon_path"),
+            "has_cancel": False
+        }
+        frm_sys_numbers = Numbers(self, self._stt, data)
+        frm_sys_numbers.setParent(self.frm_numbers_pool)
+        frm_sys_numbers.move(0, 0)
+        frm_sys_numbers.show()
+        if len(self.selected_numbers) == self.max_numbers:
+            self.btn_update_sys_numbers.setDisabled(False)
+        else:
+            self.btn_update_sys_numbers.setDisabled(True)
 
     def _number_pick_frame(self, cell_size: QSize = None, font_size: int = None) -> QFrame:
         if cell_size is None:
@@ -249,7 +1226,7 @@ class WorkingFrame(QFrame):
             lbl_pic.setVisible(False)
             lbl_pic.setObjectName(str(i))
             
-            frm_num.enterEvent = lambda event, obj=lbl_pic: self._on_number_enter_event(event, obj)
+            frm_num.enterEvent = lambda event, obj=lbl_pic, image_path=self.getv("online_topic_dls_x_light_icon_path"): self._on_number_enter_event(event, obj, image_path)
             frm_num.leaveEvent = lambda event, obj=lbl_pic: self._on_number_leave_event(event, obj)
             frm_num.mousePressEvent = lambda event, obj=lbl_pic: self._on_number_clicked(event, obj)
 
@@ -281,9 +1258,9 @@ class WorkingFrame(QFrame):
             else:
                 self.sound_max_numbers_reached.play()
 
-    def _on_number_enter_event(self, event, lbl_pic: QLabel):
+    def _on_number_enter_event(self, event, lbl_pic: QLabel, image_path: str):
         QCoreApplication.processEvents()
-        lbl_pic.setPixmap(QPixmap(self.getv("online_topic_dls_x_light_icon_path")))
+        lbl_pic.setPixmap(QPixmap(image_path))
         lbl_pic.setVisible(True)
     
     def _on_number_leave_event(self, event, lbl_pic: QLabel):
@@ -292,6 +1269,7 @@ class WorkingFrame(QFrame):
     def _update_number_pick_apperance(self, number_list: list = None):
         if number_list is None:
             number_list = self.selected_numbers
+
         title_info = None
         for widget_main in self.frm_number_pick.children():
             if isinstance(widget_main, QLabel):
@@ -309,6 +1287,10 @@ class WorkingFrame(QFrame):
                     else:
                         widget.setVisible(False)
         title_info.setText(f"{len(self.selected_numbers)}/{self.max_numbers}")
+
+        if self.pick_numbers_update_function is not None:
+            self.pick_numbers_update_function(number_list)
+            return
 
         if len(self.selected_numbers) == self.max_numbers:
             self.btn_add_komb.setEnabled(True)
@@ -380,6 +1362,8 @@ class WorkingFrame(QFrame):
         self.frm_list_kombs.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.btn_save_komb.pos().y() + self.btn_save_komb.height() + 20)
         self.frm_list_kombs.resize(w, y)
         self.frm_list_kombs.show()
+        self.resize(self.width(), max(self.width(), self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 10))
+        self.parent_widget.parent().resize_me()
 
     def _number_komb_click(self, number):
         if number in self.selected_kombs:
@@ -570,7 +1554,7 @@ class WorkingFrame(QFrame):
     def _txt_count_sys_numbers_text_changed(self):
         value = self._get_integer(self.txt_count_sys_numbers.text())
         if value is None or value < 7 or value > 39:
-            if value > 39:
+            if value is not None and value > 39:
                 value = 39
             else:
                 value = 7
@@ -631,13 +1615,22 @@ class WorkingFrame(QFrame):
         item["can_be_removed"] = True
         item["numbers"] = self.selected_kombs
         item["sys_numbers"] = self.max_numbers_pool
+        item["sys_selected_numbers"] = [x for x in range(1, self.max_numbers_pool + 1)]
         item["sys_shema"] = self.selected_kombs
 
-        self.data["feedback_function"](item)
+        if self.data["item_type"] == "komb":
+            self.data["feedback_function"](item)
+        else:
+            self.data["feedback_function"](item, "update_sys_numbers")
+
         self.hide()
         
 
 class DLS(AbstractTopic):
+    LOTO_ARCHIVE_COLOR_COMPLETE = QColor("#00ff00")
+    LOTO_ARCHIVE_COLOR_INCOMPLETE = QColor("#ffff00")
+    LOTO_ARCHIVE_COLOR_EMPTY = QColor("#f8f8f8")
+
     def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings) -> None:
         super().__init__(parent_widget, settings=settings)
         
@@ -687,6 +1680,7 @@ class DLS(AbstractTopic):
         self.lbl_loto_komb_btn.mousePressEvent = self.lbl_loto_komb_btn_clicked
         self.btn_loto_komb_add_komb.clicked.connect(self.btn_loto_komb_add_komb_clicked)
         self.btn_loto_komb_add_sys.clicked.connect(self.btn_loto_komb_add_sys_clicked)
+        self.btn_loto_komb_check.clicked.connect(self.btn_loto_komb_check_clicked)
 
     def btn_loto_komb_add_sys_clicked(self):
         data = {
@@ -722,7 +1716,145 @@ class DLS(AbstractTopic):
         self.frm_loto_komb_work.show()
         self.resize_me()
 
-    def frm_loto_komb_work_feedback_function(self, data: dict):
+    def btn_loto_komb_check_clicked(self):
+        kombs = []
+        for item in self.settings["loto"]["system"]:
+            if item["is_enabled"]:
+                kombs.append(item)
+
+        data = {
+            "width": self.contentsRect().width() - 320,
+            "height": self.parent_widget.get_topic_area_size().height() - (150 + self.frm_loto_komb.pos().y()),
+            "type": "winnings",
+            "item": None,
+            "item_type": None,
+            "kombs": kombs,
+            "rounds": [self.settings["current_loto"]]
+        }
+        if self.frm_loto_komb_work:
+            self.frm_loto_komb_work.deleteLater()
+        self.frm_loto_komb_work = WorkingFrame(self.frm_loto_komb, self._stt, data)
+        self.frm_loto_komb_work.move(290, 140)
+        self.frm_loto_komb.resize(self.width(), max(self.frm_loto_komb_work.pos().y() + self.frm_loto_komb_work.height() + 10, self.height()))
+        self.frm_loto_komb_work.show()
+        self.resize_me()
+        return
+
+    def frm_loto_komb_work_feedback_function(self, data: dict, action: str = None):
+        if action == "progress":
+            if data["action"] == "hide":
+                self.frm_progress_window.deleteLater()
+                QCoreApplication.processEvents()
+                return
+            if data["action"] == "update":
+                prg_progress = None
+                for i in self.frm_progress_window.children():
+                    if isinstance(i, QProgressBar):
+                        prg_progress = i
+                        break
+                
+                if prg_progress:
+                    percent = int(data["value"] / data["max_value"] * 100)
+                    if percent % data["step"] != 0 or percent == prg_progress.value():
+                        return
+                    if data["max_value"] != prg_progress.maximum():
+                        prg_progress.setMaximum(data["max_value"])
+                    prg_progress.setValue(data["value"])
+                QCoreApplication.processEvents()
+                return
+            
+            self.frm_progress_window = QFrame(self.frm_loto_komb)
+            self.frm_progress_window.setStyleSheet("background-color: #000000; border: 2px solid #ff0000;")
+            self.frm_progress_window.move(290, 140)
+            self.frm_progress_window.resize(self.contentsRect().width() - 320, 200)
+            lbl_title = QLabel(self.frm_progress_window)
+            lbl_title.setStyleSheet("color: #ffff00; border: 0px;")
+            lbl_title.setText(data["title"])
+            font = lbl_title.font()
+            font.setPointSize(18)
+            lbl_title.setFont(font)
+            lbl_title.setAlignment(Qt.AlignCenter)
+            lbl_title.setWordWrap(True)
+            lbl_title.move(10, 10)
+            lbl_title.setFixedWidth(self.frm_progress_window.width() - 20)
+            lbl_title.adjustSize()
+
+            lbl_item_name = QLabel(self.frm_progress_window)
+            lbl_item_name.setStyleSheet("color: #00ff00; border: 0px;")
+            lbl_item_name.setText(data["item_name"])
+            font.setPointSize(14)
+            lbl_item_name.setFont(font)
+            lbl_item_name.setAlignment(Qt.AlignCenter)
+            lbl_item_name.setWordWrap(True)
+            lbl_item_name.move(10, lbl_title.height() + 10)
+            lbl_item_name.setFixedWidth(self.frm_progress_window.width() - 20)
+            lbl_item_name.adjustSize()
+
+            prg_progress = QProgressBar(self.frm_progress_window)
+            prg_progress.setStyleSheet("border: 0px;")
+            prg_progress.setFixedWidth(self.frm_progress_window.width() - 20)
+            prg_progress.move(10, lbl_item_name.pos().y() + lbl_item_name.height() + 10)
+            prg_progress.setFixedHeight(15)
+
+            self.frm_progress_window.resize(self.frm_progress_window.width(), prg_progress.pos().y() + prg_progress.height() + 10)
+            self.frm_progress_window.show()
+            QCoreApplication.processEvents()
+            return
+
+        if action == "show_winnings_current":
+            data_dict = {
+                "width": self.contentsRect().width() - 320,
+                "height": self.parent_widget.get_topic_area_size().height() - (150 + self.frm_loto_komb.pos().y()),
+                "type": "winnings",
+                "item": None,
+                "item_type": None,
+                "kombs": [data],
+                "rounds": [self.settings["current_loto"]],
+                "feedback_function": self.frm_loto_komb_work_feedback_function
+            }
+            if self.frm_loto_komb_work:
+                self.frm_loto_komb_work.deleteLater()
+            self.frm_loto_komb_work = WorkingFrame(self.frm_loto_komb, self._stt, data_dict)
+            self.frm_loto_komb_work.move(290, 140)
+            self.frm_loto_komb.resize(self.width(), max(self.frm_loto_komb_work.pos().y() + self.frm_loto_komb_work.height() + 10, self.height()))
+            self.frm_loto_komb_work.show()
+            self.resize_me()
+            return
+
+        if action == "show_winnings_all":
+            rounds = []
+            for i in self.settings["loto"]["archive"]:
+                rounds.append(i)
+            rounds.sort(key=lambda x: x["year"] + " "*(3-len(x["round"])) + x["round"], reverse=True)
+
+            data_dict = {
+                "width": self.contentsRect().width() - 320,
+                "height": self.parent_widget.get_topic_area_size().height() - (150 + self.frm_loto_komb.pos().y()),
+                "type": "winnings",
+                "item": None,
+                "item_type": None,
+                "kombs": [data],
+                "rounds": rounds,
+                "feedback_function": self.frm_loto_komb_work_feedback_function
+            }
+            if self.frm_loto_komb_work:
+                self.frm_loto_komb_work.deleteLater()
+            self.frm_loto_komb_work = WorkingFrame(self.frm_loto_komb, self._stt, data_dict)
+            self.frm_loto_komb_work.move(290, 140)
+            self.frm_loto_komb.resize(self.width(), max(self.frm_loto_komb_work.pos().y() + self.frm_loto_komb_work.height() + 10, self.height()))
+            self.frm_loto_komb_work.show()
+            self.resize_me()
+            return
+
+        if action == "update_sys_numbers":
+            sys_num_dict = {str(key+1):value for key, value in enumerate(data["sys_selected_numbers"])}
+            item_numbers = []
+            for idx, item in enumerate(self.settings["loto"]["system"]):
+                if item["name"] == data["name"]:
+                    for i in item["sys_shema"]:
+                        item_numbers.append([sys_num_dict[str(x)] for x in i])
+                    data["numbers"] = item_numbers
+        
         for idx, item in enumerate(self.settings["loto"]["system"]):
             if item["name"] == data["name"]:
                 self.settings["loto"]["system"][idx] = data
@@ -734,6 +1866,23 @@ class DLS(AbstractTopic):
         self.frm_loto_komb_work = None
         self._update_user_settings()
         self._update_frm_loto_komb_apperance()
+
+        if action == "update_sys_numbers":
+            data = {
+                "width": self.contentsRect().width() - 300,
+                "type": f"view_{data['type']}",
+                "item_type": data["type"],
+                "item": data,
+                "feedback_function": self.frm_loto_komb_work_feedback_function,
+                "reserved_names": [x["name"] for x in self.settings["loto"]["system"] if x["name"] != data["name"]]
+            }
+            if self.frm_loto_komb_work:
+                self.frm_loto_komb_work.deleteLater()
+            self.frm_loto_komb_work = WorkingFrame(self.frm_loto_komb, self._stt, data)
+            self.frm_loto_komb_work.move(290, 140)
+            self.frm_loto_komb.resize(self.width(), max(self.frm_loto_komb_work.pos().y() + self.frm_loto_komb_work.height() + 10, self.height()))
+            self.frm_loto_komb_work.show()
+            self.resize_me()
 
     def lbl_loto_komb_btn_clicked(self, e: QMouseEvent):
         self._hide_all_frames()
@@ -986,6 +2135,12 @@ class DLS(AbstractTopic):
             self.frm_loto_archive_search.setVisible(True)
 
     def _update_loto_archive_label_text(self, year: str):
+        list_item = None
+        for i in range(self.lst_loto_archive_years.count()):
+            if self.lst_loto_archive_years.item(i).text() == year:
+                list_item = self.lst_loto_archive_years.item(i)
+                break
+
         total_rounds = 0
         for item in self.settings["loto"]["archive"]:
             if item["year"] == year:
@@ -998,6 +2153,7 @@ class DLS(AbstractTopic):
             rule = utility_cls.TextToHtmlRule(text="#--1", replace_with=str(total_rounds), fg_color="#00ff7f")
             text_to_html.add_rule(rule)
             text = text_to_html.get_html()
+            list_item.setForeground(self.LOTO_ARCHIVE_COLOR_COMPLETE)
         else:
             text = "Preuzeto #--1 kola."
             text_to_html = utility_cls.TextToHTML(text)
@@ -1005,6 +2161,10 @@ class DLS(AbstractTopic):
             rule = utility_cls.TextToHtmlRule(text="#--1", replace_with=str(total_rounds), fg_color="#aaffff")
             text_to_html.add_rule(rule)
             text = text_to_html.get_html()
+            list_item.setForeground(self.LOTO_ARCHIVE_COLOR_INCOMPLETE)
+        
+        if not total_rounds:
+            list_item.setForeground(self.LOTO_ARCHIVE_COLOR_EMPTY)
 
         self.lbl_loto_archive_search_completed.setText(text)
 
@@ -1066,6 +2226,19 @@ class DLS(AbstractTopic):
         for year in range(2012, int(self.settings["current_loto"]["year"]) + 1):
             item = QListWidgetItem()
             item.setText(f"{year}")
+            
+            has_data = False
+            for i in self.settings["loto"]["archive"]:
+                if i["year"] == str(year):
+                    has_data = True
+                    break
+            if has_data:
+                item.setForeground(self.LOTO_ARCHIVE_COLOR_INCOMPLETE)
+            else:
+                item.setForeground(self.LOTO_ARCHIVE_COLOR_EMPTY)
+            if str(year) in self.settings["completed_years"]:
+                item.setForeground(self.LOTO_ARCHIVE_COLOR_COMPLETE)
+
             item.setTextAlignment(Qt.AlignCenter)
             self.lst_loto_archive_years.insertItem(0, item)
 
@@ -1088,7 +2261,7 @@ class DLS(AbstractTopic):
 
         self._load_loto_frame(year_round=year_round)
         self._update_user_settings()
-        self._update_loto_archive_label_text(self.lbl_loto_archive_search_year.text())
+        self._update_loto_archive_label_text(self.txt_loto_archive_year.text())
 
     def lbl_loto_btn_clicked(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
@@ -1158,6 +2331,7 @@ class DLS(AbstractTopic):
         if year_round:
             self._update_loto_archive(data)
         else:
+            self._update_loto_archive(data)
             self.lbl_loto_btn.setText(f'Loto - {data["date"]}')
             self.settings["current_loto"] = data
             
@@ -1167,7 +2341,7 @@ class DLS(AbstractTopic):
             self.frm_loto.setVisible(True)
             self.frm_loto.raise_()
             self.resize_me()
-
+        
         self.topic_info_dict["working"] = False
         self.topic_info_dict["msg"] = ""
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
@@ -1905,6 +3079,7 @@ class DLS(AbstractTopic):
             "is_enabled": False,
             "can_be_removed": False,
             "numbers": [],
+            "sys_selected_numbers": [],
             "sys_numbers": 0,
             "sys_shema": []
         }
@@ -1986,6 +3161,7 @@ class DLS(AbstractTopic):
         self.frm_loto_komb.resize(w - 20, self.frm_loto_komb.height())
         if self.frm_loto_komb_work:
             self.frm_loto_komb_work.resize(self.frm_loto_komb.width() - self.frm_loto_komb_work.pos().x() - 10, self.frm_loto_komb_work.height())
+            self.frm_loto_komb.resize(w - 20, max(self.frm_loto_komb.height(), self.frm_loto_komb_work.pos().y() + self.frm_loto_komb_work.height() + 10))
 
         self.setFixedHeight(max(self._get_my_height(), self.parent_widget.get_topic_area_size().height()))
 

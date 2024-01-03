@@ -27671,6 +27671,46 @@ Values: 0-100
             "max_value": None,
             "recommended": """Type the relative path to the Widgets icon""",
             "description": """Location of the icon for the Widget"""
+            },
+        "ball_white_icon_path": {
+            "value": """data/app/images/ball_white.png""",
+            "default_value": """data/app/images/ball_white.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "loto6_sound_file_path": {
+            "value": """data/app/sounds/loto6.wav""",
+            "default_value": """data/app/sounds/loto6.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "loto7_sound_file_path": {
+            "value": """data/app/sounds/loto7.wav""",
+            "default_value": """data/app/sounds/loto7.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "loto5_sound_file_path": {
+            "value": """data/app/sounds/loto5.wav""",
+            "default_value": """data/app/sounds/loto5.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "online_topic_dls_sedmica_icon_path": {
+            "value": """data/app/images/online_topics/dls/sedmica.png""",
+            "default_value": """data/app/images/online_topics/dls/sedmica.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the image for the Widget"""
             }
     }
 
