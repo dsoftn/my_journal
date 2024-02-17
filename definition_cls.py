@@ -21,6 +21,7 @@ import db_definition_cls
 import db_media_cls
 import text_handler_cls
 import definition_data_find_cls
+import text_filter_cls
 
 
 class SynonymManager(QDialog):
@@ -58,6 +59,8 @@ class SynonymManager(QDialog):
         self.old_base_text = self.cmb_apply.currentText()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.lst_shema.currentItemChanged.connect(self.lst_shema_current_item_changed)
         self.txt_suff.textChanged.connect(self.txt_suff_text_changed)
         self.txt_name.textChanged.connect(self.txt_name_text_changed)
@@ -414,6 +417,9 @@ class SynonymManager(QDialog):
 
         self.btn_additional.setText(self.getl("synonyms_manager_btn_additional_text"))
         self.btn_additional.setToolTip(self.getl("synonyms_manager_btn_additional_tt"))
+
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
 
     def _setup_widgets_apperance(self):
         self.setStyleSheet(self.getv("synonyms_manager_win_stylesheet"))
@@ -877,10 +883,13 @@ class DefinitionEditor(QDialog):
         self._setup_widgets()
         self._setup_widgets_text()
         self._setup_widgets_apperance()
+
+        self.txt_output_text_changed()
         
         self._synonyms_hint = SynonymHint(self._stt, self, self.txt_output)
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
 
         self.btn_cancel.clicked.connect(self.btn_cancel_click)
         self.btn_clear_base.clicked.connect(self.btn_clear_base_click)
@@ -890,6 +899,7 @@ class DefinitionEditor(QDialog):
         self.btn_copy.clicked.connect(self.btn_copy_click)
         self.txt_output.textChanged.connect(self.txt_output_text_changed)
         self.txt_output.mouseReleaseEvent = self.txt_output_mouse_release
+        self.btn_switch_words_order.clicked.connect(self.btn_switch_words_order_click)
         self.btn_generate.clicked.connect(self.btn_generate_click)
         self.txt_base.textChanged.connect(self.btn_base_text_changed)
         self.txt_beggining.keyPressEvent = self._txt_beggining_key_press
@@ -929,6 +939,22 @@ class DefinitionEditor(QDialog):
         if self.txt_edit_replace.text():
             self.btn_edit_replace.setEnabled(True)
             self.btn_edit_replace_add.setEnabled(True)
+
+    def btn_switch_words_order_click(self):
+        text_list = self.txt_output.toPlainText().splitlines()
+
+        result = []
+
+        for line in text_list:
+            words = line.split(" ")
+            if len(words) > 1:
+                new_line = " ".join(words[1:]) + f" {words[0]}"
+            else:
+                new_line = line
+            
+            result.append(new_line)
+
+        self.txt_output.setText("\n".join(result))
 
     def txt_output_mouse_release(self, e: QtGui.QMouseEvent):
         if e.button() == Qt.RightButton:
@@ -1342,7 +1368,7 @@ about the red milk"""
                 "time": ["ao", "ati", "ala", "alo", "ale", "ali"]
             },
             "a": {
-                "suff": ["am", "as", "aš", "a", "amo", "ate", "ju"],
+                "suff": ["am", "as", "aš", "a", "amo", "ate", "aju"],
                 "time": ["ao", "ati", "ala", "alo", "ale", "ali"]
             }
         }
@@ -1599,16 +1625,10 @@ about the red milk"""
         self.txt_edit_with.setText(tmp)
 
     def txt_edit_add_end_text_changed(self):
-        if self.txt_edit_add_end.text():
-            self.btn_edit_add_end.setEnabled(True)
-        else:
-            self.btn_edit_add_end.setEnabled(False)
+        self._set_buttons_for_replace()
 
     def txt_edit_add_beg_text_changed(self):
-        if self.txt_edit_add_beg.text():
-            self.btn_edit_add_beg.setEnabled(True)
-        else:
-            self.btn_edit_add_beg.setEnabled(False)
+        self._set_buttons_for_replace()
 
     def txt_edit_replace_text_changed(self):
         self._set_buttons_for_replace()
@@ -1620,25 +1640,26 @@ about the red milk"""
         self._set_buttons_for_replace()
 
     def _set_buttons_for_replace(self):
-        if not self.txt_edit_replace.text():
+        if not self.txt_edit_replace.text() or () or (self.txt_edit_replace.text() not in self.txt_output.toPlainText() and self.chk_edit_case.isChecked()):
             self.btn_edit_replace.setEnabled(False)
             self.btn_edit_replace_add.setEnabled(False)
-            return
-        
-        if not self.txt_edit_in_string.text():
-            if self.txt_edit_replace.text():
-                self.btn_edit_replace.setEnabled(True)
-                self.btn_edit_replace_add.setEnabled(True)
-            else:
-                self.btn_edit_replace.setEnabled(False)
-                self.btn_edit_replace_add.setEnabled(False)
         else:
-            if self.txt_edit_in_string.text().find(self.txt_edit_replace.text()) >= 0:
-                self.btn_edit_replace.setEnabled(True)
-                self.btn_edit_replace_add.setEnabled(True)
-            else:
+            if (self.txt_edit_replace.text().lower() not in self.txt_output.toPlainText().lower() and not self.chk_edit_case.isChecked()) or (self.txt_edit_replace.text() not in self.txt_output.toPlainText() and self.chk_edit_case.isChecked()):
                 self.btn_edit_replace.setEnabled(False)
                 self.btn_edit_replace_add.setEnabled(False)
+            else:
+                self.btn_edit_replace.setEnabled(True)
+                self.btn_edit_replace_add.setEnabled(True)
+
+        if self.txt_edit_add_beg.text():
+            self.btn_edit_add_beg.setEnabled(True)
+        else:
+            self.btn_edit_add_beg.setEnabled(False)
+
+        if self.txt_edit_add_end.text():
+            self.btn_edit_add_end.setEnabled(True)
+        else:
+            self.btn_edit_add_end.setEnabled(False)
 
     def btn_edit_output_click(self):
         if self.frm_edit.isVisible():
@@ -1740,10 +1761,20 @@ about the red milk"""
     def txt_output_text_changed(self):
         if self.txt_output.toPlainText():
             if self.txt_output.toPlainText()[-1] != "\n":
+                cur = self.txt_output.textCursor()
+                position = cur.position()
                 self.txt_output.setText(self.txt_output.toPlainText() + "\n")
+                cur = self.txt_output.textCursor()
+                cur.setPosition(position)
+                self.txt_output.setTextCursor(cur)
             self.btn_copy.setEnabled(True)
+            if " " in self.txt_output.toPlainText():
+                self.btn_switch_words_order.setEnabled(True)
         else:
             self.btn_copy.setEnabled(False)
+            self.btn_switch_words_order.setEnabled(False)
+        
+        self._set_buttons_for_replace()
 
     def btn_copy_click(self):
         self.get_appv("clipboard").setText(self.txt_output.toPlainText())
@@ -1853,6 +1884,7 @@ about the red milk"""
         self.btn_generate: QPushButton = self.findChild(QPushButton, "btn_generate")
         self.btn_copy: QPushButton = self.findChild(QPushButton, "btn_copy")
         self.btn_first_letter: QPushButton = self.findChild(QPushButton, "btn_first_letter")
+        self.btn_switch_words_order: QPushButton = self.findChild(QPushButton, "btn_switch_words_order")
 
         self.chk_add_end: QCheckBox = self.findChild(QCheckBox, "chk_add_end")
         self.chk_add_beggining: QCheckBox = self.findChild(QCheckBox, "chk_add_beggining")
@@ -1934,6 +1966,8 @@ about the red milk"""
         self.btn_cancel.setToolTip(self.getl("def_editor_btn_cancel_tt"))
         self.btn_first_letter.setText(self.getl("def_editor_btn_first_letter_text"))
         self.btn_first_letter.setToolTip(self.getl("def_editor_btn_first_letter_tt"))
+        self.btn_switch_words_order.setText(self.getl("def_editor_btn_switch_words_order_text"))
+        self.btn_switch_words_order.setToolTip(self.getl("def_editor_btn_switch_words_order_tt"))
 
         self.btn_clear_base.setText(self.getl("def_editor_btn_clear_text"))
         self.btn_clear_base.setToolTip(self.getl("def_editor_btn_clear_tt"))
@@ -1982,6 +2016,9 @@ about the red milk"""
         self.txt_edit_add_beg.setToolTip(self.getl("def_editor_txt_edit_add_beg_tt"))
         self.txt_edit_add_end.setToolTip(self.getl("def_editor_txt_edit_add_end_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_definition_win_apperance()
 
@@ -2001,6 +2038,7 @@ about the red milk"""
         self.btn_clear_beggining.setStyleSheet(self.getv("def_editor_btn_clear_stylesheet"))
         self.btn_clear_output.setStyleSheet(self.getv("def_editor_btn_clear_stylesheet"))
         self.btn_first_letter.setStyleSheet(self.getv("def_editor_btn_first_letter_stylesheet"))
+        self.btn_switch_words_order.setStyleSheet(self.getv("def_editor_btn_switch_words_order_stylesheet"))
         self.btn_generate.setStyleSheet(self.getv("def_editor_btn_generate_stylesheet"))
         self.btn_generate.setEnabled(False)
         self.btn_copy.setStyleSheet(self.getv("def_editor_btn_copy_stylesheet"))
@@ -2181,6 +2219,8 @@ class AddDefinition(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.keyPressEvent = self._key_press
 
         self.txt_expression.textChanged.connect(self._txt_expression_text_changed)
@@ -2211,6 +2251,7 @@ class AddDefinition(QDialog):
         self.show()
 
         QCoreApplication.processEvents()
+        # Check if multiple definitions for expression exist
         check_expression = self._definition_id_for_expression(self._expression)
         if check_expression:
             if len(check_expression) == 1:
@@ -2250,9 +2291,14 @@ class AddDefinition(QDialog):
                                                   search_string=self.txt_expression.text(), 
                                                   syn_list=self.txt_syn.toPlainText(),
                                                   image_list=images,
-                                                  update_def_function=self.definition_update_function)
+                                                  update_def_function=self.definition_update_function,
+                                                  caller_class_id=id(self))
 
     def definition_update_function(self, data: dict):
+        if data["caller_id"] != id(self):
+            print (f"Wrong caller: {data['caller_id']} != {id(self)}")
+            return
+        
         # Text
         if data.get("update_text", None):
             if data["text"]:
@@ -3086,6 +3132,7 @@ class AddDefinition(QDialog):
             if "def" in crash_dict[self.get_appv("user").username]:
                 crash_dict[self.get_appv("user").username].pop("def")
                 self._stt.custom_dict_save(self.getv("crash_file_path"), crash_dict)
+        
         return super().closeEvent(a0)
 
     def _can_exit(self) -> bool:
@@ -3240,6 +3287,8 @@ class AddDefinition(QDialog):
             [" )", ")"],
             ["( ", "("],
             ["\n ", "\n"],
+            [" \n", "\n"],
+            ["\n\n\n", "\n\n"],
             ["\t", " "]
         ]
         while True:
@@ -3466,6 +3515,9 @@ class AddDefinition(QDialog):
         self.lbl_loading.setText(self.getl("definition_add_lbl_loading_text"))
         self.lbl_loading.setToolTip(self.getl("definition_add_lbl_loading_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_definition_win_apperance()
         self._define_labels_apperance(self.lbl_title, "definition_add_title")
@@ -3573,6 +3625,8 @@ class ViewDefinition(QDialog):
         self._setup_widgets_apperance()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_size.mousePressEvent = self._btn_size_mouse_press
         self.btn_size.mouseReleaseEvent = self._btn_size_mouse_release
         self.btn_size.mouseMoveEvent = self._btn_size_mouse_move
@@ -3958,6 +4012,9 @@ class ViewDefinition(QDialog):
         self.btn_edit.setText(self.getl("definition_view_btn_edit_text"))
         self.btn_edit.setToolTip(self.getl("definition_view_btn_edit_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_definition_win_apperance()
         self._define_labels_apperance(self.lbl_name, "definition_view_name")
@@ -4043,9 +4100,12 @@ class BrowseDefinitions(QDialog):
             self._definition_id = None
         else:
             self._definition_id = definition_id
-        self._def_dict = self._get_def_dict()
+        self._def_dict = None
         self._dont_clear_menu = False
         self._clip: utility_cls.Clipboard = self.get_appv("cb")
+        self._text_filter = text_filter_cls.TextFilter()
+        self._text_filter.MatchCase = False
+        self._text_filter.SearchWholeWordsOnly = False
 
         # Load GUI
         uic.loadUi(self.getv("browse_def_ui_file_path"), self)
@@ -4058,6 +4118,8 @@ class BrowseDefinitions(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.lst_def.currentItemChanged.connect(self._lst_def_current_item_changed)
         self.lst_def.contextMenuEvent = self.lst_def_context_menu
         self.lst_def.mouseDoubleClickEvent = self._lst_def_mouse_double_click
@@ -4068,6 +4130,7 @@ class BrowseDefinitions(QDialog):
         self.lbl_pic.mousePressEvent = self.lbl_pic_mouse_press
         self.txt_find.textChanged.connect(self.txt_find_text_changed)
         self.txt_find.returnPressed.connect(self.txt_find_return_pressed)
+        self.txt_find.contextMenuEvent = self.txt_find_context_menu
         self.txt_desc.mouseDoubleClickEvent = self.txt_desc_mouse_double_click
 
         self.get_appv("signal").signalCloseAllDefinitions.connect(self._signal_close_all_definitions)
@@ -4102,13 +4165,126 @@ class BrowseDefinitions(QDialog):
         else:
             self.txt_desc.setText(def_desc)
 
-    def txt_find_text_changed(self):
-        txt = self.txt_find.text().lower()
+    def txt_find_context_menu(self, e):
+        disab = []
+        if not self.txt_find.isUndoAvailable():
+            disab.append(10)
+        if not self.txt_find.isRedoAvailable():
+            disab.append(20)
+        selected_text = ""
+        if self.txt_find.selectedText():
+            selected_text = self.txt_find.selectedText()
+        else:
+            disab.append(30)
+            disab.append(60)
+        if self.txt_find.text():
+            if not selected_text:
+                selected_text = self.txt_find.text()
+        else:
+            disab.append(40)
+        if not self.get_appv("clipboard").text():
+            paste_text = ""
+            disab.append(50)
+        else:
+            paste_text = self.get_appv("clipboard").text()
         
+        if len(selected_text) > 40:
+            selected_text = selected_text[:37] + "..."
+        if len(paste_text) > 40:
+            paste_text = paste_text[:37] + "..."
+
+        menu_dict = {
+            "separator": [20, 60],
+            "disabled": disab,
+            "items": [
+                [
+                    10,
+                    self.getl("block_txt_box_menu_undo_text"),
+                    self.getl("block_txt_box_menu_undo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_undo_icon_path")
+                ],
+                [
+                    20,
+                    self.getl("block_txt_box_menu_redo_text"),
+                    self.getl("block_txt_box_menu_redo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_redo_icon_path")
+                ],
+                [
+                    30,
+                    self.getl("block_txt_box_menu_cut_text"),
+                    self.getl("block_txt_box_menu_cut_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_cut_icon_path")
+                ],
+                [
+                    40,
+                    f'{self.getl("block_txt_box_menu_copy_text")} ({selected_text})',
+                    self.getl("block_txt_box_menu_copy_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_copy_icon_path")
+                ],
+                [
+                    50,
+                    f'{self.getl("block_txt_box_menu_paste_text")} ({paste_text})',
+                    self.getl("block_txt_box_menu_paste_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_paste_icon_path")
+                ],
+                [
+                    60,
+                    self.getl("block_txt_box_menu_delete_text"),
+                    self.getl("block_txt_box_menu_delete_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_delete_icon_path")
+                ]
+            ]
+        }
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter)
+
+        menu_dict = filter_menu.create_menu_dict(show_item_search_history=False, existing_menu_dict=menu_dict)
+
+        self._dont_clear_menu = True
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict)
+
+        if result in range(filter_menu.item_range_filter_setup[0], filter_menu.item_range_filter_setup[1]):
+            self.txt_find_text_changed()
+        elif result == 10:
+            self.txt_find.undo()
+        elif result == 20:
+            self.txt_find.redo()
+        elif result == 30:
+            self.txt_find.cut()
+        elif result == 40:
+            if self.txt_find.selectedText():
+                self.txt_find.copy()
+            else:
+                self.get_appv("clipboard").setText(self.txt_find.text())
+        elif result == 50:
+            self.txt_find.paste()
+        elif result == 60:
+            if self.txt_find.selectedText():
+                self.txt_find.setText(f"{self.txt_find.text()[:self.txt_find.selectionStart()]}{self.txt_find.text()[self.txt_find.selectionEnd():]}")
+
+    def txt_find_text_changed(self):
+        txt = self.txt_find.text()
+        
+        self._text_filter.clear_search_history()
+
         for item in self.lst_def.findItems("", Qt.MatchFlag.MatchContains):
             if txt:
-                if self._filter_apply(txt, self._def_dict[item.data(Qt.UserRole)].lower()):
+                if self._text_filter.is_filter_in_document(txt, self._def_dict[item.data(Qt.UserRole)]):
                     item.setHidden(False)
+                    self._text_filter.save_search_history(f"{item.data(Qt.UserRole)} | Name: {item.text()}")
                 else:
                     item.setHidden(True)
             else:
@@ -4131,18 +4307,21 @@ class BrowseDefinitions(QDialog):
         db_def = db_definition_cls.Definition(self._stt)
         defs = db_def.get_list_of_all_descriptions()
 
-        txt = self.txt_find.text().lower()
+        txt = self.txt_find.text()
+
+        self._text_filter.clear_search_history()
         
         for item in self.lst_def.findItems("", Qt.MatchFlag.MatchContains):
             if txt:
-
                 find_in = self._def_dict[item.data(Qt.UserRole)]
                 for i in defs:
                     if i[0] == item.data(Qt.UserRole):
                         find_in += " " + i[1]
                 
-                if self._filter_apply(txt, find_in):
+                if self._text_filter.is_filter_in_document(txt, find_in):
+                    # if self._filter_apply(txt, find_in):
                     item.setHidden(False)
+                    self._text_filter.save_search_history(f"{item.data(Qt.UserRole)} | Name: {item.text()}")
                 else:
                     item.setHidden(True)
             else:
@@ -4229,10 +4408,16 @@ class BrowseDefinitions(QDialog):
         if self._clip.is_clip_empty():
             disab.append(90)
 
+        list_item = self.lst_def.currentItem()
+        if list_item is None:
+            full_item_id = ""
+        else:
+            full_item_id = f"{list_item.data(Qt.UserRole)} | Name: {list_item.text()}"
+
         menu_dict = {
             "position": QCursor.pos(),
             "selected": [20],
-            "separator": [20, 40],
+            "separator": [20, 40, 90],
             "disabled": disab,
             "items": [
                 [
@@ -4282,8 +4467,16 @@ class BrowseDefinitions(QDialog):
             ]
         }
         self._dont_clear_menu = True
-        self.set_appv("menu", menu_dict)
-        utility_cls.ContextMenu(self._stt, self)
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter)
+        
+        menu_dict = filter_menu.create_menu_dict(existing_menu_dict=menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         db_def = db_definition_cls.Definition(self._stt, self._definition_id)
         media_ids = db_def.definition_media_ids
@@ -4321,18 +4514,43 @@ class BrowseDefinitions(QDialog):
         desc = desc.replace("#3", str(len(db_def.definition_synonyms)))
         desc = desc.replace("#4", str(len(db_def.definition_media_ids)))
 
+        expressions = db_def.get_list_of_all_expressions()
+
         input_dict = {
             "name": "block_input_box_name",
             "title": self.getl("browse_def_menu_rename_def_input_box_title"),
             "text": self.lst_def.currentItem().text(),
             "position": QCursor.pos(),
-            "description": desc
+            "description": desc,
+            "validator": {
+                "type": "definition",
+                "excluded": [x[0] for x in expressions]
+            }
         }
         self._dont_clear_menu = True
         utility_cls.InputBoxSimple(self._stt, self, input_dict)
         if not input_dict["result"]:
             return
         
+        # Check if name already exists as synonym or definition name
+        is_valid = True
+        for expression in expressions:
+            if expression[0] == input_dict["result"].lower():
+                is_valid = False
+                break
+        
+        if not is_valid:
+            notif_dict = {
+                "title": self.getl("browse_def_menu_rename_def_notification_title"),
+                "text": self.getl("browse_def_menu_rename_def_notification_name_exist_text"),
+                "timer": 10000,
+                "position": "bottom left",
+                "show_close": True,
+                "icon": self.getv("cancel_icon_path")
+            }
+            utility_cls.Notification(self._stt, self, notif_dict)
+            return
+
         def_dict = {
             "name": input_dict["result"]
         }
@@ -4342,6 +4560,7 @@ class BrowseDefinitions(QDialog):
         self._populate_data(self._definition_id)
 
         notif_dict = {
+            "position": "bottom left",
             "title": self.getl("browse_def_menu_rename_def_notification_title"),
             "text": self.getl("browse_def_menu_rename_def_notification_text"),
             "timer": 2000
@@ -4473,6 +4692,8 @@ class BrowseDefinitions(QDialog):
         return super().resizeEvent(a0)
 
     def _populate_widgets(self, def_id: int = None):
+        self._def_dict = self._get_def_dict()
+
         if def_id is None:
             def_id = self._definition_id
 
@@ -4565,10 +4786,13 @@ class BrowseDefinitions(QDialog):
         self.btn_delete.setText(self.getl("browse_def_btn_delete_text"))
         self.btn_delete.setToolTip(self.getl("browse_def_btn_delete_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_definition_win_apperance()
         
-        self._define_labels_apperance(self.lbl_name, "browse_def_lbl_title")
+        self._define_labels_apperance(self.lbl_title, "browse_def_lbl_title")
         self._define_labels_apperance(self.lbl_name, "browse_def_lbl_name")
         self._define_labels_apperance(self.lbl_count, "browse_def_lbl_count")
 
@@ -4674,6 +4898,8 @@ class FindDefinition(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.lst_pages.currentChanged = self._lst_pages_current_changed
         self.lbl_pic.mousePressEvent = self._lbl_pic_mouse_press
         self.lbl_pic2.mousePressEvent = self._lbl_pic2_mouse_press
@@ -5000,8 +5226,12 @@ class FindDefinition(QDialog):
         self.lbl_load.setText(self.getl("find_def_lbl_load_text"))
         self.lbl_load.setToolTip(self.getl("find_def_lbl_load_tt"))
 
-    def _setup_widgets_apperance(self):
-        self.frm_load.setVisible(False)
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
+        if not settings_updated:
+            self.frm_load.setVisible(False)
         self.lbl_load.setStyleSheet(self.getl("find_def_lbl_load_stylesheet"))
 
         self._define_find_definition_win_apperance()

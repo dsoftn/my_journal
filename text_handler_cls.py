@@ -1576,7 +1576,7 @@ class ShowSimpleDefinition(QFrame):
 
 class TextHandler():
     
-    END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#"}
+    END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#", "\"", "'", "{", "}", "[", "]", "_", "-", "*", "&", "^", "$", "+", "=", "|", "<", ">"}
     END_OF_SENTENCE = {".", "!", "?", "\n", "\t"}
     
     def __init__(self, settings: settings_cls.Settings, txt_box: QTextEdit, main_win):
@@ -1593,7 +1593,7 @@ class TextHandler():
         self.txt_box = txt_box
         self.char_for = self.txt_box.textCursor().charFormat()
         self._real_char_format = self.txt_box.textCursor().charFormat()
-        self.dicts = dict_cls.DictFrame(self._stt, self._main_win, self.txt_box)
+        self.dicts = None
 
         self.has_highlighted_word = False
         self._undo_available = False
@@ -1776,7 +1776,7 @@ class TextHandler():
         definition_word = None
         definition_id = None
         for i in self._text_def_map:
-            if self.txt_box.textCursor().position() in range(i[2], i[3] + 1):
+            if self.txt_box.textCursor().position() in range(i[2], i[3]):
                 definition_word = i[1]
                 definition_id = i[0]
                 break
@@ -2533,7 +2533,7 @@ class TextHandler():
                 end_sel = txt[cursor.selectionEnd():].find(" ") + cursor.selectionEnd()
                 if end_sel == -1:
                     end_sel = len(txt)
-                expression = txt[start_sel + 1:end_sel]
+                expression = self.txt_box.toPlainText()[start_sel + 1:end_sel]
                 definition_cls.AddDefinition(self._stt, self._main_win, expression=expression)
                 self._populate_def_list()
                 self.check_definitions()
@@ -2807,6 +2807,8 @@ class TextHandler():
                 if rslt:
                     self.setv("def_extra_image_animate_show", rslt)
         elif self.get_appv("menu")["result"] == 134:
+            if not self.dicts:
+                self.dicts = dict_cls.DictFrame(self._stt, self._main_win, self.txt_box)
             self.dicts.show_word(dict_search_term.strip("()"))
         elif self.get_appv("menu")["result"] == 135:
             search_string = sel_text
@@ -2973,7 +2975,8 @@ class TextHandler():
     def _populate_def_list(self):
         db_def = db_definition_cls.Definition(self._stt)
         def_list = db_def.get_list_of_all_expressions()
-        self._def_list = [[" " + x[0] + " ", x[1]] for x in def_list]
+        # self._def_list = [[" " + x[0] + " ", x[1]] for x in def_list]
+        self._def_list = [[x[0], x[1]] for x in def_list]
         self._def_list.sort(key = lambda expression: len(expression[0]))
 
         self._definition_hint.refresh()
@@ -3017,6 +3020,8 @@ class TextHandler():
 
         self._text_def_map = []
         
+        # DEPRECATED -->
+        """
         # Prepare text for search
         txt = self.txt_box.toPlainText().lower()
         txt1 = self.txt_box.toPlainText().lower()
@@ -3046,7 +3051,23 @@ class TextHandler():
                         self._text_def_map.append([i[1], i[0], pos, pos + len(i[0]) - 2])
                 if pos >= 0:
                     pos += 2
-        
+        """
+
+        txt = self.txt_box.toPlainText().lower()
+
+        # Search for expressions
+        for expression in self._def_list:
+            pos = 0
+            while pos != -1:
+                pos = txt.find(expression[0], pos)
+
+                if pos != -1:
+                    left_char = True if pos == 0 or txt[pos - 1] in self.END_OF_WORD else False
+                    right_char = True if pos + len(expression[0]) == len(txt) or txt[pos + len(expression[0])] in self.END_OF_WORD else False
+                    if left_char and right_char:
+                        self._text_def_map.append([expression[1], expression[0], pos, pos + len(expression[0])])
+                    pos += len(expression[0])
+
         # Mark expressions in text box
         cf = QTextCharFormat()
         color = QColor()
@@ -3290,15 +3311,40 @@ class TextHandler():
             if not self._definition_to_show_in_simple_view:
                 cursor = self.txt_box.cursorForPosition(e.pos())
                 self._definition_to_show_in_simple_view = []
+                has_def_with_spaces = False
                 for i in self._text_def_map:
                     if cursor.position() in range(i[2], i[3]):
-                        self._definition_to_show_in_simple_view.append(i[0])
+                        self._definition_to_show_in_simple_view.append(i)
+                        if " " in i[1].strip():
+                            has_def_with_spaces = True
+                if has_def_with_spaces:
+                    self._definition_to_show_in_simple_view = [x[0] for x in self._definition_to_show_in_simple_view if " " in x[1].strip()]
+                else:
+                    self._definition_to_show_in_simple_view = [x[0] for x in self._definition_to_show_in_simple_view]
                 
                 if len(self._definition_to_show_in_simple_view) == 0:
                     self._check_to_hide_simple_view()
                     return
             
                 self._timer.singleShot(self.getv("definition_view_simple_delay"), self._show_simple_def)
+                self.show_definition_names_in_titlebar(self._definition_to_show_in_simple_view)
+
+    def show_definition_names_in_titlebar(self, definition_ids: list):
+        if not self.getv("block_definition_titlebar_msg_enabled") or not isinstance(self.txt_box, block_widgets_cls.TextBox) or not definition_ids:
+            return
+        
+        db_def = db_definition_cls.Definition(self._stt)
+        for def_id in definition_ids:
+            db_def.load_definition(def_id)
+            detail_dict = {
+                "type": "show",
+                "name": f"definition {def_id}",
+                "text": db_def.definition_name,
+                "duration": self.getv("block_definition_titlebar_msg_duration"),
+                "id": self.txt_box._active_record_id
+            }
+            self.txt_box.block_event(self.txt_box._my_name, "titlebar_msg", detail=detail_dict)
+            
 
     def _is_cursor_at_valid_position(self, e: QtGui.QMouseEvent) -> bool:
         cursor = self.txt_box.cursorForPosition(e.pos())
@@ -3375,10 +3421,19 @@ class TextHandler():
         e = self.txt_box.mapFromGlobal(glob_pos)
         cursor = self.txt_box.cursorForPosition(e)
         definition_id = []
+        has_def_with_spaces = False
         for i in self._text_def_map:
-            if cursor.position() in range(i[2], i[3] + 1):
-                definition_id.append(i[0])
+            if cursor.position() in range(i[2], i[3]):
+                definition_id.append(i)
+                if " " in i[1].strip():
+                    has_def_with_spaces = True
         
+        # Try to reduce number of showed definitions
+        if has_def_with_spaces:
+            definition_id = [x[0] for x in definition_id if " " in x[1].strip()]
+        else:
+            definition_id = [x[0] for x in definition_id]
+
         if not definition_id:
             self._definition_to_show_in_simple_view = []
             self._timer.stop()
@@ -3678,7 +3733,7 @@ class TextHandler():
 
 
 class DefinitonHint(QFrame):
-    END_OF_WORD = {",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#"}
+    END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#", "\"", "'", "{", "}", "[", "]", "_", "-", "*", "&", "^", "$", "+", "=", "|", "<", ">"}
     ACCURACY_PERCENT = 80
     NUMBER_OF_DEFINITIONS = 6
 
@@ -3717,6 +3772,7 @@ class DefinitonHint(QFrame):
         self.btn_open.clicked.connect(self.btn_open_click)
         self.btn_quick_add.clicked.connect(self.btn_quick_add_click)
         self.btn_close.clicked.connect(self.btn_btn_close_click)
+        self.btn_settings.clicked.connect(self.btn_settings_click)
         self.get_appv("signal").signalNewDefinitionAdded.connect(self.refresh)
 
 
@@ -3724,6 +3780,9 @@ class DefinitonHint(QFrame):
         self._setup_widgets_text()
         self.refresh()
         self._load_data()
+
+    def btn_settings_click(self):
+        utility_cls.DefHintManager(self._stt, self._parent_widget)
 
     def btn_quick_add_click(self):
         if len(self.hint_result) != 1 or self.word is None:
@@ -4242,6 +4301,7 @@ class DefinitonHint(QFrame):
         self.btn_open: QPushButton = self.findChild(QPushButton, "btn_open")
         self.btn_dont_show: QPushButton = self.findChild(QPushButton, "btn_dont_show")
         self.btn_quick_add: QPushButton = self.findChild(QPushButton, "btn_quick_add")
+        self.btn_settings: QPushButton = self.findChild(QPushButton, "btn_settings")
         
         self.btn_close: QPushButton = self.findChild(QPushButton, "btn_close")
         self.btn_close.setAutoDefault(False)

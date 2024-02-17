@@ -19,7 +19,7 @@ class RecordData():
 
     def get_all_record_data(self) -> list:
         with database_cls.DataBase(self.db_info) as db:
-            q = f"SELECT * FROM data ;"
+            q = f"SELECT * FROM data ORDER BY record_id;"
             result = db.execute(q)
         return result
 

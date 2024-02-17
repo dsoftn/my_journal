@@ -20,6 +20,7 @@ class Numbers(QFrame):
         data["width] = int | None
         data["border] = boolean
         data["background"]: string
+        data["foreground"]: string
         data["hor_padding"] = int
         data["ver_padding"] = int
         data["hor_spacing"] = int
@@ -66,6 +67,16 @@ class Numbers(QFrame):
             if fm.height() > self.data["number_height"] / 1.5:
                 break
 
+        # Prefix image
+        if self.data["prefix_image"]:
+            lbl_prefix = QLabel(self)
+            lbl_prefix.setPixmap(QPixmap(self.data["prefix_image"]))
+            lbl_prefix.resize(self.data["number_width"], self.data["number_height"])
+            lbl_prefix.setScaledContents(True)
+            lbl_prefix.move(x, y)
+            lbl_prefix.setStyleSheet("QLabel {border: 0px;} QLabel:hover {background-color: #5ad9ff; border: 0px;}")
+            x += self.data["number_width"] + self.data["hor_spacing"]
+
         # Create new widgets
         for number in numbers:
             lbl_pic = QLabel(self)
@@ -84,7 +95,8 @@ class Numbers(QFrame):
             lbl_value.setFont(font)
             lbl_value.move(x, y)
             lbl_value.resize(self.data["number_width"] - 2, self.data["number_height"] - 2)
-            lbl_value.setStyleSheet("QLabel {color: rgb(255, 255, 0); background-color: rgba(255, 255, 255, 0); border: 0px;} QLabel:hover {color: rgb(230, 255, 0); border: 0px;}")
+            lbl_value_foreground_color = self.data["foreground"]
+            lbl_value.setStyleSheet(f"QLabel {{color: {lbl_value_foreground_color}; background-color: rgba(255, 255, 255, 0); border: 0px;}} QLabel:hover {{color: rgb(230, 255, 0); border: 0px;}}")
             # lbl_value.setCursor(Qt.PointingHandCursor)
             lbl_value.mousePressEvent = lambda event, number=number: self._on_number_clicked(event, number)
 
@@ -117,6 +129,7 @@ class Numbers(QFrame):
             "width": data.get("width", None),
             "border": data.get("border", True),
             "background": data.get("background", None),
+            "foreground": data.get("foreground", "#ffff00"),
             "hor_padding": data.get("hor_padding", 5),
             "ver_padding": data.get("ver_padding", 5),
             "hor_spacing": data.get("hor_spacing", 5),
@@ -127,6 +140,7 @@ class Numbers(QFrame):
             "number_image_path": data.get("number_image_path", self.getv("ball_red_icon_path")),
             "feedback_click_function": data.get("feedback_click_function", None),
             "has_cancel": data.get("has_cancel", True),
+            "prefix_image": data.get("prefix_image", None),
             "marked_numbers": data.get("marked_numbers", []),
             "marked_numbers_icon_path": data.get("marked_numbers_icon_path", "")
         }
@@ -175,6 +189,9 @@ class WorkingFrame(QFrame):
         self.parent_widget = parent_widget
         self.data = data
         self.selected_numbers = []
+
+        self.frm_list_kombs = None
+        self.frm_list_kombs_joker = None
         
         self.max_numbers = 7
         self.max_numbers_pool = 39
@@ -184,6 +201,10 @@ class WorkingFrame(QFrame):
             self.max_numbers_pool = 39
 
         self.selected_kombs = []
+        if self.data["item"]:
+            self.selected_kombs_joker = self.data["item"].get("joker_numbers", [])
+        else:
+            self.selected_kombs_joker = []
 
         self.pick_numbers_update_function = None
 
@@ -214,16 +235,6 @@ class WorkingFrame(QFrame):
         self.area_widget_layout.setContentsMargins(0, 0, 0, 0)
         self.area_widget_layout.setSpacing(0)
 
-        # if len(self.data["kombs"] * len(self.data["rounds"])) > 20:
-        #     lbl = QLabel(self.area)
-        #     lbl.setText("Računam...\n\nMolim sačekajte...")
-        #     lbl.setAlignment(Qt.AlignCenter)
-        #     lbl.setFixedHeight(self.data["height"])
-        #     lbl.setFont(QFont("Arial", 26))
-        #     self.area_widget_layout.addWidget(lbl)
-        #     self.show()
-        #     QCoreApplication.processEvents()
-
         for loto_komb in self.data["kombs"]:
             if len(self.data["rounds"]) == 1:
                 expanded = True
@@ -232,12 +243,6 @@ class WorkingFrame(QFrame):
             loto_winnning_frame = self._create_winning_komb_frame(loto_komb, self.data["rounds"], expanded=expanded)
             self.area_widget_layout.addWidget(loto_winnning_frame)
         
-        # if len(self.data["kombs"] * len(self.data["rounds"])) > 20:
-        #     self.area_widget_layout.takeAt(0)
-        #     lbl.deleteLater()
-        #     lbl = None
-        #     QCoreApplication.processEvents()
-
         h = 10
         for item in range(self.area_widget_layout.count()):
             h += self.area_widget_layout.itemAt(item).widget().height()
@@ -438,7 +443,8 @@ class WorkingFrame(QFrame):
             rule = utility_cls.TextToHtmlRule(
                 text="#--1",
                 replace_with=round_item["round"],
-                fg_color="rgb(255, 0, 0)"
+                fg_color="rgb(255, 0, 0)",
+                link_href="show_loto_round"
             )
             text_to_html.add_rule(rule)
 
@@ -571,6 +577,26 @@ class WorkingFrame(QFrame):
                 )
             text_to_html.add_rule(rule)
 
+            text += f"{delim_char}Džoker: #-10"
+            if winings["joker"]["winnings"]:
+                if len(rounds) == 1:
+                    self.sound_loto6.play()
+                rule = utility_cls.TextToHtmlRule(
+                    text="#-10",
+                    replace_with="Džoker dobitak",
+                    fg_color="#ffff00",
+                    bg_color="#ff0000",
+                    font_size=50,
+                    font_bold=True
+                )
+            else:
+                rule = utility_cls.TextToHtmlRule(
+                    text="#-10",
+                    replace_with="Nema dobitka",
+                    fg_color="#dcdcdc"
+                )
+            text_to_html.add_rule(rule)
+
             text += f"{delim_char}Prikaži detalje"
             rule = utility_cls.TextToHtmlRule(
                 text="Prikaži detalje",
@@ -599,8 +625,8 @@ class WorkingFrame(QFrame):
 
             lbl_info.linkActivated.connect(lambda url, lbl_info=lbl_info, frm_kombs=frm_kombs, frm=frm, loto_komb=loto_komb, round_item=round_item, winings=winings: self._show_kombs(url, lbl_info, frm_kombs, frm, loto_komb, round_item, winings))
 
-            total_winings += winings["loto_win7"]["total"] + winings["loto_win6"]["total"] + winings["loto_win5"]["total"] + winings["loto_win4"]["total"] + winings["loto_win3"]["total"] + winings["loto_plus_win7"]["total"]
-            total_cost += winings["loto_cost"] + winings["loto_plus_cost"]
+            total_winings += winings["loto_win7"]["total"] + winings["loto_win6"]["total"] + winings["loto_win5"]["total"] + winings["loto_win4"]["total"] + winings["loto_win3"]["total"] + winings["loto_plus_win7"]["total"] + winings["joker"]["total"]
+            total_cost += winings["loto_cost"] + winings["loto_plus_cost"] + winings["joker_cost"]
 
         prg_data["action"] = "hide"
         self.data["feedback_function"](prg_data, "progress")
@@ -649,6 +675,14 @@ class WorkingFrame(QFrame):
         return frm
 
     def _show_kombs(self, url: str, lbl_info: QLabel, frm_kombs: QFrame, main_frame: QFrame, loto_komb: dict, round_item: dict, winings: dict):
+        if url == "show_loto_round":
+            data_dict = {
+                "round": round_item["round"],
+                "year": round_item["year"]
+            }
+            self.data["feedback_function"](data_dict, "show_loto_round")
+            return
+        
         frm_kombs_height = frm_kombs.height()
 
         for widget in main_frame.children():
@@ -715,8 +749,9 @@ class WorkingFrame(QFrame):
             text += "Petica: #--7 * #--8 din = #--9\n"
             text += "Četvorki: #-10 * #-11 din = #-12\n"
             text += "Trojki: #-13 * #-14 din = #-15\n"
-            text += "Loto plus sedmica: #-16 * #-17 din = #-18\n\n"
-            text += f"Ukupan dobitak: #-19,  Potrošeno: #-20 + #-21 = #-22,   Profit: #-23\n\n"
+            text += "Loto plus sedmica: #-16 * #-17 din = #-18\n"
+            text += "Džoker: #-19 * #-20 din = #-21\n\n"
+            text += f"Ukupan dobitak: #-22,  Potrošeno: #-23 + #-24 = #-25,   Profit: #-26\n\n"
             
             rule_has_wining_color = "#aaff00"
             rule_no_wining_color = "#aaaaaa"
@@ -727,7 +762,8 @@ class WorkingFrame(QFrame):
                [winings['loto_win5']['winnings'], winings['loto_win5']['amount'], winings['loto_win5']['total']],
                [winings['loto_win4']['winnings'], winings['loto_win4']['amount'], winings['loto_win4']['total']],
                [winings['loto_win3']['winnings'], winings['loto_win3']['amount'], winings['loto_win3']['total']],
-               [winings['loto_plus_win7']['winnings'], winings['loto_plus_win7']['amount'], winings['loto_plus_win7']['total']]
+               [winings['loto_plus_win7']['winnings'], winings['loto_plus_win7']['amount'], winings['loto_plus_win7']['total']],
+               [winings['joker']['winnings'], winings['joker']['amount'], winings['joker']['total']]
             ]
 
             count = 1
@@ -773,7 +809,7 @@ class WorkingFrame(QFrame):
                 count += 1
 
             rule = utility_cls.TextToHtmlRule(
-                text="#-19",
+                text="#-22",
                 replace_with=f"{total_winings:,.2f}",
                 fg_color="#ff0000",
                 font_bold=True
@@ -781,7 +817,7 @@ class WorkingFrame(QFrame):
             text_to_html.add_rule(rule)
             
             rule = utility_cls.TextToHtmlRule(
-                text="#-20",
+                text="#-23",
                 replace_with=f"{winings['loto_cost']:,.2f}",
                 fg_color="#ffffff",
                 font_bold=False
@@ -789,7 +825,7 @@ class WorkingFrame(QFrame):
             text_to_html.add_rule(rule)
 
             rule = utility_cls.TextToHtmlRule(
-                text="#-21",
+                text="#-24",
                 replace_with=f"{winings['loto_plus_cost']:,.2f}",
                 fg_color="#ffffff",
                 font_bold=False
@@ -797,25 +833,25 @@ class WorkingFrame(QFrame):
             text_to_html.add_rule(rule)
 
             rule = utility_cls.TextToHtmlRule(
-                text="#-22",
+                text="#-25",
                 replace_with=f"{winings['loto_cost'] + winings['loto_plus_cost']:,.2f}",
                 fg_color="#ff0000",
                 font_bold=True
             )
             text_to_html.add_rule(rule)
 
-            if total_winings >= winings['loto_cost'] + winings['loto_plus_cost']:
+            if total_winings >= winings['loto_cost'] + winings['loto_plus_cost'] + winings['joker_cost']:
                 color = "#00ff00"
             else:
                 color = "#ff0000"
 
             rule = utility_cls.TextToHtmlRule(
-                text="#-23",
+                text="#-26",
                 replace_with=f"{total_winings - (winings['loto_cost'] + winings['loto_plus_cost']):,.2f}",
                 fg_color=color,
                 font_bold=True
             )
-            if total_winings - (winings['loto_cost'] + winings['loto_plus_cost']) < 0:
+            if total_winings - (winings['loto_cost'] + winings['loto_plus_cost'] + winings['joker_cost']) < 0:
                 rule.font_size = text_to_html.general_rule.font_size + 4
             else:
                 rule.font_size = text_to_html.general_rule.font_size + 10
@@ -853,6 +889,8 @@ class WorkingFrame(QFrame):
         loto_cost = 0
         loto_plus_cost = 0
         loto_plus_win7 = 0
+        joker = 0
+        joker_cost = 0
 
         for komb in loto_komb["numbers"]:
             numbers_hit = self._numbers_hit(komb, round["loto_numbers"])
@@ -874,6 +912,14 @@ class WorkingFrame(QFrame):
                 loto_plus_win7 += 1
             
             loto_plus_cost += self._get_amount(round["lbl_loto_plus_price"])
+
+        if loto_komb.get("joker_numbers", None) is not None:
+            for komb in loto_komb["joker_numbers"]:
+                komb_joker_combination = "".join(komb)
+                round_joker_combination = "".join(round["dzoker_numbers"])
+                if komb_joker_combination == round_joker_combination:
+                    joker = 1
+                joker_cost += self._get_amount(round["lbl_dzoker_price"])
 
         result = {
             "loto_win7": {
@@ -909,6 +955,12 @@ class WorkingFrame(QFrame):
                 "total": loto_plus_win7 * self._get_amount(round["lbl_loto_plus_winers"])
             },
             "loto_plus_cost": loto_plus_cost,
+            "joker":{
+                "winnings": joker,
+                "amount": self._get_amount(round["lbl_dzoker_amount"]),
+                "total": joker * self._get_amount(round["lbl_dzoker_amount"])
+            },
+            "joker_cost": joker_cost
         }
 
         return result
@@ -931,12 +983,19 @@ class WorkingFrame(QFrame):
         text = text.replace("cena kombinacije", "")
         text = text.replace("број добитака", "")
         text = text.replace("broj dobitaka", "")
+        text = text.replace("iznos dobitka", "")
+        text = text.replace("износ добитка", "")
         text = text.replace(",", ".")
         text = text.strip(" ,.")
         return self._get_float(text)
 
     def _get_float(self, text: str) -> float:
         result = None
+        while True:
+            if text.find(" ") == -1:
+                break
+            text = text.replace(" ", "")
+
         try:
             result = float(text)
         except:
@@ -1065,6 +1124,31 @@ class WorkingFrame(QFrame):
                 y += frm_sys_numbers.height() + 10
         
         y += 30
+
+        if self.data["item"].get("joker_numbers", None):
+            x = 10
+            for item in self.data["item"]["joker_numbers"]:
+                data = {
+                    "width": w - 20,
+                    "border": False,
+                    "numbers": item,
+                    "number_width": 35,
+                    "number_height": 35,
+                    "number_image_path": self.getv("ball_black_icon_path"),
+                    "prefix_image": self.getv("joker_logo_icon_path"),
+                    "foreground": "#00ff00",
+                    "has_cancel": False
+                }
+                frm_sys_numbers = Numbers(self, self._stt, data)
+                frm_sys_numbers.move(x, y)
+
+                x += frm_sys_numbers.width() + 50
+                if x + frm_sys_numbers.width() > w:
+                    x = 10
+                    y += frm_sys_numbers.height() + 10
+            
+            y += 30
+
         self.resize(w, y + 10)
 
     def _on_check_current_clicked(self):
@@ -1319,10 +1403,14 @@ class WorkingFrame(QFrame):
         self.lbl_info.setStyleSheet("color: rgb(170, 255, 127);")
         self.lbl_info.setText(text)
 
-    def _update_list_of_kombs(self):
+    def _update_list_of_kombs(self, joker_kombs: bool = False):
         # Delete old widgets
-        for widget in self.frm_list_kombs.children():
-            widget.deleteLater()
+        if joker_kombs:
+            for widget in self.frm_list_kombs_joker.children():
+                widget.deleteLater()
+        else:
+            for widget in self.frm_list_kombs.children():
+                widget.deleteLater()
 
         # Populate frame with new widgets
         h_spacing = 50
@@ -1330,40 +1418,85 @@ class WorkingFrame(QFrame):
         x = 0
         y = 0
         w = self.width() - 20 - self.frm_number_pick.width()
-        self.frm_list_kombs.resize(w, y)
         frm = None
-        for komb in self.selected_kombs:
-            data = {
-                "border": False,
-                "hor_padding": 0,
-                "ver_padding": 0,
-                "hor_spacing": 10,
-                "ver_spacing": 0,
-                "numbers": komb,
-                "number_width": 30,
-                "number_height": 30,
-                "feedback_click_function": self._number_komb_click
-            }
-            frm = Numbers(self.frm_list_kombs, self._stt, data)
-            frm.move(x, y)
-            frm.show()
-
-            x += frm.width()
-            if x + frm.width() + h_spacing > self.frm_list_kombs.width():
-                x = 0
+        if joker_kombs:
+            self.frm_list_kombs_joker.resize(w, y)
+            for komb in self.selected_kombs_joker:
+                data = {
+                    "border": False,
+                    "hor_padding": 0,
+                    "ver_padding": 0,
+                    "hor_spacing": 10,
+                    "ver_spacing": 0,
+                    "numbers": komb,
+                    "number_width": 35,
+                    "number_height": 35,
+                    "number_image_path": self.getv("ball_black_icon_path"),
+                    "prefix_image": self.getv("joker_logo_icon_path"),
+                    "foreground": "#00ff00",
+                    "feedback_click_function": self._joker_number_komb_click
+                }
+                frm = Numbers(self.frm_list_kombs_joker, self._stt, data)
+                frm.move(x, y)
+                frm.show()
+                x += frm.width()
+                if x + frm.width() + h_spacing > self.frm_list_kombs_joker.width():
+                    x = 0
+                    y += frm.height() + v_spacing
+                else:
+                    x += h_spacing
+            
+            if x > 0 and frm:
                 y += frm.height() + v_spacing
-            else:
-                x += h_spacing
-        
-        if x > 0 and frm:
-            y += frm.height() + v_spacing
 
-        w = self.width() - 20 - self.frm_number_pick.width()
-        self.frm_list_kombs.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.btn_save_komb.pos().y() + self.btn_save_komb.height() + 20)
-        self.frm_list_kombs.resize(w, y)
-        self.frm_list_kombs.show()
-        self.resize(self.width(), max(self.width(), self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 10))
-        self.parent_widget.parent().resize_me()
+            w = self.width() - 20 - self.frm_number_pick.width()
+            self.frm_list_kombs_joker.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 20)
+            self.frm_list_kombs_joker.resize(w, y)
+            self.frm_list_kombs_joker.show()
+            self.resize(self.width(), max(self.width(), self.frm_list_kombs_joker.pos().y() + self.frm_list_kombs_joker.height() + 10))
+            self.parent_widget.parent().resize_me()
+        else:
+            self.frm_list_kombs.resize(w, y)
+            for komb in self.selected_kombs:
+                data = {
+                    "border": False,
+                    "hor_padding": 0,
+                    "ver_padding": 0,
+                    "hor_spacing": 10,
+                    "ver_spacing": 0,
+                    "numbers": komb,
+                    "number_width": 30,
+                    "number_height": 30,
+                    "feedback_click_function": self._number_komb_click
+                }
+                frm = Numbers(self.frm_list_kombs, self._stt, data)
+                frm.move(x, y)
+                frm.show()
+
+                x += frm.width()
+                if x + frm.width() + h_spacing > self.frm_list_kombs.width():
+                    x = 0
+                    y += frm.height() + v_spacing
+                else:
+                    x += h_spacing
+            
+            if x > 0 and frm:
+                y += frm.height() + v_spacing
+
+            w = self.width() - 20 - self.frm_number_pick.width()
+            self.frm_list_kombs.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.btn_save_komb.pos().y() + self.btn_save_komb.height() + 20)
+            self.frm_list_kombs.resize(w, y)
+            self.frm_list_kombs.show()
+            if self.frm_list_kombs_joker:
+                self.resize(self.width(), max(self.width(), self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 10, self.frm_list_kombs_joker.pos().y() + self.frm_list_kombs_joker.height() + 10))
+            else:
+                self.resize(self.width(), max(self.width(), self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 10))
+            self.parent_widget.parent().resize_me()
+
+        if self.frm_list_kombs:
+            self.frm_list_kombs.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.btn_save_komb.pos().y() + self.btn_save_komb.height() + 20)
+        if self.frm_list_kombs_joker:
+            self.frm_list_kombs_joker.move(self.frm_number_pick.pos().x() + self.frm_number_pick.width() + 10, self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 20)
 
     def _number_komb_click(self, number):
         if number in self.selected_kombs:
@@ -1373,6 +1506,11 @@ class WorkingFrame(QFrame):
             self.txt_count_sys_numbers.setDisabled(True)
         else:
             self.txt_count_sys_numbers.setDisabled(False)
+
+    def _joker_number_komb_click(self, number):
+        if number in self.selected_kombs_joker:
+            self.selected_kombs_joker.remove(number)
+        self._update_list_of_kombs(joker_kombs=True)
 
     def _get_integer(self, text: str) -> int:
         result = None
@@ -1403,7 +1541,10 @@ class WorkingFrame(QFrame):
     def _populate_item_data(self, item):
         self.txt_name.setText(item["name"])
         self.txt_desc.setText(item["desc"])
-        self.selected_kombs = item["numbers"]
+        if self.data["item_type"] == "komb":
+            self.selected_kombs = item["numbers"]
+        else:
+            self.selected_kombs = item["sys_shema"]
         self.txt_count_sys_numbers.setText(str(self.max_numbers_pool))
         self._update_number_pick_apperance()
         self._update_list_of_kombs()
@@ -1542,14 +1683,94 @@ class WorkingFrame(QFrame):
             self.lbl_count_sys_numbers.setVisible(False)
             self.txt_count_sys_numbers.setVisible(False)
         
+        # Create Joker kombs frame
+        self.frm_joker: QFrame = self._create_joker_frame()
+        self.frm_joker.move(max(self.lbl_count_sys_numbers.pos().x() + self.lbl_count_sys_numbers.width() + 10, self.txt_count_sys_numbers.pos().x() + self.txt_count_sys_numbers.width() + 10), self.lbl_count_sys_numbers.pos().y())
+        
         # Create frame for showing list of kombinations
         self.frm_list_kombs = QFrame(self)
         self.frm_list_kombs.setFrameShape(QFrame.NoFrame)
         self.frm_list_kombs.setFrameShadow(QFrame.Plain)
         self._update_list_of_kombs()
 
+        # Create frame for showing list of joker kombinations
+        self.frm_list_kombs_joker = QFrame(self)
+        self.frm_list_kombs_joker.setFrameShape(QFrame.NoFrame)
+        self.frm_list_kombs_joker.setFrameShadow(QFrame.Plain)
+        self._update_list_of_kombs(joker_kombs=True)
 
         self.resize(self.width(), max(self.frm_number_pick.pos().y() + self.frm_number_pick.height() + 10, self.frm_list_kombs.pos().y() + self.frm_list_kombs.height() + 10))
+
+    def _create_joker_frame(self) -> QFrame:
+        frm = QFrame(self)
+        frm.setFrameShape(QFrame.Box)
+        frm.setFrameShadow(QFrame.Plain)
+        frm.setLineWidth(1)
+
+        lbl_title = QLabel(frm)
+        lbl_title.setText(self.getl("online_dsl_joker_add_title"))
+        lbl_title.setStyleSheet("QLabel {color: #dfdfdf; font-size: 14px;}")
+        lbl_title.setTextInteractionFlags(lbl_title.textInteractionFlags() | Qt.TextSelectableByMouse)
+        lbl_title.adjustSize()
+        lbl_title.move(5, 5)
+        y = lbl_title.height() + 10
+
+        txt_joker = QLineEdit(frm)
+        txt_joker.setStyleSheet("QLineEdit {font-size: 14px; background-color: rgb(0, 126, 0); color: rgb(255, 255, 0);} QLineEdit:hover {background-color: rgb(0, 163, 0);}")
+        txt_joker.setAlignment(Qt.AlignCenter)
+        txt_joker.move(5, y)
+        txt_joker.resize(110, 25)
+        txt_joker.textChanged.connect(lambda _: self._txt_joker_text_changed(text_widget=txt_joker))
+
+        btn_add_joker = QPushButton(frm)
+        btn_add_joker.setText(self.getl("online_dsl_joker_add_btn"))
+        btn_add_joker.setCursor(Qt.PointingHandCursor)
+        btn_add_joker.setStyleSheet("QPushButton {background-color: rgb(0, 126, 0); color: rgb(255, 255, 0);} QPushButton:hover {background-color: rgb(0, 163, 0);}")
+        btn_add_joker.move(txt_joker.pos().x() + txt_joker.width() + 5, txt_joker.pos().y())
+        btn_add_joker.clicked.connect(lambda _: self._add_joker_btn_add_joker_clicked(text_widget=txt_joker))
+
+        frm.resize(btn_add_joker.pos().x() + btn_add_joker.width() + 5, y + btn_add_joker.height() + 5)
+        return frm
+
+    def _add_joker_btn_add_joker_clicked(self, text_widget: QLineEdit):
+        numbers = self._joker_numbers_from_text(text_widget=text_widget)
+        if numbers is None or numbers in self.selected_kombs_joker:
+            return
+        self.selected_kombs_joker.append(numbers)
+        self._update_list_of_kombs(joker_kombs=True)
+    
+    def _txt_joker_text_changed(self, text_widget: QLineEdit):
+        self._joker_numbers_from_text(text_widget=text_widget)
+
+    def _joker_numbers_from_text(self, text_widget: QLineEdit) -> list:
+        default_stylesheet = "QLineEdit {font-size: 14px; background-color: rgb(0, 126, 0); color: rgb(255, 255, 0);} QLineEdit:hover {background-color: rgb(0, 163, 0);}"
+        invalid_stylesheet = "QLineEdit {font-size: 14px; background-color: #aa0000; color: rgb(255, 255, 0);} QLineEdit:hover {background-color: #df0000;}"
+        komb_exists_stylesheet = "QLineEdit {font-size: 14px; background-color: #8400c6; color: rgb(255, 255, 0);} QLineEdit:hover {background-color: #9a00e7;}"
+        text = text_widget.text()
+        if text == "":
+            text_widget.setStyleSheet(default_stylesheet)
+            return None
+        
+        if "," in text:
+            numbers = [x for x in text.split(",")]
+        else:
+            numbers = [x for x in text if x.isdigit()]
+
+        if len(numbers) != 6:
+            text_widget.setStyleSheet(invalid_stylesheet)
+            return None
+        
+        for number in numbers:
+            number = self._get_integer(number)
+            if number is None or number < 0 or number > 9:
+                text_widget.setStyleSheet(invalid_stylesheet)
+                return None
+        
+        if numbers in self.selected_kombs_joker:
+            text_widget.setStyleSheet(komb_exists_stylesheet)
+        else:
+            text_widget.setStyleSheet(default_stylesheet)
+        return numbers
 
     def _txt_count_sys_numbers_text_changed(self):
         value = self._get_integer(self.txt_count_sys_numbers.text())
@@ -1614,6 +1835,7 @@ class WorkingFrame(QFrame):
         item["is_enabled"] = False
         item["can_be_removed"] = True
         item["numbers"] = self.selected_kombs
+        item["joker_numbers"] = self.selected_kombs_joker            
         item["sys_numbers"] = self.max_numbers_pool
         item["sys_selected_numbers"] = [x for x in range(1, self.max_numbers_pool + 1)]
         item["sys_shema"] = self.selected_kombs
@@ -1729,7 +1951,8 @@ class DLS(AbstractTopic):
             "item": None,
             "item_type": None,
             "kombs": kombs,
-            "rounds": [self.settings["current_loto"]]
+            "rounds": [self.settings["current_loto"]],
+            "feedback_function": self.frm_loto_komb_work_feedback_function
         }
         if self.frm_loto_komb_work:
             self.frm_loto_komb_work.deleteLater()
@@ -1741,6 +1964,18 @@ class DLS(AbstractTopic):
         return
 
     def frm_loto_komb_work_feedback_function(self, data: dict, action: str = None):
+        if action == "show_loto_round":
+            year = self._get_integer(data["year"])
+            rnd = self._get_integer(data["round"])
+            if not year or not rnd:
+                return
+            
+            year_round = tuple([str(year), str(rnd)])
+
+            self._load_loto_frame(year_round=year_round)
+            return
+            # self._update_loto_archive_label_text(self.txt_loto_archive_year.text())
+
         if action == "progress":
             if data["action"] == "hide":
                 self.frm_progress_window.deleteLater()
@@ -2011,7 +2246,7 @@ class DLS(AbstractTopic):
                 if item["name"] == data["name"]:
                     self.settings["loto"]["system"].remove(item)
                     if self.frm_loto_komb_work:
-                        if data["name"] in self.frm_loto_komb_work.data["reserved_names"]:
+                        if self.frm_loto_komb_work.data.get("reserved_names", None) and data["name"] in self.frm_loto_komb_work.data["reserved_names"]:
                             self.frm_loto_komb_work.data["reserved_names"].remove(data["name"])
                     break
             self._update_frm_loto_komb_apperance()
@@ -2102,7 +2337,6 @@ class DLS(AbstractTopic):
                 rnd = str(int(rnd) + 1)
                 continue
 
-            print (year, rnd)
             result = self._load_loto_frame(year_round=(year, rnd), auto_show_frame=False)
             self._update_loto_archive_label_text(year)
 
@@ -2127,10 +2361,10 @@ class DLS(AbstractTopic):
         if row >= 0:
             year = self.lst_loto_archive_years.item(row).text()
             self.lbl_loto_archive_search_year.setText(year)
-            if year in self.settings["completed_years"]:
-                self.btn_loto_archive_search_download.setDisabled(True)
-            else:
-                self.btn_loto_archive_search_download.setDisabled(False)
+            # if year in self.settings["completed_years"]:
+            #     self.btn_loto_archive_search_download.setDisabled(True)
+            # else:
+            #     self.btn_loto_archive_search_download.setDisabled(False)
             self._update_loto_archive_label_text(year)
             self.frm_loto_archive_search.setVisible(True)
 
@@ -2140,6 +2374,8 @@ class DLS(AbstractTopic):
             if self.lst_loto_archive_years.item(i).text() == year:
                 list_item = self.lst_loto_archive_years.item(i)
                 break
+        else:
+            return
 
         total_rounds = 0
         for item in self.settings["loto"]["archive"]:
@@ -3079,6 +3315,7 @@ class DLS(AbstractTopic):
             "is_enabled": False,
             "can_be_removed": False,
             "numbers": [],
+            "joker_numbers": [],
             "sys_selected_numbers": [],
             "sys_numbers": 0,
             "sys_shema": []

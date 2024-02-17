@@ -133,9 +133,19 @@ class Settings():
         lang_dir = lang_dir[0]
     
         if not os.path.isdir(stt_dir):
-            os.mkdir(stt_dir)
+            create_dirs = ""
+            for path in stt_dir.split("/"):
+                if path:
+                    create_dirs += f"{path}/"
+                    if not os.path.isdir(create_dirs):
+                        os.mkdir(create_dirs)
         if not os.path.isdir(lang_dir):
-            os.mkdir(lang_dir)
+            create_dirs = ""
+            for path in lang_dir.split("/"):
+                if path:
+                    create_dirs += f"{path}/"
+                    if not os.path.isdir(create_dirs):
+                        os.mkdir(create_dirs)
 
     def _add_to_dict_new_keys(self, dict_add_to: dict, dict_add_from: dict):
         for key, value in dict_add_from.items():
@@ -283,6 +293,13 @@ class Settings():
         return result
 
     def get_setting_dict(self, key_name: str) -> dict:
+        """ Dictionary with all properties of the setting.
+        result["value"] - value of the setting
+        result["min_value"] - minimal value of the setting
+        result["max_value"] - maximal value of the setting
+        result["description"] - description of the setting
+        result["recommended"] - recommended value of the setting
+        """
         if key_name not in self._settings.keys():
             raise ValueError(f"Setting with name '{key_name}' does not exist.")
         return copy.deepcopy(self._settings[key_name])
@@ -322,6 +339,9 @@ class Settings():
             self._settings[key_name]["min_value"] = min_value
             return True
         raise ValueError(f"Value error for setting '{key_name}'.")
+
+    def is_setting_key_exist(self, key_name: str) -> bool:
+        return key_name in self._settings
 
     def get_setting_value(self, key_name: str):
         if key_name in self._settings:
@@ -377,8 +397,9 @@ class Settings():
         """
         result = []
         for key in self._settings:
-            if filter in key:
-                result.append(key)
+            if isinstance(self._settings[key], dict):
+                if filter in key:
+                    result.append(key)
         return result
 
     def _is_value_in_range(self, key_name: str, value) -> bool:
@@ -457,6 +478,10 @@ class Settings():
             for language in self._lang[key_name]:
                 if language[0] == active_lang:
                     result = language[1]
+        # else:
+        #     if "_desc" not in key_name and "_recomm" not in key_name:
+        #         print (f"Language key '{key_name}' not found.")
+
         if self.debug_mode:
             self.debug_language.append(key_name)
         return result
@@ -471,19 +496,21 @@ class Settings():
         color = ""
         is_valid = False
         c_str = color_value_string.strip()
+        if color_value_string.strip().lower() == "transparent":
+            return color_value_string.strip().lower()
+        
         # Case when a hex value is passed
         if "#" in c_str:
-            c_str = c_str.replace("#", "")
-            try:
-                # Checking if the HEX number is in the range #000000 to #ffffff
-                c_int = int(c_str, 16)
-                if c_int < 256**3:
-                    # Convert c_int back to a hex value and add zeros to the left to make it 6 digits
-                    color = hex(c_int)[2:].zfill(6)
-                    color = "#" + color
-                    is_valid = True
-            except (ValueError, TypeError):
-                    is_valid = False
+            c_str = c_str.strip(" #;")
+            if len(c_str) < 9:
+                is_valid = True
+                for i in c_str:
+                    if i.lower() not in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]:
+                        is_valid = False
+                        break
+                if is_valid:
+                    color = f"#{c_str}"
+
         # Case when an rgb value is passed
         if "(" in c_str and ")" in c_str:
             start_pos = c_str.find("(")
@@ -495,14 +522,22 @@ class Settings():
                 # c_str = content between brackets
                 c_str = c_str[start_pos + 1:end_pos]
                 # Separate each number between the brackets separated by a comma, if there is no number, put 0
-                values = [x if x != "" else "0" for x in c_str.split(",")]
+                values = [x.strip() if x.strip() != "" else "0" for x in c_str.split(",")]
                 # There must be exactly 3 values ​​between the brackets
-                if len(values) == 3:
+                if len(values) == 3 or len(values) == 4:
                     # Check if all values ​​are numbers
-                    if values[0].isdigit() and values[1].isdigit() and values[2].isdigit():
+                    if all([x.isdigit() for x in values]):
                         red = int(values[0])
                         green = int(values[1])
                         blue = int(values[2])
+                        alpha_hex = ""
+                        if len(values) == 4:
+                            alpha = int(values[3])
+                            if alpha in range(0, 256):
+                                alpha_hex = hex(alpha)[2:].zfill(2)
+                            else:
+                                alpha_hex = None
+                        
                         # Check that all values ​​are in the range 0-255
                         if red in range(0, 256) and green in range(0, 256) and blue in range(0, 256):
                             # Convert each value to a HEX number and pad the left side with zeros to make the number of characters exactly 2
@@ -510,8 +545,9 @@ class Settings():
                             green_hex = hex(green)[2:].zfill(2)
                             blue_hex = hex(blue)[2:].zfill(2)
                             # Finally, concatenate all HEX values ​​and add # to the beginning
-                            color = "#" + red_hex + green_hex + blue_hex
-                            is_valid = True
+                            if alpha_hex is not None:
+                                color = "#" + red_hex + green_hex + blue_hex + alpha_hex
+                                is_valid = True
         if is_valid:
             return color
         else:

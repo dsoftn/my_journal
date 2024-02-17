@@ -1348,6 +1348,7 @@ class MyJournal(QMainWindow):
                 log.write_log("Warning. Last session crashed...: Definition Add/Edit resuming...")
                 definition_cls.AddDefinition(stt, self, crash_dict=self.crash_dict)
         # Connect events with slots
+        get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
         self.closeEvent = self._close_event
         self.area_label.mousePressEvent = self.area_label_mouse_press
         # Menu / ToolBar events
@@ -1361,6 +1362,7 @@ class MyJournal(QMainWindow):
         self.menu_help.aboutToShow.connect(self._close_context_dialogs)
 
         # File menu
+        self.mnu_file_app_settings.triggered.connect(self.mnu_file_app_settings_triggered)
         self.mnu_file_save_active_block.triggered.connect(self.mnu_file_save_active_block_triggered)
         # Edit menu
         self.mnu_add_block.triggered.connect(self.mnu_add_block_triggered)
@@ -1528,8 +1530,11 @@ class MyJournal(QMainWindow):
         return super().mousePressEvent(a0)
 
     def mnu_open_click(self):
-        app_settings_cls.Settings(stt, self)
         # app_settings_cls.Settings(stt, self)
+        pass
+
+    def mnu_file_app_settings_triggered(self) -> None:
+        app_settings_cls.Settings(stt, self)
 
     def mnu_file_save_active_block_triggered(self) -> None:
         self.save_active_block()
@@ -1668,7 +1673,10 @@ class MyJournal(QMainWindow):
         else:
             return False
 
-    def add_block(self, record_id: int = 0, collapsed: bool = False, animate: bool = True):
+    def add_block(self, record_id: int = 0, collapsed: bool = False, animate: bool = None):
+        if animate is None:
+            animate = getv("block_animation_on_open")
+            
         if record_id == 0:
             # Find record ID for new block
             #   Save new empty record
@@ -1789,7 +1797,12 @@ class MyJournal(QMainWindow):
                 w -= self.toolBar.height() - self.sts_bar.height()
             self.area.resize(w, h)
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_action=True)
+
+    def _setup_widgets_apperance(self, settings_action: bool = False):
+        if settings_action:
+            self.hide()
         # MainWindow
         self.setWindowIcon(QIcon(getv("main_win_icon_path")))
         self.setStyleSheet(getv("main_win_stylesheet"))
@@ -1812,6 +1825,10 @@ class MyJournal(QMainWindow):
             self.sts_bar.setFixedHeight(getv("sts_bar_fixed_height"))
         self.sts_bar.setEnabled(getv("sts_bar_enabled"))
         self.sts_bar.setVisible(getv("sts_bar_visible"))
+        # Menubar
+        self.menubar.setStyleSheet(getv("menubar_stylesheet"))
+        self.menubar.setEnabled(getv("menubar_enabled"))
+        self.menubar.setVisible(getv("menubar_visible"))
         # ScrollArea
         self.area.setFrameShape(getv("scroll_area_frame_shape"))
         self.area.setFrameShadow(getv("scroll_area_frame_shadow"))
@@ -1840,6 +1857,7 @@ class MyJournal(QMainWindow):
 
         # Menu Items
         #       File
+        self._define_menu_item(self.mnu_file_app_settings, "mnu_file_app_settings")
         self._define_menu_item(self.mnu_open, "mnu_open")
         self._define_menu_item(self.mnu_save_as, "mnu_save_as")
         self._define_menu_item(self.mnu_file_save_active_block, "mnu_file_save_active_block")
@@ -1875,6 +1893,9 @@ class MyJournal(QMainWindow):
         self._define_menu_item(self.mnu_web_pages, "mnu_web_pages")
         self._define_menu_item(self.mnu_youtube, "mnu_youtube")
         self._define_menu_item(self.mnu_important_dates, "mnu_important_dates")
+        if settings_action:
+            app.processEvents()
+            self.show()
 
     def _define_main_menu_items(self, menu_item: QMenu, name: str):
         menu_item.setStyleSheet(getv(f"{name}_stylesheet"))
@@ -1927,6 +1948,9 @@ class MyJournal(QMainWindow):
         self.menu_help.setToolTip(getl("menu_help_tt"))
         self.menu_help.setStatusTip(getl("menu_help_sb_text"))
         # File
+        self.mnu_file_app_settings.setText(getl("mnu_file_app_settings_text"))
+        self.mnu_file_app_settings.setToolTip(getl("mnu_file_app_settings_tt"))
+        self.mnu_file_app_settings.setStatusTip(getl("mnu_file_app_settings_sb_text"))
         self.mnu_open.setText(getl("mnu_open_text"))
         self.mnu_open.setToolTip(getl("mnu_open_tt"))
         self.mnu_open.setStatusTip(getl("mnu_open_sb_text"))
@@ -2036,6 +2060,7 @@ class MyJournal(QMainWindow):
         self.menu_help: QMenu = self.findChild(QMenu, "menuHelp")
         # Menu Items
         #       File
+        self.mnu_file_app_settings: QAction = self.findChild(QAction, "mnu_file_app_settings")
         self.mnu_open: QAction = self.findChild(QAction, "mnu_open")
         self.mnu_save_as: QAction = self.findChild(QAction, "mnu_save_as")
         self.mnu_file_save_active_block: QAction = self.findChild(QAction, "mnu_file_save_active_block")

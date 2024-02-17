@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridL
                              QRadioButton, QGroupBox, QMessageBox)
 from PyQt5.QtGui import (QIcon, QFont, QFontMetrics, QPixmap, QCursor, QImage, QClipboard, QColor)
 from PyQt5.QtCore import (QSize, Qt, pyqtSignal, QObject, QCoreApplication, QRect,QPoint, QTimer, 
-                          QDate, QFileInfo, QMimeDatabase)
+                          QDate, QFileInfo, QMimeDatabase, QEvent)
 from PyQt5 import uic, QtGui, QtCore
 from PyQt5.QtMultimedia import QSound
 
@@ -34,6 +34,8 @@ import db_record_data_cls
 import db_definition_cls
 import text_handler_cls
 import definition_cls
+import text_filter_cls
+import db_tag_cls
 
 
 class DialogsQueue():
@@ -123,8 +125,8 @@ class DialogsQueue():
 
 
 class ContextMenuItem(QPushButton):
-    def __init__(self, settings: settings_cls.Settings, parent_widget, button_id, button_name, button_description, button_icon, *args, **kwargs):
-        super().__init__(parent_widget, *args, **kwargs)
+    def __init__(self, settings: settings_cls.Settings, parent_widget, button_id, button_name, button_description, button_icon):
+        super().__init__(parent_widget)
         self.setMouseTracking(True)
         self.parent_widget = parent_widget
         self.btn_id = button_id
@@ -165,11 +167,14 @@ class ContextMenuItem(QPushButton):
         btn.setDefault(False)
         btn.setFlat(self.getv(f"{name}_flat"))
         btn.setShortcut(self.getv(f"{name}_shortcut"))
-        font = QFont(self.getv(f"{name}_font_name"), self.getv(f"{name}_font_size"))
+        font = btn.font()
+        font.setFamily(self.getv(f"{name}_font_name"))
+        font.setPointSize(self.getv(f"{name}_font_size"))
         font.setWeight(self.getv(f"{name}_font_weight"))
         font.setItalic(self.getv(f"{name}_font_italic"))
         font.setUnderline(self.getv(f"{name}_font_underline"))
         font.setStrikeOut(self.getv(f"{name}_font_strikeout"))
+        btn.setStyleSheet("")
         btn.setFont(font)
         btn.setStyleSheet(self.getv(f"{name}_stylesheet"))
         btn.setEnabled(self.getv(f"{name}_enabled"))
@@ -459,6 +464,10 @@ class ContextMenu(QDialog):
         self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)
         if not self.getv("context_menu_win_show_titlebar"):
             self.setWindowFlag(Qt.FramelessWindowHint)
+        if self.getv("context_menu_win_width"):
+            self.setFixedWidth(self.getv("context_menu_win_width"))
+        if self.getv("context_menu_win_height"):
+            self.setFixedHeight(self.getv("context_menu_win_height"))
 
     def _set_margins(self, object: object, name: str) -> None:
         values = self.getv(name + "_contents_margins")
@@ -513,6 +522,8 @@ class InputBoxSimple(QDialog):
         self._set_window_geometry()
         
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         if self.input_dict["one_line"]:
             self.txt_box.returnPressed.connect(self._txt_box_return_press)
         else:
@@ -523,9 +534,52 @@ class InputBoxSimple(QDialog):
         self.btn_resize.mouseReleaseEvent = self._btn_resize_mouse_release
         self.btn_resize.mouseMoveEvent = self._btn_resize_mouse_move
         self.txt_box.mouseDoubleClickEvent = self.txt_box_mouse_double_click
+        self.txt_box.textChanged.connect(self._txt_box_text_changed)
 
         self.show()
         self.exec_()
+
+    def _txt_box_text_changed(self):
+        if not self.input_dict.get("validator", None):
+            return
+        
+        if self.input_dict["one_line"]:
+            text = self.txt_box.text().lower()
+        else:
+            text = self.txt_box.toPlainText().lower()
+        
+        is_valid = False
+
+        for item in self.input_dict["validator"].get("included", []):
+            if item == text:
+                is_valid = True
+                break
+        
+        if not is_valid and self.input_dict["validator"].get("included", []):
+            self._set_stylesheet_to_invalid()
+            return
+
+        is_valid = True
+
+        for item in self.input_dict["validator"].get("excluded", []):
+            if item == text:
+                is_valid = False
+                break
+        
+        if not is_valid:
+            self._set_stylesheet_to_invalid()
+            return
+
+        if self.input_dict["one_line"]:
+            self.txt_box.setStyleSheet(self.getv("block_input_box_name_one_line_stylesheet"))
+        else:
+            self.txt_box.setStyleSheet(self.getv(self.input_dict["name"] + "_stylesheet"))
+
+    def _set_stylesheet_to_invalid(self):
+        if self.input_dict["one_line"]:
+            self.txt_box.setStyleSheet(self.getv("input_box_txt_box_invalid_entry_one_line_stylesheet"))
+        else:
+            self.txt_box.setStyleSheet(self.getv("input_box_txt_box_invalid_entry_stylesheet"))
 
     def txt_box_mouse_double_click(self, x):
         if self.input_dict["calendar_on_double_click"]:
@@ -744,9 +798,17 @@ class InputBoxSimple(QDialog):
             self.layout().addWidget(self.btn_resize, grid_count, 1, Qt.AlignRight)
         grid_count += 1
 
+    def app_setting_updated(self, data: dict):
+        self._define_widgets_apperance()
+
     def _define_widgets_apperance(self):
         self._define_input_box_win_apperance()
-        self._txt_box_apperance(self.txt_box, self.input_dict["name"])
+        if self.input_dict["one_line"]:
+            self._txt_box_apperance(self.txt_box, self.input_dict["name"], no_stylesheet=True)
+            self.txt_box.setStyleSheet(self.getv("block_input_box_name_one_line_stylesheet"))
+        else:
+            self._txt_box_apperance(self.txt_box, self.input_dict["name"])
+
         if self.input_dict["title"]:
             self._define_labels_apperance(self.lbl_title, self.input_dict["name"] + "_title")
         if self.input_dict["description"]:
@@ -766,7 +828,7 @@ class InputBoxSimple(QDialog):
             self.btn_ok.setText(self.getl("input_box_btn_ok_text"))
             self.btn_ok.setToolTip(self.getl("input_box_btn_ok_tt"))
 
-    def _define_buttons_apperance(self, btn: QPushButton, name: str, extra_icon):
+    def _define_buttons_apperance(self, btn: QPushButton, name: str, extra_icon, no_stylesheet: bool = False):
         # Apperance
         btn.setAutoDefault(False)
         btn.setDefault(False)
@@ -780,7 +842,8 @@ class InputBoxSimple(QDialog):
         font.setUnderline(self.getv(f"{name}_font_underline"))
         font.setStrikeOut(self.getv(f"{name}_font_strikeout"))
         btn.setFont(font)
-        btn.setStyleSheet(self.getv(f"{name}_stylesheet"))
+        if not no_stylesheet:
+            btn.setStyleSheet(self.getv(f"{name}_stylesheet"))
         # Icon Size
         icon_size = int(btn.contentsRect().height() * self.getv(f"{name}_icon_height") / 100)
         btn.setIconSize(QSize(icon_size, icon_size))
@@ -795,7 +858,7 @@ class InputBoxSimple(QDialog):
         if not self.getv(f"{name}_win_show_titlebar"):
             self.setWindowFlag(Qt.FramelessWindowHint)
 
-    def _txt_box_apperance(self, txt_box, name: str):
+    def _txt_box_apperance(self, txt_box, name: str, no_stylesheet: bool = False):
         if isinstance(txt_box, QTextEdit):
             txt_box.setFrameShape(self.getv(f"{name}_frame_shape"))
             txt_box.setFrameShadow(self.getv(f"{name}_frame_shadow"))
@@ -811,7 +874,8 @@ class InputBoxSimple(QDialog):
         font.setStrikeOut(self.getv(f"{name}_font_strikeout"))
         txt_box.setFont(font)
 
-        txt_box.setStyleSheet(self.getv(f"{name}_stylesheet"))
+        if not no_stylesheet:
+            txt_box.setStyleSheet(self.getv(f"{name}_stylesheet"))
 
     def _define_labels_apperance(self, label: QLabel, name: str) -> None:
         label.setFrameShape(self.getv(f"{name}_frame_shape"))
@@ -883,6 +947,8 @@ class Calendar(QDialog):
         self.dialog_queue = DialogsQueue(self, self.my_name, add_dialog=True)
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.cal.selectionChanged.connect(self.cal_selection_changed)
         self.cal.activated.connect(self.cal_date_activated)
         if self.calendar_dict["show_buttons"]:
@@ -1012,6 +1078,9 @@ class Calendar(QDialog):
                 self.layout().addWidget(self.lbl_info, grid_count, 0)
         grid_count += 1
 
+    def app_setting_updated(self, data: dict):
+        self._define_widgets_apperance()
+
     def _define_widgets_apperance(self):
         self.setWindowTitle(self.getl("calendar_win_title_text"))
         self.setWindowIcon(QIcon(self.getv("calendar_win_icon_path")))
@@ -1104,6 +1173,7 @@ class Selection(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj: object = None,  selection_dict: dict = None, *args, **kwargs):
         super().__init__(parent_obj, *args, **kwargs)
         self.parent_obj = parent_obj
+        self.installEventFilter(self)
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -1120,7 +1190,8 @@ class Selection(QDialog):
             self.selection_dict = self.get_appv("selection")
         
         self.selection_dict["result"] = None
-        
+        self.drag_mode = None
+
         self._set_widgets_text()
         self._define_widgets()
         self.setLayout(self.grid_layout)
@@ -1138,6 +1209,8 @@ class Selection(QDialog):
             self.btn_select.setEnabled(False)
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.lst_items.itemChanged.connect(self.lst_items_item_changed)
         self.lst_items.currentItemChanged.connect(self.lst_items_current_item_changed)
         self.lst_items.itemClicked.connect(self.lst_items_item_clicked)
@@ -1146,6 +1219,10 @@ class Selection(QDialog):
         self.btn_cancel.clicked.connect(self.btn_cancel_click)
         self.btn_select_all.clicked.connect(self.btn_select_all_click)
         self.btn_clear_all.clicked.connect(self.btn_clear_all_click)
+        # Drag mode events
+        self.lbl_title.mousePressEvent = self.lbl_title_mousePressEvent
+        self.lbl_title.mouseReleaseEvent = self.lbl_title_mouseReleaseEvent
+        self.lbl_title.mouseMoveEvent = self.lbl_title_mouseMoveEvent
 
         # Register dialog
         self.my_name = str(time.time_ns())
@@ -1153,6 +1230,29 @@ class Selection(QDialog):
 
         self.show()
         self.exec_()
+
+    def eventFilter(self, obj, event):
+        if event.type() == QEvent.WindowDeactivate:
+            self.close_me()
+        return super().eventFilter(obj, event)
+
+    def lbl_title_mousePressEvent(self, e: QtGui.QMouseEvent):
+        if e.buttons() == Qt.LeftButton:
+            self.drag_mode = {
+                "win_x": self.pos().x(),
+                "win_y": self.pos().y(),
+                "mouse_x": QCursor().pos().x(),
+                "mouse_y": QCursor().pos().y()
+                }
+
+    def lbl_title_mouseReleaseEvent(self, e: QtGui.QMouseEvent):
+        self.drag_mode = None
+    
+    def lbl_title_mouseMoveEvent(self, e: QtGui.QMouseEvent):
+        if self.drag_mode:
+            x = QCursor().pos().x() - self.drag_mode["mouse_x"]
+            y = QCursor().pos().y() - self.drag_mode["mouse_y"]
+            self.move(self.drag_mode["win_x"] + x, self.drag_mode["win_y"] + y)
 
     def keyPressEvent(self, a0: QtGui.QKeyEvent) -> None:
         if a0.key() == Qt.Key_Enter or a0.key() == Qt.Key_Return:
@@ -1163,6 +1263,7 @@ class Selection(QDialog):
 
     def close_me(self):
         self.close()
+        self.deleteLater()
 
     def btn_cancel_click(self):
         self.close()
@@ -1327,7 +1428,10 @@ class Selection(QDialog):
             self.btn_clear_all.setToolTip(self.getl("selection_btn_clear_all_tt"))
             self.btn_clear_all.setStatusTip(self.getl("selection_btn_clear_all_sb_text"))
 
-    def _set_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._set_widgets_apperance(settings_updated=True)
+
+    def _set_widgets_apperance(self, settings_updated: bool = False):
         self._define_buttons_apperance(self.btn_cancel, "selection_btn_cancel")
         self._define_buttons_apperance(self.btn_select, "selection_btn_select")
         if self.selection_dict["multi-select"] or self.selection_dict["checkable"]:
@@ -1337,9 +1441,10 @@ class Selection(QDialog):
         self._define_selection_win_apperance()
         self._define_labels_apperance(self.lbl_title, "selection_lbl_title")
         self._define_list_widget_apperance(self.lst_items, "selection_lst")
-        self.footer_spacer = self.grid_layout.itemAtPosition(5, 1)
-        self.title_body_spacer = self.grid_layout.itemAtPosition(1, 0)
-        self.body_footer_spacer = self.grid_layout.itemAtPosition(4, 0)
+        if not settings_updated:
+            self.footer_spacer = self.grid_layout.itemAtPosition(5, 1)
+            self.title_body_spacer = self.grid_layout.itemAtPosition(1, 0)
+            self.body_footer_spacer = self.grid_layout.itemAtPosition(4, 0)
         self.title_body_spacer.spacerItem().changeSize(20, self.getv("selection_spacer_title-body_height"))
         self.body_footer_spacer.spacerItem().changeSize(20, self.getv("selection_spacer_body-footer_height"))
     
@@ -1388,6 +1493,7 @@ class Selection(QDialog):
         btn.setIconSize(QSize(icon_size, icon_size))
 
     def _define_selection_win_apperance(self):
+        self.setLayout(self.grid_layout)
         self.setStyleSheet(self.getv("selection_win_stylesheet"))
         self._set_margins(self.layout(), "selection_win")
         self._set_margins(self.layout(), "selection_win_layout")
@@ -1456,6 +1562,8 @@ class Notification(QDialog):
         self.dialog_queue = DialogsQueue(self, self.my_name, add_dialog=True)
         
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         if self.data_dict["show_close"]:
             self.btn_close.clicked.connect(self.btn_close_click)
         if self.data_dict["show_ok"]:
@@ -1471,6 +1579,8 @@ class Notification(QDialog):
         # Define geometry
         self._define_win_size()
         self._set_win_position()
+        if self.data_dict["show_close"]:
+            self.btn_close.raise_()
         
         # Animation
         if self.data_dict["animation"]:
@@ -1551,7 +1661,9 @@ class Notification(QDialog):
             title_h = 0
         
         text = self._text_width_height(self.lbl_text.text(), self.lbl_text.font())
-        text_w = text[0]
+        expand_text_width = self.getv("notification_lbl_text_font_size")
+
+        text_w = text[0] + expand_text_width
         text_h = text[1]
 
         if self.data_dict["show_ok"]:
@@ -1656,6 +1768,9 @@ class Notification(QDialog):
             self.btn_close.setText(self.getl("notification_btn_close_text"))
             self.btn_close.setToolTip(self.getl("notification_btn_close_tt"))
             self.btn_close.setStatusTip(self.getl("notification_btn_close_sb_text"))
+
+    def app_setting_updated(self, data: dict):
+        self._define_widgets_apperance()
 
     def _define_widgets_apperance(self):
         self._define_notification_win_apperance()
@@ -1783,6 +1898,8 @@ class MessageInformation(QDialog):
         self._define_widgets_apperance()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_ok.clicked.connect(self.btn_ok_click)
         if self._data_dict["title"]:
             self.lbl_title.mousePressEvent = self.lbl_title_mouse_press
@@ -1880,15 +1997,13 @@ class MessageInformation(QDialog):
         if self._data_dict["title"]:
             self.lbl_title: QLabel = QLabel(self)
             self.lbl_title.setText(self._data_dict["title"])
-            self.lbl_title.setWordWrap(True)
-            # self.lbl_title.setScaledContents(True)
+            # self.lbl_title.setWordWrap(True)
             self.layout().addWidget(self.lbl_title, grid_pos, 0, 1, 2, Qt.AlignHCenter)
             grid_pos += 1
         
         self.lbl_text: QLabel = QLabel(self)
         self.lbl_text.setText(self._data_dict["text"])
         self.lbl_text.setWordWrap(True)
-        # self.lbl_text.setScaledContents(True)
         self.layout().addWidget(self.lbl_text, grid_pos, 1)
 
         self.lbl_icon: QLabel = QLabel(self)
@@ -1903,6 +2018,9 @@ class MessageInformation(QDialog):
             self.btn_ok.setText(self.getl("messagebox_information_btn_ok_text"))
         grid_pos += 1
 
+    def app_setting_updated(self, data: dict):
+        self._define_widgets_apperance()
+
     def _define_widgets_apperance(self):
         # Win 
         self._define_message_win_apperance()
@@ -1910,7 +2028,8 @@ class MessageInformation(QDialog):
         # Title
         if self._data_dict["title"]:
             self._define_labels_apperance(self.lbl_title, "msg_box_title")
-            self.lbl_title.setFixedWidth(self._get_text_width(self.lbl_title.text(), self.lbl_title.font()))
+            # self.lbl_title.setFixedWidth(self._get_text_width(self.lbl_title.text(), self.lbl_title.font()))
+            self.lbl_title.adjustSize()
         
         # Text
         self._define_labels_apperance(self.lbl_text, "msg_box_text")
@@ -1929,6 +2048,7 @@ class MessageInformation(QDialog):
             icon_path = self._data_dict["icon_path"]
         else:
             icon_path = self.getv("messagebox_information_icon_path")
+        self.lbl_icon.setStyleSheet(self.getv("msg_box_icon_stylesheet"))
         image = QPixmap(icon_path)
         self.lbl_icon.resize(self.getv("msg_box_icon_width"), self.getv("msg_box_icon_height"))
         scaled_image = image.scaled(self.lbl_icon.width(), self.lbl_icon.height())
@@ -2048,6 +2168,8 @@ class MessageQuestion(QDialog):
         self._define_widgets_apperance()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         for button in self._data_dict["buttons"]:
             button[-1].clicked.connect(self.button_clicked)
 
@@ -2204,6 +2326,9 @@ class MessageQuestion(QDialog):
             self.buttons_layout.addWidget(btn)
             self._data_dict["buttons"][i].append(btn)
 
+    def app_setting_updated(self, data: dict):
+        self._define_widgets_apperance()
+
     def _define_widgets_apperance(self):
         # Win 
         self._define_message_win_apperance()
@@ -2227,6 +2352,7 @@ class MessageQuestion(QDialog):
             icon_path = self._data_dict["icon_path"]
         else:
             icon_path = self.getv("messagebox_question_icon_path")
+        self.lbl_icon.setStyleSheet(self.getv("msg_box_icon_stylesheet"))
         image = QPixmap(icon_path)
         self.lbl_icon.resize(self.lbl_title.height() + self.lbl_text.height(), self.lbl_title.height() + self.lbl_text.height())
         scaled_image = image.scaled(self.lbl_icon.width(), self.lbl_icon.height())
@@ -2645,16 +2771,43 @@ class FileDialog():
         else:
             return None
 
-    def show_dialog(self, title: str = "Select file:", directory: str = "", multi_select: bool = False, save_as: bool = False):
-        if os.path.isfile(directory):
-            directory = os.path.split(directory)[0]
-        if not os.path.isdir(directory):
-            directory = ""
+    def show_dialog(self, title: str = "Select file:", directory: str = "", multi_select: bool = False, save_as: bool = False, file_filter: str = None, settings: settings_cls.Settings = None):
+        if settings:
+            image_desc = settings.lang("file_filter_images_ext_desc")
+            animation_desc = settings.lang("file_filter_animation_ext_desc")
+            all_desc = settings.lang("file_filter_all_ext_desc")
+            video_desc = settings.lang("file_filter_video_ext_desc")
+        else:
+            image_desc = "Images"
+            animation_desc = "Animation"
+            all_desc = "All"
+            video_desc = "Video"
+
+        image_ext = "*.bmp *.cur *.gif *.ico *.jpg *.jpeg *.pbm *.pgm *.png *.ppm *.svg *.tif *.tiff *.xbm *.xpm"
+        animation_ext = "*.gif *.webp *.mng"
+        video_ext = "*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.mpg *.ogv *.rm *.swf *.vob *.wmv"
+
+        file_dialog = QFileDialog()
+        # Set dialog title
+        file_dialog.setWindowTitle(title)
+        # Set dialog directory
+        if directory:
+            file_dialog.setDirectory(directory)
+        # Allow user to select either images of videos
+        if file_filter:
+            if file_filter == "images":
+                file_dialog.setNameFilter(f"{image_desc} ({image_ext});;{all_desc} (*)")
+            elif file_filter == "animation":
+                file_dialog.setNameFilter(f"{animation_desc} ({animation_ext});;{all_desc} (*)")
+            elif file_filter == "video":
+                file_dialog.setNameFilter(f"{video_desc} ({video_ext});;{all_desc} (*)")
+        else:
+            file_dialog.setNameFilter(f"{all_desc} (*);;{image_desc} ({image_ext});;{animation_desc} ({animation_ext});;{video_desc} ({video_ext})")
 
         if multi_select:
-            result, _ = QFileDialog.getOpenFileNames(None, title, directory=directory)
+            result, _ = file_dialog.getOpenFileNames()
         else:
-            result, _ = QFileDialog.getOpenFileName(None, title, directory=directory)
+            result, _ = file_dialog.getOpenFileName()
 
         return result
 
@@ -2804,6 +2957,8 @@ class FileInfo(QDialog):
             self._populate_widgets()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_cancel.clicked.connect(self.btn_cancel_click)
         self.txt_name.textChanged.connect(self.txt_name_text_changed)
         self.txt_desc.textChanged.connect(self.txt_desc_text_changed)
@@ -3117,6 +3272,9 @@ class FileInfo(QDialog):
         self.btn_update.setText(self.getl("file_info_btn_update_text"))
         self.btn_update.setToolTip(self.getl("file_info_btn_update_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_file_info_win_apperance()
         self._define_labels_apperance(self.lbl_title, "file_info_lbl_title")
@@ -3224,6 +3382,8 @@ class FileAdd(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_file.clicked.connect(self._btn_file_click)
         self.btn_cancel.clicked.connect(self._btn_cancel_click)
         self.btn_add_to_list.clicked.connect(self._btn_add_to_list_click)
@@ -3629,7 +3789,10 @@ class FileAdd(QDialog):
         self.btn_cancel.setText(self.getl("file_add_btn_cancel_text"))
         self.btn_cancel.setToolTip(self.getl("file_add_btn_cancel_tt"))
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_file_add_win_apperance()
         self._define_labels_apperance(self.lbl_title, "file_add_lbl_title")
         self._define_labels_apperance(self.lbl_file, "file_add_lbl_file")
@@ -3641,9 +3804,11 @@ class FileAdd(QDialog):
 
         self._define_buttons_apperance(self.btn_file, "file_add_btn_file")
         self._define_buttons_apperance(self.btn_add_to_list, "file_add_btn_add_to_list")
-        self.btn_add_to_list.setEnabled(False)
+        if not settings_updated:
+            self.btn_add_to_list.setEnabled(False)
         self._define_buttons_apperance(self.btn_add, "file_add_btn_add")
-        self.btn_add.setEnabled(False)
+        if not settings_updated:
+            self.btn_add.setEnabled(False)
         self._define_buttons_apperance(self.btn_cancel, "file_add_btn_cancel")
 
     def _define_file_add_win_apperance(self):
@@ -3927,6 +4092,7 @@ class Signals(QObject):
     signalCloseAllDefinitions = pyqtSignal()
     signalSimpleDefinitionGeometryChanged = pyqtSignal(QFrame)
     signal_change_active_dict = pyqtSignal(dict)
+    signal_app_settings_updated = pyqtSignal(dict)
 
 
     def __init__(self, *args, **kwargs):
@@ -3973,6 +4139,9 @@ class Signals(QObject):
 
     def simple_viev_geometry_changed(self, simple_def_object: QFrame):
         self.signalSimpleDefinitionGeometryChanged.emit(simple_def_object)
+
+    def send_app_settings_updated(self, data: dict):
+        self.signal_app_settings_updated.emit(data)
 
 
 class AutoAddImageFrame(QFrame):
@@ -4132,6 +4301,8 @@ class PictureInfo(QDialog):
             self._image_file = None
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_delete.clicked.connect(self.btn_delete_click)
         self.btn_update.clicked.connect(self.btn_update_click)
         self.btn_open_default.clicked.connect(self.btn_open_default_click)
@@ -4532,7 +4703,10 @@ class PictureInfo(QDialog):
 
         self.lbl_created.setText("")
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = True):
         self._define_picture_info_win_apperance()
 
         self._define_labels_apperance(self.lbl_title, "picture_browse_lbl_title")
@@ -4543,7 +4717,8 @@ class PictureInfo(QDialog):
         self._define_labels_apperance(self.lbl_created, "pic_info_lbl_created")
 
         self._define_buttons_apperance(self.btn_update, "picture_browse_btn_update")
-        self.btn_update.setEnabled(False)
+        if not settings_updated:
+            self.btn_update.setEnabled(False)
         self._define_buttons_apperance(self.btn_open_default, "picture_browse_btn_update")
         self._define_buttons_apperance(self.btn_delete, "picture_browse_btn_delete")
 
@@ -4779,6 +4954,8 @@ class PictureAdd(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.txt_file.textChanged.connect(self._txt_file_text_changed)
         self.btn_file.clicked.connect(self._btn_file_click)
         self.btn_cancel.clicked.connect(self._btn_cancel_click)
@@ -5124,16 +5301,21 @@ class PictureAdd(QDialog):
         self.chk_auto_load.setText(self.getl("picture_add_chk_auto_load_text"))
         self.chk_auto_load.setToolTip(self.getl("picture_add_chk_auto_load_tt"))
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_add_picture_win_apperance()
         self._define_labels_apperance(self.lbl_title, "picture_add_title")
         self._define_labels_apperance(self.lbl_file, "picture_add_lbl_file")
         
         self._define_buttons_apperance(self.btn_file, "picture_add_btn_file")
         self._define_buttons_apperance(self.btn_show, "picture_add_btn_show")
-        self.btn_show.setEnabled(False)
+        if not settings_updated:
+            self.btn_show.setEnabled(False)
         self._define_buttons_apperance(self.btn_add, "picture_add_btn_add")
-        self.btn_add.setEnabled(False)
+        if not settings_updated:
+            self.btn_add.setEnabled(False)
         self._define_buttons_apperance(self.btn_cancel, "picture_add_btn_cancel")
 
         self._define_text_box_apperance(self.txt_file, "picture_add_txt_file")
@@ -5242,6 +5424,8 @@ class PictureView(QDialog):
         self._populate_widgets()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_cancel.clicked.connect(self._btn_cancel_click)
         self.btn_next.clicked.connect(self._btn_next_click)
         self.btn_save.clicked.connect(self._btn_save_click)
@@ -5472,14 +5656,18 @@ class PictureView(QDialog):
         self.btn_cancel.setText(self.getl("picture_view_btn_cancel_text"))
         self.btn_cancel.setToolTip(self.getl("picture_view_btn_cancel_tt"))
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_view_picture_win_apperance()
         self._define_labels_apperance(self.lbl_name, "picture_view_lbl_name")
         self._define_labels_apperance(self.lbl_desc, "picture_view_lbl_desc")
         
         self._define_buttons_apperance(self.btn_next, "picture_view_btn_next")
         self._define_buttons_apperance(self.btn_save, "picture_view_btn_save")
-        self.btn_save.setEnabled(False)
+        if not settings_updated:
+            self.btn_save.setEnabled(False)
         self._define_buttons_apperance(self.btn_cancel, "picture_view_btn_cancel")
 
         self._define_text_box_apperance(self.txt_name, "picture_view_txt_name")
@@ -5657,6 +5845,8 @@ class PictureBrowse(QDialog):
         self.area.verticalScrollBar().installEventFilter(self)
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.txt_name.textChanged.connect(self.txt_name_text_changed)
         self.txt_desc.textChanged.connect(self.txt_desc_text_changed)
         self.btn_close.clicked.connect(self.btn_close_click)
@@ -6077,7 +6267,10 @@ class PictureBrowse(QDialog):
         self.btn_close.setText(self.getl("picture_view_btn_close_text"))
         self.btn_close.setToolTip(self.getl("picture_view_btn_close_tt"))
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_browse_picture_win_apperance()
         self.setMinimumSize(500, 320)
         
@@ -6092,20 +6285,23 @@ class PictureBrowse(QDialog):
 
         self._define_buttons_apperance(self.btn_update, "picture_browse_btn_update")
         self._define_buttons_apperance(self.btn_delete, "picture_browse_btn_delete")
-        self.btn_delete.setEnabled(False)
+        if not settings_updated:
+            self.btn_delete.setEnabled(False)
         self._define_buttons_apperance(self.btn_close, "picture_browse_btn_close")
-        self.btn_update.setEnabled(False)
+        if not settings_updated:
+            self.btn_update.setEnabled(False)
 
         self._define_text_box_apperance(self.txt_name, "picture_browse_txt_name")
         self._define_text_box_apperance(self.txt_desc, "picture_browse_txt_desc")
 
         self.area.setStyleSheet(self.getv("picture_browse_area_stylesheet"))
-        self.area_widget: QWidget = QWidget()
-        self.grid_layout: QGridLayout = QGridLayout()
-        self.area_widget.setLayout(self.grid_layout)
-        self.area.setWidget(self.area_widget)
+        if not settings_updated:
+            self.area_widget: QWidget = QWidget()
+            self.grid_layout: QGridLayout = QGridLayout()
+            self.area_widget.setLayout(self.grid_layout)
+            self.area.setWidget(self.area_widget)
 
-        self.frm_load.setVisible(False)
+            self.frm_load.setVisible(False)
 
     def _define_browse_picture_win_apperance(self):
         self.setStyleSheet(self.getv("picture_browse_win_stylesheet"))
@@ -6187,6 +6383,8 @@ class FunFactShow(QDialog):
         self._lang = self.cmb_lang.currentText()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.chk_show_on_start.stateChanged.connect(self.chk_show_on_start_state_changed)
         self.chk_translate.stateChanged.connect(self.chk_translate_state_changed)
         self.cmb_lang.currentTextChanged.connect(self.cmb_lang_current_text_changed)
@@ -6752,7 +6950,10 @@ class FunFactShow(QDialog):
         self.lbl_fade7.setText("")
         self.lbl_metric.setText("")
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_fun_fact_show_win_apperance()
         self._define_labels_apperance(self.lbl_title, "fun_fact_show_lbl_title")
         self._define_labels_apperance(self.lbl_name, "fun_fact_show_lbl_name")
@@ -6776,7 +6977,8 @@ class FunFactShow(QDialog):
         
         self.txt_id.setStyleSheet(self.getv("fun_fact_show_txt_id_stylesheet"))
         
-        self._setup_languages_combo_box()
+        if not settings_updated:
+            self._setup_languages_combo_box()
 
     def _setup_languages_combo_box(self):
         self.cmb_lang.clear()
@@ -6827,6 +7029,8 @@ class Translate(QDialog):
         self._populate_widgets()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.txt_from.textChanged.connect(self._txt_from_text_changed)
         self.btn_close.clicked.connect(self.btn_close_click)
         self.btn_switch.clicked.connect(self.btn_switch_click)
@@ -6835,6 +7039,15 @@ class Translate(QDialog):
 
         self.get_appv("log").write_log("Translate. init.")
         self.show()
+
+        title_text = self.lbl_title.text()
+        self.lbl_title.setText("<span style='font-size: 100px;'>⌛</span>")
+        QCoreApplication.processEvents()
+        if self.chk_auto_paste_and_copy.isChecked() and self.get_appv("clipboard").text():
+            self.txt_from.setPlainText(self.get_appv("clipboard").text())
+            if self._populate_detection_label():
+                self.btn_trans_click()
+        self.lbl_title.setText(title_text)
 
     def btn_detect_click(self):
         result = self._populate_detection_label()
@@ -6913,6 +7126,7 @@ class Translate(QDialog):
             self.move(g["pos_x"], g["pos_y"])
             self.resize(g["width"], g["height"])
             self.chk_latin.setChecked(g.setdefault("to_latin", True))
+            self.chk_auto_paste_and_copy.setChecked(g.setdefault("auto_paste_and_copy", False))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
         if "translation_win_geometry" not in self._stt.app_setting_get_list_of_keys():
@@ -6924,6 +7138,7 @@ class Translate(QDialog):
         g["width"] = self.width()
         g["height"] = self.height()
         g["to_latin"] = self.chk_latin.isChecked()
+        g["auto_paste_and_copy"] = self.chk_auto_paste_and_copy.isChecked()
 
         return super().closeEvent(a0)
 
@@ -6944,6 +7159,7 @@ class Translate(QDialog):
         self.btn_close: QPushButton = self.findChild(QPushButton, "btn_close")
         self.btn_detect: QPushButton = self.findChild(QPushButton, "btn_detect")
         self.chk_latin: QCheckBox = self.findChild(QCheckBox, "chk_latin")
+        self.chk_auto_paste_and_copy: QCheckBox = self.findChild(QCheckBox, "chk_auto_paste_and_copy")
 
         self.setLayout(self.gridLayout)
 
@@ -6970,6 +7186,11 @@ class Translate(QDialog):
 
         self.chk_latin.setText(self.getl("translation_chk_latin_text"))
         self.chk_latin.setToolTip(self.getl("translation_chk_latin_tt"))
+        self.chk_auto_paste_and_copy.setText(self.getl("translation_chk_auto_paste_and_copy_text"))
+        self.chk_auto_paste_and_copy.setToolTip(self.getl("translation_chk_auto_paste_and_copy_tt"))
+
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
 
     def _setup_widgets_apperance(self):
         self._define_translate_win_apperance()
@@ -6990,6 +7211,7 @@ class Translate(QDialog):
         self._define_combo_box_apperance(self.cmb_to, "translate_cmb_from_to")
 
         self.chk_latin.setStyleSheet(self.getv("translate_chk_latin_stylesheet"))
+        self.chk_auto_paste_and_copy.setStyleSheet(self.getv("translate_chk_auto_paste_and_copy_stylesheet"))
 
     def _define_translate_win_apperance(self):
         self.setStyleSheet(self.getv("translate_win_stylesheet"))
@@ -7485,6 +7707,8 @@ class ClipboardView(QDialog):
         self.chk_del_tmp.setChecked(self.getv("delete_temp_folder_on_app_exit"))
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.tree_clip.currentChanged = self._tree_clip_current_changed
         self.btn_del_tmp.clicked.connect(self._btn_del_tmp_click)
         self.btn_clear.clicked.connect(self._btn_clear_click)
@@ -7681,6 +7905,9 @@ class ClipboardView(QDialog):
         self.btn_refresh.setText(self.getl("clipboard_view_btn_refresh_text"))
         self.btn_refresh.setToolTip(self.getl("clipboard_view_btn_refresh_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_clipboard_view_win_apperance()
         self._define_labels_apperance(self.lbl_title, "clipboard_view_lbl_title")
@@ -7697,11 +7924,12 @@ class ClipboardView(QDialog):
         self.chk_del_tmp.setStyleSheet(self.getv("clipboard_view_chk_del_tmp_stylesheet"))
 
         self.tree_clip.setStyleSheet(self.getv("clipboard_view_tree_clip_stylesheet"))
+        self.tree_clip.setHeaderHidden(True)
 
-        self.btn_del_tmp.setStyleSheet(self.getv("clipboard_view_btn_del_tmp_stylesheet"))
-        self.btn_close.setStyleSheet(self.getv("clipboard_view_btn_close_stylesheet"))
-        self.btn_clear.setStyleSheet(self.getv("clipboard_view_btn_clear_stylesheet"))
-        self.btn_refresh.setStyleSheet(self.getv("clipboard_view_btn_refresh_stylesheet"))
+        self._define_button(self.btn_del_tmp, "clipboard_view_btn_del_tmp")
+        self._define_button(self.btn_close, "clipboard_view_btn_close")
+        self._define_button(self.btn_clear, "clipboard_view_btn_clear")
+        self._define_button(self.btn_refresh, "clipboard_view_btn_refresh")
 
     def _define_clipboard_view_win_apperance(self):
         self.setStyleSheet(self.getv("clipboard_view_win_stylesheet"))
@@ -7713,6 +7941,12 @@ class ClipboardView(QDialog):
     def _define_labels_apperance(self, label: QLabel, name: str) -> None:
         label.setTextInteractionFlags(Qt.TextSelectableByMouse)
         label.setStyleSheet(self.getv(f"{name}_stylesheet"))
+
+    def _define_button(self, button: QPushButton, name: str):
+        button.setStyleSheet(self.getv(f"{name}_stylesheet"))
+        button.setFlat(self.getv(f"{name}_flat"))
+        button.setShortcut(self.getv(f"{name}_shortcut"))
+        button.setIcon(QIcon(QPixmap(self.getv(f"{name}_icon_path"))))
 
 
 class MediaExplorer(QDialog):
@@ -7747,6 +7981,8 @@ class MediaExplorer(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_progress_abort.clicked.connect(self._btn_progress_abort_click)
         self.btn_refresh.clicked.connect(self._btn_refresh_click)
         self.rbt_both.toggled.connect(self._rbt_both_toggled)
@@ -8835,7 +9071,10 @@ class MediaExplorer(QDialog):
         self.btn_refresh.setText(self.getl("media_explorer_btn_refresh_text"))
         self.btn_refresh.setToolTip(self.getl("media_explorer_btn_refresh_tt"))
 
-    def _setup_widgets_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance(settings_updated=True)
+
+    def _setup_widgets_apperance(self, settings_updated: bool = False):
         self._define_media_explorer_win_apperance()
 
         self._define_labels_apperance(self.lbl_title, "media_explorer_lbl_title")
@@ -8860,18 +9099,23 @@ class MediaExplorer(QDialog):
         self.btn_delete_all.setStyleSheet(self.getv("media_explorer_btn_delete_all_stylesheet"))
         self.btn_duplicates.setStyleSheet(self.getv("media_explorer_btn_duplicates_stylesheet"))
         self.btn_delete_duplicates.setStyleSheet(self.getv("media_explorer_btn_delete_duplicates_stylesheet"))
-        self.btn_delete_duplicates.setVisible(False)
+        if not settings_updated:
+            self.btn_delete_duplicates.setVisible(False)
         self.btn_close.setStyleSheet(self.getv("media_explorer_btn_close_stylesheet"))
         self.btn_progress_abort.setStyleSheet(self.getv("media_explorer_btn_progress_abort_stylesheet"))
         self.btn_refresh.setStyleSheet(self.getv("media_explorer_btn_refresh_stylesheet"))
-        self.btn_refresh.setVisible(False)
+        if not settings_updated:
+            self.btn_refresh.setVisible(False)
 
         self.frm_controls.setStyleSheet(self.getv("media_explorer_frm_controls_stylesheet"))
         self.frm_progress.setStyleSheet(self.getv("media_explorer_frm_progress_stylesheet"))
-        self.frm_progress.setVisible(False)
+        if not settings_updated:
+            self.frm_progress.setVisible(False)
         
         self.tree_duplicates.setStyleSheet(self.getv("media_explorer_tree_duplicates_stylesheet"))
-        self.tree_duplicates.setVisible(False)
+        if not settings_updated:
+            self.tree_duplicates.setVisible(False)
+            self.tree_duplicates.setHeaderHidden(True)
 
     def _define_media_explorer_win_apperance(self):
         self.setStyleSheet(self.getv("media_explorer_win_stylesheet"))
@@ -8905,6 +9149,7 @@ class FindInApp(QDialog):
         self.db_files = db_media_cls.Files(self._stt)
         self.db_rec = db_record_cls.Record(self._stt)
         self.db_def = db_definition_cls.Definition(self._stt)
+        self._text_filter_obj = text_filter_cls.TextFilter()
 
         # Load GUI
         uic.loadUi(self.getv("find_in_app_ui_file_path"), self)
@@ -8918,19 +9163,33 @@ class FindInApp(QDialog):
         self._populate_widgets()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_close.clicked.connect(self._btn_close_click)
         self.btn_search_all.clicked.connect(self._btn_search_all_click)
         self.btn_find.clicked.connect(self._btn_find_click)
         self.txt_find.returnPressed.connect(self._btn_find_click)
         self.txt_find.textChanged.connect(self._txt_find_text_changed)
+        self.txt_find.contextMenuEvent = self._txt_find_context_menu
+        self.txt_find.keyPressEvent = self._txt_find_key_press
         self.lst_result.mouseReleaseEvent = self._lst_result_mouse_release
         self.lst_result.mouseDoubleClickEvent = self._lst_result_mouse_double_click
         self.lbl_blocks.contextMenuEvent = self._lbl_blocks_mouse_release
         self.lbl_defs.contextMenuEvent = self._lbl_defs_mouse_release
         self.lbl_images.contextMenuEvent = self._lbl_images_mouse_release
         self.lbl_files.contextMenuEvent = self._lbl_files_mouse_release
+        self.chk_case.stateChanged.connect(self._chk_case_state_changed)
+        self.chk_words.stateChanged.connect(self._chk_words_state_changed)
 
         self.show()
+
+    def _chk_case_state_changed(self, e: int):
+        self._text_filter_obj.MatchCase = self.chk_case.isChecked()
+        self._btn_find_click()
+    
+    def _chk_words_state_changed(self, e: int):
+        self._text_filter_obj.SearchWholeWordsOnly = self.chk_words.isChecked()
+        self._btn_find_click()
 
     def _lbl_blocks_mouse_release(self, e: QtGui.QMouseEvent):
         result = self._menu_select_all()
@@ -8938,11 +9197,13 @@ class FindInApp(QDialog):
         if result == 10:
             self.chk_block_date.setChecked(True)
             self.chk_block_name.setChecked(True)
+            self.chk_block_tags.setChecked(True)
             self.chk_block_text.setChecked(True)
             self.chk_block_def_syn.setChecked(True)
         elif result == 20:
             self.chk_block_date.setChecked(False)
             self.chk_block_name.setChecked(False)
+            self.chk_block_tags.setChecked(False)
             self.chk_block_text.setChecked(False)
             self.chk_block_def_syn.setChecked(False)
 
@@ -9054,6 +9315,119 @@ class FindInApp(QDialog):
 
         QListWidget.mouseDoubleClickEvent(self.lst_result, e)
 
+    def _txt_find_context_menu(self, e):
+        disab = []
+        if not self.txt_find.isUndoAvailable():
+            disab.append(10)
+        if not self.txt_find.isRedoAvailable():
+            disab.append(20)
+        selected_text = ""
+        if self.txt_find.selectedText():
+            selected_text = self.txt_find.selectedText()
+        else:
+            disab.append(30)
+            disab.append(60)
+        if self.txt_find.text():
+            if not selected_text:
+                selected_text = self.txt_find.text()
+        else:
+            disab.append(40)
+        if not self.get_appv("clipboard").text():
+            paste_text = ""
+            disab.append(50)
+        else:
+            paste_text = self.get_appv("clipboard").text()
+        
+        if len(selected_text) > 40:
+            selected_text = selected_text[:37] + "..."
+        if len(paste_text) > 40:
+            paste_text = paste_text[:37] + "..."
+
+        menu_dict = {
+            "separator": [20, 60],
+            "disabled": disab,
+            "items": [
+                [
+                    10,
+                    self.getl("block_txt_box_menu_undo_text"),
+                    self.getl("block_txt_box_menu_undo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_undo_icon_path")
+                ],
+                [
+                    20,
+                    self.getl("block_txt_box_menu_redo_text"),
+                    self.getl("block_txt_box_menu_redo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_redo_icon_path")
+                ],
+                [
+                    30,
+                    self.getl("block_txt_box_menu_cut_text"),
+                    self.getl("block_txt_box_menu_cut_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_cut_icon_path")
+                ],
+                [
+                    40,
+                    f'{self.getl("block_txt_box_menu_copy_text")} ({selected_text})',
+                    self.getl("block_txt_box_menu_copy_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_copy_icon_path")
+                ],
+                [
+                    50,
+                    f'{self.getl("block_txt_box_menu_paste_text")} ({paste_text})',
+                    self.getl("block_txt_box_menu_paste_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_paste_icon_path")
+                ],
+                [
+                    60,
+                    self.getl("block_txt_box_menu_delete_text"),
+                    self.getl("block_txt_box_menu_delete_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_delete_icon_path")
+                ]
+            ]
+        }
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter_obj)
+
+        menu_dict = filter_menu.create_menu_dict(show_item_search_history=False, existing_menu_dict=menu_dict)
+
+        self._dont_clear_menu = True
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict)
+
+        self.chk_case.setChecked(self._text_filter_obj.MatchCase)
+        self.chk_words.setChecked(self._text_filter_obj.SearchWholeWordsOnly)
+
+        if result in range(filter_menu.item_range_filter_setup[0], filter_menu.item_range_filter_setup[1]):
+            self._btn_find_click()
+        elif result == 10:
+            self.txt_find.undo()
+        elif result == 20:
+            self.txt_find.redo()
+        elif result == 30:
+            self.txt_find.cut()
+        elif result == 40:
+            if self.txt_find.selectedText():
+                self.txt_find.copy()
+            else:
+                self.get_appv("clipboard").setText(self.txt_find.text())
+        elif result == 50:
+            self.txt_find.paste()
+        elif result == 60:
+            if self.txt_find.selectedText():
+                self.txt_find.setText(f"{self.txt_find.text()[:self.txt_find.selectionStart()]}{self.txt_find.text()[self.txt_find.selectionEnd():]}")
+
     def _contex_menu(self):
         if self.lst_result.currentItem() is None:
             return
@@ -9080,11 +9454,13 @@ class FindInApp(QDialog):
         if all_block_ids:
             if len(all_block_ids) < 2:
                 disab.append(20)
+        
+        full_item_id = f"B:{rec_id}"
 
         menu_dict = {
             "position": QCursor.pos(),
             "disabled": disab,
-            "separator": [10],
+            "separator": [10, 30],
             "items": [
                 [
                     10,
@@ -9113,9 +9489,16 @@ class FindInApp(QDialog):
             ]
         }
         self._dont_clear_menu = True
-        self.set_appv("menu", menu_dict)
-        ContextMenu(self._stt, self)
-        result = self.get_appv("menu")["result"]
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter_obj)
+        
+        menu_dict = filter_menu.create_menu_dict(existing_menu_dict=menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         if result == 10:
             data_dict = {
@@ -9142,8 +9525,13 @@ class FindInApp(QDialog):
             self._parent_widget.events(data_dict)
 
     def _context_definition(self, def_id: int):
+        disab = []
+        full_item_id = f"D:{def_id}"
+
         menu_dict = {
             "position": QCursor.pos(),
+            "disabled": disab,
+            "separator": [10],
             "items": [
                 [
                     10,
@@ -9156,9 +9544,16 @@ class FindInApp(QDialog):
             ]
         }
         self._dont_clear_menu = True
-        self.set_appv("menu", menu_dict)
-        ContextMenu(self._stt, self)
-        result = self.get_appv("menu")["result"]
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter_obj)
+        
+        menu_dict = filter_menu.create_menu_dict(existing_menu_dict=menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         if result == 10:
             data_dict = {
@@ -9173,9 +9568,11 @@ class FindInApp(QDialog):
         if self._clip.is_clip_empty():
             disab.append(50)
 
+        full_item_id = f"I:{image_id}"
+
         menu_dict = {
             "position": QCursor.pos(),
-            "separator": [20],
+            "separator": [20, 50],
             "disabled": disab,
             "items": [
                 [
@@ -9221,9 +9618,16 @@ class FindInApp(QDialog):
             ]
         }
         self._dont_clear_menu = True
-        self.set_appv("menu", menu_dict)
-        ContextMenu(self._stt, self)
-        result = self.get_appv("menu")["result"]
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter_obj)
+        
+        menu_dict = filter_menu.create_menu_dict(existing_menu_dict=menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         if result == 10:
             data_dict = {
@@ -9251,9 +9655,11 @@ class FindInApp(QDialog):
         if self._clip.is_clip_empty():
             disab.append(50)
 
+        full_item_id = f"F:{file_id}"
+
         menu_dict = {
             "position": QCursor.pos(),
-            "separator": [20],
+            "separator": [20, 50],
             "disabled": disab,
             "items": [
                 [
@@ -9299,9 +9705,16 @@ class FindInApp(QDialog):
             ]
         }
         self._dont_clear_menu = True
-        self.set_appv("menu", menu_dict)
-        ContextMenu(self._stt, self)
-        result = self.get_appv("menu")["result"]
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self._text_filter_obj)
+        
+        menu_dict = filter_menu.create_menu_dict(existing_menu_dict=menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         if result == 10:
             data_dict = {
@@ -9323,8 +9736,63 @@ class FindInApp(QDialog):
         elif result == 50:
             self._clip.clear_clip()
 
+    def _txt_find_key_press(self, ev: QtGui.QKeyEvent):
+        selected_text = self.txt_find.selectedText()
+        selection_start = self.txt_find.selectionStart()
+        selection_end = self.txt_find.selectionEnd()
+        text = self.txt_find.text()
+        
+        if ev.key() == Qt.Key_BraceLeft:
+            if selected_text:
+                cur_pos = self.txt_find.cursorPosition()
+                new_text = text[:selection_start] + f"{{{selected_text}}}" + text[selection_end:]
+                self.txt_find.setText(new_text)
+                self.txt_find.setCursorPosition(cur_pos)
+                self.txt_find.setSelection(selection_start + 1, len(selected_text))
+                return
+        elif ev.key() == Qt.Key_BracketLeft:
+            if selected_text:
+                cur_pos = self.txt_find.cursorPosition()
+                new_text = text[:selection_start] + f"[{selected_text}]" + text[selection_end:]
+                self.txt_find.setText(new_text)
+                self.txt_find.setCursorPosition(cur_pos)
+                self.txt_find.setSelection(selection_start + 1, len(selected_text))
+                return
+        elif ev.key() == Qt.Key_ParenLeft:
+            if selected_text:
+                cur_pos = self.txt_find.cursorPosition()
+                new_text = text[:selection_start] + f"({selected_text})" + text[selection_end:]
+                self.txt_find.setText(new_text)
+                self.txt_find.setCursorPosition(cur_pos)
+                self.txt_find.setSelection(selection_start + 1, len(selected_text))
+                return
+        elif ev.key() == Qt.Key_QuoteDbl:
+            if selected_text:
+                cur_pos = self.txt_find.cursorPosition()
+                new_text = text[:selection_start] + f'"{selected_text}"' + text[selection_end:]
+                self.txt_find.setText(new_text)
+                self.txt_find.setCursorPosition(cur_pos)
+                self.txt_find.setSelection(selection_start + 1, len(selected_text))
+                return
+        elif ev.key() == Qt.Key_Apostrophe:
+            if selected_text:
+                cur_pos = self.txt_find.cursorPosition()
+                new_text = text[:selection_start] + f"'{selected_text}'" + text[selection_end:]
+                self.txt_find.setText(new_text)
+                self.txt_find.setCursorPosition(cur_pos)
+                self.txt_find.setSelection(selection_start + 1, len(selected_text))
+                return
+        
+        QLineEdit.keyPressEvent(self.txt_find, ev)
+
     def _txt_find_text_changed(self):
-        if self.chk_auto_search.isChecked():
+        if self._text_filter_obj.is_filter_in_document(self.txt_find.text(), "", ignore_cashe=True) is None and self.txt_find.text():
+            self.txt_find.setStyleSheet(self.getv("find_in_app_txt_find_illegal_entry_stylesheet"))
+            return
+        else:
+            self.txt_find.setStyleSheet(self.getv("find_in_app_txt_find_stylesheet"))
+
+        if self.chk_auto_search.isChecked() and self.txt_find.text():
             self._btn_find_click()
 
     def _btn_find_click(self):
@@ -9333,6 +9801,11 @@ class FindInApp(QDialog):
             self._update_counter()
             return
         
+        self._text_filter_obj.SearchWholeWordsOnly = self.chk_words.isChecked()
+        self._text_filter_obj.MatchCase = self.chk_case.isChecked()
+
+        self._text_filter_obj.clear_search_history()
+
         title = self.lbl_title.text()
         self.lbl_title.setText(self.getl("searching_text"))
         self.frm_searching.setVisible(True)
@@ -9362,6 +9835,7 @@ class FindInApp(QDialog):
         # Make definition synonyms dict
         def_dict = {}
         start = 0
+        self._text_filter_obj.SearchWholeWordsOnly = True
         for definition in defs:
             expr_list = []
             for expression in range(start, len(expr)):
@@ -9376,19 +9850,32 @@ class FindInApp(QDialog):
             special_find = " " + find
             special_find = special_find.replace("/", " ")
             special_find = special_find.replace(" !", " ")
-            if self._filter_apply(special_find, txt, partial=True, whole_word=self.chk_words.isChecked()):
+            if self._text_filter_obj.is_any_filter_word_in_document(filter_text=special_find, document_text=txt):
                 def_dict[definition[1]] = list(expr_list)
+
+        self._text_filter_obj.SearchWholeWordsOnly = self.chk_words.isChecked()
+
+        if self.chk_block_tags.isChecked():
+            tags_db = db_tag_cls.Tag(self._stt)
+            tags_list = tags_db.get_all_tags_translated()
+            record_data_db = db_record_data_cls.RecordData(self._stt)
+            record_data_list = [x for x in record_data_db.get_all_record_data() if x[2]]
 
         for record in records:
             txt = ""
             if self.chk_block_date.isChecked():
-                txt += record[2] + " "
+                txt += record[2] + "\n"
             if self.chk_block_name.isChecked():
-                txt += record[1] + " "
+                txt += record[1] + "\n"
+            if self.chk_block_tags.isChecked():
+                txt += self._get_tags_for_text(record[0], tags_list, record_data_list) + "\n"
             if self.chk_block_text.isChecked():
                 txt += record[4]
             
             # Check if need to search synonyms
+            if not self.chk_case.isChecked():
+                txt = txt.lower()
+                
             if self.chk_block_def_syn.isChecked():
                 txt += " "
                 txt += self._get_synonyms_for_text(txt, def_dict)
@@ -9397,7 +9884,7 @@ class FindInApp(QDialog):
             if not self.chk_case.isChecked():
                 txt = txt.lower()
 
-            if not self._filter_apply(find, txt, whole_word=self.chk_words.isChecked()):
+            if not self._text_filter_obj.is_filter_in_document(filter_text=find, document_text=txt):
                 continue
             
             txt = f'{self.getl("block_text").upper()}: {record[2]} '
@@ -9413,24 +9900,48 @@ class FindInApp(QDialog):
             color.setNamedColor(self.getv("find_in_app_block_item_list_color"))
             item.setBackground(color)
             item.setData(Qt.UserRole, f"B:{record[0]}")
+            self._text_filter_obj.save_search_history(f"B:{record[0]}")
 
             self.lst_result.addItem(item)
 
+    def _get_tags_for_text(self, record_id: int, tags_list: list, record_data_list: list) -> str:
+        result = ""
+        in_record = False
+        for data in record_data_list:
+            if data[1] == record_id:
+                in_record = True
+                for tag in tags_list:
+                    if data[2] == tag[0]:
+                        result += f"{tag[1]} "
+                        break
+                else:
+                    print (f"\n\033[34mWarning: Tag for record {data[1]} not found \033[33mTAG: {data[2]}\033[0m")
+            else:
+                if in_record:
+                    break
+        
+        return result
+
     def _get_synonyms_for_text(self, txt: str, def_dict: dict) -> str:
-        result = " "
-        txt = f" {txt} "
+        result = "\n"
+        txt = f" {txt} ".lower()
         END_OF_SENTENCE = {".", "!", "?", "\n", "\t", ",", ":", "(", ")"}
 
         for i in END_OF_SENTENCE:
             txt = txt.replace(i, " ")
         
+        count = 0
         for i in def_dict:
             expressions = def_dict[i]
             for expression in expressions:
+                for j in END_OF_SENTENCE:
+                    expression = expression.replace(j, " ")
                 expres = f" {expression} "
                 if expres in txt:
+                    count += 1
+                    result += f"\n{count}.) DEFINITION: {i}   ({len(def_dict[i])})\n    Context: {expression}\n\n"
                     result += " ".join(def_dict[i])
-                    result += " "
+                    result += "\n"
                     break
         
         return result
@@ -9470,7 +9981,7 @@ class FindInApp(QDialog):
             if not self.chk_case.isChecked():
                 txt = txt.lower()
 
-            if not self._filter_apply(find, txt, whole_word=self.chk_words.isChecked()):
+            if not self._text_filter_obj.is_filter_in_document(filter_text=find, document_text=txt):
                 continue
             
             txt = f'{self.getl("definition_text").upper()}: {record[1]}'
@@ -9486,6 +9997,7 @@ class FindInApp(QDialog):
             color.setNamedColor(self.getv("find_in_app_definition_item_list_color"))
             item.setBackground(color)
             item.setData(Qt.UserRole, f"D:{record[0]}")
+            self._text_filter_obj.save_search_history(f"D:{record[0]}")
 
             self.lst_result.addItem(item)
 
@@ -9511,7 +10023,7 @@ class FindInApp(QDialog):
             if not self.chk_case.isChecked():
                 txt = txt.lower()
 
-            if not self._filter_apply(find, txt, whole_word=self.chk_words.isChecked()):
+            if not self._text_filter_obj.is_filter_in_document(filter_text=find, document_text=txt):
                 continue
             
             txt = f'{self.getl("image_text").upper()}: ({record[0]}) '
@@ -9533,6 +10045,7 @@ class FindInApp(QDialog):
             color.setNamedColor(self.getv("find_in_app_image_item_list_color"))
             item.setBackground(color)
             item.setData(Qt.UserRole, f"I:{record[0]}")
+            self._text_filter_obj.save_search_history(f"I:{record[0]}")
 
             self.lst_result.addItem(item)
 
@@ -9558,7 +10071,7 @@ class FindInApp(QDialog):
             if not self.chk_case.isChecked():
                 txt = txt.lower()
 
-            if not self._filter_apply(find, txt, whole_word=self.chk_words.isChecked()):
+            if not self._text_filter_obj.is_filter_in_document(filter_text=find, document_text=txt):
                 continue
             
             txt = f'{self.getl("file_text").upper()}: ({record[0]}) '
@@ -9580,6 +10093,7 @@ class FindInApp(QDialog):
             color.setNamedColor(self.getv("find_in_app_file_item_list_color"))
             item.setBackground(color)
             item.setData(Qt.UserRole, f"F:{record[0]}")
+            self._text_filter_obj.save_search_history(f"F:{record[0]}")
 
             self.lst_result.addItem(item)
 
@@ -9590,94 +10104,10 @@ class FindInApp(QDialog):
         txt = " " + txt + " "
         return txt
 
-    def _filter_apply(self, filter: str, text: str, partial: bool = False, whole_word: bool = False) -> bool:
-        """Checking whether the text meets the filter criteria.
-        SPACE = AND operator
-        / = OR operator
-        ! = NOT operator
-        """
-        if whole_word:
-            text = self._prepare_for_whole_words(text)
-        filter = filter.strip()
-
-        if filter.find("/") >= 0:
-            filter_items = [x.strip() for x in filter.split("/") if x.strip() != ""]
-            filter_true = False
-            for item in filter_items:
-                if item[:1] == "!":
-                    if whole_word:
-                        item = f" {item[1:]} "
-                    else:
-                        item = item[1:]
-                    if text.find(item) < 0:
-                        filter_true = True
-                        break
-                else:
-                    if whole_word:
-                        item = f" {item} "
-                    if text.find(item) >= 0:
-                        filter_true = True
-                        break
-            return filter_true
-        elif filter.find(" ") >= 0:
-            filter_items = [x.strip() for x in filter.split(" ") if x.strip() != ""]
-            if not partial:
-                filter_true = True
-                for item in filter_items:
-                    if item[:1] == "!":
-                        if whole_word:
-                            item = f" {item[1:]} "
-                        else:
-                            item = item[1:]
-                        if text.find(item) >= 0:
-                            filter_true = False
-                            break
-                    else:
-                        if whole_word:
-                            item = f" {item} "
-                        if text.find(item) == -1:
-                            filter_true = False
-                            break
-                return filter_true
-            else:
-                filter_true = False
-                for item in filter_items:
-                    if item[:1] == "!":
-                        if whole_word:
-                            item = f" {item[1:]} "
-                        else:
-                            item = item[1:]
-                        if text.find(item) < 0:
-                            filter_true = True
-                            break
-                    else:
-                        if whole_word:
-                            item = f" {item} "
-                        if text.find(item) >= 0:
-                            filter_true = True
-                            break
-                return filter_true
-        else:
-            if filter[:1] == "!":
-                if whole_word:
-                    filter = f" {filter[1:]} "
-                else:
-                    filter = filter[1:]
-                if text.find(filter) == -1:
-                    return True
-                else:
-                    return False
-            else:
-                if whole_word:
-                    filter = f" {filter} "
-                if text.find(filter) == -1:
-                    return False
-                else:
-                    return True
-
     def _btn_search_all_click(self):
         self.chk_block_date.setChecked(True)
         self.chk_block_name.setChecked(True)
+        self.chk_block_tags.setChecked(True)
         self.chk_block_text.setChecked(True)
         self.chk_block_def_syn.setChecked(True)
         self.chk_def_name.setChecked(True)
@@ -9700,6 +10130,9 @@ class FindInApp(QDialog):
         self.lbl_defs.setText(f'{self.lbl_defs.text()} ({len(self.db_def.get_list_of_all_definitions())})')
         self.lbl_images.setText(f'{self.lbl_images.text()} ({len(self.db_images.get_all_media())})')
         self.lbl_files.setText(f'{self.lbl_files.text()} ({len(self.db_files.get_all_file())})')
+
+        self._text_filter_obj.MatchCase = self.chk_case.isChecked()
+        self._text_filter_obj.SearchWholeWordsOnly = self.chk_words.isChecked()
 
     def resizeEvent(self, a0: QtGui.QResizeEvent) -> None:
         w = self.contentsRect().width()
@@ -9728,6 +10161,7 @@ class FindInApp(QDialog):
             self.chk_auto_search.setChecked(g["chk_auto_search"])
             self.chk_block_date.setChecked(g["chk_block_date"])
             self.chk_block_name.setChecked(g["chk_block_name"])
+            self.chk_block_tags.setChecked(g.get("chk_block_tags", False))
             self.chk_block_text.setChecked(g["chk_block_text"])
             if "chk_block_def_syn" in g:
                 self.chk_block_def_syn.setChecked(g["chk_block_def_syn"])
@@ -9770,6 +10204,7 @@ class FindInApp(QDialog):
         g["chk_auto_search"] = self.chk_auto_search.isChecked()
         g["chk_block_date"] = self.chk_block_date.isChecked()
         g["chk_block_name"] = self.chk_block_name.isChecked()
+        g["chk_block_tags"] = self.chk_block_tags.isChecked()
         g["chk_block_text"] = self.chk_block_text.isChecked()
         g["chk_block_def_syn"] = self.chk_block_def_syn.isChecked()
         g["chk_def_name"] = self.chk_def_name.isChecked()
@@ -9801,6 +10236,7 @@ class FindInApp(QDialog):
 
         self.chk_block_date: QCheckBox = self.findChild(QCheckBox, "chk_block_date")
         self.chk_block_name: QCheckBox = self.findChild(QCheckBox, "chk_block_name")
+        self.chk_block_tags: QCheckBox = self.findChild(QCheckBox, "chk_block_tags")
         self.chk_block_text: QCheckBox = self.findChild(QCheckBox, "chk_block_text")
         self.chk_block_def_syn: QCheckBox = self.findChild(QCheckBox, "chk_block_def_syn")
         self.chk_def_name: QCheckBox = self.findChild(QCheckBox, "chk_def_name")
@@ -9862,6 +10298,9 @@ class FindInApp(QDialog):
         self.chk_block_name.setText(self.getl("find_in_app_chk_block_name_text"))
         self.chk_block_name.setToolTip(self.getl("find_in_app_chk_block_name_tt"))
 
+        self.chk_block_tags.setText(self.getl("find_in_app_chk_block_tags_text"))
+        self.chk_block_tags.setToolTip(self.getl("find_in_app_chk_block_tags_tt"))
+
         self.chk_block_text.setText(self.getl("find_in_app_chk_block_text_text"))
         self.chk_block_text.setToolTip(self.getl("find_in_app_chk_block_text_tt"))
 
@@ -9915,6 +10354,9 @@ class FindInApp(QDialog):
         self.lbl_searching.setText(self.getl("find_in_app_lbl_searching_text"))
         self.lbl_searching.setToolTip(self.getl("find_in_app_lbl_searching_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+
     def _setup_widgets_apperance(self):
         self._define_find_in_app_win_apperance()
 
@@ -9935,6 +10377,7 @@ class FindInApp(QDialog):
         self.chk_auto_search.setStyleSheet(self.getv("find_in_app_chk_auto_search_stylesheet"))
         self.chk_block_date.setStyleSheet(self.getv("find_in_app_chk_block_date_stylesheet"))
         self.chk_block_name.setStyleSheet(self.getv("find_in_app_chk_block_name_stylesheet"))
+        self.chk_block_tags.setStyleSheet(self.getv("find_in_app_chk_block_tags_stylesheet"))
         self.chk_block_text.setStyleSheet(self.getv("find_in_app_chk_block_text_stylesheet"))
         self.chk_block_def_syn.setStyleSheet(self.getv("find_in_app_chk_block_def_syn_stylesheet"))
         self.chk_def_name.setStyleSheet(self.getv("find_in_app_chk_def_name_stylesheet"))
@@ -9972,6 +10415,8 @@ class FindInApp(QDialog):
         # Apperance
         btn.setAutoDefault(False)
         btn.setDefault(False)
+        btn.setFlat(self.getv(f"{name}_flat"))
+        btn.setShortcut(self.getv(f"{name}_shortcut"))
         if self.getv(f"{name}_icon_path"):
             btn.setIcon(QIcon(self.getv(f"{name}_icon_path")))
         btn.setStyleSheet(self.getv(f"{name}_stylesheet"))
@@ -10115,14 +10560,14 @@ class TextToHtmlRule():
     def set_default_simple_shadow(self):
         self.set_text_shadow(offset_x=2,
                              offset_y=2,
-                             color="black"
+                             color="#000000"
                              )
         
     def set_default_offset_shadow(self):
         self.set_text_shadow(offset_x=5,
                              offset_y=5,
                              blur_radius=2,
-                             color="red"
+                             color="#ff0000"
                              )
 
     def set_default_blurred_shadow(self):
@@ -10145,7 +10590,7 @@ class TextToHtmlRule():
             str: The text to match for this rule, with newlines as <br>.
         """
 
-        if self.replace_with:
+        if self.replace_with is not None:
             return self._fix_string(self.replace_with)
         else:
             return self._fix_string(self.text)
@@ -10523,8 +10968,240 @@ class TextToHTML():
         return positions
     
 
+class DefHintManager(QDialog):
+    def __init__(self, settings: settings_cls.Settings, parent_widget, win_position: QPoint = None):
+        super().__init__(parent_widget)
 
+        # Define settings object and methods
+        self._stt = settings
+        self.getv = self._stt.get_setting_value
+        self.setv = self._stt.set_setting_value
+        self.getl = self._stt.lang
+        self.get_appv = self._stt.app_setting_get_value
+        self.set_appv = self._stt.app_setting_set_value
 
+        # Define other variables
+        self._parent_widget = parent_widget
+        
+        if "definition_hint_data" in self._stt.app_setting_get_list_of_keys():
+            self.rejected_words = self.get_appv("definition_hint_data")["rejected"]
+        else:
+            self._stt.app_setting_add("definition_hint_data", {"rejected": []}, save_to_file=True)
+            self.rejected_words = []
 
+        self.definition_expressions = self._get_def_expressions()
+        self.lfcr_tracker = 0
+        self.ignore_text_changes = False
+
+        # Load GUI
+        uic.loadUi(self.getv("def_hint_manager_ui_file_path"), self)
+
+        self._setup_widgets()
+        self._setup_widgets_text()
+        self._setup_widgets_apperance()
+
+        self._populate_widgets()
+
+        # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
+        self.cmb_sort.currentIndexChanged.connect(self.sort_changed)
+        self.btn_cancel.clicked.connect(self.btn_cancel_clicked)
+        self.btn_save.clicked.connect(self.btn_save_clicked)
+        self.txt_expressions.textChanged.connect(self.txt_expressions_changed)
+
+        if win_position:
+            self.move(win_position)
+        else:
+            self.move(QCursor.pos())
+
+        self.show()
+
+    def txt_expressions_changed(self):
+        if self.ignore_text_changes:
+            return
+        
+        lfcr_tracker = self.txt_expressions.toPlainText().count("\n")
+        if lfcr_tracker != self.lfcr_tracker:
+            self.lfcr_tracker = lfcr_tracker
+            result = self.colorize_textbox()
+            self.update_count_label(result)
+
+    def update_count_label(self, struct_data: tuple = None):
+        if struct_data:
+            count_all, count_definition, count_repeated, count_too_small = struct_data
+        else:
+            count_all, count_definition, count_repeated, count_too_small = (None, None, None, None)
+            count_all = len([x for x in self.txt_expressions.toPlainText().splitlines() if x.strip()])
+
+        self.lbl_count.setText(self.getl("def_hint_count_label").replace("#1", str(count_all)))
+        
+        if count_definition is not None:
+            tt = self.getl("def_hint_count_label_tt").replace("#1", str(count_all)).replace("#2", str(count_definition)).replace("#3", str(count_repeated)).replace("#4", str(count_too_small))
+        else:
+            tt = ""
+        
+        self.lbl_count.setToolTip(tt)
+
+    def colorize_textbox(self):
+        self.ignore_text_changes = True
+        # Get cursor position
+        cursor = self.txt_expressions.textCursor()
+        cursor_position = cursor.position()
+
+        text = self.txt_expressions.toPlainText()
+        
+        body = ""
+        text_lines = text.splitlines()
+        min_len = self.getv("definition_hint_minimum_word_lenght")
+        count_all = 0
+        count_definition = 0
+        count_repeated = 0
+        count_too_small = 0
+        for item in text_lines:
+            if item.strip() and len(item.strip()) < min_len:
+                body += f"<span class='too_small'>{item}</span><br>"
+                count_too_small += 1
+            elif item.strip() in self.definition_expressions:
+                body += f"<span class='definition'>{item}</span><br>"
+                count_definition += 1
+            elif item.strip() and text_lines.count(item.strip()) > 1:
+                body += f"<span class='repeated'>{item}</span><br>"
+                count_repeated += 1
+            else:
+                body += f"{item}<br>"
+            
+            if item.strip():
+                count_all += 1
+            
+        
+        html = f"""
+<html>
+<head>
+<style>
+.repeated {{ color: #adadad; }}
+.too_small {{ color: #ffaa00; }}
+.definition {{ color: #ff0000; }}
+</style>
+<body>
+{body}
+</body>
+</html>
+"""
+        self.txt_expressions.setHtml(html)
+        # Set cursor position
+        cursor.setPosition(cursor_position)
+        self.txt_expressions.setTextCursor(cursor)
+        self.ignore_text_changes = False
+
+        return (count_all, count_definition, count_repeated, count_too_small)
+
+    def _get_def_expressions(self) -> list:
+        db_def = db_definition_cls.Definition(self._stt)
+        result = [x[0] for x in db_def.get_list_of_all_expressions() if x[0].strip()]
+        
+        return result
+
+    def btn_cancel_clicked(self):
+        self.close()
+
+    def btn_save_clicked(self):
+        result = self.sort_txtbox(1)
+        self.get_appv("definition_hint_data")["rejected"] = result
+
+        self.close()
+
+    def sort_changed(self):
+        if not self.cmb_sort.currentData():
+            return
+        
+        expressions = self.sort_txtbox(self.cmb_sort.currentData())
+        
+        self.txt_expressions.setPlainText("\n".join(expressions))
+
+    def sort_txtbox(self, sort_type: int) -> list:
+        expressions = []
+        min_len = self.getv("definition_hint_minimum_word_lenght")
+        for item in self.txt_expressions.toPlainText().split("\n"):
+            item = item.strip()
+            if not item or item in self.definition_expressions or len(item) < min_len:
+                continue
+            if item not in expressions:
+                expressions.append(item)
+
+        if sort_type == 2:
+            expressions.sort()
+            return expressions
+        if sort_type == 3:
+            expressions.sort(key=lambda x: len(x), reverse=True)
+            return expressions
+
+        map_expressions_in_settings = []
+        other_expressions = []
+        for item in expressions:
+            # Find index for item in rejected_words
+            index = None
+            if item in self.rejected_words:
+                index = self.rejected_words.index(item)
+            
+            if index is not None:
+                map_expressions_in_settings.append([index, item])
+            else:
+                other_expressions.append(item)
+        
+        map_expressions_in_settings.sort(key=lambda x: x[0])
+
+        result = [x[1] for x in map_expressions_in_settings]
+        result.extend(other_expressions)
+
+        return result
+
+    def _populate_widgets(self):
+        # Populate TextBox
+        self.txt_expressions.setPlainText("\n".join(self.rejected_words))
+        self.colorize_textbox()
+        self.update_count_label()
+        self.lfcr_tracker = len(self.rejected_words)
+
+        # Populate ComboBox
+        self.cmb_sort.clear()
+
+        self.cmb_sort.addItem(self.getl("def_hint_manager_cmb_sort_add_time"), 1)
+        self.cmb_sort.addItem(self.getl("def_hint_manager_cmb_sort_alpha"), 2)
+        self.cmb_sort.addItem(self.getl("def_hint_manager_cmb_sort_len"), 3)
+
+        self.cmb_sort.setCurrentIndex(0)
+
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
     
+    def _setup_widgets(self):
+        self.lbl_title: QLabel = self.findChild(QLabel, "lbl_title")
+        self.cmb_sort: QComboBox = self.findChild(QComboBox, "cmb_sort")
+        self.txt_expressions: QTextEdit = self.findChild(QTextEdit, "txt_expressions")
+        self.btn_save: QPushButton = self.findChild(QPushButton, "btn_save")
+        self.btn_cancel: QPushButton = self.findChild(QPushButton, "btn_cancel")
+        self.lbl_count: QLabel = self.findChild(QLabel, "lbl_count")
+        self.gridLayout: QGridLayout = self.findChild(QGridLayout, "gridLayout")
+        self.setLayout(self.gridLayout)
 
+    def _setup_widgets_text(self):
+        self.lbl_title.setText(self.getl("def_hint_manager_lbl_title_text"))
+        self.btn_save.setText(self.getl("btn_save"))
+        self.btn_cancel.setText(self.getl("btn_cancel"))
+
+    def _setup_widgets_apperance(self):
+        self._define_def_hint_manager_win_apperance()
+
+        self.lbl_title.setStyleSheet(self.getv("def_hint_manager_lbl_title_stylesheet"))
+        self.cmb_sort.setStyleSheet(self.getv("def_hint_manager_cmb_sort_stylesheet"))
+        self.txt_expressions.setStyleSheet(self.getv("def_hint_manager_txt_expressions_stylesheet"))
+        self.btn_save.setStyleSheet(self.getv("def_hint_manager_btn_save_stylesheet"))
+        self.btn_cancel.setStyleSheet(self.getv("def_hint_manager_btn_cancel_stylesheet"))
+        self.lbl_count.setStyleSheet(self.getv("def_hint_manager_lbl_count_stylesheet"))
+
+    def _define_def_hint_manager_win_apperance(self):
+        self.setStyleSheet(self.getv("def_hint_manager_win_stylesheet"))
+        self.setWindowIcon(QIcon(self.getv("def_hint_manager_win_icon_path")))
+        self.setWindowTitle(self.getl("def_hint_manager_win_title_text"))
+        self.setWindowFlag(Qt.WindowContextHelpButtonHint, False)

@@ -2907,7 +2907,7 @@ Svi podaci u staroj datoteci će biti izgubljeni !"""] ],
             [1, """Datoteka sa ID brojem #1 ne postoji u bazi podataka !"""] ],
         "block_txt_box_menu_hyperlink_text": [
             [0, """Mark hyperlinks"""],
-            [1, """Oznaci web adrese"""] ],
+            [1, """Označi web adrese"""] ],
         "block_txt_box_menu_hyperlink_tt": [
             [0, """Detects all hyperlinks in a block and marks them as underlined."""],
             [1, """Detektuje sve hyperlinkove u bloku i markira ih podvučeno."""] ],
@@ -5483,7 +5483,4773 @@ onda ce na listu sinonima biti dodane i ove reči gde su srpska slova zamenjena 
  - removes text in square brackets [text]"""],
             [1, """Formatira tekst opisa definicije:
  - uklanja suvišne razmake
- - uklanja tekst u uglastim zagradama [tekst]"""] ]
+ - uklanja tekst u uglastim zagradama [tekst]"""] ],
+        "app_settings_lbl_menu_startup_title_text": [
+            [0, """Block settings"""],
+            [1, """Blok podešavanja"""] ],
+        "app_settings_lbl_menu_startup_title_tt": [
+            [0, """Block related settings"""],
+            [1, """Podešavanja vezana za blok"""] ],
+        "number_of_saved_logs_desc": [
+            [0, """Each time a user logs into the application, a new log is created. This value determines the maximum number of logs that will be stored in the file 'log.txt'."""],
+            [1, """Svaki put kada se korisnik prijavi u aplikaciju, kreira se nova evidencija o korištenju aplikacije. Ova vrednost određuje maksimalan broj evidencija koje će biti uskladištene u datoteci 'log.txt'."""] ],
+        "number_of_saved_logs_recomm": [
+            [0, """The value should not exceed several hundred logs."""],
+            [1, """Vrednost ne bi trebalo da prelazi nekoliko stotina evidencija."""] ],
+        "number_of_saved_logs_name": [
+            [0, """Number of saved logs"""],
+            [1, """Broj sačuvanih evidencija"""] ],
+        "app_settings_lbl_default_value_text": [
+            [0, """Click to set the default value:"""],
+            [1, """Kliknite da postavite podrazumevanu vrednost:"""] ],
+        "app_settings_exit_msg_save_title": [
+            [0, """Save settings ?"""],
+            [1, """Snimi podešavanja ?"""] ],
+        "app_settings_exit_msg_save_text": [
+            [0, """Some settings you have changed have not been saved!
+Do you want to save all changed settings?"""],
+            [1, """Neka podešavanja koja ste promenili nisu snimljena !
+Da li želite da snimite sva izmenjena podešavanja ?"""] ],
+        "app_settings_save_msg_save_title": [
+            [0, """Settings are recorded!"""],
+            [1, """Podešavanja su snimljena !"""] ],
+        "app_settings_save_msg_save_text": [
+            [0, """In total, #1 modified settings have been recorded!"""],
+            [1, """Ukupno je #1 izmenjenih podašavanja snimljeno !"""] ],
+        "date_format_name": [
+            [0, """Date format"""],
+            [1, """Format datuma"""] ],
+        "date_format_desc": [
+            [0, """Date format string.
+(%d, %-d, %m, %-m, %y, %-y, %Y)"""],
+            [1, """Format datuma string.
+(%d, %-d, %m, %-m, %y, %-y, %Y)"""] ],
+        "date_format_recomm": [
+            [0, """It depends on your local settings for the date."""],
+            [1, """Zavisi od vaših lokalnih podešavanja."""] ],
+        "time_format_name": [
+            [0, """Time format"""],
+            [1, """Format vremena"""] ],
+        "time_format_desc": [
+            [0, """Time format string.
+(%H, %-H, %I, %p, %M, %-M, %S, %-S)"""],
+            [1, """Format vremena string.
+(%H, %-H, %I, %p, %M, %-M, %S, %-S)"""] ],
+        "time_format_recomm": [
+            [0, """It depends on your local settings for the date."""],
+            [1, """Zavisi od vaših lokalnih podešavanja."""] ],
+        "app_settings_app_group_title": [
+            [0, """General application settings"""],
+            [1, """Generalna podešavanja aplikacije"""] ],
+        "app_settings_lbl_style_title_text": [
+            [0, """Setting the display style"""],
+            [1, """Podešavanje stila prikaza"""] ],
+        "app_settings_lbl_style_sample_text": [
+            [0, """Style example"""],
+            [1, """Primer stila"""] ],
+        "app_settings_grp_style_gen_title": [
+            [0, """General appearance"""],
+            [1, """Generalni izgled"""] ],
+        "app_settings_btn_style_gen_fg_text": [
+            [0, """Foreground"""],
+            [1, """Boja teksta"""] ],
+        "app_settings_btn_style_gen_bg_text": [
+            [0, """Background"""],
+            [1, """Boja pozadine"""] ],
+        "app_settings_lbl_style_gen_border_size_text": [
+            [0, """Border thickness"""],
+            [1, """Debljina okvira"""] ],
+        "app_settings_lbl_style_gen_border_radius_text": [
+            [0, """Radius thickness"""],
+            [1, """Radijus okvira"""] ],
+        "app_settings_btn_style_gen_border_color_text": [
+            [0, """Border color"""],
+            [1, """Boja okvira"""] ],
+        "app_settings_btn_style_gen_font_text": [
+            [0, """Font"""],
+            [1, """Font"""] ],
+        "app_settings_chk_style_gen_font_bold_text": [
+            [0, """Bold"""],
+            [1, """Bold"""] ],
+        "app_settings_chk_style_gen_font_italic_text": [
+            [0, """Italic"""],
+            [1, """Italic"""] ],
+        "app_settings_chk_style_gen_font_underline_text": [
+            [0, """Underline"""],
+            [1, """Underline"""] ],
+        "app_settings_chk_style_gen_font_strikeout_text": [
+            [0, """Strikeout"""],
+            [1, """Strikeout"""] ],
+        "app_settings_grp_style_hov_title": [
+            [0, """Appearance when mouse is over"""],
+            [1, """Izgled kada je miš iznad"""] ],
+        "app_settings_lbl_style_stylesheet_text": [
+            [0, """StyleSheet QSS programming code"""],
+            [1, """StyleSheet QSS programski kod"""] ],
+        "app_settings_btn_style_apply_text": [
+            [0, """Update"""],
+            [1, """Ažuriraj"""] ],
+        "app_settings_btn_style_cancel_text": [
+            [0, """Cancel"""],
+            [1, """Otkaži"""] ],
+        "app_settings_lbl_menu_widget_title_text": [
+            [0, """Widgets Settings"""],
+            [1, """Widgets Podešavanja"""] ],
+        "app_settings_lbl_menu_widget_title_tt": [
+            [0, """Setting various elements like confirm or exit button, title layout etc."""],
+            [1, """Podešavanje raznih elemenata kao što su dugme za potvrdu ili izlaz, izgled naslova itd."""] ],
+        "app_settings_lbl_menu_window_title_text": [
+            [0, """Dialog Settings"""],
+            [1, """Dijalog Podešavanja"""] ],
+        "app_settings_lbl_menu_window_title_tt": [
+            [0, """Setting the appearance and behavior of various dialogs in the application."""],
+            [1, """Podešavanje izgleda i ponašanja raznih dijaloga u aplikaciji."""] ],
+        "app_sett_style_login_dialog_name": [
+            [0, """Dialog: User login"""],
+            [1, """Dijalog: Prijavljivanje korisnika"""] ],
+        "app_sett_style_login_dialog_win_style": [
+            [0, """Window apperance"""],
+            [1, """Izgled prozora"""] ],
+        "app_settings_no_recommended_value": [
+            [0, """There are no recommended values"""],
+            [1, """Nema preporučenih vrednosti"""] ],
+        "app_settings_desc_list_of_affected_keys": [
+            [0, """List of affected keys:"""],
+            [1, """Spisak povezanih ključeva:"""] ],
+        "app_settings_btn_set_style_text": [
+            [0, """Set style"""],
+            [1, """Postavi stil"""] ],
+        "stylesheet_win_desc": [
+            [0, """Setting the appearance of the dialog window.
+Some settings such as the border radius and the border itself may not be applied to the window."""],
+            [1, """Podešavanje izgleda dijalog prozora.
+Neka podešavanja kao sto je radijus okvira i sam okvir možda neće moći biti primenjena na prozor."""] ],
+        "stylesheet_desc": [
+            [0, """Setting the appearance of the widget.
+Some widgets do not have the ability to change the font, so those settings for some widgets will not be changed."""],
+            [1, """Podešavanje izgleda widget-a.
+Neki widget-i nemaju mogućnost promene fonta pa ta podešavanja za neke widget-e neće biti promenjena."""] ],
+        "app_sett_style_mainwindow_name": [
+            [0, """Main window"""],
+            [1, """Glavni prozor"""] ],
+        "app_sett_style_general_win_style": [
+            [0, """Window apperance"""],
+            [1, """Izgled prozora"""] ],
+        "app_sett_style_toolBar_stylesheet_style": [
+            [0, """Toolbar apperance"""],
+            [1, """Izgled trake sa alatkama"""] ],
+        "app_sett_style_toolBar_movable_style": [
+            [0, """The user can move ToolBar"""],
+            [1, """Korisnik može da pomera traku"""] ],
+        "app_sett_style_toolBar_name": [
+            [0, """Toolbar settings"""],
+            [1, """Podešavanje trake sa alatkama"""] ],
+        "toolBar_movable_desc": [
+            [0, """Determines whether the user will be able to move the toolbar with the mouse."""],
+            [1, """Određuje da li će korisnik moći mišem da pomera traku sa alatkama."""] ],
+        "app_sett_style_toolBar_floatable_style": [
+            [0, """Floating toolbar"""],
+            [1, """Plivajuća traka sa alatkama"""] ],
+        "toolBar_floatable_desc": [
+            [0, """Determines whether the toolbar can stand alone outside the main window."""],
+            [1, """Određuje da li traka sa alatkama može da stoji samostalno van glavnog prozora."""] ],
+        "app_sett_style_toolBat_enabled_style": [
+            [0, """Toolbar is enabled"""],
+            [1, """Traka sa alatkama je dostupna"""] ],
+        "toolBat_enabled_desc": [
+            [0, """The user can click on the tool in the toolbar."""],
+            [1, """Korisnik može da klikne na alatku u traci sa alatkama."""] ],
+        "app_sett_style_toolBar_visible_style": [
+            [0, """The toolbar is visible"""],
+            [1, """Traka sa alatkama je vidljiva"""] ],
+        "toolBar_visible_desc": [
+            [0, """The toolbar is visible to the user."""],
+            [1, """Traka sa alatkama je vidljiva korisniku."""] ],
+        "app_sett_style_statusbar_name": [
+            [0, """Setting the status bar"""],
+            [1, """Podešavanje statusne linije"""] ],
+        "app_sett_style_sts_bar_stylesheet_style": [
+            [0, """Statusbar apperance"""],
+            [1, """Izgled statusne linije"""] ],
+        "widget_setting_true_recomm": [
+            [0, """It is recommended that this value be set to "True"."""],
+            [1, """Preporučeno je da ova vrednost bude postavljena na "True"."""] ],
+        "widget_setting_false_recomm": [
+            [0, """It is recommended that this value be set to "False"."""],
+            [1, """Preporučeno je da ova vrednost bude postavljena na "False"."""] ],
+        "app_sett_style_sts_bar_fixed_width_style": [
+            [0, """Statusbar width"""],
+            [1, """Širina statusne linije"""] ],
+        "sts_bar_fixed_width_desc": [
+            [0, """Fixed width of the status line.
+Type "-1" to have the width determined automatically based on the width of the main window."""],
+            [1, """Fiksna širina statusne linije.
+Ukucajte "-1" da bi širina bila određena automatski na osnovu širine glavnog prozora."""] ],
+        "sts_bar_fixed_width_recomm": [
+            [0, """It is recommended that this value be "-1"."""],
+            [1, """Preporučeno je da ova vrednost bude "-1"."""] ],
+        "app_sett_style_sts_bar_fixed_height_style": [
+            [0, """The height of the status line"""],
+            [1, """Visina statusne linije"""] ],
+        "sts_bar_fixed_height_desc": [
+            [0, """Fixed status line height.
+Type "-1" to have the height determined automatically based on the height of the main window."""],
+            [1, """Fiksna visina statusne linije.
+Ukucajte "-1" da bi visina bila određena automatski na osnovu visine glavnog prozora."""] ],
+        "sts_bar_fixed_height_recomm": [
+            [0, """It is recommended that this value be "-1"."""],
+            [1, """Preporučeno je da ova vrednost bude "-1"."""] ],
+        "app_sett_style_sts_bar_visible_style": [
+            [0, """The statusbar is visible"""],
+            [1, """Statusna linija je vidljiva"""] ],
+        "sts_bar_visible_desc": [
+            [0, """The status line is visible to the user."""],
+            [1, """Statusna linija je vidljiva korisniku."""] ],
+        "app_sett_style_add_block_at_start_style": [
+            [0, """Add block automatically"""],
+            [1, """Automatski dodaj blok"""] ],
+        "add_block_at_start_desc": [
+            [0, """Automatically adds an empty block when you start the app if no empty blocks are open that day."""],
+            [1, """Automatski dodaje prazan blok kada pokrenete aplikaciju ako tog dana nema otvorenih praznih blokova."""] ],
+        "app_sett_style_block_name": [
+            [0, """A block of text in a journal"""],
+            [1, """Blok teksta u dnevniku"""] ],
+        "app_sett_style_block_tag_added_at_start_style": [
+            [0, """Tags for new block"""],
+            [1, """Tagovi za novi blok"""] ],
+        "block_tag_added_at_start_desc": [
+            [0, """A list of tags that will be automatically added to the newly opened blog.
+Type the ID of the tags you want, separated by a comma.
+Available tags are:"""],
+            [1, """Lista tagovo koji će automatski biti dodati u novootvoreni blog.
+Upišite ID tagova koje želite razdvojene zarezom.
+Dostupni tagovi su:"""] ],
+        "app_sett_style_auto_show_drafts_on_start_style": [
+            [0, """Show unfinished blocks"""],
+            [1, """Prikaži nezavršene blokove"""] ],
+        "auto_show_drafts_on_start_desc": [
+            [0, """If this option is enabled, the application will offer the user to continue editing blocks that have not yet been closed."""],
+            [1, """Ukoliko je ova opcija ukljucena, aplikacija će ponuditi korisniku da nastavi sa uređivanjem blokova koji još nisu zatvoreni."""] ],
+        "area_label_widget_frame_shape_recomm": [
+            [0, """It is recommended that this value be "0 - NoFrame"."""],
+            [1, """Preporučeno je da ova vrednost bude "0 - NoFrame"."""] ],
+        "area_label_widget_frame_shadow_recomm": [
+            [0, """It is recommended that this value be "16 - Plain"."""],
+            [1, """Preporučeno je da ova vrednost bude "16 - Plain"."""] ],
+        "app_sett_style_area_label_widget_line_width_style": [
+            [0, """Blocks edit area - Frame thickness"""],
+            [1, """Prostor za uređivanje blokova - Debljina okvira"""] ],
+        "area_label_widget_line_width_desc": [
+            [0, """The frame thickness of the area where the blocks you are editing will be displayed."""],
+            [1, """Debljina okvira prostora gde ce biti prikazani blokovi koje uređujete."""] ],
+        "area_label_widget_line_width_recomm": [
+            [0, """It is recommended that this value be "1"."""],
+            [1, """Preporučeno je da ova vrednost bude "1"."""] ],
+        "app_sett_style_general_style": [
+            [0, """Widget apperance"""],
+            [1, """Izgled widgeta"""] ],
+        "app_sett_style_area_label_widget_stylesheet_style": [
+            [0, """Blocks edit area - Widget apperance"""],
+            [1, """Prostor za uređivanje blokova - Izgled widgeta"""] ],
+        "app_sett_visible_desc": [
+            [0, """Determines whether the widget will be visible."""],
+            [1, """Određuje da li će widget biti vidljiv."""] ],
+        "app_sett_enabled_desc": [
+            [0, """Specifies whether the widget will be enabled."""],
+            [1, """Određuje da li će widget biti omogućen."""] ],
+        "app_sett_style_area_label_widget_visible_style": [
+            [0, """Blocks edit area
+Is label visible"""],
+            [1, """Prostor za uređivanje blokova
+Da li je natpis vidljiv"""] ],
+        "app_sett_style_frame_shadow_style": [
+            [0, """Frame shadow"""],
+            [1, """Izgled senke okvira"""] ],
+        "app_sett_style_frame_shadow_desc": [
+            [0, """Appearance of the widget frame shadow."""],
+            [1, """Izgled senke okvira widget-a."""] ],
+        "app_sett_style_frame_shape_style": [
+            [0, """Frame shape"""],
+            [1, """Oblik okvira"""] ],
+        "app_sett_style_frame_shape_desc": [
+            [0, """The shape of the widget frame."""],
+            [1, """Oblik okvira widget-a."""] ],
+        "win_block_frame_shape_recomm": [
+            [0, """It is recommended that this value be "1 - Box"."""],
+            [1, """Preporučeno je da ova vrednost bude "1 - Box"."""] ],
+        "win_block_frame_shadow_recomm": [
+            [0, """It is recommended that this value be "16 - Plain"."""],
+            [1, """Preporučeno je da ova vrednost bude "16 - Plain"."""] ],
+        "app_sett_style_area_label_widget_frame_shape_style": [
+            [0, """Blocks edit area - Frame shadow"""],
+            [1, """Prostor za uređivanje blokova - Izgled senke okvira"""] ],
+        "app_sett_style_area_label_widget_frame_shadow_style": [
+            [0, """Blocks edit area - Frame shadow"""],
+            [1, """Prostor za uređivanje blokova - Izgled senke okvira"""] ],
+        "app_sett_style_block_area_name": [
+            [0, """Area where blocks are displayed"""],
+            [1, """Prostor gde se prikazuju blokovi"""] ],
+        "app_sett_style_line_width_style": [
+            [0, """Frame thickness"""],
+            [1, """Debljina okvira"""] ],
+        "app_sett_style_line_width_desc": [
+            [0, """The frame thickness of the widget."""],
+            [1, """Debljina okvira widget-a."""] ],
+        "app_sett_style_win_block_stylesheet_style": [
+            [0, """Apperance of the block being edited."""],
+            [1, """Izgled bloka koji se uređuje."""] ],
+        "online_dsl_joker_add_title": [
+            [0, """Add a joker number"""],
+            [1, """Dodaj džoker broj"""] ],
+        "online_dsl_joker_add_btn": [
+            [0, """Add"""],
+            [1, """Dodaj"""] ],
+        "app_sett_style_at_start_name": [
+            [0, """Application startup"""],
+            [1, """Na pokretanju aplikacije"""] ],
+        "app_sett_style_block_general_name": [
+            [0, """Block: In general"""],
+            [1, """Blok: Generalno"""] ],
+        "app_sett_style_block_titlebar_name": [
+            [0, """Block: Titlebar"""],
+            [1, """Blok: Naslovna linija"""] ],
+        "win_block_controls_frame_shape_recomm": [
+            [0, """It is recommended that this value be "0 - NoFrame"."""],
+            [1, """Preporučeno je da ova vrednost bude "0 - NoFrame"."""] ],
+        "win_block_controls_line_width_recomm": [
+            [0, """It is recommended that this value be "0"."""],
+            [1, """Preporučeno je da ova vrednost bude "0"."""] ],
+        "app_sett_style_win_block_controls_stylesheet_style": [
+            [0, """Block titlebar apperance"""],
+            [1, """Izgled naslovne linije bloka"""] ],
+        "app_sett_style_block_header_name": [
+            [0, """Block: Header"""],
+            [1, """Blok: Header (Zaglavlje)"""] ],
+        "app_sett_style_header_stylesheet_style": [
+            [0, """Apperance of the block header"""],
+            [1, """Izgled zaglavlja bloka (Header)."""] ],
+        "app_sett_style_block_body_name": [
+            [0, """Block: Body (Text)"""],
+            [1, """Blok: Body (Telo sa tekstom)"""] ],
+        "app_sett_style_body_stylesheet_style": [
+            [0, """Appearance of the body of the block. Part of a block containing text."""],
+            [1, """Izgled tela bloka (Body). Deo bloka koji sadrži tekst."""] ],
+        "app_sett_style_block_footer_name": [
+            [0, """Block: Footer"""],
+            [1, """Blok: Footer (Podnožje)"""] ],
+        "app_sett_style_footer_stylesheet_style": [
+            [0, """Apperance of the block footer. Part of the block that contains the buttons for saving, adding images, etc."""],
+            [1, """Izgled podnožja bloka. Deo bloka koji sadrži dugmad za snimanje, dodavanje slika itd."""] ],
+        "app_sett_style_win_block_controls_show_long_date_desc": [
+            [0, """How the date will be displayed in the title bar of the block.
+(0) - Short date (29.09.1975.)
+(1) - Name of the day (Monday 29.09.1975)
+(2) - Name of the month (29, September 1975)
+(3) - Name of day and month"""],
+            [1, """Način na koji će se prikazivati datum u naslovnoj liniji bloka.
+(0) - Kratak datum (29.09.1975.)
+(1) - Naziv dana (Ponedeljak 29.09.1975.)
+(2) - Naziv meseca (29. Septembar 1975.)
+(3) - Naziv dana i meseca
+"""] ],
+        "win_block_line_width_recomm": [
+            [0, """It is recommended that this value be "0"."""],
+            [1, """Preporučeno je da ova vrednost bude "1"."""] ],
+        "app_sett_style_win_block_controls_show_long_date_style": [
+            [0, """Date display"""],
+            [1, """Prikaz datuma"""] ],
+        "app_sett_style_block_buttons_name": [
+            [0, """Block buttons"""],
+            [1, """Dugmad u bloku"""] ],
+        "app_sett_style_win_block_control_btn_date_name": [
+            [0, """Button: Date (Titlebar)"""],
+            [1, """Dugme: Datum (Naslovna linija)"""] ],
+        "app_sett_style_button_flat_desc": [
+            [0, """Determines whether the button will be flat or raised.
+Warning: When the button is set to Flat then the stylesheet settings have no effect on it."""],
+            [1, """Određuje da li će dugme biti ravno ili izdignuto.
+Upozorenje: Kada je dugme podešeno da bude ravno (Flat) onda stylesheet podešavanja nemaju efekta na njega."""] ],
+        "app_sett_style_button_stylesheet_style": [
+            [0, """Button apperance"""],
+            [1, """Izgled dugmeta"""] ],
+        "app_sett_style_button_flat_style": [
+            [0, """Flat button style"""],
+            [1, """Ravan stil dugmenta"""] ],
+        "app_settings_err_image_load": [
+            [0, """Error"""],
+            [1, """Greška"""] ],
+        "app_settings_err_image_load_text": [
+            [0, """The image or icon you selected could not be loaded!"""],
+            [1, """Slika ili ikona koju ste izabrali ne može biti učitana !"""] ],
+        "app_sett_style_select_icon_image_style": [
+            [0, """Select an image / icon"""],
+            [1, """Izaberite sliku / ikonu"""] ],
+        "app_sett_icon_path_desc": [
+            [0, """Select the file containing the image you want to display with the widget."""],
+            [1, """Izaberite datoteku koja sadrži sliku koju želite da prikažete uz widget."""] ],
+        "app_settings_combobox_item_no_icon_text": [
+            [0, """No icon/image"""],
+            [1, """Bez ikone/ slike"""] ],
+        "app_settings_combobox_item_icon_custom_text": [
+            [0, """Custom icon/image"""],
+            [1, """Izaberite ikonu/sliku"""] ],
+        "app_settings_press_shortcut_input_box_placeholder": [
+            [0, """Press the shortcut"""],
+            [1, """Pritisnite prečicu"""] ],
+        "app_sett_shortcut_desc": [
+            [0, """Select a shortcut
+1. Click on the input field
+2. Press the shortcut you want"""],
+            [1, """Izaberite prečicu
+1. Kliknite na polje za unos
+2. Pritisnite prečicu koju želite
+"""] ],
+        "app_sett_style_select_shortcut_style": [
+            [0, """Select a shortcut"""],
+            [1, """Izaberite prečicu"""] ],
+        "app_sett_style_win_block_control_btn_name_name": [
+            [0, """Button: Block name (Titlebar)"""],
+            [1, """Dugme: Naziv bloka (Naslovna linija)"""] ],
+        "app_sett_style_win_block_control_btn_close_name": [
+            [0, """Button: Close block (Titlebar)"""],
+            [1, """Dugme: Zatvori blok (Naslovna linija)"""] ],
+        "app_sett_style_win_block_control_btn_collapse_name": [
+            [0, """Button: Collapse block (Titlebar)"""],
+            [1, """Dugme: Skupi blok (Naslovna linija)"""] ],
+        "app_sett_style_win_block_control_btn_expand_name": [
+            [0, """Button: Expand block (Titlebar)"""],
+            [1, """Dugme: Proširi blok (Naslovna linija)"""] ],
+        "app_sett_style_header_btn_diary_name": [
+            [0, """Button: Tag Diary (Header)"""],
+            [1, """Dugme: Oznaka Dnevnik (Header)"""] ],
+        "app_sett_style_header_btn_tag_name": [
+            [0, """Button: Default Tags (Header)"""],
+            [1, """Dugme: Predefinisane oznake (Header)"""] ],
+        "app_sett_style_header_btn_user_name": [
+            [0, """Button: User Tags (Header)"""],
+            [1, """Dugme: Korisničke oznake (Header)"""] ],
+        "app_sett_style_header_btn_add_name": [
+            [0, """Button: Add Tag (Header)"""],
+            [1, """Dugme: Dodaj oznaku (Header)"""] ],
+        "app_sett_style_footer_btn_save_name": [
+            [0, """Button: Save block (Footer)"""],
+            [1, """Dugme: Snimi blok (Footer)"""] ],
+        "app_sett_style_footer_btn_saved_name": [
+            [0, """Button: Block Saved (Footer)"""],
+            [1, """Dugme: Blok snimljen (Footer)"""] ],
+        "app_sett_style_footer_btn_add_new_name": [
+            [0, """Button: Add new block (Footer)"""],
+            [1, """Dugme: Dodaj novi blok (Footer)"""] ],
+        "app_sett_style_footer_btn_delete_name": [
+            [0, """Button: Delete Block (Footer)"""],
+            [1, """Dugme: Obriši blok (Footer)"""] ],
+        "app_sett_style_footer_btn_add_new_image_name": [
+            [0, """Button: Add image to block (Footer)"""],
+            [1, """Dugme: Dodaj sliku u blok (Footer)"""] ],
+        "app_sett_style_footer_btn_detection_name": [
+            [0, """Button: Action (appears when you type "@") (Footer)"""],
+            [1, """Dugme: Akcija (pojavljuje se kada ukucate "@") (Footer)"""] ],
+        "app_sett_style_win_block_buttons_general_name": [
+            [0, """General settings for all buttons"""],
+            [1, """Generalna podešavanja za svu dugmad"""] ],
+        "app_sett_style_blocks_buttons_text_width_pad_style": [
+            [0, """Extra width spacing"""],
+            [1, """Dodatni razmak po širini"""] ],
+        "blocks_buttons_text_width_pad_desc": [
+            [0, """The number of pixels to add to each side of the text in the button for better readability.
+From 0 to 200 pixels."""],
+            [1, """Broj piksela koji će se dodati sa svake strane teksta u dugmetu radi bolje čitljivosti.
+Od 0 do 200 piksela."""] ],
+        "blocks_buttons_text_width_pad_recomm": [
+            [0, """It is recommended that this number be around 20 pixels."""],
+            [1, """Preporučeno je da ovaj broj bude oko 20 piksela."""] ],
+        "app_sett_style_blocks_buttons_text_height_pad_style": [
+            [0, """Additional height spacing"""],
+            [1, """Dodatni razmak po visini"""] ],
+        "blocks_buttons_text_height_pad_desc": [
+            [0, """The number of pixels to add to the top and bottom of each side of the text in the button for better readability.
+From 0 to 200 pixels."""],
+            [1, """Broj piksela koji će se dodati sa gornje i donje svake strane teksta u dugmetu radi bolje čitljivosti.
+Od 0 do 200 piksela."""] ],
+        "blocks_buttons_text_height_pad_recomm": [
+            [0, """It is recommended that this number be around 10 pixels."""],
+            [1, """Preporučeno je da ovaj broj bude oko 10 piksela."""] ],
+        "app_sett_style_block_text_editor_name": [
+            [0, """Block: Text Editor"""],
+            [1, """Blok: Tekst Editor"""] ],
+        "app_sett_style_block_text_editor_apperance_name": [
+            [0, """Text Editor: Apperance of the editor"""],
+            [1, """Tekst Editor: Izgled editora"""] ],
+        "app_sett_style_text_editor_stylesheet_style": [
+            [0, """Apperance of the text editor"""],
+            [1, """Izgled tekst editora"""] ],
+        "app_sett_style_block_text_editor_general_name": [
+            [0, """Text Editor: Functionality"""],
+            [1, """Tekst Editor: Funkcionalnost"""] ],
+        "app_sett_style_body_txt_box_tab_changes_focus_style": [
+            [0, """TAB changes focus"""],
+            [1, """TAB menja fokus"""] ],
+        "body_txt_box_tab_changes_focus_desc": [
+            [0, """If this option is on, pressing the TAB button on the keyboard will change the focus from the editor to the next widget.
+When this option is off, pressing the TAB key will move the cursor to the next tab position."""],
+            [1, """Ako je ova opcija uključena pritiskom na dugme TAB na tastaturi promeniće se fokus sa editora na sledeći widget.
+Kada je ova opcija isključena, pritisak na TAB taster ce pomeriti kursor na sledeću tab poziciju."""] ],
+        "body_txt_box_tab_changes_focus_recomm": [
+            [0, """It is recommended that this option be disabled (False)."""],
+            [1, """Preporučeno je da ova opcija bude isklkjučena (False)"""] ],
+        "app_sett_style_body_txt_box_line_wrap_mode_style": [
+            [0, """Text wrapping"""],
+            [1, """Prelamanje teksta"""] ],
+        "body_txt_box_line_wrap_mode_desc": [
+            [0, """Setting the behavior of the editor (TextBox) in the case when the typed text line is longer than the width of the editor itself."""],
+            [1, """Podešavanje ponašanja editora (TextBox) u slučaju kada je linija otkucanog teksta duža od širine samog editora."""] ],
+        "body_txt_box_line_wrap_mode_recomm": [
+            [0, """It is recommended that the value be (1 - WidgetWidth)"""],
+            [1, """Preporučeno je da vrednost bude (1 - WidgetWidth)"""] ],
+        "app_sett_style_body_txt_box_line_wrap_column_or_width_style": [
+            [0, """Text wrapping, width"""],
+            [1, """Prelamanje teksta, širina"""] ],
+        "body_txt_box_line_wrap_column_or_width_desc": [
+            [0, """If the option "Text wrap" is set to "2 - FixedPixelWidth" or "3 - FixedColumnWidth", this value determines at which position the text will be wrapped.
+If the "Text Wrap" option is set to "0 - NoWrap" or "1 - WidgetWidth" then setting this option has no effect."""],
+            [1, """Ukoliko je opcija "Prelamanje teksta" podešena na "2 - FixedPixelWidth" ili "3 - FixedColumnWidth" ova vrednost određuje na kojoj poziciji će tekst biti prelomljen.
+Ako je opcija "Prelamanje teksta" podešena na "0 - NoWrap" ili "1 - WidgetWidth" onda podešavanje ove opcije nema efekta."""] ],
+        "body_txt_box_accept_rich_text_desc": [
+            [0, """Determines whether the editor (TextBox) will be able to display Rich Text (text with different color and font formatting)."""],
+            [1, """Određuje da li će editor (TextBox) moći da prikazuje Rich Text (tekst sa različitim formatiranjem boja i fontova)."""] ],
+        "app_sett_style_body_txt_box_accept_rich_text_style": [
+            [0, """Allow Rich Text"""],
+            [1, """Dozvoli Rich Text"""] ],
+        "app_sett_style_body_txt_box_cursor_width_style": [
+            [0, """Cursor thickness"""],
+            [1, """Debljina kursora"""] ],
+        "body_txt_box_cursor_width_desc": [
+            [0, """Cursor thickness expressed in pixels."""],
+            [1, """Debljina kursora izražena u pikselima."""] ],
+        "body_txt_box_cursor_width_recomm": [
+            [0, """It is recommended that this value be between 1 and 10 (A value of "1" is a classic cursor.)"""],
+            [1, """Preporučeno je da ova vrednost bude između 1 i 10 (Vrednost "1" je klasičan kursor.)"""] ],
+        "app_sett_style_body_txt_box_number_of_visible_lines_style": [
+            [0, """Number of visible lines"""],
+            [1, """Broj vidljivih linija"""] ],
+        "body_txt_box_number_of_visible_lines_desc": [
+            [0, """Determines how many lines of text will be visible when entering text into a block.
+Based on this value, the height of the block will be determined when opening a new block."""],
+            [1, """Određuje koliko linija teksta će biti vidljivo prilikom unosa teksta u blok.
+Na osnovu ove vrednosti će biti određena visina bloka kod otvaranja novog bloka."""] ],
+        "body_txt_box_number_of_visible_lines_recomm": [
+            [0, """This value depends on the resolution of your monitor, it is recommended to be between 4 and 10 lines."""],
+            [1, """Ova vrednost zavisi od rezolucije vašeg monitora, preporučeno je da bude između 4 i 10 linija."""] ],
+        "app_sett_style_win_block_control_btn_day_name": [
+            [0, """Button: Number of days since first entry"""],
+            [1, """Dugme: Broj dana od prvog unosa"""] ],
+        "app_settings_rbt_style_enabled_text": [
+            [0, """Widget enabled"""],
+            [1, """Omogućen widget"""] ],
+        "app_settings_rbt_style_disabled_text": [
+            [0, """Disabled widget"""],
+            [1, """Onemogućen widget"""] ],
+        "app_settings_grp_style_dis_title": [
+            [0, """Disabled widget style"""],
+            [1, """Onemogućen wdget stil (Disabled)"""] ],
+        "app_settings_btn_style_copy_text": [
+            [0, """Copy"""],
+            [1, """Kopiraj"""] ],
+        "app_settings_btn_style_paste_text": [
+            [0, """Paste"""],
+            [1, """Nalepi"""] ],
+        "app_settings_btn_style_copy_tt": [
+            [0, """Copy the stylesheet settings to the clipboard."""],
+            [1, """Kopiraj stylesheet podešavanja u clipboard."""] ],
+        "app_settings_btn_style_paste_tt": [
+            [0, """Paste the settings stylesheet from the clipboard."""],
+            [1, """Nalepi stylesheet podešavanja iz clipboarda."""] ],
+        "app_settings_lbl_menu_search_title_text": [
+            [0, """Search"""],
+            [1, """Pronađi"""] ],
+        "app_settings_lbl_menu_search_title_tt": [
+            [0, """Find the setting you want to change."""],
+            [1, """Pronađite podešavanje koje želite da promenite."""] ],
+        "app_settings_chk_menu_search_whole_words_text": [
+            [0, """Only whole words"""],
+            [1, """Samo cele reči"""] ],
+        "app_settings_chk_menu_search_matchcase_text": [
+            [0, """Match case"""],
+            [1, """Velika i mala slova"""] ],
+        "app_settings_lbl_menu_search_info_text": [
+            [0, """settings found."""],
+            [1, """podešavanja pronađeno."""] ],
+        "app_sett_style_block_animation_on_open_style": [
+            [0, """Animate the opening of the block"""],
+            [1, """Animiraj otvaranje bloka"""] ],
+        "block_animation_on_open_desc": [
+            [0, """Determines whether the opening of a new block will be animated, or whether the block will appear immediately, without animation."""],
+            [1, """Određuje da li će otvaranje novog bloka biti animirano ili će se blok odmah pojaviti, bez animacije."""] ],
+        "app_sett_style_block_animation_on_open_name": [
+            [0, """Block opening animation"""],
+            [1, """Animacija na otvaranju bloka"""] ],
+        "app_sett_style_block_animation_on_open_steps_number_style": [
+            [0, """Number of animation steps"""],
+            [1, """Broj koraka animacije"""] ],
+        "block_animation_steps_number_desc": [
+            [0, """The number of animation steps determines how many steps the widget will be animated.
+How smoothly the animation will flow depends on the number of steps."""],
+            [1, """Broj koraka animacije određuje u koliko koraka će widget biti animiran.
+Od broja koraka zavisi koliko glatko će animacija teći."""] ],
+        "block_animation_on_open_steps_number_recomm": [
+            [0, """It is recommended that this number be between 10 and 30."""],
+            [1, """Preporučeno je da ovaj broj bude između 10 i 30."""] ],
+        "app_sett_style_block_animation_on_open_total_duration_ms_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "block_animation_on_open_total_duration_ms_recomm": [
+            [0, """It is recommended that this number be between 10 and 30."""],
+            [1, """Preporučeno je da ovaj broj bude između 100 i 2000."""] ],
+        "block_animation_duration_desc": [
+            [0, """The total animation duration of the widget expressed in milliseconds.
+1 second = 1000 milliseconds"""],
+            [1, """Ukupno trajanje animacije widgeta izraženo u milisekundama.
+1 sekund = 1000 milisekundi"""] ],
+        "app_sett_style_block_animation_on_close_name": [
+            [0, """Block closing animation"""],
+            [1, """Animacija na zatvaranju bloka"""] ],
+        "app_sett_style_block_animation_on_close_style": [
+            [0, """Animate block closing"""],
+            [1, """Animiraj zatvaranje bloka"""] ],
+        "block_animation_on_close_desc": [
+            [0, """Determines whether the closing of the block will be animated, or whether the block will disappear immediately, without animation."""],
+            [1, """Određuje da li će zatvaranje bloka biti animirano ili će blok odmah nestati, bez animacije."""] ],
+        "app_sett_style_block_animation_on_close_steps_number_style": [
+            [0, """Number of animation steps"""],
+            [1, """Broj koraka animacije"""] ],
+        "block_animation_on_close_steps_number_recomm": [
+            [0, """It is recommended that this number be between 10 and 30."""],
+            [1, """Preporučeno je da ovaj broj bude između 10 i 30."""] ],
+        "app_sett_style_block_animation_on_close_total_duration_ms_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "block_animation_on_close_total_duration_ms_recomm": [
+            [0, """It is recommended that this number be between 10 and 30."""],
+            [1, """Preporučeno je da ovaj broj bude između 100 i 1000."""] ],
+        "app_sett_style_block_animation_on_collapse_name": [
+            [0, """Block collapsing animation"""],
+            [1, """Animacija na skupljanju bloka"""] ],
+        "app_sett_style_block_animation_on_collapse_style": [
+            [0, """Animate block collapsing"""],
+            [1, """Animiraj skupljanje bloka"""] ],
+        "block_animation_on_collapse_desc": [
+            [0, """Determines whether the block's collapse will be animated, or whether the block will collapse immediately, without animation."""],
+            [1, """Određuje da li će skupljanje bloka biti animirano ili će se blok odmah skupiti, bez animacije."""] ],
+        "app_sett_style_block_animation_on_collapse_steps_number_style": [
+            [0, """Number of animation steps"""],
+            [1, """Broj koraka animacije"""] ],
+        "block_animation_on_collapse_steps_number_recomm": [
+            [0, """It is recommended that this number be between 10 and 30."""],
+            [1, """Preporučeno je da ovaj broj bude između 10 i 30."""] ],
+        "app_sett_style_block_animation_on_collapse_total_duration_ms_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "app_sett_style_block_animation_on_expand_name": [
+            [0, """Block expanding animation"""],
+            [1, """Animacija na proširivanju bloka"""] ],
+        "app_sett_style_block_animation_on_expand_style": [
+            [0, """Animate block expansion"""],
+            [1, """Animiraj proširivanje bloka"""] ],
+        "block_animation_on_expand_desc": [
+            [0, """Determines whether the block's expansion will be animated, or whether the block will expand immediately, without animation."""],
+            [1, """Određuje da li će proširivanje bloka biti animirano ili će se blok odmah proširiti, bez animacije."""] ],
+        "app_sett_style_block_animation_on_expand_steps_number_style": [
+            [0, """Number of animation steps"""],
+            [1, """Broj koraka animacije"""] ],
+        "app_sett_style_block_animation_on_expand_total_duration_ms_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "app_sett_style_blocks_buttons_with_no_text_width_pad_style": [
+            [0, """Increased width of buttons without text"""],
+            [1, """Povećana širina dugmadi bez teksta"""] ],
+        "blocks_buttons_with_no_text_width_pad_desc": [
+            [0, """Value in pixels by which to increase the width of non-text buttons such as "Close", "Expand", "Collapse"...
+If you want these buttons to be larger, increase this value."""],
+            [1, """Vrednost u pikselima za koju će se povećati širina dugmadi bez teksta kao što su dugmad "Zatvori", "Proširi", "Skupi"...
+Ukoliko želite da ova dugmad budu veća povećajte ovu vrednost."""] ],
+        "blocks_buttons_with_no_text_width_pad_recomm": [
+            [0, """It is recommended that this value not exceed 10 pixels."""],
+            [1, """Preporučeno je da ova vrednost ne bude veća od 10 piksela."""] ],
+        "app_sett_style_win_block_control_btn_day_visible_style": [
+            [0, """The button is visible"""],
+            [1, """Dugme je vidljivo"""] ],
+        "app_sett_style_footer_btn_add_new_visible_style": [
+            [0, """The button is visible"""],
+            [1, """Dugme je vidljivo"""] ],
+        "app_sett_style_footer_btn_saved_visible_style": [
+            [0, """The button is visible"""],
+            [1, """Dugme je vidljivo"""] ],
+        "app_sett_style_show_draft_blocks_collapsed_on_start_style": [
+            [0, """Open unfinished blocks collapsed"""],
+            [1, """Otvori nezavršene blokove skupljene"""] ],
+        "show_draft_blocks_collapsed_on_start_desc": [
+            [0, """If this option is enabled, if you select some unfinished blocks at the start of the application, they will open in collapsed mode.
+This is useful if you open a lot of blocks for better visibility."""],
+            [1, """Ukoliko je ova opcija uključena ako na startu aplikacije izaberete neke nezavšene blokove oni će se otvoriti skupljenom modu.
+Ovo je korisno ako otvarate mnogo blokova zbog bolje preglednosti."""] ],
+        "app_sett_style_selection_dialog_name": [
+            [0, """Dialog: Selection"""],
+            [1, """Dijalog: Selection"""] ],
+        "app_sett_style_btn_cancel_name": [
+            [0, """Exit Button (Cancel, Close)"""],
+            [1, """Dugme za izlaz (Otkaži, Zatvori)"""] ],
+        "app_sett_style_btn_confirm_name": [
+            [0, """Confirm button (Ok, Save, Add, Apply...)"""],
+            [1, """Dugme za potvrdu (Ok, Snimi, Dodaj, Primeni...)"""] ],
+        "app_sett_style_all_dialogs_btn_cancel_name": [
+            [0, """All dialogs: Exit button
+(Cancel, Close)"""],
+            [1, """Svi dijalozi: Dugme za izlaz
+(Otkaži, Zatvori)"""] ],
+        "app_sett_style_all_dialogs_btn_confirm_name": [
+            [0, """All dialogs: Confirm button
+(Ok, Save, Add, Apply...)"""],
+            [1, """Svi dijalozi: Dugme za potvrdu
+(Ok, Snimi, Dodaj, Primeni...)"""] ],
+        "app_settings_no_default_value_text": [
+            [0, """No default value !"""],
+            [1, """Nema podrazumevane vrednosti !"""] ],
+        "app_sett_style_selection_win_name": [
+            [0, """Dialog window: General"""],
+            [1, """Dijalog prozor: Generalno"""] ],
+        "app_sett_style_show_titlebar_style": [
+            [0, """Show title bar and frame"""],
+            [1, """Prikaži naslovnu liniju i okvir"""] ],
+        "app_sett_style_win_show_titlebar_desc": [
+            [0, """If you turn off this option, the window will not have a title bar and frame.
+This means you won't be able to move the window, and without the title bar, you won't even have the window close button enabled."""],
+            [1, """Ukoliko isključite ovu opciju, prozor neće imati naslovnu liniju i okvir.
+To znači da nećete moći da pomerate prozor, a bez naslovne linije nećete imati ni omogućeno dugme za zatvaranje prozora."""] ],
+        "app_sett_style_all_dialogs_general_name": [
+            [0, """All dialogs: General settings"""],
+            [1, """Svi dijalozi: Generalna podešavanja"""] ],
+        "app_sett_style_dialog_stylesheet_style": [
+            [0, """Dialog apperance"""],
+            [1, """Izgled dijaloga"""] ],
+        "app_sett_style_title_label_name": [
+            [0, """Dialog title"""],
+            [1, """Naslov dijaloga"""] ],
+        "app_sett_style_all_dialogs_title_label_name": [
+            [0, """All Dialogs: Title of the dialog"""],
+            [1, """Svi dijalozi: Naslov dijaloga"""] ],
+        "app_sett_style_dialog_title_label_stylesheet_style": [
+            [0, """Dialog title apperance"""],
+            [1, """Izgled naslova dijaloga"""] ],
+        "app_sett_style_selection_lbl_count_name": [
+            [0, """Label: Counter of items in the list"""],
+            [1, """Labela: Brojač stavki u listi"""] ],
+        "app_sett_style_selection_lst_name": [
+            [0, """List of items"""],
+            [1, """Lista stavki"""] ],
+        "app_sett_style_selection_show_item_tooltip_style": [
+            [0, """Item description in tooltip"""],
+            [1, """Opis stavke u tooltip-u"""] ],
+        "selection_show_item_tooltip_desc": [
+            [0, """Display the item description as a tooltip when the mouse is over the item."""],
+            [1, """Prikaži opis stavke kao tooltip kada je miš iznad stavke."""] ],
+        "app_sett_style_selection_spacer_title-body_height_style": [
+            [0, """The distance of the list from the title"""],
+            [1, """Rastojanje liste od naslova"""] ],
+        "selection_spacer_title-body_height_desc": [
+            [0, """The distance in pixels from the dialog title to the beginning of the list of items."""],
+            [1, """Rastojanje u pikselima od naslova dijaloga do početka liste sa stavkama."""] ],
+        "selection_spacer_title-body_height_recomm": [
+            [0, """It is recommended that this value not be less than 20 for better visibility."""],
+            [1, """Preporučeno je da ova vrednost ne bude manja od 20 zbog bolje preglednosti."""] ],
+        "selection_spacer_body-footer_height_desc": [
+            [0, """The distance in pixels from the item list to the dialog footer widget."""],
+            [1, """Rastojanje u pikselima od liste sa stavkama do widgeta u podnožju dijaloga."""] ],
+        "app_sett_style_selection_spacer_body-footer_height_style": [
+            [0, """The distance of the list from the footer"""],
+            [1, """Rastojanje liste od podnožja"""] ],
+        "app_sett_style_selection_list_item_alignment_style": [
+            [0, """List alignment"""],
+            [1, """Poravnanje liste"""] ],
+        "selection_list_item_alignment_desc": [
+            [0, """List alignment"""],
+            [1, """Poravnanje liste"""] ],
+        "app_sett_style_selection_btn_select_all_name": [
+            [0, """Button: "Select All" """],
+            [1, """Dugme: "Izaberi sve" """] ],
+        "app_sett_style_button_visible_style": [
+            [0, """The button is visible"""],
+            [1, """Dugme je vidljivo"""] ],
+        "app_sett_style_selection_btn_clear_all_name": [
+            [0, """Button: "Clear All" """],
+            [1, """Dugme: "Očisti sve" """] ],
+        "app_sett_style_context_menu_name": [
+            [0, """Context menu"""],
+            [1, """Kontekstni meni"""] ],
+        "app_sett_style_context_menu_frame_name": [
+            [0, """Context menu: Frame"""],
+            [1, """Kontekstni meni: Okvir"""] ],
+        "app_sett_style_context_menu_item_name": [
+            [0, """Context menu: Item (Button)"""],
+            [1, """Kontekstni meni: Stavka (Dugme)"""] ],
+        "app_sett_style_frame_stylesheet_style": [
+            [0, """Frame apperance"""],
+            [1, """Izgled okvira"""] ],
+        "app_sett_style_block_save_event_hide_save_btn_style": [
+            [0, """Hide "Save" button"""],
+            [1, """Sakrij "Snimi" dugme"""] ],
+        "block_save_event_hide_save_btn_desc": [
+            [0, """If this option is enabled, the "Save" button will be automatically hidden after recording the content of the block.
+If the content of the block changes, the button will become visible again."""],
+            [1, """Ako je ova opcija uključena, dugme "Snimi" će biti automatski sakriveno posle snimanja sadržaja bloka.
+Ukoliko se sadržaj bloka promeni dugme će ponovo postati vidljivo."""] ],
+        "app_sett_style_block_show_saved_btn_if_save_is_hidden_style": [
+            [0, """Show "Saved" button"""],
+            [1, """Prikaži "Snimljeno" dugme"""] ],
+        "block_show_saved_btn_if_save_is_hidden_desc": [
+            [0, """If this option is enabled, the "Saved" button will be automatically displayed after recording the content of the block.
+If the content of the block changes, the "Save" button will become visible again."""],
+            [1, """Ako je ova opcija uključena, dugme "Snimljeno" će biti automatski prikazano posle snimanja sadržaja bloka.
+Ukoliko se sadržaj bloka promeni dugme "Snimi" će ponovo postati vidljivo."""] ],
+        "app_sett_style_notification_name": [
+            [0, """Notifications"""],
+            [1, """Obaveštenja (Notifikacije)"""] ],
+        "app_sett_style_notification_frame_name": [
+            [0, """Notifications: Frame in general"""],
+            [1, """Notifikacije: Okvir generalno"""] ],
+        "app_sett_style_notification_icon_path_style": [
+            [0, """Notification icon"""],
+            [1, """Ikona notifikacije"""] ],
+        "app_sett_style_notification_btn_ok_name": [
+            [0, """OK button"""],
+            [1, """Dugme "OK" """] ],
+        "app_sett_style_notification_btn_close_name": [
+            [0, """"Close" button"""],
+            [1, """Dugme "Zatvori" """] ],
+        "app_sett_style_notification_lbl_title_name": [
+            [0, """The title of the notification"""],
+            [1, """Naslov notifikacije"""] ],
+        "app_sett_style_widget_stylesheet_style": [
+            [0, """Widget apperance"""],
+            [1, """Izgled widgeta"""] ],
+        "app_sett_style_notification_lbl_text_name": [
+            [0, """Notification text"""],
+            [1, """Tekst notifikacije"""] ],
+        "app_sett_style_notification_lbl_icon_name": [
+            [0, """Notification icon"""],
+            [1, """Ikona notifikacije"""] ],
+        "app_sett_style_notification_open_animation_name": [
+            [0, """Notification animations when appearing"""],
+            [1, """Animacije notifikacije pri pojavljivanju"""] ],
+        "app_sett_style_notification_open_animation_style": [
+            [0, """Animate the notification"""],
+            [1, """Animiraj notifikaciju"""] ],
+        "notification_open_animation_desc": [
+            [0, """Determines whether the appearance of the notification will be animated or whether the notification will appear immediately, without animation."""],
+            [1, """Određuje da li će pojavljivanje notifikacije biti animirano ili će se notifikacija odmah pojaviti, bez animacije."""] ],
+        "app_sett_style_show_welcome_notification_style": [
+            [0, """Show notification at start"""],
+            [1, """Prikaži notifikaciju na startu"""] ],
+        "show_welcome_notification_desc": [
+            [0, """When starting the application, it displays a welcome notification with information about the date and day of the week."""],
+            [1, """Prilikom pokretanja aplikacije prikazuje pozdravnu notifikaciju sa informacijom o datumu i danu u nedelji."""] ],
+        "app_sett_style_active_block_name": [
+            [0, """Apperance of the title line of the currently active block"""],
+            [1, """Izgled naslovne linije trenutno aktivnog bloka"""] ],
+        "app_sett_style_win_block_controls_active_stylesheet_style": [
+            [0, """Apperance of the active block"""],
+            [1, """Izgled aktivnog bloka"""] ],
+        "app_sett_style_mainwin_title_animation_name": [
+            [0, """App title animation"""],
+            [1, """Animacija naslova aplikacije"""] ],
+        "app_sett_style_main_win_title_animate_style": [
+            [0, """Animate the title"""],
+            [1, """Animiraj naslov"""] ],
+        "main_win_title_animate_desc": [
+            [0, """Specifies whether the title bar of the application will be animated."""],
+            [1, """Određuje da li će naslovna linija aplikacije biti animirana."""] ],
+        "app_sett_style_main_win_title_animate_spaces_style": [
+            [0, """Spacing between letters"""],
+            [1, """Razmak između slova"""] ],
+        "main_win_title_animate_spaces_desc": [
+            [0, """The number of spaces between letters in the application title.
+Such an enlarged title with spaces between letters will slowly shrink."""],
+            [1, """Broj praznih mesta između slova u naslovu aplikacije.
+Tako uvećan naslov sa prazninama između slova će se polako skupljati."""] ],
+        "main_win_title_animate_spaces_recomm": [
+            [0, """It is recommended that this number not exceed 20. (Optimal is around 10.)"""],
+            [1, """Preporučeno je da ovaj broj ne bude veći od 20. (Optimalno je oko 10.)"""] ],
+        "app_sett_style_main_win_title_animate_step_duration_style": [
+            [0, """Step duration"""],
+            [1, """Trajanje koraka"""] ],
+        "main_win_title_animate_step_duration_desc": [
+            [0, """This number indicates the time in milliseconds between each step of the title animation."""],
+            [1, """Ovaj broj označava vreme izraženo u milisekundama između svakog koraka animacije naslova."""] ],
+        "main_win_title_animate_step_duration_recomm": [
+            [0, """It is recommended that this number be around 200."""],
+            [1, """Preporučeno je da ovaj broj bude oko 200."""] ],
+        "app_sett_style_context_menu_win_layout_spacing_style": [
+            [0, """Space between items"""],
+            [1, """Razmak između stavki"""] ],
+        "context_menu_win_layout_spacing_desc": [
+            [0, """Spacing between menu items expressed in pixels."""],
+            [1, """Razmak između stavki u meniju izražen u pikselima."""] ],
+        "context_menu_win_layout_spacing_recomm": [
+            [0, """It is recommended that this value be "0" """],
+            [1, """Preporučeno je da ova vrednost bude "0" """] ],
+        "app_sett_style_context_menu_win_width_style": [
+            [0, """Menu width"""],
+            [1, """Širina menija"""] ],
+        "app_sett_style_context_menu_win_height_style": [
+            [0, """Menu height"""],
+            [1, """Visina menija"""] ],
+        "context_menu_win_width_desc": [
+            [0, """The width of the context menu in pixels.
+If this value is "0", the application will set the best possible width depending on the number of items and the font."""],
+            [1, """Širina kontekstnog menija izražena u pikselima.
+Ukoliko je ova vrednost "0", aplikacija će postaviti najbolju moguću širinu u zavisnosti od broja stavki i fonta."""] ],
+        "context_menu_win_height_desc": [
+            [0, """The height of the context menu in pixels.
+If this value is "0", the application will set the best possible height depending on the number of items and the font."""],
+            [1, """Visina kontekstnog menija izražena u pikselima.
+Ukoliko je ova vrednost "0", aplikacija će postaviti najbolju moguću visinu u zavisnosti od broja stavki i fonta."""] ],
+        "app_sett_style_inputbox_name": [
+            [0, """Data entry box
+(Name, Description, Date...)"""],
+            [1, """Okvir za unos podataka
+(Naziv, Opis, Datum...)"""] ],
+        "app_sett_style_dialog_general_name": [
+            [0, """Dialog: In general"""],
+            [1, """Dijalog: Generalno"""] ],
+        "app_sett_style_block_input_box_name_win_layout_spacing_style": [
+            [0, """Spacing between elements"""],
+            [1, """Razmak između elemenata"""] ],
+        "block_input_box_name_win_layout_spacing_desc": [
+            [0, """Spacing between elements in the dialog expressed in pixels.
+If this number is greater elements in the dialog such as title, buttons, input field etc. will be further apart from each other."""],
+            [1, """Razmak između elemenata u dijalogu izražen u pikselima.
+Ako je ovaj broj veći elementi u dijalogu kao što su naslov, dugmad, polje za unos i slično će biti više odmaknuti jedno od drugog."""] ],
+        "app_sett_style_inputbox_input_field_name": [
+            [0, """Data entry field (TextBox)
+Note: Some settings only apply to multiline input"""],
+            [1, """Polje za unos podataka (TextBox)
+Napomena: Neka podešavanja se odnose samo na višelinijski unos"""] ],
+        "app_sett_style_inputbox_title_name": [
+            [0, """Data entry box title"""],
+            [1, """Naslov okvira za unos podataka"""] ],
+        "app_sett_style_inputbox_desc_name": [
+            [0, """Field with a description of the data entry box"""],
+            [1, """Polje sa opisom okvira za unos podataka"""] ],
+        "app_sett_style_inputbox_resize_button_name": [
+            [0, """Frame resizing button"""],
+            [1, """Dugme za promenu veličine okvira"""] ],
+        "app_sett_style_inputbox_resize_button_oneline_style": [
+            [0, """Single line input icon"""],
+            [1, """Ikona za jednolinijski unos"""] ],
+        "app_sett_style_inputbox_resize_button_multiline_style": [
+            [0, """Multiline input icon"""],
+            [1, """Ikona za višelinijski unos"""] ],
+        "app_sett_style_input_box_btn_ok_name": [
+            [0, """Button to confirm the entry ("OK")"""],
+            [1, """Dugme za potvrdu unosa ("OK")"""] ],
+        "app_sett_style_at_exit_name": [
+            [0, """On exiting the application"""],
+            [1, """Na izlasku iz aplikacije"""] ],
+        "app_sett_style_show_closing_notification_style": [
+            [0, """Show notification"""],
+            [1, """Prikaži notifikaciju"""] ],
+        "show_closing_notification_desc": [
+            [0, """On exit, the application will record changes in all open blocks.
+During the duration of the recording, a notification will be displayed."""],
+            [1, """Na izlasku, aplikacija će snimiti promene u svim otvorenim blokovima.
+Za vreme trajanja snimanja biće prikazana notifikacija.
+"""] ],
+        "app_sett_style_calendar_name": [
+            [0, """Calendar dialog"""],
+            [1, """Kalendar dijalog"""] ],
+        "app_sett_style_calendar_general_name": [
+            [0, """General calendar settings"""],
+            [1, """Generalna podešavanja kalendara"""] ],
+        "app_sett_style_calendar_btn_select_name": [
+            [0, """Button: "Select" """],
+            [1, """Dugme: "Izaberi" """] ],
+        "app_sett_style_calendar_lbl_info_name": [
+            [0, """Label with information"""],
+            [1, """Labela sa informacijama"""] ],
+        "app_sett_style_first_day_of_week_style": [
+            [0, """The first day of the week"""],
+            [1, """Prvi dan u nedelji"""] ],
+        "first_day_of_week_desc": [
+            [0, """Choose the day the week starts with."""],
+            [1, """Izaberite dan sa kojim počinje sedmica."""] ],
+        "first_day_of_week_recomm": [
+            [0, """It is recommended that this value be "1 - Monday" """],
+            [1, """Preporučeno je da ova vrednost bude "1 - Ponedeljak" """] ],
+        "app_sett_style_calendar_btn_cancel_name": [
+            [0, """Button: "Cancel" """],
+            [1, """Dugme: "Otkaži" (Cancel)"""] ],
+        "app_sett_style_calendar_cal_widget_grid_visible_style": [
+            [0, """The grid is visible"""],
+            [1, """Mreža je vidljiva"""] ],
+        "calendar_cal_widget_grid_visible_desc": [
+            [0, """Determines whether the grid between dates in the calendar will be visible"""],
+            [1, """Određuje da li će mreža između datuma u kalendaru biti vidljiva"""] ],
+        "app_sett_style_messagebox_information_name": [
+            [0, """Message Box (Information)"""],
+            [1, """Okvir sa porukom (Informacija)"""] ],
+        "app_sett_style_messagebox_information_general_name": [
+            [0, """Information box: General settings"""],
+            [1, """Okvir sa informacijom: Generalna podešavanja"""] ],
+        "app_sett_style_messagebox_information_icon_path_style": [
+            [0, """Icon: Information"""],
+            [1, """Ikona: Informacija"""] ],
+        "app_sett_style_msg_box_wrong_entry_icon_path_style": [
+            [0, """Icon: Incorrect entry"""],
+            [1, """Ikona: Pogrešan unos"""] ],
+        "app_sett_style_msg_box_title_name": [
+            [0, """The title of the message box"""],
+            [1, """Naslov okvira sa porukom"""] ],
+        "app_sett_style_msg_box_text_name": [
+            [0, """Message box text"""],
+            [1, """Tekst okvira sa porukom"""] ],
+        "app_sett_style_msg_box_btn_ok_name": [
+            [0, """Button: OK"""],
+            [1, """Dugme: OK"""] ],
+        "app_sett_style_msg_box_icon_width_style": [
+            [0, """Icon width"""],
+            [1, """Širina ikone"""] ],
+        "msg_box_icon_width_desc": [
+            [0, """A number in pixels that determines the width of the icon"""],
+            [1, """Broj u pikselima koji određuje širinu ikone"""] ],
+        "msg_box_icon_width_recomm": [
+            [0, """It is recommended that this number be around 100."""],
+            [1, """Preporučeno je da ovaj broj bude oko 100."""] ],
+        "app_sett_style_msg_box_icon_height_style": [
+            [0, """Icon height"""],
+            [1, """Visina ikone"""] ],
+        "msg_box_icon_height_desc": [
+            [0, """A number in pixels that determines the height of the icon"""],
+            [1, """Broj u pikselima koji određuje visinu ikone"""] ],
+        "app_sett_style_context_menu_general_name": [
+            [0, """Context menu: General settings"""],
+            [1, """Kontekstni meni: Generalna podešavanja"""] ],
+        "app_sett_style_context_menu_item_marked_prefix_style": [
+            [0, """Marked item: Prefix"""],
+            [1, """Markirana stavka: Prefiks"""] ],
+        "context_menu_item_marked_prefix_desc": [
+            [0, """String - a string of characters
+If there is an item in the menu that must be marked as selected (Marked) then this string will be added to the beginning of the item's name to indicate that the item is selected."""],
+            [1, """String - niz karaktera 
+Ako u meniju postoji stavka koja mora biti označena kao selektovana (Markirana) onda će se ovaj string dodati na početak naziva te stavke da bi se označilo da je ta stavka selektovana."""] ],
+        "context_menu_item_marked_prefix_recomm": [
+            [0, """It is recommended that this string be no longer than 5 characters ("->", "-->", "==>"...)"""],
+            [1, """Preporučeno je da ovaj string ne bude duži od 5 karaktera ("->", "-->", "==>"...)"""] ],
+        "app_sett_style_context_menu_item_marked_prefix_enabled_style": [
+            [0, """Enable prefix"""],
+            [1, """Omogući prefix"""] ],
+        "context_menu_item_marked_prefix_enabled_desc": [
+            [0, """If there is an item in the menu that must be marked as selected (Marked), then a prefix (string of characters) will be added to the beginning of the name of that item to indicate that that item is selected."""],
+            [1, """Ako u meniju postoji stavka koja mora biti označena kao selektovana (Markirana) onda će se prefix (niz karaktera) dodati na početak naziva te stavke da bi se označilo da je ta stavka selektovana."""] ],
+        "context_menu_item_marked_icon_path_desc": [
+            [0, """If there is an item in the menu that must be marked as selected (Marked) then this icon will be displayed at the beginning of the item's name to indicate that the item is selected."""],
+            [1, """Ako u meniju postoji stavka koja mora biti označena kao selektovana (Markirana) onda će ova ikona biti prikazana na početaku naziva te stavke da bi se označilo da je ta stavka selektovana."""] ],
+        "app_sett_style_context_menu_separator_name": [
+            [0, """Separator of a group of items in the menu"""],
+            [1, """Razdelnik (Separator) grupe stavki u meniju"""] ],
+        "app_sett_style_context_menu_separator_size_style": [
+            [0, """Separator size"""],
+            [1, """Veličina separatora"""] ],
+        "context_menu_separator_size_desc": [
+            [0, """Separator size in pixels.
+The number of pixels by which the two groups in the menu will be offset."""],
+            [1, """Veličina separatora izražena u pikselima.
+Broj piksela za koliko će biti odmaknute dve grupe u meniju."""] ],
+        "context_menu_separator_size_recomm": [
+            [0, """It is recommended that this value be between 1 and 10."""],
+            [1, """Preporučeno je da ova vrednost bude između 1 i 10."""] ],
+        "app_sett_style_context_menu_icons_name": [
+            [0, """Various icons for menu items"""],
+            [1, """Razne ikone za stavke iz menija"""] ],
+        "app_sett_style_context_menu_item_write_line_icon_path_style": [
+            [0, """Writing line"""],
+            [1, """Linija za pisanje"""] ],
+        "app_sett_style_context_menu_item_calendar_icon_path_style": [
+            [0, """Calendar"""],
+            [1, """Kalendar"""] ],
+        "app_sett_style_context_menu_item_cm_single_choice_icon_path_style": [
+            [0, """Single choice"""],
+            [1, """Jedan izbor"""] ],
+        "app_sett_style_notification_block_remove_diary_icon_path_style": [
+            [0, """Icon: Remove tag "Diary" """],
+            [1, """Ikona: Ukloni oznaku "Dnevnik" """] ],
+        "app_sett_style_notification_title_text_spacer_style": [
+            [0, """Spacing: Title - Text"""],
+            [1, """Razmak: Naslov - Tekst"""] ],
+        "notification_title_text_spacer_desc": [
+            [0, """The vertical distance in pixels between the title and the text of the notification."""],
+            [1, """Vertikalni razmak u pikselima između naslova i teksta notifikacije."""] ],
+        "app_sett_style_notification_text_button_spacer_style": [
+            [0, """Spacing: Text - Button"""],
+            [1, """Razmak: Tekst - Dugme"""] ],
+        "notification_text_button_spacer_desc": [
+            [0, """The vertical distance in pixels between the notification text and the "OK" button."""],
+            [1, """Vertikalni razmak u pikselima između teksta notifikacije i dugmeta "OK"."""] ],
+        "app_sett_style_notification_icon_text_spacer_style": [
+            [0, """Spacing: Icon - Text"""],
+            [1, """Razmak: Ikona - Tekst"""] ],
+        "notification_icon_text_spacer_desc": [
+            [0, """Horizontal distance in pixels between the icon and the notification text."""],
+            [1, """Horizontalni razmak u pikselima između ikone i teksta notifikacije."""] ],
+        "app_sett_style_animate_adding_empty_blocks_at_start_style": [
+            [0, """Animate adding blocks"""],
+            [1, """Animiraj dodavanje blokova"""] ],
+        "animate_adding_empty_blocks_at_start_desc": [
+            [0, """If the user chooses to add to the workspace all unfinished blocks, when this option is turned on the opening of those blocks in the workspace will be animated."""],
+            [1, """Ako korisnik izabere da doda u radni prostor sve nezavršene blokove, kada je ova opcija uključena otvaranje tih blokova u radnom prostoru će biti animirano."""] ],
+        "app_sett_style_context_menu_item_marked_icon_path_style": [
+            [0, """Icon: Marked item"""],
+            [1, """Ikona: Markirana stavka"""] ],
+        "app_sett_style_messagebox_question_icon_path_style": [
+            [0, """Icon: Question"""],
+            [1, """Ikona: Pitanje"""] ],
+        "app_sett_style_block_footer_btn_delete_msg_icon_path_style": [
+            [0, """Icon: Delete block"""],
+            [1, """Ikona: Obriši blok"""] ],
+        "app_sett_style_autocomplete_name": [
+            [0, """Suggesting text (Autocomplete)"""],
+            [1, """Predlaganje teksta (Autocomplete)"""] ],
+        "app_sett_style_autocomplete_general_name": [
+            [0, """Autocomplete: General settings"""],
+            [1, """Autocomplete: Generalna podešavanja"""] ],
+        "app_sett_style_autocomplete_frame_name": [
+            [0, """Autocomplete: Frame"""],
+            [1, """Autocomplete: Okvir"""] ],
+        "app_sett_style_autocomplete_item_name": [
+            [0, """Autocomplete: Item"""],
+            [1, """Autocomplete: Stavka"""] ],
+        "app_sett_style_show_autocomplete_style": [
+            [0, """Show autocomplete"""],
+            [1, """Prikaži autocomplete"""] ],
+        "show_autocomplete_desc": [
+            [0, """Displays text suggestions as the user types text in the block."""],
+            [1, """Prikazuje sugestije teksta dok korisnik kuca tekst u bloku."""] ],
+        "app_sett_style_autocomplete_items_number_style": [
+            [0, """Number of suggestions offered"""],
+            [1, """Broj ponuđenih sugestija"""] ],
+        "autocomplete_items_number_desc": [
+            [0, """The number of suggestions that autocomplete will display to the user."""],
+            [1, """Broj ponuđenih sugestija koje će autocomplete prikazati korisniku."""] ],
+        "autocomplete_items_number_recomm": [
+            [0, """It is recommended that this number be between 8 and 12."""],
+            [1, """Preporučeno je da ovaj broj bude između 8 i 12."""] ],
+        "app_sett_style_autocomplete_button_width_pad_style": [
+            [0, """Frame extra width"""],
+            [1, """Ekstra širina okvira"""] ],
+        "app_sett_style_autocomplete_button_height_pad_style": [
+            [0, """Frame extra height"""],
+            [1, """Ekstra visina okvira"""] ],
+        "autocomplete_button_width_pad_desc": [
+            [0, """The number of pixels by which each item in the autocomplete will be expanded horizontally for better visibility."""],
+            [1, """Broj piksela za koliko će biti proširena svaka stavka u autocomplete-u po horizontali radi bolje preglednosti."""] ],
+        "autocomplete_button_height_pad_desc": [
+            [0, """The number of pixels by which each item in the autocomplete will be expanded vertically for better visibility."""],
+            [1, """Broj piksela za koliko će biti proširena svaka stavka u autocomplete-u po vertikali radi bolje preglednosti."""] ],
+        "app_sett_style_autocomplete_selected_item_name": [
+            [0, """Autocomplete: Selected item"""],
+            [1, """Autocomplete: Selektovana stavka"""] ],
+        "app_sett_style_autocomplete_items_in_memory_style": [
+            [0, """Autocomplete memory"""],
+            [1, """Autocomplete memorija"""] ],
+        "autocomplete_items_in_memory_desc": [
+            [0, """This value indicates the number of items that autocomplete will keep in memory.
+If this number is too large it can significantly degrade performance."""],
+            [1, """Ova vrednost označava broj stavki koje će autocomplete držati u memoriji.
+Ako je ovaj broj suviše velik to može značajno narušiti performanse."""] ],
+        "autocomplete_items_in_memory_recomm": [
+            [0, """It is recommended that this value be between 100 and 1000."""],
+            [1, """Preporučeno je da ova vrednost bude između 100 i 1000."""] ],
+        "app_sett_style_autocomplete_minimum_word_lenght_style": [
+            [0, """Minimum word length"""],
+            [1, """Minimalna dužina reči"""] ],
+        "autocomplete_minimum_word_lenght_desc": [
+            [0, """Minimum number of typed characters after which autocomplete will be displayed."""],
+            [1, """Minimalni broj ukucanih karaktera posle koga će se autocomplete prikazati."""] ],
+        "autocomplete_minimum_word_lenght_recomm": [
+            [0, """It is recommended that this value be between 4 and 6."""],
+            [1, """Preporučeno je da ova vrednost bude između 4 i 6."""] ],
+        "app_sett_style_autocomplete_max_number_of_suggested_words_style": [
+            [0, """Maximum suggested words"""],
+            [1, """Maksimalno predloženih reči"""] ],
+        "autocomplete_max_number_of_suggested_words_desc": [
+            [0, """This number determines the maximum number of words autocomplete will suggest.
+This value does not strictly determine the number of words that the autocomplete will have in one item, but it determines the maximum number of words that the autocomplete can have in one sentence."""],
+            [1, """Ovaj broj određuje koliko maksimalno reči će automplete predložiti.
+Ova vrednost ne određuje striktno broj reči koje će autocomplete imati u jednoj stavci nego određuje maksimalan broj reči koje autocomplete može imati u jednom predlogu."""] ],
+        "autocomplete_max_number_of_suggested_words_recomm": [
+            [0, """It is recommended that this value be between 2 and 6."""],
+            [1, """Preporučeno je da ova vrednost bude između 2 i 6."""] ],
+        "app_sett_style_block_highlighted_text_name": [
+            [0, """Block: Highlighted text"""],
+            [1, """Blok: Označen tekst"""] ],
+        "app_sett_style_block_body_highlighted_font_italic_style": [
+            [0, """Italic font"""],
+            [1, """Ukošen font (Italic)"""] ],
+        "block_body_highlighted_font_italic_desc": [
+            [0, """Show highlighted text in italic font"""],
+            [1, """Prikaži označeni tekst italic fontom"""] ],
+        "app_sett_style_block_body_highlighted_color_style": [
+            [0, """The color of the highlighted text"""],
+            [1, """Boja označenog teksta"""] ],
+        "block_body_highlighted_color_desc": [
+            [0, """Display highlighted text in selected color"""],
+            [1, """Prikaži označeni tekst u izabranoj boji"""] ],
+        "app_sett_style_block_body_highlighted_background_style": [
+            [0, """The background color of the highlighted text"""],
+            [1, """Boja pozadine označenog teksta"""] ],
+        "block_body_highlighted_background_desc": [
+            [0, """Display highlighted text with a background color of your choice"""],
+            [1, """Prikaži označeni tekst sa pozadinom u izabranoj boji"""] ],
+        "app_sett_style_show_word_highlight_style": [
+            [0, """Highlight the word in the block"""],
+            [1, """Označi reč u bloku"""] ],
+        "show_word_highlight_desc": [
+            [0, """Highlight the word in the block below the mouse arrow"""],
+            [1, """Označi reč u bloku ispod strelice miša"""] ],
+        "app_sett_style_definition_name": [
+            [0, """Definitions"""],
+            [1, """Definicije"""] ],
+        "app_sett_style_definition_general_name": [
+            [0, """Definitions: General settings"""],
+            [1, """Definicije: Generalna podešavanja"""] ],
+        "app_sett_style_definition_minimum_word_lenght_style": [
+            [0, """Minimum word length"""],
+            [1, """Minimalna dužina reči"""] ],
+        "definition_minimum_word_lenght_desc": [
+            [0, """The minimum word length that can be defined."""],
+            [1, """Minimalna dužina reči koja može biti definisana."""] ],
+        "definition_minimum_word_lenght_recomm": [
+            [0, """It is recommended that this value not be less than 3."""],
+            [1, """Preporučeno je da ova vrednost ne bude manja od 3."""] ],
+        "app_sett_style_definition_maximum_word_lenght_style": [
+            [0, """Maximum word length"""],
+            [1, """Maksimalna dužina reči"""] ],
+        "definition_maximum_word_lenght_desc": [
+            [0, """The maximum word length that can be defined."""],
+            [1, """Maksimalna dužina reči koja može biti definisana."""] ],
+        "app_sett_style_definition_add_dialog_name": [
+            [0, """Dialog: Add Definition"""],
+            [1, """Dijalog: Dodaj Definiciju"""] ],
+        "app_sett_style_definition_add_btn_media_name": [
+            [0, """Button: Add Media (Image)"""],
+            [1, """Dugme: Dodaj Mediu (Sliku)"""] ],
+        "app_sett_style_definition_add_btn_save_name": [
+            [0, """Button: Save / Update"""],
+            [1, """Dugme: Snimi / Ažuriraj"""] ],
+        "app_sett_style_definition_add_btn_cancel_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_definition_txt_expr_name": [
+            [0, """TextBox: Field for entering the name of the definition"""],
+            [1, """TextBox: Polje za unos naziva definicije"""] ],
+        "app_sett_style_ddefinition_txt_desc_name": [
+            [0, """TextBox: Field for entering a description of the definition"""],
+            [1, """TextBox: Polje za unos opisa definicije"""] ],
+        "app_sett_style_definition_add_win_icon_path_style": [
+            [0, """Dialog window icon"""],
+            [1, """Ikona dijalog prozora"""] ],
+        "app_sett_style_definition_txt_expr_exist_stylesheet_style": [
+            [0, """The appearance of the TextBox when the definition already exists"""],
+            [1, """Izgled TextBox-a kada definicija već postoji"""] ],
+        "app_sett_style_picture_add_dialog_name": [
+            [0, """Dialog: Add Image"""],
+            [1, """Dijalog: Dodaj Sliku"""] ],
+        "app_sett_style_picture_add_lbl_file_name": [
+            [0, """Label: Enter the URL"""],
+            [1, """Labela: Unesite URL"""] ],
+        "app_sett_style_widget_visible_style": [
+            [0, """The widget is visible"""],
+            [1, """Widget je vidljiv"""] ],
+        "app_sett_style_picture_add_btn_file_name": [
+            [0, """Button: Select the file containing the image"""],
+            [1, """Dugme: Izaberi datoteku koja sadrži sliku"""] ],
+        "app_sett_style_picture_add_btn_show_name": [
+            [0, """Button: Show image"""],
+            [1, """Dugme: Prikaži sliku"""] ],
+        "app_sett_style_picture_add_btn_add_name": [
+            [0, """Button: Add image"""],
+            [1, """Dugme: Dodaj sliku"""] ],
+        "app_sett_style_picture_add_btn_cancel_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_picture_add_txt_file_name": [
+            [0, """TextBox: URL input field"""],
+            [1, """TextBox: Polje za unos URL-a"""] ],
+        "app_sett_style_definition_image_thumb_size_style": [
+            [0, """Size of added images (Thumbnails)"""],
+            [1, """Veličina dodanih slika (Thumbnails)"""] ],
+        "definition_image_thumb_size_desc": [
+            [0, """All the images you add to the definition are displayed in the lower part of the window.
+This value determines the size of the thumbnail displayed in pixels."""],
+            [1, """Sve slike koje dodajete u definiciju su prikazane u donjem delu prozora.
+Ova vrednost određuje veličinu sličice koja je prikazana u pikselima."""] ],
+        "app_sett_style_definition_add_lbl_syn_name": [
+            [0, """TextBox: Field for entering synonyms for the selected definition"""],
+            [1, """TextBox: Polje za unos sinonima za odabranu definiciju"""] ],
+        "app_sett_style_picture_view_dialog_name": [
+            [0, """Dialog: View Image"""],
+            [1, """Dijalog: Pregledaj Sliku"""] ],
+        "app_sett_style_picture_view_lbl_name_name": [
+            [0, """Label: Image name"""],
+            [1, """Labela: Naziv slike"""] ],
+        "app_sett_style_picture_view_lbl_desc_name": [
+            [0, """Label: Image description"""],
+            [1, """Labela: Opis slike"""] ],
+        "app_sett_style_picture_view_btn_next_name": [
+            [0, """Button: Next image"""],
+            [1, """Dugme: Sledeća slika"""] ],
+        "app_sett_style_picture_view_btn_save_name": [
+            [0, """Button: Save changes"""],
+            [1, """Dugme: Snimi promene"""] ],
+        "app_sett_style_picture_view_txt_desc_name": [
+            [0, """TextBox: Field for entering the description of the image"""],
+            [1, """TextBox: Polje za unos opisa slike"""] ],
+        "app_sett_style_picture_view_txt_name_name": [
+            [0, """TextBox: Field for entering image name"""],
+            [1, """TextBox: Polje za unos naziva slike"""] ],
+        "app_sett_style_definition_text_mark_color_style": [
+            [0, """The color of the definition in the block"""],
+            [1, """Boja definicije u bloku"""] ],
+        "definition_text_mark_color_desc": [
+            [0, """The color of the text that will be used to mark the defined word within the text block."""],
+            [1, """Boja teksta kojom će biti označena definisana reč unutar bloka teksta."""] ],
+        "app_sett_style_definition_text_mark_background_style": [
+            [0, """The background color of the definition in the block"""],
+            [1, """Boja pozadine definicije u bloku"""] ],
+        "definition_text_mark_background_desc": [
+            [0, """The background color of the text that will be used to mark the defined word within the text block."""],
+            [1, """Boja pozadine teksta kojom će biti označena definisana reč unutar bloka teksta."""] ],
+        "app_sett_style_definition_text_mark_enabled_style": [
+            [0, """Enable definition marking"""],
+            [1, """Omogući markiranje definicija"""] ],
+        "definition_text_mark_enabled_desc": [
+            [0, """When this option is turned on, all words and expressions that are defined will be highlighted within the text in the block."""],
+            [1, """Kada je ova opcija uključena, sve reči i izrazi koji su definisani će biti markirani unutar teksta u bloku."""] ],
+        "app_sett_style_definition_view_dialog_name": [
+            [0, """Dialog: View Definition"""],
+            [1, """Dijalog: Pregledaj Definiciju"""] ],
+        "app_sett_style_definition_view_name_name": [
+            [0, """Label: The name of the definition"""],
+            [1, """Labela: Naziv definicije"""] ],
+        "app_sett_style_definition_view_btn_edit_name": [
+            [0, """Button: Edit definition"""],
+            [1, """Dugme: Uredi definiciju"""] ],
+        "app_sett_style_definition_view_btn_ok_name": [
+            [0, """Button: OK"""],
+            [1, """Dugme: OK"""] ],
+        "app_sett_style_definition_view_btn_size_name": [
+            [0, """Button: Button for resizing the window"""],
+            [1, """Dugme: Dugme za promenu veličine prozora"""] ],
+        "app_sett_style_definition_view_txt_desc_name": [
+            [0, """TextBox: Field with definition description"""],
+            [1, """TextBox: Polje sa opisom definicije"""] ],
+        "app_sett_style_definition_show_on_mouse_hover_style": [
+            [0, """Show definition automatically"""],
+            [1, """Automatski prikaži definiciju"""] ],
+        "definition_show_on_mouse_hover_desc": [
+            [0, """Automatically show the definition in the block when the mouse arrow is over."""],
+            [1, """Automatski prikaži definiciju u bloku kada se strelica miša nalazi iznad."""] ],
+        "app_sett_style_definition_in_block_name": [
+            [0, """View the definition in a block"""],
+            [1, """Prikaz definicije u bloku"""] ],
+        "app_sett_style_definition_view_simple_title_stylesheet_style": [
+            [0, """Frame title apperance"""],
+            [1, """Izgled naslova okvira"""] ],
+        "app_sett_style_definition_view_simple_width_style": [
+            [0, """Frame width"""],
+            [1, """Širina okvira"""] ],
+        "definition_view_simple_width_desc": [
+            [0, """The width of the box that will appear when the mouse is over the definition."""],
+            [1, """Širina okvira koji će se pojaviti kada je miš iznad definicije."""] ],
+        "app_sett_style_definition_view_simple_height_style": [
+            [0, """Frame height"""],
+            [1, """Visina okvira"""] ],
+        "definition_view_simple_height_desc": [
+            [0, """The height of the frame that will appear when the mouse is over the definition."""],
+            [1, """Visina okvira koji će se pojaviti kada je miš iznad definicije."""] ],
+        "app_sett_style_definition_view_simple_delay_style": [
+            [0, """Delayed appearance of frame"""],
+            [1, """Odloženo pojavljijvanje okvira"""] ],
+        "definition_view_simple_delay_desc": [
+            [0, """The number of milliseconds that should elapse from hovering over a definition until the definition's content box appears."""],
+            [1, """Broj milisekundi koji treba da prođe od postavljanja strelice miša iznad definicije do pojavljivanja okvira sa sadržajem definicije."""] ],
+        "app_sett_style_definition_view_simple_btn_resize_icon_path_style": [
+            [0, """Resize button icon"""],
+            [1, """Ikona za resize dugme"""] ],
+        "definition_view_simple_btn_resize_icon_path_desc": [
+            [0, """Icon of the button on the frame that is used to change the size of the frame itself."""],
+            [1, """Ikona dugmeta na okviru koje služi za promenu veličine samog okvira."""] ],
+        "app_sett_style_definition_view_simple_btn_resize_stylesheet_style": [
+            [0, """Appearance of the resize button"""],
+            [1, """Izgled resize dugmeta"""] ],
+        "app_sett_style_block_image_thumb_size_style": [
+            [0, """The size of the thumbnails in the block"""],
+            [1, """Veličina sličica u bloku"""] ],
+        "block_image_thumb_size_desc": [
+            [0, """The size of the thumbnails added to the block."""],
+            [1, """Veličina sličica koje su dodate u blok."""] ],
+        "app_sett_style_definition_view_simple_desc_stylesheet_style": [
+            [0, """Apperance of description of the definition"""],
+            [1, """Izgled opisa definicije"""] ],
+        "app_sett_style_translate_dialog_name": [
+            [0, """Dialogue: Text translation"""],
+            [1, """Dijalog: Prevod teksta"""] ],
+        "app_sett_style_translate_lbl_from_to_name": [
+            [0, """Labels: "From the language", "Into the language" """],
+            [1, """Labele: "Iz jezika", "U jezik" """] ],
+        "app_sett_style_translate_lbl_detected_name": [
+            [0, """Label: Language detected"""],
+            [1, """Labela: Detektovani jezik"""] ],
+        "app_sett_style_translate_btn_trans_name": [
+            [0, """Button: Translate text"""],
+            [1, """Dugme: Prevedi tekst"""] ],
+        "app_sett_style_translate_btn_switch_name": [
+            [0, """Button: Switch languages"""],
+            [1, """Dugme: Zameni jezike"""] ],
+        "app_sett_style_translate_txt_from_to_name": [
+            [0, """TextBox: "From Language", "To Language" """],
+            [1, """TextBox: "Iz jezika", "U jezik" """] ],
+        "app_sett_style_translate_cmb_from_to_name": [
+            [0, """ComboBox: Language selection"""],
+            [1, """ComboBox: Izbor jezika"""] ],
+        "app_sett_style_translate_btn_detect_name": [
+            [0, """Button: Detect language"""],
+            [1, """Dugme: Detektuj jezik"""] ],
+        "app_sett_style_tag_view_name": [
+            [0, """Dialog: View Tags"""],
+            [1, """Dijalog: Pregled Oznaka (Tag)"""] ],
+        "app_sett_style_tag_view_frm_info_name": [
+            [0, """Frame: A frame with information about the tag and buttons"""],
+            [1, """Frame: Okvir sa informacijama o tagu i dugmadima"""] ],
+        "app_sett_style_tag_view_lbl_info_name": [
+            [0, """Label: Information about the tag (ID, how many times it was used...)"""],
+            [1, """Labela: Informacije o tagu (ID, koliko puta je korišten...)"""] ],
+        "app_sett_style_tag_view_lbl_name_name": [
+            [0, """Labels: Tag name (Above the name input field)"""],
+            [1, """Labela: Naziv taga (Iznad polja za unos naziva)"""] ],
+        "app_sett_style_tag_view_lbl_desc_name": [
+            [0, """Labels: Tag description (Above description input field)"""],
+            [1, """Labela: Opis taga (Iznad polja za unos opisa)"""] ],
+        "app_sett_style_tag_view_btn_apply_name": [
+            [0, """Button: Update (Apply)"""],
+            [1, """Dugme: Ažuriraj / Primeni (Apply)"""] ],
+        "app_sett_style_tag_view_btn_delete_name": [
+            [0, """Button: Delete"""],
+            [1, """Dugme: Obriši"""] ],
+        "app_sett_style_tag_view_btn_cancel_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_tag_view_txt_name_name": [
+            [0, """TextBox: Name of the tag"""],
+            [1, """TextBox: Naziv taga"""] ],
+        "app_sett_style_tag_view_txt_desc_name": [
+            [0, """TextBox: Description of the tag"""],
+            [1, """TextBox: Opis taga"""] ],
+        "app_sett_style_tag_view_lst_tags_name": [
+            [0, """List: List of all tags"""],
+            [1, """Lista: Lista svih tagova"""] ],
+        "app_sett_style_tag_view_btn_add_name": [
+            [0, """Button: Add tag"""],
+            [1, """Dugme: Dodaj tag"""] ],
+        "app_sett_style_definition_txt_expr_illegal_stylesheet_style": [
+            [0, """TextBox apperance for illegal input"""],
+            [1, """Izgled TextBox-a za nedozvoljen unos"""] ],
+        "definition_txt_expr_illegal_stylesheet_desc": [
+            [0, """Appearance of the definition name input field if the user types something that cannot be accepted as the definition name."""],
+            [1, """Izgled polja za unos naziva definicije ukoliko korisnik ukuca kao naziv definicije nešto što ne može biti prihvaćeno."""] ],
+        "app_sett_style_definition_view_simple_btn_close_stylesheet_style": [
+            [0, """Close button apperance"""],
+            [1, """Izgled dugmeta za zatvaranje"""] ],
+        "app_sett_style_definition_view_simple_btn_close_icon_path_style": [
+            [0, """Close button icon"""],
+            [1, """Ikona dugmeta za zatvaranje"""] ],
+        "app_sett_style_all_dialogs_btn_delete_name": [
+            [0, """All dialogs: Delete button
+(Delete, Remove, Clear...)"""],
+            [1, """Svi dijalozi: Dugme za brisanje
+(Obriši, Ukloni, Očisti...)"""] ],
+        "app_sett_style_browse_def_dialog_name": [
+            [0, """Dialog: Browse Definitions"""],
+            [1, """Dijalog: Pretraži Definicije (Browse)"""] ],
+        "app_sett_style_browse_def_lst_def_name": [
+            [0, """List: List of all definitions"""],
+            [1, """Lista: Lista svih definicija"""] ],
+        "app_sett_style_browse_def_txt_desc_name": [
+            [0, """TextBox: Description of the definition"""],
+            [1, """TextBox: Opis definicije"""] ],
+        "app_sett_style_browse_def_lbl_name_name": [
+            [0, """Label: The name of the definition"""],
+            [1, """Labela: Naziv definicije"""] ],
+        "app_sett_style_browse_def_btn_edit_name": [
+            [0, """Button: Edit definition"""],
+            [1, """Dugme: Uredi definiciju"""] ],
+        "app_sett_style_browse_def_btn_delete_name": [
+            [0, """Button: Delete definition"""],
+            [1, """Dugme: Obriši definiciju"""] ],
+        "app_sett_style_browse_def_btn_close_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_picture_browse_name": [
+            [0, """Dialog: Browse Images"""],
+            [1, """Dijalog: Pregled svih slika (Browse)"""] ],
+        "app_sett_style_picture_browse_btn_update_name": [
+            [0, """Button: Update image"""],
+            [1, """Dugme: Ažuriraj sliku"""] ],
+        "app_sett_style_picture_browse_btn_close_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_picture_browse_btn_delete_name": [
+            [0, """Button: Delete image"""],
+            [1, """Dugme: Obriši sliku"""] ],
+        "app_sett_style_picture_browse_lbl_name_name": [
+            [0, """Label: Label for the name of the image"""],
+            [1, """Labela: Labela za naziv slike"""] ],
+        "app_sett_style_picture_browse_lbl_desc_name": [
+            [0, """Label: Label for image description"""],
+            [1, """Labela: Labela za opis slike"""] ],
+        "app_sett_style_picture_browse_lbl_file_name": [
+            [0, """Label: Label for the file name"""],
+            [1, """Labela: Labela za naziv fajla"""] ],
+        "app_sett_style_picture_browse_lbl_src_name": [
+            [0, """Label: Label for image source"""],
+            [1, """Labela: Labela za izvor slike"""] ],
+        "app_sett_style_picture_browse_lbl_src_val_name": [
+            [0, """Label: Image source"""],
+            [1, """Labela: Izvor slike"""] ],
+        "app_sett_style_picture_browse_lbl_file_val_name": [
+            [0, """Label: File name"""],
+            [1, """Labela: Naziv fajla"""] ],
+        "app_sett_style_picture_browse_txt_name_name": [
+            [0, """TextBox: Name of the image"""],
+            [1, """TextBox: Naziv slike"""] ],
+        "app_sett_style_picture_browse_txt_desc_name": [
+            [0, """TextBox: Image description"""],
+            [1, """TextBox: Opis slike"""] ],
+        "app_sett_style_picture_browse_area_name": [
+            [0, """ScrollArea: Area for displaying all thumbnails"""],
+            [1, """ScrollArea: Prostor za prikaz svih sličica"""] ],
+        "app_sett_style_picture_browse_item_size_style": [
+            [0, """Thumbnail size"""],
+            [1, """Veličina sličice"""] ],
+        "picture_browse_item_size_desc": [
+            [0, """Thumbnail size in pixels"""],
+            [1, """Veličina sličice u pikselima"""] ],
+        "app_sett_style_picture_browse_items_in_row_style": [
+            [0, """Number of thumbnails in one row"""],
+            [1, """Broj sličica u jednom redu"""] ],
+        "picture_browse_items_in_row_desc": [
+            [0, """Maximum number of thumbnails in one row"""],
+            [1, """Maksimalni broj sličica u jednom redu"""] ],
+        "app_sett_style_picture_browse_lbl_count_name": [
+            [0, """Labels: Item Counter (Images)"""],
+            [1, """Labela: Brojač stavki (Slika)"""] ],
+        "app_settings_btn_style_sample_text": [
+            [0, """Example"""],
+            [1, """Primer"""] ],
+        "app_sett_style_definition_editor_name": [
+            [0, """Dialog: Definition Editor"""],
+            [1, """Dijalog: Editor Definicija"""] ],
+        "app_sett_style_description_labels_name": [
+            [0, """Various descriptive labels in the dialog"""],
+            [1, """Razne opisne labele u dijalogu"""] ],
+        "app_sett_style_def_editor_lbl_base_stylesheet_style": [
+            [0, """The base string"""],
+            [1, """Bazni string"""] ],
+        "app_sett_style_def_editor_lbl_output_stylesheet_style": [
+            [0, """Output synonyms"""],
+            [1, """Izlazni sinonimi"""] ],
+        "app_sett_style_def_editor_txt_base_name": [
+            [0, """TextBox: Base string"""],
+            [1, """TextBox: Bazni string"""] ],
+        "app_sett_style_def_editor_txt_end_name": [
+            [0, """TextBox: Strings to append to the end (Suffix)"""],
+            [1, """TextBox: Stringovi za dodavanje na kraj (Sufiks)"""] ],
+        "app_sett_style_def_editor_txt_beggining_name": [
+            [0, """TextBox: Strings to Add to Start (Prefix)"""],
+            [1, """TextBox: Stringovi za dodavanje na početak (Prefiks)"""] ],
+        "app_sett_style_def_editor_txt_output_name": [
+            [0, """TextBox: Output synonyms"""],
+            [1, """TextBox: Izlazni sinonimi"""] ],
+        "app_sett_style_def_editor_btn_clear_name": [
+            [0, """Button: All "Clear" buttons in the dialog"""],
+            [1, """Dugme: Sva "Očisti" dugmad u dijalogu"""] ],
+        "app_sett_style_def_editor_btn_generate_name": [
+            [0, """Button: Generate synonyms"""],
+            [1, """Dugme: Generiši sinonime"""] ],
+        "app_sett_style_def_editor_btn_copy_name": [
+            [0, """Button: Copy synonyms"""],
+            [1, """Dugme: Kopiraj sinonime"""] ],
+        "app_sett_style_def_editor_checkboxes_name": [
+            [0, """CheckBox: All checkboxes in the dialog"""],
+            [1, """CheckBox: Sva polja za štikliranje u dijalogu"""] ],
+        "app_sett_style_definition_add_btn_editor_name": [
+            [0, """Button: Editor"""],
+            [1, """Dugme: Editor"""] ],
+        "app_sett_style_def_editor_btn_edit_output_name": [
+            [0, """Button: Edit output synonyms"""],
+            [1, """Dugme: Uredi izlazne sinonime"""] ],
+        "app_sett_style_edit_output_labels_name": [
+            [0, """Box for editing output synonyms:
+All descriptive labels"""],
+            [1, """Okvir za uređivanje izlaznih sinonima:
+Sve opisne labele"""] ],
+        "app_sett_style_edit_output_buttons_name": [
+            [0, """Box for editing output synonyms:
+All buttons"""],
+            [1, """Okvir za uređivanje izlaznih sinonima:
+Sva dugmad"""] ],
+        "app_sett_style_edit_output_checkboxes_name": [
+            [0, """Box for editing output synonyms:
+All checkboxes"""],
+            [1, """Okvir za uređivanje izlaznih sinonima:
+Sva polja za štikliranje (CheckBox)"""] ],
+        "app_sett_style_def_editor_btn_edit_replace_stylesheet_style": [
+            [0, """Replace the string"""],
+            [1, """Zameni string"""] ],
+        "app_sett_style_def_editor_btn_edit_replace_add_stylesheet_style": [
+            [0, """Replace the string and add to the output"""],
+            [1, """Zameni string i dodaj izlazu"""] ],
+        "app_sett_style_def_editor_btn_edit_add_beg_stylesheet_style": [
+            [0, """Add to beginning"""],
+            [1, """Dodaj na početak"""] ],
+        "app_sett_style_def_editor_btn_edit_add_end_stylesheet_style": [
+            [0, """Add to the end"""],
+            [1, """Dodaj na kraj"""] ],
+        "app_sett_style_def_editor_btn_edit_spaces_stylesheet_style": [
+            [0, """Remove extra spaces"""],
+            [1, """Ukloni suvišne razmake"""] ],
+        "app_sett_style_def_editor_chk_edit_case_stylesheet_style": [
+            [0, """Match case"""],
+            [1, """Velika i mala slova"""] ],
+        "app_sett_style_edit_output_textboxes_name": [
+            [0, """Box for editing output synonyms:
+All data entry fields (TextBox)"""],
+            [1, """Okvir za uređivanje izlaznih sinonima:
+Sva polja za unos podataka (TextBox)"""] ],
+        "app_sett_style_def_editor_lbl_edit_replace_stylesheet_style": [
+            [0, """The string to replace"""],
+            [1, """String koji se zamenjuje"""] ],
+        "app_sett_style_def_editor_lbl_edit_with_stylesheet_style": [
+            [0, """The string to replace with"""],
+            [1, """String sa kojim se zamenjuje"""] ],
+        "app_sett_style_def_editor_lbl_edit_in_string_stylesheet_style": [
+            [0, """Substring in which to replace"""],
+            [1, """Podstring u kome se zamenjuje"""] ],
+        "app_sett_style_def_editor_lbl_edit_add_beg_stylesheet_style": [
+            [0, """Add to beginning"""],
+            [1, """Dodaj na početak"""] ],
+        "app_sett_style_def_editor_lbl_edit_add_end_stylesheet_style": [
+            [0, """Add to the end"""],
+            [1, """Dodaj na kraj"""] ],
+        "app_sett_style_def_editor_lbl_edit_msg_stylesheet_style": [
+            [0, """A label with string replacement messages"""],
+            [1, """Labela sa porukama o zameni stringa"""] ],
+        "app_sett_style_def_editor_btn_edit_close_stylesheet_style": [
+            [0, """"Close" button in the upper right corner"""],
+            [1, """Dugme "Zatvori" u gornjem desnom uglu"""] ],
+        "app_sett_style_def_editor_lbl_msg_spaces_stylesheet_style": [
+            [0, """Messages about spaces removed"""],
+            [1, """Poruke o uklonjenim razmacima"""] ],
+        "app_sett_style_definition_add_remove_wiki_style": [
+            [0, """Remove "Wiki" from description"""],
+            [1, """Ukloni "Wiki" iz opisa"""] ],
+        "definition_add_remove_wiki_[]_from_description_desc": [
+            [0, """If the description of the definition is copied from Wikipedia, then it probably contains Wikipedia references that are enclosed in square brackets ([]).
+When this option is turned on, if the user double-clicks on the description input field, then all text inside the square brackets will be removed."""],
+            [1, """Ukoliko je opis definicije kopiran sa Wikipedia-e, onda u njemo verovatno postoje Wikipedia reference koje se nalaze u uglastim zagradama ([]).
+Kada je ova opcija uključena, ako korisnik napravi dvoklik mišem na polje za unos opisa, onda će se ukloniti sav tekst koji se nalazi unutar uglastih zagrada."""] ],
+        "app_settings_btn_apply_text": [
+            [0, """Apply settings"""],
+            [1, """Primeni podešavanja"""] ],
+        "app_settings_save_notiffication_title": [
+            [0, """Settings"""],
+            [1, """Podešavanja"""] ],
+        "app_settings_save_notiffication_text": [
+            [0, """The settings have been applied successfully"""],
+            [1, """Podešavanja su uspešno primenjena"""] ],
+        "app_sett_style_block_view_name": [
+            [0, """Dialog:  Blocks Browser"""],
+            [1, """Dijalog: Pregled Blokova"""] ],
+        "app_sett_style_block_view_btn_tags_name": [
+            [0, """Button: Tags selection"""],
+            [1, """Dugme: Izbor oznaka (Tags)"""] ],
+        "app_sett_style_block_view_btn_view_diary_name": [
+            [0, """Button: View diary"""],
+            [1, """Dugme: Pregledaj dnevnik"""] ],
+        "app_sett_style_block_view_txt_filter_name": [
+            [0, """TextBox: Field for entering a string by which data is filtered"""],
+            [1, """TextBox: Polje za unos stringa po kome se filtriraju podaci"""] ],
+        "app_sett_style_block_view_btn_clear_filter_name": [
+            [0, """Button: Clear filter"""],
+            [1, """Dugme: Očisti filter"""] ],
+        "app_sett_style_frm_tags_frame_name": [
+            [0, """Frame for selecting tags to filter by"""],
+            [1, """Okvir za odabir oznaka po kojima se filtrira"""] ],
+        "app_sett_style_frm_tags_frame_general_name": [
+            [0, """Apperance of the tag selection box"""],
+            [1, """Izgled okvira za odabir oznaka"""] ],
+        "app_sett_style_frame_title_label_name": [
+            [0, """Frame title"""],
+            [1, """Naslov okvira"""] ],
+        "app_sett_style_frm_tags_lbl_tag_tags_name": [
+            [0, """Label: Information about selected tags"""],
+            [1, """Labela: Informacija o izabranim tagovima"""] ],
+        "app_sett_style_frm_tags_btn_tag_close_stylesheet_name": [
+            [0, """Button: A button that closes the frame"""],
+            [1, """Dugme: Dugme koje zatvara okvir"""] ],
+        "app_sett_style_frm_tags_btn_tag_reset_stylesheet_name": [
+            [0, """Button: Reset (Resets the selection of tags)"""],
+            [1, """Dugme: Reset (Poništava izbor tagova)"""] ],
+        "app_sett_style_frm_tags_btn_tag_invert_stylesheet_name": [
+            [0, """Button: Invert (Inverts the selection of tags)"""],
+            [1, """Dugme: Invert (Invertuje selekciju tagova)"""] ],
+        "app_sett_style_frm_tags_btn_tag_ok_stylesheet_name": [
+            [0, """Button: Ok"""],
+            [1, """Dugme: Ok"""] ],
+        "app_sett_style_frm_tags_btn_tag_cancel_stylesheet_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži (Cancel)"""] ],
+        "app_sett_style_block_mark_colors_name": [
+            [0, """The colors used in the block list to indicate blocks with various properties such as:
+ - open (unfinished) blocks
+ - blocks whose content is displayed
+ - blocks open in the main window"""],
+            [1, """Boje kojima se u listi blokova označavaju blokovi sa raznim svojstvima kao što su:
+ - otvoreni (nedovršeni) blokovi
+ - blokovi čiji je sadržaj prikazan
+ - blokovi otvoreni u glavnom prozoru"""] ],
+        "app_sett_style_block_view_fore_color_main_win_style": [
+            [0, """Foreground: block opened in the main window"""],
+            [1, """Foreground: blok otvoren u glavnom prozoru"""] ],
+        "block_view_fore_color_main_win_desc": [
+            [0, """Specifies the color to display an item in the block list if the block is currently open in the main window."""],
+            [1, """Određuje boju kojom će biti prikazana stavka u listi blokova ako je blok trenutno otvoren u glavnom prozoru."""] ],
+        "app_sett_style_block_view_back_color_main_win_style": [
+            [0, """Background: block opened in the main window"""],
+            [1, """Background: blok otvoren u glavnom prozoru"""] ],
+        "block_view_back_color_main_win_desc": [
+            [0, """Specifies the background color for an item in the block list if the block is currently open in the main window."""],
+            [1, """Određuje boju pozadine za stavku u listi blokova ako je blok trenutno otvoren u glavnom prozoru."""] ],
+        "app_sett_style_block_view_fore_color_view_win_style": [
+            [0, """Foreground: block content displayed"""],
+            [1, """Foreground: prikazan sadržaj bloka"""] ],
+        "block_view_fore_color_view_win_desc": [
+            [0, """Specifies the color to display an item in the block list if the block is currently displayed in the block content display box."""],
+            [1, """Određuje boju kojom će biti prikazana stavka u listi blokova ako je blok trenutno prikazan u polju za prikaz sadržaja bloka."""] ],
+        "app_sett_style_block_view_back_color_view_win_style": [
+            [0, """Background: displayed content of the block"""],
+            [1, """Background: prikazan sadržaj bloka"""] ],
+        "block_view_back_color_view_win_desc": [
+            [0, """Specifies the background color for an item in the block list if the block is currently displayed in the block content viewport."""],
+            [1, """Određuje boju pozadine za stavku u listi blokova ako je blok trenutno prikazan u polju za prikaz sadržaja bloka."""] ],
+        "app_sett_style_block_view_fore_color_checked_style": [
+            [0, """Foreground: the block is checked"""],
+            [1, """Foreground: blok je štikliran"""] ],
+        "block_view_fore_color_checked_desc": [
+            [0, """Specifies the color to display an item in the block list if the item is checked."""],
+            [1, """Određuje boju kojom će biti prikazana stavka u listi blokova ako je stavka štiklirana."""] ],
+        "app_sett_style_block_view_back_color_checked_style": [
+            [0, """Background: the block is checked"""],
+            [1, """Background: blok je štikliran"""] ],
+        "block_view_back_color_checked_desc": [
+            [0, """Specifies the background color for an item in the block list if the item is checked."""],
+            [1, """Određuje boju pozadine za stavku u listi blokova ako je stavka štiklirana."""] ],
+        "app_sett_style_block_view_fore_color_unchecked_style": [
+            [0, """Foreground: the block is not checked"""],
+            [1, """Foreground: blok nije štikliran"""] ],
+        "block_view_fore_color_unchecked_desc": [
+            [0, """Specifies the color to display an item in the block list if the item is unchecked."""],
+            [1, """Određuje boju kojom će biti prikazana stavka u listi blokova ako stavka nije štiklirana."""] ],
+        "app_sett_style_block_view_back_color_unchecked_style": [
+            [0, """Background: the block is not checked"""],
+            [1, """Background: blok nije štikliran"""] ],
+        "block_view_back_color_unchecked_desc": [
+            [0, """Specifies the background color for an item in the block list if the item is unchecked."""],
+            [1, """Određuje boju pozadine za stavku u listi blokova ako stavka nije štiklirana."""] ],
+        "app_sett_style_block_view_btn_close_all_name": [
+            [0, """Button: Close all open blocks"""],
+            [1, """Dugme: Zatvori sve otvorene blokove"""] ],
+        "app_sett_style_block_view_list_show_name": [
+            [0, """Information that will be displayed about the block in the list of all blocks"""],
+            [1, """Informacije koje će biti prikazane o bloku u listi svih blokova"""] ],
+        "app_sett_style_block_view_list_show_date_style": [
+            [0, """Show date"""],
+            [1, """Prikaži datum"""] ],
+        "block_view_list_show_date_desc": [
+            [0, """Show block date in list of all blocks."""],
+            [1, """Prikaži datum bloka u listi svih blokova."""] ],
+        "app_sett_style_block_view_list_show_tags_style": [
+            [0, """Show Tags"""],
+            [1, """Prikaži oznake (Tags)"""] ],
+        "block_view_list_show_tags_desc": [
+            [0, """Show block tags in the list of all blocks."""],
+            [1, """Prikaži tagove bloka u listi svih blokova."""] ],
+        "app_sett_style_block_view_list_show_name_style": [
+            [0, """Show block name"""],
+            [1, """Prikaži naziv bloka"""] ],
+        "block_view_list_show_name_desc": [
+            [0, """Show the name of the block in the list of all blocks."""],
+            [1, """Prikaži naziv bloka u listi svih blokova."""] ],
+        "app_sett_style_block_view_list_show_body_style": [
+            [0, """Display the contents of the block"""],
+            [1, """Prikaži sadržaj bloka"""] ],
+        "block_view_list_show_body_desc": [
+            [0, """Show the content or part of the content of a block in the list of all blocks."""],
+            [1, """Prikaži sadržaj ili deo sadržaja bloka u listi svih blokova."""] ],
+        "app_sett_style_block_view_list_show_body_in_tooltip_style": [
+            [0, """Display the entire content as a tooltip"""],
+            [1, """Prikaži ceo sadržaj kao tooltip"""] ],
+        "block_view_list_show_body_in_tooltip_desc": [
+            [0, """It will display the content of the block as a tooltip when the mouse arrow is over the item."""],
+            [1, """Prikaži ce sadržaj bloka kao tooltip kada se strelica miša nalazi iznad stavke."""] ],
+        "app_sett_style_block_view_list_item_image_icon_path_name": [
+            [0, """An icon next to a block in the list if the block contains an image or file"""],
+            [1, """Ikona uz blok u listi ako blok sadrži sliku ili datoteku"""] ],
+        "app_sett_style_block_view_ln_delim_name": [
+            [0, """Lines: A line separating the block list from the open block content space."""],
+            [1, """Linije: Linija koja razdvaja listu blokova od prostora sa sadržajem otvorenih blokova."""] ],
+        "app_sett_style_win_block_control_buttons_name": [
+            [0, """Buttons on the title bar"""],
+            [1, """Dugmad na naslovnoj liniji"""] ],
+        "app_sett_style_win_block_header_buttons_name": [
+            [0, """Header Buttons"""],
+            [1, """Header Dugmad"""] ],
+        "app_sett_style_win_block_footer_buttons_name": [
+            [0, """Footer Buttons"""],
+            [1, """Footer Dugmad"""] ],
+        "app_sett_style_browse_def_txt_find_name": [
+            [0, """TextBox: Search field"""],
+            [1, """TextBox: Polje za pretragu"""] ],
+        "app_sett_style_find_def_name": [
+            [0, """Dialog: Find definition online
+(Using the Wikipedia library)"""],
+            [1, """Dijalog: Pronađi definiciju online
+(Koristeći Wikipedia biblioteku)"""] ],
+        "app_sett_style_find_def_lbl_pic_name": [
+            [0, """Label: Image (1)"""],
+            [1, """Labela: Slika (1)"""] ],
+        "app_sett_style_find_def_lbl_pic2_name": [
+            [0, """Label: Image (2)"""],
+            [1, """Labela: Slika (2)"""] ],
+        "app_sett_style_find_def_lbl_pic3_name": [
+            [0, """Label: Image (3)"""],
+            [1, """Labela: Slika (3)"""] ],
+        "app_sett_style_find_def_txt_desc_name": [
+            [0, """TextBox: Description of the item"""],
+            [1, """TextBox: Opis stavke"""] ],
+        "app_sett_style_find_def_btn_edit_name": [
+            [0, """Button: Open more images in the browser"""],
+            [1, """Dugme: Otvori još slika u pretraživaču"""] ],
+        "app_sett_style_find_def_lst_pages_name": [
+            [0, """List: List of pages found"""],
+            [1, """Lista: Lista pronađenih stranica"""] ],
+        "app_sett_style_find_def_lbl_pic_icon_style": [
+            [0, """Default icon for image"""],
+            [1, """Predefinisana ikona za sliku"""] ],
+        "app_sett_style_block_view_chk_tag_stylesheet_name": [
+            [0, """CheckBox: Show blocks that do not contain a tag"""],
+            [1, """CheckBox: Prikaži blokove koji ne sadrže tag"""] ],
+        "app_sett_style_block_view_lbl_count_name": [
+            [0, """Label: Block counter"""],
+            [1, """Labela: Brojač blokova"""] ],
+        "app_sett_style_find_def_lbl_load_name": [
+            [0, """Label: Loading data"""],
+            [1, """Labela: Učitavam podatke"""] ],
+        "app_sett_style_lists_in_block_name": [
+            [0, """Lists in a block (The list starts with the piece "@l")"""],
+            [1, """Liste u bloku (Lista se startuje sa komadom "@l")"""] ],
+        "app_sett_style_text_handler_list_string_style": [
+            [0, """List prefix"""],
+            [1, """Prefiks liste"""] ],
+        "text_handler_list_string_desc": [
+            [0, """Enter the string you want to appear before each item in the list.
+You start the list by typing "@l" in the editor.
+Exit the list by pressing the ESCAPE key"""],
+            [1, """Unesite string koji želite da se pojavi pre svake stavke u listi.
+Listu započinjete kucajuči "@l" u editoru.
+Izlazite is liste pritiskom na taster ESCAPE"""] ],
+        "app_sett_style_diary_view_name": [
+            [0, """Dialog: Diary View
+(The old way)"""],
+            [1, """Dijalog: Pregled Dnevnika
+(Stari način)"""] ],
+        "app_sett_style_diary_view_lbl_count_name": [
+            [0, """Label: Counter of displayed items"""],
+            [1, """Labela: Brojač prikazanih stavki"""] ],
+        "app_sett_style_diary_view_btn_apply_filter_name": [
+            [0, """Button: Apply filter"""],
+            [1, """Dugme: Primeni filter"""] ],
+        "app_sett_style_diary_view_btn_view_blocks_name": [
+            [0, """Button: View Blocks"""],
+            [1, """Dugme: Pregledaj blokove"""] ],
+        "app_sett_style_diary_view_txt_filter_name": [
+            [0, """TextBox: String input for filtering data"""],
+            [1, """TextBox: Unos stringa za filtriranje podataka"""] ],
+        "app_sett_style_diary_view_data_filter_section_name": [
+            [0, """Data filtering"""],
+            [1, """Filtriranje podataka"""] ],
+        "app_sett_style_diary_view_btn_clear_from_date_stylesheet_name": [
+            [0, """Button: Clear Filter (From Date)"""],
+            [1, """Dugme: Očisti filter (Od datuma)"""] ],
+        "app_sett_style_diary_view_btn_clear_to_date_stylesheet_name": [
+            [0, """Button: Clear Filter (To Date)"""],
+            [1, """Dugme: Očisti filter (Do datuma)"""] ],
+        "app_sett_style_diary_view_txt_from_date_stylesheet_name": [
+            [0, """TextBox: Filter Entry (From Date)"""],
+            [1, """TextBox: Unos filtera (Od datuma)"""] ],
+        "app_sett_style_diary_view_txt_to_date_stylesheet_name": [
+            [0, """TextBox: Filter Entry (To Date)"""],
+            [1, """TextBox: Unos filtera (Do datuma)"""] ],
+        "app_sett_style_diary_view_item_name": [
+            [0, """An item in the diary view"""],
+            [1, """Stavka u pregledu dnevnika"""] ],
+        "app_sett_style_diary_item_general_name": [
+            [0, """General settings"""],
+            [1, """Generalna podešavanja"""] ],
+        "app_sett_style_diary_item_area_stylesheet_style": [
+            [0, """ScrollArea: Apperance of the area for displaying items"""],
+            [1, """ScrollArea: Izgled prostora za prikaz stavki"""] ],
+        "app_sett_style_diary_item_area_widget_stylesheet_style": [
+            [0, """Widget: Widget apperance for displaying items"""],
+            [1, """Widget: Izgled widgeta za prikaz stavki"""] ],
+        "app_sett_style_diary_item_lbl_day_stylesheet_name": [
+            [0, """Label: Name of the day"""],
+            [1, """Labela: Naziv dana"""] ],
+        "app_sett_style_diary_item_lbl_date_stylesheet_name": [
+            [0, """Label: Date"""],
+            [1, """Labela: Datum"""] ],
+        "app_sett_style_diary_item_lbl_tag_stylesheet_name": [
+            [0, """Label: Tags"""],
+            [1, """Labela: Oznake"""] ],
+        "app_sett_style_diary_item_text_box_name": [
+            [0, """TextBox: Field for displaying diary content"""],
+            [1, """TextBox: Polje za prikaz sadržaja dnevnika"""] ],
+        "app_sett_style_diary_view_loading_name": [
+            [0, """Frame: Loading data"""],
+            [1, """Okvir: Učitavanje podataka"""] ],
+        "app_sett_style_diary_view_btn_loading_stop_stylesheet_name": [
+            [0, """Button: Stop loading"""],
+            [1, """Dugme: Zaustavi učitavanje (Stop)"""] ],
+        "app_sett_style_diary_view_lbl_loading_stylesheet_name": [
+            [0, """Label: Loading data"""],
+            [1, """Labela: Učitavam podatke"""] ],
+        "app_sett_style_diary_view_prg_loading_stylesheet_name": [
+            [0, """ProgressBar: Indicator of how much data has been loaded"""],
+            [1, """ProgressBar: Pokazivač koliko je podataka učitano"""] ],
+        "app_sett_style_diary_view_area_spacing_style": [
+            [0, """Space between items"""],
+            [1, """Razmak između stavki"""] ],
+        "diary_view_area_spacing_desc": [
+            [0, """Spacing between items expressed in pixels."""],
+            [1, """Razmak između stavki izražen u pikselima."""] ],
+        "app_sett_style_diary_view_item_label_stylesheet_name": [
+            [0, """Label: Appearance of the image inside the item"""],
+            [1, """Labela: Izgled slike unutar stavke"""] ],
+        "app_sett_style_diary_view_chk_case_stylesheet_name": [
+            [0, """CheckBox: Match case"""],
+            [1, """CheckBox: Velika i mala slova"""] ],
+        "app_sett_style_diary_view_btn_clear_filter_stylesheet_name": [
+            [0, """Button: Clear filter"""],
+            [1, """Dugme: Očisti filter"""] ],
+        "app_sett_style_diary_view_search_string_name": [
+            [0, """Searching for a string in the diary"""],
+            [1, """Traženje stringa u dnevniku"""] ],
+        "app_sett_style_diary_view_mark_search_string_style": [
+            [0, """Highlight the search string"""],
+            [1, """Markiraj traženi string"""] ],
+        "app_sett_style_diary_view_mark_search_string_fore_color_style": [
+            [0, """The color of the marked string"""],
+            [1, """Boja markiranog stringa"""] ],
+        "app_sett_style_diary_view_mark_search_string_back_color_style": [
+            [0, """The background color of the highlighted string"""],
+            [1, """Boja pozadine markiranog stringa"""] ],
+        "diary_view_mark_search_string_fore_color_desc": [
+            [0, """The color with which the marked string will be marked."""],
+            [1, """Boja kojom će biti označen markirani string."""] ],
+        "diary_view_mark_search_string_back_color_desc": [
+            [0, """Background color with which the marked string will be marked."""],
+            [1, """Boja pozadine kojom će biti označen markirani string."""] ],
+        "app_sett_style_diary_view_btn_view_name": [
+            [0, """Button: See text only, no images"""],
+            [1, """Dugme: Vidi samo tekst, bez slika"""] ],
+        "app_sett_style_browse_def_lbl_count_name": [
+            [0, """Label: Counter of displayed definitions"""],
+            [1, """Labela: Brojač prikazanih definicija"""] ],
+        "app_sett_style_win_block_notif_block_updated_style": [
+            [0, """Notification icon when block is updated"""],
+            [1, """Ikona notifikacije kada je blok ažuriran"""] ],
+        "app_sett_style_picture_add_chk_auto_load_stylesheet_name": [
+            [0, """Automatically add clipboard image"""],
+            [1, """Automatski dodaj clipboard sliku"""] ],
+        "app_sett_style_block_hyperlinks_name": [
+            [0, """Block: Hyperlinks in the text"""],
+            [1, """Blok: Linkovi u tekstu"""] ],
+        "app_sett_style_hyperlink_mark_enabled_style": [
+            [0, """Enable in-text hyperlinks"""],
+            [1, """Omogući linkove u tekstu"""] ],
+        "hyperlink_mark_enabled_desc": [
+            [0, """If this option is enabled, the user will see links in the text"""],
+            [1, """Ukoliko je ova opcija omogućena korisnik će videti linkove u tekstu"""] ],
+        "app_sett_style_hyperlink_mouse_action_enabled_style": [
+            [0, """Click on the hyperlink enabled"""],
+            [1, """Klik na link omogućen"""] ],
+        "hyperlink_mouse_action_enabled_desc": [
+            [0, """If this option is enabled, the user will be able to click on the link and open it in their browser."""],
+            [1, """Ukoliko je ova opcija omogućena korisniku će biti omogućeno da klikne na link i otvori ga u svom pretraživaču."""] ],
+        "app_sett_style_hyperlink_mouse_hover_show_tooltip_enabled_style": [
+            [0, """Link tooltip"""],
+            [1, """Link tooltip"""] ],
+        "hyperlink_mouse_hover_show_tooltip_enabled_desc": [
+            [0, """If this option is enabled, when the user moves the mouse arrow over the link, a tooltip with additional information about the link will appear."""],
+            [1, """Ukoliko je ova opcija omogućena kada korisnik pomeri strelicu miša iznad linka, pojaviće se tooltip sa dodatnim podacima o linku."""] ],
+        "definition_add_chk_auto_add_stylesheet_desc": [
+            [0, """When auto-add image mode is on, any image or link to an image found in the clipboard will be automatically added to the images of the current definition."""],
+            [1, """Kada je mod automatskog dodavanja slika uključen, bilo koja slika ili link prema slici koji se nadje u clipboardu će biti automatski dodan u slike trenutne definicije."""] ],
+        "app_sett_style_definition_add_chk_auto_add_stylesheet_name": [
+            [0, """CheckBox: Automatically add clipboard images"""],
+            [1, """CheckBox: Automatski dodaj clipoard slike"""] ],
+        "app_settings_err_sound_load_text": [
+            [0, """The sound file you selected could not be loaded!"""],
+            [1, """Zvučna datoteka koju ste izabrali ne može biti učitana !"""] ],
+        "app_settings_combobox_item_no_sound_text": [
+            [0, """No sound"""],
+            [1, """Bez zvuka"""] ],
+        "app_settings_combobox_item_sound_custom_text": [
+            [0, """Select a sound file"""],
+            [1, """Izaberite zvučnu datoteku"""] ],
+        "app_sett_style_def_add_sounds_name": [
+            [0, """Sounds in dialogue"""],
+            [1, """Zvukovi u dijalogu"""] ],
+        "app_sett_style_def_add_auto_added_image_sound_style": [
+            [0, """Sound:
+Image added"""],
+            [1, """Zvuk:
+Dodana slika"""] ],
+        "app_sett_style_sound_desc": [
+            [0, """Select the desired sound"""],
+            [1, """Izaberite željeni zvuk"""] ],
+        "app_sett_style_def_add_auto_added_image_error_sound_style": [
+            [0, """Sound:
+Error adding image"""],
+            [1, """Zvuk:
+Greška u dodavanju slike"""] ],
+        "app_sett_style_block_auto_add_images_frame_name": [
+            [0, """Frame: Auto-add images"""],
+            [1, """Okvir: Automatsko dodavanje slika"""] ],
+        "app_sett_style_auto_add_image_frame_lbl_pic_style": [
+            [0, """Label: Image icon"""],
+            [1, """Labela: Ikona slike"""] ],
+        "app_sett_style_block_body_auto_added_image_sound_style": [
+            [0, """Sound:
+Image added"""],
+            [1, """Zvuk:
+Dodana slika"""] ],
+        "app_sett_style_block_body_auto_added_image_error_sound_style": [
+            [0, """Sound:
+Error adding image"""],
+            [1, """Zvuk:
+Greška u dodavanju slike"""] ],
+        "app_sett_style_def_add_auto_added_image_on_sound_style": [
+            [0, """Sound:
+Automatic image add is turned on"""],
+            [1, """Zvuk:
+Automatsko dodavanje slika je uključeno"""] ],
+        "app_sett_style_def_add_auto_added_image_off_sound_style": [
+            [0, """Sound:
+Automatic image add is turned off"""],
+            [1, """Zvuk:
+Automatsko dodavanje slika je isključeno"""] ],
+        "app_sett_style_def_add_auto_added_image_maximum_sound_style": [
+            [0, """Sound:
+Maximum number of images reached"""],
+            [1, """Zvuk:
+Maksimalan broj slika dostignut"""] ],
+        "app_sett_style_remember_user_resize_block_info_for_all_blocks_style": [
+            [0, """Remember the block size"""],
+            [1, """Zapamti veličinu bloka"""] ],
+        "remember_user_resize_block_info_for_all_blocks_desc": [
+            [0, """Specifies whether the block size changed by the user will be remembered"""],
+            [1, """Određuje da li će biti zapamćena veličina bloka promenjena od strane korisnika"""] ],
+        "app_sett_style_diary_view_item_text_image_spacer_style": [
+            [0, """Space between text and images"""],
+            [1, """Razmak između teksta i slika"""] ],
+        "diary_view_item_text_image_spacer_desc": [
+            [0, """Specifies the pixel spacing between text and images in an item"""],
+            [1, """Određuje razmak u pikselima između teksta i slika u jednoj stavci"""] ],
+        "app_sett_style_picture_info_name": [
+            [0, """Dialog: Image information"""],
+            [1, """Dijalog: Informacije o slici"""] ],
+        "app_sett_style_picture_info_lbl_used_stylesheet_name": [
+            [0, """Label: The image was used in..."""],
+            [1, """Labela: Slika je korištena u..."""] ],
+        "app_sett_style_picture_info_lst_used_stylesheet_name": [
+            [0, """List: Image used in..."""],
+            [1, """Lista: Slika je korištena u..."""] ],
+        "app_sett_style_picture_info_lbl_pic_stylesheet_name": [
+            [0, """Label: Image display"""],
+            [1, """Labela: Prikaz slike"""] ],
+        "app_sett_style_notification_pop_up_sound_style": [
+            [0, """Sound:
+Information"""],
+            [1, """Zvuk:
+Obaveštenja"""] ],
+        "app_sett_style_definition_text_mark_enabled_in_def_add_dialog_style": [
+            [0, """Highlight definitions in the definition description"""],
+            [1, """Markiraj definicije u opisu definicije"""] ],
+        "definition_text_mark_enabled_in_def_add_dialog_desc": [
+            [0, """Determines whether already defined expressions such as those marked in the block will be marked in the definition description."""],
+            [1, """Određuje da li će u opisu definicije biti markirani vec definisani izrazi kao što su markirani u bloku."""] ],
+        "app_sett_style_notification_start_sound_style": [
+            [0, """Sound:
+Notification"""],
+            [1, """Zvuk:
+Notifikacija"""] ],
+        "app_sett_style_notification_start_sound_enabled_style": [
+            [0, """Enable notification sound"""],
+            [1, """Omogući zvuk notifikacije"""] ],
+        "notification_start_sound_enabled_desc": [
+            [0, """Determines whether the notification will emit a sound when it appears"""],
+            [1, """Određuje da li će notifikacija prilikom pojavljivanja emitovati zvuk"""] ],
+        "app_sett_style_file_add_name": [
+            [0, """Dialog: Adding a file to a block"""],
+            [1, """Dijalog: Dodavanje datoteke u blok"""] ],
+        "app_sett_style_file_add_lbl_file_stylesheet_name": [
+            [0, """Label: File selection"""],
+            [1, """Labela: Izbor datoteke"""] ],
+        "app_sett_style_file_add_lbl_select_stylesheet_name": [
+            [0, """Label: Select a file from the list"""],
+            [1, """Labela: Izaberi datoteku iz liste"""] ],
+        "app_sett_style_file_add_lbl_count_stylesheet_name": [
+            [0, """Label: File counter"""],
+            [1, """Labela: Brojač datoteka"""] ],
+        "app_sett_style_file_add_txt_file_name": [
+            [0, """TextBox: File input field"""],
+            [1, """TextBox: Polje za unos datoteke"""] ],
+        "app_sett_style_file_add_lst_select_name": [
+            [0, """List: List of files"""],
+            [1, """Lista: Spisak datoteka"""] ],
+        "app_sett_style_file_add_btn_name": [
+            [0, """Button: Select file"""],
+            [1, """Dugme: Izaberi datoteku"""] ],
+        "app_sett_style_file_add_btn_add_to_list_name": [
+            [0, """Button: Add file to list"""],
+            [1, """Dugme: Dodaj datoteku u listu"""] ],
+        "app_sett_style_file_add_btn_add_name": [
+            [0, """Button: Add selected files to block"""],
+            [1, """Dugme: Dodaj izabrane datoteke u blok"""] ],
+        "app_sett_style_file_info_name": [
+            [0, """Dialog: File information"""],
+            [1, """Dijalog: Informacije o datoteci"""] ],
+        "app_sett_style_file_info_labels_name": [
+            [0, """Labels in dialog"""],
+            [1, """Labele u dijalogu"""] ],
+        "app_sett_style_file_info_lbl_name_stylesheet_style": [
+            [0, """Label: File name"""],
+            [1, """Labela: Naziv datoteke"""] ],
+        "app_sett_style_file_info_lbl_desc_stylesheet_style": [
+            [0, """Label: Description of the file"""],
+            [1, """Labela: Opis datoteke"""] ],
+        "app_sett_style_file_info_lbl_icon_stylesheet_style": [
+            [0, """Label: File icon"""],
+            [1, """Labela: Ikona datoteke"""] ],
+        "app_sett_style_file_info_lbl_ext_stylesheet_style": [
+            [0, """Label: File extension"""],
+            [1, """Labela: Ekstenzija datoteke"""] ],
+        "app_sett_style_file_info_lbl_file_type_stylesheet_style": [
+            [0, """Label: File type"""],
+            [1, """Labela: Tip datoteke"""] ],
+        "app_sett_style_file_info_lbl_file_path_stylesheet_style": [
+            [0, """Label: Path to the file"""],
+            [1, """Labela: Putanja do datoteke"""] ],
+        "app_sett_style_file_info_lbl_def_app_stylesheet_style": [
+            [0, """Label: Default file application"""],
+            [1, """Labela: Predefinisana aplikacija za datoteku"""] ],
+        "app_sett_style_file_info_lbl_file_src_stylesheet_style": [
+            [0, """Label: File source"""],
+            [1, """Labela: Izvor datoteke"""] ],
+        "app_sett_style_file_info_lbl_size_stylesheet_style": [
+            [0, """Label: File size"""],
+            [1, """Labela: Veličina datoteke"""] ],
+        "app_sett_style_file_info_lbl_created_stylesheet_style": [
+            [0, """Label: File creation date"""],
+            [1, """Labela: Datum kreiranja datoteke"""] ],
+        "app_sett_style_file_info_lbl_modified_stylesheet_style": [
+            [0, """Label: File modification date"""],
+            [1, """Labela: Datum izmene datoteke"""] ],
+        "app_sett_style_file_info_lbl_accessed_stylesheet_style": [
+            [0, """Label: The date the file was accessed"""],
+            [1, """Labela: Datum pristupa datoteci"""] ],
+        "app_sett_style_file_info_lbl_size_val_stylesheet_style": [
+            [0, """Label: File Size (Value)"""],
+            [1, """Labela: Veličina datoteke (Vrednost)"""] ],
+        "app_sett_style_file_info_lbl_created_val_stylesheet_style": [
+            [0, """Label: File Creation Date (Value)"""],
+            [1, """Labela: Datum kreiranja datoteke (Vrednost)"""] ],
+        "app_sett_style_file_info_lbl_modified_val_stylesheet_style": [
+            [0, """Label: File Modified Date (Value)"""],
+            [1, """Labela: Datum izmene datoteke (Vrednost)"""] ],
+        "app_sett_style_file_info_lbl_accessed_val_stylesheet_style": [
+            [0, """Label: File access date (Value)"""],
+            [1, """Labela: Datum pristupa datoteci (Vrednost)"""] ],
+        "app_sett_style_file_info_txt_name_stylesheet_name": [
+            [0, """TextBox: File name"""],
+            [1, """TextBox: Naziv datoteke"""] ],
+        "app_sett_style_file_info_txt_desc_name": [
+            [0, """TextBox: Description of the file"""],
+            [1, """TextBox: Opis datoteke"""] ],
+        "app_sett_style_file_info_txt_file_type_stylesheet_name": [
+            [0, """TextBox: File type"""],
+            [1, """TextBox: Tip datoteke"""] ],
+        "app_sett_style_file_info_txt_def_app_stylesheet_name": [
+            [0, """TextBox: Default file application"""],
+            [1, """TextBox: Predefinisana aplikacija za datoteku"""] ],
+        "app_sett_style_file_info_txt_file_path_stylesheet_name": [
+            [0, """TextBox: The path to the file"""],
+            [1, """TextBox: Putanja do datoteke"""] ],
+        "app_sett_style_file_info_txt_file_src_stylesheet_name": [
+            [0, """TextBox: File source"""],
+            [1, """TextBox: Izvor datoteke"""] ],
+        "app_sett_style_file_info_btn_save_as_name": [
+            [0, """Button: Save file as ..."""],
+            [1, """Dugme: Snimi datoteku kao ..."""] ],
+        "app_sett_style_file_info_btn_open_name": [
+            [0, """Button: Open file"""],
+            [1, """Dugme: Otvori datoteku"""] ],
+        "app_sett_style_file_info_btn_update_name": [
+            [0, """Button: Update file"""],
+            [1, """Dugme: Ažuriraj datoteku"""] ],
+        "app_sett_style_file_info_lbl_title_desc_stylesheet_style": [
+            [0, """Label: Title description"""],
+            [1, """Labela: Opis naslova"""] ],
+        "app_sett_style_block_numbers_name": [
+            [0, """Block: Mark the numbers"""],
+            [1, """Blok: Markiraj brojeve"""] ],
+        "app_sett_style_numbers_in_block_text_mark_enabled_style": [
+            [0, """Mark the numbers in the block"""],
+            [1, """Markiraj brojeve u bloku"""] ],
+        "numbers_in_block_text_mark_enabled_desc": [
+            [0, """If this option is checked, all numbers in the block will be marked"""],
+            [1, """Ukoliko je ova opcija označena, svi brojevi u bloku će biti markirani"""] ],
+        "app_sett_style_http_hyperlink_text_detection_enabled_style": [
+            [0, """Detect hyperlinks in text"""],
+            [1, """Detektuj linkove u tekstu"""] ],
+        "http_hyperlink_text_detection_enabled_desc": [
+            [0, """Enables detection of links in text"""],
+            [1, """Omogućava detekciju linkova u tekstu"""] ],
+        "app_sett_style_numbers_in_block_content_mark_forecolor_style": [
+            [0, """Color of marked numbers"""],
+            [1, """Boja markiranih brojeva"""] ],
+        "numbers_in_block_content_mark_forecolor_desc": [
+            [0, """The color with which the numbers will be marked in the block text if this option is enabled"""],
+            [1, """Boja kojom će brojevi biti markirani u tekstu bloka ukoliko je ova opcija uključena"""] ],
+        "app_sett_style_fun_fact_show_name": [
+            [0, """Dialog: Fun Facts"""],
+            [1, """Dijalog: Zanimljive Činjenice"""] ],
+        "app_sett_style_fun_fact_show_lbl_next_stylesheet_style": [
+            [0, """Label: The next fact"""],
+            [1, """Labela: Sledeća činjenica"""] ],
+        "app_sett_style_fun_fact_show_lbl_next_val_stylesheet_style": [
+            [0, """Label: The next fact (Value)"""],
+            [1, """Labela: Sledeća činjenica (Vrednost)"""] ],
+        "app_sett_style_fun_fact_show_lbl_name_stylesheet_style": [
+            [0, """Label: Name of the fact"""],
+            [1, """Labela: Naziv činjenice"""] ],
+        "app_sett_style_fun_fact_show_cmb_lang_stylesheet_name": [
+            [0, """ComboBox: List of languages"""],
+            [1, """ComboBox: Lista jezika"""] ],
+        "app_sett_style_fun_fact_show_chk_translate_stylesheet_name": [
+            [0, """CheckBox: Automatically translate the fact"""],
+            [1, """CheckBox: Automatski prevedi činjenicu"""] ],
+        "app_sett_style_fun_fact_show_chk_show_on_start_stylesheet_name": [
+            [0, """CheckBox: Show this dialog at the start of the application"""],
+            [1, """CheckBox: Prikaži ovaj dijalog na startu aplikacije"""] ],
+        "app_sett_style_fun_fact_show_btn_next_stylesheet_name": [
+            [0, """Button: Next fact"""],
+            [1, """Dugme: Sledeća činjenica"""] ],
+        "app_sett_style_fun_fact_show_lbl_content_stylesheet_style": [
+            [0, """Label: Fact content"""],
+            [1, """Labela: Sadržaj činjenice"""] ],
+        "app_sett_style_fun_fact_show_on_start_style": [
+            [0, """Show fun facts"""],
+            [1, """Prikaži zanimljive činjenice"""] ],
+        "fun_fact_show_on_start_desc": [
+            [0, """If this option is checked, a dialog with fun facts will be displayed at the start of the application"""],
+            [1, """Ukoliko je ova opcija štiklirana na startu aplikacije će biti prikazan dijalog sa zanimljivim činjenicama"""] ],
+        "app_setting_shortcut_select_warning_default_text": [
+            [0, """Select a shortcut"""],
+            [1, """Izaberite prečicu"""] ],
+        "app_setting_shortcut_select_warning_default_tt": [
+            [0, """Click the shortcut input field and press the key combination you want."""],
+            [1, """Kliknite na polje za unos prečica i pritisnite kombinaciju tastera koju želite."""] ],
+        "app_setting_shortcut_select_warning_has_data_text": [
+            [0, """The shortcut you selected already exists!"""],
+            [1, """Prečica koju ste izabrali već postoji !"""] ],
+        "app_setting_shortcut_select_warning_has_data_tt": [
+            [0, """This shortcut is assigned to the following settings:"""],
+            [1, """Ova prečica je dodeljena sledećim podešavanjima:"""] ],
+        "app_setting_shortcut_select_warning_no_data_text": [
+            [0, """This shortcut is available!"""],
+            [1, """Ova prečica je slobodna !"""] ],
+        "app_setting_shortcut_select_warning_no_data_tt": [
+            [0, """This shortcut is available for assignment.
+There are no settings that use this shortcut."""],
+            [1, """Ova prečica je dostupna za dodeljivanje.
+Ne postoje podešavanja koja koriste ovu prečicu."""] ],
+        "app_sett_style_clipboard_view_chk_del_close_stylesheet_name": [
+            [0, """CheckBox: Empty clipboard on application close"""],
+            [1, """CheckBox: Isprazni clipoard na zatvaranju aplikacije"""] ],
+        "clipboard_view_chk_del_close_stylesheet_desc": [
+            [0, """When you close the application, the contents of the clipboard will be deleted."""],
+            [1, """Kada zatvorite aplikaciju sadržaj clipboarda će biti obrisan."""] ],
+        "app_sett_style_clipboard_view_chk_del_paste_stylesheet_name": [
+            [0, """CheckBox: Empty clipboard when data is pasted"""],
+            [1, """CheckBox: Isprazni clipoard kada su podaci nalepljeni"""] ],
+        "clipboard_view_chk_del_paste_stylesheet_desc": [
+            [0, """When you paste the data, the contents of the clipboard will be deleted."""],
+            [1, """Kada nalepite podatke sadržaj clipboarda će biti obrisan."""] ],
+        "app_sett_style_clipboard_view_chk_del_tmp_stylesheet_name": [
+            [0, """CheckBox: Empty the "TMP" folder on closing the application"""],
+            [1, """CheckBox: Isprazni "TMP" folder na zatvaranju aplikacije"""] ],
+        "clipboard_view_chk_del_tmp_stylesheet_desc": [
+            [0, """When you close the application, the contents of the "TMP" folder will be deleted.
+The "TMP" folder is a folder in which temporary files are stored, mostly unnecessary contents of the clipboard or files from the Internet."""],
+            [1, """Kada zatvorite aplikaciju sadržaj "TMP" foldera će biti obrisan.
+"TMP" folder je folder u kome se čuvaju privremeni fajlovi, uglavnom je to nepotreban sadržaj clipboarda ili fajlovi sa interneta."""] ],
+        "app_sett_style_clipboard_view_tree_clip_stylesheet_name": [
+            [0, """TreeBox: Contents of the clipboard"""],
+            [1, """TreeBox: Sadržaj clipboarda"""] ],
+        "clipboard_view_tree_clip_stylesheet_desc": [
+            [0, """The contents of the internal and clipboard of the operating system, as well as the contents of the "TMP" folder"""],
+            [1, """Sadržaj internog i clipboarda operativnog sistema, kao i sadržaj "TMP" foldera"""] ],
+        "clipboard_view_btn_del_tmp_stylesheet": [
+            [0, """Button: Delete "TMP" files"""],
+            [1, """Dugme: Obriši "TMP" datoteke"""] ],
+        "app_sett_style_clipboard_view_btn_del_tmp_stylesheet_name": [
+            [0, """Button: Delete "TMP" files"""],
+            [1, """Dugme: Obriši "TMP" datoteke"""] ],
+        "clipboard_view_btn_del_tmp_stylesheet_desc": [
+            [0, """Delete the contents of the "TMP" folder"""],
+            [1, """Obriši sadržaj "TMP" foldera"""] ],
+        "app_sett_style_clipboard_view_lbl_clip_title_stylesheet_style": [
+            [0, """The name of the clipboard item"""],
+            [1, """Naziv clipboard stavke"""] ],
+        "clipboard_view_lbl_clip_title_stylesheet_desc": [
+            [0, """The name of the currently displayed clipboard item"""],
+            [1, """Naziv clipboard stavke koja se trenutno prikazuje"""] ],
+        "app_sett_label_desc": [
+            [0, """Label in dialog"""],
+            [1, """Labela u dijalogu"""] ],
+        "app_sett_style_clipboard_view_lbl_size_val_stylesheet_style": [
+            [0, """Clipboard item size (Value)"""],
+            [1, """Veličina clipboard stavke (Vrednost)"""] ],
+        "app_sett_style_clipboard_view_lbl_file_stylesheet_style": [
+            [0, """The file name of the clipboard item"""],
+            [1, """Naziv datoteke clipboard stavke"""] ],
+        "app_sett_style_clipboard_view_lbl_size_stylesheet_style": [
+            [0, """The size of the clipboard item"""],
+            [1, """Veličina clipboard stavke"""] ],
+        "app_sett_style_clipboard_view_lbl_file_val_stylesheet_style": [
+            [0, """Clipboard item file name (Value)"""],
+            [1, """Naziv datoteke clipboard stavke (Vrednost)"""] ],
+        "app_sett_style_clipboard_view_lbl_pic_stylesheet_style": [
+            [0, """Clipboard item image"""],
+            [1, """Slika clipboard stavke"""] ],
+        "app_sett_style_clipboard_view_lbl_clip_stylesheet_style": [
+            [0, """Clipboard contents"""],
+            [1, """Sadržaj clipboarda"""] ],
+        "app_sett_style_clipboard_view_btn_clear_stylesheet_name": [
+            [0, """Button: Empty clipboard"""],
+            [1, """Dugme: Isprazni clipboard"""] ],
+        "clipboard_view_btn_clear_stylesheet_desc": [
+            [0, """Deletes the contents of the clipboard"""],
+            [1, """Briše sadržaj clipboarda"""] ],
+        "app_sett_style_delete_clipboard_on_paste_style": [
+            [0, """Empty clipboard when data is pasted"""],
+            [1, """Isprazni clipoard kada su podaci nalepljeni"""] ],
+        "delete_clipboard_on_paste_desc": [
+            [0, """When you paste the data, the contents of the clipboard will be deleted."""],
+            [1, """Kada nalepite podatke sadržaj clipboarda će biti obrisan."""] ],
+        "app_sett_style_delete_temp_folder_on_app_exit_style": [
+            [0, """Empty the "TMP" folder on closing the application"""],
+            [1, """Isprazni "TMP" folder na zatvaranju aplikacije"""] ],
+        "delete_clipboard_on_app_exit_desc": [
+            [0, """When you close the application, the contents of the clipboard will be deleted."""],
+            [1, """Kada zatvorite aplikaciju sadržaj clipboarda će biti obrisan."""] ],
+        "app_sett_style_delete_clipboard_on_app_exit_style": [
+            [0, """Empty the clipboard on application exit"""],
+            [1, """Isprazni clipoard na zatvaranju aplikacije"""] ],
+        "delete_temp_folder_on_app_exit_desc": [
+            [0, """When you close the application, the contents of the "TMP" folder will be deleted.
+The "TMP" folder is a folder in which temporary files are stored, mostly unnecessary contents of the clipboard or files from the Internet."""],
+            [1, """Kada zatvorite aplikaciju sadržaj "TMP" foldera će biti obrisan.
+"TMP" folder je folder u kome se čuvaju privremeni fajlovi, uglavnom je to nepotreban sadržaj clipboarda ili fajlovi sa interneta."""] ],
+        "app_sett_style_clipboard_view_name": [
+            [0, """Dialog: View Clipboard"""],
+            [1, """Dijalog: Pregled Clipboarda"""] ],
+        "app_sett_style_clipboard_view_btn_refresh_stylesheet_name": [
+            [0, """Button: Refresh data"""],
+            [1, """Dugme: Osveži podatke"""] ],
+        "app_sett_style_max_number_of_images_in_definition_style": [
+            [0, """Maximum number of images in definition"""],
+            [1, """Maksimalni broj slika u definiciji"""] ],
+        "max_number_of_images_in_definition_desc": [
+            [0, """The maximum number of images that can be attached to one definition"""],
+            [1, """Maksimalni broj slika u koji može biti pridružen jednoj definiciji"""] ],
+        "app_sett_style_definition_add_lbl_loading_stylesheet_name": [
+            [0, """Label: Loading data..."""],
+            [1, """Labela: Učitavam podatke..."""] ],
+        "definition_add_lbl_loading_stylesheet_desc": [
+            [0, """Label (loading data) that appears when opening a definition and disappears when all data for the definition is loaded."""],
+            [1, """Labela (učitavam podatke) koja se pojavljuje na otvaranju definicije i nestaje kada se učitaju svi podaci  za definiciju."""] ],
+        "app_sett_style_media_explorer_name": [
+            [0, """Dialog: View Media (Images, Videos...)"""],
+            [1, """Dijalog: Pregled Medija (Slike, Video...)"""] ],
+        "app_sett_style_media_explorer_lbl_type_stylesheet_style": [
+            [0, """File type"""],
+            [1, """Tip datoteke"""] ],
+        "media_explorer_lbl_type_stylesheet_desc": [
+            [0, """File type"""],
+            [1, """Tip datoteke"""] ],
+        "app_sett_style_media_explorer_lbl_pic_stylesheet_style": [
+            [0, """Image of the file"""],
+            [1, """Slika datoteke"""] ],
+        "media_explorer_lbl_pic_stylesheet_desc": [
+            [0, """Shows the image that the file contains, if the file does not contain an image it shows the image of the file type."""],
+            [1, """Prikazuje sliku koju datoteka sadrži, ako datoteka ne sadrži sliku prikazuje sliku tipa datoteke."""] ],
+        "app_sett_style_media_explorer_lbl_used_stylesheet_style": [
+            [0, """Used in..."""],
+            [1, """Korišteno u..."""] ],
+        "app_sett_style_media_explorer_lbl_count_stylesheet_style": [
+            [0, """File counter"""],
+            [1, """Brojač datoteka"""] ],
+        "app_sett_style_media_explorer_lbl_progress_stylesheet_style": [
+            [0, """Please wait..."""],
+            [1, """Molim sačekajte..."""] ],
+        "media_explorer_lbl_progress_stylesheet_desc": [
+            [0, """"Please wait" label that appears when the application searches the database."""],
+            [1, """"Molim sačekajte" labela koja se pojavljuje kada aplikacija pretražuje bazu podataka."""] ],
+        "app_sett_style_media_explorer_txt_find_stylesheet_name": [
+            [0, """TextBox: Data filter"""],
+            [1, """TextBox: Filter podataka"""] ],
+        "app_sett_style_media_explorer_lst_items_stylesheet_name": [
+            [0, """List: List of found files"""],
+            [1, """Lista: Spisak pronađenih datoteka"""] ],
+        "app_sett_style_media_explorer_lst_used_stylesheet_name": [
+            [0, """List: List of blocks and definitions where the file is used"""],
+            [1, """Lista: Spisak blokova i definicija gde je datoteka korištena"""] ],
+        "app_sett_style_media_explorer_progress_name": [
+            [0, """A frame showing the loading of data"""],
+            [1, """Okvir koji prikazuje učitavanje podataka"""] ],
+        "app_sett_style_media_explorer_prg_progress_stylesheet_style": [
+            [0, """ProgressBar: Progress bar"""],
+            [1, """ProgressBar: Linija progresa"""] ],
+        "app_sett_style_media_explorer_rbt_all_radio_stylesheet_name": [
+            [0, """RadioButton: All Radio Buttons in the dialog"""],
+            [1, """RadioButton: Sva Radio Dugmad u dijalogu"""] ],
+        "app_sett_style_media_explorer_chk_not_used_stylesheet_name": [
+            [0, """CheckBox: Only unused items"""],
+            [1, """CheckBox: Samo nekorištene stavke"""] ],
+        "app_sett_style_media_explorer_btn_find_stylesheet_name": [
+            [0, """Button: Apply filter"""],
+            [1, """Dugme: Primeni filter"""] ],
+        "app_sett_style_media_explorer_btn_delete_stylesheet_name": [
+            [0, """Button: Delete"""],
+            [1, """Dugme: Obriši"""] ],
+        "app_sett_style_media_explorer_btn_delete_all_stylesheet_name": [
+            [0, """Button: Delete All"""],
+            [1, """Dugme: Obriši Sve"""] ],
+        "app_sett_style_media_explorer_btn_duplicates_stylesheet_name": [
+            [0, """Button: Duplicates"""],
+            [1, """Dugme: Duplikati"""] ],
+        "app_sett_style_media_explorer_btn_delete_duplicates_stylesheet_name": [
+            [0, """Button: Delete duplicates"""],
+            [1, """Dugme: Obriši duplikate"""] ],
+        "app_sett_style_media_explorer_btn_progress_abort_stylesheet_style": [
+            [0, """Button: Abort"""],
+            [1, """Dugme: Zaustavi"""] ],
+        "app_sett_style_media_explorer_frm_controls_stylesheet_name": [
+            [0, """Frame with controls"""],
+            [1, """Okvir sa kontrolama"""] ],
+        "app_sett_style_media_explorer_frm_progress_stylesheet_style": [
+            [0, """Frame: Loading data"""],
+            [1, """Okvir: Učitavanje podataka"""] ],
+        "app_sett_style_item_colors_name": [
+            [0, """The colors of the items depend on the data they contain"""],
+            [1, """Boje stavki u zavisnosti koje podatke sadrže"""] ],
+        "app_sett_style_media_explorer_image_item_list_color_style": [
+            [0, """The item is a picture"""],
+            [1, """Stavka je slika"""] ],
+        "media_explorer_image_item_list_color_desc": [
+            [0, """The color with which the item containing the image will be represented."""],
+            [1, """Boja kojom će biti predstavljena stavka koja sadrži sliku."""] ],
+        "app_sett_style_media_explorer_file_item_list_color_style": [
+            [0, """Item is not a picture"""],
+            [1, """Stavka nije slika"""] ],
+        "media_explorer_file_item_list_color_desc": [
+            [0, """The color that will represent the non-image item.
+(Video, PDF, Word, Excel...)"""],
+            [1, """Boja kojom će biti predstavljena stavka koja nije slika.
+(Video, PDF, Word, Excel...)"""] ],
+        "app_sett_media_explorer_msg_aborted_icon_path": [
+            [0, """Message icon when the user stops searching for data"""],
+            [1, """Ikona za poruku kada korisnik prekine traženje podataka"""] ],
+        "app_sett_style_media_explorer_btn_refresh_stylesheet_name": [
+            [0, """Button: Refresh data"""],
+            [1, """Dugme: Osveži podatke"""] ],
+        "app_sett_style_media_explorer_tree_duplicates_stylesheet_name": [
+            [0, """TreeBox: List of duplicates"""],
+            [1, """TreeBox: Spisak duplikata"""] ],
+        "app_sett_style_when_deleting_copy_images_to_temp_folder_style": [
+            [0, """Copy the deleted images to the "TMP" folder"""],
+            [1, """Kopiraj obrisane slike u "TMP" folder"""] ],
+        "app_sett_style_when_deleting_copy_files_to_temp_folder_style": [
+            [0, """Copy the deleted files to the "TMP" folder"""],
+            [1, """Kopiraj obrisane datoteke u "TMP" folder"""] ],
+        "when_deleting_copy_images_to_temp_folder_desc": [
+            [0, """Before being deleted, the images will be copied to the "TMP" folder"""],
+            [1, """Pre nego budu obisane, slike će biti kopirane u "TMP" folder"""] ],
+        "when_deleting_copy_files_to_temp_folder_desc": [
+            [0, """Before being deleted, the files will be copied to the "TMP" folder"""],
+            [1, """Pre nego budu obisane, datoteke će biti kopirane u "TMP" folder"""] ],
+        "app_sett_style_find_in_app_name": [
+            [0, """Dialog: Find in the application"""],
+            [1, """Dijalog: Pronađi u aplikaciji"""] ],
+        "app_sett_style_find_in_app_lbl_result_stylesheet_style": [
+            [0, """Search result"""],
+            [1, """Rezultat pretrage"""] ],
+        "app_sett_style_find_in_app_lbl_count_stylesheet_style": [
+            [0, """Search results counter"""],
+            [1, """Brojač rezultata"""] ],
+        "app_sett_style_find_in_app_lbl_blocks_stylesheet_style": [
+            [0, """Blocks"""],
+            [1, """Blokovi"""] ],
+        "app_sett_style_find_in_app_lbl_defs_stylesheet_style": [
+            [0, """Definitions"""],
+            [1, """Defincije"""] ],
+        "app_sett_style_find_in_app_lbl_images_stylesheet_style": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "app_sett_style_find_in_app_lbl_files_stylesheet_style": [
+            [0, """Files"""],
+            [1, """Datoteke"""] ],
+        "app_sett_style_find_in_app_txt_find_stylesheet_name": [
+            [0, """TextBox: A field for entering the required string"""],
+            [1, """TextBox: Polje za unos stringa koji se traži"""] ],
+        "app_sett_style_find_in_app_grp_search_stylesheet_name": [
+            [0, """GroupBox: Selection of fields in which to search"""],
+            [1, """GroupBox: Izbor polja u kojima se vrsi pretraga"""] ],
+        "app_sett_style_find_in_app_lst_result_stylesheet_name": [
+            [0, """List: List of search results"""],
+            [1, """Lista: Spisak rezultata pretrage"""] ],
+        "app_sett_style_find_in_app_under_search_field_name": [
+            [0, """CheckBox: Check boxes below the required string input field"""],
+            [1, """CheckBox: Polja za štikliranje ispod polja za unos stringa koji se traži"""] ],
+        "app_sett_style_find_in_app_chk_case_stylesheet_style": [
+            [0, """CheckBox: Match case"""],
+            [1, """CheckBox: Velika i mala slova"""] ],
+        "app_sett_style_find_in_app_chk_auto_search_stylesheet_style": [
+            [0, """CheckBox: Search as I type"""],
+            [1, """CheckBox: Traži dok kucam"""] ],
+        "app_sett_style_find_in_app_in_groupbox_name": [
+            [0, """CheckBox: Checkboxes in the GroupBox to select the properties in which the string will be searched"""],
+            [1, """CheckBox: Polja za štikliranje u GroupBox-u za izbor svostava u kojima će se tražiti string"""] ],
+        "app_sett_style_find_in_app_chk_block_date_stylesheet_style": [
+            [0, """CheckBox: Block - Date"""],
+            [1, """CheckBox: Blok - Datum"""] ],
+        "app_sett_style_find_in_app_chk_block_name_stylesheet_style": [
+            [0, """CheckBox: Block - Name"""],
+            [1, """CheckBox: Blok - Naziv"""] ],
+        "app_sett_style_find_in_app_chk_block_text_stylesheet_style": [
+            [0, """CheckBox: Block - Text"""],
+            [1, """CheckBox: Blok - Tekst"""] ],
+        "app_sett_style_find_in_app_chk_def_name_stylesheet_style": [
+            [0, """CheckBox: Definition - Name"""],
+            [1, """CheckBox: Definicija - Naziv"""] ],
+        "app_sett_style_find_in_app_chk_def_syn_stylesheet_style": [
+            [0, """CheckBox: Definition - Synonyms"""],
+            [1, """CheckBox: Definicija - Sinonimi"""] ],
+        "app_sett_style_find_in_app_chk_def_desc_stylesheet_style": [
+            [0, """CheckBox: Definition - Description"""],
+            [1, """CheckBox: Definicija - Opis"""] ],
+        "app_sett_style_find_in_app_chk_img_name_stylesheet_style": [
+            [0, """CheckBox: Image - Name"""],
+            [1, """CheckBox: Slika - Naziv"""] ],
+        "app_sett_style_find_in_app_chk_img_desc_stylesheet_style": [
+            [0, """CheckBox: Image - Description"""],
+            [1, """CheckBox: Slika - Opis"""] ],
+        "app_sett_style_find_in_app_chk_img_file_stylesheet_style": [
+            [0, """CheckBox: Image - File name"""],
+            [1, """CheckBox: Slika - Naziv datoteke"""] ],
+        "app_sett_style_find_in_app_chk_img_src_stylesheet_style": [
+            [0, """CheckBox: Image - Source"""],
+            [1, """CheckBox: Slika - Izvor"""] ],
+        "app_sett_style_find_in_app_chk_file_name_stylesheet_style": [
+            [0, """CheckBox: File - Name"""],
+            [1, """CheckBox: Datoteka - Naziv"""] ],
+        "app_sett_style_find_in_app_chk_file_desc_stylesheet_style": [
+            [0, """CheckBox: File - Description"""],
+            [1, """CheckBox: Datoteka - Opis"""] ],
+        "app_sett_style_find_in_app_chk_file_file_stylesheet_style": [
+            [0, """CheckBox: File - File name"""],
+            [1, """CheckBox: Datoteka - Naziv datoteke"""] ],
+        "app_sett_style_find_in_app_chk_file_src_stylesheet_style": [
+            [0, """CheckBox: File - Source"""],
+            [1, """CheckBox: Datoteka - Izvor"""] ],
+        "app_sett_style_find_in_app_btn_find_stylesheet_name": [
+            [0, """Button: Find string"""],
+            [1, """Dugme: Pronađi string"""] ],
+        "app_sett_style_find_in_app_btn_search_all_stylesheet_name": [
+            [0, """Button: Search everywhere"""],
+            [1, """Dugme: Traži svuda"""] ],
+        "app_sett_style_search_result_colors_name": [
+            [0, """Colors for different types of items in the search result"""],
+            [1, """Boje za razne tipove stavki u rezultatu pretrage"""] ],
+        "app_sett_style_find_in_app_image_item_list_color_style": [
+            [0, """Image found"""],
+            [1, """Pronađena slika"""] ],
+        "app_sett_style_find_in_app_file_item_list_color_style": [
+            [0, """File found"""],
+            [1, """Pronađena datoteka"""] ],
+        "app_sett_style_find_in_app_block_item_list_color_style": [
+            [0, """Block found"""],
+            [1, """Pronađena blok"""] ],
+        "app_sett_style_find_in_app_definition_item_list_color_style": [
+            [0, """Definition found"""],
+            [1, """Pronađena definicija"""] ],
+        "app_sett_style_various_icons_name": [
+            [0, """Various icons in the application"""],
+            [1, """Razne ikone u aplikaciji"""] ],
+        "app_sett_style_check_all_icon_path_style": [
+            [0, """Check all"""],
+            [1, """Štikliraj sve"""] ],
+        "app_sett_style_check_none_icon_path_style": [
+            [0, """Uncheck all"""],
+            [1, """Odštikliraj sve"""] ],
+        "app_sett_style_find_def_on_internet_icon_path_style": [
+            [0, """Find the definition online"""],
+            [1, """Pronađi definiciju na internetu"""] ],
+        "app_sett_style_mark_icon_path_style": [
+            [0, """Mark"""],
+            [1, """Markiraj"""] ],
+        "app_sett_style_pop_up_definition_icon_path_style": [
+            [0, """Pop-up definition"""],
+            [1, """Iskačuća definicija"""] ],
+        "app_sett_style_images_icon_path_style": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "app_sett_style_select_icon_path_style": [
+            [0, """Select"""],
+            [1, """Selektuj"""] ],
+        "app_sett_style_fun_fact_content_name": [
+            [0, """Label and TextBox for displaying content"""],
+            [1, """Labela i TextBox za prikaz sadržaja"""] ],
+        "app_sett_style_fun_fact_show_txt_content_stylesheet_style": [
+            [0, """TextBox: Fact Content (for long content)"""],
+            [1, """TextBox: Sadržaj činjenice (za dugačak sadržaj)"""] ],
+        "app_sett_style_fun_fact_show_txt_id_stylesheet_name": [
+            [0, """TextBox: Field for entering the fact ID"""],
+            [1, """TextBox: Polje za unos ID-a činjenice"""] ],
+        "app_sett_style_fun_fact_show_txt_id_error_stylesheet_name": [
+            [0, """TextBox: Appearance of the fact ID input field when the input is not valid"""],
+            [1, """TextBox: Izgled polja za unos ID-a činjenice kada unos nije validan"""] ],
+        "app_sett_style_fun_fact_show_lbl_rec_stylesheet_style": [
+            [0, """Label: Total number of facts in the database"""],
+            [1, """Labela: Ukupan broj činjenica u bazi"""] ],
+        "app_sett_style_sub_title_label_name": [
+            [0, """Subtitle"""],
+            [1, """Podnaslov"""] ],
+        "app_sett_style_fun_fact_show_subtitle_font_size_style": [
+            [0, """Font size"""],
+            [1, """Veličina fonta"""] ],
+        "app_sett_style_fun_fact_show_subtitle_color_style": [
+            [0, """Font color"""],
+            [1, """Boja fonta"""] ],
+        "app_sett_style_fun_fact_show_normal_content_font_size_style": [
+            [0, """Content: Font size"""],
+            [1, """Sadržaj: Veličina fonta"""] ],
+        "app_sett_style_fun_fact_show_normal_content_color_style": [
+            [0, """Content: Font color"""],
+            [1, """Sadržaj: Boja fonta"""] ],
+        "app_sett_style_pic_info_lbl_created_stylesheet_name": [
+            [0, """Label: Information about the date the image was added"""],
+            [1, """Labela: Podaci o datumu dodavanja slike"""] ],
+        "app_sett_style_pic_info_lbl_created_date_color_style": [
+            [0, """Date color"""],
+            [1, """Boja datuma"""] ],
+        "pic_info_lbl_created_date_color_desc": [
+            [0, """The color with which the date will be written"""],
+            [1, """Boja kojom će biti ispisan datum"""] ],
+        "app_sett_style_find_in_app_chk_block_def_syn_stylesheet_style": [
+            [0, """CheckBox: Block - All synonyms"""],
+            [1, """CheckBox: Blok - Svi sinonimi"""] ],
+        "app_sett_style_find_in_app_searching_frame_name": [
+            [0, """Frame: I'm searching for data"""],
+            [1, """Okvir: Pretražujem podatke"""] ],
+        "app_sett_style_find_in_app_frm_searching_stylesheet_style": [
+            [0, """Frame: The appearance of the frame"""],
+            [1, """Okvir: Izgled okvira"""] ],
+        "app_sett_style_find_in_app_lbl_searching_stylesheet_style": [
+            [0, """Label: The apperance of the label"""],
+            [1, """Labela: Izgled labele"""] ],
+        "app_sett_style_find_in_app_chk_words_stylesheet_style": [
+            [0, """CheckBox: Whole words only"""],
+            [1, """CheckBox: Samo cele reči"""] ],
+        "app_sett_style_def_editor_btn_edit_case_stylesheet_style": [
+            [0, """Capitalize the first letter in the output"""],
+            [1, """Veliko prvo slovo u outputu"""] ],
+        "app_sett_style_def_editor_btn_first_letter_stylesheet_name": [
+            [0, """Button: Capitalize the first letter in the base string"""],
+            [1, """Dugme: Veliko prvo slovo u baznom stringu"""] ],
+        "app_sett_style_extra_images_name": [
+            [0, """Additional images around the definition
+(In a block, when the mouse is over the definition)"""],
+            [1, """Dodatne slike oko definicije
+(U bloku, kada je miš iznad definicije)"""] ],
+        "app_sett_style_show_definition_extra_image_style": [
+            [0, """Show additional images"""],
+            [1, """Prikaži dodatne slike"""] ],
+        "show_definition_extra_image_desc": [
+            [0, """Determines whether to start a slide show after a certain amount of time when the definition in the block is displayed."""],
+            [1, """Određuje da li će se posle izvesnog vremena pokrenuti slajd šou kada je prikazana definicija u bloku."""] ],
+        "app_sett_style_def_extra_image_auto_hide_style": [
+            [0, """Image duration"""],
+            [1, """Trajanje slike"""] ],
+        "def_extra_image_auto_hide_desc": [
+            [0, """The number of milliseconds that each displayed image will last before disappearing from the screen."""],
+            [1, """Broj milisekundi koliko će pojedinačna prikazana slika trajati pre nego nestane sa ekrana."""] ],
+        "app_sett_style_def_extra_image_auto_hide_fade_out_duration_style": [
+            [0, """Image fade out duration"""],
+            [1, """Trajanje nestajanja slike"""] ],
+        "def_extra_image_auto_hide_fade_out_duration_desc": [
+            [0, """The number of milliseconds it will take for the image to disappear from the screen."""],
+            [1, """Broj milisekundi koliko će trajati nestajanje slike sa ekrana."""] ],
+        "app_sett_style_def_extra_image_min_visible_width_style": [
+            [0, """Minimum percentage of visibility per width"""],
+            [1, """Minimalni procenat vidljivosti po širini"""] ],
+        "app_sett_style_def_extra_image_min_visible_height_style": [
+            [0, """Minimum percentage of visibility by height"""],
+            [1, """Minimalni procenat vidljivosti po visini"""] ],
+        "def_extra_image_min_visible_width_desc": [
+            [0, """The minimum width visibility percentage that must be met in order for the image to be displayed at a specific position"""],
+            [1, """Minimalni procenat vidljivosti po širini koji mora biti zadovoljen da bi se slika prikazala na određenoj poziciji"""] ],
+        "def_extra_image_min_visible_height_desc": [
+            [0, """The minimum height visibility percentage that must be met in order for the image to be displayed at a certain position"""],
+            [1, """Minimalni procenat vidljivosti po visini koji mora biti zadovoljen da bi se slika prikazala na određenoj poziciji"""] ],
+        "app_sett_style_def_extra_image_start_delay": [
+            [0, """Time until the show starts"""],
+            [1, """Vreme do početka prikazivanja"""] ],
+        "def_extra_image_start_delay_desc": [
+            [0, """The time in milliseconds to elapse from the definition display to the start of additional images."""],
+            [1, """Vreme u milisekundama koje je potrebno da prođe od prikaza definicije do početka prikazivanja dodatnih slika."""] ],
+        "app_sett_style_def_extra_image_max_number_of_images_style": [
+            [0, """Maximum number of images"""],
+            [1, """Maksimalni broj slika"""] ],
+        "def_extra_image_max_number_of_images_desc": [
+            [0, """The maximum number of images that can be displayed at one time"""],
+            [1, """Maksimalni broj slika koji može biti prikazan u jednom trenutku"""] ],
+        "app_sett_style_def_extra_image_total_display_period_style": [
+            [0, """Display time of all images"""],
+            [1, """Vreme prikaza svih slika"""] ],
+        "def_extra_image_total_display_period_desc": [
+            [0, """When the images start to be displayed, they will not all be displayed at the same time.
+This setting determines the time for which all images that can be displayed at one time will be displayed.
+If this setting is set to "0" then it will be taken as the valid duration of one image."""],
+            [1, """Kada slike počnu da se prikazuju neće sve biti prikazane u istom trenutku.
+Ovo podešavanje odredjuje vreme za koje će biti prikazane sve slike koje u jednom trenutku mogu biti prikazane.
+Ako je ovo podešavanje podešeno na "0" onda će se uzeti kao merodavno trajanje jedne slike."""] ],
+        "app_sett_style_def_extra_image_show_next_after_hide_style": [
+            [0, """Show images continuously"""],
+            [1, """Prikazuj slike u kontinuitetu"""] ],
+        "def_extra_image_show_next_after_hide_desc": [
+            [0, """The next image will be displayed when an image disappears from the screen in its place"""],
+            [1, """Sledeća slika će biti prikazana kada neka slika nestane sa ekrana na njenom mestu"""] ],
+        "app_sett_style_pop_up_definition_extra_images_icon_path_style": [
+            [0, """Additional images around the definition"""],
+            [1, """Dodatne slike oko definicije"""] ],
+        "app_sett_style_continue_icon_path_style": [
+            [0, """Continue"""],
+            [1, """Nastavi (Continue)"""] ],
+        "app_sett_style_repeat_icon_path_style": [
+            [0, """Repeat"""],
+            [1, """Ponovi (Repeat)"""] ],
+        "app_sett_style_source_icon_path_style": [
+            [0, """Source"""],
+            [1, """Izvor"""] ],
+        "extra_image_src1": [
+            [0, """Cartoon characters"""],
+            [1, """Crtani likovi"""] ],
+        "extra_image_src2": [
+            [0, """From the definition"""],
+            [1, """Iz definicije"""] ],
+        "extra_image_src3": [
+            [0, """From the block"""],
+            [1, """Iz bloka"""] ],
+        "extra_image_src4": [
+            [0, """From the application"""],
+            [1, """Iz aplikacije"""] ],
+        "extra_image_src5": [
+            [0, """From the folder"""],
+            [1, """Iz foldera"""] ],
+        "app_setting_directory_select_title": [
+            [0, """Select a folder"""],
+            [1, """Izaberite folder"""] ],
+        "app_sett_style_def_extra_image_source_style": [
+            [0, """Image source"""],
+            [1, """Izvor slika"""] ],
+        "def_extra_image_source_desc": [
+            [0, """Select the source of the images to be displayed"""],
+            [1, """Izaberite izvor slika koje će se prikazivati"""] ],
+        "app_sett_style_def_extra_image_layout_style": [
+            [0, """Layout of pictures"""],
+            [1, """Raspored slika"""] ],
+        "def_extra_image_layout_desc": [
+            [0, """Choose how the images will be arranged around the definition"""],
+            [1, """Izaberite kako će biti raspoređene slike oko definicije"""] ],
+        "extra_image_layout1": [
+            [0, """Random position"""],
+            [1, """Slučajna pozicija"""] ],
+        "extra_image_layout2": [
+            [0, """Around the definition"""],
+            [1, """Oko definicije"""] ],
+        "app_sett_style_def_extra_image_animate_show_style": [
+            [0, """Duration of image fade in"""],
+            [1, """Trajanje pojavljivanja slike"""] ],
+        "def_extra_image_animate_show_desc": [
+            [0, """The time in milliseconds the image will take to appear"""],
+            [1, """Vreme u milisekundama koliko će trajati pojavljivanje slike"""] ],
+        "extra_image_animate_style0": [
+            [0, """Random style"""],
+            [1, """Slučajan stil"""] ],
+        "extra_image_animate_style1": [
+            [0, """No animation"""],
+            [1, """Bez animacije"""] ],
+        "extra_image_animate_style2": [
+            [0, """Growing up"""],
+            [1, """Rastući"""] ],
+        "extra_image_animate_style3": [
+            [0, """From the upper left corner"""],
+            [1, """Iz gornjeg levog ugla"""] ],
+        "extra_image_animate_style4": [
+            [0, """From the upper right corner"""],
+            [1, """Iz gornjeg desnog ugla"""] ],
+        "extra_image_animate_style5": [
+            [0, """From the bottom left corner"""],
+            [1, """Iz donjeg levog ugla"""] ],
+        "extra_image_animate_style6": [
+            [0, """From the bottom right corner"""],
+            [1, """Iz donjeg desnog ugla"""] ],
+        "app_sett_style_warning_icon_path_style": [
+            [0, """Warning"""],
+            [1, """Upozorenje"""] ],
+        "app_sett_style_layout_icon_path_style": [
+            [0, """Layout"""],
+            [1, """Raspored"""] ],
+        "app_sett_style_list_icon_path_style": [
+            [0, """List"""],
+            [1, """Lista"""] ],
+        "app_sett_style_apperance_icon_path_style": [
+            [0, """Appearing"""],
+            [1, """Pojavljivanje"""] ],
+        "app_sett_style_def_extra_image_animate_style_style": [
+            [0, """Image animation style"""],
+            [1, """Stil animiranja slika"""] ],
+        "app_sett_style_app_settings_name": [
+            [0, """Dialog: Application Settings
+(This dialog)"""],
+            [1, """Dijalog: Podešavanje aplikacije
+(Ovaj dijalog)"""] ],
+        "app_sett_style_app_settings_btn_save_name": [
+            [0, """Button: Save and close"""],
+            [1, """Dugme: Snimi i zatvori"""] ],
+        "app_sett_style_app_settings_btn_apply_name": [
+            [0, """Button: Apply settings"""],
+            [1, """Dugme: Primeni podešavanja"""] ],
+        "app_sett_style_app_settings_frm_menu_item_stylesheet_name": [
+            [0, """Main menu item on the left"""],
+            [1, """Stavka glavnog menija sa leve strane"""] ],
+        "app_sett_style_labels_stylesheet_style": [
+            [0, """Labels: Image and text"""],
+            [1, """Labele: Slika i tekst"""] ],
+        "app_sett_style_block_definition_hint_name": [
+            [0, """Block: Definition hint"""],
+            [1, """Blok: Predlog Definicije"""] ],
+        "app_sett_style_definition_hint_enabled_style": [
+            [0, """Enable definition hints"""],
+            [1, """Omogući predloge definicije"""] ],
+        "app_sett_style_definition_hint_minimum_word_lenght_style": [
+            [0, """Minimum word length"""],
+            [1, """Minimalna dužina reči"""] ],
+        "definition_hint_enabled_desc": [
+            [0, """Definition suggestions will be displayed as you type in the block"""],
+            [1, """Predlozi definicija će se prikazivati tokom kucanja u bloku"""] ],
+        "definition_hint_minimum_word_lenght_desc": [
+            [0, """The minimum word length that needs to be typed to get a definition suggestion."""],
+            [1, """Najmanja dužina reči koju je potrebno ukucati da bi se dobila sugestija za definiciju."""] ],
+        "app_sett_style_definition_hint_sound_pop_up_style": [
+            [0, """Sound when suggestions appear"""],
+            [1, """Zvuk pri pojavljivanju predloga"""] ],
+        "definition_hint_sound_pop_up_desc": [
+            [0, """Sound when suggestions appear"""],
+            [1, """Zvuk pri pojavljivanju predloga"""] ],
+        "app_sett_style_definition_hint_typing_delay_style": [
+            [0, """Time without typing"""],
+            [1, """Vreme bez kucanja"""] ],
+        "definition_hint_typing_delay_desc": [
+            [0, """This value determines the time in seconds it takes to pass between two typed letters in a block.
+If the elapsed time is longer than the selected time, then the definition suggestion will disappear when you continue typing in the block.
+This is useful when you get a suggestion while typing, pause your typing for a while and when you continue working in the block, the suggestion will disappear by itself."""],
+            [1, """Ova vrednost određuje vreme u sekundama koje je potrebno da prođe izmedju dva otkucana slova u bloku.
+Ako je vreme koje je prošlo duže od odabranog vremena, onda će sugestija za definiciju nestati kada nastavite sa kucanjem u bloku.
+Ovo je korisno kada u toku kucanja dobijete sugestiju, malo zastanete sa kucanjem i kada nastavite rad u bloku, sugestija će sama nestati."""] ],
+        "app_sett_style_definition_hint_icon_path_style": [
+            [0, """Frame icon"""],
+            [1, """Ikona okvira"""] ],
+        "app_sett_style_definition_hint_btn_close_icon_path_style": [
+            [0, """Close frame button icon"""],
+            [1, """Ikona dugmeta za zatvaranje okvira"""] ],
+        "app_sett_style_def_updated_icon_path_style": [
+            [0, """Definition updated"""],
+            [1, """Definicija ažurirana"""] ],
+        "app_sett_style_options_icon_path_style": [
+            [0, """Options"""],
+            [1, """Opcije"""] ],
+        "app_sett_style_add_schema_icon_path_style": [
+            [0, """Add a schema"""],
+            [1, """Dodaj šemu"""] ],
+        "app_sett_style_update_schema_icon_path_style": [
+            [0, """Update the schema"""],
+            [1, """Ažuriraj šemu"""] ],
+        "app_sett_style_delete_schema_icon_path_style": [
+            [0, """Delete the schema"""],
+            [1, """Obriši šemu"""] ],
+        "app_sett_style_synonyms_icon_path_style": [
+            [0, """Synonyms"""],
+            [1, """Sinonimi"""] ],
+        "app_sett_style_synonyms_manager_name": [
+            [0, """Dialog: Synonym Manager"""],
+            [1, """Dijalog: Menadžer Sinonima"""] ],
+        "app_sett_style_synonyms_manager_lbl_shema_name_stylesheet_style": [
+            [0, """Scheme name"""],
+            [1, """Naziv šeme"""] ],
+        "app_sett_style_synonyms_manager_lbl_suff_stylesheet_style": [
+            [0, """Suffixes"""],
+            [1, """Sufiksi"""] ],
+        "app_sett_style_synonyms_manager_lbl_count_stylesheet_style": [
+            [0, """Scheme counter"""],
+            [1, """Brojač šema"""] ],
+        "app_sett_style_synonyms_manager_lst_shema_stylesheet_name": [
+            [0, """List of all schemes"""],
+            [1, """Lista svih šema"""] ],
+        "app_sett_style_synonyms_manager_txt_find_stylesheet_name": [
+            [0, """TextBox: Schema search box"""],
+            [1, """TextBox: Polje za pretragu šema"""] ],
+        "app_sett_style_synonyms_manager_txt_name_stylesheet_name": [
+            [0, """TextBox: Schema name"""],
+            [1, """TextBox: Naziv šeme"""] ],
+        "app_sett_style_synonyms_manager_txt_suff_stylesheet_name": [
+            [0, """TextBox: Suffixes"""],
+            [1, """TextBox: Sufiksi"""] ],
+        "app_sett_style_synonyms_manager_btn_update_stylesheet_name": [
+            [0, """Button: Update"""],
+            [1, """Dugme: Ažuriraj"""] ],
+        "app_sett_style_synonyms_manager_btn_add_stylesheet_name": [
+            [0, """Button: Add"""],
+            [1, """Dugme: Dodaj"""] ],
+        "app_sett_style_synonyms_manager_btn_copy_stylesheet_name": [
+            [0, """Button: Copy"""],
+            [1, """Dugme: Kopiraj"""] ],
+        "app_sett_style_synonyms_manager_btn_delete_stylesheet_name": [
+            [0, """Button: Delete"""],
+            [1, """Dugme: Obriši"""] ],
+        "app_sett_style_synonyms_manager_lbl_additional_stylesheet_style": [
+            [0, """Additional suffixes"""],
+            [1, """Dodatni sufiksi"""] ],
+        "app_sett_style_synonyms_manager_txt_additional_stylesheet_name": [
+            [0, """TextBox: Additional suffixes"""],
+            [1, """TextBox: Dodatni sufiksi"""] ],
+        "app_sett_style_synonyms_manager_btn_additional_stylesheet_name": [
+            [0, """Button: Add additional suffixes"""],
+            [1, """Dugme: Dodaj dodatne sufikse"""] ],
+        "app_sett_style_translate_chk_latin_stylesheet_name": [
+            [0, """CheckBox: Translate to Latin"""],
+            [1, """CheckBox: Prevedi u latinicu"""] ],
+        "app_sett_style_dict_frame_name": [
+            [0, """Frame: Dictionaries"""],
+            [1, """Okvir: Rečnici"""] ],
+        "app_sett_style_dict_frame_lbl_find_stylesheet_style": [
+            [0, """Find it"""],
+            [1, """Pronađi"""] ],
+        "app_sett_style_dict_frame_lbl_result_stylesheet_style": [
+            [0, """Number of search results"""],
+            [1, """Broj rezultata pretrage"""] ],
+        "app_sett_style_dict_frame_lbl_count_stylesheet_style": [
+            [0, """Dictionary counter"""],
+            [1, """Brojač rečnika"""] ],
+        "app_sett_style_dict_frame_lbl_dict_name_stylesheet_style": [
+            [0, """The name of the dictionary you are in"""],
+            [1, """Naziv rečnika u kom se nalazite"""] ],
+        "app_sett_style_dict_frame_lbl_item_name_stylesheet_style": [
+            [0, """The name of the dictionary item you are viewing"""],
+            [1, """Naziv stavke rečnika koju gledate"""] ],
+        "app_sett_style_dict_frame_lbl_items_stylesheet_style": [
+            [0, """Number of items in the dictionary"""],
+            [1, """Broj stavki u rečniku"""] ],
+        "app_sett_style_dict_frame_area_dict_stylesheet_name": [
+            [0, """List: List of dictionaries"""],
+            [1, """Lista: Spisak rečnika"""] ],
+        "app_sett_style_dict_frame_lst_items_stylesheet_name": [
+            [0, """List: List of items in the dictionary"""],
+            [1, """Lista: Spisak stavki u rečniku"""] ],
+        "app_sett_style_dict_frame_txt_item_stylesheet_name": [
+            [0, """TextBox: Contents of the dictionary item"""],
+            [1, """TextBox: Sadržaj stavke u rečniku"""] ],
+        "app_sett_style_dict_frame_txt_find_stylesheet_name": [
+            [0, """TextBox: Field for searching terms in dictionaries"""],
+            [1, """TextBox: Polje za pretragu termina u rečnicima"""] ],
+        "app_sett_style_dict_frame_btn_find_stylesheet_name": [
+            [0, """Button: Find a term in dictionaries"""],
+            [1, """Dugme: Pronađi termin u rečnicima"""] ],
+        "app_sett_style_dictionaries_icon_path_style": [
+            [0, """Dictionaries"""],
+            [1, """Rečnici"""] ],
+        "app_sett_style_dict_frame_txt_item_find_stylesheet_name": [
+            [0, """TextBox: Search for items in the dictionary"""],
+            [1, """TextBox: Pretraga stavki u rečniku"""] ],
+        "app_sett_style_dict_frame_btn_back_stylesheet_name": [
+            [0, """Button: Previous search term"""],
+            [1, """Dugme: Prethodni termin za pretragu"""] ],
+        "app_sett_style_dict_frame_btn_forward_stylesheet_name": [
+            [0, """Button: Next search term"""],
+            [1, """Dugme: Sledeći termin za pretragu"""] ],
+        "app_sett_style_dict_icons_name": [
+            [0, """Dictionary icons"""],
+            [1, """Ikone rečnika"""] ],
+        "app_sett_style_dict_mit_icon_path_style": [
+            [0, """Serbian Mythological Dictionary (Kulišić)"""],
+            [1, """Srpski Mitološki Rečnik (Kulišić)"""] ],
+        "app_sett_style_dict_vujaklija_icon_path_style": [
+            [0, """Dictionary of Foreign Words (Vujaklija)"""],
+            [1, """Rečnik Stranih Reči (Vujaklija)"""] ],
+        "app_sett_style_dict_san_icon_path_style": [
+            [0, """Dream Interpretation"""],
+            [1, """Tumačenje Snova (Sanovnik)"""] ],
+        "app_sett_style_dict_zargon_icon_path_style": [
+            [0, """Dictionary of Jargon"""],
+            [1, """Rečnik Žargona"""] ],
+        "app_sett_style_dict_bos_icon_path_style": [
+            [0, """Dictionary of Bosnian Expressions"""],
+            [1, """Rečnik Bosanskih Izraza"""] ],
+        "app_sett_style_dict_en-sr_icon_path_style": [
+            [0, """English-Serbian dictionary"""],
+            [1, """Englesko-Srpski Rečnik"""] ],
+        "app_sett_style_dict_dict_psiho_icon_path_style": [
+            [0, """Dictionary of Psychology"""],
+            [1, """Rečnik Psihologije"""] ],
+        "app_sett_style_dict_stari_izrazi_icon_path_style": [
+            [0, """Dictionary of Old Serbian Expressions"""],
+            [1, """Rečnik Starih Srpskih Izraza"""] ],
+        "app_sett_style_dict_filoz_icon_path_style": [
+            [0, """Dictionary of Philosophy"""],
+            [1, """Rečnik Filozofije"""] ],
+        "app_sett_style_dict_emo_icon_path_style": [
+            [0, """Dictionary of Emotions"""],
+            [1, """Rečnik Emocija"""] ],
+        "app_sett_style_dict_biljke_icon_path_style": [
+            [0, """Dictionary of Plant Beliefs"""],
+            [1, """Rečnik Verovanja o Biljkama"""] ],
+        "app_sett_style_dict_it_icon_path_style": [
+            [0, """Dictionary of IT Terms"""],
+            [1, """Rečnik IT Izraza"""] ],
+        "app_sett_style_dict_frame_lbl_searching_stylesheet_style": [
+            [0, """I'm searching"""],
+            [1, """Pretražujem"""] ],
+        "app_sett_style_dict_frame_max_number_of_saved_words_style": [
+            [0, """Maximum number of saved search terms"""],
+            [1, """Maksimalni broj sačuvanih termina pretrage"""] ],
+        "dict_frame_max_number_of_saved_words_desc": [
+            [0, """Maximum number of saved search terms"""],
+            [1, """Maksimalni broj sačuvanih termina pretrage"""] ],
+        "app_sett_style_dict_frame_btn_item_back_stylesheet_name": [
+            [0, """Button: Previous item in the dictionary"""],
+            [1, """Dugme: Prethodna stavka u rečniku"""] ],
+        "app_sett_style_dict_google&ms_icon_path_style": [
+            [0, """Dictionary of Google and Microsoft Terms"""],
+            [1, """Rečnik Google i Microsoft Termina"""] ],
+        "app_sett_style_dict_bank_icon_path_style": [
+            [0, """Glossary of Banking and Insurance"""],
+            [1, """Glosar Bankarstva i Osiguranja"""] ],
+        "app_sett_style_dict_bokeljski_icon_path_style": [
+            [0, """Bokel dictionary"""],
+            [1, """Bokeljski rečnik"""] ],
+        "app_sett_style_dict_fraze_icon_path_style": [
+            [0, """Phraseological dictionary Đorđe Otašević"""],
+            [1, """Frazeološki rečnik Đorđe Otašević"""] ],
+        "app_sett_style_dict_ekonom_icon_path_style": [
+            [0, """Economic Dictionary Miomir Jaksić"""],
+            [1, """Ekonomski Rečnik Miomir Jaksić"""] ],
+        "app_sett_style_dict_ekonom2_icon_path_style": [
+            [0, """Dictionary of Economic Terms"""],
+            [1, """Rečnik Ekonomskih Pojmova"""] ],
+        "app_sett_style_dict_proces_icon_path_style": [
+            [0, """Glossary of Process Terms"""],
+            [1, """Glosar Procesnih Pojmova"""] ],
+        "app_sett_style_dict_frame_btn_find_deep_stylesheet_name": [
+            [0, """Button: Advanced search"""],
+            [1, """Dugme: Detaljna pretraga"""] ],
+        "app_sett_style_block_autosave_name": [
+            [0, """Block: Automatic data save"""],
+            [1, """Blok: Automatsko snimanje podataka"""] ],
+        "app_sett_style_autosave_message_name": [
+            [0, """Saved block message"""],
+            [1, """Poruka o snimljenom bloku"""] ],
+        "app_sett_style_block_autosave_show_msg_style": [
+            [0, """Show message"""],
+            [1, """Prikaži poruku"""] ],
+        "block_autosave_show_msg_desc": [
+            [0, """A message about the recorded block will be displayed in the title line of the block"""],
+            [1, """Poruka o snimljenom bloku će biti prikazana u naslovnoj liniji bloka"""] ],
+        "app_sett_style_block_autosave_msg_duration_style": [
+            [0, """Message duration"""],
+            [1, """Trajanje poruke"""] ],
+        "block_autosave_msg_duration_desc": [
+            [0, """Message duration in milliseconds"""],
+            [1, """Trajanje poruke u milisekundama"""] ],
+        "app_sett_style_block_information_message_name": [
+            [0, """Block: Information message (Autosave, etc.)"""],
+            [1, """Blok: Informaciona poruka (Autosave i sl.)"""] ],
+        "app_sett_style_block_autosave_timeout_style": [
+            [0, """Elapsed time before saving"""],
+            [1, """Proteklo vreme pre snimanja"""] ],
+        "block_autosave_timeout": [
+            [0, """The time in seconds that must elapse from the user's last activity until the block will be automatically recorded"""],
+            [1, """Vreme u sekundama koje mora da protekne od poslednje aktivnosti korisnika do trenutka kada će blok biti automatski snimljen"""] ],
+        "app_sett_style_block_autosave_on_lost_focus_style": [
+            [0, """Autosave when the block loses focus"""],
+            [1, """Automatski snimi kada blok izgubi fokus"""] ],
+        "block_autosave_on_lost_focus_desc": [
+            [0, """Activate automatic recording when the active block loses focus"""],
+            [1, """Aktiviraj automatsko snimanje kada aktivni blok izgubi fokus"""] ],
+        "app_sett_style_block_autosave_enabled_style": [
+            [0, """Enable autosave"""],
+            [1, """Omogući automatsko snimanje"""] ],
+        "block_autosave_enabled": [
+            [0, """Enable automatic block recording"""],
+            [1, """Omogući automatsko snimanje bloka"""] ],
+        "app_sett_style_block_autosave_check_every_style": [
+            [0, """Check time for block changes"""],
+            [1, """Vreme provere promena u bloku"""] ],
+        "block_autosave_check_every_desc": [
+            [0, """Check time for block changes expressed in milliseconds"""],
+            [1, """Vreme provere promena u bloku izraženo u milisekundama"""] ],
+        "app_sett_style_block_calc_mode_titlebar_msg_enabled_style": [
+            [0, """Display message in calculator mode"""],
+            [1, """Prikaži poruku u kalkulator modu"""] ],
+        "app_sett_style_block_calc_mode_titlebar_msg_duration_style": [
+            [0, """Message duration"""],
+            [1, """Trajanje poruke"""] ],
+        "block_calc_mode_titlebar_msg_duration_desc": [
+            [0, """Message duration in milliseconds"""],
+            [1, """Trajanje poruke u milisekundama"""] ],
+        "app_sett_style_block_calc_mode_titlebar_msg_name": [
+            [0, """Calculator mod"""],
+            [1, """Kalkulator mod"""] ],
+        "app_sett_style_dict_filoz2_icon_path_style": [
+            [0, """Philosophical Dictionary of Vladimir Filipović"""],
+            [1, """Filozofijski Rječnik Vladimira Filipovića"""] ],
+        "app_sett_style_dict_srp_srednji_vek_icon_path_style": [
+            [0, """Lexicon of the Serbian Middle Ages"""],
+            [1, """Leksikon Srpskog Srednjeg Veka"""] ],
+        "app_sett_style_dict_sind_icon_path_style": [
+            [0, """Trade Union Lexicon Dr. Rajko Kosanović"""],
+            [1, """Sindikalni Leksikon Dr Rajko Kosanović"""] ],
+        "app_sett_style_dict_religije_icon_path_style": [
+            [0, """Lexicon of Basic Religious Terms"""],
+            [1, """Leksikon Temeljnih Religijskih Pojmova"""] ],
+        "app_sett_style_dict_svet_mit_icon_path_style": [
+            [0, """Dictionary of World Mythology Arthur Cotterell"""],
+            [1, """Rečnik Svetske Mitologije Artur Koterel"""] ],
+        "app_sett_style_dict_arvacki_icon_path_style": [
+            [0, """Arva dictionary"""],
+            [1, """Arvački rečnik"""] ],
+        "app_sett_style_dict_frajer_icon_path_style": [
+            [0, """Belgrade Dude Dictionary"""],
+            [1, """Beogradski Frajerski Rečnik"""] ],
+        "app_sett_style_dict_astroloski_icon_path_style": [
+            [0, """Astrological Dictionary"""],
+            [1, """Astrološki Rečnik"""] ],
+        "app_sett_style_dict_biblija_stari_zavet_icon_path_style": [
+            [0, """Bible - Old Testament"""],
+            [1, """Biblija - Stari Zavet"""] ],
+        "app_sett_style_dict_biblija_novi_zavet_icon_path_style": [
+            [0, """Bible - New Testament"""],
+            [1, """Biblija - Novi Zavet"""] ],
+        "app_sett_style_dict_bibl_leksikon_icon_path_style": [
+            [0, """Biblical Lexicon"""],
+            [1, """Biblijski Leksikon"""] ],
+        "app_sett_style_dict_tis_mit_icon_path_style": [
+            [0, """Thracian, Illyrian and Slavic Mythology"""],
+            [1, """Tračanska, Ilirska i Slovenska Mitologija"""] ],
+        "app_sett_style_dict_dz_pravni_icon_path_style": [
+            [0, """Pocket Legal English-Serbian Dictionary"""],
+            [1, """Džepni Pravni Rečnik Englesko-Srpski"""] ],
+        "app_sett_style_dict_eponim_icon_path_style": [
+            [0, """Eponymic Lexicon (Dubravko Mršić)"""],
+            [1, """Eponimski Leksikon (Dubravko Mršić)"""] ],
+        "app_sett_style_dict_jung_icon_path_style": [
+            [0, """Lexicon of Basic Jungian Concepts"""],
+            [1, """Leksikon Osnovnih Jungovskih Pojmova"""] ],
+        "app_sett_style_dict_hrt_icon_path_style": [
+            [0, """Lexicon of Croatian Radio and Television"""],
+            [1, """Leksikon Hrvatskog Radija i Televizije"""] ],
+        "app_sett_style_dict_imena_icon_path_style": [
+            [0, """Meaning of Proper Names"""],
+            [1, """Značenje Vlastitih Imena"""] ],
+        "app_sett_style_dict_online_search_cash_style": [
+            [0, """Image cache"""],
+            [1, """Keš za slike"""] ],
+        "dict_online_search_cash_desc": [
+            [0, """The maximum number of images downloaded from the Internet that will be saved on the hard disk."""],
+            [1, """Maksimalni broj slika preuzetih sa interneta koji će biti sačuvan na hard disku."""] ],
+        "app_sett_style_dict_online_image_search_engine_style": [
+            [0, """Image search engine"""],
+            [1, """Pretraživač za slike"""] ],
+        "dict_online_image_search_engine_desc": [
+            [0, """An online search engine that will be used to find images"""],
+            [1, """Online pretraživač koji će se koristiti za pronalaženje slika"""] ],
+        "dict_search_engine1": [
+            [0, """Yahoo!"""],
+            [1, """Yahoo!"""] ],
+        "dict_search_engine2": [
+            [0, """AOL (Bing)"""],
+            [1, """AOL (Bing)"""] ],
+        "app_sett_style_search_engine_logo_YAHOO_style": [
+            [0, """Yahoo search engine icon"""],
+            [1, """Ikona Yahoo pretraživača"""] ],
+        "search_engine_logo_YAHOO_desc": [
+            [0, """Yahoo search engine icon"""],
+            [1, """Ikona Yahoo pretraživača"""] ],
+        "app_sett_style_search_engine_logo_AOL_style": [
+            [0, """AOL search engine icon"""],
+            [1, """Ikona AOL pretraživača"""] ],
+        "search_engine_logo_AOL_desc": [
+            [0, """AOL search engine icon"""],
+            [1, """Ikona AOL pretraživača"""] ],
+        "app_sett_style_down_expand_icon_path_style": [
+            [0, """Expand below"""],
+            [1, """Proširi na dole"""] ],
+        "app_sett_style_double_down_expand_icon_path_style": [
+            [0, """Double expand below"""],
+            [1, """Duplo proširi na dole"""] ],
+        "app_sett_style_internet_icon_path_style": [
+            [0, """Internet"""],
+            [1, """Internet"""] ],
+        "app_sett_style_replace_icon_path_style": [
+            [0, """Replace it"""],
+            [1, """Zameni"""] ],
+        "app_sett_style_lock_bw_icon_path_style": [
+            [0, """Lock (Black and White)"""],
+            [1, """Zaključaj (Crno-Bela)"""] ],
+        "app_sett_style_unlock_bw_icon_path_style": [
+            [0, """Unlock (Black & White)"""],
+            [1, """Otključaj (Crno-Bela)"""] ],
+        "app_sett_style_dict_kosarka_icon_path_style": [
+            [0, """Dictionary of Basketball Terms"""],
+            [1, """Rečnik Košarkaških termina"""] ],
+        "app_sett_style_dict_jez_nedoum_icon_path_style": [
+            [0, """Dictionary of Language Confusion"""],
+            [1, """Rečnik Jezičkih Nedoumica"""] ],
+        "app_sett_style_dict_bibliotek_icon_path_style": [
+            [0, """Encyclopedic Lexicon of Librarianship"""],
+            [1, """Enciklopedijski Leksikon Bibliotekarstva"""] ],
+        "app_sett_style_dict_leksikon_hji_icon_path_style": [
+            [0, """Lexicon of Christianity, Judaism and Islam"""],
+            [1, """Leksikon Hrišćanstva, Judaizma i Islama"""] ],
+        "app_sett_style_dict_lov_icon_path_style": [
+            [0, """Lexicon of Hunting Weapons"""],
+            [1, """Leksikon Lovačkog Oružja"""] ],
+        "app_sett_style_dict_polemologija_icon_path_style": [
+            [0, """List of Terms of Polemology"""],
+            [1, """Spisak Pojmova Polemologije"""] ],
+        "app_sett_style_dict_crven_ban_icon_path_style": [
+            [0, """Red Ban - Vuk Stefanović Karadžić"""],
+            [1, """Crven Ban - Vuk Stefanović Karadžić"""] ],
+        "app_sett_style_dict_medicina_icon_path_style": [
+            [0, """Medical Lexicon"""],
+            [1, """Medicinski Leksikon"""] ],
+        "app_sett_style_dict_medicina_rogic_icon_path_style": [
+            [0, """Medical Lexicon Momčilo Babić"""],
+            [1, """Medicinski Leksikon Momčilo Babić"""] ],
+        "app_sett_style_dict_narat_icon_path_style": [
+            [0, """Narratological Dictionary - Gerald Prince"""],
+            [1, """Naratološki Rečnik - Džerald Prins"""] ],
+        "app_sett_style_dict_latin_icon_path_style": [
+            [0, """Latin Dictionary of Names"""],
+            [1, """Latinski Rečnik Imena"""] ],
+        "app_sett_style_dict_anglicizmi_icon_path_style": [
+            [0, """Serbian Dictionary of New Anglicisms"""],
+            [1, """Srpski Rečnik Novijih Anglicizama"""] ],
+        "app_sett_style_dict_onkoloski_icon_path_style": [
+            [0, """Dictionary of Oncological Terms"""],
+            [1, """Rečnik Onkoloških Termina"""] ],
+        "app_sett_style_dict_pravoslavni_pojmovnik_icon_path_style": [
+            [0, """Orthodox Glossary"""],
+            [1, """Pravoslavni Pojmovnik"""] ],
+        "app_sett_style_dict_kuran_icon_path_style": [
+            [0, """THE QUR'AN (Translation of the Qur'an by Duraković)"""],
+            [1, """KUR'AN (Prevod Kurana Duraković)"""] ],
+        "app_sett_style_dict_arhitekt_icon_path_style": [
+            [0, """Dictionary of Architectural Design (Maldini)"""],
+            [1, """Rečnik Arhitektonskog Projektovanja (Maldini)"""] ],
+        "app_sett_style_dict_latin2_icon_path_style": [
+            [0, """Dictionary of the Latin Language"""],
+            [1, """Rečnik Latinskog Jezika"""] ],
+        "app_sett_style_dict_pirot_icon_path_style": [
+            [0, """Dictionary of Pirotski Speech"""],
+            [1, """Rečnik Pirotskog Govora"""] ],
+        "app_sett_style_dict_pravni_novinar_icon_path_style": [
+            [0, """Dictionary of Legal Terms for Journalists"""],
+            [1, """Rečnik Pravnih Termina Za Novinare"""] ],
+        "app_sett_style_dict_poslovice_icon_path_style": [
+            [0, """Dictionary of Serbian Proverbs and Anti-Proverbs"""],
+            [1, """Rečnik Srpskih Poslovica i Antiposlovica"""] ],
+        "app_sett_style_dict_turcizmi_icon_path_style": [
+            [0, """Dictionary of Turkishisms in the Serbian Language"""],
+            [1, """Rečnik Turcizama u Srpskom Jeziku"""] ],
+        "app_sett_style_dict_urbani_icon_path_style": [
+            [0, """Dictionary of Urban Everyday Life"""],
+            [1, """Rečnik Urbane Svakodnevnice"""] ],
+        "app_sett_style_dict_geografija_icon_path_style": [
+            [0, """School Geography Lexicon"""],
+            [1, """Školski Geografski Leksikon"""] ],
+        "app_sett_style_dict_biologija_icon_path_style": [
+            [0, """School Lexicon of Biology"""],
+            [1, """Školski Leksikon Biologije"""] ],
+        "app_sett_style_dict_slo_mit_encikl_icon_path_style": [
+            [0, """Slavic Mythology Encyclopedic Dictionary"""],
+            [1, """Slovenska Mitologija Enciklopedijski Rečnik"""] ],
+        "app_sett_style_dict_tehnicki_icon_path_style": [
+            [0, """Technical Dictionary"""],
+            [1, """Tehnički Rečnik"""] ],
+        "app_sett_style_dict_tolkin_icon_path_style": [
+            [0, """Tolkien's Dictionary"""],
+            [1, """Tolkinov Rečnik"""] ],
+        "app_sett_style_dict_istorijski_icon_path_style": [
+            [0, """Historical Lexicon"""],
+            [1, """Istorijski Leksikon"""] ],
+        "app_sett_style_dict_vlaski_icon_path_style": [
+            [0, """Wallachian Dictionary"""],
+            [1, """Vlaški Rečnik"""] ],
+        "app_sett_style_dict_zakon_krivicni_zakonik_icon_path_style": [
+            [0, """Criminal Law"""],
+            [1, """Krivični Zakonik"""] ],
+        "app_sett_style_dict_zakon_krivicni_postupak_icon_path_style": [
+            [0, """Code of Criminal Procedure"""],
+            [1, """Zakonik o Krivičnom Postupku"""] ],
+        "app_sett_style_dict_zakon_o_radu_icon_path_style": [
+            [0, """Labor law"""],
+            [1, """Zakon o Radu"""] ],
+        "app_sett_style_dict_dusan_icon_path_style": [
+            [0, """Dušan's Law Code"""],
+            [1, """Dušanov Zakonik"""] ],
+        "app_sett_style_dict_zakon_upravni_icon_path_style": [
+            [0, """Law on Administrative Procedure"""],
+            [1, """Zakon o Opštem Upravnom Postupku"""] ],
+        "app_sett_style_dict_zakon_razni_icon_path_style": [
+            [0, """Collection of Miscellaneous Laws"""],
+            [1, """Kolekcija Raznih Zakona"""] ],
+        "app_sett_style_dict_ustav_icon_path_style": [
+            [0, """Constitution of the Republic of Serbia"""],
+            [1, """Ustav Republike Srbije"""] ],
+        "app_sett_style_online_content_name": [
+            [0, """Dialog: Internet (OnLine) content"""],
+            [1, """Dijalog: Internet (OnLine) sadržaj"""] ],
+        "app_sett_style_dialog_title_text_stylesheet_style": [
+            [0, """Label: Title text"""],
+            [1, """Labela: Tekst naslova"""] ],
+        "app_sett_style_dialog_title_pic_stylesheet_style": [
+            [0, """Label: Image of the title"""],
+            [1, """Labela: Slika naslova"""] ],
+        "app_sett_style_online_content_lst_topics_stylesheet_name": [
+            [0, """List: List of topics"""],
+            [1, """Lista: Spisak tema"""] ],
+        "app_sett_style_online_content_btn_topics_show_stylesheet_name": [
+            [0, """Button: Show and hide themes"""],
+            [1, """Dugme: Prikaz i sakrivanje tema"""] ],
+        "app_sett_style_go_icon_path_style": [
+            [0, """Go on..."""],
+            [1, """Idi na..."""] ],
+        "app_sett_style_definition_txt_expr_part_of_other_def_stylesheet_style": [
+            [0, """The term is part of another definition"""],
+            [1, """Izraz je deo druge definicije"""] ],
+        "definition_txt_expr_part_of_other_def_stylesheet_desc": [
+            [0, """Appearance of the expression input field when the user has typed an expression that is part of another definition, for example, it is in the list of synonyms of another definition."""],
+            [1, """Izgled polja za unos izraza kada je korisnik ukucao izraz koji je deo neke druge definicije, npr nalazi se u spisku sinonima neke druge definicije."""] ],
+        "app_sett_style_left_roll_icon_path_style": [
+            [0, """Pointer to the left"""],
+            [1, """Pokazivač na levo"""] ],
+        "app_sett_style_right_roll_icon_path_style": [
+            [0, """Pointer to the right"""],
+            [1, """Pokazivač na desno"""] ],
+        "app_sett_style_close_icon_path_style": [
+            [0, """Close it"""],
+            [1, """Zatvori"""] ],
+        "app_sett_style_up_arrow_style": [
+            [0, """Up arrow"""],
+            [1, """Strelica na gore"""] ],
+        "app_sett_style_item_icon_path_style": [
+            [0, """Item"""],
+            [1, """Stavka"""] ],
+        "app_sett_style_checked_icon_path_style": [
+            [0, """Checked"""],
+            [1, """Štiklirano (Checked)"""] ],
+        "app_sett_style_not_checked_icon_path_style": [
+            [0, """Unchecked"""],
+            [1, """Nije štiklirano (Unchecked)"""] ],
+        "app_sett_style_def_extra_image_custom_source_folder_path_style": [
+            [0, """User folder with images
+Double click on the TextBox to select"""],
+            [1, """Korisnički folder sa slikama
+Dupli klik na TextBox za izbor"""] ],
+        "def_extra_image_custom_source_folder_path_desc": [
+            [0, """The path to the user's images folder"""],
+            [1, """Putanja do korisničkog foldera sa slikama"""] ],
+        "app_sett_style_def_extra_image_custom_source_add_subfolders_style": [
+            [0, """Add subfolders as well"""],
+            [1, """Dodaj i podfoldere"""] ],
+        "def_extra_image_custom_source_add_subfolders_desc": [
+            [0, """Add the subfolders that are in the user folder"""],
+            [1, """Dodaj i podfoldere koji se nalaze u korisničkom folderu"""] ],
+        "app_sett_style_wiki_name": [
+            [0, """Dialog: Wikipedia Search Engine"""],
+            [1, """Dijalog: Wikipedia Pretraživač"""] ],
+        "app_sett_style_wiki_frm_search_stylesheet_name": [
+            [0, """Frame: Search box"""],
+            [1, """Okvir: Okvir za pretragu"""] ],
+        "app_sett_style_wiki_lbl_search_icon_path_name": [
+            [0, """Search results section icon"""],
+            [1, """Ikona sekcije sa rezultatima pretrage"""] ],
+        "app_sett_style_wiki_lbl_content_icon_path_name": [
+            [0, """A section icon with a Wikipedia page"""],
+            [1, """Ikona sekcije sa Wikipedia stranicom"""] ],
+        "app_sett_style_wiki_txt_search_stylesheet_name": [
+            [0, """TextBox: Field for entering search terms"""],
+            [1, """TextBox: Polje za unos termina za pretragu"""] ],
+        "app_sett_style_wiki_btn_search_stylesheet_name": [
+            [0, """Button: Search Wikipedia"""],
+            [1, """Dugme: Pretraži Wikipediju"""] ],
+        "app_sett_style_wiki_btn_refresh_stylesheet_name": [
+            [0, """Button: Refresh page"""],
+            [1, """Dugme: Osveži stranicu"""] ],
+        "app_sett_style_wiki_logo_icon_path_style": [
+            [0, """Wikipedia logo"""],
+            [1, """Wikipedija logo"""] ],
+        "app_sett_style_definition_data_find_icon_path_style": [
+            [0, """Searches for definition data"""],
+            [1, """Traži podatke za definiciju"""] ],
+        "app_sett_style_update_definition_icon_path_style": [
+            [0, """Update definition"""],
+            [1, """Ažuriraj definiciju"""] ],
+        "app_sett_style_thumb_up_icon_path_style": [
+            [0, """Thumb up"""],
+            [1, """Palac gore"""] ],
+        "app_sett_style_thumb_down_icon_path_style": [
+            [0, """Thumbs down"""],
+            [1, """Palac dole"""] ],
+        "app_sett_style_cancel_icon_path_style": [
+            [0, """Cancel it"""],
+            [1, """Otkaži"""] ],
+        "app_sett_style_ok_icon_path_style": [
+            [0, """OK"""],
+            [1, """Ok"""] ],
+        "app_sett_style_download_icon_path_style": [
+            [0, """Download from the Internet"""],
+            [1, """Preuzmi sa interneta"""] ],
+        "app_sett_style_definition_add_btn_format_desc_name": [
+            [0, """Button: Format definition description"""],
+            [1, """Dugme: Formatiraj opis definicije"""] ],
+        "app_sett_style_completed_sound_file_path_style": [
+            [0, """Completed description formatting"""],
+            [1, """Završeno formatiranje opisa"""] ],
+        "app_sett_style_select_sound_file_path_style": [
+            [0, """Selected option"""],
+            [1, """Izabrana opcija"""] ],
+        "app_sett_style_archive_icon_path_style": [
+            [0, """Archive"""],
+            [1, """Arhiva"""] ],
+        "app_sett_style_edit_icon_path_style": [
+            [0, """Edit"""],
+            [1, """Uredi"""] ],
+        "app_sett_style_remove_icon_path_style": [
+            [0, """Remove"""],
+            [1, """Ukloni"""] ],
+        "app_sett_style_add_item_icon_path_style": [
+            [0, """Add item"""],
+            [1, """Dodaj stavku"""] ],
+        "app_sett_style_add_icon_path_style": [
+            [0, """Add"""],
+            [1, """Dodaj"""] ],
+        "app_sett_style_save_red_disk_icon_path_style": [
+            [0, """Save, red diskette"""],
+            [1, """Snimi, crvena disketa"""] ],
+        "app_sett_style_save_startup_icon_path_style": [
+            [0, """At the start"""],
+            [1, """Na startu"""] ],
+        "app_sett_style_sinfo_icon_path_style": [
+            [0, """Info"""],
+            [1, """Info"""] ],
+        "app_sett_style_window_icon_path_style": [
+            [0, """Window"""],
+            [1, """Prozor"""] ],
+        "app_sett_style_widget_icon_path_style": [
+            [0, """Widget"""],
+            [1, """Widget"""] ],
+        "app_sett_style_no_icon_icon_path_style": [
+            [0, """No icon"""],
+            [1, """Bez ikone"""] ],
+        "app_sett_style_custom_icon_icon_path_style": [
+            [0, """User defined"""],
+            [1, """Korisnički definisano"""] ],
+        "app_sett_style_color_icon_path_style": [
+            [0, """The color"""],
+            [1, """Boja"""] ],
+        "app_sett_style_no_sound_icon_path_style": [
+            [0, """Without sound"""],
+            [1, """Bez zvuka"""] ],
+        "app_sett_style_custom_sound_icon_path_style": [
+            [0, """User defined sound"""],
+            [1, """Korisnički definisan zvuk"""] ],
+        "app_sett_style_aapp_settings_lst_changes_stylesheet_name": [
+            [0, """List: Changed items"""],
+            [1, """Lista: Promenjene stavke"""] ],
+        "app_sett_style_resize_animation_name": [
+            [0, """Animation of expanding and collapsing items"""],
+            [1, """Animacija širenja i skupljanja stavki"""] ],
+        "app_sett_style_app_setting_animate_item_resize_style": [
+            [0, """Animate item resizing"""],
+            [1, """Animiraj promenu veličine stavke"""] ],
+        "app_setting_animate_item_resize_desc": [
+            [0, """Animate item resizing"""],
+            [1, """Animiraj promenu veličine stavke"""] ],
+        "app_sett_style_app_setting_item_animation_duration_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "app_setting_item_animation_duration_desc": [
+            [0, """Animation duration in milliseconds"""],
+            [1, """Trajanje animacije u milisekundama"""] ],
+        "app_sett_style_app_setting_item_animation_steps_style": [
+            [0, """Number of animation steps"""],
+            [1, """Broj koraka animacije"""] ],
+        "app_setting_item_animation_steps_desc": [
+            [0, """Number of animation steps, a higher number of steps means the animation will be smoother"""],
+            [1, """Broj koraka animacije, veći broj koraka znači da će animacija biti više glatka"""] ],
+        "app_setting_item_animation_steps_recomm": [
+            [0, """It is recommended that this number be around 10"""],
+            [1, """Preporučeno je da ovaj broj bude oko 10"""] ],
+        "app_sett_style_all_menus_name": [
+            [0, """Main window: Menu
+(All menu items)"""],
+            [1, """Glavni prozor: Meni
+(Sve stavke menija)"""] ],
+        "app_sett_style_menu_main_name": [
+            [0, """Main menu"""],
+            [1, """Glavni meni"""] ],
+        "app_sett_style_main_menu_stylesheet_style": [
+            [0, """Main menu apperance"""],
+            [1, """Izgled glavnog menija"""] ],
+        "app_sett_style_menu_enabled_style": [
+            [0, """Menu is enabled"""],
+            [1, """Meni je omogućen"""] ],
+        "app_sett_style_menu_visible_style": [
+            [0, """Menu is visible"""],
+            [1, """Meni je vidljiv"""] ],
+        "app_sett_style_menu_enabled_desc": [
+            [0, """If the menu is enabled the user will be able to click on it"""],
+            [1, """Ako je meni omogućen korisnik će moći da klikne na njega"""] ],
+        "app_sett_style_menu_visible_desc": [
+            [0, """If the menu is visible the user will be able to see the menu in the menu bar"""],
+            [1, """Ako je meni vidljiv korisnik će moći da vidi meni u traci sa menijima"""] ],
+        "app_sett_style_menu_item_name": [
+            [0, """Main menu items"""],
+            [1, """Stavke glavnog menija"""] ],
+        "app_sett_style_menu_tooltip_visible_style": [
+            [0, """The menu tooltip is visible"""],
+            [1, """Tooltip menija je vidljiv"""] ],
+        "app_sett_style_menu_tooltip_visible_desc": [
+            [0, """When the user places the mouse arrow above the menu, a tooltip will appear."""],
+            [1, """Kada korisnik postavi strelicu miša iznad menija pojaviće se tooltip."""] ],
+        "app_sett_style_menu_shortcut_visible_style": [
+            [0, """The shortcut is visible"""],
+            [1, """Prečica je vidljiva"""] ],
+        "app_sett_style_menu_icon_visible_style": [
+            [0, """The icon is visible"""],
+            [1, """Ikona je vidljiva"""] ],
+        "app_sett_style_menu_shortcut_visible_desc": [
+            [0, """The shortcut associated with the menu is printed next to the menu name"""],
+            [1, """Prečica pridružena meniju je ispisana pored naziva menija"""] ],
+        "app_sett_style_menu_icon_visible_desc": [
+            [0, """The icon associated with the menu is visible next to the menu name"""],
+            [1, """Ikona pridružena meniju je vidljiva pored naziva menija"""] ],
+        "app_sett_style_main_menu_general_name": [
+            [0, """Main menu: General settings"""],
+            [1, """Glavni meni: Generalna podešavanja"""] ],
+        "app_sett_style_menubar_general_name": [
+            [0, """Main menu bar"""],
+            [1, """Traka sa glavnim menijem"""] ],
+        "app_sett_style_menubar_enabled_style": [
+            [0, """A menu bar is available"""],
+            [1, """Traka sa menijima je dostupna"""] ],
+        "app_sett_style_menubar_visible_style": [
+            [0, """The menu bar is visible"""],
+            [1, """Traka sa menijima je vidljiva"""] ],
+        "app_sett_style_main_menu_name": [
+            [0, """Main menu"""],
+            [1, """Glavni meni"""] ],
+        "app_sett_style_main_menu_file_name": [
+            [0, """Main menu: File"""],
+            [1, """Glavni meni: Datoteka"""] ],
+        "app_sett_style_menu_icon_path_style": [
+            [0, """Menu icon"""],
+            [1, """Ikona menija"""] ],
+        "app_sett_style_main_menu_edit_name": [
+            [0, """Main menu: Edit"""],
+            [1, """Glavni meni: Uređivanje"""] ],
+        "mnu_file_app_settings_text": [
+            [0, """Application settings"""],
+            [1, """Podešavanje aplikacije"""] ],
+        "mnu_file_app_settings_tt": [
+            [0, """Adjusting the appearance and functionality of the application"""],
+            [1, """Podešavanje izgleda i funkcionalnosti aplikacije"""] ],
+        "mnu_file_app_settings_sb_text": [
+            [0, """Adjusting the appearance and functionality of the application"""],
+            [1, """Podešavanje izgleda i funkcionalnosti aplikacije"""] ],
+        "app_sett_style_main_menu_view_name": [
+            [0, """Main menu: View"""],
+            [1, """Glavni meni: Pregled"""] ],
+        "app_sett_style_main_menu_user_name": [
+            [0, """Main menu: User"""],
+            [1, """Glavni meni: Korisnik"""] ],
+        "app_sett_style_menu_items_name": [
+            [0, """Main menu items"""],
+            [1, """Stavke glavnog menija"""] ],
+        "app_sett_style_menu_file_app_settings_name": [
+            [0, """Menu: File -> Application Settings"""],
+            [1, """Meni: Datoteka -> Podešavanje aplikacije"""] ],
+        "app_sett_style_menu_shortcut_style": [
+            [0, """Select a shortcut"""],
+            [1, """Izaberite prečicu"""] ],
+        "app_sett_style_menu_file_mnu_open_name": [
+            [0, """Menu: File -> Open"""],
+            [1, """Meni: Datoteka -> Otvori"""] ],
+        "app_sett_style_menu_file_mnu_save_as_name": [
+            [0, """Menu: File -> Save As..."""],
+            [1, """Meni: Datoteka -> Snimi kao..."""] ],
+        "app_sett_style_menu_file_mnu_file_save_active_block_name": [
+            [0, """Menu: File -> Save Open Blocks"""],
+            [1, """Meni: Datoteka -> Snimi otvorene blokove"""] ],
+        "app_sett_style_menu_items_file_name": [
+            [0, """Menu: File"""],
+            [1, """Meni: Datoteka"""] ],
+        "app_sett_style_menu_items_edit_name": [
+            [0, """Menu: Edit"""],
+            [1, """Meni: Uređivanje"""] ],
+        "app_sett_style_menu_edit_mnu_add_block_name": [
+            [0, """Menu: Edit -> Add Block"""],
+            [1, """Meni: Uređivanje -> Dodaj blok"""] ],
+        "app_sett_style_menu_edit_mnu_expand_all_name": [
+            [0, """Menu: Edit -> Expand All Blocks"""],
+            [1, """Meni: Uređivanje -> Proširi sve blokove"""] ],
+        "app_sett_style_menu_edit_mnu_collapse_all_name": [
+            [0, """Menu: Edit -> Collapse all blocks"""],
+            [1, """Meni: Uređivanje -> Skupi sve blokove"""] ],
+        "app_sett_style_menu_edit_mnu_unfinished_show_name": [
+            [0, """Menu: Edit -> Show unfinished entries"""],
+            [1, """Meni: Uređivanje -> Pokaži nezavršene unose"""] ],
+        "app_sett_style_menu_edit_mnu_edit_tags_name": [
+            [0, """Menu: Edit -> Edit Tags"""],
+            [1, """Meni: Uređivanje -> Uredi oznake"""] ],
+        "app_sett_style_menu_edit_mnu_edit_definitions_name": [
+            [0, """Menu: Edit -> Edit Definitions"""],
+            [1, """Meni: Uređivanje -> Uredi definicije"""] ],
+        "app_sett_style_menu_items_view_name": [
+            [0, """Menu: View"""],
+            [1, """Meni: Pregled"""] ],
+        "app_sett_style_menu_view_mnu_diary_name": [
+            [0, """Menu: View -> Diary View"""],
+            [1, """Meni: Pregled -> Pregled Dnevnika"""] ],
+        "app_sett_style_menu_edit_mnu_translation_name": [
+            [0, """Menu: Edit -> Translation"""],
+            [1, """Meni: Uređivanje -> Prevod"""] ],
+        "app_sett_style_menu_view_mnu_view_blocks_name": [
+            [0, """Menu: View -> Blocks View"""],
+            [1, """Meni: Pregled -> Pregled Blokova"""] ],
+        "app_sett_style_menu_view_mnu_view_tags_name": [
+            [0, """Menu: View -> View Tags"""],
+            [1, """Meni: Pregled -> Pregled Oznaka"""] ],
+        "app_sett_style_menu_view_mnu_view_definitions_name": [
+            [0, """Menu: View -> Definition View"""],
+            [1, """Meni: Pregled -> Pregled Definicija"""] ],
+        "app_sett_style_menu_view_mnu_view_images_name": [
+            [0, """Menu: View -> Image View"""],
+            [1, """Meni: Pregled -> Pregled Slika"""] ],
+        "app_sett_style_menu_view_mnu_view_fun_fact_name": [
+            [0, """Menu: View -> Fun Facts"""],
+            [1, """Meni: Pregled -> Zanimljive Činjenice"""] ],
+        "app_sett_style_menu_view_mnu_view_clipboard_name": [
+            [0, """Menu: View -> Clipboard"""],
+            [1, """Meni: Pregled -> Clipboard"""] ],
+        "app_sett_style_menu_view_mnu_view_media_explorer_name": [
+            [0, """Menu: View -> Multimedia View"""],
+            [1, """Meni: Pregled -> Pregled Multimedije"""] ],
+        "app_sett_style_menu_view_mnu_view_dicts_name": [
+            [0, """Menu: View -> Dictionaries"""],
+            [1, """Meni: Pregled -> Rečnici"""] ],
+        "app_sett_style_menu_view_mnu_view_wiki_name": [
+            [0, """Menu: View -> Wikipedia"""],
+            [1, """Meni: Pregled -> Wikipedija"""] ],
+        "app_sett_style_menu_view_mnu_view_online_content_name": [
+            [0, """Menu: View -> Online Content"""],
+            [1, """Meni: Pregled -> OnLine Sadržaj"""] ],
+        "app_sett_style_menu_view_mnu_view_find_in_app_name": [
+            [0, """Menu: View -> Find in App"""],
+            [1, """Meni: Pregled -> Pronađi u aplikaciji"""] ],
+        "def_hint_manager_win_title_text": [
+            [0, """Definition Hint - Ignored expressions"""],
+            [1, """Predlog Definicija - Ignorisani izrazi"""] ],
+        "def_hint_manager_lbl_title_text": [
+            [0, """Ignored expressions"""],
+            [1, """Ignorisani izrazi"""] ],
+        "app_settings_btn_set_edit_text": [
+            [0, """Edit"""],
+            [1, """Uredi"""] ],
+        "app_sett_def_hint_edit_name": [
+            [0, """Edit the list of ignored expressions"""],
+            [1, """Uredi listu ignorisanih izraza"""] ],
+        "app_sett_def_hint_edit_desc": [
+            [0, """Click "EDIT" to add or delete some of the expressions currently in the list of ignored expressions"""],
+            [1, """Kliknite na "UREDI" da dodate ili obrišete neke od izraza koji se trnutno nalaze u listi ignorisanih izraza"""] ],
+        "def_hint_manager_cmb_sort_add_time": [
+            [0, """Sort by time added (Latest first)"""],
+            [1, """Sortiraj po vremenu dodavanja (Prvo najskorije)"""] ],
+        "def_hint_manager_cmb_sort_alpha": [
+            [0, """Sort alphabetically"""],
+            [1, """Sortiraj po abecedi"""] ],
+        "def_hint_manager_cmb_sort_len": [
+            [0, """Sort by term length (Longest first)"""],
+            [1, """Sortiraj po dužini izraza (Najduži prvo)"""] ],
+        "def_hint_count_label": [
+            [0, """Total #1 items"""],
+            [1, """Ukupno #1 stavki"""] ],
+        "def_hint_count_label_tt": [
+            [0, """Total items: #1
+
+Items that are in the definitions: #2
+Items that were repeated: #3
+Items with too few letters: #4"""],
+            [1, """Ukupno stavki: #1
+
+Stavke koje su u definicijama: #2
+Stavke koje su ponovljene: #3
+Stavke sa premalo slova: #4"""] ],
+        "app_sett_style_def_hint_manager_name": [
+            [0, """Dialog: Manager of ignored expressions
+(Suggested definitions)"""],
+            [1, """Dijalog: Menadžer ignorisanih izraza
+(Predlozi definicija)"""] ],
+        "app_sett_style_def_hint_manager_cmb_sort_stylesheet_name": [
+            [0, """ComboBox: Sorting expressions"""],
+            [1, """ComboBox: Sortiranje izraza"""] ],
+        "app_sett_style_def_hint_manager_txt_expressions_stylesheet_name": [
+            [0, """TextBox: Ignored expressions"""],
+            [1, """TextBox: Ignorisani izrazi"""] ],
+        "app_sett_style_def_hint_manager_lbl_count_stylesheet_name": [
+            [0, """Label: Expression counter"""],
+            [1, """Labela: Brojač izraza"""] ],
+        "app_sett_style_def_hint_manager_btn_save_stylesheet_name": [
+            [0, """Button: Save changes"""],
+            [1, """Dugme: Snimi promene"""] ],
+        "app_settings_btn_export_text": [
+            [0, """Export"""],
+            [1, """Izvezi"""] ],
+        "app_settings_btn_export_tt": [
+            [0, """Save all settings to a file"""],
+            [1, """Snimite sva podešavanja u datoteku"""] ],
+        "app_settings_btn_import_text": [
+            [0, """Import"""],
+            [1, """Uvezi"""] ],
+        "app_settings_btn_import_tt": [
+            [0, """Load settings from file"""],
+            [1, """Učitajte podešavanja iz datoteke"""] ],
+        "app_settings_lbl_import_title_text": [
+            [0, """Import Settings: Options"""],
+            [1, """Uvoz podešavanja: Opcije"""] ],
+        "app_settings_rbt_import_custom_text": [
+            [0, """Custom settings"""],
+            [1, """Određena podešavanja"""] ],
+        "app_settings_rbt_import_all_text": [
+            [0, """All settings"""],
+            [1, """Sva podešavanja"""] ],
+        "app_settings_grp_import_custom_text": [
+            [0, """Import"""],
+            [1, """Uvezi"""] ],
+        "app_settings_grp_import_all_text": [
+            [0, """Import"""],
+            [1, """Uvezi"""] ],
+        "app_settings_chk_import_all_style_text": [
+            [0, """All Stylesheet settings"""],
+            [1, """Sva Stylesheet podešavanja"""] ],
+        "app_settings_chk_import_button_style_text": [
+            [0, """Buttons Stylesheet + Font"""],
+            [1, """Stylesheet za dugmad + Font"""] ],
+        "app_settings_chk_import_icon_text": [
+            [0, """Icons"""],
+            [1, """Ikone"""] ],
+        "app_settings_chk_import_sound_text": [
+            [0, """Sounds"""],
+            [1, """Zvukovi"""] ],
+        "app_settings_lbl_import_all_desc_text": [
+            [0, """Import all available settings from the file"""],
+            [1, """Uvezi sva dostupna podešavanja iz datoteke"""] ],
+        "app_settings_btn_import_from_file_text": [
+            [0, """Import from file"""],
+            [1, """Uvezi iz datoteke"""] ],
+        "app_sett_style_app_settings_btn_export_name": [
+            [0, """Button: Export settings"""],
+            [1, """Dugme: Izvezi podešavanja"""] ],
+        "app_sett_style_app_settings_btn_import_name": [
+            [0, """Button: Import settings"""],
+            [1, """Dugme: Uvezi podešavanja"""] ],
+        "app_sett_style_app_settings_import_options_name": [
+            [0, """Import Settings: Options"""],
+            [1, """Uvoz podešavanja: Opcije"""] ],
+        "app_sett_style_app_settings_lbl_counter_stylesheet_name": [
+            [0, """Label: Settings counter"""],
+            [1, """Labela: Brojač podešavanja"""] ],
+        "app_sett_style_app_settings_frm_import_stylesheet_name": [
+            [0, """Frame: Import Settings: Options"""],
+            [1, """Okvir: Uvezi podešavanja: Opcije"""] ],
+        "app_sett_style_app_settings_lbl_import_close_stylesheet_name": [
+            [0, """Label: Close frame"""],
+            [1, """Labela: Zatvaranje okvira"""] ],
+        "app_sett_style_app_settings_rbt_import_radio_buttons_name": [
+            [0, """RadioButton: Appearance of Radio Buttons"""],
+            [1, """RadioButton: Izgled Radio dugmadi"""] ],
+        "app_sett_style_app_settings_grp_import_groupboxes_name": [
+            [0, """GroupBox: A box apperance for grouping options"""],
+            [1, """GroupBox: Izgled polja za grupisanje opcija"""] ],
+        "app_sett_style_app_settings_chk_import_checkboxes_name": [
+            [0, """CheckBox: Apperance of all checkboxes"""],
+            [1, """CheckBox: Izgled svih polja za štikliranje"""] ],
+        "app_sett_style_app_settings_lbl_import_desc_name": [
+            [0, """Label: All settings are selected"""],
+            [1, """Labela: Izabrana su sva podešavanja"""] ],
+        "app_sett_style_app_settings_btn_import_from_file_name": [
+            [0, """Button: Import from file"""],
+            [1, """Dugme: Uvezi iz datoteke"""] ],
+        "app_settings_export_dialog_title": [
+            [0, """Export settings"""],
+            [1, """Izvezi podešavanja"""] ],
+        "app_settings_notif_export_successfull_title": [
+            [0, """Data exported successfully"""],
+            [1, """Podaci uspešno izvezeni"""] ],
+        "app_settings_notif_export_successfull_text": [
+            [0, """Settings exported successfully.
+Settings file:
+#1"""],
+            [1, """Izvoz podataka je bio uspešan.
+Datoteka sa podešavanjima:
+#1"""] ],
+        "app_sett_style_app_settings_working_name": [
+            [0, """Frame: Import / Export in progress"""],
+            [1, """Okvir: Uvoz / Izvoz u toku"""] ],
+        "app_sett_style_app_settings_frm_working_stylesheet_name": [
+            [0, """Frame: A frame over the entire dialog"""],
+            [1, """Okvir: Okvir preko celog dijaloga"""] ],
+        "app_sett_style_app_settings_frm_working_info_stylesheet_name": [
+            [0, """Frame: A small box with information"""],
+            [1, """Okvir: Mali okvir sa informacijama"""] ],
+        "app_sett_style_app_settings_lbl_working_title_stylesheet_name": [
+            [0, """Label: Please wait"""],
+            [1, """Labela: Molim sačekajte"""] ],
+        "app_sett_style_app_settings_prg_working_stylesheet_name": [
+            [0, """ProgressBar: The progress of the operation"""],
+            [1, """ProgressBar: Progres izvršenja operacije"""] ],
+        "app_settings_btn_import_from_file_version_error_title": [
+            [0, """Import error"""],
+            [1, """Greška u uvozu"""] ],
+        "app_settings_btn_import_from_file_version_error_text": [
+            [0, """The settings file version (#1) is not compatible with your application version (#2) !"""],
+            [1, """Verzija datoteke sa podešavanjima (#1) nije kompatibilna sa vašom verzijom aplikacije (#2) !"""] ],
+        "app_settings_notif_import_error_title": [
+            [0, """Import error"""],
+            [1, """Greška u uvozu"""] ],
+        "app_settings_notif_import_error_text": [
+            [0, """File "#1"
+An error occurred while importing data.
+Check if this file contains settings for the "MyJournal" app"""],
+            [1, """Datoteka "#1"
+Dogodila se greška u uvozu podataka.
+Proverite da li ova datoteka sadrži podešavanja za aplikaciju "MyJournal" """] ],
+        "app_settings_msg_import_from_string_file_title": [
+            [0, """Not a MyJournal file"""],
+            [1, """Nije MyJournal datoteka"""] ],
+        "app_settings_msg_import_from_string_file_text": [
+            [0, """The file you selected is not a MyJournal settings file.
+However, this file contains a total of #1 StyleSheet settings that can be imported.
+Do you want to import these settings?"""],
+            [1, """Datoteka koju ste izabrali nije MyJournal datoteka sa podešavanjima.
+Međutim, ova datoteka sadrži ukupno #1 StyleSheet podešavanja koja mogu biti uvezena.
+Da li želite da uvezete ova podešavanja ?"""] ],
+        "app_settings_notif_import_successfull_text": [
+            [0, """The settings have been successfully imported."""],
+            [1, """Podešavanja su uspešno uvezena."""] ],
+        "app_settings_notif_import_successfull_title": [
+            [0, """Import settings"""],
+            [1, """Uvoz podešavanja"""] ],
+        "app_settings_notif_import_successfull_file_name": [
+            [0, """File: #1"""],
+            [1, """Datoteka: #1"""] ],
+        "app_settings_notif_import_successfull_version": [
+            [0, """Version: #1"""],
+            [1, """Verzija: #1"""] ],
+        "app_settings_notif_import_successfull_time": [
+            [0, """Created on #1 at #2"""],
+            [1, """Kreirana: #1 u #2"""] ],
+        "app_settings_notif_import_successfull_author": [
+            [0, """Author: #1"""],
+            [1, """Autor: #1"""] ],
+        "app_settings_notif_import_successfull_language": [
+            [0, """Language: #1"""],
+            [1, """Jezik: #1"""] ],
+        "app_settings_notif_import_merge_error_text": [
+            [0, """File "#1"
+An error occurred while importing data.
+Settings from a file cannot be merged with application settings."""],
+            [1, """Datoteka "#1"
+Dogodila se greška u uvozu podataka.
+Podešavanja iz datoteke ne mogu biti spojena sa podešavanjima aplikacije."""] ],
+        "app_settings_notif_import_successfull_items_count": [
+            [0, """Total items imported: #1"""],
+            [1, """Ukupno uvezeno stavki: #1"""] ],
+        "app_settings_lbl_counter": [
+            [0, """Total #1 settings, #2 active"""],
+            [1, """Ukupno #1 podešavanja, #2 aktivno"""] ],
+        "app_settings_save_error_msg_save_title": [
+            [0, """Save error"""],
+            [1, """Greška u snimanju"""] ],
+        "app_settings_save_error_msg_save_text": [
+            [0, """An error occurred while saving data.
+Data cannot be recorded!"""],
+            [1, """Dogodila se greška prilikom snimanja podataka.
+Podaci ne mogu biti snimljeni !"""] ],
+        "app_settings_save_notiffication_please_restart_app_text": [
+            [0, """Please restart the application so that the new settings are updated!"""],
+            [1, """Molim Vas da restartujete aplikaciju kako bi nova podešavanja bila ažurirana !"""] ],
+        "app_settings_chk_import_font_text": [
+            [0, """All fonts"""],
+            [1, """Svi fontovi"""] ],
+        "app_sett_style_dict_frame_btn_lock_stylesheet_name": [
+            [0, """Button: Lock frame resizing"""],
+            [1, """Dugme: Zaključaj promenu veličine okvira"""] ],
+        "app_settings_color_context_menu_copy_text": [
+            [0, """Copy the color"""],
+            [1, """Kopiraj boju"""] ],
+        "app_settings_color_context_menu_paste_text": [
+            [0, """Paste the color"""],
+            [1, """Nalepi boju"""] ],
+        "app_settings_color_context_menu_remove_text": [
+            [0, """Remove the color"""],
+            [1, """Ukloni boju"""] ],
+        "app_settings_info_label_context_menu_key_names_text": [
+            [0, """Copy the settings keys"""],
+            [1, """Kopiraj ključeve podešavanja"""] ],
+        "app_settings_info_label_context_menu_key_names_tt": [
+            [0, """Copies to the clipboard all the keys that will be changed by this setting."""],
+            [1, """Kopira u clipboard sve ključeve koji će biti promenjeni ovim podešavanjem."""] ],
+        "app_settings_info_label_context_menu_key_values_tt": [
+            [0, """Copies to the clipboard all the values ​​that will be changed by this setting."""],
+            [1, """Kopira u clipboard sve vrednosti koje će biti promenjene ovim podešavanjem."""] ],
+        "app_settings_info_label_context_menu_key_values_text": [
+            [0, """Copy the setting values"""],
+            [1, """Kopiraj vrednosti podešavanja"""] ],
+        "app_sett_style_block_data_block_name": [
+            [0, """Block: Data Frame - Frame with body and buttons
+(Contains frames: Header, Body and Footer)"""],
+            [1, """Blok: Data Frame - Okvir sa telom i dugmadima
+(Sadrži okvire: Header, Body i Footer)"""] ],
+        "browse_def_menu_rename_def_notification_name_exist_text": [
+            [0, """Error renaming the definition!
+The name cannot be changed because the new name is already in the list of definitions or synonyms."""],
+            [1, """Greška u promeni imena definicije !
+Ime ne može biti promenjeno zato što se novo ime već nalazi u spisku definicija ili sinonima."""] ],
+        "app_sett_style_block_input_box_name_one_line_stylesheet_style": [
+            [0, """TextBox: Single line - Normal appearance"""],
+            [1, """TextBox: Jedna linija - Normalan izgled"""] ],
+        "app_sett_style_block_input_box_name_stylesheet_style": [
+            [0, """TextBox: Multiple Lines - Normal Appearance"""],
+            [1, """TextBox: Više linija - Normalan izgled"""] ],
+        "app_sett_style_input_box_txt_box_invalid_entry_one_line_stylesheet_style": [
+            [0, """TextBox: Single line - Illegal input"""],
+            [1, """TextBox: Jedna linija - Nelegalan unos"""] ],
+        "app_sett_style_input_box_txt_box_invalid_entry_stylesheet_style": [
+            [0, """TextBox: Multiple lines - Illegal input"""],
+            [1, """TextBox: Više linija - Nelegalan unos"""] ],
+        "def_finder_lbl_txt_alphabet_conversion_tt": [
+            [0, """Translates Cyrillic into Latin and vice versa.
+If you want to strictly translate the text into Latin, click on this button with the right mouse button."""],
+            [1, """Prevodi ćirilično pismo u latinicu i obrnuto.
+Ukoliko želite da striktno prevedete tekst u latinicu kliknite desnim dugmetom miša na ovo dugme."""] ],
+        "app_setting_changed_settings_item_lbl_key_label_text": [
+            [0, """Key:"""],
+            [1, """Ključ:"""] ],
+        "app_setting_changed_settings_item_lbl_old_label_text": [
+            [0, """Old value:"""],
+            [1, """Stara vrednost:"""] ],
+        "app_setting_changed_settings_item_lbl_new_label_text": [
+            [0, """New value:"""],
+            [1, """Nova vrednost:"""] ],
+        "app_settings_save_error_msg_text": [
+            [0, """Total #1 settings could not be recorded.
+Reason: Value error!"""],
+            [1, """Ukupno #1 podešavanja nisu mogla biti snimljena.
+Razlog: Greška u vrednostima !"""] ],
+        "warning_text": [
+            [0, """Warning"""],
+            [1, """Upozorenje"""] ],
+        "app_sett_style_msg_box_icon_stylesheet_name": [
+            [0, """Message box icon"""],
+            [1, """Ikona okvira sa porukom"""] ],
+        "find_in_app_menu_show_item_search_history_text": [
+            [0, """Show search result for this item"""],
+            [1, """Prikaži rezultat pretrage za ovu stavku"""] ],
+        "find_in_app_menu_show_item_search_history_tt": [
+            [0, """It shows the text that was searched for and where the search string was found."""],
+            [1, """Prikazuje tekst koji je pretraživan i mesto gde je traženi string pronađen."""] ],
+        "find_in_app_menu_show_all_search_history_text": [
+            [0, """Show search result for all items"""],
+            [1, """Prikaži rezultat pretrage za sve stavke"""] ],
+        "find_in_app_menu_show_all_search_history_tt": [
+            [0, """It shows the text that was searched for and where the search string was found."""],
+            [1, """Prikazuje tekst koji je pretraživan i mesto gde je traženi string pronađen."""] ],
+        "filter_results_win_title_text": [
+            [0, """Search results"""],
+            [1, """Rezultati pretrage"""] ],
+        "filter_results_lbl_item_text": [
+            [0, """Select a search result:"""],
+            [1, """Izaberite rezultat pretrage:"""] ],
+        "filter_results_lbl_filter_text_text": [
+            [0, """Search criteria (Filter text)"""],
+            [1, """Kriterijum pretrage (Filter tekst)"""] ],
+        "filter_results_lbl_doc_text_text": [
+            [0, """Document text (searchable text)"""],
+            [1, """Tekst dokumenta (tekst u kome se pretražuje)"""] ],
+        "filter_results_btn_show_setup_text": [
+            [0, """Show filter setup"""],
+            [1, """Prikaži postavke filtera"""] ],
+        "filter_results_lbl_setup_title_text": [
+            [0, """Filter setup:"""],
+            [1, """Postavke filtera:"""] ],
+        "filter_results_lbl_setup_matchcase_text": [
+            [0, """Match case: #1"""],
+            [1, """Velika i mala slova: #1"""] ],
+        "filter_results_lbl_setup_matchcase_tt": [
+            [0, """The search will be case-sensitive"""],
+            [1, """Prilikom pretrage će se obratiti pažnja na velika i mala slova"""] ],
+        "filter_results_lbl_setup_whole_words_text": [
+            [0, """Whole words only: #1"""],
+            [1, """Samo cele reči: #1"""] ],
+        "filter_results_lbl_setup_whole_words_tt": [
+            [0, """The search term will be searched only as a whole word and not as part of a word"""],
+            [1, """Traženi izraz će se tražiti samo kao cela reč a ne kao deo neke reči"""] ],
+        "filter_results_lbl_setup_parenthesis_text": [
+            [0, """Definition of parenthesis: #1"""],
+            [1, """Definicija zagrada: #1"""] ],
+        "filter_results_lbl_setup_parenthesis_tt": [
+            [0, """Defines the characters that mark the beginning and end of parentheses.
+E.g:
+"()" indicates that brackets start with "(" and end with ")"
+"<<>>" indicates that brackets start with "<<" and end with ">>" """],
+            [1, """Definiše karaktere koji označavaju početak i kraj zagrada.
+Na primer:
+"()" označava da zagrade počinju sa "(" i završavaju sa ")"
+"<<>>" označava da zagrade počinju sa "<<" i završavaju sa ">>" """] ],
+        "filter_results_lbl_setup_and_operator_text": [
+            [0, """AND operator: #1"""],
+            [1, """AND operator: #1"""] ],
+        "filter_results_lbl_setup_and_operator_tt": [
+            [0, """Definition of logical operator AND.
+All the above expressions will be used as logical operator AND"""],
+            [1, """Definicija logičkog operatora AND (i).
+Svi navedeni izrazi će se koristiti kao logički operator AND"""] ],
+        "filter_results_lbl_setup_or_operator_text": [
+            [0, """OR operator: #1"""],
+            [1, """OR operator: #1"""] ],
+        "filter_results_lbl_setup_or_operator_tt": [
+            [0, """Definition of logical operator OR.
+All the above expressions will be used as logical operator OR"""],
+            [1, """Definicija logičkog operatora OR (ili).
+Svi navedeni izrazi će se koristiti kao logički operator OR"""] ],
+        "filter_results_lbl_setup_not_operator_text": [
+            [0, """NOT operator: #1"""],
+            [1, """NOT operator: #1"""] ],
+        "filter_results_lbl_setup_not_operator_tt": [
+            [0, """Definition of logical operator NOT.
+All the above expressions will be used as logical operator NOT"""],
+            [1, """Definicija logičkog operatora NOT (ne).
+Svi navedeni izrazi će se koristiti kao logički operator NOT"""] ],
+        "filter_results_lbl_setup_space_as_and_text": [
+            [0, """Space as AND operator: #1"""],
+            [1, """Razmak (SPACE) kao AND operator: #1"""] ],
+        "filter_results_lbl_setup_space_as_and_tt": [
+            [0, """It uses a space (SPACE) as an AND operator.
+Any spaces in the filter text will be treated as an AND operator.
+E.g:
+FILTER TEXT: "wolf sheep shepherd" is the same as "wolf and sheep and shepherd" """],
+            [1, """Koristi razmak (SPACE) kao AND operator.
+Svi razmaci u filter tekstu će se smatrati AND operatorom.
+Na primer:
+FILTER TEKST: "vuk ovca pastir" je isto što i "vuk and ovca and pastir" """] ],
+        "filter_results_grp_setup_operators_title": [
+            [0, """Operators"""],
+            [1, """Operatori"""] ],
+        "filter_results_lbl_setup_exact_string_text": [
+            [0, """Exact string: #1"""],
+            [1, """Tačan string: #1"""] ],
+        "filter_results_lbl_setup_exact_string_tt": [
+            [0, """Defines the characters that mark the beginning and end of an exact string definition.
+An exact string is an expression that will be searched for as written, without truncating spaces at the beginning and end of the string and without replacing spaces with the AND operator.
+The characters that mark the beginning and end of an exact string are usually double quotes."""],
+            [1, """Definiše karaktere koji označavaju početak i kraj definicije tačnog stringa.
+Tačan string je izraz koji će se tražiti onako kako je napisan, bez skraćivanja razmaka na početku i kraju stringa i bez zamene razmaka sa AND operatorom.
+Karakteri koji označavaju početak i kraj tačnog stringa su najčešće dvostruki navodnici."""] ],
+        "filter_results_item_tooltip_not_found": [
+            [0, """The expression "#1" was not found in the document"""],
+            [1, """Izraz "#1" nije pronađen u dokumentu"""] ],
+        "filter_results_item_tooltip_invalid_whole_word": [
+            [0, """The phrase "#1" found in the document does not satisfy the "Whole words only" criterion."""],
+            [1, """Izraz "#1" pronađen u dokumentu, ne zadovoljava kriterijum "Samo cele reči"."""] ],
+        "filter_results_item_tooltip_invalid_matchcase": [
+            [0, """The term "#1" found in the document does not meet the "Match case" criteria."""],
+            [1, """Izraz "#1" pronađen u dokumentu, ne zadovoljava kriterijum "Velika i mala slova"."""] ],
+        "filter_results_item_tooltip_invalid_all": [
+            [0, """The expression "#1" found in the document does not meet the criteria "Match case" and "Whole words only"."""],
+            [1, """Izraz "#1" pronađen u dokumentu, ne zadovoljava kriterijume "Velika i mala slova" i "Samo cele reči"."""] ],
+        "filter_results_item_tooltip_valid": [
+            [0, """The marked term "#2" was found in the document based on the filter:
+"#1" """],
+            [1, """Markirani izraz "#2" je pronađen u dokumentu na osnovu filtera:
+"#1" """] ],
+        "app_sett_style_filter_results_name": [
+            [0, """Dialog: Search Results"""],
+            [1, """Dijalog: Rezultati Pretrage"""] ],
+        "app_sett_style_filter_results_labels_stylesheet_name": [
+            [0, """Label: Labels in the dialog (labels for fields)"""],
+            [1, """Labela: Labele u dijalogu (oznake za polja)"""] ],
+        "app_sett_style_filter_results_cmb_item_stylesheet_name": [
+            [0, """ComboBox: Selection of results to be viewed"""],
+            [1, """ComboBox: Izbor rezultata koji se pregleda"""] ],
+        "app_sett_style_filter_results_lbl_filter_text_val_stylesheet_name": [
+            [0, """Label: The filter that was used"""],
+            [1, """Labela: Filter koji je korišten"""] ],
+        "app_sett_style_filter_results_txt_doc_text_stylesheet_name": [
+            [0, """TextBox: The text in which the filter is used"""],
+            [1, """TextBox: Tekst u kome je filter korišten"""] ],
+        "app_sett_style_filter_results_btn_show_setup_stylesheet_name": [
+            [0, """Button: Show filter setup"""],
+            [1, """Dugme: Prikaži podešavanja filtera"""] ],
+        "app_sett_style_filter_results_setup_frame_name": [
+            [0, """Filter setup box"""],
+            [1, """Okvir sa podešavanjima filtera"""] ],
+        "app_sett_style_filter_results_frm_setup_stylesheet_name": [
+            [0, """Frame apperance"""],
+            [1, """Izgled okvira"""] ],
+        "app_sett_style_filter_results_grp_setup_operators_stylesheet_name": [
+            [0, """GroupBox: Apperance of a group of operator information"""],
+            [1, """GroupBox: Izgled grupe informacija o operatorima"""] ],
+        "app_sett_style_filter_results_lbl_setup_title_stylesheet_name": [
+            [0, """Label: Frame title"""],
+            [1, """Labela: Naslov okvira"""] ],
+        "app_sett_style_filter_results_property_labels_stylesheet_name": [
+            [0, """Label: Labels with filter properties"""],
+            [1, """Labela: Labele sa svostvima filtera"""] ],
+        "app_sett_style_filter_results_lbl_setup_close_stylesheet_name": [
+            [0, """Label: Label-button to close the frame"""],
+            [1, """Labela: Labela-dugme za zatvaranje okvira"""] ],
+        "app_sett_style_filter_results_valid_apperance_name": [
+            [0, """A text that meets all the criteria"""],
+            [1, """Tekst koji zadovoljava sve kriterijume"""] ],
+        "app_sett_style_filter_results_colors_in_textbox_name": [
+            [0, """Colors in search results"""],
+            [1, """Boje u rezultatima pretrage"""] ],
+        "app_sett_style_filter_bg_color_style": [
+            [0, """Background color"""],
+            [1, """Boja pozadine"""] ],
+        "app_sett_style_filter_results_bg_color_desc": [
+            [0, """The background color of the text in the search result"""],
+            [1, """Boja pozadine teksta u rezultatu pretrage"""] ],
+        "app_sett_style_filter_fg_color_style": [
+            [0, """Text color"""],
+            [1, """Boja teksta"""] ],
+        "app_sett_style_filter_results_fg_color_desc": [
+            [0, """The color of the text in the search result"""],
+            [1, """Boja teksta u rezultatu pretrage"""] ],
+        "app_sett_style_filter_font_bold_style": [
+            [0, """The text is in bold font."""],
+            [1, """Tekst je zadebljanog fonta (Bold)"""] ],
+        "app_sett_style_filter_font_bold_desc": [
+            [0, """The text in the search result will be bold"""],
+            [1, """Tekst u rezultatu pretrage će biti zadebljan"""] ],
+        "app_sett_style_filter_results_invalid_whole_word_apperance_name": [
+            [0, """Text that does not meet the "Whole words only" criterion"""],
+            [1, """Tekst koji ne zadovoljava kriterijum "Samo cele reči" """] ],
+        "app_sett_style_filter_results_invalid_matchcase_apperance_name": [
+            [0, """Text that does not meet the criteria "Match case" """],
+            [1, """Tekst koji ne zadovoljava kriterijum "Velika i mala slova" """] ],
+        "app_sett_style_filter_results_invalid_all_apperance_name": [
+            [0, """Text that does not meet either the "Match case" criterion, or the "Whole words only" criterion"""],
+            [1, """Tekst koji ne zadovoljava ni kriterijum "Velika i mala slova", ni kriterijum "Samo cele reči" """] ],
+        "app_sett_style_find_in_app_txt_find_illegal_entry_stylesheet_style": [
+            [0, """TextBox: Appearance of the field when the input is not valid"""],
+            [1, """TextBox: Izgled polja kada unos nije validan"""] ],
+        "app_sett_style_up_collapse_icon_path_style": [
+            [0, """Collapse the widget upwards"""],
+            [1, """Skupi widget prema gore"""] ],
+        "app_sett_style_find_icon_path_style": [
+            [0, """Find"""],
+            [1, """Pronađi"""] ],
+        "app_sett_style_matchcase_icon_path_style": [
+            [0, """Match case"""],
+            [1, """Velika i mala slova"""] ],
+        "app_sett_style_whole_words_icon_path_style": [
+            [0, """Whole words"""],
+            [1, """Cele reči"""] ],
+        "find_in_app_menu_set_matchcase_text": [
+            [0, """Match case"""],
+            [1, """Velika i mala slova"""] ],
+        "find_in_app_menu_set_whole_words_tt": [
+            [0, """When this option is turned on, the filter will search for the expression only as a whole word and not as part of a word"""],
+            [1, """Kada je ova opcija uključena, filter će tražiti izraz samo kao celu reč a ne kao deo neke reči"""] ],
+        "find_in_app_menu_set_whole_words_text": [
+            [0, """Only whole words"""],
+            [1, """Samo cele reči"""] ],
+        "find_in_app_menu_set_matchcase_tt": [
+            [0, """When this option is on, the filter will be case sensitive"""],
+            [1, """Kada je ova opcija uključena, filter će razlikovati velika i mala slova"""] ],
+        "find_in_app_menu_set_ignore_serbian_characters_text": [
+            [0, """Ignore Serbian characters (čćžšđ)"""],
+            [1, """Ignoriši srpske znakove (čćžšđ)"""] ],
+        "find_in_app_menu_set_ignore_serbian_characters_tt": [
+            [0, """When this option is turned on, the filter will replace all čćžšđ characters with the corresponding cczsdj characters.
+That way, whether you've used these characters in the filter or they're in the text you're looking for, the search term will be found."""],
+            [1, """Kada je ova opcija uključena, filter će zameniti sve znakove čćžšđ sa pripadajućim znakovima cczsdj.
+Na taj način, bilo da ste koritili ove znakove u filteri ili se oni nalaze u tekstu u kome se traži, traženi izraz će biti pronađen."""] ],
+        "filter_results_lbl_setup_serbian_chars_text": [
+            [0, """Ignore Serbian characters (čćžšđ): #1"""],
+            [1, """Ignoriši srpske znakove (čćžšđ): #1"""] ],
+        "filter_results_lbl_setup_serbian_chars_tt": [
+            [0, """When this option is turned on, the filter will replace all čćžšđ characters with the corresponding cczsdj characters.
+That way, whether you've used these characters in the filter or they're in the text you're looking for, the search term will be found."""],
+            [1, """Kada je ova opcija uključena, filter će zameniti sve znakove čćžšđ sa pripadajućim znakovima cczsdj.
+Na taj način, bilo da ste koritili ove znakove u filteri ili se oni nalaze u tekstu u kome se traži, traženi izraz će biti pronađen."""] ],
+        "filter_results_lbl_setup_cyr_to_latin_text": [
+            [0, """Translate Cyrillic to Latin: #1"""],
+            [1, """Prevedi ćirilicu u latinicu: #1"""] ],
+        "filter_results_lbl_setup_cyr_to_latin_tt": [
+            [0, """When this option is turned on, the Cyrillic alphabet will be automatically translated into Latin.
+This means that the search term or the text in which the search term is searched can be in any alphabet."""],
+            [1, """Kada je ova opcija uključena, ćirilično pismo će automatski biti prevedeno u latinično.
+To znači da traženi izraz ili tekst u kome se traži izraz može biti u bilo kom pismu."""] ],
+        "find_in_app_menu_set_translate_cyrillic_to_latin_text": [
+            [0, """Translate Cyrillic to Latin"""],
+            [1, """Prevedi ćirilicu u latinicu"""] ],
+        "find_in_app_menu_set_translate_cyrillic_to_latin_tt": [
+            [0, """When this option is turned on, the Cyrillic alphabet will be automatically translated into Latin.
+This means that the search term or the text in which the search term is searched can be in any alphabet."""],
+            [1, """Kada je ova opcija uključena, ćirilično pismo će automatski biti prevedeno u latinično.
+To znači da traženi izraz ili tekst u kome se traži izraz može biti u bilo kom pismu."""] ],
+        "app_settings_item_cm_copy_key_text": [
+            [0, """Copy the name of the key to the clipboard"""],
+            [1, """Kopiraj naziv ključa u clipboard"""] ],
+        "app_settings_item_cm_copy_key_tt": [
+            [0, """Key Name:
+#1"""],
+            [1, """Naziv ključa:
+#1"""] ],
+        "app_settings_item_cm_copy_old_value_text": [
+            [0, """Copy the old value to the clipboard"""],
+            [1, """Kopiraj staru vrednost u clipboard"""] ],
+        "app_settings_item_cm_copy_new_value_text": [
+            [0, """Copy the new value to the clipboard"""],
+            [1, """Kopiraj novu vrednost u clipboard"""] ],
+        "app_settings_item_cm_copy_old_value_tt": [
+            [0, """Old value:
+#1"""],
+            [1, """Stara vrednost:
+#1"""] ],
+        "app_settings_item_cm_copy_new_value_tt": [
+            [0, """New value:
+#1"""],
+            [1, """Nova vrednost:
+#1"""] ],
+        "app_sett_style_key_icon_path_style": [
+            [0, """Key"""],
+            [1, """Ključ"""] ],
+        "app_sett_style_value_icon_path_style": [
+            [0, """Value"""],
+            [1, """Vrednost"""] ],
+        "app_sett_style_wiki_logo_color_icon_path_style": [
+            [0, """Wikipedia logo - color"""],
+            [1, """Wikipedija logo - color"""] ],
+        "translation_chk_auto_paste_and_copy_text": [
+            [0, """Auto Paste and Copy"""],
+            [1, """Automatski Nalepi i Kopiraj"""] ],
+        "translation_chk_auto_paste_and_copy_tt": [
+            [0, """When you start this dialog, the text from the clipboard will be automatically pasted, translated and the translation copied to the clipboard."""],
+            [1, """Kada pokrenete ovaj dijalog tekst iz clipboarda će automatski biti nalepljen, preveden i prevod kopiran u clipboard."""] ],
+        "app_sett_style_translate_translate_chk_auto_paste_and_copy_stylesheet_stylesheet_name": [
+            [0, """CheckBox: Automatic Copy and Paste"""],
+            [1, """CheckBox: Automatski Kopiraj i Nalepi"""] ],
+        "translate_chk_auto_paste_and_copy_stylesheet_desc": [
+            [0, """When the "Translation" dialog is launched, the text from the clipboard will be automatically pasted, translated and the translation copied to the clipboard."""],
+            [1, """Kada se "Prevod" dijalog pokrene, tekst iz clipboarda će automatski biti nalepljen, preveden i prevod kopiran u clipboard."""] ],
+        "block_autosave_timeout_desc": [
+            [0, """The time in seconds that must elapse from the user's last activity until the block will be automatically recorded"""],
+            [1, """Vreme u sekundama koje mora da protekne od poslednje aktivnosti korisnika do trenutka kada će blok biti automatski snimljen"""] ],
+        "def_editor_btn_switch_words_order_text": [
+            [0, """Swap word order"""],
+            [1, """Zameni redosled reči"""] ],
+        "def_editor_btn_switch_words_order_tt": [
+            [0, """If an item has more than one word then the order of the words will be swapped"""],
+            [1, """Ako stavka ima ima više od jedne reči onda će redosled reči biti zamenjen"""] ],
+        "app_sett_style_def_editor_btn_switch_words_order_stylesheet_name": [
+            [0, """Button: Swap word order"""],
+            [1, """Dugme: Zameni redosled reči"""] ],
+        "app_sett_style_block_definition_mode_titlebar_msg_name": [
+            [0, """Message when the mouse hovers over the defined word"""],
+            [1, """Poruka kada miš prelazi preko definisane reči"""] ],
+        "app_sett_style_block_definition_titlebar_msg_enabled_style": [
+            [0, """Enable message display"""],
+            [1, """Omogući prikazivanje poruke"""] ],
+        "block_definition_titlebar_msg_duration_desc": [
+            [0, """Message duration in milliseconds"""],
+            [1, """Trajanje poruke u milisekundama"""] ],
+        "block_titlebar_msg_calc_enable_text": [
+            [0, """Message: Calculator"""],
+            [1, """Poruka: Kalkular"""] ],
+        "block_titlebar_msg_calc_enable_tt": [
+            [0, """Determines whether a message will be displayed when the calculator is turned on"""],
+            [1, """Određuje da li će biti prikazana poruka kada je kalkulator uključen"""] ],
+        "block_titlebar_msg_definition_enable_text": [
+            [0, """Message: Definition Name"""],
+            [1, """Poruka: Naziv Definicije"""] ],
+        "block_titlebar_msg_definition_enable_tt": [
+            [0, """Determines whether a message will be displayed when the mouse is over the definition"""],
+            [1, """Određuje da li će biti prikazana poruka kada se miš nalazi iznad definicije"""] ],
+        "app_settings_combobox_item_no_animation_text": [
+            [0, """No animation"""],
+            [1, """Bez animacije"""] ],
+        "app_settings_combobox_item_animation_custom_text": [
+            [0, """Choose an animated GIF"""],
+            [1, """Izaberite animirani GIF"""] ],
+        "file_filter_images_ext_desc": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "file_filter_animation_ext_desc": [
+            [0, """Animations"""],
+            [1, """Animacije"""] ],
+        "file_filter_all_ext_desc": [
+            [0, """All files"""],
+            [1, """Sve datoteke"""] ],
+        "file_filter_video_ext_desc": [
+            [0, """Video"""],
+            [1, """Video"""] ],
+        "app_settings_err_animation_load_text": [
+            [0, """The animation you selected could not be loaded!
+Allowed files are: (*.gif *.webp *.mng)"""],
+            [1, """Animacija koju ste izabrali ne može biti učitana !
+Dozvoljene datoteke su: (*.gif *.webp *.mng)"""] ],
+        "app_sett_style_wikipedia_central_label_animation_path_name": [
+            [0, """Label: Central label with animated GIF"""],
+            [1, """Labela: Centralna labela sa animiranim GIF-om"""] ],
+        "app_sett_style_wikipedia_central_label_animation_path_style": [
+            [0, """Animated GIF"""],
+            [1, """Animirani GIF"""] ],
+        "app_sett_animation_path_desc": [
+            [0, """A file containing the animation (usually a GIF) that will be broadcast in the label"""],
+            [1, """Datoteka koja sadrži animaciju (obično GIF) koja će se emitovati u labeli"""] ],
+        "app_sett_style_definition_add_def_finder_name": [
+            [0, """Dialog: Find data online"""],
+            [1, """Dijalog: Pronađi podatke online"""] ],
+        "app_sett_style_definition_add_def_finder_prefix_and_suffix_name": [
+            [0, """Prefix and suffix of the search term"""],
+            [1, """Prefiks i sufiks traženog izraza"""] ],
+        "app_sett_style_definition_add_def_finder_prefix_style": [
+            [0, """The prefix of the search term"""],
+            [1, """Prefiks traženog izraza"""] ],
+        "app_sett_style_definition_add_def_finder_suffix_style": [
+            [0, """Suffix of the search term"""],
+            [1, """Sufiks traženog izraza"""] ],
+        "definition_data_find_search_prefix_desc": [
+            [0, """A string to be appended to the beginning, before the search expression"""],
+            [1, """String koji će se dodati na početak, pre traženog izraza"""] ],
+        "definition_data_find_search_suffix_desc": [
+            [0, """A string to be appended to the end, after the required expression"""],
+            [1, """String koji će se dodati na kraj, posle traženog izraza"""] ],
+        "app_sett_style_definition_finder_logo_animation_path_name": [
+            [0, """Label: Animation in the title"""],
+            [1, """Labela: Animacija u naslovu"""] ],
+        "app_sett_style_definition_finder_logo_animation_path_style": [
+            [0, """Animation in the title"""],
+            [1, """Animacija u naslovu"""] ],
+        "app_sett_style_label_widget_name": [
+            [0, """Label"""],
+            [1, """Labela"""] ],
+        "app_sett_style_scroll_area_name": [
+            [0, """Scroll Area"""],
+            [1, """Scroll Area"""] ],
+        "app_sett_style_widget_enabled_style": [
+            [0, """The widget is enabled"""],
+            [1, """Widget je omogućen"""] ],
+        "app_sett_style_area_label_content_type_name": [
+            [0, """Label content"""],
+            [1, """Sadržaj labele"""] ],
+        "app_sett_style_area_label_content_type_style": [
+            [0, """Label content type"""],
+            [1, """Tip sadržaja labele"""] ],
+        "area_label_content_type_desc": [
+            [0, """Specifies whether the label contains text, an image, or an animation"""],
+            [1, """Određuje da li labela sadrži tekst, sliku ili animaciju"""] ],
+        "app_sett_style_area_label_widget_icon_path_style": [
+            [0, """Label: Image"""],
+            [1, """Labela: Slika"""] ],
+        "app_sett_style_area_label_widget_animation_path_style": [
+            [0, """Label: Animation"""],
+            [1, """Labela: Animacija"""] ],
+        "label_content_type_text": [
+            [0, """Contains text"""],
+            [1, """Sadrži tekst"""] ],
+        "label_content_type_image": [
+            [0, """Contains an image"""],
+            [1, """Sadrži sliku"""] ],
+        "label_content_type_animation": [
+            [0, """Contains animation"""],
+            [1, """Sadrži animaciju"""] ],
+        "app_sett_style_area_label_widget_stretch_contents_style": [
+            [0, """Stretch an image or animation"""],
+            [1, """Razvuci sliku ili animaciju"""] ],
+        "area_label_widget_stretch_contents_desc": [
+            [0, """Specifies whether the label content will be stretched across the entire label.
+Applies only to an image or animation"""],
+            [1, """Određuje da li će sadržaj labele biti razvučen preko cele labele.
+Odnosi se samo na sliku ili animaciju"""] ],
+        "app_sett_style_area_label_widget_contents_keep_ascpect_ratio_style": [
+            [0, """Keep ascpect ratio"""],
+            [1, """Zadrži proporcije sadržaja"""] ],
+        "area_label_widget_contents_keep_ascpect_ratio_desc": [
+            [0, """Determines whether the content of the label will retain its proportions.
+Applies only to an image or animation"""],
+            [1, """Određuje da li će sadržaj labele zadržati svoje proporcije.
+Odnosi se samo na sliku ili animaciju"""] ],
+        "app_sett_style_area_label_widget_min_height_style": [
+            [0, """Minimum widget height"""],
+            [1, """Minimalna visina widgeta"""] ],
+        "area_label_widget_min_height_recomm": [
+            [0, """It is recommended that this value be between 30 and 50 pixels"""],
+            [1, """Preporučeno je da ova vrednost bude između 30 i 50 piksela"""] ],
+        "area_label_widget_min_height_desc": [
+            [0, """Minimum widget height in pixels"""],
+            [1, """Minimalna visina widgeta u pikselima"""] ],
+        "app_sett_style_margins_style_desc": [
+            [0, """Setting the margin in pixels for the widget.
+Order: Left, Top, Right, Bottom
+This setting contains exactly four comma-separated integers."""],
+            [1, """Podešavanje margina u pikselima za widget.
+Redosled: Levo, Vrh, Desno, Dno
+Ovo podešavanje sadrži tačno četiri cela broja odvojena zarezom."""] ],
+        "app_sett_style_widget_margins_style": [
+            [0, """Widget margins"""],
+            [1, """Margine widgeta"""] ],
+        "app_sett_style_layout_margins_style": [
+            [0, """Widget layout margins"""],
+            [1, """Margine layout-a widgeta"""] ],
+        "app_sett_style_scroll_area_margins_name": [
+            [0, """ScrollArea margins"""],
+            [1, """ScrollArea margine"""] ],
+        "app_sett_style_scroll_area_widget_margins_style": [
+            [0, """ScrollArea widget margins"""],
+            [1, """ScrollArea margine widgeta"""] ],
+        "app_sett_style_scroll_area_widget_layout_margins_style": [
+            [0, """ScrollArea margins of the widget layout"""],
+            [1, """ScrollArea margine layout-a widgeta"""] ],
+        "app_sett_style_spacing_style": [
+            [0, """Spacing between elements"""],
+            [1, """Razmak između elemenata"""] ],
+        "app_sett_style_spacing_desc": [
+            [0, """The distance between elements in the layout expressed in pixels."""],
+            [1, """Razmak između elemenata u layout-u izražen u pikselima."""] ],
+        "app_sett_style_margins_name": [
+            [0, """Margins"""],
+            [1, """Margine"""] ],
+        "app_sett_style_block_body_block_image_area_name": [
+            [0, """Image and file bar below TextBox"""],
+            [1, """Traka sa slikama i datotekama ispod TextBox-a"""] ],
+        "app_sett_style_block_image_area_stylesheet_style": [
+            [0, """ScrollArea apperance"""],
+            [1, """Izgled ScrollArea-e"""] ],
+        "app_sett_style_block_image_area_contents_margins_style": [
+            [0, """The margins of the ScrollArea"""],
+            [1, """Margine ScrollArea-e"""] ],
+        "app_sett_style_block_image_area_widget_stylesheet_style": [
+            [0, """Apperance of the ScrollArea widget"""],
+            [1, """Izgled ScrollArea widgeta"""] ],
+        "app_sett_style_block_image_area_widget_contents_margins_style": [
+            [0, """ScrollArea widget margins"""],
+            [1, """Margine ScrollArea widgeta"""] ],
+        "app_sett_style_block_image_widget_layout_contents_margins_style": [
+            [0, """Margins of the ScrollArea widget layout"""],
+            [1, """Margine ScrollArea widget layout-a"""] ],
+        "app_sett_style_gwp_name": [
+            [0, """Global Widget Behaviors"""],
+            [1, """Globalna Ponašanja Widgeta"""] ],
+        "app_sett_style_gwp_buttons_name": [
+            [0, """Buttons"""],
+            [1, """Dugmad"""] ],
+        "app_sett_style_gwp_buttons_click_name": [
+            [0, """Event: Button click"""],
+            [1, """Događaj: Klik na dugme"""] ],
+        "app_sett_style_gwp_buttons_click_animation_name": [
+            [0, """Animation when the button is pressed"""],
+            [1, """Animacija kada je dugme pritisnuto"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_enabled_desc": [
+            [0, """An animation will appear on this event"""],
+            [1, """Na ovaj događaj pojaviće se animacija"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style": [
+            [0, """Show animation"""],
+            [1, """Prikaži animaciju"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_file_path_style": [
+            [0, """Select an animation"""],
+            [1, """Izaberite animaciju"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_file_path_desc": [
+            [0, """Select an animation"""],
+            [1, """Izaberite animaciju"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_duration_ms_style": [
+            [0, """Animation duration"""],
+            [1, """Trajanje animacije"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_duration_ms": [
+            [0, """Animation duration in milliseconds"""],
+            [1, """Trajanje animacije u milisekundama"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_width_style": [
+            [0, """Animation dimensions: Width"""],
+            [1, """Dimenzije animacije: Širina"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_width_desc": [
+            [0, """Animation dimensions: Width in pixels"""],
+            [1, """Dimenzije animacije: Širina u pikselima"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_height_style": [
+            [0, """Animation dimensions: Height"""],
+            [1, """Dimenzije animacije: Visina"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_height_desc": [
+            [0, """Animation dimensions: Height in pixels"""],
+            [1, """Dimenzije animacije: Visina u pikselima"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_show_animation_background_color_style": [
+            [0, """The background color of the animation"""],
+            [1, """Boja pozadine animacije"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_background_color_desc": [
+            [0, """Animation background color if the animated GIF has a transparent background.
+If you don't want a background, type "transparent" """],
+            [1, """Boja pozadine animacije ukoliko animirani GIF ima transparentnu pozadinu.
+Ukoliko ne želite pozadinu, upišite "transparent" """] ],
+        "app_sett_style_gwp_buttons_click_sound_name": [
+            [0, """Sound when the button is pressed"""],
+            [1, """Zvuk kada je dugme pritisnuto"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_play_sound_enabled_style": [
+            [0, """Enable sound"""],
+            [1, """Omogući zvuk"""] ],
+        "gwp_qpushbutton_tap_event_play_sound_enabled_desc": [
+            [0, """Enable sound on this event"""],
+            [1, """Omogući zvuk na ovaj događaj"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style": [
+            [0, """Select a sound"""],
+            [1, """Izaberite zvuk"""] ],
+        "gwp_qpushbutton_tap_event_play_sound_file_path_desc": [
+            [0, """Select a sound"""],
+            [1, """Izaberite zvuk"""] ],
+        "app_sett_style_gwp_buttons_click_stylesheet_name": [
+            [0, """Appearance of the button when pressed"""],
+            [1, """Izgled dugmeta kada je pritisnuto"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_enabled_style": [
+            [0, """Enable to change button appearance"""],
+            [1, """Omogući promenu izgleda dugmeta"""] ],
+        "gwp_qpushbutton_tap_event_change_stylesheet_enabled_desc": [
+            [0, """Allows to change the appearance of the button on the event"""],
+            [1, """Omogućava promenu izgleda dugmeta na događaj"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_style": [
+            [0, """Duration of appearance change"""],
+            [1, """Trajanje promene izgleda"""] ],
+        "gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_desc": [
+            [0, """The duration of the appearance change is in milliseconds"""],
+            [1, """Trajanje promene izgleda u milisekundama"""] ],
+        "app_sett_style_gwp_buttons_click_size_name": [
+            [0, """The size of the button when pressed"""],
+            [1, """Veličina dugmeta kada je pritisnuto"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style": [
+            [0, """Enable button resizing"""],
+            [1, """Omogući promenu veličine dugmeta"""] ],
+        "gwp_qpushbutton_tap_event_change_size_enabled_desc": [
+            [0, """Enables button resizing"""],
+            [1, """Omogućava promenu veličine dugmeta"""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style": [
+            [0, """Percentage change in size"""],
+            [1, """Procenat promene veličine"""] ],
+        "gwp_qpushbutton_tap_event_change_size_percent_desc": [
+            [0, """Change the size of the button in percentage.
+Positive percentages indicate an increase in size and negative percentages indicate a decrease in size.
+For example.
+A value of 40 means that the button will be 40% larger.
+A value of -30 means that the button will be reduced by 30%, i.e. it will keep 70% of its original size."""],
+            [1, """Promena veličine dugmeta u procentima.
+Pozitivni procenti označavaju uvećanje a negativni smanjivanje veličine.
+Npr. 
+Vrednost 40 znači da će dugme imati za 40% veču veličinu.
+Vrednost -30 znači da će dugme biti smanjeno za 30%, odnosno zadržaće 70% svoje originalne veličine."""] ],
+        "app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style": [
+            [0, """Resized duration"""],
+            [1, """Trajanje promenjene veličine"""] ],
+        "gwp_qpushbutton_tap_event_change_size_duration_ms_desc": [
+            [0, """The duration of the changed size in milliseconds"""],
+            [1, """Trajanje promenjene veličine u milisekundama"""] ],
+        "app_sett_style_gwp_buttons_enter_name": [
+            [0, """Event: Mouse entering the widget area"""],
+            [1, """Događaj: Ulazak miša u prostor widgeta"""] ],
+        "app_sett_style_gwp_buttons_enter_animation_name": [
+            [0, """Animation when the mouse entered the widget area"""],
+            [1, """Animacija kada je miš ušao u prostor widgeta"""] ],
+        "app_sett_style_gwp_buttons_enter_sound_name": [
+            [0, """Sound when the mouse entered the widget area"""],
+            [1, """Zvuk kada je miš ušao u prostor widgeta"""] ],
+        "app_sett_style_gwp_buttons_enter_stylesheet_name": [
+            [0, """Appearance of the button when the mouse has entered the widget area"""],
+            [1, """Izgled dugmeta kada je miš ušao u prostor widgeta"""] ],
+        "app_sett_style_gwp_buttons_enter_size_name": [
+            [0, """The size of the button when the mouse entered the widget area"""],
+            [1, """Veličina dugmeta kada je miš ušao u prostor widgeta"""] ],
+        "app_sett_style_gwp_buttons_leave_name": [
+            [0, """Event: Mouse exit from widget area"""],
+            [1, """Događaj: Izlazak miša iz prostora widgeta"""] ],
+        "app_sett_style_gwp_buttons_leave_animation_name": [
+            [0, """Animation when the mouse left the widget area"""],
+            [1, """Animacija kada je miš izašao iz prostora widgeta"""] ],
+        "app_sett_style_gwp_buttons_leave_sound_name": [
+            [0, """Sound when the mouse left the widget area"""],
+            [1, """Zvuk kada je miš izašao iz prostora widgeta"""] ],
+        "app_sett_style_gwp_buttons_leave_stylesheet_name": [
+            [0, """Appearance of the button when the mouse left the widget area"""],
+            [1, """Izgled dugmeta kada je miš izašao iz prostora widgeta"""] ],
+        "app_sett_style_gwp_buttons_leave_size_name": [
+            [0, """The size of the button when the mouse left the widget area"""],
+            [1, """Veličina dugmeta kada je miš izašao iz prostora widgeta"""] ],
+        "app_settings_cursor_cmb_icon_text": [
+            [0, """Cursor
+Test"""],
+            [1, """Testiraj
+Kursor"""] ],
+        "app_settings_combobox_item_custom_cursor_text": [
+            [0, """(?) Custom cursor"""],
+            [1, """(?) Izaberite kursor"""] ],
+        "app_sett_style_gwp_buttons_cursor_name": [
+            [0, """Appearance of the mouse arrow when inside the widget"""],
+            [1, """Izgled strelice miša kada je unutar widgeta"""] ],
+        "app_sett_style_gwp_qpushbutton_allow_cursor_change_style": [
+            [0, """Allow cursor change"""],
+            [1, """Dozvoli promenu kursora"""] ],
+        "gwp_qpushbutton_allow_cursor_change_desc": [
+            [0, """Allow the cursor to change when the mouse arrow is within the widget bounds"""],
+            [1, """Dozvoli promenu kursora kada je strelica miša unutar granica widgeta"""] ],
+        "app_sett_style_gwp_qpushbutton_cursor_style": [
+            [0, """Cursor apperance"""],
+            [1, """Izgled kursora"""] ],
+        "gwp_qpushbutton_cursor_desc": [
+            [0, """Appearance of the cursor when the mouse is inside the widget"""],
+            [1, """Izgled kursora kada se miš nalazi u granicama widgeta"""] ],
+        "app_sett_style_gwp_qpushbutton_cursor_width_style": [
+            [0, """Cursor width
+(Custom cursor only)"""],
+            [1, """Širina kursora
+(Samo korisnički kursor)"""] ],
+        "app_sett_style_gwp_qpushbutton_cursor_height_style": [
+            [0, """Cursor height
+(Custom cursor only)"""],
+            [1, """Visina kursora
+(Samo korisnički kursor)"""] ],
+        "app_sett_style_gwp_qpushbutton_cursor_keep_aspect_ratio_style": [
+            [0, """Keep aspect ratio"""],
+            [1, """Zadrži proporcije kursora"""] ],
+        "gwp_qpushbutton_cursor_width_desc": [
+            [0, """Cursor width in pixels
+This only affects the user-selected cursor from the file"""],
+            [1, """Širina kursora u pikselima
+Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
+        "gwp_qpushbutton_cursor_height_desc": [
+            [0, """The height of the cursor in pixels
+This only affects the user-selected cursor from the file"""],
+            [1, """Visina kursora u pikselima
+Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
+        "gwp_qpushbutton_cursor_keep_aspect_ratio_desc": [
+            [0, """Determines whether the image selected as the cursor will retain its original proportions.
+This only affects the user-selected cursor from the file"""],
+            [1, """Određuje da li će slika koja je izabrana kao kursor zadržati svoje originalne proporcije.
+Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
+        "def_extra_image_animate_style_desc": [
+            [0, """Choose how the images will appear"""],
+            [1, """Izaberite način na koji će se slike pojavljivati"""] ],
+        "find_in_app_chk_block_tags_tt": [
+            [0, """Include tag names in search."""],
+            [1, """Uključi nazive oznaka u pretragu."""] ],
+        "find_in_app_chk_block_tags_text": [
+            [0, """Tags"""],
+            [1, """Oznake"""] ],
+        "app_sett_style_find_in_app_chk_block_tags_stylesheet_style": [
+            [0, """CheckBox: Block - Tags"""],
+            [1, """CheckBox: Blok - Oznake"""] ],
+        "app_sett_style_gwp_dialog_name": [
+            [0, """Dialog window"""],
+            [1, """Dijalog prozor"""] ],
+        "app_sett_style_gwp_dialog_drag_name": [
+            [0, """Window dragging"""],
+            [1, """Vučenje prozora"""] ],
+        "app_sett_style_gwp_qdialog_window_drag_enabled_style": [
+            [0, """Allow window dragging by title"""],
+            [1, """Dozvoli vučenje prozora pomoću naslova"""] ],
+        "gwp_qdialog_window_drag_enabled_desc": [
+            [0, """The user will be able to 'grab' the window title with the mouse and move the window around the screen"""],
+            [1, """Korisnik će moći mišem da 'uhvati' naslov prozora i da pomera prozor po ekranu"""] ],
+        "app_sett_style_gwp_dialog_drag_cursor_name": [
+            [0, """The appearance of the mouse arrow when the user drags the window"""],
+            [1, """Izgled strelice miša kada korisnik vuče prozor"""] ],
+        "app_sett_style_gwp_qdialog_allow_drag_widgets_cursor_change_style": [
+            [0, """Allow changing cursor appearance"""],
+            [1, """Dozvoli promenu izgleda kursora """] ],
+        "gwp_qdialog_allow_drag_widgets_cursor_change_desc_desc": [
+            [0, """Allow changing the appearance of the cursor when the mouse is over the title and when the window is dragged"""],
+            [1, """Dozvoli promenu izgleda kursora kada je miš iznad naslova i kada se vuče prozor"""] ],
+        "app_sett_style_gwp_qdialog_start_drag_cursor_style": [
+            [0, """Appearance of the cursor when the window is dragged"""],
+            [1, """Izgled kursora kada se prozor vuče"""] ],
+        "gwp_qdialog_start_drag_cursor_desc": [
+            [0, """The appearance of the cursor when the user holds down the left mouse button and drags the window"""],
+            [1, """Izgled kursora kada korisnik drži pritisnut levi taster miša i vuče prozor"""] ],
+        "app_sett_style_gwp_qdialog_end_drag_cursor_style": [
+            [0, """Appearance of the cursor when the window is not dragged"""],
+            [1, """Izgled kursora kada se prozor ne vuče"""] ],
+        "gwp_qdialog_end_drag_cursor_desc": [
+            [0, """The appearance of the cursor when the window is not dragged and the mouse is over the title"""],
+            [1, """Izgled kursora kada se prozor ne vuče a miš se nalazi iznad naslova"""] ]
     }
     if key_name in lang.keys():
         return lang[key_name]
@@ -7054,8 +11820,8 @@ It is strongly recommended that you use only allowed values."""
         "area_label_widget_line_width": {
             "value": 1,
             "default_value": 1,
-            "min_value": None,
-            "max_value": None,
+            "min_value": 0,
+            "max_value": 100,
             "recommended": """The recommended value is 1""",
             "description": """Frame line thickness."""
             },
@@ -7166,7 +11932,7 @@ It is strongly recommended that you use only allowed values."""
             "default_value": 0,
             "min_value": None,
             "max_value": None,
-            "recommended": """The recommended value is 1""",
+            "recommended": """The recommended value is 0""",
             "description": """Frame line thickness."""
             },
         "data_block_stylesheet": {
@@ -7220,7 +11986,7 @@ It is strongly recommended that you use only allowed values."""
             "default_value": 0,
             "min_value": None,
             "max_value": None,
-            "recommended": """The recommended value is 1""",
+            "recommended": """The recommended value is 0""",
             "description": """Frame line thickness."""
             },
         "win_block_controls_stylesheet": {
@@ -7274,7 +12040,7 @@ It is strongly recommended that you use only allowed values."""
             "default_value": 0,
             "min_value": None,
             "max_value": None,
-            "recommended": """The recommended value is 1""",
+            "recommended": """The recommended value is 0""",
             "description": """Frame line thickness."""
             },
         "header_stylesheet": {
@@ -7328,7 +12094,7 @@ It is strongly recommended that you use only allowed values."""
             "default_value": 0,
             "min_value": None,
             "max_value": None,
-            "recommended": """The recommended value is 1""",
+            "recommended": """The recommended value is 0""",
             "description": """Frame line thickness."""
             },
         "body_stylesheet": {
@@ -7382,7 +12148,7 @@ It is strongly recommended that you use only allowed values."""
             "default_value": 0,
             "min_value": None,
             "max_value": None,
-            "recommended": """The recommended value is 1""",
+            "recommended": """The recommended value is 0""",
             "description": """Frame line thickness."""
             },
         "footer_stylesheet": {
@@ -9045,8 +13811,8 @@ Values: 0-100
             "description": """The height of the button is automatically determined by the height of its text. If the text cannot fit within the height set here, the button will automatically expand to accommodate all the text."""
             },
         "block_animation_on_open": {
-            "value": False,
-            "default_value": False,
+            "value": True,
+            "default_value": True,
             "min_value": None,
             "max_value": None,
             "recommended": """True / False""",
@@ -13345,8 +18111,8 @@ Must be exactly 4 comma separated values."""
             "description": """Location of the icon for the Widget"""
             },
         "mnu_unfinished_show_block_animation": {
-            "value": True,
-            "default_value": True,
+            "value": False,
+            "default_value": False,
             "min_value": None,
             "max_value": None,
             "recommended": """True / False""",
@@ -13472,7 +18238,7 @@ Values: 0-100
             "value": 10,
             "default_value": 10,
             "min_value": 1,
-            "max_value": 15,
+            "max_value": 50,
             "recommended": """It is recommended that the value be between 8 and 12""",
             "description": """The number of items that will be displayed in the auto complete list."""
             },
@@ -25137,8 +29903,8 @@ The time is expressed in milliseconds."""
         "def_extra_image_min_visible_width": {
             "value": 50,
             "default_value": 50,
-            "min_value": None,
-            "max_value": None,
+            "min_value": 0,
+            "max_value": 100,
             "recommended": """It is recommended that this value be around 50""",
             "description": """The minimum visible size of the extra image that is required for the image to be displayed.
 This value is expressed as a percentage.
@@ -25148,8 +29914,8 @@ The value 60 means that at least 60% of the image must be visible in order to me
         "def_extra_image_min_visible_height": {
             "value": 50,
             "default_value": 50,
-            "min_value": None,
-            "max_value": None,
+            "min_value": 0,
+            "max_value": 100,
             "recommended": """It is recommended that this value be around 50""",
             "description": """The minimum visible size of the extra image that is required for the image to be displayed.
 This value is expressed as a percentage.
@@ -25167,8 +29933,8 @@ The value 60 means that at least 60% of the image must be visible in order to me
         "def_extra_image_max_number_of_images": {
             "value": 1,
             "default_value": 1,
-            "min_value": None,
-            "max_value": None,
+            "min_value": 0,
+            "max_value": 20,
             "recommended": """""",
             "description": """The maximum number of extra images that can be displayed at the same time."""
             },
@@ -25365,8 +30131,8 @@ QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.0056
             "description": """Sets the appearance of the Widget (setStyleSheet)."""
             },
         "app_settings_lbl_menu_item_stylesheet": {
-            "value": """""",
-            "default_value": """""",
+            "value": """QLabel {background-color: rgba(0,0,0,0);}""",
+            "default_value": """QLabel {background-color: rgba(0,0,0,0);}""",
             "min_value": None,
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
@@ -25431,8 +30197,8 @@ If the time is longer than this setting, it is switched to the next, faster, met
         "definition_hint_typing_delay": {
             "value": 1.0,
             "default_value": 1.0,
-            "min_value": None,
-            "max_value": None,
+            "min_value": 0.01,
+            "max_value": 5.0,
             "recommended": """""",
             "description": """This setting represents the period in seconds between two typed characters.
 A period longer than this is considered to stop typing."""
@@ -26485,7 +31251,7 @@ Duration in miliseconds."""
             "default_value": """data/app/images/down_expand.png""",
             "min_value": None,
             "max_value": None,
-            "recommended": """Type the relative path to the application icon""",
+            "recommended": """Type the relative path to the Widgets icon""",
             "description": """Location of the icon for the Widget"""
             },
         "double_down_expand_icon_path": {
@@ -27711,6 +32477,1676 @@ Values: 0-100
             "max_value": None,
             "recommended": """Type the relative path to the application icon""",
             "description": """Location of the image for the Widget"""
+            },
+        "startup_icon_path": {
+            "value": """data/app/images/startup.png""",
+            "default_value": """data/app/images/startup.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "info_icon_path": {
+            "value": """data/app/images/info.png""",
+            "default_value": """data/app/images/info.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "window_icon_path": {
+            "value": """data/app/images/window.png""",
+            "default_value": """data/app/images/window.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "widget_icon_path": {
+            "value": """data/app/images/widget.png""",
+            "default_value": """data/app/images/widget.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "ball_black_icon_path": {
+            "value": """data/app/images/ball_black.png""",
+            "default_value": """data/app/images/ball_black.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "joker_logo_icon_path": {
+            "value": """data/app/images/joker_logo.png""",
+            "default_value": """data/app/images/joker_logo.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "no_icon_icon_path": {
+            "value": """data/app/images/no_icon.png""",
+            "default_value": """data/app/images/no_icon.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "custom_icon_icon_path": {
+            "value": """data/app/images/custom_icon.png""",
+            "default_value": """data/app/images/custom_icon.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "color_icon_path": {
+            "value": """data/app/images/color.png""",
+            "default_value": """data/app/images/color.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """Icon displayed in the context menu next to the menu item"""
+            },
+        "app_settings_lst_changes_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_setting_item_animation_duration": {
+            "value": 250,
+            "default_value": 250,
+            "min_value": 1,
+            "max_value": 10000,
+            "recommended": """The recommended value is between 100 and 2000 milliseconds.""",
+            "description": """The total duration of the animation expressed in milliseconds."""
+            },
+        "app_setting_item_animation_steps": {
+            "value": 10,
+            "default_value": 10,
+            "min_value": 1,
+            "max_value": 100,
+            "recommended": """The optimal number of steps is between 10 and 20""",
+            "description": """The number of steps in which the animation will be performed.
+The animation is smoother if more steps are set."""
+            },
+        "app_setting_animate_item_resize": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether the item will animate when its size changes."""
+            },
+        "no_sound_icon_path": {
+            "value": """data/app/images/no_sound.png""",
+            "default_value": """data/app/images/no_sound.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "custom_sound_icon_path": {
+            "value": """data/app/images/custom_sound.png""",
+            "default_value": """data/app/images/custom_sound.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clipboard_view_btn_del_tmp_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "clipboard_view_btn_close_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "clipboard_view_btn_clear_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "clipboard_view_btn_refresh_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "clipboard_view_btn_del_tmp_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "clipboard_view_btn_close_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "clipboard_view_btn_clear_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "clipboard_view_btn_refresh_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "clipboard_view_btn_del_tmp_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clipboard_view_btn_close_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clipboard_view_btn_clear_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clipboard_view_btn_refresh_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "find_in_app_btn_find_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "find_in_app_btn_search_all_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "find_in_app_btn_close_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "find_in_app_btn_find_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "find_in_app_btn_search_all_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "find_in_app_btn_close_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_apply_text_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 67);}
+QPushButton:disabled { color: rgb(130, 130, 130);}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 67);}
+QPushButton:disabled { color: rgb(130, 130, 130);}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_save_text_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_apply_text_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_cancel_text_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_save_text_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_apply_text_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_cancel_text_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_save_text_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "app_settings_btn_apply_text_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "app_settings_btn_cancel_text_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "menubar_stylesheet": {
+            "value": """QMenuBar::item:selected {background-color: blue;}""",
+            "default_value": """QMenuBar::item:selected {background-color: blue;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "menubar_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "menubar_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_file_app_settings_icon_path": {
+            "value": """data/app/images/settings.png""",
+            "default_value": """data/app/images/settings.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_file_app_settings_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_file_app_settings_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_file_app_settings_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_file_app_settings_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_file_app_settings_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "def_hint_manager_ui_file_path": {
+            "value": """data/app/designer/def_hint_manager.ui""",
+            "default_value": """data/app/designer/def_hint_manager.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "def_hint_manager_win_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_win_icon_path": {
+            "value": """data/app/images/ideas.png""",
+            "default_value": """data/app/images/ideas.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "def_hint_manager_lbl_title_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0); font: 75 16pt "Arial";}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0); font: 75 16pt "Arial";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_cmb_sort_stylesheet": {
+            "value": """QComboBox {color: rgb(170, 255, 255); background-color: rgb(0, 97, 0)} QComboBox:hover {background-color: rgb(0, 126, 0)}""",
+            "default_value": """QComboBox {color: rgb(170, 255, 255); background-color: rgb(0, 97, 0)} QComboBox:hover {background-color: rgb(0, 126, 0)}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_txt_expressions_stylesheet": {
+            "value": """QTextEdit {color: rgb(210, 255, 205); background-color: rgb(24, 49, 0); font: 14pt "Arial";} QTextEdit:hover {background-color: rgb(28, 56, 0);}""",
+            "default_value": """QTextEdit {color: rgb(210, 255, 205); background-color: rgb(24, 49, 0); font: 14pt "Arial";} QTextEdit:hover {background-color: rgb(28, 56, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_btn_save_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_btn_cancel_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_hint_manager_lbl_count_stylesheet": {
+            "value": """QLabel {color: rgb(170, 255, 255); font: 10pt "Arial";}""",
+            "default_value": """QLabel {color: rgb(170, 255, 255); font: 10pt "Arial";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_export_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_import_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_export_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_import_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_export_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_import_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_export_icon_path": {
+            "value": """data/app/images/export.png""",
+            "default_value": """data/app/images/export.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "app_settings_btn_import_icon_path": {
+            "value": """data/app/images/import.png""",
+            "default_value": """data/app/images/import.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "app_settings_lbl_counter_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0); font: 12pt "Arial";} QLabel:hover {color: rgb(170, 255, 0);}
+""",
+            "default_value": """QLabel {color: rgb(0, 255, 0); font: 12pt "Arial";} QLabel:hover {color: rgb(170, 255, 0);}
+""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_frm_import_stylesheet": {
+            "value": """QFrame {color: rgb(255, 255, 0); background-color: rgb(66, 66, 99); border: 1px solid #ffff00;} QFrame:hover {background-color: rgb(78, 78, 117);}""",
+            "default_value": """QFrame {color: rgb(255, 255, 0); background-color: rgb(66, 66, 99); border: 1px solid #ffff00;} QFrame:hover {background-color: rgb(78, 78, 117);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_lbl_import_title_stylesheet": {
+            "value": """QLabel {background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_lbl_import_close_stylesheet": {
+            "value": """QLabel {background-color: transparent; border: 0px;} QLabel:hover {background-color: rgb(115, 172, 172);}""",
+            "default_value": """QLabel {background-color: transparent; border: 0px;} QLabel:hover {background-color: rgb(115, 172, 172);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_rbt_import_radio_buttons_stylesheet": {
+            "value": """QRadioButton {color: rgb(0, 255, 127); background-color: transparent;} QRadioButton:hover {color: rgb(170, 255, 255);}""",
+            "default_value": """QRadioButton {color: rgb(0, 255, 127); background-color: transparent;} QRadioButton:hover {color: rgb(170, 255, 255);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_grp_import_groupboxes_stylesheet": {
+            "value": """color: rgb(170, 255, 255); background-color: transparent;""",
+            "default_value": """color: rgb(170, 255, 255); background-color: transparent;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_chk_import_checkboxes_stylesheet": {
+            "value": """QCheckBox {color: rgb(0, 255, 127); background-color: transparent;} QCheckBox:hover {color: rgb(170, 255, 255);} QCheckBox:disabled {color: rgb(188, 188, 188);}""",
+            "default_value": """QCheckBox {color: rgb(0, 255, 127); background-color: transparent;} QCheckBox:hover {color: rgb(170, 255, 255);} QCheckBox:disabled {color: rgb(188, 188, 188);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_lbl_import_desc_stylesheet": {
+            "value": """QLabel {background-color: transparent; border: 0px;} QLabel:disabled {color: rgb(188, 188, 188);}""",
+            "default_value": """QLabel {background-color: transparent; border: 0px;} QLabel:disabled {color: rgb(188, 188, 188);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_import_from_file_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_btn_import_from_file_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "app_settings_btn_import_from_file_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "app_settings_btn_import_from_file_icon_path": {
+            "value": """data/app/images/open_file.png""",
+            "default_value": """data/app/images/open_file.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "app_settings_frm_working_stylesheet": {
+            "value": """QFrame {background-color: rgba(0, 0, 0, 100);}""",
+            "default_value": """QFrame {background-color: rgba(0, 0, 0, 100);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_frm_working_info_stylesheet": {
+            "value": """QFrame {background-color: rgb(0, 0, 99); color: rgb(255, 255, 0);}""",
+            "default_value": """QFrame {background-color: rgb(0, 0, 99); color: rgb(255, 255, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_lbl_working_title_stylesheet": {
+            "value": """QLabel {color: rgb(255, 255, 0); font: 10pt "Arial";}""",
+            "default_value": """QLabel {color: rgb(255, 255, 0); font: 10pt "Arial";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "app_settings_prg_working_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "dict_frame_btn_lock_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "input_box_txt_box_invalid_entry_stylesheet": {
+            "value": """background-color: #ff0000 ; color: #ffff00 ;""",
+            "default_value": """background-color: #ff0000 ; color: #ffff00 ;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "block_input_box_name_one_line_stylesheet": {
+            "value": """background-color: #474747 ; color: #9ec5ff ;""",
+            "default_value": """background-color: #474747 ; color: #9ec5ff ;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "input_box_txt_box_invalid_entry_one_line_stylesheet": {
+            "value": """background-color: #ff0000 ; color: #ffff00 ;""",
+            "default_value": """background-color: #ff0000 ; color: #ffff00 ;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "anim_settings_wheels_animation_path": {
+            "value": """data/app/animation/anim_settings_wheels.gif""",
+            "default_value": """data/app/animation/anim_settings_wheels.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "app_settings_changed_settings_item_ui_file_path": {
+            "value": """data/app/designer/frm_changed_settings_item.ui""",
+            "default_value": """data/app/designer/frm_changed_settings_item.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "up_collapse_icon_path": {
+            "value": """data/app/images/up_collapse.png""",
+            "default_value": """data/app/images/up_collapse.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "msg_box_icon_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "find_icon_path": {
+            "value": """data/app/images/find.png""",
+            "default_value": """data/app/images/find.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "filter_results_ui_file_path": {
+            "value": """data/app/designer/filter_results.ui""",
+            "default_value": """data/app/designer/filter_results.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "filter_results_win_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_labels_stylesheet": {
+            "value": """QLabel {color: rgb(225, 225, 225); border: 0px;}""",
+            "default_value": """QLabel {color: rgb(225, 225, 225); border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_cmb_item_stylesheet": {
+            "value": """QComboBox {color: rgb(170, 255, 255); background-color: rgb(0, 97, 0)} QComboBox:hover {background-color: rgb(0, 126, 0)} QComboBox:disabled {color: rgb(211, 211, 211); background-color: rgb(129, 129, 129);}""",
+            "default_value": """QComboBox {color: rgb(170, 255, 255); background-color: rgb(0, 97, 0)} QComboBox:hover {background-color: rgb(0, 126, 0)} QComboBox:disabled {color: rgb(211, 211, 211); background-color: rgb(129, 129, 129);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_lbl_filter_text_val_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0); background-color: #00009a; font: 14pt "Comic Sans MS";}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0); background-color: #00009a; font: 14pt "Comic Sans MS";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_txt_doc_text_stylesheet": {
+            "value": """QTextEdit {color: rgb(170, 255, 255); background-color: rgb(0, 0, 127); font: 16pt "Comic Sans MS";} QTextEdit:hover {background-color: rgb(0, 0, 147);} QTextEdit:disabled { background-color: rgb(109, 109, 109); color: rgb(194, 194, 194);}""",
+            "default_value": """QTextEdit {color: rgb(170, 255, 255); background-color: rgb(0, 0, 127); font: 16pt "Comic Sans MS";} QTextEdit:hover {background-color: rgb(0, 0, 147);} QTextEdit:disabled { background-color: rgb(109, 109, 109); color: rgb(194, 194, 194);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_btn_show_setup_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 15px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_frm_setup_stylesheet": {
+            "value": """QFrame {color: #00ffff; background-color: rgb(0, 0, 67); border: 2px solid #ffff00;}""",
+            "default_value": """QFrame {color: #00ffff; background-color: rgb(0, 0, 67); border: 2px solid #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_grp_setup_operators_stylesheet": {
+            "value": """QGroupBox {color: #00ffff; background-color: rgb(0, 0, 67); border: 1px solid #55aa00;}""",
+            "default_value": """QGroupBox {color: #00ffff; background-color: rgb(0, 0, 67); border: 1px solid #55aa00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_lbl_setup_title_stylesheet": {
+            "value": """QLabel {color: #ffff00; border: 0px; font: 75 16pt "MS Shell Dlg 2";}""",
+            "default_value": """QLabel {color: #ffff00; border: 0px; font: 75 16pt "MS Shell Dlg 2";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_property_labels_stylesheet": {
+            "value": """QLabel {color: #00ff7f; border: 0px; font: 12pt "Comic Sans MS";}""",
+            "default_value": """QLabel {color: #00ff7f; border: 0px; font: 12pt "Comic Sans MS";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_lbl_setup_close_stylesheet": {
+            "value": """QLabel {background-color: transparent; border: 0px;} QLabel:hover {background-color: rgb(115, 172, 172);}""",
+            "default_value": """QLabel {background-color: transparent; border: 0px;} QLabel:hover {background-color: rgb(115, 172, 172);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_doc_textbox_color_valid_bg": {
+            "value": """#00aa00""",
+            "default_value": """#00aa00""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_valid_fg": {
+            "value": """#ffffff""",
+            "default_value": """#ffffff""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_whole_word_bg": {
+            "value": """#ff00ff""",
+            "default_value": """#ff00ff""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_whole_word_fg": {
+            "value": """#ffffff""",
+            "default_value": """#ffffff""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_matchcase_fg": {
+            "value": """#ffffff""",
+            "default_value": """#ffffff""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_all_fg": {
+            "value": """#ffffff""",
+            "default_value": """#ffffff""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_matchcase_bg": {
+            "value": """#ffaa00""",
+            "default_value": """#ffaa00""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_color_invalid_all_bg": {
+            "value": """#ff0000""",
+            "default_value": """#ff0000""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """The color of the marked word."""
+            },
+        "filter_results_doc_textbox_valid_font_bold": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """Font Bold state"""
+            },
+        "filter_results_doc_textbox_invalid_whole_word_font_bold": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """Font Bold state"""
+            },
+        "filter_results_doc_textbox_invalid_matchcase_font_bold": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """Font Bold state"""
+            },
+        "filter_results_doc_textbox_invalid_all_font_bold": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There is no recommended value for this setting""",
+            "description": """Font Bold state"""
+            },
+        "find_in_app_txt_find_illegal_entry_stylesheet": {
+            "value": """QLineEdit {color: #ffff00; background-color: #dd0000;} QLineEdit:hover {background-color: #ff0000;}""",
+            "default_value": """QLineEdit {color: #ffff00; background-color: #dd0000;} QLineEdit:hover {background-color: #ff0000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "filter_results_win_icon_path": {
+            "value": """data/app/images/find.png""",
+            "default_value": """data/app/images/find.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "matchcase_icon_path": {
+            "value": """data/app/images/case.png""",
+            "default_value": """data/app/images/case.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "whole_words_icon_path": {
+            "value": """data/app/images/whole_words.png""",
+            "default_value": """data/app/images/whole_words.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "serbia_flag_rounded_icon_path": {
+            "value": """data/app/images/serbia_flag_rounded.png""",
+            "default_value": """data/app/images/serbia_flag_rounded.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "alphabet_conversion_icon_path": {
+            "value": """data/app/images/alphabet_conversion.png""",
+            "default_value": """data/app/images/alphabet_conversion.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "key_icon_path": {
+            "value": """data/app/images/key.png""",
+            "default_value": """data/app/images/key.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "value_icon_path": {
+            "value": """data/app/images/value.png""",
+            "default_value": """data/app/images/value.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_logo_color_icon_path": {
+            "value": """data/app/images/wiki_logo_color.png""",
+            "default_value": """data/app/images/wiki_logo_color.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_gold_bouncing_animation_path": {
+            "value": """data/app/animation/wiki_gold_bouncing.gif""",
+            "default_value": """data/app/animation/wiki_gold_bouncing.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "translate_chk_auto_paste_and_copy_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "def_editor_btn_switch_words_order_stylesheet": {
+            "value": """color: #f4b991 ;""",
+            "default_value": """color: #f4b991 ;""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "block_definition_titlebar_msg_duration": {
+            "value": 6000,
+            "default_value": 6000,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Determines the duration of the titlebar message.
+Duration in miliseconds."""
+            },
+        "block_definition_titlebar_msg_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Show definition name in block titlebar when hovering."""
+            },
+        "calculator_icon_path": {
+            "value": """data/app/images/calculator.png""",
+            "default_value": """data/app/images/calculator.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the application icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "wiki_globe_spins_animation_path": {
+            "value": """data/app/animation/wiki_globe_spins.gif""",
+            "default_value": """data/app/animation/wiki_globe_spins.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "wikipedia_central_label_animation_path": {
+            "value": """data/app/animation/wiki_globe_spins.gif""",
+            "default_value": """data/app/animation/wiki_globe_spins.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "definition_data_find_search_prefix": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """A string to be added before the search term"""
+            },
+        "definition_data_find_search_suffix": {
+            "value": """wiki""",
+            "default_value": """wiki""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """A string to be added after the search term"""
+            },
+        "definition_finder_logo_animation_path": {
+            "value": """data/app/animation/wiki_gold_bouncing.gif""",
+            "default_value": """data/app/animation/wiki_gold_bouncing.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "area_label_content_type": {
+            "value": 0,
+            "default_value": 0,
+            "min_value": 0,
+            "max_value": 2,
+            "recommended": """0 - 2""",
+            "description": """Type of content in the label:
+0 - text
+1 - image
+2 - animation"""
+            },
+        "area_label_widget_icon_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "area_label_widget_animation_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "area_label_widget_min_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 0,
+            "max_value": 2000,
+            "recommended": """""",
+            "description": """Minimal height"""
+            },
+        "block_image_widget_layout_spacing": {
+            "value": 5,
+            "default_value": 5,
+            "min_value": 0,
+            "max_value": None,
+            "recommended": """The recommended value is 1""",
+            "description": """Spacing of elements in the layout."""
+            },
+        "block_image_area_contents_margins": {
+            "value": """0,0,0,0""",
+            "default_value": """0,0,0,0""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """Sets the margins in which the content of the Widget will be displayed.
+Order: Left, Top, Right, Bottom
+Must be exactly 4 comma separated values."""
+            },
+        "block_image_area_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "block_image_area_widget_stylesheet": {
+            "value": """QWidget {background-color: transparent;}""",
+            "default_value": """QWidget {background-color: transparent;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "block_image_area_widget_contents_margins": {
+            "value": """0,0,0,0""",
+            "default_value": """0,0,0,0""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """Sets the margins in which the content of the Widget will be displayed.
+Order: Left, Top, Right, Bottom
+Must be exactly 4 comma separated values."""
+            },
+        "block_image_widget_layout_contents_margins": {
+            "value": """0,0,0,0""",
+            "default_value": """0,0,0,0""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """Sets the margins in which the content of the Widget will be displayed.
+Order: Left, Top, Right, Bottom
+Must be exactly 4 comma separated values."""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_tap_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_enter_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_leave_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_allow_cursor_change": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qpushbutton_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "loading_animation_path": {
+            "value": """data/app/animation/loading.gif""",
+            "default_value": """data/app/animation/loading.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets animation""",
+            "description": """Location of the animation for the Widget
+It's usually an animated gif image"""
+            },
+        "find_in_app_chk_block_tags_stylesheet": {
+            "value": """color: rgb(170, 255, 127);""",
+            "default_value": """color: rgb(170, 255, 127);""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "gwp_qdialog_window_drag_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_allow_drag_widgets_cursor_change": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_start_drag_cursor": {
+            "value": """9""",
+            "default_value": """9""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_end_drag_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
             }
     }
 

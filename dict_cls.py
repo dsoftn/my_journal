@@ -3364,6 +3364,7 @@ class DictFrame(QFrame):
         self.btn_back.setStyleSheet(self.getv("dict_frame_btn_back_stylesheet"))
         self.btn_forward.setStyleSheet(self.getv("dict_frame_btn_forward_stylesheet"))
         self.btn_item_back.setStyleSheet(self.getv("dict_frame_btn_item_back_stylesheet"))
+        self.btn_lock.setStyleSheet(self.getv("dict_frame_btn_lock_stylesheet"))
         self.btn_item_back.setVisible(False)
         self.btn_item_back.setObjectName("")
 

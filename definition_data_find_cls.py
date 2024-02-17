@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QRadioButton,
                              QListWidget, QListWidgetItem, QVBoxLayout, QHBoxLayout, QDialog, QCheckBox,
                              QGroupBox, QTextEdit)
-from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QResizeEvent, QCursor
+from PyQt5.QtGui import QIcon, QPixmap, QColor, QMouseEvent, QResizeEvent, QCursor, QMovie
 from PyQt5.QtCore import Qt, QCoreApplication, QPoint
 from PyQt5 import QtCore, QtGui, uic
 
@@ -9,6 +9,8 @@ import time
 from unidecode import unidecode
 import requests
 import urllib.request
+from cyrtranslit import to_latin
+from cyrtranslit import to_cyrillic
 
 import settings_cls
 import utility_cls
@@ -943,7 +945,6 @@ class SynonymManager(QFrame):
         return result
 
 
-
 class DefinitionFinder(QDialog):
     IGNORE_AFTER_MARKER = " ⇨"
     DEFAULT_SYNONYMS_KEY = "@@@"
@@ -959,6 +960,7 @@ class DefinitionFinder(QDialog):
     •Armãneashce (Aromanian) • Aymara • Беларуская (Belarusian) • Bosanski (Bosnian) • Bikol • Corsu (Corsican) • Føroyskt (Faroese) • Fiji Hindi • Kalaallisut (Greenlandic) • Avañe'ẽ (Guaraní) • Interlingua • Interlingue • Gaeilge (Irish) • كٲشُر (Kashmiri) • Kaszëbsczi (Kashubian) • қазақша (Kazakh) • ភាសាខ្មែរ (Khmer) • Кыргызча (Kyrgyz) • Lëtzebuergesch (Luxembourgish) • Māori • Plattdüütsch (Low Saxon) • Македонски (Macedonian) • Malti (Maltese) • मराठी (Marathi) • Nahuatl • नेपाली (Nepali) • Li Niha (Nias) • Ænglisc (Old English) • Gàidhlig (Scottish Gaelic) • Tacawit (Shawiya) • سنڌي (Sindhi) • සිංහල (Sinhalese) • Slovenščina (Slovene) • Soomaaliga (Somali) • Hornjoserbsce (Upper Sorbian) • seSotho (Southern Sotho) • Basa Sunda (Sundanese) • Tatarça / Татарча (Tatar) • تركمن / Туркмен (Turkmen) • Uyghurche / ئۇيغۇرچە (Uyghur) • پنجابی (Western Punjabi) • Wollof (Wolof) • isiZulu (Zulu)
     •አማርኛ (Amharic) • Aragonés (Aragonese) • ᏣᎳᎩ (Cherokee) • Kernewek / Karnuack (Cornish) • ދިވެހިބަސް (Divehi) • ગુજરાતી (Gujarati) • Hausa / هَوُسَ (Hausa) • ʻŌlelo Hawaiʻi (Hawaiian) • ᐃᓄᒃᑎᑐᑦ (Inuktitut) • Ikinyarwanda (Kinyarwanda) • Lingala • Gaelg (Manx) • Монгол (Mongolian) • Runa Simi (Quechua) • Gagana Samoa (Samoan) • Sängö • Setswana • ትግርኛ (Tigrinya) • Tok Pisin • Xitsonga (Tsonga) • ייִדיש (Yiddish)
     """
+    MINIMUM_CHARS_TO_BE_CYRILLIC = 20
 
     def __init__(self,
                  parent_widget: QWidget,
@@ -966,7 +968,8 @@ class DefinitionFinder(QDialog):
                  search_string: str = None,
                  syn_list: str = "",
                  image_list: list = None,
-                 update_def_function = None):
+                 update_def_function = None,
+                 caller_class_id: int = None):
         
         super().__init__(parent_widget)
         self._dont_clear_menu = False
@@ -983,6 +986,7 @@ class DefinitionFinder(QDialog):
 
         # Define variables
         self.parent_widget = parent_widget
+        self.caller_class_id = caller_class_id
         self.search_string = search_string
         self.update_def_function = update_def_function
         self.include_syn = None
@@ -1017,6 +1021,7 @@ class DefinitionFinder(QDialog):
         self.lbl_syn_enabled.mousePressEvent = self.frm_head_syn_click
         self.lbl_img_enabled.mousePressEvent = self.frm_head_img_click
         self.lbl_txt_enabled.mousePressEvent = self.frm_head_txt_click
+        self.lbl_txt_alphabet_conversion.mousePressEvent = self.lbl_txt_alphabet_conversion_click
         
         self.lbl_settings.mousePressEvent = self.lbl_settings_click
         self.txt_head_def.textChanged.connect(self.txt_head_def_text_changed)
@@ -1057,6 +1062,19 @@ class DefinitionFinder(QDialog):
         self.lst_expression.mousePressEvent = self._expression_select_cur_item
         
         self.show()
+
+    def lbl_txt_alphabet_conversion_click(self, e: QMouseEvent):
+        text = self.txt_txt.toPlainText()
+        if not text.strip():
+            return
+    
+        if e.button() == Qt.LeftButton:
+            if self.da_li_je_cirilica(text):
+                self.txt_txt.setText(self.cirilica_u_latinicu(text))
+            else:
+                self.txt_txt.setText(self.latinica_u_cirilicu(text))
+        elif e.button() == Qt.RightButton:
+            self.txt_txt.setText(self.cirilica_u_latinicu(text))
 
     def btn_syn_copy_click(self):
         syns = self._get_syn_from_lst_syn()
@@ -1198,7 +1216,8 @@ class DefinitionFinder(QDialog):
             "images": images,
             "syn": syns,
             "replace_images": self.rbt_settings_img_replace.isChecked(),
-            "append_syn": self.rbt_settings_syn_append.isChecked()
+            "append_syn": self.rbt_settings_syn_append.isChecked(),
+            "caller_id": self.caller_class_id
         }
         
         self.frm_progress.raise_()
@@ -1214,7 +1233,7 @@ class DefinitionFinder(QDialog):
             self.close()
             return
         
-        data = {"return_data": True}
+        data = {"return_data": True, "caller_id": self.caller_class_id}
         result = self.update_def_function(data)
         if not result:
             self.close()
@@ -1398,6 +1417,8 @@ class DefinitionFinder(QDialog):
             self._show_no_data_msg()
         else:
             self.frm_search_results.setVisible(False)
+            self.syn_frame.raise_()
+            self.syn_frame.setVisible(True)
         return result
 
     def btn_syn_more_click(self):
@@ -1480,7 +1501,7 @@ class DefinitionFinder(QDialog):
         if not search_string:
             return
         
-        search_string = "wikipedia " + search_string
+        search_string = f"{self.getv('definition_data_find_search_prefix')} {search_string} {self.getv('definition_data_find_search_suffix')}"
 
         info_msg = self.getl("def_finder_progress_wiki_pages_search")
         self.lbl_progress_info.setText(info_msg)
@@ -1648,6 +1669,10 @@ class DefinitionFinder(QDialog):
                 
                 self.lst_syn.addItem(lst_item)
                 total_count += 1
+
+        # Set last item as current item
+        if self.lst_syn.count() > 0:
+            self.lst_syn.setCurrentRow(self.lst_syn.count() - 1)
 
         text = self.getl("def_finder_lbl_syn_info_text").replace("#1", str(enabled_count)).replace("#2", str(total_count))
         self.lbl_syn_info.setText(text)
@@ -2053,6 +2078,12 @@ class DefinitionFinder(QDialog):
 
     def _define_widgets(self):
         self.lbl_title: QLabel = self.findChild(QLabel, "lbl_title")
+        self.lbl_wiki_logo: QLabel = self.findChild(QLabel, "lbl_wiki_logo")
+        self.lbl_wiki_logo.setAlignment(Qt.AlignRight)
+        self.lbl_wiki_logo.setScaledContents(True)
+        wiki_movie = QMovie(self.getv("definition_finder_logo_animation_path"))
+        self.lbl_wiki_logo.setMovie(wiki_movie)
+        wiki_movie.start()
         
         # Head frame
         self.frm_head: QFrame = self.findChild(QFrame, "frm_head")
@@ -2098,6 +2129,7 @@ class DefinitionFinder(QDialog):
         self.lbl_txt_txt: QLabel = self.findChild(QLabel, "lbl_txt_txt")
         self.lbl_txt_info: QLabel = self.findChild(QLabel, "lbl_txt_info")
         self.lbl_txt_enabled: QLabel = self.findChild(QLabel, "lbl_txt_enabled")
+        self.lbl_txt_alphabet_conversion: QLabel = self.findChild(QLabel, "lbl_txt_alphabet_conversion")
         self.txt_txt: QTextEdit = self.findChild(QTextEdit, "txt_txt")
         
         # Progress
@@ -2217,6 +2249,7 @@ class DefinitionFinder(QDialog):
         self.btn_expression_select.setText(self.getl("def_finder_btn_expression_select_text"))
         self.btn_syn_copy.setText(self.getl("def_finder_btn_syn_copy_text"))
         self.btn_syn_copy.setToolTip(self.getl("def_finder_btn_syn_copy_tt"))
+        self.lbl_txt_alphabet_conversion.setToolTip(self.getl("def_finder_lbl_txt_alphabet_conversion_tt"))
 
     def _define_widgets_apperance(self):
         self.setFixedSize(1100, 730)
@@ -2262,7 +2295,23 @@ class DefinitionFinder(QDialog):
         self.syn_area.resize(self.syn_frame.width(), self.syn_frame.height())
         self.syn_frame.setVisible(False)
 
+    def cirilica_u_latinicu(self, text):
+        latinica_text = to_latin(text)
+        return latinica_text
 
+    def latinica_u_cirilicu(self, text):
+        latinica_text = to_cyrillic(text)
+        return latinica_text
+
+    def da_li_je_cirilica(self, tekst):
+        cirilicni_karakteri = set("бгдђжилљњпћфцчџш")
+        
+        broj_cirilicnih_karaktera = sum(1 for karakter in tekst if karakter.lower() in cirilicni_karakteri)
+        
+        if broj_cirilicnih_karaktera >= self.MINIMUM_CHARS_TO_BE_CYRILLIC:
+            return True
+        else:
+            return False
 
 
 

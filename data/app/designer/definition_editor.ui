@@ -865,6 +865,22 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_switch_words_order">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>422</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Switch words order</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

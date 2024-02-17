@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QFrame, QVBoxLayout, QWidget, QMainWindow
 from PyQt5.QtGui import QCursor
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QCoreApplication
 from PyQt5 import QtGui
 
 import copy
@@ -130,6 +130,11 @@ class WinBlock(QFrame):
         # Signal that sets all block titlebars ('self.win_block_controls') to inactive.
         # Later, one block will be determined which will have an active titlebar
         self.signals.signalBlockControlBarInactive.connect(self.block_control_bar_inactive)
+        self.signals.signal_app_settings_updated.connect(self.app_setting_updated)
+
+    def app_setting_updated(self, data: dict):
+        # self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+        self._define_apperance()
 
     def _signal_close_block(self):
         db_rec = db_record_cls.Record(self._stt)
@@ -675,6 +680,12 @@ class DataBlock(QFrame):
         height += self.layout().contentsMargins().top() + self.layout().contentsMargins().bottom()
         self.setFixedHeight(height)
         self._check_user_height()
+
+        # Connect signals
+        self.signals.signal_app_settings_updated.connect(self.app_setting_updated)
+
+    def app_setting_updated(self, data: dict):
+        self._define_apperance()
 
     def _check_user_height(self):
         # Check is there app setting 

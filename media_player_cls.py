@@ -22,10 +22,11 @@ class MediaPlayer(QFrame):
         self.paused = False
 
         self.media_player = QMediaPlayer(self)
+        if media_content := self.media_content():
+            self.media_player.setMedia(media_content)
+
         self.video_widget = QVideoWidget(self)
         self.media_player.setVideoOutput(self.video_widget)
-        if self.media_content():
-            self.media_player.setMedia(self.media_content())
 
         self._define_widget()
 
@@ -62,6 +63,12 @@ class MediaPlayer(QFrame):
         QSlider.mouseReleaseEvent(self.sld_time, e)
 
     def set_media_source(self, media_source: str|QUrl) -> bool:
+        if media_source == "":
+            self.setDisabled(True)
+            return
+        else:
+            self.setEnabled(True)
+
         self.media_source = media_source
         if self.media_content():
             self.media_player.setMedia(self.media_content())
@@ -192,11 +199,9 @@ class MediaPlayer(QFrame):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    aa = "data/user/4files/aaa.mp4"
+    aa = "D:/1.mp4"
     print (os.path.isfile(aa))
-    aee = QUrl()
-    aee = aee.fromLocalFile(aa)
-    player = MediaPlayer(media_source=aee)
+    player = MediaPlayer(media_source=aa)
     player.show()
     sys.exit(app.exec_())
         

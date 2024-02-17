@@ -15,6 +15,7 @@ import db_tag_cls
 import text_handler_cls
 import db_media_cls
 import block_cls
+import text_filter_cls
 
 
 class BlockView(QDialog):
@@ -35,6 +36,7 @@ class BlockView(QDialog):
         self._drag_mode = None
         self._tags_list = []
         self._painting_mode = None
+        self.text_filter = text_filter_cls.TextFilter(self._stt, ignore_serbian_characters=True)
         
         self._block_ids = block_ids
         if block_ids is not None:
@@ -68,9 +70,11 @@ class BlockView(QDialog):
         self._paint_items()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.lst_blocks.itemDoubleClicked.connect(self.lst_blocks_item_double_clicked)
         self.lst_blocks.itemChanged.connect(self.lst_blocks_item_changed)
-        self.lst_blocks.mouseReleaseEvent = self.lst_blocks_mouse_release
+        self.lst_blocks.contextMenuEvent = self.lst_blocks_context_menu
         
         self.ln_delim.mousePressEvent = self._ln_delim_mouse_click
         self.ln_delim.mouseReleaseEvent = self._ln_delim_mouse_release
@@ -82,13 +86,125 @@ class BlockView(QDialog):
         self.btn_tags.clicked.connect(self.btn_tags_click)
         self.btn_view_diary.clicked.connect(self.btn_view_diary_click)
 
-        self.txt_filter.textChanged.connect(self.txt_filter_text_changed)
+        # self.txt_filter.textChanged.connect(self.txt_filter_return_pressed)
+        self.txt_filter.returnPressed.connect(self.txt_filter_return_pressed)
+        self.txt_filter.contextMenuEvent = self.txt_filter_context_menu
 
         self.get_appv("signal").signalCloseAllBlocks.connect(self._signal_close_all_blocks)
 
         self.show()
         QCoreApplication.processEvents()
         self._auto_open_blocks(blocks_ids=self._auto_open_ids)
+
+    def txt_filter_context_menu(self, e):
+        disab = []
+        if not self.txt_filter.isUndoAvailable():
+            disab.append(10)
+        if not self.txt_filter.isRedoAvailable():
+            disab.append(20)
+        selected_text = ""
+        if self.txt_filter.selectedText():
+            selected_text = self.txt_filter.selectedText()
+        else:
+            disab.append(30)
+            disab.append(60)
+        if self.txt_filter.text():
+            if not selected_text:
+                selected_text = self.txt_filter.text()
+        else:
+            disab.append(40)
+        if not self.get_appv("clipboard").text():
+            paste_text = ""
+            disab.append(50)
+        else:
+            paste_text = self.get_appv("clipboard").text()
+        
+        if len(selected_text) > 40:
+            selected_text = selected_text[:37] + "..."
+        if len(paste_text) > 40:
+            paste_text = paste_text[:37] + "..."
+
+        menu_dict = {
+            "separator": [20, 60],
+            "disabled": disab,
+            "items": [
+                [
+                    10,
+                    self.getl("block_txt_box_menu_undo_text"),
+                    self.getl("block_txt_box_menu_undo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_undo_icon_path")
+                ],
+                [
+                    20,
+                    self.getl("block_txt_box_menu_redo_text"),
+                    self.getl("block_txt_box_menu_redo_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_redo_icon_path")
+                ],
+                [
+                    30,
+                    self.getl("block_txt_box_menu_cut_text"),
+                    self.getl("block_txt_box_menu_cut_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_cut_icon_path")
+                ],
+                [
+                    40,
+                    f'{self.getl("block_txt_box_menu_copy_text")} ({selected_text})',
+                    self.getl("block_txt_box_menu_copy_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_copy_icon_path")
+                ],
+                [
+                    50,
+                    f'{self.getl("block_txt_box_menu_paste_text")} ({paste_text})',
+                    self.getl("block_txt_box_menu_paste_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_paste_icon_path")
+                ],
+                [
+                    60,
+                    self.getl("block_txt_box_menu_delete_text"),
+                    self.getl("block_txt_box_menu_delete_tt"),
+                    True,
+                    [],
+                    self.getv("block_txt_box_menu_delete_icon_path")
+                ]
+            ]
+        }
+
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self.text_filter)
+
+        menu_dict = filter_menu.create_menu_dict(show_item_search_history=False, existing_menu_dict=menu_dict)
+
+        self._dont_clear_menu = True
+
+        result = filter_menu.show_menu(self, menu_dict=menu_dict)
+
+        if result in range(filter_menu.item_range_filter_setup[0], filter_menu.item_range_filter_setup[1]):
+            self.txt_filter_return_pressed()
+        elif result == 10:
+            self.txt_filter.undo()
+        elif result == 20:
+            self.txt_filter.redo()
+        elif result == 30:
+            self.txt_filter.cut()
+        elif result == 40:
+            if self.txt_filter.selectedText():
+                self.txt_filter.copy()
+            else:
+                self.get_appv("clipboard").setText(self.txt_filter.text())
+        elif result == 50:
+            self.txt_filter.paste()
+        elif result == 60:
+            if self.txt_filter.selectedText():
+                self.txt_filter.setText(f"{self.txt_filter.text()[:self.txt_filter.selectionStart()]}{self.txt_filter.text()[self.txt_filter.selectionEnd():]}")
 
     def _signal_close_all_blocks(self):
         while self.area.widget().layout().count():
@@ -170,7 +286,7 @@ class BlockView(QDialog):
                 db_rec.save_record()
         self._paint_items()
 
-    def txt_filter_text_changed(self):
+    def txt_filter_return_pressed(self):
         if self.txt_filter.text():
             self.btn_clear_filter.setVisible(True)
         else:
@@ -197,6 +313,8 @@ class BlockView(QDialog):
             return
 
         count = 0
+        self.text_filter.clear_search_history()
+
         for item in self.lst_blocks.findItems("", Qt.MatchFlag.MatchContains):
             item.setHidden(False)
             count += 1
@@ -224,41 +342,15 @@ class BlockView(QDialog):
             if not item.isHidden():
                 txt = item.text() + "\n" + item.toolTip()
                 if self.txt_filter.text():
-                    if self._filter_apply(self.txt_filter.text().lower(), txt.lower()):
+                    if self.text_filter.is_filter_in_document(self.txt_filter.text(), txt):
                         item.setHidden(False)
+                        self.text_filter.save_search_history(str(item.data(Qt.UserRole)))
                     else:
                         count -= 1
                         item.setHidden(True)
 
         txt = self.getl("block_view_lbl_count_text").replace("#1", str(count)).replace("#2", str(self.lst_blocks.count()))
         self.lbl_count.setText(txt)
-
-    def _filter_apply(self, filter: str, text: str) -> bool:
-        """Checking whether the text meets the filter criteria.
-        SPACE = AND operator
-        / = OR operator
-        """
-        if filter.find("/") >= 0:
-            filter_items = [x.strip() for x in filter.split("/") if x.strip() != ""]
-            filter_true = False
-            for item in filter_items:
-                if text.find(item) >= 0:
-                    filter_true = True
-                    break
-            return filter_true
-        elif filter.strip().find(" ") >= 0:
-            filter_items = [x.strip() for x in filter.split(" ") if x.strip() != ""]
-            filter_true = True
-            for item in filter_items:
-                if text.find(item) == -1:
-                    filter_true = False
-                    break
-            return filter_true
-        else:
-            if text.find(filter) == -1:
-                return False
-            else:
-                return True
 
     def _paint_items(self):
 
@@ -487,11 +579,9 @@ class BlockView(QDialog):
                         break
         return rec_dict
 
-    def lst_blocks_mouse_release(self, e):
-        if e.button() == Qt.RightButton:
-            self._show_list_menu()
-        QListWidget.mouseReleaseEvent(self.lst_blocks, e)
-
+    def lst_blocks_context_menu(self, pos):
+        self._show_list_menu()
+    
     def _show_list_menu(self):
         selected = []
         if self.lst_blocks.currentItem().checkState() == Qt.Checked:
@@ -530,7 +620,7 @@ class BlockView(QDialog):
             "position": QCursor.pos(),
             "selected": selected,
             "disabled": disabled,
-            "separator": [30, 20040],
+            "separator": [30, 20040, 40],
             "items": [
                 [
                     10,
@@ -611,10 +701,19 @@ class BlockView(QDialog):
             ]
 
         }
-        self.set_appv("menu", menu_dict)
+        
         self._dont_clear_menu = True
-        utility_cls.ContextMenu(self._stt, self)
-        result = self.get_appv("menu")["result"]
+        filter_menu = text_filter_cls.FilterMenu(self._stt, self.text_filter)
+        menu_dict = filter_menu.create_menu_dict(menu_dict,
+                                                 show_match_case=False,
+                                                 show_whole_words=False,
+                                                 show_ignore_serbian_characters=False,
+                                                 show_translate_cyrillic_to_latin=False)
+        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=str(self.lst_blocks.currentItem().data(Qt.UserRole)))
+        
+        # self.set_appv("menu", menu_dict)
+        # utility_cls.ContextMenu(self._stt, self)
+        # result = self.get_appv("menu")["result"]
         if result == 10:
             self.lst_blocks_item_double_clicked()
         elif result == 15:
@@ -835,6 +934,10 @@ class BlockView(QDialog):
         self.btn_close_all.setToolTip(self.getl("block_view_btn_close_all_tt"))
         self.btn_cancel.setText(self.getl("btn_cancel"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+        self._define_tags_apperance(settings_updated=True)
+
     def _setup_widgets_apperance(self):
         self._define_block_view_win_apperance()
         
@@ -1032,12 +1135,13 @@ class BlockView(QDialog):
         self.btn_tag_cancel.setText(self.getl("frm_tags_btn_tag_cancel_text"))
         self.btn_tag_cancel.setToolTip(self.getl("frm_tags_btn_tag_cancel_tt"))
 
-    def _define_tags_apperance(self):
+    def _define_tags_apperance(self, settings_updated: bool = False):
         self.frm_tags.setFrameShape(self.getv("frm_tags_frame_frame_shape"))  # Value 1
         self.frm_tags.setFrameShadow(self.getv("frm_tags_frame_frame_shadow"))  # Value 32
         self.frm_tags.setLineWidth(self.getv("frm_tags_frame_line_width"))
         self.frm_tags.setStyleSheet(self.getv("frm_tags_frame_stylesheet"))
-        self.frm_tags.setVisible(False)
+        if not settings_updated:
+            self.frm_tags.setVisible(False)
 
         self.lst_tag_tags.setStyleSheet(self.getv("frm_tags_lst_tag_stylesheet"))
 
@@ -1076,7 +1180,6 @@ class DiaryViewItemText(QTextEdit):
             self._show_definitions()
 
         # Connect events with slots
-
 
     def show_content(self):
         self._show_content = True
@@ -1643,6 +1746,8 @@ class DiaryView(QDialog):
         self._load_win_position()
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.btn_clear_filter.clicked.connect(self.btn_clear_filter_click)
         self.btn_clear_from_date.clicked.connect(self.btn_clear_from_date_click)
         self.btn_clear_to_date.clicked.connect(self.btn_clear_to_date_click)
@@ -2168,6 +2273,10 @@ class DiaryView(QDialog):
         self.lbl_loading.setToolTip(self.getl("diary_view_lbl_loading_tt"))
         self.prg_loading.setToolTip(self.getl("diary_view_lbl_loading_tt"))
 
+    def app_setting_updated(self, data: dict):
+        self._setup_widgets_apperance()
+        self._define_tags_apperance(settings_updated=True)
+
     def _setup_widgets_apperance(self):
         self._define_diary_view_win_apperance()
         
@@ -2391,12 +2500,13 @@ class DiaryView(QDialog):
         self.chk_tag.setText(self.getl("block_view_chk_tag_text"))
         self.chk_tag.setToolTip(self.getl("block_view_chk_tag_tt"))
 
-    def _define_tags_apperance(self):
+    def _define_tags_apperance(self, settings_updated: bool = False):
         self.frm_tags.setFrameShape(self.getv("frm_tags_frame_frame_shape"))  # Value 1
         self.frm_tags.setFrameShadow(self.getv("frm_tags_frame_frame_shadow"))  # Value 32
         self.frm_tags.setLineWidth(self.getv("frm_tags_frame_line_width"))
         self.frm_tags.setStyleSheet(self.getv("frm_tags_frame_stylesheet"))
-        self.frm_tags.setVisible(False)
+        if not settings_updated:
+            self.frm_tags.setVisible(False)
         self.frm_tags.move(220, 125)
 
         self.lst_tag_tags.setStyleSheet(self.getv("frm_tags_lst_tag_stylesheet"))

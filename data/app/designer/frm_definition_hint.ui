@@ -177,6 +177,34 @@ QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.0056
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="btn_settings">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>100</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {color: rgb(170, 255, 0);}
+QPushButton:disabled { color: rgb(130, 130, 130);}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/settings.png</normaloff>../images/settings.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>23</width>
+     <height>23</height>
+    </size>
+   </property>
+  </widget>
   <zorder>lbl_title</zorder>
   <zorder>btn_open</zorder>
   <zorder>btn_dont_show</zorder>
@@ -184,6 +212,7 @@ QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.0056
   <zorder>btn_quick_add</zorder>
   <zorder>lbl_pic</zorder>
   <zorder>btn_close</zorder>
+  <zorder>btn_settings</zorder>
  </widget>
  <resources/>
  <connections/>

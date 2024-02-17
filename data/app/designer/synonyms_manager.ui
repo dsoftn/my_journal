@@ -286,7 +286,7 @@ QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.0056
     <rect>
      <x>0</x>
      <y>5</y>
-     <width>620</width>
+     <width>801</width>
      <height>50</height>
     </rect>
    </property>

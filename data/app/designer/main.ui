@@ -63,6 +63,8 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="mnu_file_app_settings"/>
+    <addaction name="separator"/>
     <addaction name="mnu_open"/>
     <addaction name="mnu_save_as"/>
     <addaction name="separator"/>
@@ -464,6 +466,15 @@
    </property>
    <property name="text">
     <string>Wikipedia</string>
+   </property>
+  </action>
+  <action name="mnu_file_app_settings">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/settings.png</normaloff>../images/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>App settings</string>
    </property>
   </action>
  </widget>

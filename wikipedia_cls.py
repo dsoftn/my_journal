@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QScrollArea, QWidget, QLabel, QLineEdit, QSizePolicy, QVBoxLayout,
                              QSpacerItem, QDialog, QCheckBox)
-from PyQt5.QtGui import QIcon, QPixmap, QMouseEvent, QResizeEvent
+from PyQt5.QtGui import QIcon, QPixmap, QMouseEvent, QResizeEvent, QMovie
 from PyQt5.QtCore import QSize, Qt, QCoreApplication
 from PyQt5 import QtGui
 
@@ -312,13 +312,20 @@ class Wikipedia(QDialog):
         self.btn_refresh.clicked.connect(self.btn_refresh_click)
         self.lbl_search_pic.mousePressEvent = self.lbl_search_pic_mouse_press
         self.lbl_content_pic.mousePressEvent = self.lbl_content_pic_mouse_press
+        self.lbl_wiki_logo.mousePressEvent = self.lbl_wiki_logo_mouse_press
 
         if self.auto_show_dialog:
             self.show()
             QCoreApplication.processEvents()
         if search_string:
             self.txt_search.setText(search_string)
-            self.show_search_results(search_string)
+            self.btn_search_click()
+
+    def lbl_wiki_logo_mouse_press(self, e: QMouseEvent):
+        if e.button() == Qt.LeftButton:
+            self.wiki_logo_movie.stop()
+        elif self.lbl_wiki_logo.isVisible():
+            self.wiki_logo_movie.start()
 
     def btn_refresh_click(self):
         self.loading(True)
@@ -346,6 +353,8 @@ class Wikipedia(QDialog):
             self._check_engine_selection_status()
 
     def btn_search_click(self):
+        self.wiki_logo_movie.stop()
+        self.lbl_wiki_logo.setVisible(False)
         self.show_search_results(self.txt_search.text())
 
     def chk_duckduckgo_state_changed(self):
@@ -790,6 +799,26 @@ class Wikipedia(QDialog):
         self.txt_search.resize((self.btn_search.pos().x() - 10) - (self.lbl_search_title.pos().x() + self.lbl_search_title.width() + 10), self.txt_search.height())
         self.lbl_warning.resize(self.txt_search.width(), self.txt_search.height())
 
+        # Wiki logo 
+        wiki_scale = 1
+        wiki_shrink = 1
+        wiki_logo_size_y = int((self.contentsRect().height() - (self.frm_search.pos().y() + self.frm_search.height())) / wiki_shrink)
+        if wiki_logo_size_y * wiki_scale > self.contentsRect().width() / wiki_shrink:
+            wiki_logo_size_x = int((self.contentsRect().width() / wiki_shrink))
+            wiki_logo_size_y = int(wiki_logo_size_x / wiki_scale)
+        else:
+            wiki_logo_size_x = int(wiki_logo_size_y * wiki_scale)
+
+        wiki_logo_x = int((self.contentsRect().width() - wiki_logo_size_x) / 2)
+        wiki_logo_y = int((self.contentsRect().height() - (self.frm_search.pos().y() + self.frm_search.height()) - wiki_logo_size_y) / 2 + (self.frm_search.pos().y() + self.frm_search.height()))
+
+        if wiki_logo_size_x < 20 or wiki_logo_size_y < 20:
+            self.lbl_wiki_logo.setVisible(False)
+        else:
+            self.lbl_wiki_logo.setVisible(True)
+            self.lbl_wiki_logo.move(wiki_logo_x, wiki_logo_y)
+            self.lbl_wiki_logo.resize(wiki_logo_size_x, wiki_logo_size_y)
+
         # Search Area
         self.search_area.move(0, self.frm_search.pos().y() + self.frm_search.height())
         self.search_area.resize(w, h - self.search_area.pos().y())
@@ -922,6 +951,14 @@ class Wikipedia(QDialog):
         self.chk_brave.adjustSize()
         self.chk_brave.setToolTip(self.getl("wiki_chk_brave_tt"))
 
+        # Wikipedia logo label
+        self.lbl_wiki_logo = QLabel(self)
+        self.lbl_wiki_logo.setScaledContents(True)
+        self.lbl_wiki_logo.setAlignment(Qt.AlignCenter)
+        self.wiki_logo_movie = QMovie(self.getv("wikipedia_central_label_animation_path"))
+        self.lbl_wiki_logo.setMovie(self.wiki_logo_movie)
+        self.wiki_logo_movie.start()
+        
         # Loading label
         self.lbl_loading = QLabel(self.frm_search)
         self.lbl_loading.move(2, 2)

@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridLayout, QWidget,
                              QSpacerItem, QSizePolicy, QLabel, QHBoxLayout)
 from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QMouseEvent, QCursor, QPixmap
-from PyQt5.QtCore import QSize, Qt, QTimer
+from PyQt5.QtCore import QSize, Qt, QTimer, QCoreApplication
 from PyQt5 import QtGui
 from PyQt5.QtMultimedia import QSound
 
@@ -75,6 +75,8 @@ class Frame(QFrame):
             self.sound_pop_up = QSound(self.getv("notification_pop_up_sound_file_path"))
 
         # Connect Signals with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         if self._my_name == "body":
             self.get_appv("clipboard").changed.connect(self._clipboard_changed)
 
@@ -358,6 +360,7 @@ class Frame(QFrame):
         self._header_content()
 
     def _body_content(self, main_win):
+        # Add TextBox
         self.body_text_box = TextBox(self, self._stt, self._active_record_id, "body_txt_box", self._data_dict, main_win)
         self.layout().addWidget(self.body_text_box, 0, 0)
         body_height = 0
@@ -370,6 +373,7 @@ class Frame(QFrame):
         body_height += self.contentsMargins().top() + self.contentsMargins().bottom()
         body_height += 15
 
+        # Add area with images and files
         area = ScrollAreaItem(self)
         widget = QWidget(self)
         self.horizontal_grid = QHBoxLayout(widget)
@@ -386,10 +390,22 @@ class Frame(QFrame):
         number_of_items = len(self._data_dict["media"]) + len(self._data_dict["files"])
 
         widget.setFixedHeight(self.getv("block_image_thumb_size") + 10)
-        widget.setFixedWidth(number_of_items * (self.getv("block_image_thumb_size") + 10))
-
+        if number_of_items > 1:
+            block_image_widget_width = (number_of_items - 1) * self.getv("block_image_widget_layout_spacing")
+        else:
+            block_image_widget_width = 0
+        block_image_widget_width += number_of_items * (self.getv("block_image_thumb_size") + 10)
+        widget.setFixedWidth(block_image_widget_width)
         area.setFixedHeight(widget.height() + 25)
         body_height += area.height()
+
+        # Set area apperance
+        area.setStyleSheet(self.getv("block_image_area_stylesheet"))
+        self._set_margins(area, "block_image_area")
+        widget.setStyleSheet(self.getv("block_image_area_widget_stylesheet"))
+        self._set_margins(widget, "block_image_area_widget")
+        self._set_margins(self.horizontal_grid, "block_image_widget_layout")
+        self.horizontal_grid.setSpacing(self.getv("block_image_widget_layout_spacing"))
         
         self.setFixedHeight(body_height)
 
@@ -988,6 +1004,9 @@ class Frame(QFrame):
                     break
             self.block_event("body", "file_removed")
 
+    def app_setting_updated(self, data: dict):
+        self._define_apperance()
+
     def _define_apperance(self):
         self.setFrameShape(self.getv(f"{self._my_name}_frame_shape"))
         self.setFrameShadow(self.getv(f"{self._my_name}_frame_shadow"))
@@ -1200,6 +1219,8 @@ class TextBox(QTextEdit):
         self._autosave_timer = None
 
         # Connect events with slots
+        self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+
         self.textChanged.connect(self.txt_box_text_changed)
         self.cursorPositionChanged.connect(self.txt_box_cursor_position_changed)
         self.selectionChanged.connect(self.selection_changed)
@@ -1552,18 +1573,23 @@ class TextBox(QTextEdit):
         if self._active_record_id == record_id:
             self.setFocus()
 
-    def _create_text_box(self):
-        self.setUndoRedoEnabled(True)
-        
-        if self._data_dict["body"]:
-            self.setHtml(self._data_dict["body_html"])
-            if not self._data_dict["body_html"]:
-                self.setText(self._data_dict["body"])
-        else:
-            self.setText(self.getl(f"{self._my_name}_text"))
-        self.setToolTip(self.getl(f"{self._my_name}_tt"))
-        self.setStatusTip(self.getl(f"{self._my_name}_sb_text"))
-        self.setStatusTip(self.getl(f"{self._my_name}_placeholder_text"))
+    def app_setting_updated(self, data: dict):
+        self._create_text_box(settings_updated=True)
+
+
+    def _create_text_box(self, settings_updated: bool = False):
+        if not settings_updated:
+            self.setUndoRedoEnabled(True)
+            
+            if self._data_dict["body"]:
+                self.setHtml(self._data_dict["body_html"])
+                if not self._data_dict["body_html"]:
+                    self.setText(self._data_dict["body"])
+            else:
+                self.setText(self.getl(f"{self._my_name}_text"))
+            self.setToolTip(self.getl(f"{self._my_name}_tt"))
+            self.setStatusTip(self.getl(f"{self._my_name}_sb_text"))
+            self.setStatusTip(self.getl(f"{self._my_name}_placeholder_text"))
 
         self.setFrameShape(self.getv(f"{self._my_name}_frame_shape"))
         self.setFrameShadow(self.getv(f"{self._my_name}_frame_shadow"))
@@ -1635,7 +1661,7 @@ class Button(QPushButton):
         self._active_record_id = record_id
         self._my_name = my_name
         self._main_win = main_win
-        self._messages = {}  # item: text, duration, QTimer
+        self._messages = []  # item: text, duration, QTimer
 
         # Define Signals class
         self._signals: utility_cls.Signals = self.get_appv("signal")
@@ -1672,18 +1698,25 @@ class Button(QPushButton):
         dur = detail["duration"]
         text = detail["text"]
 
-        if name in self._messages:
-            self._messages[name]["text"] = text
-            self._messages[name]["duration"] = dur
-            self._messages[name]["timer"].singleShot(dur, lambda: self._msg_timer_triggered(name))
+        existing_msg = None
+        for msg in self._messages:
+            if msg["name"] == name:
+                existing_msg = msg
+        
+        if existing_msg:
+            existing_msg["text"] = text
+            existing_msg["duration"] = dur
+            existing_msg["timer"].singleShot(dur, lambda: self._msg_timer_triggered(name))
         else:
-            self._messages[name] = {}
-            self._messages[name]["text"] = text
-            self._messages[name]["duration"] = dur
+            new_msg = {}
+            new_msg["name"] = name
+            new_msg["text"] = text
+            new_msg["duration"] = dur
             new_timer = QTimer(self)
             new_timer.setObjectName(name)
             new_timer.singleShot(dur, lambda: self._msg_timer_triggered(name))
-            self._messages[name]["timer"] = new_timer
+            new_msg["timer"] = new_timer
+            self._messages.append(new_msg)
         self._update_msg_text()
         self.setVisible(True)
 
@@ -1691,16 +1724,24 @@ class Button(QPushButton):
         self._update_msg_hide(name)
 
     def _update_msg_text(self):
-        text = "   ".join([self._messages[x]["text"] for x in self._messages])
+        text = "   ".join([x["text"] for x in self._messages])
         self.setText(text)
         self._set_geometry()
 
     def _update_msg_hide(self, name: str):
-        if name in self._messages:
-            self._messages[name]["timer"].stop()
-            self._messages[name]["timer"].deleteLater()
-            self._messages.pop(name)
+        delete_index_list = []
+        for idx, msg in enumerate(self._messages):
+            if msg["name"] == name:
+                msg["timer"].stop()
+                msg["timer"].deleteLater()
+                delete_index_list.append(idx)
+
+        delete_index_list.reverse()
+        for idx in delete_index_list:
+            del self._messages[idx]
+
         self._update_msg_text()
+
         if not self._messages:
             self.setVisible(False)
 
@@ -1711,6 +1752,7 @@ class Button(QPushButton):
         self._signals.signalSavedButtonCheckStatus.connect(self._define_if_saved_button_is_visible)
         self._signals.signalBlockDateFormatChanged.connect(self.signal_date_format_changed_event)
         self._signals.signalDetectedObject.connect(self.signal_detect_object)
+        self._signals.signal_app_settings_updated.connect(self.app_setting_updated)
 
     def signal_date_format_changed_event(self):
         if self._my_name == "win_block_control_btn_date":
@@ -1784,7 +1826,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         if menu_dict["result"] == 10:
             self._parent_widget.btn_clicked("footer_btn_add_new", "clicked")
         if menu_dict["result"] == 20:
@@ -1803,7 +1845,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         if menu_dict["result"] == 10:
             self._parent_widget.btn_clicked(self._my_name, "clicked")
             self.action_save_button_left_click()
@@ -1824,7 +1866,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         if menu_dict["result"] == 1:
             self.action_control_footer_btn_delete_left_click()
         elif menu_dict["result"] == 2:
@@ -1840,7 +1882,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             if result == 1:
@@ -1867,7 +1909,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             if result == 1:
@@ -1899,7 +1941,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             if result == 1:
@@ -1994,7 +2036,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             
@@ -2047,7 +2089,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             if result == 1:
@@ -2063,7 +2105,9 @@ class Button(QPushButton):
             self.action_control_btn_name_left_click()
         elif self._my_name == "win_block_control_btn_date":
             self.action_control_btn_date_left_click()
-        
+        elif self._my_name == "win_block_control_btn_msg":
+            self.ask_user_to_hide_definition_messages()
+
         elif self._my_name == "header_btn_add":
             self.action_control_header_btn_add_left_click()
 
@@ -2078,6 +2122,75 @@ class Button(QPushButton):
 
         self._signals.saved_button_check_status(self._active_record_id)
 
+    def ask_user_to_hide_definition_messages(self):
+        selected = []
+
+        if self.getv("block_calc_mode_titlebar_msg_enabled"):
+            selected.append(110)
+        else:
+            selected.append(120)
+
+        if self.getv("block_definition_titlebar_msg_enabled"):
+            selected.append(210)
+        else:
+            selected.append(220)
+
+        menu_dict = {
+            "position": QCursor().pos(),
+            "selected": selected,
+            "items": [
+                [100,
+                 self.getl("block_titlebar_msg_calc_enable_text"),
+                 self.getl("block_titlebar_msg_calc_enable_tt"),
+                 False,
+                 [
+                     [110, self.getl("text_on"), "", True, [], None],
+                     [120, self.getl("text_off"), "", True, [], None]
+                 ],
+                 self.getv("calculator_icon_path")
+                 ],
+                [200,
+                 self.getl("block_titlebar_msg_definition_enable_text"),
+                 self.getl("block_titlebar_msg_definition_enable_tt"),
+                 False,
+                 [
+                     [210, self.getl("text_on"), "", True, [], None],
+                     [220, self.getl("text_off"), "", True, [], None]
+                 ],
+                 self.getv("definition_icon_path")
+                 ]
+            ]
+        }
+
+        self.set_appv("menu", menu_dict)
+        utility_cls.ContextMenu(self._stt, self._main_win)
+
+        result = self.get_appv("menu")["result"]
+
+        msg_dict = {
+            "id": self._active_record_id,
+            "type": "show",
+            "name": "system",
+            "duration": 10000
+        }
+
+        if result == 110:
+            self.setv("block_calc_mode_titlebar_msg_enabled", True)
+            msg_dict["text"] = f"{self.getl('block_titlebar_msg_calc_enable_text')} - {self.getl('text_on')}"
+            self.update_msg(msg_dict)
+        elif result == 120:
+            self.setv("block_calc_mode_titlebar_msg_enabled", False)
+            msg_dict["text"] = f"{self.getl('block_titlebar_msg_calc_enable_text')} - {self.getl('text_off')}"
+            self.update_msg(msg_dict)
+        elif result == 210:
+            self.setv("block_definition_titlebar_msg_enabled", True)
+            msg_dict["text"] = f"{self.getl('block_titlebar_msg_definition_enable_text')} - {self.getl('text_on')}"
+            self.update_msg(msg_dict)
+        elif result == 220:
+            self.setv("block_definition_titlebar_msg_enabled", False)
+            msg_dict["text"] = f"{self.getl('block_titlebar_msg_definition_enable_text')} - {self.getl('text_off')}"
+            self.update_msg(msg_dict)
+
     def action_footer_btn_detection_left_click(self):
         menu_dict = {
             "position": QCursor().pos(),
@@ -2089,7 +2202,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         if menu_dict["result"] == 10:
             data_dict = {
                 "command": "list"
@@ -2169,7 +2282,7 @@ class Button(QPushButton):
         }
         self.set_appv("menu", menu_dict)
         self._send_msg_to_main_win()
-        utility_cls.ContextMenu(self._stt, self)
+        utility_cls.ContextMenu(self._stt, self.parent())
         result = self.get_appv("menu")["result"]
         if result:
             if db_tag.is_valid_tag_id(result):
@@ -2373,7 +2486,10 @@ class Button(QPushButton):
         self.setToolTip(self.getl(f"{self._my_name}_tt"))
         self.setStatusTip(self.getl(f"{self._my_name}_sb_text"))
 
-    def _set_apperance(self):
+    def app_setting_updated(self, data: dict):
+        self._set_apperance(settings_updated=True)
+
+    def _set_apperance(self, settings_updated: bool = False):
         # Apperance
         self.setAutoDefault(False)
         self.setDefault(False)
@@ -2390,8 +2506,9 @@ class Button(QPushButton):
         self.setStyleSheet(self.getv(f"{self._my_name}_stylesheet"))
         self.setEnabled(self.getv(f"{self._my_name}_enabled"))
         self.setVisible(self.getv(f"{self._my_name}_visible"))
-        if self.text() == "" and self._my_name == "footer_btn_detection":
-            self.setVisible(False)
+        if not settings_updated:
+            if self.text() == "" and self._my_name == "footer_btn_detection":
+                self.setVisible(False)
 
 
 

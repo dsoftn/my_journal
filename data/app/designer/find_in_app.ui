@@ -139,7 +139,7 @@ color: rgb(6, 10, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
+      <y>20</y>
       <width>150</width>
       <height>16</height>
      </rect>
@@ -160,7 +160,7 @@ color: rgb(6, 10, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>60</y>
+      <y>40</y>
       <width>150</width>
       <height>17</height>
      </rect>
@@ -176,7 +176,7 @@ color: rgb(6, 10, 255);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>80</y>
+      <y>60</y>
       <width>150</width>
       <height>17</height>
      </rect>
@@ -481,6 +481,22 @@ color: rgb(6, 10, 255);</string>
     </property>
     <property name="text">
      <string>Text definition synonyms</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chk_block_tags">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>150</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(170, 255, 127);</string>
+    </property>
+    <property name="text">
+     <string>Tags</string>
     </property>
    </widget>
   </widget>
