@@ -1370,7 +1370,6 @@ class NewsSputnik(AbstractNewsSource):
         result = self.load_project(url)
         if not result or self.rashomon.errors():
             return False
-        print (url)
 
         result = self._get_page_data(url)
         if not result:
@@ -2854,7 +2853,6 @@ class News(AbstractTopic):
         old_subcategory_count = len(self.data.categories[self.active_category.split(",")[0]]["sub"])
         result = self.source_obj.load_headlines()
         if len(self.data.categories[self.active_category.split(",")[0]]["sub"]) != old_subcategory_count:
-            print ("SubCategory changed !!!")
             self._populate_subcategories(self.active_category)
 
         if not result:

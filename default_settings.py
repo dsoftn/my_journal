@@ -10224,11 +10224,11 @@ Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
             [0, """Window dragging"""],
             [1, """Vučenje prozora"""] ],
         "app_sett_style_gwp_qdialog_window_drag_enabled_style": [
-            [0, """Allow window dragging by title"""],
-            [1, """Dozvoli vučenje prozora pomoću naslova"""] ],
+            [0, """Allow drag by title"""],
+            [1, """Dozvoli vučenje pomoću naslova"""] ],
         "gwp_qdialog_window_drag_enabled_desc": [
-            [0, """The user will be able to 'grab' the window title with the mouse and move the window around the screen"""],
-            [1, """Korisnik će moći mišem da 'uhvati' naslov prozora i da pomera prozor po ekranu"""] ],
+            [0, """The user will be able to 'grab' the title of the window/frame with the mouse and move the window/frame around the screen"""],
+            [1, """Korisnik će moći mišem da 'uhvati' naslov prozora/okvira i da pomera prozor/okvir po ekranu"""] ],
         "app_sett_style_gwp_dialog_drag_cursor_name": [
             [0, """The appearance of the mouse arrow when the user drags the window"""],
             [1, """Izgled strelice miša kada korisnik vuče prozor"""] ],
@@ -10239,17 +10239,217 @@ Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
             [0, """Allow changing the appearance of the cursor when the mouse is over the title and when the window is dragged"""],
             [1, """Dozvoli promenu izgleda kursora kada je miš iznad naslova i kada se vuče prozor"""] ],
         "app_sett_style_gwp_qdialog_start_drag_cursor_style": [
-            [0, """Appearance of the cursor when the window is dragged"""],
-            [1, """Izgled kursora kada se prozor vuče"""] ],
+            [0, """Appearance of the cursor when dragging is in progress"""],
+            [1, """Izgled kursora kada je vučenje u toku"""] ],
         "gwp_qdialog_start_drag_cursor_desc": [
-            [0, """The appearance of the cursor when the user holds down the left mouse button and drags the window"""],
-            [1, """Izgled kursora kada korisnik drži pritisnut levi taster miša i vuče prozor"""] ],
+            [0, """The appearance of the cursor when the user holds down the left mouse button and drags a window/frame"""],
+            [1, """Izgled kursora kada korisnik drži pritisnut levi taster miša i vuče prozor/okvir"""] ],
         "app_sett_style_gwp_qdialog_end_drag_cursor_style": [
-            [0, """Appearance of the cursor when the window is not dragged"""],
-            [1, """Izgled kursora kada se prozor ne vuče"""] ],
+            [0, """The appearance of the cursor before dragging"""],
+            [1, """Izgled kursora pre vučenja"""] ],
         "gwp_qdialog_end_drag_cursor_desc": [
-            [0, """The appearance of the cursor when the window is not dragged and the mouse is over the title"""],
-            [1, """Izgled kursora kada se prozor ne vuče a miš se nalazi iznad naslova"""] ]
+            [0, """The appearance of the cursor when the window/frame is not dragged and the mouse is over the title"""],
+            [1, """Izgled kursora kada se prozor/okvir ne vuče a miš se nalazi iznad naslova"""] ],
+        "app_sett_style_gwp_frame_drag_name": [
+            [0, """Dragging a frame inside a window"""],
+            [1, """Vučenje okvira unutar prozora"""] ],
+        "app_sett_style_gwp_frame_drag_cursor_name": [
+            [0, """The appearance of the mouse arrow when the user drags the frame"""],
+            [1, """Izgled strelice miša kada korisnik vuče okvir"""] ],
+        "app_sett_style_gwp_frame_name": [
+            [0, """A frame inside a window"""],
+            [1, """Okvir unutar prozora"""] ],
+        "app_sett_style_gwp_actionframe_name": [
+            [0, """Complex dialog buttons
+(E.g. Side Menu)"""],
+            [1, """Kompleksna dugmad u dijalogu
+(Npr. Meni sa strane)"""] ],
+        "gwp_qpushbutton_tap_event_show_animation_duration_ms_desc": [
+            [0, """Animation duration in milliseconds"""],
+            [1, """Trajanje animacije u milisekundama"""] ],
+        "app_sett_style_gwp_frame_change_stylesheet_name": [
+            [0, """Change the appearance of the draggable widget while it is being dragged"""],
+            [1, """Promeni izgled widgeta koji se vuče dok traje vučenje"""] ],
+        "gwp_qframe_dragged_window_change_stylesheet_enabled_desc": [
+            [0, """Allow to change the appearance of the widget"""],
+            [1, """Dozvoli promenu izgleda widgeta """] ],
+        "app_sett_style_gwp_frame_mask_label_name": [
+            [0, """Places a mask on the draggable widget while it is being dragged"""],
+            [1, """Postavi masku na widget koji se vuče dok traje vučenje"""] ],
+        "app_sett_style_gwp_qframe_dragged_window_change_stylesheet_enabled_style": [
+            [0, """Allow to change the appearance of the widget"""],
+            [1, """Dozvoli promenu izgleda widgeta """] ],
+        "app_sett_style_gwp_qframe_dragged_window_mask_label_enabled_style": [
+            [0, """Allow masking"""],
+            [1, """Dozvoli postavljanje maske"""] ],
+        "gwp_qframe_dragged_window_mask_label_enabled_desc": [
+            [0, """A mask will be placed on the widget while dragging"""],
+            [1, """Na widget će biti postavljena maska u toku vučenja"""] ],
+        "app_sett_style_label_mask_stylesheet_style": [
+            [0, """Appearance of the mask"""],
+            [1, """Izgled maske"""] ],
+        "gwp_qframe_dragged_window_mask_label_stylesheet_desc": [
+            [0, """Appearance of the mask that will be displayed on the widget while dragging"""],
+            [1, """Izgled maske koja će biti prikazana na widgetu u toku vučenja"""] ],
+        "app_sett_style_gwp_qframe_dragged_window_mask_label_image_path_style": [
+            [0, """Mask image"""],
+            [1, """Slika maske"""] ],
+        "app_sett_style_gwp_qframe_dragged_window_mask_label_animation_path_style": [
+            [0, """Mask animation"""],
+            [1, """Animacija maske"""] ],
+        "gwp_qframe_dragged_window_mask_label_image_path_desc": [
+            [0, """The image that the draggable widget mask will display.
+If an animation is selected for the mask, then the image will not be displayed, but an animation will be displayed instead of the image."""],
+            [1, """Slika koju će prikazivati maska widgeta koji se vuče.
+Ukoliko je izabrana animacija za masku onda slika neće biti prikazana već će umesto slike biti prikazana animacija."""] ],
+        "gwp_qframe_dragged_window_mask_label_animation_path_desc": [
+            [0, """The animation that will be displayed by the mask of the widget being dragged.
+If an image is selected for the mask, then the image will not be displayed, but an animation will be displayed instead of the image."""],
+            [1, """Animacija koju će prikazivati maska widgeta koji se vuče.
+Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umesto slike biti prikazana animacija."""] ],
+        "browse_def_btn_add_text": [
+            [0, """Add new"""],
+            [1, """Dodaj novi"""] ],
+        "browse_def_btn_add_tt": [
+            [0, """Adds a new definition"""],
+            [1, """Dodaje novu definiciju"""] ],
+        "app_sett_style_browse_def_btn_add_name": [
+            [0, """Button: Add definition"""],
+            [1, """Dugme: Dodaj definiciju"""] ],
+        "app_sett_style_gwp_textbox_name": [
+            [0, """TextBox (Text input field)"""],
+            [1, """TextBox (Polje za unos teksta)"""] ],
+        "app_sett_style_gwp_key_press_name": [
+            [0, """Text input (Keystroke)"""],
+            [1, """Unos teksta (Pritisak na taster)"""] ],
+        "app_sett_style_gwp_qtextedit_key_pressed_sound_name": [
+            [0, """Play sound on key press"""],
+            [1, """Zvuk na pritisak tastera"""] ],
+        "app_sett_style_gwp_qtextedit_key_pressed_change_stylesheet_name": [
+            [0, """Appearance of the textbox while typing"""],
+            [1, """Izgled textbox-a dok je kucanje u toku"""] ],
+        "app_sett_style_gwp_qtextedit_key_pressed_change_size_name": [
+            [0, """The size of the textbox while typing"""],
+            [1, """Veličina textbox-a dok je kucanje u toku"""] ],
+        "app_sett_style_gwp_return_press_name": [
+            [0, """Text input (on ENTER/RETURN key press)"""],
+            [1, """Unos teksta (Pritisak na ENTER/RETURN)"""] ],
+        "app_sett_style_gwp_qtextedit_return_pressed_sound_name": [
+            [0, """Play sound on ENTER or RETURN key"""],
+            [1, """Zvuk na pritisak tastera ENTER ili RETURN"""] ],
+        "app_sett_style_gwp_qtextedit_return_pressed_change_stylesheet_name": [
+            [0, """Appearance of the textbox upon pressing the ENTER or RETURN key"""],
+            [1, """Izgled textbox-a na pritisak tastera ENTER ili RETURN"""] ],
+        "app_sett_style_gwp_qtextedit_return_pressed_change_size_name": [
+            [0, """The size of the textbox upon pressing the ENTER or RETURN key"""],
+            [1, """Veličina textbox-a na pritisak tastera ENTER ili RETURN"""] ],
+        "app_sett_style_gwp_esc_press_name": [
+            [0, """Text input (on ESCAPE key press)"""],
+            [1, """Unos teksta (Pritisak na ESCAPE)"""] ],
+        "app_sett_style_gwp_qtextedit_escape_pressed_sound_name": [
+            [0, """Play sound on ESCAPE key"""],
+            [1, """Zvuk na pritisak tastera ESCAPE"""] ],
+        "app_sett_style_gwp_qtextedit_escape_pressed_change_stylesheet_name": [
+            [0, """Appearance of the textbox on pressing the ESCAPE key"""],
+            [1, """Izgled textbox-a na pritisak tastera ESCAPE"""] ],
+        "app_sett_style_gwp_qtextedit_escape_pressed_change_size_name": [
+            [0, """The size of the textbox on pressing the ESCAPE key"""],
+            [1, """Veličina textbox-a na pritisak tastera ESCAPE"""] ],
+        "app_sett_style_gwp_smart_parenthesis_name": [
+            [0, """Smart brackets and quotes"""],
+            [1, """Pametne zagrade i navodnici"""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_enabled_style": [
+            [0, """Enable smart brackets and quotes"""],
+            [1, """Omogući pametne zagrade i navodnike"""] ],
+        "app_sett_style_gwp_smart_parenthesis_desc_name": [
+            [0, """When some text is selected in the textbox, if you type opening brackets or quotation marks, the selected text will be placed in brackets or quotation marks."""],
+            [1, """Kada je u textbox-u neki tekst selektovan, ako ukucate otvaranje zagrada ili navodnika selektovani tekst će biti postavljen u zagrade ili navodnike."""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_sound_name": [
+            [0, """Sound on input of smart brackets/quotes"""],
+            [1, """Zvuk na unos pametnih zagrada/navodnika"""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_success_sound_file_path_style": [
+            [0, """Sound when there is selected text"""],
+            [1, """Zvuk kada ima selektovanog teksta"""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_fail_sound_file_path_style": [
+            [0, """Sound when no text is selected"""],
+            [1, """Zvuk kada nema selektovanog teksta"""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_change_stylesheet_name": [
+            [0, """Textbox apperance on smart brackets/quotes input"""],
+            [1, """Izgled textbox-a na unos pametnih zagrada/navodnika"""] ],
+        "app_sett_style_gwp_qtextedit_smart_parenthesis_change_size_name": [
+            [0, """Textbox size on smart brackets/quotes input"""],
+            [1, """Veličina textbox-a na unos pametnih zagrada/navodnika"""] ],
+        "app_sett_style_textbox_stylesheet_enabled_style": [
+            [0, """Enable changing the appearance of the TextBox"""],
+            [1, """Omogući promenu izgleda TextBox-a"""] ],
+        "app_sett_style_textbox_change_size_enabled_style": [
+            [0, """Enable resizing of TextBox"""],
+            [1, """Omogući promenu veličine TextBox-a"""] ],
+        "app_sett_style_illegal_entry_name": [
+            [0, """Text input - Illegal entry"""],
+            [1, """Unos teksta - Nedozvoljeni unos"""] ],
+        "app_sett_style_gwp_qtextedit_illegal_entry_sound_name": [
+            [0, """Illegal entry - Sound"""],
+            [1, """Nedozvoljeni unos - Zvuk"""] ],
+        "app_sett_style_gwp_qtextedit_illegal_entry_change_stylesheet_name": [
+            [0, """Illegal input - Textbox apperance"""],
+            [1, """Nedozvoljeni unos - Izgled textbox-a"""] ],
+        "app_sett_style_gwp_qtextedit_illegal_entry_change_size_name": [
+            [0, """Illegal input - Textbox size"""],
+            [1, """Nedozvoljeni unos - Veličina textbox-a"""] ],
+        "app_sett_style_gwp_qdialog_drag_frame_with_body_style": [
+            [0, """and frame body with no widgets"""],
+            [1, """i telom okvira gde nema widget-a"""] ],
+        "gwp_qdialog_frame_drag_with_body_desc": [
+            [0, """With this option on, the user will be able to drag the frame by clicking on the part of the frame that is not covered by a widget"""],
+            [1, """Sa ovom opcijom uključenom, korisnik će moći da vuče okvir klikom na deo okvira koji nije pokriven nekim widget-om"""] ],
+        "app_sett_style_gwp_qdialog_drag_dialog_with_body_style": [
+            [0, """and the dialog body with no widgets"""],
+            [1, """i telom dijaloga gde nema widget-a"""] ],
+        "gwp_qdialog_dialog_drag_with_body_desc": [
+            [0, """With this option enabled, the user will be able to drag the dialog by clicking on a part of the dialog that is not covered by a widget"""],
+            [1, """Sa ovom opcijom uključenom, korisnik će moći da vuče dijalog klikom na deo dijaloga koji nije pokriven nekim widget-om"""] ],
+        "app_sett_style_gwp_selection_name": [
+            [0, """Selection and check-out widgets
+(CheckBox, ComboBox, RadioButton, SpinBox...)"""],
+            [1, """Widgeti selekcije i čekiranja
+(CheckBox, ComboBox, RadioButton, SpinBox...)"""] ],
+        "app_sett_style_gwp_selection_click_name": [
+            [0, """Event: Widget click"""],
+            [1, """Događaj: Klik na widget"""] ],
+        "app_sett_style_gwp_selection_click_animation_name": [
+            [0, """Animation when the widget is pressed"""],
+            [1, """Animacija kada je widget pritisnut"""] ],
+        "app_sett_style_gwp_selection_click_sound_name": [
+            [0, """Sound when widget is pressed"""],
+            [1, """Zvuk kada je widget pritisnut"""] ],
+        "app_sett_style_gwp_selection_click_stylesheet_name": [
+            [0, """Appearance of the widget when pressed"""],
+            [1, """Izgled widgeta kada je pritisnut"""] ],
+        "app_sett_style_gwp_selection_click_size_name": [
+            [0, """The size of the widget when pressed"""],
+            [1, """Veličina widgeta kada je pritisnut"""] ],
+        "app_sett_style_toolbar_buttons_name": [
+            [0, """Toolbar buttons"""],
+            [1, """Dugmad na traci sa alatkama"""] ],
+        "app_sett_style_toolBar_tool_button_style_style": [
+            [0, """Toolbar buttons style"""],
+            [1, """Stil dugmadi na traci"""] ],
+        "toolBar_tool_button_style_desc": [
+            [0, """Toolbar buttons style"""],
+            [1, """Stil dugmadi na traci"""] ],
+        "ToolButtonIconOnly": [
+            [0, """Icon Only"""],
+            [1, """Samo ikona"""] ],
+        "ToolButtonTextOnly": [
+            [0, """Text Only"""],
+            [1, """Samo tekst"""] ],
+        "ToolButtonTextBesideIcon": [
+            [0, """Text beside icon"""],
+            [1, """Tekst pored ikone"""] ],
+        "ToolButtonTextUnderIcon": [
+            [0, """Text under icon"""],
+            [1, """Tekst ispod ikone"""] ]
     }
     if key_name in lang.keys():
         return lang[key_name]
@@ -34109,8 +34309,8 @@ It's usually an animated gif image"""
             "description": """Global Widget Properties"""
             },
         "gwp_qdialog_start_drag_cursor": {
-            "value": """9""",
-            "default_value": """9""",
+            "value": """""",
+            "default_value": """""",
             "min_value": None,
             "max_value": None,
             "recommended": """""",
@@ -34147,6 +34347,1357 @@ It's usually an animated gif image"""
             "max_value": None,
             "recommended": """""",
             "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_window_drag_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_allow_drag_widgets_cursor_change": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_end_drag_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_start_drag_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_allow_cursor_change": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_tap_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_enter_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_actionframe_leave_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_stylesheet": {
+            "value": """QFrame {border: 2px solid ##aaffff;} QFrame:hover {border: 2px solid ##aaffff;}""",
+            "default_value": """QFrame {border: 2px solid ##aaffff;} QFrame:hover {border: 2px solid ##aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_mask_label_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_mask_label_stylesheet": {
+            "value": """QLabel {background-color: rgba(0, 0, 0, 80);} QLabel:hover {background-color: rgba(0, 0, 0, 80);}""",
+            "default_value": """QLabel {background-color: rgba(0, 0, 0, 80);} QLabel:hover {background-color: rgba(0, 0, 0, 80);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_mask_label_image_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_dragged_window_mask_label_animation_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_dragged_window_mask_label_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_dragged_window_mask_label_stylesheet": {
+            "value": """QLabel {background-color: rgba(0, 0, 0, 80);} QLabel:hover {background-color: rgba(0, 0, 0, 80);}""",
+            "default_value": """QLabel {background-color: rgba(0, 0, 0, 80);} QLabel:hover {background-color: rgba(0, 0, 0, 80);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_dragged_window_mask_label_image_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_dragged_window_mask_label_animation_path": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "browse_def_btn_add_flat": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be set to False.""",
+            "description": """If True, the button will be displayed flush with the background."""
+            },
+        "browse_def_btn_add_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for button. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "browse_def_btn_add_icon_path": {
+            "value": """data/app/images/add.png""",
+            "default_value": """data/app/images/add.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "browse_def_btn_add_icon_height": {
+            "value": 70,
+            "default_value": 70,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that this value be 100""",
+            "description": """The height of the icon in relation to the height of the button expressed as a percentage.
+100 = Icon height is same as button height (100%)
+The width of the icon will be the same as the height."""
+            },
+        "browse_def_btn_add_stylesheet": {
+            "value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: #00ff00; background-color: #1e3c5b;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "browse_def_btn_add_font_name": {
+            "value": """MS Shell Dlg 2""",
+            "default_value": """MS Shell Dlg 2""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Any font that is easily readable on screen.""",
+            "description": """Font family name.
+The value can be any fonts that are installed on your computer."""
+            },
+        "browse_def_btn_add_font_size": {
+            "value": 9,
+            "default_value": 9,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is recommended that the value be between 8 and 12""",
+            "description": """Font size.
+The value cannot be less than 4."""
+            },
+        "browse_def_btn_add_font_weight": {
+            "value": 50,
+            "default_value": 50,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Although you can enter any value from 0-100, it is recommended that you use one of the predefined values.""",
+            "description": """Font Weight.
+Values: 0-100
+( ExtraLight=12, Light=25, Normal=50, DemiBold=63, Bold=75, ExtraBold=81 )"""
+            },
+        "browse_def_btn_add_font_italic": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Italic."""
+            },
+        "browse_def_btn_add_font_underline": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Underline."""
+            },
+        "browse_def_btn_add_font_strikeout": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Font Strikeout"""
+            },
+        "gwp_qtextedit_key_pressed_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_sound_file_path": {
+            "value": """data/app/sounds/short10.wav""",
+            "default_value": """data/app/sounds/short10.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_qss_stylesheet": {
+            "value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "default_value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_stylesheet_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_size_percent": {
+            "value": 10,
+            "default_value": 10,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_key_pressed_change_size_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_sound_file_path": {
+            "value": """data/app/sounds/click2.wav""",
+            "default_value": """data/app/sounds/click2.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_qss_stylesheet": {
+            "value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "default_value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_stylesheet_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_size_percent": {
+            "value": 10,
+            "default_value": 10,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_return_pressed_change_size_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_sound_file_path": {
+            "value": """data/app/sounds/typing_illegal_entry6.wav""",
+            "default_value": """data/app/sounds/typing_illegal_entry6.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_qss_stylesheet": {
+            "value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "default_value": """QLineEdit {color: rgb(0, 0, 83); background-color: rgb(119, 239, 177);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_stylesheet_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_size_percent": {
+            "value": 10,
+            "default_value": 10,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_escape_pressed_change_size_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_list": {
+            "value": """(),[],{},"",''""",
+            "default_value": """(),[],{},"",''""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_success_sound_file_path": {
+            "value": """data/app/sounds/typing_key_stroke2.wav""",
+            "default_value": """data/app/sounds/typing_key_stroke2.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_fail_sound_file_path": {
+            "value": """data/app/sounds/click5.wav""",
+            "default_value": """data/app/sounds/click5.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_qss_stylesheet": {
+            "value": """QLineEdit {color: rgb(0, 0, 83); background-color: #74eadd;}""",
+            "default_value": """QLineEdit {color: rgb(0, 0, 83); background-color: #74eadd;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_stylesheet_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_size_percent": {
+            "value": 12,
+            "default_value": 12,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_smart_parenthesis_change_size_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_sound_file_path": {
+            "value": """data/app/sounds/typing_illegal_entry6.wav""",
+            "default_value": """data/app/sounds/typing_illegal_entry6.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_qss_stylesheet": {
+            "value": """QLineEdit {color: #ffff00; background-color: #ff0000;}""",
+            "default_value": """QLineEdit {color: #ffff00; background-color: #ff0000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_stylesheet_duration_ms": {
+            "value": 1500,
+            "default_value": 1500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_size_percent": {
+            "value": 10,
+            "default_value": 10,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qtextedit_illegal_entry_change_size_duration_ms": {
+            "value": 500,
+            "default_value": 500,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qdialog_window_drag_enabled_with_body": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_qframe_window_drag_enabled_with_body": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_allow_cursor_change": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_tap_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_enter_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_selection_leave_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "toolbar_buttons_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
             }
     }
 

@@ -739,18 +739,13 @@ class Card(QFrame):
         frm_actors_line.move(0, y)
         y += frm_actors_line.height() + 10
 
-        print ("Before Web move")
         if web_trailer.height() and lbl_info.pos().x() + lbl_info.width() + 20 + web_trailer.width() <= frame_w and lbl_banner.height() + 10 + web_trailer.height() <= max(frm_pic.height(), lbl_info.height()):
-            print ("move top")
             web_trailer.move(lbl_info.pos().x() + lbl_info.width() + 20, lbl_banner.height() + 10)
         else:
-            print ("move bottom")
             web_trailer.move(0, y)
             y += web_trailer.height()
-        print ("After Web move")
 
         self.resize(frame_w, y)
-        print ("Finnished creating Card")
 
     def _movie_frame_create_movie_trailer(self, movie_data: dict) -> QWebEngineView:
         if not movie_data["trailer"]:
@@ -767,9 +762,7 @@ class Card(QFrame):
 
         web.resize(w, h)
         url = movie_data["trailer"]
-        print ("Before set url to QWebEngine")
         web.setUrl(QUrl(url))
-        print ("After set url to QWebEngine")
         return web
 
     def _movie_frame_create_actors_line(self, movie_data: dict) -> QFrame:
@@ -2099,15 +2092,12 @@ class AladinTV(AbstractTopic):
         item = Card(self.frm_content, self._stt, page_code, page_type, card_setting=card_settings)
 
         # Move Card to position
-        print ("Moving Card")
         x = 0
         if len(self.cards) == 1:
             self.cards["1"]["obj"].move(0, 0)
             x = self.cards["1"]["obj"].width() + 20
         item.move(x, 0)
-        print ("Card moved ... showing Card")
         item.show()
-        print ("Card showed")
 
         # Add card
         self.cards[card_id] = {}

@@ -4125,6 +4125,7 @@ class BrowseDefinitions(QDialog):
         self.lst_def.mouseDoubleClickEvent = self._lst_def_mouse_double_click
         self.btn_close.clicked.connect(self._btn_close_click)
         self.btn_edit.clicked.connect(self._btn_edit_click)
+        self.btn_add.clicked.connect(self._btn_add_click)
         self.btn_delete.clicked.connect(self._btn_delete_click)
         self.lbl_pic.mouseDoubleClickEvent = self.lbl_pic_double_click
         self.lbl_pic.mousePressEvent = self.lbl_pic_mouse_press
@@ -4631,6 +4632,11 @@ class BrowseDefinitions(QDialog):
             self._populate_widgets(self._definition_id)
             self.txt_find_text_changed()
 
+    def _btn_add_click(self):
+        AddDefinition(self._stt, self, expression=self.txt_find.text())
+        self._populate_widgets(self._definition_id)
+        self.txt_find_text_changed()
+
     def _lst_def_current_item_changed(self, x, y):
         self._update_counter()
         if self.lst_def.currentItem() is not None:
@@ -4672,8 +4678,9 @@ class BrowseDefinitions(QDialog):
         self.lbl_title.resize(w, self.lbl_title.height())
         # Buttons
         self.btn_close.move(w - 90, h - 30)
-        self.btn_edit.move(w - 180, h - 30)
-        self.btn_delete.move(w - 270, h - 30)
+        self.btn_edit.move(w - 170, h - 30)
+        self.btn_add.move(w - 270, h - 30)
+        self.btn_delete.move(w - 350, h - 30)
         # List
         self.lst_def.resize(int(w * scale_left), h - 120)
         # Counter
@@ -4769,6 +4776,7 @@ class BrowseDefinitions(QDialog):
         self.btn_edit: QPushButton = self.findChild(QPushButton, "btn_edit")
         self.btn_close: QPushButton = self.findChild(QPushButton, "btn_close")
         self.btn_delete: QPushButton = self.findChild(QPushButton, "btn_delete")
+        self.btn_add: QPushButton = self.findChild(QPushButton, "btn_add")
 
         self.lst_def: QListWidget = self.findChild(QListWidget, "lst_def")
 
@@ -4785,6 +4793,8 @@ class BrowseDefinitions(QDialog):
         self.btn_close.setToolTip(self.getl("browse_def_btn_close_tt"))
         self.btn_delete.setText(self.getl("browse_def_btn_delete_text"))
         self.btn_delete.setToolTip(self.getl("browse_def_btn_delete_tt"))
+        self.btn_add.setText(self.getl("browse_def_btn_add_text"))
+        self.btn_add.setToolTip(self.getl("browse_def_btn_add_tt"))
 
     def app_setting_updated(self, data: dict):
         self._setup_widgets_apperance()
@@ -4799,6 +4809,7 @@ class BrowseDefinitions(QDialog):
         self._define_buttons_apperance(self.btn_edit, "browse_def_btn_edit")
         self._define_buttons_apperance(self.btn_delete, "browse_def_btn_delete")
         self._define_buttons_apperance(self.btn_close, "browse_def_btn_close")
+        self._define_buttons_apperance(self.btn_add, "browse_def_btn_add")
 
         self._define_text_box_apperance(self.txt_desc, "browse_def_txt_desc")
         self._define_text_box_apperance(self.txt_find, "browse_def_txt_find")

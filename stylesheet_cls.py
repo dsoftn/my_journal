@@ -722,7 +722,7 @@ class StyleSheet:
             is_valid = True
             color = original_c_str
 
-        return color if is_valid else ""
+        return color_value_string.strip() if is_valid else ""
 
     @property
     def unmanaged_selectors(self) -> str:

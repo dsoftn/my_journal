@@ -1,6 +1,6 @@
 from PyQt5 import QtGui, uic
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QMenu, QAction, QStatusBar,
-                             QToolBar, QScrollArea, QVBoxLayout, QWidget, QLabel, QSizePolicy)
+                             QToolBar, QScrollArea, QVBoxLayout, QWidget, QLabel, QSizePolicy, QToolButton)
 from PyQt5.QtGui import QIcon, QCursor, QPixmap, QMovie
 from PyQt5.QtCore import Qt, QTimer, QSize
 
@@ -1327,7 +1327,7 @@ class MyJournal(QMainWindow):
 
 
     def start_gui(self):    
-        # Define widgets, setup language and apperance
+        # Define widgets, setup language and appearance
         self._define_widgets()
         self._setup_widgets_language()
 
@@ -1337,6 +1337,10 @@ class MyJournal(QMainWindow):
             self.area_label.setText("")
 
         self._setup_widgets_apperance()
+
+        # Setup Widgets Handler
+        self.load_widgets_handler()
+        
         self._animate_window_title()
 
         # Load user settings, Window pos, size, toolbar pos...
@@ -1397,7 +1401,7 @@ class MyJournal(QMainWindow):
         self.show()
         self.show_welcome_notification()
 
-    # Here we recive info from WinBlock...
+    # Here we receive info from WinBlock...
     def events(self, event_dict: dict):
         if event_dict["name"] == "win_block":
             if event_dict["action"] == "open_new_block":
@@ -1421,6 +1425,33 @@ class MyJournal(QMainWindow):
 
         if event_dict["name"] == "find_in_app":
             self._start_specific_dialog(event_dict)
+
+    def load_widgets_handler(self):
+        global_properties = get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self.area_label, self])
+
+        # Add frames
+
+        # Add all Pushbuttons
+        for i in self.toolBar.children():
+            if isinstance(i, QToolButton):
+                self.widget_handler.add_QPushButton(i)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+
+        # Add Selection Widgets
+
+        self.widget_handler.activate()
 
     def _get_global_widgets_properties(self) -> dict:
         result = {
@@ -1492,9 +1523,78 @@ class MyJournal(QMainWindow):
                 "leave_event_change_size_percent": getv("gwp_qpushbutton_leave_event_change_size_percent"),
                 "leave_event_change_size_duration_ms": getv("gwp_qpushbutton_leave_event_change_size_duration_ms"),
             },
+            "Widget_ActionFrame_Properties": {
+                # Pushbutton cursor
+                "allow_cursor_change": getv("gwp_actionframe_allow_cursor_change"),
+                "cursor": getv("gwp_actionframe_cursor"),
+                "cursor_width": getv("gwp_actionframe_cursor_width"),
+                "cursor_height": getv("gwp_actionframe_cursor_height"),
+                "cursor_keep_aspect_ratio": getv("gwp_actionframe_cursor_keep_aspect_ratio"),
+                # Allow bypass mouse press event
+                "allow_bypass_mouse_press_event": True,
+                # Tap event - animation
+                "tap_event_show_animation_enabled": getv("gwp_actionframe_tap_event_show_animation_enabled"),
+                "tap_event_show_animation_file_path": getv("gwp_actionframe_tap_event_show_animation_file_path"),
+                "tap_event_show_animation_duration_ms": getv("gwp_actionframe_tap_event_show_animation_duration_ms"),
+                "tap_event_show_animation_width": getv("gwp_actionframe_tap_event_show_animation_width"),
+                "tap_event_show_animation_height": getv("gwp_actionframe_tap_event_show_animation_height"),
+                "tap_event_show_animation_background_color": getv("gwp_actionframe_tap_event_show_animation_background_color"),
+                # Tap event - play sound
+                "tap_event_play_sound_enabled": getv("gwp_actionframe_tap_event_play_sound_enabled"),
+                "tap_event_play_sound_file_path": getv("gwp_actionframe_tap_event_play_sound_file_path"),
+                # Tap event - change stylesheet
+                "tap_event_change_stylesheet_enabled": getv("gwp_actionframe_tap_event_change_stylesheet_enabled"),
+                "tap_event_change_qss_stylesheet": getv("gwp_actionframe_tap_event_change_qss_stylesheet"),
+                "tap_event_change_stylesheet_duration_ms": getv("gwp_actionframe_tap_event_change_stylesheet_duration_ms"),
+                # Tap event - change size
+                "tap_event_change_size_enabled": getv("gwp_actionframe_tap_event_change_size_enabled"),
+                "tap_event_change_size_percent": getv("gwp_actionframe_tap_event_change_size_percent"),
+                "tap_event_change_size_duration_ms": getv("gwp_actionframe_tap_event_change_size_duration_ms"),
+                # Allow bypass enter event
+                "allow_bypass_enter_event": True,
+                # Enter event - animation
+                "enter_event_show_animation_enabled": getv("gwp_actionframe_enter_event_show_animation_enabled"),
+                "enter_event_show_animation_file_path": getv("gwp_actionframe_enter_event_show_animation_file_path"),
+                "enter_event_show_animation_duration_ms": getv("gwp_actionframe_enter_event_show_animation_duration_ms"),
+                "enter_event_show_animation_width": getv("gwp_actionframe_enter_event_show_animation_width"),
+                "enter_event_show_animation_height": getv("gwp_actionframe_enter_event_show_animation_height"),
+                "enter_event_show_animation_background_color": getv("gwp_actionframe_enter_event_show_animation_background_color"),
+                # Enter event - play sound
+                "enter_event_play_sound_enabled": getv("gwp_actionframe_enter_event_play_sound_enabled"),
+                "enter_event_play_sound_file_path": getv("gwp_actionframe_enter_event_play_sound_file_path"),
+                # Enter event - change stylesheet
+                "enter_event_change_stylesheet_enabled": getv("gwp_actionframe_enter_event_change_stylesheet_enabled"),
+                "enter_event_change_qss_stylesheet": getv("gwp_actionframe_enter_event_change_qss_stylesheet"),
+                "enter_event_change_stylesheet_duration_ms": getv("gwp_actionframe_enter_event_change_stylesheet_duration_ms"),
+                # Enter event - change size
+                "enter_event_change_size_enabled": getv("gwp_actionframe_enter_event_change_size_enabled"),
+                "enter_event_change_size_percent": getv("gwp_actionframe_enter_event_change_size_percent"),
+                "enter_event_change_size_duration_ms": getv("gwp_actionframe_enter_event_change_size_duration_ms"),
+                # Allow bypass leave event
+                "allow_bypass_leave_event": True,
+                # Leave event - animation
+                "leave_event_show_animation_enabled": getv("gwp_actionframe_leave_event_show_animation_enabled"),
+                "leave_event_show_animation_file_path": getv("gwp_actionframe_leave_event_show_animation_file_path"),
+                "leave_event_show_animation_duration_ms": getv("gwp_actionframe_leave_event_show_animation_duration_ms"),
+                "leave_event_show_animation_width": getv("gwp_actionframe_leave_event_show_animation_width"),
+                "leave_event_show_animation_height": getv("gwp_actionframe_leave_event_show_animation_height"),
+                "leave_event_show_animation_background_color": getv("gwp_actionframe_leave_event_show_animation_background_color"),
+                # Leave event - play sound
+                "leave_event_play_sound_enabled": getv("gwp_actionframe_leave_event_play_sound_enabled"),
+                "leave_event_play_sound_file_path": getv("gwp_actionframe_leave_event_play_sound_file_path"),
+                # Leave event - change stylesheet
+                "leave_event_change_stylesheet_enabled": getv("gwp_actionframe_leave_event_change_stylesheet_enabled"),
+                "leave_event_change_qss_stylesheet": getv("gwp_actionframe_leave_event_change_qss_stylesheet"),
+                "leave_event_change_stylesheet_duration_ms": getv("gwp_actionframe_leave_event_change_stylesheet_duration_ms"),
+                # Leave event - change size
+                "leave_event_change_size_enabled": getv("gwp_actionframe_leave_event_change_size_enabled"),
+                "leave_event_change_size_percent": getv("gwp_actionframe_leave_event_change_size_percent"),
+                "leave_event_change_size_duration_ms": getv("gwp_actionframe_leave_event_change_size_duration_ms"),
+            },
             "Widget_Dialog_Properties": {
                 # Window dragging
                 "window_drag_enabled": getv("gwp_qdialog_window_drag_enabled"),
+                "window_drag_enabled_with_body": getv("gwp_qdialog_window_drag_enabled_with_body"),
                 # Window dragging cursor change
                 "allow_drag_widgets_cursor_change": getv("gwp_qdialog_allow_drag_widgets_cursor_change"),
                 "start_drag_cursor": getv("gwp_qdialog_start_drag_cursor"),
@@ -1502,7 +1602,162 @@ class MyJournal(QMainWindow):
                 "cursor_keep_aspect_ratio": getv("gwp_qdialog_cursor_keep_aspect_ratio"),
                 "cursor_width": getv("gwp_qdialog_cursor_width"),
                 "cursor_height": getv("gwp_qdialog_cursor_height"),
-            }
+                # Mask label
+                "dragged_window_mask_label_enabled": getv("gwp_qdialog_dragged_window_mask_label_enabled"),
+                "dragged_window_mask_label_stylesheet": getv("gwp_qdialog_dragged_window_mask_label_stylesheet"),
+                "dragged_window_mask_label_image_path": getv("gwp_qdialog_dragged_window_mask_label_image_path"),
+                "dragged_window_mask_label_animation_path": getv("gwp_qdialog_dragged_window_mask_label_animation_path"),
+            },
+            "Widget_Frame_Properties": {
+                # Window dragging
+                "window_drag_enabled": getv("gwp_qframe_window_drag_enabled"),
+                "window_drag_enabled_with_body": getv("gwp_qframe_window_drag_enabled_with_body"),
+                # Window dragging cursor change
+                "allow_drag_widgets_cursor_change": getv("gwp_qframe_allow_drag_widgets_cursor_change"),
+                "start_drag_cursor": getv("gwp_qframe_start_drag_cursor"),
+                "end_drag_cursor": getv("gwp_qframe_end_drag_cursor"),
+                "cursor_keep_aspect_ratio": getv("gwp_qframe_cursor_keep_aspect_ratio"),
+                "cursor_width": getv("gwp_qframe_cursor_width"),
+                "cursor_height": getv("gwp_qframe_cursor_height"),
+                # Change style and add mask label
+                "dragged_window_change_stylesheet_enabled": getv("gwp_qframe_dragged_window_change_stylesheet_enabled"),
+                "dragged_window_stylesheet": getv("gwp_qframe_dragged_window_stylesheet"),
+                "dragged_window_mask_label_enabled": getv("gwp_qframe_dragged_window_mask_label_enabled"),
+                "dragged_window_mask_label_stylesheet": getv("gwp_qframe_dragged_window_mask_label_stylesheet"),
+                "dragged_window_mask_label_image_path": getv("gwp_qframe_dragged_window_mask_label_image_path"),
+                "dragged_window_mask_label_animation_path": getv("gwp_qframe_dragged_window_mask_label_animation_path"),
+            },
+            "Widget_TextBox_Properties": {
+                # Key press event
+                "allow_bypass_key_press_event": True,
+                # Key Pressed - Play Sound
+                "key_pressed_sound_enabled": getv("gwp_qtextedit_key_pressed_sound_enabled"),
+                "key_pressed_sound_file_path": getv("gwp_qtextedit_key_pressed_sound_file_path"),
+                # Key Pressed - change stylesheet
+                "key_pressed_change_stylesheet_enabled": getv("gwp_qtextedit_key_pressed_change_stylesheet_enabled"),
+                "key_pressed_change_qss_stylesheet": getv("gwp_qtextedit_key_pressed_change_qss_stylesheet"),
+                "key_pressed_change_stylesheet_duration_ms": getv("gwp_qtextedit_key_pressed_change_stylesheet_duration_ms"),
+                # Key Pressed - change size
+                "key_pressed_change_size_enabled": getv("gwp_qtextedit_key_pressed_change_size_enabled"),
+                "key_pressed_change_size_percent": getv("gwp_qtextedit_key_pressed_change_size_percent"),
+                "key_pressed_change_size_duration_ms": getv("gwp_qtextedit_key_pressed_change_size_duration_ms"),
+                # RETURN Pressed - Play Sound
+                "return_pressed_sound_enabled": getv("gwp_qtextedit_return_pressed_sound_enabled"),
+                "return_pressed_sound_file_path": getv("gwp_qtextedit_return_pressed_sound_file_path"),
+                # RETURN Pressed - change stylesheet
+                "return_pressed_change_stylesheet_enabled": getv("gwp_qtextedit_return_pressed_change_stylesheet_enabled"),
+                "return_pressed_change_qss_stylesheet": getv("gwp_qtextedit_return_pressed_change_qss_stylesheet"),
+                "return_pressed_change_stylesheet_duration_ms": getv("gwp_qtextedit_return_pressed_change_stylesheet_duration_ms"),
+                # RETURN Pressed - change size
+                "return_pressed_change_size_enabled": getv("gwp_qtextedit_return_pressed_change_size_enabled"),
+                "return_pressed_change_size_percent": getv("gwp_qtextedit_return_pressed_change_size_percent"),
+                "return_pressed_change_size_duration_ms": getv("gwp_qtextedit_return_pressed_change_size_duration_ms"),
+                # ESCAPE Pressed - Play Sound
+                "escape_pressed_sound_enabled": getv("gwp_qtextedit_escape_pressed_sound_enabled"),
+                "escape_pressed_sound_file_path": getv("gwp_qtextedit_escape_pressed_sound_file_path"),
+                # ESCAPE Pressed - change stylesheet
+                "escape_pressed_change_stylesheet_enabled": getv("gwp_qtextedit_escape_pressed_change_stylesheet_enabled"),
+                "escape_pressed_change_qss_stylesheet": getv("gwp_qtextedit_escape_pressed_change_qss_stylesheet"),
+                "escape_pressed_change_stylesheet_duration_ms": getv("gwp_qtextedit_escape_pressed_change_stylesheet_duration_ms"),
+                # ESCAPE Pressed - change size
+                "escape_pressed_change_size_enabled": getv("gwp_qtextedit_escape_pressed_change_size_enabled"),
+                "escape_pressed_change_size_percent": getv("gwp_qtextedit_escape_pressed_change_size_percent"),
+                "escape_pressed_change_size_duration_ms": getv("gwp_qtextedit_escape_pressed_change_size_duration_ms"),
+                # Smart parenthesis
+                "smart_parenthesis_enabled": getv("gwp_qtextedit_smart_parenthesis_enabled"),
+                "smart_parenthesis_list": getv("gwp_qtextedit_smart_parenthesis_list"),
+                # Smart parenthesis - Play Sound
+                "smart_parenthesis_sound_enabled": getv("gwp_qtextedit_smart_parenthesis_sound_enabled"),
+                "smart_parenthesis_success_sound_file_path": getv("gwp_qtextedit_smart_parenthesis_success_sound_file_path"),
+                "smart_parenthesis_fail_sound_file_path": getv("gwp_qtextedit_smart_parenthesis_fail_sound_file_path"),
+                # Smart parenthesis - change stylesheet
+                "smart_parenthesis_change_stylesheet_enabled": getv("gwp_qtextedit_smart_parenthesis_change_stylesheet_enabled"),
+                "smart_parenthesis_change_qss_stylesheet": getv("gwp_qtextedit_smart_parenthesis_change_qss_stylesheet"),
+                "smart_parenthesis_change_stylesheet_duration_ms": getv("gwp_qtextedit_smart_parenthesis_change_stylesheet_duration_ms"),
+                # Smart parenthesis - change size
+                "smart_parenthesis_change_size_enabled": getv("gwp_qtextedit_smart_parenthesis_change_size_enabled"),
+                "smart_parenthesis_change_size_percent": getv("gwp_qtextedit_smart_parenthesis_change_size_percent"),
+                "smart_parenthesis_change_size_duration_ms": getv("gwp_qtextedit_smart_parenthesis_change_size_duration_ms"),
+                # Illegal Entry - Play Sound
+                "illegal_entry_sound_enabled": getv("gwp_qtextedit_illegal_entry_sound_enabled"),
+                "illegal_entry_sound_file_path": getv("gwp_qtextedit_illegal_entry_sound_file_path"),
+                # Illegal Entry - change stylesheet
+                "illegal_entry_change_stylesheet_enabled": getv("gwp_qtextedit_illegal_entry_change_stylesheet_enabled"),
+                "illegal_entry_change_qss_stylesheet": getv("gwp_qtextedit_illegal_entry_change_qss_stylesheet"),
+                "illegal_entry_change_stylesheet_duration_ms": getv("gwp_qtextedit_illegal_entry_change_stylesheet_duration_ms"),
+                # Illegal Entry - change size
+                "illegal_entry_change_size_enabled": getv("gwp_qtextedit_illegal_entry_change_size_enabled"),
+                "illegal_entry_change_size_percent": getv("gwp_qtextedit_illegal_entry_change_size_percent"),
+                "illegal_entry_change_size_duration_ms": getv("gwp_qtextedit_illegal_entry_change_size_duration_ms"),
+            },
+            "Widget_Selection_Properties": {
+                # Selection cursor
+                "allow_cursor_change": getv("gwp_selection_allow_cursor_change"),
+                "cursor": getv("gwp_selection_cursor"),
+                "cursor_width": getv("gwp_selection_cursor_width"),
+                "cursor_height": getv("gwp_selection_cursor_height"),
+                "cursor_keep_aspect_ratio": getv("gwp_selection_cursor_keep_aspect_ratio"),
+                # Allow bypass mouse press event
+                "allow_bypass_mouse_press_event": True,
+                # Tap event - animation
+                "tap_event_show_animation_enabled": getv("gwp_selection_tap_event_show_animation_enabled"),
+                "tap_event_show_animation_file_path": getv("gwp_selection_tap_event_show_animation_file_path"),
+                "tap_event_show_animation_duration_ms": getv("gwp_selection_tap_event_show_animation_duration_ms"),
+                "tap_event_show_animation_width": getv("gwp_selection_tap_event_show_animation_width"),
+                "tap_event_show_animation_height": getv("gwp_selection_tap_event_show_animation_height"),
+                "tap_event_show_animation_background_color": getv("gwp_selection_tap_event_show_animation_background_color"),
+                # Tap event - play sound
+                "tap_event_play_sound_enabled": getv("gwp_selection_tap_event_play_sound_enabled"),
+                "tap_event_play_sound_file_path": getv("gwp_selection_tap_event_play_sound_file_path"),
+                # Tap event - change stylesheet
+                "tap_event_change_stylesheet_enabled": getv("gwp_selection_tap_event_change_stylesheet_enabled"),
+                "tap_event_change_qss_stylesheet": getv("gwp_selection_tap_event_change_qss_stylesheet"),
+                "tap_event_change_stylesheet_duration_ms": getv("gwp_selection_tap_event_change_stylesheet_duration_ms"),
+                # Tap event - change size
+                "tap_event_change_size_enabled": getv("gwp_selection_tap_event_change_size_enabled"),
+                "tap_event_change_size_percent": getv("gwp_selection_tap_event_change_size_percent"),
+                "tap_event_change_size_duration_ms": getv("gwp_selection_tap_event_change_size_duration_ms"),
+                # Allow bypass enter event
+                "allow_bypass_enter_event": True,
+                # Enter event - animation
+                "enter_event_show_animation_enabled": getv("gwp_selection_enter_event_show_animation_enabled"),
+                "enter_event_show_animation_file_path": getv("gwp_selection_enter_event_show_animation_file_path"),
+                "enter_event_show_animation_duration_ms": getv("gwp_selection_enter_event_show_animation_duration_ms"),
+                "enter_event_show_animation_width": getv("gwp_selection_enter_event_show_animation_width"),
+                "enter_event_show_animation_height": getv("gwp_selection_enter_event_show_animation_height"),
+                "enter_event_show_animation_background_color": getv("gwp_selection_enter_event_show_animation_background_color"),
+                # Enter event - play sound
+                "enter_event_play_sound_enabled": getv("gwp_selection_enter_event_play_sound_enabled"),
+                "enter_event_play_sound_file_path": getv("gwp_selection_enter_event_play_sound_file_path"),
+                # Enter event - change stylesheet
+                "enter_event_change_stylesheet_enabled": getv("gwp_selection_enter_event_change_stylesheet_enabled"),
+                "enter_event_change_qss_stylesheet": getv("gwp_selection_enter_event_change_qss_stylesheet"),
+                "enter_event_change_stylesheet_duration_ms": getv("gwp_selection_enter_event_change_stylesheet_duration_ms"),
+                # Enter event - change size
+                "enter_event_change_size_enabled": getv("gwp_selection_enter_event_change_size_enabled"),
+                "enter_event_change_size_percent": getv("gwp_selection_enter_event_change_size_percent"),
+                "enter_event_change_size_duration_ms": getv("gwp_selection_enter_event_change_size_duration_ms"),
+                # Allow bypass leave event
+                "allow_bypass_leave_event": True,
+                # Leave event - animation
+                "leave_event_show_animation_enabled": getv("gwp_selection_leave_event_show_animation_enabled"),
+                "leave_event_show_animation_file_path": getv("gwp_selection_leave_event_show_animation_file_path"),
+                "leave_event_show_animation_duration_ms": getv("gwp_selection_leave_event_show_animation_duration_ms"),
+                "leave_event_show_animation_width": getv("gwp_selection_leave_event_show_animation_width"),
+                "leave_event_show_animation_height": getv("gwp_selection_leave_event_show_animation_height"),
+                "leave_event_show_animation_background_color": getv("gwp_selection_leave_event_show_animation_background_color"),
+                # Leave event - play sound
+                "leave_event_play_sound_enabled": getv("gwp_selection_leave_event_play_sound_enabled"),
+                "leave_event_play_sound_file_path": getv("gwp_selection_leave_event_play_sound_file_path"),
+                # Leave event - change stylesheet
+                "leave_event_change_stylesheet_enabled": getv("gwp_selection_leave_event_change_stylesheet_enabled"),
+                "leave_event_change_qss_stylesheet": getv("gwp_selection_leave_event_change_qss_stylesheet"),
+                "leave_event_change_stylesheet_duration_ms": getv("gwp_selection_leave_event_change_stylesheet_duration_ms"),
+                # Leave event - change size
+                "leave_event_change_size_enabled": getv("gwp_selection_leave_event_change_size_enabled"),
+                "leave_event_change_size_percent": getv("gwp_selection_leave_event_change_size_percent"),
+                "leave_event_change_size_duration_ms": getv("gwp_selection_leave_event_change_size_duration_ms"),
+            },
         }
 
         return result
@@ -1531,6 +1786,10 @@ class MyJournal(QMainWindow):
         dialog_queue.remove_all_context_menu()
         if ev.button() == Qt.RightButton:
             self._show_area_label_menu()
+        elif ev.button() == Qt.LeftButton:
+            self_obj: qwidgets_util_cls.Widget_Dialog = self.widget_handler.find_child(self)
+            self_obj.EVENT_drag_widget_mouse_press_event(ev)
+
 
     def _show_area_label_menu(self):
         menu_dict = {
@@ -1912,6 +2171,11 @@ class MyJournal(QMainWindow):
         self.setStyleSheet(getv("main_win_stylesheet"))
         # Toolbar
         self.toolBar.setStyleSheet(getv("toolBar_stylesheet"))
+        
+        for i in self.toolBar.children():
+            if isinstance(i, QToolButton):
+                i.setStyleSheet(getv("toolbar_buttons_stylesheet"))
+        
         self.toolBar.setMovable(getv("toolBar_movable"))
         self.toolBar.setFloatable(getv("toolBar_floatable"))
         self.toolBar.setToolButtonStyle(getv("toolBar_tool_button_style"))

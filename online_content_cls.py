@@ -280,7 +280,6 @@ class OnlineContent(QDialog):
             clipboard_files = [x[1] for x in self.get_appv("cb")._clip["os"]]
         else:
             clipboard_files = []
-        print (clipboard_files)
         tmp_folder = self.getv("temp_folder_path").strip("/") + "/"
         for file in os.listdir(tmp_folder):
             if file not in self.temp_folder_snapshot and os.path.abspath(tmp_folder + file) not in clipboard_files:

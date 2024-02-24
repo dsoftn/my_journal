@@ -2756,11 +2756,11 @@ class FileDialog():
 
         return result
 
-    def show_save_file_dialog(self, title: str = "Save file:", directory: str = "", file_name: str = ""):
-        options = QFileDialog.Options()
-        options |= QFileDialog.DontUseNativeDialog
-        file_dialog = QFileDialog()
-        file_dialog.setOptions(options)
+    def show_save_file_dialog(self, title: str = "Save file:", directory: str = "", file_name: str = "", parent_widget: QWidget = None):
+        # options = QFileDialog.Options()
+        # options |= QFileDialog.DontUseNativeDialog
+        file_dialog = QFileDialog(parent_widget)
+        # file_dialog.setOptions(options)
         if file_name:
             file_dialog.selectFile(file_name)
 
@@ -2771,7 +2771,7 @@ class FileDialog():
         else:
             return None
 
-    def show_dialog(self, title: str = "Select file:", directory: str = "", multi_select: bool = False, save_as: bool = False, file_filter: str = None, settings: settings_cls.Settings = None):
+    def show_dialog(self, title: str = "Select file:", directory: str = "", multi_select: bool = False, save_as: bool = False, file_filter: str = None, settings: settings_cls.Settings = None, parent_widget: QWidget = None):
         if settings:
             image_desc = settings.lang("file_filter_images_ext_desc")
             animation_desc = settings.lang("file_filter_animation_ext_desc")
@@ -2787,7 +2787,8 @@ class FileDialog():
         animation_ext = "*.gif *.webp *.mng"
         video_ext = "*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.mpg *.ogv *.rm *.swf *.vob *.wmv"
 
-        file_dialog = QFileDialog()
+        file_dialog = QFileDialog(parent_widget)
+        # file_dialog.setOption(QFileDialog.DontUseNativeDialog, True)
         # Set dialog title
         file_dialog.setWindowTitle(title)
         # Set dialog directory

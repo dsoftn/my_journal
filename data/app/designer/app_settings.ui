@@ -535,9 +535,9 @@
   <widget class="QListWidget" name="lst_changes">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>765</x>
      <y>100</y>
-     <width>341</width>
+     <width>350</width>
      <height>580</height>
     </rect>
    </property>
@@ -2216,7 +2216,7 @@ QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.0056
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lbl_adv_title">
     <property name="geometry">
      <rect>
       <x>10</x>
