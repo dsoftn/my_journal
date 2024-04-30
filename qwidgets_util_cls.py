@@ -1,35 +1,19 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QWidget, QSizePolicy, QListWidget, QDialog,
                              QLabel, QLineEdit, QCalendarWidget, QComboBox, QProgressBar, QCheckBox, QTreeWidget,
-                             QRadioButton, QGroupBox, QApplication, QSpinBox, QTableWidget, QTabWidget, QDockWidget,
+                             QRadioButton, QGroupBox, QSpinBox, QTableWidget, QTabWidget, QDockWidget,
                              QDialogButtonBox, QToolBox, QFontComboBox, QPlainTextEdit, QTimeEdit, QDateEdit,
                              QDateTimeEdit, QDial, QKeySequenceEdit, QDoubleSpinBox, QTextBrowser, QLCDNumber,
-                             QToolButton)
+                             QToolButton, QDesktopWidget, QMainWindow)
 from PyQt5.QtGui import QMovie, QMouseEvent, QCursor, QPixmap, QKeyEvent, QTextCursor
 from PyQt5.QtCore import QSize, Qt, QCoreApplication, QPoint, QEvent
-from PyQt5.QtMultimedia import QSound
 
-import warnings
 import inspect
 import os
+
 from stylesheet_cls import StyleSheet
 from timer_cls import TimerHandler
 from timer_cls import SingleShotTimer
-
-
-def warning_message(message: str, arguments: list = None, print_only: bool = False, warning_type: type = RuntimeWarning):
-    count = 1
-    if arguments:
-        if not isinstance(arguments, list) and not isinstance(arguments, tuple):
-            arguments = [arguments]
-        for argument in arguments:
-            message = message.replace("#" + str(count), f'"\033[31m{argument}\033[33m"')
-            count += 1
-
-    text = f"\n\033[34mWarning: \033[33m{message}\033[0m"
-    if print_only:
-        print(text.strip())
-    else:
-        warnings.warn(text, warning_type)
+import UTILS
 
 
 class ReturnEvent:
@@ -39,53 +23,53 @@ class ReturnEvent:
     def keyPressEvent(cls, widget, event):
         if cls.SUPER_CLASS_WIDGET:
             try:
-                if widget:
+                if isinstance(widget, QWidget):
                     cls.SUPER_CLASS_WIDGET.keyPressEvent(widget, event)
                 else:
-                    warning_message("Widget not defined. KeyPressEvent not called", print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Widget not defined. KeyPressEvent not called")
             except Exception as e:
-                warning_message(f"Exception in keyPressEvent\n#1", [str(e)], print_only=True)
+                UTILS.TerminalUtility.WarningMessage(f"Exception in keyPressEvent\n#1", [str(e)])
         else:
-            warning_message("SUPER_CLASS_WIDGET not defined. KeyPressEvent not called", print_only=True)
+            UTILS.TerminalUtility.WarningMessage("SUPER_CLASS_WIDGET not defined. KeyPressEvent not called")
     
     @classmethod
     def mousePressEvent(cls, widget, event):
         if cls.SUPER_CLASS_WIDGET:
             try:
-                if widget:
+                if isinstance(widget, QWidget):
                     cls.SUPER_CLASS_WIDGET.mousePressEvent(widget, event)
                 else:
-                    warning_message("Widget not defined. MousePressEvent not called", print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Widget not defined. MousePressEvent not called")
             except Exception as e:
-                warning_message(f"Exception in mousePressEvent\n#1", [str(e)], print_only=True)
+                UTILS.TerminalUtility.WarningMessage(f"Exception in mousePressEvent\n#1", [str(e)])
         else:
-            warning_message("SUPER_CLASS_WIDGET not defined. MousePressEvent not called", print_only=True)
+            UTILS.TerminalUtility.WarningMessage("SUPER_CLASS_WIDGET not defined. MousePressEvent not called")
     
     @classmethod
     def enterEvent(cls, widget, event):
         if cls.SUPER_CLASS_WIDGET:
             try:
-                if widget:
+                if isinstance(widget, QWidget):
                     cls.SUPER_CLASS_WIDGET.enterEvent(widget, event)
                 else:
-                    warning_message("Widget not defined. EnterEvent not called", print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Widget not defined. EnterEvent not called")
             except Exception as e:
-                warning_message(f"Exception in enterEvent\n#1", [str(e)], print_only=True)
+                UTILS.TerminalUtility.WarningMessage(f"Exception in enterEvent\n#1", [str(e)])
         else:
-            warning_message("SUPER_CLASS_WIDGET not defined. EnterEvent not called", print_only=True)
+            UTILS.TerminalUtility.WarningMessage("SUPER_CLASS_WIDGET not defined. EnterEvent not called")
 
     @classmethod
     def leaveEvent(cls, widget, event):
         if cls.SUPER_CLASS_WIDGET:
             try:
-                if widget:
+                if isinstance(widget, QWidget):
                     cls.SUPER_CLASS_WIDGET.leaveEvent(widget, event)
                 else:
-                    warning_message("Widget not defined. LeaveEvent not called", print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Widget not defined. LeaveEvent not called")
             except Exception as e:
-                warning_message(f"Exception in leaveEvent\n#1", [str(e)], print_only=True)
+                UTILS.TerminalUtility.WarningMessage(f"Exception in leaveEvent\n#1", [str(e)])
         else:
-            warning_message("SUPER_CLASS_WIDGET not defined. LeaveEvent not called", print_only=True)
+            UTILS.TerminalUtility.WarningMessage("SUPER_CLASS_WIDGET not defined. LeaveEvent not called")
 
 
 class AbstractProperties:
@@ -97,7 +81,8 @@ class AbstractProperties:
             "Widget_Frame_Properties",
             "Widget_ActionFrame_Properties",
             "Widget_TextBox_Properties",
-            "Widget_Selection_Properties"
+            "Widget_Selection_Properties",
+            "Widget_ItemBased_Properties"
         ]
 
     def name(self):
@@ -127,11 +112,12 @@ class AbstractProperties:
             return
         
         if not isinstance(properties_dict, dict):
+            UTILS.TerminalUtility.WarningMessage("Variable #1 must be a dictionary.\ntype(properties_dict) = #2\nproperties_dict = #3", ["properties_dict", type(properties_dict), properties_dict], exception_raised=True)
             raise ValueError(f"The properties_dict must be a dictionary not '{type(properties_dict)}'.")
         
         for section in properties_dict:
             if section.startswith(f"_{self.name()}"):
-                warning_message("Property name in properties_dict #1 is not allowed. SKIPPED!", section)
+                UTILS.TerminalUtility.WarningMessage("Property name in properties_dict #1 is not allowed. SKIPPED!", section)
                 continue
 
             if section not in self.sections:
@@ -144,6 +130,7 @@ class AbstractProperties:
 
             else:
                 if not isinstance(properties_dict[section], dict):
+                    UTILS.TerminalUtility.WarningMessage("The properties_dict[#1] must be a dictionary.\ntype(properties_dict[#2]) = #3\nproperties_dict[#4] = #5",[section, section, type(properties_dict[section]), section, properties_dict[section]], exception_raised=True)
                     raise ValueError(f"The properties_dict['{section}'] must be a dictionary not '{type(properties_dict[section])}'.")
                 
                 if section != self.name():
@@ -151,7 +138,7 @@ class AbstractProperties:
 
                 for property_name in properties_dict[section]:
                     if property_name.startswith(f"_{self.name()}"):
-                        warning_message("Property name in properties_dict #1 is not allowed. SKIPPED!", property_name)
+                        UTILS.TerminalUtility.WarningMessage("Property name in properties_dict #1 is not allowed. SKIPPED!", property_name)
                         continue
 
                     dict_property_name = property_name
@@ -173,49 +160,62 @@ class AbstractProperties:
 
 
 class AbstractWidget:
-    def __init__(self) -> None:
+    GUARD_DURATION = 200
+
+    def __init__(self, timer_handler: TimerHandler = None) -> None:
         self.widget: QWidget = None
         self.main_win: QWidget = None
         self.properties = None
 
         self.SUPER_CLASS_WIDGET = None
 
-        self._timer_handler: TimerHandler = TimerHandler(parent=self.widget, interval=25)
+        if timer_handler:
+            self._timer_handler = timer_handler
+            self.has_own_timer = False
+        else:
+            self._timer_handler: TimerHandler = TimerHandler(parent=self.widget, interval=25)
+            self.has_own_timer = True
+        
         self._stylesheet_timer = SingleShotTimer(parent=self._timer_handler
                                                 , name="stylesheet"
                                                 , duration=1
                                                 , function_on_finished=self._tap_event_change_stylesheet_stop
-                                                ,data={})
+                                                ,data={"completed": True})
         self._size_timer = SingleShotTimer(parent=self._timer_handler,
                                             name="size",
                                             duration=1,
                                             function_on_finished=self._tap_event_change_size_stop
-                                            ,data={})
+                                            ,data={"completed": True})
         self._animation_timer = SingleShotTimer(parent=self._timer_handler,
                                                 name="animation",
                                                 duration=1,
                                                 function_on_finished=self._tap_event_show_animation_stop
-                                                ,data={})
+                                                ,data={"completed": True})
         self._timer_handler.add_timer(self._stylesheet_timer)
         self._timer_handler.add_timer(self._size_timer)
         self._timer_handler.add_timer(self._animation_timer)
 
+        self.is_active = False
+
         self._tap_label: QLabel = None
-        self._tap_sound: QSound = None
+        self._tap_sound: UTILS.SoundUtility = None
 
         self.__drag_mode = None
         self.__mask_label = None
-        self.__stylesheet_on_timeout = None
 
     def _get_qwidget_class(self) -> QWidget:
         # widget_type = self._get_widget_type()
         result = None
         if isinstance(self.widget, QPushButton):
             result = QPushButton
+        elif isinstance(self.widget, QDialog):
+            result = QDialog
+        elif isinstance(self.widget, QDesktopWidget):
+            result = QDesktopWidget
+        elif isinstance(self.widget, QMainWindow):
+            result = QMainWindow
         elif isinstance(self.widget, QLabel):
             result = QLabel
-        elif isinstance(self.widget, QFrame):
-            result = QFrame
         elif isinstance(self.widget, QCheckBox):
             result = QCheckBox
         elif isinstance(self.widget, QComboBox):
@@ -272,16 +272,19 @@ class AbstractWidget:
             result = QLCDNumber
         elif isinstance(self.widget, QToolButton):
             result = QToolButton
+        elif isinstance(self.widget, QFrame):
+            result = QFrame
 
         if result is None:
             result = QWidget
-            warning_message("Widget type not supported: #1", str(type(self.widget)))
+            UTILS.TerminalUtility.WarningMessage("Widget type not supported: #1", str(type(self.widget)))
         
         return result
 
     def _get_widget_type(self) -> str:
         supported_classes = [
             "QPushButton",
+            "QMainWindow",
             "QLabel",
             "QFrame",
             "QCheckBox",
@@ -311,7 +314,8 @@ class AbstractWidget:
             "QKeySequenceEdit",
             "QTextBrowser",
             "QLCDNumber",
-            "QToolButton"
+            "QToolButton",
+            "QDialog"
         ]
 
         found_widget_type = None
@@ -323,33 +327,26 @@ class AbstractWidget:
                 break
 
         if found_widget_type is None:
-            warning_message("Widget type not supported: #1", str(type(self.widget)))
+            UTILS.TerminalUtility.WarningMessage("Widget type not supported: #1", str(type(self.widget)))
             found_widget_type = "QWidget"
 
         return widget_type
 
     def _tap_event_change_size(self, e: QMouseEvent, e_enabled: bool, e_percent: int) -> bool:
-        if not e_enabled:
+        if not e_enabled or self._size_timer is None:
             return False
         
-        old_size = None
-        old_pos = None
+        if self._size_timer.data["completed"]:
+            self._size_timer.data["completed"] = False
+            self._size_timer.data["old_size"] = self.widget.size()
+            self._size_timer.data["old_pos"] = self.widget.pos()
+            self._size_timer.set_duration(self.GUARD_DURATION)
+            self._size_timer.start()
 
-        if self._size_timer.is_active():
-            old_size = self._size_timer.data.get("old_size")
-            old_pos = self._size_timer.data.get("old_pos")
-        else:
-            self._size_timer.data["old_size"] = None
-            self._size_timer.data["old_pos"] = None
+        old_size = self._size_timer.data["old_size"]
+        old_pos = self._size_timer.data["old_pos"]
 
         scale = (100 + e_percent) / 100
-
-        if old_size is None:
-            old_size = self.widget.size()
-            self._size_timer.data["old_size"] = old_size
-        if old_pos is None:
-            old_pos = self.widget.pos()
-            self._size_timer.data["old_pos"] = old_pos
 
         if self.widget.sizePolicy().horizontalPolicy() == QSizePolicy.Fixed:
             self.widget.setFixedWidth(int(old_size.width() * scale))
@@ -375,7 +372,7 @@ class AbstractWidget:
         old_pos: QPoint = timer.data["old_pos"]
 
         try:
-            if self.widget:
+            if isinstance(self.widget, QWidget):
                 if self.widget.sizePolicy().horizontalPolicy() == QSizePolicy.Fixed:
                     self.widget.setFixedWidth(old_size.width())
                 else:
@@ -388,23 +385,23 @@ class AbstractWidget:
         
                 self.widget.move(old_pos.x(), old_pos.y())
         except Exception as e:
-            warning_message(f"Exception in _tap_event_change_size_stop\n#1", [str(e)], print_only=True)
+            UTILS.TerminalUtility.WarningMessage(f"Exception in _tap_event_change_size_stop\n#1", [str(e)], print_only=True)
+        
+        timer.data["completed"] = True
 
     def _tap_event_change_stylesheet(self, e: QMouseEvent, e_enabled: bool, e_qss: str) -> bool:
-        if not e_enabled:
+        if not e_enabled or self._stylesheet_timer is None:
             return False
 
-        old_stylesheet = None
-        if self._stylesheet_timer.is_active():
-            old_stylesheet = self._stylesheet_timer.data["old_stylesheet"]
-        else:
-            self._stylesheet_timer.data["old_stylesheet"] = None
+        if self._stylesheet_timer.data["completed"]:
+            self._stylesheet_timer.data["completed"] = False
+            self._stylesheet_timer.data["old_stylesheet"] = self.widget.styleSheet()
+            self._stylesheet_timer.set_duration(self.GUARD_DURATION)
+            self._stylesheet_timer.start()
+
+        old_stylesheet = self._stylesheet_timer.data["old_stylesheet"]
 
         widget_type = self._get_widget_type()
-        
-        if old_stylesheet is None:
-            old_stylesheet = self.widget.styleSheet()
-            self._stylesheet_timer.data["old_stylesheet"] = old_stylesheet
         
         old_style = StyleSheet(widget_name="QPushButton")
         old_style.stylesheet = old_stylesheet
@@ -419,6 +416,7 @@ class AbstractWidget:
         new_style.merge_stylesheet(stylesheet=old_style)
 
         new_stylesheet = new_style.stylesheet
+        # print (f"OLD STYLESHEET:\n{old_stylesheet}\n\nNEW STYLESHEET:\n{new_stylesheet}\n\n")
 
         # Merge new and old stylesheet
         self.widget.setStyleSheet(new_stylesheet)
@@ -426,23 +424,18 @@ class AbstractWidget:
         return True
 
     def _tap_event_change_stylesheet_stop(self, timer: SingleShotTimer):
-        if self.__stylesheet_on_timeout is None:
-            if timer.data.get("old_stylesheet") is None:
-                return
-            old_stylesheet = timer.data["old_stylesheet"]
-        else:
-            old_stylesheet = self.__stylesheet_on_timeout
-            self.__stylesheet_on_timeout = None
+        if timer.data.get("old_stylesheet") is None:
+            UTILS.TerminalUtility.WarningMessage("old_stylesheet not found in _tap_event_change_stylesheet_stop\nTimer name: #1\nTimer data: #2", [str(timer.name), str(timer.data)], print_only=True)
+            return
+        old_stylesheet = timer.data["old_stylesheet"]
         
         try:
-            if self.widget:
+            if isinstance(self.widget, QWidget):
                 self.widget.setStyleSheet(old_stylesheet)
         except Exception as e:
-            warning_message(f"Exception in _tap_event_change_stylesheet_stop\n#1", [str(e)], print_only=True)
-
-    def set_stylesheet_change_timeout_stylesheet(self, stylesheet: str):
-        if isinstance(stylesheet, str):
-            self.__stylesheet_on_timeout = stylesheet
+            UTILS.TerminalUtility.WarningMessage("Exception in _tap_event_change_stylesheet_stop\n#1\nUnable to set stylesheet for widget.", [e])
+        
+        timer.data["completed"] = True
 
     def _tap_event_show_animation(self, e: QMouseEvent, e_enabled: bool, e_duration_ms: int, e_width: int, e_height: int, event_type: str) -> bool:
         if isinstance(e, QMouseEvent):
@@ -450,10 +443,14 @@ class AbstractWidget:
         else:
             e_pos = QCursor().pos()
 
-        if not e_enabled:
+        if not e_enabled or self._animation_timer is None:
             return None
 
-        if self._animation_timer.is_active():
+        if self._animation_timer.data["completed"]:
+            self._animation_timer.data["completed"] = False
+            self._animation_timer.set_duration(self.GUARD_DURATION)
+            self._animation_timer.start()
+        else:
             return True
 
         if self._tap_label is None:
@@ -462,16 +459,16 @@ class AbstractWidget:
         self._tap_label.move(self.main_win.mapFromGlobal(e_pos).x() - e_width // 2, self.main_win.mapFromGlobal(e_pos).y() - e_height // 2)
         self._tap_label.show()
         self._tap_label.raise_()
-        try:
-            self._tap_label.movie().jumpToFrame(0)
-            frame_duration = self._tap_label.movie().nextFrameDelay()
-            frame_count = self._tap_label.movie().frameCount()
-            total_duration = frame_duration * frame_count
-            desired_duration = int(e_duration_ms * 0.80)
-            speed = total_duration / desired_duration
-            self._tap_label.movie().setSpeed(int(speed*100))
-        except:
-            warning_message("Error setting the speed of the animation. (#1) type.", event_type, print_only=True)
+        # try:
+        #     self._tap_label.movie().jumpToFrame(0)
+        #     frame_duration = self._tap_label.movie().nextFrameDelay()
+        #     frame_count = self._tap_label.movie().frameCount()
+        #     total_duration = frame_duration * frame_count
+        #     desired_duration = int(e_duration_ms * 0.80)
+        #     speed = total_duration / desired_duration
+        #     self._tap_label.movie().setSpeed(int(speed*100))
+        # except:
+        #     UTILS.TerminalUtility.WarningMessage("Error setting the speed of the animation. (#1) type.", event_type, print_only=True)
 
         self._tap_label.movie().start()
 
@@ -486,7 +483,9 @@ class AbstractWidget:
                 self._tap_label.movie().stop()
                 self._tap_label.hide()
         except Exception as e:
-            warning_message(f"Exception in _tap_event_show_animation_stop\n#1", [str(e)], print_only=True)
+            UTILS.TerminalUtility.WarningMessage(f"Exception in _tap_event_show_animation_stop\n#1", [str(e)], print_only=True)
+        
+        timer.data["completed"] = True
 
     def _tap_event_play_sound(self, e: QMouseEvent, e_enabled: bool, e_file_path: str) -> bool:
         if not e_enabled:
@@ -494,7 +493,15 @@ class AbstractWidget:
         
         try:
             if not self._tap_sound:
-                self._tap_sound = QSound(e_file_path)
+                try:
+                    sound_volume = self.main_win.getv("volume_value")
+                    sound_muted = self.main_win.getv("volume_muted")
+                except AttributeError:
+                    sound_volume = 100
+                    sound_muted = False
+                    UTILS.TerminalUtility.WarningMessage("Error in _tap_event_play_sound. #1\n#2\nmain_win = #3\nVolume is set to #4, muted is set to #5", [str(e), "AttributeError: 'main_win' object has no attribute 'getv'", str(self.main_win), "100", "False"])
+                
+                self._tap_sound = UTILS.SoundUtility(e_file_path, volume=sound_volume, muted=sound_muted)
             if not self._tap_sound.isFinished():
                 self._tap_sound.stop()
 
@@ -502,7 +509,7 @@ class AbstractWidget:
             
             return True
         except Exception as e:
-            warning_message("Exception in _tap_event_play_sound\n#1", [str(e)], print_only=True)
+            UTILS.TerminalUtility.WarningMessage("Exception in _tap_event_play_sound\n#1", [str(e)], print_only=True)
             return False
 
     def _create_tap_label(self, parent_widget: QWidget, event_type: str) -> QLabel:
@@ -522,6 +529,7 @@ class AbstractWidget:
             w = self.properties.leave_event_show_animation_width
             h = self.properties.leave_event_show_animation_height
         else:
+            UTILS.TerminalUtility.WarningMessage(f"Invalid event_type: #1\nMust be one of: #2, #3, #4", [event_type, "tap", "enter", "leave"], print_only=True, exception_raised=True)
             raise ValueError(f"Invalid event_type: {event_type}")
 
         lbl = QLabel(parent_widget)
@@ -531,7 +539,7 @@ class AbstractWidget:
         tap_movie = QMovie(file)
         tap_movie.setScaledSize(QSize(w, h))
         lbl.setMovie(tap_movie)
-        tap_movie.frameChanged.connect(self._tap_movie_frame_changed)
+        # tap_movie.frameChanged.connect(self._tap_movie_frame_changed)
         lbl.hide()
 
         return lbl
@@ -542,12 +550,15 @@ class AbstractWidget:
                 if frame == self._tap_label.movie().frameCount() - 1:
                     self._tap_label.movie().setPaused(True)
         except Exception as e:
-            warning_message(f"Exception in _tap_movie_frame_changed\n#1", [str(e)], print_only=True)
+            UTILS.TerminalUtility.WarningMessage(f"Exception in _tap_movie_frame_changed\n#1", [str(e)], print_only=True)
 
     def close_me(self):
         if self._tap_label is not None:
             self._tap_label.movie().stop()
-            self._tap_label.movie().frameChanged.disconnect(self._tap_movie_frame_changed)
+            # try:
+            #     self._tap_label.movie().frameChanged.disconnect(self._tap_movie_frame_changed)
+            # except:
+            #     pass
             self._tap_label.hide()
             self._tap_label.deleteLater()
             self._tap_label = None
@@ -562,16 +573,33 @@ class AbstractWidget:
             self.__mask_label.deleteLater()
 
         if self._size_timer:
+            if self._size_timer.is_active() and self._size_timer.function_on_finished:
+                self._size_timer.stop()
+                self._size_timer.function_on_finished(self._size_timer)
             self._size_timer.stop()
         if self._animation_timer:
+            if self._animation_timer.is_active() and self._animation_timer.function_on_finished:
+                self._animation_timer.stop()
+                self._animation_timer.function_on_finished(self._animation_timer)
             self._animation_timer.stop()
         if self._stylesheet_timer:
+            if self._stylesheet_timer.is_active() and self._stylesheet_timer.function_on_finished:
+                self._stylesheet_timer.stop()
+                self._stylesheet_timer.function_on_finished(self._stylesheet_timer)
             self._stylesheet_timer.stop()
         if self._timer_handler:
-            self._timer_handler.stop_all_timers()
-            self._timer_handler.remove_all_timers()
-            self._timer_handler.stop()
-            self._timer_handler.deleteLater()
+            if self.has_own_timer:
+                self._timer_handler.stop_all_timers()
+                self._timer_handler.remove_all_timers()
+                self._timer_handler.stop()
+                self._timer_handler.deleteLater()
+            else:
+                if self._size_timer:
+                    self._timer_handler.remove_timer(self._size_timer)
+                if self._animation_timer:
+                    self._timer_handler.remove_timer(self._animation_timer)
+                if self._stylesheet_timer:
+                    self._timer_handler.remove_timer(self._stylesheet_timer)
         
         self._size_timer = None
         self._animation_timer = None
@@ -587,9 +615,14 @@ class AbstractWidget:
             self.widget.leaveEvent = None
         if property_dict.get("window_drag_enabled"):
             self.disable_window_drag(property_dict.get("window_drag_widgets", []))
+            self.widget.mousePressEvent = None
+            self.widget.mouseMoveEvent = None
+            self.widget.mouseReleaseEvent = None
+        if property_dict.get("allow_bypass_key_press_event"):
+            self.widget.keyPressEvent = None
         
     def activate(self):
-        warning_message("AbstractWidget.activate() not implemented (#1)", self.__class__.__name__, warning_type=UserWarning)
+        UTILS.TerminalUtility.WarningMessage("AbstractWidget.activate() not implemented (#1)", self.__class__.__name__, warning_type=UserWarning)
 
     def update_from_dict(self, properties_dict: dict, only_dedicated: bool = True) -> None:
         self.properties.from_dict(properties_dict, only_dedicated)
@@ -621,7 +654,7 @@ class AbstractWidget:
     
                     widget.setCursor(QCursor(img))
                 else:
-                    warning_message("Unable to set cursor: #1", cursor)
+                    UTILS.TerminalUtility.WarningMessage("Unable to set cursor: #1", cursor)
 
     def add_window_drag_widgets(self, widgets: list[QWidget]):
         if widgets is None:
@@ -630,13 +663,13 @@ class AbstractWidget:
                     self.properties.window_drag_widgets.append(widget)
                     break
             else:
-                warning_message("Can't find DRAG WINDOW widget: #1", "lbl_title")
+                UTILS.TerminalUtility.WarningMessage("Can't find DRAG WINDOW widget: #1", "lbl_title")
         elif isinstance(widgets, list) or isinstance(widgets, tuple):
             self.properties.window_drag_widgets.extend(widgets)
         elif isinstance(widgets, QWidget):
             self.properties.window_drag_widgets.append(widgets)
         else:
-            warning_message("Invalid DRAG WINDOW widget type: #1", type(widgets))
+            UTILS.TerminalUtility.WarningMessage("Invalid DRAG WINDOW widget type: #1", type(widgets))
 
     def enable_window_drag(self, drag_widgets: list, data: dict = None, forbidden_widgets: list = None):
         for widget in drag_widgets:
@@ -768,6 +801,10 @@ class AbstractWidget:
             self.__mask_label.setVisible(False)
             self.__mask_label.deleteLater()
             self.__mask_label = None
+        if self.__drag_mode:
+            self.widget.setStyleSheet(self.__drag_mode["stylesheet"])
+            self.__drag_mode = None
+            self._set_drag_widgets_cursor()
 
     def _set_drag_widgets_cursor(self):
         if not self.properties.window_drag_enabled or not self.properties.allow_drag_widgets_cursor_change:
@@ -944,6 +981,11 @@ class GlobalWidgetsProperties(AbstractProperties):
         self.Widget_Dialog_Properties_dragged_window_mask_label_stylesheet = settings_dict["Widget_Dialog_Properties"].get("dragged_window_mask_label_stylesheet", "")
         self.Widget_Dialog_Properties_dragged_window_mask_label_image_path = settings_dict["Widget_Dialog_Properties"].get("dragged_window_mask_label_image_path", "")
         self.Widget_Dialog_Properties_dragged_window_mask_label_animation_path = settings_dict["Widget_Dialog_Properties"].get("dragged_window_mask_label_animation_path", "")
+        # Call Close_me on ESCAPE
+        self.Widget_Dialog_Properties_allow_bypass_key_press_event = settings_dict["Widget_Dialog_Properties"].get("allow_bypass_key_press_event", False)
+        self.Widget_Dialog_Properties_call_close_me_on_escape = settings_dict["Widget_Dialog_Properties"].get("call_close_me_on_escape", False)
+        # Close on Lost Focus
+        self.Widget_Dialog_Properties_close_on_lost_focus = settings_dict["Widget_Dialog_Properties"].get("close_on_lost_focus", False)
 
         # FRAME
         # Frame drag
@@ -1097,6 +1139,73 @@ class GlobalWidgetsProperties(AbstractProperties):
         self.Widget_Selection_Properties_leave_event_change_size_percent = settings_dict["Widget_Selection_Properties"].get("leave_event_change_size_percent", 10)
         self.Widget_Selection_Properties_leave_event_change_size_duration_ms = settings_dict["Widget_Selection_Properties"].get("leave_event_change_size_duration_ms", 100)
 
+        # ITEM_BASED WIDGETS
+        # ItemBased cursor
+        self.Widget_ItemBased_Properties_allow_cursor_change = settings_dict["Widget_ItemBased_Properties"].get("allow_cursor_change", False)
+        self.Widget_ItemBased_Properties_cursor = settings_dict["Widget_ItemBased_Properties"].get("cursor", "")
+        self.Widget_ItemBased_Properties_cursor_width = settings_dict["Widget_ItemBased_Properties"].get("cursor_width", 20)
+        self.Widget_ItemBased_Properties_cursor_height = settings_dict["Widget_ItemBased_Properties"].get("cursor_height", 20)
+        self.Widget_ItemBased_Properties_cursor_keep_aspect_ratio = settings_dict["Widget_ItemBased_Properties"].get("cursor_keep_aspect_ratio", True)
+        # Allow bypass mouse press event
+        self.Widget_ItemBased_Properties_allow_bypass_mouse_press_event = settings_dict["Widget_ItemBased_Properties"].get("allow_bypass_mouse_press_event", False)
+        # Tap event - animation
+        self.Widget_ItemBased_Properties_tap_event_show_animation_enabled = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_enabled", False)
+        self.Widget_ItemBased_Properties_tap_event_show_animation_file_path = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_file_path", "")
+        self.Widget_ItemBased_Properties_tap_event_show_animation_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_duration_ms", 100)
+        self.Widget_ItemBased_Properties_tap_event_show_animation_width = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_width", 20)
+        self.Widget_ItemBased_Properties_tap_event_show_animation_height = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_height", 20)
+        self.Widget_ItemBased_Properties_tap_event_show_animation_background_color = settings_dict["Widget_ItemBased_Properties"].get("tap_event_show_animation_background_color", "transparent")
+        # Tap event - play sound
+        self.Widget_ItemBased_Properties_tap_event_play_sound_enabled = settings_dict["Widget_ItemBased_Properties"].get("tap_event_play_sound_enabled", False)
+        self.Widget_ItemBased_Properties_tap_event_play_sound_file_path = settings_dict["Widget_ItemBased_Properties"].get("tap_event_play_sound_file_path", "")
+        # Tap event - change stylesheet
+        self.Widget_ItemBased_Properties_tap_event_change_stylesheet_enabled = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_stylesheet_enabled", False)
+        self.Widget_ItemBased_Properties_tap_event_change_qss_stylesheet = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_qss_stylesheet", "")
+        self.Widget_ItemBased_Properties_tap_event_change_stylesheet_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_stylesheet_duration_ms", 100)
+        # Tap event - change size
+        self.Widget_ItemBased_Properties_tap_event_change_size_enabled = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_size_enabled", False)
+        self.Widget_ItemBased_Properties_tap_event_change_size_percent = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_size_percent", 10)
+        self.Widget_ItemBased_Properties_tap_event_change_size_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("tap_event_change_size_duration_ms", 100)
+        # Allow bypass enter event
+        self.Widget_ItemBased_Properties_allow_bypass_enter_event = settings_dict["Widget_ItemBased_Properties"].get("allow_bypass_enter_event", False)
+        # Enter event - animation
+        self.Widget_ItemBased_Properties_enter_event_show_animation_enabled = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_enabled", False)
+        self.Widget_ItemBased_Properties_enter_event_show_animation_file_path = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_file_path", "")
+        self.Widget_ItemBased_Properties_enter_event_show_animation_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_duration_ms", 100)
+        self.Widget_ItemBased_Properties_enter_event_show_animation_width = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_width", 20)
+        self.Widget_ItemBased_Properties_enter_event_show_animation_height = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_height", 20)
+        self.Widget_ItemBased_Properties_enter_event_show_animation_background_color = settings_dict["Widget_ItemBased_Properties"].get("enter_event_show_animation_background_color", "transparent")
+        # Enter event - play sound
+        self.Widget_ItemBased_Properties_enter_event_play_sound_enabled = settings_dict["Widget_ItemBased_Properties"].get("enter_event_play_sound_enabled", False)
+        self.Widget_ItemBased_Properties_enter_event_play_sound_file_path = settings_dict["Widget_ItemBased_Properties"].get("enter_event_play_sound_file_path", "")
+        # Enter event - change stylesheet
+        self.Widget_ItemBased_Properties_enter_event_change_stylesheet_enabled = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_stylesheet_enabled", False)
+        self.Widget_ItemBased_Properties_enter_event_change_qss_stylesheet = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_qss_stylesheet", "")
+        self.Widget_ItemBased_Properties_enter_event_change_stylesheet_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_stylesheet_duration_ms", 100)
+        # Enter event - change size
+        self.Widget_ItemBased_Properties_enter_event_change_size_enabled = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_size_enabled", False)
+        self.Widget_ItemBased_Properties_enter_event_change_size_percent = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_size_percent", 10)
+        self.Widget_ItemBased_Properties_enter_event_change_size_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("enter_event_change_size_duration_ms", 100)
+        # Allow bypass leave event
+        self.Widget_ItemBased_Properties_allow_bypass_leave_event = settings_dict["Widget_ItemBased_Properties"].get("allow_bypass_leave_event", False)
+        # Leave event - animation
+        self.Widget_ItemBased_Properties_leave_event_show_animation_enabled = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_enabled", False)
+        self.Widget_ItemBased_Properties_leave_event_show_animation_file_path = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_file_path", "")
+        self.Widget_ItemBased_Properties_leave_event_show_animation_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_duration_ms", 100)
+        self.Widget_ItemBased_Properties_leave_event_show_animation_width = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_width", 20)
+        self.Widget_ItemBased_Properties_leave_event_show_animation_height = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_height", 20)
+        self.Widget_ItemBased_Properties_leave_event_show_animation_background_color = settings_dict["Widget_ItemBased_Properties"].get("leave_event_show_animation_background_color", "transparent")
+        # Leave event - play sound
+        self.Widget_ItemBased_Properties_leave_event_play_sound_enabled = settings_dict["Widget_ItemBased_Properties"].get("leave_event_play_sound_enabled", False)
+        self.Widget_ItemBased_Properties_leave_event_play_sound_file_path = settings_dict["Widget_ItemBased_Properties"].get("leave_event_play_sound_file_path", "")
+        # Leave event - change stylesheet
+        self.Widget_ItemBased_Properties_leave_event_change_stylesheet_enabled = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_stylesheet_enabled", False)
+        self.Widget_ItemBased_Properties_leave_event_change_qss_stylesheet = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_qss_stylesheet", "")
+        self.Widget_ItemBased_Properties_leave_event_change_stylesheet_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_stylesheet_duration_ms", 100)
+        # Leave event - change size
+        self.Widget_ItemBased_Properties_leave_event_change_size_enabled = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_size_enabled", False)
+        self.Widget_ItemBased_Properties_leave_event_change_size_percent = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_size_percent", 10)
+        self.Widget_ItemBased_Properties_leave_event_change_size_duration_ms = settings_dict["Widget_ItemBased_Properties"].get("leave_event_change_size_duration_ms", 100)
 
     def parenthesis_list_validator(self, parenthesis_list: list) -> list:
         result = []
@@ -1105,7 +1214,7 @@ class GlobalWidgetsProperties(AbstractProperties):
                 if isinstance(parenthesis, str) and len(parenthesis) == 2:
                     result.append(parenthesis)
                 else:
-                    warning_message("Invalid parenthesis '#1' in 'Widget_TextBox_Properties_smart_parenthesis_list'.", arguments=parenthesis, print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Invalid parenthesis '#1' in 'Widget_TextBox_Properties_smart_parenthesis_list'.", arguments=parenthesis, print_only=True)
         elif isinstance(parenthesis_list, str):
             parenthesis_list = parenthesis_list.split(",")
             for parenthesis in parenthesis_list:
@@ -1113,12 +1222,13 @@ class GlobalWidgetsProperties(AbstractProperties):
                     parenthesis = parenthesis.strip()
                     result.append(parenthesis)
                 else:
-                    warning_message("Invalid parenthesis '#1' in 'Widget_TextBox_Properties_smart_parenthesis_list'.", arguments=parenthesis, print_only=True)
+                    UTILS.TerminalUtility.WarningMessage("Invalid parenthesis '#1' in 'Widget_TextBox_Properties_smart_parenthesis_list'.", arguments=parenthesis, print_only=True)
 
         return result
 
     def from_dict(self, properties_dict: dict) -> None:
         if not isinstance(properties_dict, dict):
+            UTILS.TerminalUtility.WarningMessage("Variable #1 must be a dictionary.\ntype(properties_dict): #2\nproperties_dict = #3", ["properties_dict", type(properties_dict), properties_dict], exception_raised=True)
             raise ValueError(f"The properties_dict must be a dictionary not '{type(properties_dict)}'.")
         
         for section in properties_dict:
@@ -1130,6 +1240,7 @@ class GlobalWidgetsProperties(AbstractProperties):
                 self.__dict__[section] = properties_dict[section]
             else:
                 if not isinstance(properties_dict[section], dict):
+                    UTILS.TerminalUtility.WarningMessage("Variable #1 must be a dictionary.\ntype(properties_dict[section]): #2\nproperties_dict[section] = #3", [f"properties_dict[{section}]", type(properties_dict[section]), properties_dict[section]], exception_raised=True)
                     raise ValueError(f"The properties_dict['{section}'] must be a dictionary not '{type(properties_dict[section])}'.")
 
                 for property_name in properties_dict[section]:
@@ -1230,22 +1341,26 @@ class Widget_TextBox_Properties(AbstractProperties):
 
 
 class Widget_TextBox(AbstractWidget):
-    def __init__(self, qdialog_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_TextBox_Properties = None) -> None:
+    MAX_HISTORY = 15
 
-        super().__init__()
+    def __init__(self, qdialog_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_TextBox_Properties = None, timer_handler: TimerHandler = None) -> None:
+
+        super().__init__(timer_handler=timer_handler)
 
         self.widget = qdialog_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_TextBox_Properties()
+        self.history = []
         if not isinstance(self.properties, Widget_TextBox_Properties):
-            warning_message("Widget_TextBox_Properties not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_TextBox_Properties not supported: #1\nUsed default Widget_TextBox_Properties", type(self.widget))
             self.properties = Widget_TextBox_Properties()
-            warning_message("Used default Widget_TextBox_Properties", print_only=True)
 
         self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         if self.properties.allow_bypass_key_press_event:
@@ -1257,14 +1372,8 @@ class Widget_TextBox(AbstractWidget):
         elif isinstance(self.widget, QLineEdit):
             has_parenthesis = self.__add_smart_parenthesis_QLineEdit(e)
         else:
-            warning_message("Key press event failed. Unsupported widget type: #1", type(self.widget))
-            warning_message("Key press event cancelled.", print_only=True)
+            UTILS.TerminalUtility.WarningMessage("Key press event failed. Unsupported widget type: #1\nKey press event cancelled.", type(self.widget))
             return
-
-        # Update text in textbox. Smart parenthesis changed already text in textbox
-        if not has_parenthesis and self.properties.allow_bypass_key_press_event:
-            ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
-            ReturnEvent.keyPressEvent(self.widget, e)
 
         # Update widget state
         if has_parenthesis is True:
@@ -1279,12 +1388,56 @@ class Widget_TextBox(AbstractWidget):
                 play_sound = True
             
             if e.key() == Qt.Key_Enter or e.key() == Qt.Key_Return:
+                if isinstance(self.widget, QLineEdit):
+                    self.history_update(self.widget.text())
                 self._return_press_update_state(play_sound=play_sound)
             elif e.key() == Qt.Key_Escape:
                 self._escape_press_update_state(play_sound=play_sound)
+            # Process key_up and key_down for LineEdit
+            elif (e.key() == Qt.Key_Up or e.key() == Qt.Key_Down) and isinstance(self.widget, QLineEdit):
+                self.history_move(self.widget.text(), "up" if e.key() == Qt.Key_Up else "down")
             else:
                 self._key_press_update_state(play_sound=play_sound)
-           
+
+        # Update text in textbox. Smart parenthesis changed already text in textbox
+        if not has_parenthesis and self.properties.allow_bypass_key_press_event:
+            ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+            ReturnEvent.keyPressEvent(self.widget, e)
+
+    def history_update(self, text: str):
+        if not text.strip() or not isinstance(self.widget, QLineEdit):
+            return
+        
+        if len(self.history) >= self.MAX_HISTORY:
+            self.history.pop(0)
+        
+        if text in self.history:
+            self.history.remove(text)
+        
+        self.history.append(text)
+
+    def history_move(self, current_text: str, direction: str):
+        if not isinstance(self.widget, QLineEdit):
+            return
+
+        if direction == "up":
+            try:
+                index = self.history.index(current_text)
+            except ValueError:
+                index = len(self.history)
+            
+            if index > 0:
+                self.widget.setText(self.history[index - 1])
+        elif direction == "down":
+            try:
+                index = self.history.index(current_text)
+            except ValueError:
+                self.widget.setText("")
+                return
+            
+            if index < len(self.history) - 1:
+                self.widget.setText(self.history[index + 1])
+
     def text_validation(self, is_text_valid: bool = None):
         if is_text_valid is None:
             if self._is_data_valid():
@@ -1600,21 +1753,22 @@ class Widget_PushButton_Properties(AbstractProperties):
 
 
 class Widget_PushButton(AbstractWidget):
-    def __init__(self, qpushbutton_widget: QPushButton, main_win: QWidget = None, properties_setup: Widget_PushButton_Properties = None) -> None:
-        super().__init__()
+    def __init__(self, qpushbutton_widget: QPushButton, main_win: QWidget = None, properties_setup: Widget_PushButton_Properties = None, timer_handler: TimerHandler = None) -> None:
+        super().__init__(timer_handler=timer_handler)
         
         self.widget = qpushbutton_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_PushButton_Properties()
         if not isinstance(self.properties, Widget_PushButton_Properties):
-            warning_message("Widget_PushButton_Properties type not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_PushButton_Properties type not supported: #1\nUsed default properties", type(self.widget))
             self.properties = Widget_PushButton_Properties()
-            warning_message("Used default properties", print_only=True)
 
         self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         # Tap Event
@@ -1657,21 +1811,24 @@ class Widget_PushButton(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
         if self.properties.tap_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.tap_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
 
     def EVENT_mouse_press_event(self, e: QMouseEvent, return_event_to_super = False):
-        if e.button() != Qt.LeftButton:
+        if e and e.button() != Qt.LeftButton:
             if return_event_to_super:
                 ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
                 ReturnEvent.mousePressEvent(self.widget, e)
@@ -1700,18 +1857,21 @@ class Widget_PushButton(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
         if self.properties.tap_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.tap_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -1741,18 +1901,21 @@ class Widget_PushButton(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
         if self.properties.enter_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.enter_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -1782,18 +1945,21 @@ class Widget_PushButton(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
         if self.properties.leave_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.leave_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -1878,21 +2044,22 @@ class Widget_Selection_Properties(AbstractProperties):
 
 
 class Widget_Selection(AbstractWidget):
-    def __init__(self, selection_widget: QWidget, main_win: QWidget = None, properties_setup: Widget_Selection_Properties = None) -> None:
-        super().__init__()
+    def __init__(self, selection_widget: QWidget, main_win: QWidget = None, properties_setup: Widget_Selection_Properties = None, timer_handler: TimerHandler = None) -> None:
+        super().__init__(timer_handler=timer_handler)
         
         self.widget = selection_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_Selection_Properties()
         if not isinstance(self.properties, Widget_Selection_Properties):
-            warning_message("Widget_Selection_Properties type not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_Selection_Properties type not supported: #1\nUsed default properties.", type(self.widget))
             self.properties = Widget_Selection_Properties()
-            warning_message("Used default properties", print_only=True)
 
         self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         # Tap Event
@@ -1909,7 +2076,7 @@ class Widget_Selection(AbstractWidget):
             self._set_widget_cursor(self.properties.cursor, self.widget)
 
     def EVENT_mouse_press_event(self, e: QMouseEvent, return_event_to_super = False):
-        if e.button() != Qt.LeftButton:
+        if e and e.button() != Qt.LeftButton:
             if return_event_to_super:
                 ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
                 ReturnEvent.mousePressEvent(self.widget, e)
@@ -1938,18 +2105,269 @@ class Widget_Selection(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
         if self.properties.tap_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.tap_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
+
+        if return_event_to_super:
+            ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+            ReturnEvent.mousePressEvent(self.widget, e)
+
+    def EVENT_enter_event(self, e: QEvent, return_event_to_super = False):
+        sound_ok = self._tap_event_play_sound(e,
+                                    e_enabled=self.properties.enter_event_play_sound_enabled,
+                                    e_file_path=self.properties.enter_event_play_sound_file_path
+                                    )
+        self._tap_event_change_stylesheet(e,
+                                            e_enabled=self.properties.enter_event_change_stylesheet_enabled,
+                                            e_qss=self.properties.enter_event_change_qss_stylesheet
+                                            )
+        self._tap_event_change_size(e,
+                                    e_enabled=self.properties.enter_event_change_size_enabled,
+                                    e_percent=self.properties.enter_event_change_size_percent
+                                    )
+        start_animation = self._tap_event_show_animation(e,
+                                                          e_enabled=self.properties.enter_event_show_animation_enabled,
+                                                          e_duration_ms=self.properties.enter_event_show_animation_duration_ms,
+                                                          e_width=self.properties.enter_event_show_animation_width,
+                                                          e_height=self.properties.enter_event_show_animation_height,
+                                                          event_type="enter"
+                                                          )
+            
+        if start_animation:
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
+                self._animation_timer.start()
+        elif start_animation is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
+        if self.properties.enter_event_change_stylesheet_enabled:
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
+        if self.properties.enter_event_change_size_enabled:
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
+                self._size_timer.start()
+        if sound_ok is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
+
+        if return_event_to_super:
+            ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+            ReturnEvent.enterEvent(self.widget, e)
+
+        QCoreApplication.processEvents()
+
+    def EVENT_leave_event(self, e: QEvent, return_event_to_super = False):
+        sound_ok = self._tap_event_play_sound(e,
+                                    e_enabled=self.properties.leave_event_play_sound_enabled,
+                                    e_file_path=self.properties.leave_event_play_sound_file_path
+                                    )
+        self._tap_event_change_stylesheet(e,
+                                            e_enabled=self.properties.leave_event_change_stylesheet_enabled,
+                                            e_qss=self.properties.leave_event_change_qss_stylesheet
+                                            )
+        self._tap_event_change_size(e,
+                                    e_enabled=self.properties.leave_event_change_size_enabled,
+                                    e_percent=self.properties.leave_event_change_size_percent
+                                    )
+        start_animation = self._tap_event_show_animation(e,
+                                                          e_enabled=self.properties.leave_event_show_animation_enabled,
+                                                          e_duration_ms=self.properties.leave_event_show_animation_duration_ms,
+                                                          e_width=self.properties.leave_event_show_animation_width,
+                                                          e_height=self.properties.leave_event_show_animation_height,
+                                                          event_type="leave"
+                                                          )
+            
+        QCoreApplication.processEvents()
+
+        if start_animation:
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
+                self._animation_timer.start()
+        elif start_animation is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
+        if self.properties.leave_event_change_stylesheet_enabled:
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
+        if self.properties.leave_event_change_size_enabled:
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
+                self._size_timer.start()
+        if sound_ok is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
+
+        if return_event_to_super:
+            ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+            ReturnEvent.leaveEvent(self.widget, e)
+
+
+class Widget_ItemBased_Properties(AbstractProperties):
+    def __init__(self,
+                 global_widgets_properties: GlobalWidgetsProperties = None,
+                 **kwargs) -> None:
+
+        super().__init__()
+
+        self.global_widgets_properties = global_widgets_properties if global_widgets_properties is not None else GlobalWidgetsProperties({})
+
+        # ItemBased cursor
+        self.allow_cursor_change = kwargs.get("allow_cursor_change") if kwargs.get("allow_cursor_change") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_allow_cursor_change
+        self.cursor = kwargs.get("cursor") if kwargs.get("cursor") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_cursor
+        self.cursor_width = kwargs.get("cursor_width") if kwargs.get("cursor_width") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_cursor_width
+        self.cursor_height = kwargs.get("cursor_height") if kwargs.get("cursor_height") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_cursor_height
+        self.cursor_keep_aspect_ratio = kwargs.get("cursor_keep_aspect_ratio") if kwargs.get("cursor_keep_aspect_ratio") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_cursor_keep_aspect_ratio
+        # Allow bypass mouse press event
+        self.allow_bypass_mouse_press_event = kwargs.get("allow_bypass_mouse_press_event") if kwargs.get("allow_bypass_mouse_press_event") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_allow_bypass_mouse_press_event
+        # Tap event - animation
+        self.tap_event_show_animation_enabled = kwargs.get("tap_event_show_animation_enabled") if kwargs.get("tap_event_show_animation_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_enabled
+        self.tap_event_show_animation_file_path = kwargs.get("tap_event_show_animation_file_path") if kwargs.get("tap_event_show_animation_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_file_path
+        self.tap_event_show_animation_duration_ms = kwargs.get("tap_event_show_animation_duration_ms") if kwargs.get("tap_event_show_animation_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_duration_ms
+        self.tap_event_show_animation_width = kwargs.get("tap_event_show_animation_width") if kwargs.get("tap_event_show_animation_width") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_width
+        self.tap_event_show_animation_height = kwargs.get("tap_event_show_animation_height") if kwargs.get("tap_event_show_animation_height") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_height
+        self.tap_event_show_animation_background_color = kwargs.get("tap_event_show_animation_background_color") if kwargs.get("tap_event_show_animation_background_color") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_show_animation_background_color
+        # Tap event - play sound
+        self.tap_event_play_sound_enabled = kwargs.get("tap_event_play_sound_enabled") if kwargs.get("tap_event_play_sound_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_play_sound_enabled
+        self.tap_event_play_sound_file_path = kwargs.get("tap_event_play_sound_file_path") if kwargs.get("tap_event_play_sound_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_play_sound_file_path
+        # Tap event - change stylesheet
+        self.tap_event_change_stylesheet_enabled = kwargs.get("tap_event_change_stylesheet_enabled") if kwargs.get("tap_event_change_stylesheet_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_stylesheet_enabled
+        self.tap_event_change_qss_stylesheet = kwargs.get("tap_event_change_qss_stylesheet") if kwargs.get("tap_event_change_qss_stylesheet") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_qss_stylesheet
+        self.tap_event_change_stylesheet_duration_ms = kwargs.get("tap_event_change_stylesheet_duration_ms") if kwargs.get("tap_event_change_stylesheet_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_stylesheet_duration_ms
+        # Tap event - change size
+        self.tap_event_change_size_enabled = kwargs.get("tap_event_change_size_enabled") if kwargs.get("tap_event_change_size_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_size_enabled
+        self.tap_event_change_size_percent = kwargs.get("tap_event_change_size_percent") if kwargs.get("tap_event_change_size_percent") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_size_percent
+        self.tap_event_change_size_duration_ms = kwargs.get("tap_event_change_size_duration_ms") if kwargs.get("tap_event_change_size_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_tap_event_change_size_duration_ms
+        # Allow bypass enter event
+        self.allow_bypass_enter_event = kwargs.get("allow_bypass_enter_event") if kwargs.get("allow_bypass_enter_event") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_allow_bypass_enter_event
+        # Enter event - animation
+        self.enter_event_show_animation_enabled = kwargs.get("enter_event_show_animation_enabled") if kwargs.get("enter_event_show_animation_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_enabled
+        self.enter_event_show_animation_file_path = kwargs.get("enter_event_show_animation_file_path") if kwargs.get("enter_event_show_animation_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_file_path
+        self.enter_event_show_animation_duration_ms = kwargs.get("enter_event_show_animation_duration_ms") if kwargs.get("enter_event_show_animation_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_duration_ms
+        self.enter_event_show_animation_width = kwargs.get("enter_event_show_animation_width") if kwargs.get("enter_event_show_animation_width") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_width
+        self.enter_event_show_animation_height = kwargs.get("enter_event_show_animation_height") if kwargs.get("enter_event_show_animation_height") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_height
+        self.enter_event_show_animation_background_color = kwargs.get("enter_event_show_animation_background_color") if kwargs.get("enter_event_show_animation_background_color") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_show_animation_background_color
+        # Enter event - play sound
+        self.enter_event_play_sound_enabled = kwargs.get("enter_event_play_sound_enabled") if kwargs.get("enter_event_play_sound_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_play_sound_enabled
+        self.enter_event_play_sound_file_path = kwargs.get("enter_event_play_sound_file_path") if kwargs.get("enter_event_play_sound_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_play_sound_file_path
+        # Enter event - change stylesheet
+        self.enter_event_change_stylesheet_enabled = kwargs.get("enter_event_change_stylesheet_enabled") if kwargs.get("enter_event_change_stylesheet_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_stylesheet_enabled
+        self.enter_event_change_qss_stylesheet = kwargs.get("enter_event_change_qss_stylesheet") if kwargs.get("enter_event_change_qss_stylesheet") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_qss_stylesheet
+        self.enter_event_change_stylesheet_duration_ms = kwargs.get("enter_event_change_stylesheet_duration_ms") if kwargs.get("enter_event_change_stylesheet_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_stylesheet_duration_ms
+        # Enter event - change size
+        self.enter_event_change_size_enabled = kwargs.get("enter_event_change_size_enabled") if kwargs.get("enter_event_change_size_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_size_enabled
+        self.enter_event_change_size_percent = kwargs.get("enter_event_change_size_percent") if kwargs.get("enter_event_change_size_percent") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_size_percent
+        self.enter_event_change_size_duration_ms = kwargs.get("enter_event_change_size_duration_ms") if kwargs.get("enter_event_change_size_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_enter_event_change_size_duration_ms
+        # Allow bypass leave event
+        self.allow_bypass_leave_event = kwargs.get("allow_bypass_leave_event") if kwargs.get("allow_bypass_leave_event") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_allow_bypass_leave_event
+        # Leave event - animation
+        self.leave_event_show_animation_enabled = kwargs.get("leave_event_show_animation_enabled") if kwargs.get("leave_event_show_animation_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_enabled
+        self.leave_event_show_animation_file_path = kwargs.get("leave_event_show_animation_file_path") if kwargs.get("leave_event_show_animation_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_file_path
+        self.leave_event_show_animation_duration_ms = kwargs.get("leave_event_show_animation_duration_ms") if kwargs.get("leave_event_show_animation_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_duration_ms
+        self.leave_event_show_animation_width = kwargs.get("leave_event_show_animation_width") if kwargs.get("leave_event_show_animation_width") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_width
+        self.leave_event_show_animation_height = kwargs.get("leave_event_show_animation_height") if kwargs.get("leave_event_show_animation_height") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_height
+        self.leave_event_show_animation_background_color = kwargs.get("leave_event_show_animation_background_color") if kwargs.get("leave_event_show_animation_background_color") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_show_animation_background_color
+        # Leave event - play sound
+        self.leave_event_play_sound_enabled = kwargs.get("leave_event_play_sound_enabled") if kwargs.get("leave_event_play_sound_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_play_sound_enabled
+        self.leave_event_play_sound_file_path = kwargs.get("leave_event_play_sound_file_path") if kwargs.get("leave_event_play_sound_file_path") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_play_sound_file_path
+        # Leave event - change stylesheet
+        self.leave_event_change_stylesheet_enabled = kwargs.get("leave_event_change_stylesheet_enabled") if kwargs.get("leave_event_change_stylesheet_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_stylesheet_enabled
+        self.leave_event_change_qss_stylesheet = kwargs.get("leave_event_change_qss_stylesheet") if kwargs.get("leave_event_change_qss_stylesheet") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_qss_stylesheet
+        self.leave_event_change_stylesheet_duration_ms = kwargs.get("leave_event_change_stylesheet_duration_ms") if kwargs.get("leave_event_change_stylesheet_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_stylesheet_duration_ms
+        # Leave event - change size
+        self.leave_event_change_size_enabled = kwargs.get("leave_event_change_size_enabled") if kwargs.get("leave_event_change_size_enabled") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_size_enabled
+        self.leave_event_change_size_percent = kwargs.get("leave_event_change_size_percent") if kwargs.get("leave_event_change_size_percent") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_size_percent
+        self.leave_event_change_size_duration_ms = kwargs.get("leave_event_change_size_duration_ms") if kwargs.get("leave_event_change_size_duration_ms") is not None else self.global_widgets_properties.Widget_ItemBased_Properties_leave_event_change_size_duration_ms
+
+
+class Widget_ItemBased(AbstractWidget):
+    def __init__(self, list_table_tree_widget: QWidget, main_win: QWidget = None, properties_setup: Widget_ItemBased_Properties = None, timer_handler: TimerHandler = None) -> None:
+        super().__init__(timer_handler=timer_handler)
+        
+        self.widget = list_table_tree_widget
+        self.main_win = main_win if main_win is not None else self.widget
+        self.properties = properties_setup if properties_setup is not None else Widget_ItemBased_Properties()
+        if not isinstance(self.properties, Widget_ItemBased_Properties):
+            UTILS.TerminalUtility.WarningMessage("Widget_ItemBased_Properties type not supported: #1\nUsed default properties.", type(self.widget))
+            self.properties = Widget_ItemBased_Properties()
+
+        self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
+
+    def activate(self):
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
+
+    def _setup_widget(self):
+        # Tap Event
+        if self.properties.allow_bypass_mouse_press_event:
+            self.widget.mousePressEvent = lambda e: self.EVENT_mouse_press_event(e, return_event_to_super = True)
+        # Enter Event
+        if self.properties.allow_bypass_enter_event:
+            self.widget.enterEvent = lambda e: self.EVENT_enter_event(e, return_event_to_super=True)
+        # Leave Event
+        if self.properties.allow_bypass_leave_event:
+            self.widget.leaveEvent = lambda e: self.EVENT_leave_event(e, return_event_to_super=True)
+        # Cursor
+        if self.properties.allow_cursor_change:
+            self._set_widget_cursor(self.properties.cursor, self.widget)
+
+    def EVENT_mouse_press_event(self, e: QMouseEvent, return_event_to_super = False):
+        if e and e.button() != Qt.LeftButton:
+            if return_event_to_super:
+                ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+                ReturnEvent.mousePressEvent(self.widget, e)
+            return
+        
+        sound_ok = self._tap_event_play_sound(e,
+                                    e_enabled=self.properties.tap_event_play_sound_enabled,
+                                    e_file_path=self.properties.tap_event_play_sound_file_path
+                                    )
+        self._tap_event_change_stylesheet(e,
+                                            e_enabled=self.properties.tap_event_change_stylesheet_enabled,
+                                            e_qss=self.properties.tap_event_change_qss_stylesheet
+                                            )
+        self._tap_event_change_size(e,
+                                    e_enabled=self.properties.tap_event_change_size_enabled,
+                                    e_percent=self.properties.tap_event_change_size_percent
+                                    )
+        start_animation = self._tap_event_show_animation(e,
+                                                          e_enabled=self.properties.tap_event_show_animation_enabled,
+                                                          e_duration_ms=self.properties.tap_event_show_animation_duration_ms,
+                                                          e_width=self.properties.tap_event_show_animation_width,
+                                                          e_height=self.properties.tap_event_show_animation_height,
+                                                          event_type="tap"
+                                                          )
+            
+        QCoreApplication.processEvents()
+
+        if start_animation:
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
+                self._animation_timer.start()
+        elif start_animation is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
+        if self.properties.tap_event_change_stylesheet_enabled:
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
+        if self.properties.tap_event_change_size_enabled:
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
+                self._size_timer.start()
+        if sound_ok is False:
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -1979,18 +2397,21 @@ class Widget_Selection(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
         if self.properties.enter_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.enter_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -2020,18 +2441,21 @@ class Widget_Selection(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
         if self.properties.leave_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.leave_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -2116,21 +2540,22 @@ class Widget_ActionFrame_Properties(AbstractProperties):
 
 
 class Widget_ActionFrame(AbstractWidget):
-    def __init__(self, actionframe_widget: QPushButton, main_win: QWidget = None, properties_setup: Widget_PushButton_Properties = None) -> None:
-        super().__init__()
+    def __init__(self, actionframe_widget: QPushButton, main_win: QWidget = None, properties_setup: Widget_PushButton_Properties = None, timer_handler: TimerHandler = None) -> None:
+        super().__init__(timer_handler=timer_handler)
         
         self.widget = actionframe_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_ActionFrame_Properties()
         if not isinstance(self.properties, Widget_ActionFrame_Properties):
-            warning_message("Widget_ActionFrame_Properties type not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_ActionFrame_Properties type not supported: #1\nUsed default properties.", type(self.widget))
             self.properties = Widget_ActionFrame_Properties()
-            warning_message("Used default properties", print_only=True)
 
         self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         # Tap Event
@@ -2147,7 +2572,7 @@ class Widget_ActionFrame(AbstractWidget):
             self._set_widget_cursor(self.properties.cursor, self.widget)
 
     def EVENT_mouse_press_event(self, e: QMouseEvent, return_event_to_super = False):
-        if e.button() != Qt.LeftButton:
+        if e and e.button() != Qt.LeftButton:
             if return_event_to_super:
                 ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
                 ReturnEvent.mousePressEvent(self.widget, e)
@@ -2176,18 +2601,21 @@ class Widget_ActionFrame(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.tap_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.tap_event_show_animation_file_path)
         if self.properties.tap_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.tap_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.tap_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.tap_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.tap_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -2217,18 +2645,21 @@ class Widget_ActionFrame(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.enter_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.enter_event_show_animation_file_path)
         if self.properties.enter_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.enter_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.enter_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.enter_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.enter_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -2258,18 +2689,21 @@ class Widget_ActionFrame(AbstractWidget):
         QCoreApplication.processEvents()
 
         if start_animation:
-            self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
-            self._animation_timer.start()
+            if self._animation_timer:
+                self._animation_timer.set_duration(self.properties.leave_event_show_animation_duration_ms)
+                self._animation_timer.start()
         elif start_animation is False:
-            warning_message("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid animation: #1", self.properties.leave_event_show_animation_file_path)
         if self.properties.leave_event_change_stylesheet_enabled:
-            self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
-            self._stylesheet_timer.start()
+            if self._stylesheet_timer:
+                self._stylesheet_timer.set_duration(self.properties.leave_event_change_stylesheet_duration_ms)
+                self._stylesheet_timer.start()
         if self.properties.leave_event_change_size_enabled:
-            self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
-            self._size_timer.start()
+            if self._size_timer:
+                self._size_timer.set_duration(self.properties.leave_event_change_size_duration_ms)
+                self._size_timer.start()
         if sound_ok is False:
-            warning_message("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
+            UTILS.TerminalUtility.WarningMessage("Invalid sound file: #1", self.properties.leave_event_play_sound_file_path)
 
         if return_event_to_super:
             ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
@@ -2300,23 +2734,31 @@ class Widget_Dialog_Properties(AbstractProperties):
         self.dragged_window_mask_label_stylesheet = kwargs.get("dragged_window_mask_label_stylesheet") if kwargs.get("dragged_window_mask_label_stylesheet") is not None else self.global_widgets_properties.Widget_Dialog_Properties_dragged_window_mask_label_stylesheet
         self.dragged_window_mask_label_image_path = kwargs.get("dragged_window_mask_label_image_path") if kwargs.get("dragged_window_mask_label_image_path") is not None else self.global_widgets_properties.Widget_Dialog_Properties_dragged_window_mask_label_image_path
         self.dragged_window_mask_label_animation_path = kwargs.get("dragged_window_mask_label_animation_path") if kwargs.get("dragged_window_mask_label_animation_path") is not None else self.global_widgets_properties.Widget_Dialog_Properties_dragged_window_mask_label_animation_path
+        # Call Close_me on ESCAPE
+        self.allow_bypass_key_press_event = kwargs.get("allow_bypass_key_press_event") if kwargs.get("allow_bypass_key_press_event") is not None else self.global_widgets_properties.Widget_Dialog_Properties_allow_bypass_key_press_event
+        self.call_close_me_on_escape = kwargs.get("call_close_me_on_escape") if kwargs.get("call_close_me_on_escape") is not None else self.global_widgets_properties.Widget_Dialog_Properties_call_close_me_on_escape
+        # Close on Lost Focus
+        self.close_on_lost_focus = kwargs.get("close_on_lost_focus") if kwargs.get("close_on_lost_focus") is not None else self.global_widgets_properties.Widget_Dialog_Properties_close_on_lost_focus
 
 
 class Widget_Dialog(AbstractWidget):
-    def __init__(self, qdialog_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_Dialog_Properties = None) -> None:
+    def __init__(self, qdialog_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_Dialog_Properties = None, timer_handler: TimerHandler = None) -> None:
 
-        super().__init__()
+        super().__init__(timer_handler=timer_handler)
 
         self.widget = qdialog_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_Dialog_Properties()
         if not isinstance(self.properties, Widget_Dialog_Properties):
-            warning_message("Widget_Dialog_Properties not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_Dialog_Properties not supported: #1\nUsed default Widget_Dialog_Properties.", type(self.widget))
             self.properties = Widget_Dialog_Properties()
-            warning_message("Used default Widget_Dialog_Properties", print_only=True)
+        
+        self.SUPER_CLASS_WIDGET = self._get_qwidget_class()
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         if self.properties.window_drag_enabled:
@@ -2326,6 +2768,29 @@ class Widget_Dialog(AbstractWidget):
 
             self.enable_window_drag(self.properties.window_drag_widgets, data=None, forbidden_widgets=forbidden_widgets)
             self._set_drag_widgets_cursor()
+        
+        if self.properties.allow_bypass_key_press_event:
+            self.widget.keyPressEvent = self.EVENT_key_press_event
+
+        if self.properties.close_on_lost_focus:
+            self.widget.installEventFilter(self.widget)
+            self.widget.eventFilter = self.EVENT_event_filter
+
+    def EVENT_key_press_event(self, e: QKeyEvent):
+        if e.key() == Qt.Key_Escape:
+            try:
+                self.widget.close_me()
+            except AttributeError:
+                pass
+
+        ReturnEvent.SUPER_CLASS_WIDGET = self.SUPER_CLASS_WIDGET
+        ReturnEvent.keyPressEvent(self.widget, e)
+
+    def EVENT_event_filter(self, obj, event):
+        if event.type() == QEvent.WindowDeactivate:
+            self.widget.close_me()
+        
+        return False
 
 
 class Widget_Frame_Properties(AbstractProperties):
@@ -2357,20 +2822,21 @@ class Widget_Frame_Properties(AbstractProperties):
 
 
 class Widget_Frame(AbstractWidget):
-    def __init__(self, qframe_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_Frame_Properties = None) -> None:
+    def __init__(self, qframe_widget: QDialog, main_win: QWidget = None, properties_setup: Widget_Frame_Properties = None, timer_handler: TimerHandler = None) -> None:
 
-        super().__init__()
+        super().__init__(timer_handler=timer_handler)
 
         self.widget = qframe_widget
         self.main_win = main_win if main_win is not None else self.widget
         self.properties = properties_setup if properties_setup is not None else Widget_Frame_Properties()
         if not isinstance(self.properties, Widget_Frame_Properties):
-            warning_message("Widget_Dialog_Properties not supported: #1", type(self.widget))
+            UTILS.TerminalUtility.WarningMessage("Widget_Dialog_Properties not supported: #1\nUsed default Widget_Dialog_Properties.", type(self.widget))
             self.properties = Widget_Frame_Properties()
-            warning_message("Used default Widget_Dialog_Properties", print_only=True)
 
     def activate(self):
-        self._setup_widget()
+        if not self.is_active:
+            self._setup_widget()
+            self.is_active = True
 
     def _setup_widget(self):
         if self.properties.window_drag_enabled:
@@ -2380,6 +2846,29 @@ class Widget_Frame(AbstractWidget):
 
             self.enable_window_drag(self.properties.window_drag_widgets, data={"boundaries": "main_win"}, forbidden_widgets=forbidden_widgets)
             self._set_drag_widgets_cursor()
+
+
+class CompatibleWidget:
+    def EVENT_mouse_press_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_mouse_press_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+
+    def EVENT_enter_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_enter_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+
+    def EVENT_leave_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_leave_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+
+    def EVENT_key_press_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_key_press_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+    
+    def EVENT_drag_widget_mouse_press_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_drag_widget_mouse_press_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+
+    def EVENT_drag_widget_mouse_move_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_drag_widget_mouse_move_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
+
+    def EVENT_drag_widget_mouse_release_event(self, *args, **kwargs):
+        UTILS.TerminalUtility.WarningMessage("EVENT_drag_widget_mouse_release_event: Widget not found.  Used: #1", "CompatibleWidget", print_only=True)
 
 
 class WidgetHandler:
@@ -2438,7 +2927,9 @@ class WidgetHandler:
         You remove the widget using the "remove_child" method:
             widget_handler.remove_child(my_widget)
         """
-        self.main_win = main_win if main_win is not None else self.widget
+        self.main_win = main_win
+
+        self.timer_handler = TimerHandler(parent=self.main_win, interval=25)
         
         if global_widgets_properties is not None:
             if isinstance(global_widgets_properties, GlobalWidgetsProperties):
@@ -2447,8 +2938,7 @@ class WidgetHandler:
                 self.global_widgets_properties = GlobalWidgetsProperties()
                 self.global_widgets_properties.from_dict(global_widgets_properties)
             else:
-                warning_message("GlobalWidgetsProperties type not supported: #1", type(global_widgets_properties))
-                warning_message("Using default GlobalWidgetsProperties", print_only=True)
+                UTILS.TerminalUtility.WarningMessage("GlobalWidgetsProperties type not supported: #1\nUsing default GlobalWidgetsProperties.", type(global_widgets_properties))
 
         if self.global_widgets_properties is None:                
             self.global_widgets_properties = GlobalWidgetsProperties()
@@ -2484,65 +2974,76 @@ class WidgetHandler:
                 widget_type = "qdialog"
             elif force_widget_type.lower() == "qframe":
                 widget_type = "qframe"
-            elif force_widget_type.lower() == "qlineedit" or force_widget_type.lower() == "qtextedit":
+            elif force_widget_type.lower() == "qlineedit" or force_widget_type.lower() == "qtextedit" or force_widget_type.lower() == "textbox":
                 widget_type = "textbox"
             elif force_widget_type.lower() == "selection":
                 widget_type = "selection"
+            elif force_widget_type.lower() == "item_based":
+                widget_type = "item_based"
         
         if widget_type is None:
             if isinstance(widget, QPushButton) or isinstance(widget, QToolButton):
                 widget_type = "qpushbutton"
             elif isinstance(widget, QDialog):
                 widget_type = "qdialog"
-            elif isinstance(widget, QFrame):
-                widget_type = "qframe"
             elif isinstance(widget, QLineEdit) or isinstance(widget, QTextEdit):
                 widget_type = "textbox"
             elif self._is_selection_widget(widget):
                 widget_type = "selection"
+            elif self._is_item_based_widget(widget):
+                widget_type = "item_based"
 
         if widget_type == "actionframe":
             widget_default_properties_dict = Widget_ActionFrame_Properties(self.global_widgets_properties)
-            widget_obj = Widget_ActionFrame(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_ActionFrame(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         elif widget_type == "qpushbutton":
             widget_default_properties_dict = Widget_PushButton_Properties(self.global_widgets_properties)
-            widget_obj = Widget_PushButton(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_PushButton(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         elif widget_type == "qdialog":
             widget_default_properties_dict = Widget_Dialog_Properties(self.global_widgets_properties)
-            widget_obj = Widget_Dialog(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_Dialog(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         elif widget_type == "qframe":
             widget_default_properties_dict = Widget_Frame_Properties(self.global_widgets_properties)
-            widget_obj = Widget_Frame(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_Frame(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         elif widget_type == "textbox":
             widget_default_properties_dict = Widget_TextBox_Properties(self.global_widgets_properties)
-            widget_obj = Widget_TextBox(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_TextBox(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         elif widget_type == "selection":
             widget_default_properties_dict = Widget_Selection_Properties(self.global_widgets_properties)
-            widget_obj = Widget_Selection(widget, main_win, widget_default_properties_dict)
+            widget_obj = Widget_Selection(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
+            widget_obj.update_from_dict(widget_properties_dict)
+        elif widget_type == "item_based":
+            widget_default_properties_dict = Widget_ItemBased_Properties(self.global_widgets_properties)
+            widget_obj = Widget_ItemBased(widget, main_win, widget_default_properties_dict, timer_handler=self.timer_handler)
             widget_obj.update_from_dict(widget_properties_dict)
         
         if widget_obj is None:
-            warning_message("Widget type not supported: #1", type(widget))
+            UTILS.TerminalUtility.WarningMessage("Widget type not supported: #1", type(widget))
             return None
 
         if widget not in [x.widget for x in self.__children]:
             self.__children.append(widget_obj)
             return widget_obj
         else:
-            warning_message("Widget already added: #1", str(widget))
+            UTILS.TerminalUtility.WarningMessage("Widget already added: #1", str(widget))
             return False
 
     def _is_selection_widget(self, widget: QWidget) -> bool:
         if (isinstance(widget, QCheckBox)
             or isinstance(widget, QComboBox)
             or isinstance(widget, QRadioButton)
-            or isinstance(widget, QSpinBox)
-            or isinstance(widget, QListWidget)
+            or isinstance(widget, QSpinBox)):
+            return True
+        
+        return False
+
+    def _is_item_based_widget(self, widget: QWidget) -> bool:
+        if (isinstance(widget, QListWidget)
             or isinstance(widget, QTableWidget)
             or isinstance(widget, QTreeWidget)):
             return True
@@ -2558,10 +3059,16 @@ class WidgetHandler:
     def add_Selection_Widget(self, widget: QWidget, widget_properties_dict: dict = None, main_win: QWidget = None) -> Widget_Selection:
         return self.add_child(widget, widget_properties_dict, force_widget_type="selection", main_win=main_win)
 
+    def add_ItemBased_Widget(self, widget: QWidget, widget_properties_dict: dict = None, main_win: QWidget = None) -> Widget_ItemBased:
+        return self.add_child(widget, widget_properties_dict, force_widget_type="item_based", main_win=main_win)
+
     def add_ActionFrame(self, widget: QWidget, widget_properties_dict: dict = None, main_win: QWidget = None) -> Widget_ActionFrame:
         return self.add_child(widget, widget_properties_dict, force_widget_type="actionframe", main_win=main_win)
 
     def add_QFrame(self, widget: QFrame, widget_properties_dict: dict = None, main_win: QWidget = None) -> Widget_Frame:
+        if main_win is None:
+            if self.main_win == widget:
+                main_win = QDesktopWidget()
         return self.add_child(widget, widget_properties_dict, force_widget_type="qframe", main_win=main_win)
 
     def add_TextBox(self, widget: QWidget, widget_properties_dict: dict = None, main_win: QWidget = None) -> Widget_TextBox:
@@ -2583,6 +3090,29 @@ class WidgetHandler:
 
         return result
 
+    def add_all_ItemBased_Widgets(self, widget_properties_dict: dict = None, deep_search: bool = True, starting_widget: QWidget = None) -> int:
+        if starting_widget is None:
+            starting_widget = self.main_win
+
+        result = self._add_all_ItemBased_Widgets(start_widget=starting_widget, widget_properties_dict=widget_properties_dict, deep_search=deep_search)
+
+        return result
+
+    def _add_all_ItemBased_Widgets(self, start_widget: QWidget, widget_properties_dict: dict = None, deep_search: bool = True) -> int:
+        count  = 0
+        for child in start_widget.children():
+            if isinstance(child, QDialog):
+                continue
+
+            if child.children() and deep_search:
+                count += self._add_all_ItemBased_Widgets(child, widget_properties_dict, deep_search)
+
+            if self._is_item_based_widget(child):
+                if self.add_child(child, widget_properties_dict, force_widget_type="item_based"):
+                    count += 1
+            
+        return count
+
     def _add_all_Selection_Widgets(self, start_widget: QWidget, widget_properties_dict: dict = None, deep_search: bool = True) -> int:
         count  = 0
         for child in start_widget.children():
@@ -2593,7 +3123,7 @@ class WidgetHandler:
                 count += self._add_all_Selection_Widgets(child, widget_properties_dict, deep_search)
 
             if self._is_selection_widget(child):
-                if self.add_child(child, widget_properties_dict):
+                if self.add_child(child, widget_properties_dict, force_widget_type="selection"):
                     count += 1
             
         return count
@@ -2621,12 +3151,15 @@ class WidgetHandler:
 
         return count
 
-    def find_child(self, widget: QWidget):
+    def find_child(self, widget: QWidget, return_none_if_not_found: bool = False) -> CompatibleWidget:
         for child in self.__children:
             if child.widget == widget:
                 return child
         
-        return None
+        if return_none_if_not_found:
+            return None
+        
+        return CompatibleWidget
 
     def remove_child(self, widget: QWidget) -> bool:
         for child in self.__children:
@@ -2645,97 +3178,16 @@ class WidgetHandler:
         for child in self.__children:
             child.close_me()
         
-        QCoreApplication.processEvents()
+        if self.timer_handler:
+            self.timer_handler.stop_all_timers()
+            self.timer_handler.remove_all_timers()
+            self.timer_handler.close_me()
+            self.timer_handler = None
+        # QCoreApplication.processEvents()
         self.__children = []
 
 
 
 
 
-import unittest
-
-class TestYourClass(unittest.TestCase):
-    def test_from_dict(self):
-        # Create an instance of your class
-        your_instance = Widget_PushButton_Properties()
-
-        # Assertion 1
-        properties_dict = {
-            "tap_event_show_animation_file_path": "value1"
-        }
-
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "value1")
-
-        # Assertion 2
-        properties_dict = {
-            "tap_event_show_animation_file_path": "value111"
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "value111")
-
-        # Assertion 3
-        properties_dict = {
-            "_Widget_PushButton_Properties_tap_event_show_animation_file_path": "ve111"
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "value111")
-
-        # Assertion 4
-        properties_dict = {
-            "Widget_PushButton_Properties_tap_event_show_animation_file_path": "111"
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "111")
-
-        # Assertion 5
-        properties_dict = {
-            "Widget_PushButton_Properties": {
-                "tap_event_show_animation_file_path": "222"
-            }
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "222")
-
-        # Assertion 6
-        properties_dict = {
-            "Widget_PushButton_Properties": {
-                "Widget_PushButton_Properties_tap_event_show_animation_file_path": "33"
-            }
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "33")
-
-        # Assertion 7
-        properties_dict = {
-            "Widget_QLabel_Properties": {
-                "Widget_PushButton_Properties_tap_event_show_animation_file_path": "44"
-            }
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "33")
-
-        # Assertion 8
-        properties_dict = {
-            "Widget_QLabel_Properties": {
-                "Widget_QLabel_Properties_tap_event_show_animation_file_path": "44"
-            }
-        }
-        your_instance.from_dict(properties_dict)
-        self.assertEqual(your_instance.tap_event_show_animation_file_path, "33")
-        self.assertEqual(your_instance.name(), "Widget_PushButton_Properties", "Class Name Error")
-        
-        properties_dict = "aaa"
-        def func_that_raises_exception():
-            your_instance.from_dict(properties_dict)
-        self.assertRaises(ValueError, func_that_raises_exception)
-
-
-if __name__ == '__main__':
-    # unittest.main()
-    app = QApplication([])
-    a = QFrame()
-    aa = str(type(a))
-    aa = aa[aa.rfind(".") + 1:aa.rfind("'")]
-    print(aa, type(aa))
 

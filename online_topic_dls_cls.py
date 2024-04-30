@@ -12,6 +12,7 @@ import settings_cls
 import utility_cls
 import html_parser_cls
 from online_abstract_topic import AbstractTopic
+import UTILS
 
 
 class Numbers(QFrame):
@@ -1904,6 +1905,8 @@ class DLS(AbstractTopic):
         self.btn_loto_komb_add_sys.clicked.connect(self.btn_loto_komb_add_sys_clicked)
         self.btn_loto_komb_check.clicked.connect(self.btn_loto_komb_check_clicked)
 
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["DLS"])
+
     def btn_loto_komb_add_sys_clicked(self):
         data = {
             "width": self.contentsRect().width() - 300,
@@ -2511,6 +2514,7 @@ class DLS(AbstractTopic):
 
     def load_topic(self):
         self._load_loto_frame()
+        UTILS.LogHandler.add_log_record("#1: Topic loaded.", ["DLS"])
         return super().load_topic()
 
     def _hide_all_frames(self):

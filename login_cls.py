@@ -1,11 +1,13 @@
 from PyQt5.QtWidgets import (QFrame, QComboBox, QLineEdit, QPushButton, QLabel,
                              QDialog, QMessageBox)
 from PyQt5 import uic
-from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QIcon, QKeyEvent
+from PyQt5.QtCore import Qt
 
 import settings_cls
 import users_cls
 import log_cls
+import UTILS
 
 
 class UserLogin(QDialog):
@@ -38,6 +40,7 @@ class UserLogin(QDialog):
         self._setup_open_settings()
         # Connect events with slots
         #   User Login events
+        self.keyPressEvent = self.key_press_event
         self.btn_new.clicked.connect(self.btn_new_click)
         self.txt_password.textChanged.connect(self.txt_password_text_changed)
         self.cmb_user.currentTextChanged.connect(self.cmb_user_text_changed)
@@ -53,12 +56,14 @@ class UserLogin(QDialog):
         self.btn_new_ok.clicked.connect(self.btn_new_ok_click)
         
         self._log.write_log("Login started...")
+        UTILS.LogHandler.add_log_record("#1: Login started...", ["UserLogin"])
         self.show()
 
     def btn_login_click(self):
         # Checking if the username and password match
         user_name = self.cmb_user.currentText()
         if not self._user.is_user_name(user_name):
+            UTILS.TerminalUtility.WarningMessage("#1: Login Error. Username not found. User: #2", ["UserLogin", user_name], call_stack_show=False)
             QMessageBox.critical(self, self.getl("login_msg_invalid_username_title"), self.getl("login_msg_invalid_username_text"), QMessageBox.Ok)
             self._log.write_log(f"Login Error. Username not found. User: '{user_name}'")
             return
@@ -72,8 +77,10 @@ class UserLogin(QDialog):
             self._stt.set_setting_value("last_user_username", user_name)
             self._log.write_log(f"User is logged in: {user_name}")
             self._log.write_log("Login window closed.")
+            UTILS.LogHandler.add_log_record("#1: User #2 is logged in. Language: #3", ["UserLogin", user_name, self._user.language_name])
             self.close()
         else:
+            UTILS.TerminalUtility.WarningMessage("#1: Login Error. Invalid password. User: #2", ["UserLogin", user_name], call_stack_show=False)
             QMessageBox.critical(self, self.getl("login_incorrect_password_title"), self.getl("login_incorrect_password_text"), QMessageBox.Ok)
             self._log.write_log(f"Warning. Attempted login with incorrect password: {user_name}")
             self.txt_password.setText("")
@@ -90,10 +97,12 @@ class UserLogin(QDialog):
             return
         # Check password match
         if self.txt_new_password.text() != self.txt_new_password_confirm.text():
+            UTILS.LogHandler.add_log_record("#1: Adding new user: Password confirm mismatch.", ["UserLogin"])
             QMessageBox.information(self, self.getl("login_msg_new_pass_mismatch_title"), self.getl("login_msg_new_pass_mismatch_text"), QMessageBox.Ok)
             return
         # Check if the user already exists
         if self._user.is_user_name(self.txt_new_username.text()):
+            UTILS.LogHandler.add_log_record("#1: Adding new user. User #2 already exist.", ["UserLogin", self.txt_new_username.text()])
             QMessageBox.information(self, self.getl("login_msg_new_user_exist_title"), self.getl("login_msg_new_user_exist_text"), QMessageBox.Ok)
             return
         # Add new user
@@ -102,6 +111,7 @@ class UserLogin(QDialog):
         self.cmb_user.setCurrentText(self.txt_new_username.text())
         self.cmb_user_text_changed()
         self._user.save_users_to_file()
+        UTILS.LogHandler.add_log_record("#1: New user added. Username: #2", ["UserLogin", self.txt_new_username.text()])
         QMessageBox.information(self, self.getl("login_msg_new_user_added_title"), self.getl("login_msg_new_user_added_text"), QMessageBox.Ok)
         # Show login screen, and clear new user text boxes
         self.frm_new.setVisible(False)
@@ -110,12 +120,21 @@ class UserLogin(QDialog):
         self.txt_new_username.setText("")
         self._log.write_log(f"New user added : {self.txt_new_username.text()}")
         
+    def key_press_event(self, a0: QKeyEvent) -> None:
+        if a0.key() == Qt.Key_Escape:
+            UTILS.LogHandler.add_log_record("#1: User login canceled. Login window #2.", ["UserLogin", "closed"])
+            self.close()
+
+        return super().keyPressEvent(a0)
+
     def btn_cancel_click(self):
+        UTILS.LogHandler.add_log_record("#1: User login canceled. Login window #2.", ["UserLogin", "closed"])
         self.close()
 
     def cmb_lang_text_changed(self):
         if self.cmb_lang.currentText():
             self._stt.ActiveLanguageID = self.cmb_lang.currentData()
+            UTILS.LogHandler.add_log_record("#1: Login dialog. Current language changed to #2", ["UserLogin", self.cmb_lang.currentText()])
         self._setup_widgets_language()
 
     def txt_new_username_text_changed(self):
@@ -143,6 +162,7 @@ class UserLogin(QDialog):
             if char in allowed:
                 result += char
             else:
+                UTILS.TerminalUtility.WarningMessage("#1: Login Error. Invalid password character.\nInvalid character: #2", ["UserLogin", char], call_stack_show=False)
                 QMessageBox.warning(self, self.getl("login_msg_pass_char_title"), self.getl("login_msg_pass_char_text"), QMessageBox.Ok)
                 return ""
         return result
@@ -154,14 +174,17 @@ class UserLogin(QDialog):
             if char in allowed:
                 result += char
             else:
+                UTILS.TerminalUtility.WarningMessage("#1: Login Error. Invalid username character.\nInvalid character: #2", ["UserLogin", char])
                 QMessageBox.warning(self, self.getl("login_msg_username_char_title"), self.getl("login_msg_username_char_text"), QMessageBox.Ok)
                 return ""
         return result
 
     def btn_new_click(self):
+        UTILS.LogHandler.add_log_record("#1: Login: Stated #2 dialog.", ["UserLogin", "add new user"])
         self.frm_new.setVisible(True)
 
     def btn_new_cancel_click(self):
+        UTILS.LogHandler.add_log_record("#1: Login: New user add dialog closed.", ["UserLogin"])
         self.frm_new.setVisible(False)
 
     def _setup_open_settings(self):

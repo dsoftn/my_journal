@@ -448,6 +448,32 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="lbl_opening">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>480</y>
+     <width>301</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>26</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {color: #ffaa00; background-color: rgba(0, 0, 58, 190)}</string>
+   </property>
+   <property name="text">
+    <string>Opening block(s)</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

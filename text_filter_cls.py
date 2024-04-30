@@ -7,6 +7,8 @@ from cyrtranslit import to_latin
 
 import settings_cls
 import utility_cls
+import UTILS
+import qwidgets_util_cls
 
 
 class FilterResults(QDialog):
@@ -37,6 +39,8 @@ class FilterResults(QDialog):
         self._populate_widgets()
         self._load_win_position()
 
+        self.load_widgets_handler()
+
         # Connect events with slots
         self.get_appv("signal").signal_app_settings_updated.connect(self.setting_updated)
 
@@ -46,6 +50,39 @@ class FilterResults(QDialog):
 
         self.show()
         self._resize_me()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["FilterResults"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_item, self.lbl_filter_text, self.lbl_doc_text, self.lbl_filter_text_val])
+        handle_dialog.properties.window_drag_enabled_with_body = False
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_QPushButton(self.btn_show_setup)
+        # Add Labels as PushButtons
+        self.widget_handler.add_QPushButton(self.lbl_setup_close)
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_doc_text)
+
+        # Add Selection Widgets
+        self.widget_handler.add_Selection_Widget(self.cmb_item)
+
+        # ADD Item Based Widgets
+
+        self.widget_handler.activate()
 
     def show_setup(self, e: QMouseEvent = None):
         if e and e.button() != Qt.LeftButton:
@@ -237,6 +274,10 @@ class FilterResults(QDialog):
             self.resize(width, height)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "filter_results_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("filter_results_win_geometry", {}, save_to_file=True)
 
@@ -246,7 +287,9 @@ class FilterResults(QDialog):
         g["width"] = self.width()
         g["height"] = self.height()
 
-        return super().closeEvent(a0)
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["FilterResults"])
 
     def setting_updated(self, data: dict):
         self._setup_widgets_apperance(settings_updated=True)
@@ -973,15 +1016,18 @@ class TextFilter:
 
     def _validate_operators(self, operators: list, boundaries_and_parenthesis: bool = False) -> list:
         if not isinstance(operators, (list, tuple, set)):
+            UTILS.TerminalUtility.WarningMessage("Operators or string boundaries must be a #1, #2 or #3\ntype(operators): #4 - Not Supported\noperators = #5", ["list", "tuple", "set", type(operators), operators], exception_raised=True)
             raise TypeError(f"Operators or string boundaries must be a list, tuple or set, type of '{type(operators)}' is not supported.")
         
         # Check if any operator is already in the list
         result = []
         for operator in operators:
             if not isinstance(operator, str):
+                UTILS.TerminalUtility.WarningMessage("Element in operator or string boundaries list must be a #1\ntype(operator): #2 - Not Supported\noperator = #3", ["string", type(operator), operator], exception_raised=True)
                 raise TypeError(f"Element in operator or string boundaries list must be a string, type of '{type(operator)}' is not supported.")
 
             if "`" in operator:
+                UTILS.TerminalUtility.WarningMessage("String boundaries or operator must not contain the character #1\noperator = #2", ["`", operator], exception_raised=True)
                 raise ValueError(f"String boundaries or operator '{operator}' must not contain the character '`'")
             
             if not operator:
@@ -994,6 +1040,7 @@ class TextFilter:
                     raise ValueError(f"String boundaries '{operator}' must contain an even number of characters.")
 
             if operator in self.__operators:
+                UTILS.TerminalUtility.WarningMessage("Operator or string boundaries #1 is already in the list of operators.\nDuplicate operators are not allowed.", [operator], exception_raised=True)
                 raise ValueError(f"Operator or string boundaries '{operator}' is already in the list of operators. Duplicate operators are not allowed.")
 
             self.__operators.append(operator)
@@ -1062,6 +1109,7 @@ class TextFilter:
     @FilterText.setter
     def FilterText(self, filter_text: str):
         if not isinstance(filter_text, str):
+            UTILS.TerminalUtility.WarningMessage("Filter text must be a #1\ntype(filter_text): #2 - Not Supported\nfilter_text = #3", ["string", type(filter_text), filter_text], exception_raised=True)
             raise TypeError(f"Filter text must be a string, type of '{type(filter_text)}' is not supported.")
         self.__filter_text = filter_text
 
@@ -1072,6 +1120,7 @@ class TextFilter:
     @DocumentText.setter
     def DocumentText(self, document_text: str):
         if not isinstance(document_text, str):
+            UTILS.TerminalUtility.WarningMessage("Document text must be a #1\ntype(document_text): #2 - Not Supported\ndocument_text = #3", ["string", type(document_text), document_text])
             raise TypeError(f"Document text must be a string, type of '{type(document_text)}' is not supported.")
         self.__document_text = document_text
     
@@ -1082,6 +1131,7 @@ class TextFilter:
     @SearchWholeWordsOnly.setter
     def SearchWholeWordsOnly(self, search_whole_words_only: bool):
         if not isinstance(search_whole_words_only, bool):
+            UTILS.TerminalUtility.WarningMessage("Search whole words only must be a #1\ntype(search_whole_words_only): #2 - Not Supported\nsearch_whole_words_only = #3", ["boolean", type(search_whole_words_only), search_whole_words_only], exception_raised=True)
             raise TypeError(f"Search whole words only must be a boolean, type of '{type(search_whole_words_only)}' is not supported.")
         self.__search_whole_words_only = search_whole_words_only
     
@@ -1092,6 +1142,7 @@ class TextFilter:
     @MatchCase.setter
     def MatchCase(self, match_case: bool):
         if not isinstance(match_case, bool):
+            UTILS.TerminalUtility.WarningMessage("Match case must be a #1\ntype(match_case): #2 - Not Supported\nmatch_case = #3", ["boolean", type(match_case), match_case], exception_raised=True)
             raise TypeError(f"Match case must be a boolean, type of '{type(match_case)}' is not supported.")
         self.__match_case = match_case
 
@@ -1102,6 +1153,7 @@ class TextFilter:
     @IgnoreSerbianCharacters.setter
     def IgnoreSerbianCharacters(self, ignore_serbian_characters: bool):
         if not isinstance(ignore_serbian_characters, bool):
+            UTILS.TerminalUtility.WarningMessage("Ignore serbian characters must be a #1\ntype(ignore_serbian_characters): #2 - Not Supported\nignore_serbian_characters = #3", ["boolean", type(ignore_serbian_characters), ignore_serbian_characters], exception_raised=True)
             raise TypeError(f"Ignore serbian characters must be a boolean, type of '{type(ignore_serbian_characters)}' is not supported.")
         self.__ignore_serbian_characters = ignore_serbian_characters
 
@@ -1112,6 +1164,7 @@ class TextFilter:
     @TranslateCyrillicToLatin.setter
     def TranslateCyrillicToLatin(self, translate_cyrillic_to_latin: bool):
         if not isinstance(translate_cyrillic_to_latin, bool):
+            UTILS.TerminalUtility.WarningMessage("Translate cyrillic to latin must be a #1\ntype(translate_cyrillic_to_latin): #2 - Not Supported\ntranslate_cyrillic_to_latin = #3", ["boolean", type(translate_cyrillic_to_latin), translate_cyrillic_to_latin], exception_raised=True)
             raise TypeError(f"Translate cyrillic to latin must be a boolean, type of '{type(translate_cyrillic_to_latin)}' is not supported.")
         self.__translate_cyrillic_to_latin = translate_cyrillic_to_latin
 
@@ -1130,6 +1183,7 @@ class TextFilter:
     @SpaceAsAndOperator.setter
     def SpaceAsAndOperator(self, space_as_and_operator: bool):
         if not isinstance(space_as_and_operator, bool):
+            UTILS.TerminalUtility.WarningMessage("Space as and operator must be a #1\ntype(space_as_and_operator): #2 - Not Supported\space_as_and_operator = #3", ["boolean", type(space_as_and_operator), space_as_and_operator], exception_raised=True)
             raise TypeError(f"Space as and operator must be a boolean, type of '{type(space_as_and_operator)}' is not supported.")
         self.__space_as_and_operator = space_as_and_operator
 
@@ -1214,7 +1268,7 @@ class FilterMenu:
                        add_separator_at_end: bool = False) -> dict:
 
         disab = []
-        # Disable meny search history if there is no search history
+        # Disable menu search history if there is no search history
         if not self._text_filter.has_search_history():
             if show_all_search_history:
                 disab.append(self.MenuID_AllSearchHistory)

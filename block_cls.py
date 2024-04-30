@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QFrame, QVBoxLayout, QWidget, QMainWindow
-from PyQt5.QtGui import QCursor
+from PyQt5.QtGui import QCursor, QCloseEvent
 from PyQt5.QtCore import Qt, QCoreApplication
 from PyQt5 import QtGui
 
-import copy
+import time
 
 import settings_cls
 import db_record_cls
@@ -11,6 +11,8 @@ import db_record_data_cls
 import utility_cls
 import db_tag_cls
 import block_widgets_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class WinBlock(QFrame):
@@ -62,6 +64,7 @@ class WinBlock(QFrame):
         self._parent_widget = parent_widget
         self.block_is_active = False
         
+        self.block_animation_object = None
         if main_window:
             self._main_window = main_window
         else:
@@ -81,6 +84,7 @@ class WinBlock(QFrame):
         
         # Extend data_dict
         record = db_record_cls.Record(self._stt, self._active_record_id)
+        self._data_dict["id"] = self._active_record_id
         self._data_dict["record_date"] = record.RecordDate
         self._data_dict["name"] = record.RecordName
         self._data_dict["body"] = record.RecordBody
@@ -88,6 +92,9 @@ class WinBlock(QFrame):
         self._data_dict["updated"] = record.RecordUpdatedAt
         self._data_dict["draft"] = record.RecordDraft
         self._data_dict["need_update"] = False
+        
+        self._data_dict["widget_handler"] = qwidgets_util_cls.WidgetHandler(main_win=self, global_widgets_properties=self.get_appv("global_widgets_properties"))
+
         if record.RecordDraft == 0:
             self._data_dict["save"] = True
         else:
@@ -131,12 +138,31 @@ class WinBlock(QFrame):
         # Later, one block will be determined which will have an active titlebar
         self.signals.signalBlockControlBarInactive.connect(self.block_control_bar_inactive)
         self.signals.signal_app_settings_updated.connect(self.app_setting_updated)
+        # Signal that block is changed
+        UTILS.Signal.signalBlockChanged.connect(self._signal_block_changed)
+
+    def _signal_block_changed(self, data: dict):
+        if data["id"] != self._active_record_id:
+            return
+        
+        if data["draft"] == self._data_dict["draft"]:
+            return
+        
+        if data["draft"] == 0:
+            self.btn_clicked("footer_btn_save", "clicked")
+            self.signals.saved_button_check_status(self._active_record_id)
+        else:
+            self._data_dict["save"] = False
+            self._data_dict["need_update"] = True
+            self._data_dict["draft"] = 1
+            self.signals.saved_button_check_status(self._active_record_id)
 
     def app_setting_updated(self, data: dict):
-        # self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Settings updated signal received.", ["WinBlock", self._active_record_id])
         self._define_apperance()
 
     def _signal_close_block(self):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Close block signal received.", ["WinBlock", self._active_record_id])
         db_rec = db_record_cls.Record(self._stt)
         if db_rec.is_valid_record_id(self._active_record_id):
             self._close_block(save_data=False, fast_close=True)
@@ -157,7 +183,9 @@ class WinBlock(QFrame):
             self.data_block.setVisible(True)
         # Animate WinBlock if needed
         info = utility_cls.BlockAnimationInformation(self._stt, load_mode="open", animate_object=self.animate_block, start_height=self.height(), stop_height=h)
-        utility_cls.BlockAnimation(info, self)
+        if self.block_animation_object and not self.block_animation_object.is_finished():
+            self.block_animation_object.force_finish()
+        self.block_animation_object = utility_cls.BlockAnimation(info, self)
 
     def mousePressEvent(self, a0: QtGui.QMouseEvent) -> None:
         if a0.button() == Qt.LeftButton:
@@ -234,8 +262,21 @@ class WinBlock(QFrame):
         Here, some action is taken if necessary depending on the information received
         from the particular block element
         """
-        if action != "text_changed" and action != "set_pointer_to_arrow":
+        old_save_status = self._data_dict["save"]
+        old_need_update_status = self._data_dict["need_update"]
+        log_ignore_events = [
+            "set_txt_box_height",
+            "text_changed",
+            "set_pointer_to_arrow",
+            "focus_in"
+        ]
+        if action not in log_ignore_events:
             self.get_appv("log").write_log(f"WinBlock. Event. Widget name, action: {name}, {action}")
+            UTILS.LogHandler.add_log_record(
+                "#1 record ID: #2. Event triggered. Action=#3", 
+                ["WinBlock", self._active_record_id, action],
+                variables=[["EventName:", name], ["EventAction:", action]],
+                extract_to_variables=["detail", detail])
         
         self.signals.block_control_bar_inactive(True, 0)
         self.win_block_controls.setStyleSheet(self.getv("win_block_controls_active_stylesheet"))
@@ -305,6 +346,12 @@ class WinBlock(QFrame):
                 self._data_dict["save"] = False
                 self._data_dict["draft"] = 1
                 self._update_block(silent_update=True)
+            if action == "tag_hint":
+                self._data_dict["tag"] = self._append_tags(self._data_dict["tag"], detail["tag_hints"])
+                self._data_dict["save"] = False
+                self._data_dict["need_update"] = True
+                self._data_dict["draft"] = 1
+                self.data_block.block_event("win_block", "header_update_buttons")
         if name == "body":
             if action == "image_added":
                 self._data_dict["save"] = False
@@ -343,12 +390,56 @@ class WinBlock(QFrame):
             self.win_block_controls.block_event("win_block", "titlebar_msg", detail=detail)
 
         self.signals.saved_button_check_status(self._active_record_id)
+        if self._data_dict["need_update"] != old_need_update_status or self._data_dict["save"] != old_save_status:
+            UTILS.Signal.emit_block_changed(self._get_block_change_signal_data_from_data_dict())
+
+    def _get_block_change_signal_data_from_data_dict(self, action: str = "updated") -> dict:
+        return {
+            "id": self._data_dict["id"],
+            "date": self._data_dict["record_date"],
+            "name": self._data_dict["name"],
+            "body": self._data_dict["body"],
+            "body_html": self._data_dict["body_html"],
+            "updated": self._data_dict["updated"],
+
+            "tag": self._data_dict["tag"],
+            "media": self._data_dict["media"],
+            "files": self._data_dict["files"],
+
+            "save": self._data_dict["save"],
+            "need_update": self._data_dict["need_update"],
+            "draft": self._data_dict["draft"],
+            "source": "WinBlock",
+            "action": action
+        }
+
+    def _append_tags(self, old_tags: list, tag_hint: list) -> list:
+        db_tag = db_tag_cls.Tag(self._stt)
+        tag_list = db_tag.get_all_tags_translated()
+        for tag_hint_item in tag_hint:
+            if tag_hint_item.startswith("!") and len(tag_hint_item) > 1:
+                for index, tag in enumerate(old_tags):
+                    db_tag.populate_values(tag)
+                    if db_tag.TagNameTranslated.lower().startswith(tag_hint_item[1:].lower()):
+                        old_tags.pop(index)
+                        break
+                continue
+
+            for tag in tag_list:
+                if tag[1].lower().startswith(tag_hint_item.lower()) and tag[0] not in old_tags:
+                    old_tags.append(tag[0])
+                    break
+        
+        return old_tags
 
     def _delete_block(self):
         db_record = db_record_cls.Record(self._stt, self._active_record_id)
         db_rec_data = db_record_data_cls.RecordData(self._stt, self._active_record_id)
         db_record.delete_record()
         db_rec_data.delete_record_data()
+
+        UTILS.Signal.emit_block_changed(self._get_block_change_signal_data_from_data_dict("deleted"))
+
         notif_dict = {
             "title": self.getl("win_block_notification_block_deleted_title"),
             "text": self.getl("win_block_notification_block_deleted_text"),
@@ -364,6 +455,7 @@ class WinBlock(QFrame):
             "action": "block_deleted",
             "id": self._active_record_id
         }
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Block deleted", ["WinBlock", self._active_record_id])
         self._main_window.events(main_dict)
         self._close_block(save_data=False)
 
@@ -384,6 +476,7 @@ class WinBlock(QFrame):
         }
         if not silent_update:
             utility_cls.Notification(self._stt, self, ntf_dict)
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Block data updated", ["WinBlock", self._active_record_id])
 
     # Button Clicked event
     def btn_clicked(self, button_name, action):
@@ -423,9 +516,16 @@ class WinBlock(QFrame):
     def _close_block(self, save_data: bool = True, fast_close: bool = False):
         if not fast_close:
             info = utility_cls.BlockAnimationInformation(self._stt, load_mode="close", start_height=self.height(), stop_height=0)
-            animation = utility_cls.BlockAnimation(info, self)
+            if self.block_animation_object and not self.block_animation_object.is_finished():
+                self.block_animation_object.force_finish()
+            self.block_animation_object = utility_cls.BlockAnimation(info, self)
+        else:
+            if self.block_animation_object and not self.block_animation_object.is_finished():
+                self.block_animation_object.force_finish()
+            for child in self.children():
+                if isinstance(child, utility_cls.Notification):
+                    child.close_me(fast_close=True)
 
-        self._parent_widget.layout().removeWidget(self)
         # Save data
         if save_data:
             self._save_record_and_data()
@@ -443,18 +543,29 @@ class WinBlock(QFrame):
         self.close()
 
     def action_win_block_controls_frame_right_click(self):
+        rec_id = self._active_record_id
+        disable = []
         if self.collapsed:
-            disable = 3
+            disable.append(300)
         else:
-            disable = 2
+            disable.append(200)
+
+        no_items_in_clip = self.get_appv("cb").block_clip_number_of_items()
+        if self.get_appv("cb").block_clip_ids_that_are_in_clipboard(rec_id):
+            disable.append(113)
+        else:
+            disable.append(116)
+        
+        if no_items_in_clip == 0:
+            disable.append(118)
 
         menu_dict = {
             "position": QCursor().pos(),
-            "disabled": [disable],
-            "separator": [3],
+            "disabled": disable,
+            "separator": [100, 120, 300],
             "items":[
                 [
-                    1,
+                    100,
                     self.getl("block_titlebar_context_info_text"),
                     self.getl("block_titlebar_context_info_desc"),
                     True,
@@ -462,7 +573,56 @@ class WinBlock(QFrame):
                     self.getv("messagebox_information_icon_path")
                 ],
                 [
-                    2,
+                    110,
+                    self.getl("block_context_copy_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                    self.getl("block_context_copy_desc"),
+                    True,
+                    [],
+                    self.getv("copy_icon_path")
+                ],
+                [
+                    113,
+                    self.getl("block_context_copy_add_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                    self.getl("block_context_copy_add_desc"),
+                    True,
+                    [],
+                    self.getv("copy_add_icon_path")
+                ],
+                [
+                    116,
+                    self.getl("block_context_clear_text"),
+                    self.getl("block_context_clear_desc"),
+                    True,
+                    [],
+                    self.getv("clear_x_icon_path")
+                ],
+                [
+                    118,
+                    self.getl("definition_context_clear_clip_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                    self.getl("definition_context_clear_clip_desc"),
+                    True,
+                    [],
+                    self.getv("clear_icon_path")
+                ],
+                [
+                    120,
+                    self.getl("block_context_send_to_text"),
+                    "",
+                    False,
+                    [
+                        [
+                            12010,
+                            self.getl("block_context_send_to_export_blocks_text"),
+                            self.getl("block_context_send_to_export_blocks_desc"),
+                            True,
+                            [],
+                            self.getv("export_icon_path")
+                        ]
+                    ],
+                    self.getv("send_to_icon_path")
+                ],
+                [
+                    200,
                     self.getl("block_titlebar_context_expand_text"),
                     self.getl("block_titlebar_context_expand_desc"),
                     True,
@@ -470,7 +630,7 @@ class WinBlock(QFrame):
                     self.getv("win_block_control_btn_expand_icon_path")
                 ],
                 [
-                    3,
+                    300,
                     self.getl("block_titlebar_context_collapse_text"),
                     self.getl("block_titlebar_context_collapse_desc"),
                     True,
@@ -478,7 +638,7 @@ class WinBlock(QFrame):
                     self.getv("win_block_control_btn_collapse_icon_path")
                 ],
                 [
-                    4,
+                    400,
                     self.getl("block_titlebar_context_close_text"),
                     self.getl("block_titlebar_context_close_desc"),
                     True,
@@ -492,14 +652,48 @@ class WinBlock(QFrame):
         utility_cls.ContextMenu(self._stt, self)
         self.get_appv("log").write_log("WinBlock. Title Frame. Mouse right click. Context menu show.")
         result = self.get_appv("menu")["result"]
-        if result == 1:
-            self._send_msg_to_main_win()
+        if result == 100:
             self.show_block_info_message_box()
-        elif result == 2:
+        elif result == 110:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy",
+                "id": self._active_record_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 113:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy_add",
+                "id": self._active_record_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 116:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "remove",
+                "id": self._active_record_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 118:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "remove",
+                "id": None
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 12010:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "send_to_export",
+                "id": self._active_record_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 200:
             self._expand_block()
-        elif result == 3:
+        elif result == 300:
             self._collapse_block()
-        elif result == 4:
+        elif result == 400:
             self._close_block()
 
     def show_block_info_message_box(self):
@@ -540,8 +734,16 @@ class WinBlock(QFrame):
             "position": QCursor().pos(),
             "pos_center": True
         }
-        utility_cls.MessageInformation(self._stt, self, msg_dict)
+        
+        app_modal = True
+        if type(self._main_window) == type(self.get_appv("main_win")):
+            app_modal = False
+        else:
+            self._main_window.events({"name": "win_block", "action": "cm"})
+
+        utility_cls.MessageInformation(self._stt, self, msg_dict, app_modal=app_modal)
         self.get_appv("log").write_log(f"WinBlock. Info message show. Record ID: {self._active_record_id}")
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Block information message displayed", ["WinBlock", self._active_record_id])
 
     def _send_msg_to_main_win(self):
         main_dict = {
@@ -552,9 +754,11 @@ class WinBlock(QFrame):
             self._main_window.events(main_dict)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
-        if not self._dont_save_on_close_event:
-            self._save_record_and_data()
-        return super().closeEvent(a0)
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. About to close block", ["WinBlock", self._active_record_id])
+        result = self.close_me()
+        if result:
+            return super().closeEvent(a0)
+        a0.ignore()
 
     def _save_record_and_data(self):
         if self._active_record_id in self.get_appv("calculator"):
@@ -580,27 +784,30 @@ class WinBlock(QFrame):
         self._data_dict["need_update"] = False
         record.save_record()
 
+        UTILS.Signal.emit_block_changed(self._get_block_change_signal_data_from_data_dict("saved"))
+
         # Save record data
         # First we need to remove the extra fields from the dictionary
-        dict_for_record_data = copy.deepcopy(self._data_dict)
-        dict_for_record_data.pop("record_date")
-        dict_for_record_data.pop("name")
-        dict_for_record_data.pop("body")
-        dict_for_record_data.pop("body_html")
-        dict_for_record_data.pop("updated")
-        dict_for_record_data.pop("draft")
-        dict_for_record_data.pop("save")
-        dict_for_record_data.pop("need_update")
+        extra_fields = ["record_date", "name", "body", "body_html", "updated", "draft", "save", "need_update", "widget_handler", "id"]
+        dict_for_record_data = {}
+        for key, value in self._data_dict.items():
+            if key not in extra_fields:
+                dict_for_record_data[key] = value
+
         # Update record data
         record_data.update_record_data(dict_for_record_data)
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Block saved", ["WinBlock", self._active_record_id])
 
     def _collapse_block(self):
         if not self.collapsed:
             h = self.win_block_controls.height() + 3
             self.collapsed = True
             info = utility_cls.BlockAnimationInformation(self._stt, load_mode="collapse", start_height=self.height(), stop_height=h)
-            utility_cls.BlockAnimation(info, self)
+            if self.block_animation_object and not self.block_animation_object.is_finished():
+                self.block_animation_object.force_finish()
+            self.block_animation_object = utility_cls.BlockAnimation(info, self)
             self.data_block.setVisible(False)
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block content collapsed", ["WinBlock", self._active_record_id])
 
     def _expand_block(self):
         if self.collapsed:
@@ -611,7 +818,10 @@ class WinBlock(QFrame):
             self.collapsed = False
             self.data_block.setVisible(True)
             info = utility_cls.BlockAnimationInformation(self._stt, load_mode="expand", start_height=self.height(), stop_height=h)
-            utility_cls.BlockAnimation(info, self)
+            if self.block_animation_object and not self.block_animation_object.is_finished():
+                self.block_animation_object.force_finish()
+            self.block_animation_object = utility_cls.BlockAnimation(info, self)
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block content expanded", ["WinBlock", self._active_record_id])
 
     def _set_margins(self, object: object, name: str) -> None:
         values = self.getv(name + "_contents_margins")
@@ -628,6 +838,101 @@ class WinBlock(QFrame):
         self.setStyleSheet(self.getv("win_block_stylesheet"))
         self.setEnabled(self.getv("win_block_enabled"))
         self.layout().setSpacing(self.getv("win_block_layout_spacing"))
+
+    def close_me(self, dont_save_on_close_event: bool = None, fast_close: bool = False) -> bool:
+        if dont_save_on_close_event is not None:
+            self._dont_save_on_close_event = dont_save_on_close_event
+
+        if not self._dont_save_on_close_event:
+            self._save_record_and_data()
+        
+        if fast_close and self.block_animation_object and not self.block_animation_object.is_finished():
+            self.block_animation_object.force_finish()
+
+        if self.block_animation_object and not self.block_animation_object.is_finished():
+            main_dict = {
+                "name": "win_block",
+                "action": "try_to_close_me",
+                "id": self._active_record_id,
+                "object": self,
+                "execute_function": self.close_me,
+                "validation": self.block_animation_object.is_finished
+            }
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block closing delayed...\nBlock animation still running.\n#3 will close this block later.", ["WinBlock", self._active_record_id, "MainWin"])
+            self._main_window.events(main_dict)
+            return False
+
+        self._parent_widget.layout().removeWidget(self)
+
+        main_dict = {
+            "name": "win_block",
+            "action": "block_closed",
+            "id": self._active_record_id,
+            "object": self
+        }
+        self._main_window.events(main_dict)
+
+        self.get_appv("cm").remove_all_context_menu()
+
+        for child in self.children():
+            if isinstance(child, utility_cls.Notification):
+                child.close_me(fast_close=True)
+
+        # Close all block objects
+        self.win_block_controls.close_me()
+        self.data_block.close_me()
+        QCoreApplication.processEvents()
+        
+        # Find and close all objects missed in block
+        objects_structure = self._get_objects_structure(self)
+        closed_objects = self._close_objects(objects_structure)
+
+        # Write log message
+        msg_text = "#1: Function #2 has forced to close #3 objects in block #4."
+        msg_args = ["WinBlock", "close_me", len(closed_objects), self._active_record_id]
+        count = 5
+        for obj in closed_objects:
+            arg_id = "#" + str(count)
+            msg_text += f"\nObject {count}: " + arg_id
+            msg_args.append(obj)
+            count += 1
+
+        if closed_objects:
+            UTILS.LogHandler.add_log_record(msg_text, msg_args, warning_raised=True)
+
+        self.hide()
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Block closed", ["WinBlock", self._active_record_id])
+        
+        UTILS.Signal.emit_block_changed(self._get_block_change_signal_data_from_data_dict("closed"))
+
+        self.deleteLater()
+        self.setParent(None)
+        return True
+
+    def _get_objects_structure(self, starting_object: QWidget) -> dict:
+        result = {
+            "object": starting_object,
+            "children": []
+        }
+        try:
+            for child in starting_object.children():
+                result["children"].append(self._get_objects_structure(child))
+        except:
+            pass
+        return result
+    
+    def _close_objects(self, objects_structure: dict, closed_objects: list = [], call_close_me_on_object: bool = False) -> list:
+        for child in objects_structure["children"]:
+            self._close_objects(child, closed_objects, call_close_me_on_object=True)
+        
+        try:
+            if call_close_me_on_object:
+                objects_structure["object"].close_me()
+                closed_objects.append(str(objects_structure["object"]))
+        except:
+            pass
+
+        return closed_objects
 
 
 class DataBlock(QFrame):
@@ -685,6 +990,7 @@ class DataBlock(QFrame):
         self.signals.signal_app_settings_updated.connect(self.app_setting_updated)
 
     def app_setting_updated(self, data: dict):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Application settings updated.", ["DataBlock", self._active_record_id])
         self._define_apperance()
 
     def _check_user_height(self):
@@ -754,3 +1060,16 @@ class DataBlock(QFrame):
         self.setEnabled(self.getv("data_block_enabled"))
         self.setVisible(self.getv("data_block_visible"))
         self.layout().setSpacing(self.getv("data_block_layout_spacing"))
+
+    def closeEvent(self, a0: QCloseEvent | None) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
+        self.header.close_me()
+        self.body.close_me()
+        self.footer.close_me()
+        self.hide()
+        self.deleteLater()
+        self.setParent(None)
+

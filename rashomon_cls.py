@@ -4,6 +4,8 @@ import urllib.request
 import requests
 import html as HtmlLib
 
+import UTILS
+
 
 class Data():
     COLOR_COMMENT = "#aaff7f"
@@ -97,15 +99,19 @@ class AbstractCommand():
         self.data = Data()
 
     def is_valid(self):
+        UTILS.TerminalUtility.WarningMessage("Error. Function has not been implemented yet.", exception_raised=True)
         raise NotImplementedError("Error. Function has not been implemented yet.")
     
     def value(self):
+        UTILS.TerminalUtility.WarningMessage("Error. Function has not been implemented yet.", exception_raised=True)
         raise NotImplementedError("Error. Function has not been implemented yet.")
 
     def selection(self):
+        UTILS.TerminalUtility.WarningMessage("Error. Function has not been implemented yet.", exception_raised=True)
         raise NotImplementedError("Error. Function has not been implemented yet.")
 
     def execute(self):
+        UTILS.TerminalUtility.WarningMessage("Error. Function has not been implemented yet.", exception_raised=True)
         raise NotImplementedError("Error. Function has not been implemented yet.")
     
     def _has_container(self, command_text: str) -> bool:
@@ -156,6 +162,7 @@ class AbstractCommand():
             elif isinstance(delimiter, list) or isinstance(delimiter, tuple):
                 delimiters = delimiter
             else:
+                UTILS.TerminalUtility.WarningMessage("Error. Unknown delimiter: #1\nCustom delimiter must be list or tuple. [#2, #3, #4]\ntype(delimiter): #5\ndelimiter = #6", [delimiter, "start", "end", "name", type(delimiter), delimiter], exception_raised=True)
                 raise ValueError(f"Unknown delimiter: {delimiter}   Custom delimiter must be list or tuple. ['start', 'end', 'name']")
         else:
             delimiters = self.CONTAINERS
@@ -2668,6 +2675,7 @@ class Rashomon():
             elif isinstance(only_remove_double, list) or isinstance(only_remove_double, tuple) or isinstance(only_remove_double, set):
                 remove = [x for x in only_remove_double]
             else:
+                UTILS.TerminalUtility.WarningMessage("Variable #1 must be a #2, #3, #4 or #5\ntype(only_remove_double): #6\nonly_remove_double = #7", ["only_remove_double", "string", "list", "tuple", "set", type(only_remove_double), only_remove_double], exception_raised=True)
                 raise ValueError("only_remove_double must be a string, list, tuple or set")
 
         while True:

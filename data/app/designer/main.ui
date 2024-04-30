@@ -46,6 +46,76 @@
      </property>
     </widget>
    </widget>
+   <widget class="QFrame" name="frm_stb_volume">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>410</y>
+      <width>80</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QSlider" name="sld_volume">
+     <property name="geometry">
+      <rect>
+       <x>17</x>
+       <y>0</y>
+       <width>63</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_volume">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>15</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>15</width>
+       <height>15</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_volume_value">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>17</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>100</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -65,8 +135,11 @@
     </property>
     <addaction name="mnu_file_app_settings"/>
     <addaction name="separator"/>
+    <addaction name="mnu_import_blocks"/>
+    <addaction name="mnu_export_blocks"/>
+    <addaction name="mnu_import_def"/>
+    <addaction name="mnu_export_def"/>
     <addaction name="mnu_open"/>
-    <addaction name="mnu_save_as"/>
     <addaction name="separator"/>
     <addaction name="mnu_file_save_active_block"/>
    </widget>
@@ -102,6 +175,8 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="mnu_help_log_messages"/>
+    <addaction name="mnu_help_statistic"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -190,9 +265,13 @@
     <string>Open</string>
    </property>
   </action>
-  <action name="mnu_save_as">
+  <action name="mnu_export_blocks">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/export.png</normaloff>../images/export.png</iconset>
+   </property>
    <property name="text">
-    <string>Save As...</string>
+    <string>Export blocks</string>
    </property>
   </action>
   <action name="mnu_diary">
@@ -475,6 +554,51 @@
    </property>
    <property name="text">
     <string>App settings</string>
+   </property>
+  </action>
+  <action name="mnu_import_blocks">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/import.png</normaloff>../images/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import blocks</string>
+   </property>
+  </action>
+  <action name="mnu_import_def">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/import.png</normaloff>../images/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import definitions</string>
+   </property>
+  </action>
+  <action name="mnu_export_def">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/export.png</normaloff>../images/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export definitions</string>
+   </property>
+  </action>
+  <action name="mnu_help_log_messages">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/log_win_icon.png</normaloff>../images/log_win_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log Messages</string>
+   </property>
+  </action>
+  <action name="mnu_help_statistic">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/statistics.png</normaloff>../images/statistics.png</iconset>
+   </property>
+   <property name="text">
+    <string>Statistic</string>
    </property>
   </action>
  </widget>

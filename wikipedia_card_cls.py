@@ -12,6 +12,7 @@ import settings_cls
 import utility_cls
 import html_parser_cls
 from media_player_cls import MediaPlayer
+import UTILS
 
 
 class WikiFrameSettings:
@@ -137,15 +138,15 @@ class WikiImageView(QDialog):
 
     def lbl_pic_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.RightButton:
+            self.clear_context_menu()
             self._show_context_menu()
         else:
             self.clear_context_menu()
 
         QLabel.mousePressEvent(self.lbl_pic, e)
 
-    def clear_context_menu(self):
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+    def clear_context_menu(self, e = None):
+        self.get_appv("cm").remove_all_context_menu()
 
     def _show_context_menu(self):
         if not self.image_url:
@@ -1322,6 +1323,8 @@ class WikipediaCard(QFrame):
         self.lbl_prev_page.mousePressEvent = self.lbl_prev_page_click
         self.lbl_next_page.mousePressEvent = self.lbl_next_page_click
         self.lbl_pic.mousePressEvent = self.lbl_pic_click
+
+        UTILS.LogHandler.add_log_record("#1: Card frame started.", ["WikipediaCard"])
 
     def lbl_pic_click(self, e: QMouseEvent):
         self.lbl_pic.setVisible(False)
@@ -2554,6 +2557,10 @@ class WikipediaCard(QFrame):
             x = 0
         self.lbl_prev_page.move(x, self.wiki_frame_settings.wiki_info_padding_ver)
         self.lbl_next_page.move(x + self.lbl_prev_page.width() + 2, self.wiki_frame_settings.wiki_info_padding_ver)
+
+    def close_me(self):
+        UTILS.LogHandler.add_log_record("#1: Card frame closed.", ["WikipediaCard"])
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _define_widgets(self):
         # Table of content frame

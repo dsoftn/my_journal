@@ -1,12 +1,14 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QListWidget, QDialog, QLabel, QListWidgetItem,
                              QLineEdit)
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QCoreApplication
 from PyQt5 import uic, QtGui
 
 import settings_cls
 import db_tag_cls
 import utility_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class TagView(QDialog):
@@ -38,6 +40,8 @@ class TagView(QDialog):
         self._populate_widgets()
         self._set_butttons_enabled()
 
+        self.load_widgets_handler()
+
         # Connect events with slots
         self.lst_tags.currentItemChanged.connect(self.lst_tags_current_item_changed)
         self.txt_name.textChanged.connect(self.txt_name_text_changed)
@@ -48,8 +52,44 @@ class TagView(QDialog):
         self.btn_delete.clicked.connect(self.btn_delete_click)
 
         self.show()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["TagView"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title, self.lbl_info, self.lbl_pic])
+        handle_dialog.properties.window_drag_enabled_with_body = False
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons()
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_name)
+        self.widget_handler.add_TextBox(self.txt_desc)
+
+        # Add Selection Widgets
+
+        # ADD Item Based Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_tags)
+
+
+        self.widget_handler.activate()
 
     def btn_delete_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to delete tag.", ["TagView"])
         tag_id = self._db_tag.is_valid_tag_name(self.txt_name.text())
         if tag_id == 1:
             data_dict = {
@@ -57,6 +97,7 @@ class TagView(QDialog):
                 "text": self.getl("tag_view_delete_msg_no_diary_text"),
                 "btn_ok_text": self.getl("tag_view_delete_msg_no_diary_btn_ok_text")
             }
+            UTILS.LogHandler.add_log_record("#1: Delete tag canceled. Reason: #2.", ["TagView", "Diary tag cannot be deleted"])
             utility_cls.MessageInformation(self._stt, self, data_dict, app_modal=True)
             return
         if self._db_tag.how_many_times_is_used(tag_id) > 0:
@@ -64,9 +105,11 @@ class TagView(QDialog):
                 "title": self.getl("tag_view_delete_msg_in_use_title"),
                 "text": self.getl("tag_view_delete_msg_in_use_text"),
             }
+            UTILS.LogHandler.add_log_record("#1: Delete tag canceled. Reason: #2.", ["TagView", "Tag is currently used in block(s)"])
             utility_cls.MessageInformation(self._stt, self, data_dict, app_modal=True)
             return
 
+        UTILS.LogHandler.add_log_record("#1: Delete tag confirmation requested", ["TagView"])
         text = self.getl("tag_view_delete_question_text").replace("#1", self.txt_name.text())
         data_dict = {
             "title": self.getl("tag_view_delete_question_title"),
@@ -97,21 +140,31 @@ class TagView(QDialog):
         }
         utility_cls.MessageQuestion(self._stt, self, data_dict)
         if data_dict["result"] != 1:
+            if data_dict["result"] == 2:
+                UTILS.LogHandler.add_log_record("#1: Delete tag confirmation result: #2", ["TagView", "User aborted (NO)"])
+            elif data_dict["result"] == 3:
+                UTILS.LogHandler.add_log_record("#1: Delete tag confirmation result: #2", ["TagView", "User canceled (CANCEL)"])
+            else:
+                UTILS.LogHandler.add_log_record("#1: Delete tag confirmation result: #2", ["TagView", "User press ESC, Canceled"])
             return
         
+        UTILS.LogHandler.add_log_record("#1: Delete tag confirmation result: #2", ["TagView", "User confirmed (YES)"])
         tag_id = self._db_tag.is_valid_tag_name(self.txt_name.text())
         if not tag_id:
             self._notif(self.getl("tag_view_notif_data_not_deleted"), 3000)
+            UTILS.LogHandler.add_log_record("#1: Delete tag aborted. Reason: #2", ["TagView", "No valid tag"])
             return
         
         self._db_tag.delete_tag(tag_id)
         self._set_butttons_enabled()
         self._notif(self.getl("tag_view_notif_data_deleted"))
         self.get_appv("log").write_log(f"TagView. Tag deleted. Tag ID: {self._tag_id}")
+        UTILS.LogHandler.add_log_record("#1: Tag deleted (ID=#2)", ["TagView", tag_id])
         self._tag_id = None
         self._populate_widgets()
  
     def btn_apply_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to update tag.", ["TagView"])
         tag_dict = {
             "name": self.txt_name.text(),
             "description": self.txt_desc.toPlainText()
@@ -119,13 +172,16 @@ class TagView(QDialog):
         tag_id = self._db_tag.is_valid_tag_name(self.txt_name.text())
         if not tag_id:
             self._notif(self.getl("tag_view_notif_data_not_updated"), 3000)
+            UTILS.LogHandler.add_log_record("#1: Update tag canceled. Reason: #2", ["TagView", "No valid tag"])
             return
         self._db_tag.update_tag(tag_id, tag_dict)
         self._set_butttons_enabled()
         self._notif(self.getl("tag_view_notif_data_updated"))
         self.get_appv("log").write_log(f"TagView. Tag info updated. Tag ID: {self._tag_id}")
+        UTILS.LogHandler.add_log_record("#1: Tag updated (ID=#2)", ["TagView", tag_id])
         
     def btn_add_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to add new tag.", ["TagView"])
         tag_dict = {
             "name": self.txt_name.text(),
             "description": self.txt_desc.toPlainText()
@@ -133,6 +189,7 @@ class TagView(QDialog):
         tag_id = self._db_tag.is_valid_tag_name(self.txt_name.text())
         if tag_id:
             self._notif(self.getl("tag_view_notif_data_not_added"), 3000)
+            UTILS.LogHandler.add_log_record("#1: Add tag canceled. Reason: #2", ["TagView", "Tag already exists"])
             return
         self._db_tag.add_new_tag(tag_dict)
         self._set_butttons_enabled()
@@ -140,6 +197,7 @@ class TagView(QDialog):
         self._tag_id = tag_id
         self._populate_widgets()
         self.get_appv("log").write_log(f"TagView. New tag added. Tag ID: {self._tag_id}")
+        UTILS.LogHandler.add_log_record("#1: New tag added (ID=#2)", ["TagView", tag_id])
 
     def _notif(self, text: str, timer: int = 2000):
         ntf_dict = {
@@ -222,6 +280,10 @@ class TagView(QDialog):
             self.move(g["pos_x"], g["pos_y"])
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "view_tag_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("view_tag_win_geometry", {}, save_to_file=True)
 
@@ -231,11 +293,16 @@ class TagView(QDialog):
         g["width"] = self.width()
         g["height"] = self.height()
 
-        return super().closeEvent(a0)
+        self.get_appv("cm").remove_all_context_menu()
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["TagView"])
+
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _setup_widgets(self):
         self.lbl_title: QLabel = self.findChild(QLabel, "lbl_title")
         self.lbl_info: QLabel = self.findChild(QLabel, "lbl_info")
+        self.lbl_pic: QLabel = self.findChild(QLabel, "lbl_pic")
         self.lbl_name: QLabel = self.findChild(QLabel, "lbl_name")
         self.lbl_desc: QLabel = self.findChild(QLabel, "lbl_desc")
 

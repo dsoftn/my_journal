@@ -218,7 +218,6 @@ class Engine():
         return extensions
 
 
-
 class Images():
     def __init__(self, settings: settings_cls.Settings, criteria: str = None) -> None:
         # Define settings object and methods

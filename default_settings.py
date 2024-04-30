@@ -252,15 +252,6 @@ Sada možete da se prijavite i koristite My Journal aplikaciju."""] ],
         "mnu_open_sb_text": [
             [0, """Opens a data file"""],
             [1, """Otvara fajl sa podacima"""] ],
-        "mnu_save_as_text": [
-            [0, """Save As..."""],
-            [1, """Snimi Kao..."""] ],
-        "mnu_save_as_tt": [
-            [0, """Save As..."""],
-            [1, """Snimi Kao..."""] ],
-        "mnu_save_as_sb_text": [
-            [0, """Saves a data file"""],
-            [1, """Snima fajl sa podacima"""] ],
         "mnu_diary_text": [
             [0, """View Diary"""],
             [1, """Pregled Dnevnika"""] ],
@@ -4168,7 +4159,7 @@ During the animation, the dimensions of the image will increase."""],
             [1, """Slika će biti animirana iz donjeg desnog ugla do mesta gde će biti postavljena.
 U toku animacije dimenzije slike će se povećavati."""] ],
         "block_txt_box_menu_def_simple_img_apperance_duration_text": [
-            [0, """Image apperance duration"""],
+            [0, """Image apearance duration"""],
             [1, """Trajanje pojavljivanja slike"""] ],
         "block_txt_box_menu_def_simple_img_apperance_duration_tt": [
             [0, """Duration of the animation when the image appears in seconds.
@@ -5608,7 +5599,7 @@ Da li želite da snimite sva izmenjena podešavanja ?"""] ],
             [0, """Dialog: User login"""],
             [1, """Dijalog: Prijavljivanje korisnika"""] ],
         "app_sett_style_login_dialog_win_style": [
-            [0, """Window apperance"""],
+            [0, """Window apearance"""],
             [1, """Izgled prozora"""] ],
         "app_settings_no_recommended_value": [
             [0, """There are no recommended values"""],
@@ -5633,10 +5624,10 @@ Neki widget-i nemaju mogućnost promene fonta pa ta podešavanja za neke widget-
             [0, """Main window"""],
             [1, """Glavni prozor"""] ],
         "app_sett_style_general_win_style": [
-            [0, """Window apperance"""],
+            [0, """Window apearance"""],
             [1, """Izgled prozora"""] ],
         "app_sett_style_toolBar_stylesheet_style": [
-            [0, """Toolbar apperance"""],
+            [0, """Toolbar apearance"""],
             [1, """Izgled trake sa alatkama"""] ],
         "app_sett_style_toolBar_movable_style": [
             [0, """The user can move ToolBar"""],
@@ -5669,7 +5660,7 @@ Neki widget-i nemaju mogućnost promene fonta pa ta podešavanja za neke widget-
             [0, """Setting the status bar"""],
             [1, """Podešavanje statusne linije"""] ],
         "app_sett_style_sts_bar_stylesheet_style": [
-            [0, """Statusbar apperance"""],
+            [0, """Statusbar apearance"""],
             [1, """Izgled statusne linije"""] ],
         "widget_setting_true_recomm": [
             [0, """It is recommended that this value be set to "True"."""],
@@ -5746,10 +5737,10 @@ Dostupni tagovi su:"""] ],
             [0, """It is recommended that this value be "1"."""],
             [1, """Preporučeno je da ova vrednost bude "1"."""] ],
         "app_sett_style_general_style": [
-            [0, """Widget apperance"""],
+            [0, """Widget apearance"""],
             [1, """Izgled widgeta"""] ],
         "app_sett_style_area_label_widget_stylesheet_style": [
-            [0, """Blocks edit area - Widget apperance"""],
+            [0, """Blocks edit area - Widget apearance"""],
             [1, """Prostor za uređivanje blokova - Izgled widgeta"""] ],
         "app_sett_visible_desc": [
             [0, """Determines whether the widget will be visible."""],
@@ -5796,7 +5787,7 @@ Da li je natpis vidljiv"""] ],
             [0, """The frame thickness of the widget."""],
             [1, """Debljina okvira widget-a."""] ],
         "app_sett_style_win_block_stylesheet_style": [
-            [0, """Apperance of the block being edited."""],
+            [0, """Apearance of the block being edited."""],
             [1, """Izgled bloka koji se uređuje."""] ],
         "online_dsl_joker_add_title": [
             [0, """Add a joker number"""],
@@ -5820,13 +5811,13 @@ Da li je natpis vidljiv"""] ],
             [0, """It is recommended that this value be "0"."""],
             [1, """Preporučeno je da ova vrednost bude "0"."""] ],
         "app_sett_style_win_block_controls_stylesheet_style": [
-            [0, """Block titlebar apperance"""],
+            [0, """Block titlebar apearance"""],
             [1, """Izgled naslovne linije bloka"""] ],
         "app_sett_style_block_header_name": [
             [0, """Block: Header"""],
             [1, """Blok: Header (Zaglavlje)"""] ],
         "app_sett_style_header_stylesheet_style": [
-            [0, """Apperance of the block header"""],
+            [0, """Apearance of the block header"""],
             [1, """Izgled zaglavlja bloka (Header)."""] ],
         "app_sett_style_block_body_name": [
             [0, """Block: Body (Text)"""],
@@ -5838,7 +5829,7 @@ Da li je natpis vidljiv"""] ],
             [0, """Block: Footer"""],
             [1, """Blok: Footer (Podnožje)"""] ],
         "app_sett_style_footer_stylesheet_style": [
-            [0, """Apperance of the block footer. Part of the block that contains the buttons for saving, adding images, etc."""],
+            [0, """Apearance of the block footer. Part of the block that contains the buttons for saving, adding images, etc."""],
             [1, """Izgled podnožja bloka. Deo bloka koji sadrži dugmad za snimanje, dodavanje slika itd."""] ],
         "app_sett_style_win_block_controls_show_long_date_desc": [
             [0, """How the date will be displayed in the title bar of the block.
@@ -5870,7 +5861,7 @@ Warning: When the button is set to Flat then the stylesheet settings have no eff
             [1, """Određuje da li će dugme biti ravno ili izdignuto.
 Upozorenje: Kada je dugme podešeno da bude ravno (Flat) onda stylesheet podešavanja nemaju efekta na njega."""] ],
         "app_sett_style_button_stylesheet_style": [
-            [0, """Button apperance"""],
+            [0, """Button apearance"""],
             [1, """Izgled dugmeta"""] ],
         "app_sett_style_button_flat_style": [
             [0, """Flat button style"""],
@@ -5978,10 +5969,10 @@ Od 0 do 200 piksela."""] ],
             [0, """Block: Text Editor"""],
             [1, """Blok: Tekst Editor"""] ],
         "app_sett_style_block_text_editor_apperance_name": [
-            [0, """Text Editor: Apperance of the editor"""],
+            [0, """Text Editor: apearance of the editor"""],
             [1, """Tekst Editor: Izgled editora"""] ],
         "app_sett_style_text_editor_stylesheet_style": [
-            [0, """Apperance of the text editor"""],
+            [0, """Apearance of the text editor"""],
             [1, """Izgled tekst editora"""] ],
         "app_sett_style_block_text_editor_general_name": [
             [0, """Text Editor: Functionality"""],
@@ -6229,7 +6220,7 @@ To znači da nećete moći da pomerate prozor, a bez naslovne linije nećete ima
             [0, """All dialogs: General settings"""],
             [1, """Svi dijalozi: Generalna podešavanja"""] ],
         "app_sett_style_dialog_stylesheet_style": [
-            [0, """Dialog apperance"""],
+            [0, """Dialog apearance"""],
             [1, """Izgled dijaloga"""] ],
         "app_sett_style_title_label_name": [
             [0, """Dialog title"""],
@@ -6238,7 +6229,7 @@ To znači da nećete moći da pomerate prozor, a bez naslovne linije nećete ima
             [0, """All Dialogs: Title of the dialog"""],
             [1, """Svi dijalozi: Naslov dijaloga"""] ],
         "app_sett_style_dialog_title_label_stylesheet_style": [
-            [0, """Dialog title apperance"""],
+            [0, """Dialog title apearance"""],
             [1, """Izgled naslova dijaloga"""] ],
         "app_sett_style_selection_lbl_count_name": [
             [0, """Label: Counter of items in the list"""],
@@ -6292,7 +6283,7 @@ To znači da nećete moći da pomerate prozor, a bez naslovne linije nećete ima
             [0, """Context menu: Item (Button)"""],
             [1, """Kontekstni meni: Stavka (Dugme)"""] ],
         "app_sett_style_frame_stylesheet_style": [
-            [0, """Frame apperance"""],
+            [0, """Frame apearance"""],
             [1, """Izgled okvira"""] ],
         "app_sett_style_block_save_event_hide_save_btn_style": [
             [0, """Hide "Save" button"""],
@@ -6329,7 +6320,7 @@ Ukoliko se sadržaj bloka promeni dugme "Snimi" će ponovo postati vidljivo."""]
             [0, """The title of the notification"""],
             [1, """Naslov notifikacije"""] ],
         "app_sett_style_widget_stylesheet_style": [
-            [0, """Widget apperance"""],
+            [0, """Widget apearance"""],
             [1, """Izgled widgeta"""] ],
         "app_sett_style_notification_lbl_text_name": [
             [0, """Notification text"""],
@@ -6353,10 +6344,10 @@ Ukoliko se sadržaj bloka promeni dugme "Snimi" će ponovo postati vidljivo."""]
             [0, """When starting the application, it displays a welcome notification with information about the date and day of the week."""],
             [1, """Prilikom pokretanja aplikacije prikazuje pozdravnu notifikaciju sa informacijom o datumu i danu u nedelji."""] ],
         "app_sett_style_active_block_name": [
-            [0, """Apperance of the title line of the currently active block"""],
+            [0, """Apearance of the title line of the currently active block"""],
             [1, """Izgled naslovne linije trenutno aktivnog bloka"""] ],
         "app_sett_style_win_block_controls_active_stylesheet_style": [
-            [0, """Apperance of the active block"""],
+            [0, """Apearance of the active block"""],
             [1, """Izgled aktivnog bloka"""] ],
         "app_sett_style_mainwin_title_animation_name": [
             [0, """App title animation"""],
@@ -6861,7 +6852,7 @@ Ova vrednost određuje veličinu sličice koja je prikazana u pikselima."""] ],
             [0, """View the definition in a block"""],
             [1, """Prikaz definicije u bloku"""] ],
         "app_sett_style_definition_view_simple_title_stylesheet_style": [
-            [0, """Frame title apperance"""],
+            [0, """Frame title apearance"""],
             [1, """Izgled naslova okvira"""] ],
         "app_sett_style_definition_view_simple_width_style": [
             [0, """Frame width"""],
@@ -6897,7 +6888,7 @@ Ova vrednost određuje veličinu sličice koja je prikazana u pikselima."""] ],
             [0, """The size of the thumbnails added to the block."""],
             [1, """Veličina sličica koje su dodate u blok."""] ],
         "app_sett_style_definition_view_simple_desc_stylesheet_style": [
-            [0, """Apperance of description of the definition"""],
+            [0, """Apearance of description of the definition"""],
             [1, """Izgled opisa definicije"""] ],
         "app_sett_style_translate_dialog_name": [
             [0, """Dialogue: Text translation"""],
@@ -6960,13 +6951,13 @@ Ova vrednost određuje veličinu sličice koja je prikazana u pikselima."""] ],
             [0, """Button: Add tag"""],
             [1, """Dugme: Dodaj tag"""] ],
         "app_sett_style_definition_txt_expr_illegal_stylesheet_style": [
-            [0, """TextBox apperance for illegal input"""],
+            [0, """TextBox apearance for illegal input"""],
             [1, """Izgled TextBox-a za nedozvoljen unos"""] ],
         "definition_txt_expr_illegal_stylesheet_desc": [
             [0, """Appearance of the definition name input field if the user types something that cannot be accepted as the definition name."""],
             [1, """Izgled polja za unos naziva definicije ukoliko korisnik ukuca kao naziv definicije nešto što ne može biti prihvaćeno."""] ],
         "app_sett_style_definition_view_simple_btn_close_stylesheet_style": [
-            [0, """Close button apperance"""],
+            [0, """Close button apearance"""],
             [1, """Izgled dugmeta za zatvaranje"""] ],
         "app_sett_style_definition_view_simple_btn_close_icon_path_style": [
             [0, """Close button icon"""],
@@ -7194,7 +7185,7 @@ Kada je ova opcija uključena, ako korisnik napravi dvoklik mišem na polje za u
             [0, """Frame for selecting tags to filter by"""],
             [1, """Okvir za odabir oznaka po kojima se filtrira"""] ],
         "app_sett_style_frm_tags_frame_general_name": [
-            [0, """Apperance of the tag selection box"""],
+            [0, """Apearance of the tag selection box"""],
             [1, """Izgled okvira za odabir oznaka"""] ],
         "app_sett_style_frame_title_label_name": [
             [0, """Frame title"""],
@@ -7415,10 +7406,10 @@ Izlazite is liste pritiskom na taster ESCAPE"""] ],
             [0, """General settings"""],
             [1, """Generalna podešavanja"""] ],
         "app_sett_style_diary_item_area_stylesheet_style": [
-            [0, """ScrollArea: Apperance of the area for displaying items"""],
+            [0, """ScrollArea: apearance of the area for displaying items"""],
             [1, """ScrollArea: Izgled prostora za prikaz stavki"""] ],
         "app_sett_style_diary_item_area_widget_stylesheet_style": [
-            [0, """Widget: Widget apperance for displaying items"""],
+            [0, """Widget: Widget apearance for displaying items"""],
             [1, """Widget: Izgled widgeta za prikaz stavki"""] ],
         "app_sett_style_diary_item_lbl_day_stylesheet_name": [
             [0, """Label: Name of the day"""],
@@ -8197,7 +8188,7 @@ The "TMP" folder is a folder in which temporary files are stored, mostly unneces
             [0, """Frame: The appearance of the frame"""],
             [1, """Okvir: Izgled okvira"""] ],
         "app_sett_style_find_in_app_lbl_searching_stylesheet_style": [
-            [0, """Label: The apperance of the label"""],
+            [0, """Label: The apearance of the label"""],
             [1, """Labela: Izgled labele"""] ],
         "app_sett_style_find_in_app_chk_words_stylesheet_style": [
             [0, """CheckBox: Whole words only"""],
@@ -9062,7 +9053,7 @@ Dupli klik na TextBox za izbor"""] ],
             [0, """Main menu"""],
             [1, """Glavni meni"""] ],
         "app_sett_style_main_menu_stylesheet_style": [
-            [0, """Main menu apperance"""],
+            [0, """Main menu apearance"""],
             [1, """Izgled glavnog menija"""] ],
         "app_sett_style_menu_enabled_style": [
             [0, """Menu is enabled"""],
@@ -9342,10 +9333,10 @@ Stavke sa premalo slova: #4"""] ],
             [0, """RadioButton: Appearance of Radio Buttons"""],
             [1, """RadioButton: Izgled Radio dugmadi"""] ],
         "app_sett_style_app_settings_grp_import_groupboxes_name": [
-            [0, """GroupBox: A box apperance for grouping options"""],
+            [0, """GroupBox: A box apearance for grouping options"""],
             [1, """GroupBox: Izgled polja za grupisanje opcija"""] ],
         "app_sett_style_app_settings_chk_import_checkboxes_name": [
-            [0, """CheckBox: Apperance of all checkboxes"""],
+            [0, """CheckBox: apearance of all checkboxes"""],
             [1, """CheckBox: Izgled svih polja za štikliranje"""] ],
         "app_sett_style_app_settings_lbl_import_desc_name": [
             [0, """Label: All settings are selected"""],
@@ -9668,10 +9659,10 @@ Karakteri koji označavaju početak i kraj tačnog stringa su najčešće dvostr
             [0, """Filter setup box"""],
             [1, """Okvir sa podešavanjima filtera"""] ],
         "app_sett_style_filter_results_frm_setup_stylesheet_name": [
-            [0, """Frame apperance"""],
+            [0, """Frame apearance"""],
             [1, """Izgled okvira"""] ],
         "app_sett_style_filter_results_grp_setup_operators_stylesheet_name": [
-            [0, """GroupBox: Apperance of a group of operator information"""],
+            [0, """GroupBox: apearance of a group of operator information"""],
             [1, """GroupBox: Izgled grupe informacija o operatorima"""] ],
         "app_sett_style_filter_results_lbl_setup_title_stylesheet_name": [
             [0, """Label: Frame title"""],
@@ -10001,13 +9992,13 @@ Ovo podešavanje sadrži tačno četiri cela broja odvojena zarezom."""] ],
             [0, """Image and file bar below TextBox"""],
             [1, """Traka sa slikama i datotekama ispod TextBox-a"""] ],
         "app_sett_style_block_image_area_stylesheet_style": [
-            [0, """ScrollArea apperance"""],
+            [0, """ScrollArea apearance"""],
             [1, """Izgled ScrollArea-e"""] ],
         "app_sett_style_block_image_area_contents_margins_style": [
             [0, """The margins of the ScrollArea"""],
             [1, """Margine ScrollArea-e"""] ],
         "app_sett_style_block_image_area_widget_stylesheet_style": [
-            [0, """Apperance of the ScrollArea widget"""],
+            [0, """Apearance of the ScrollArea widget"""],
             [1, """Izgled ScrollArea widgeta"""] ],
         "app_sett_style_block_image_area_widget_contents_margins_style": [
             [0, """ScrollArea widget margins"""],
@@ -10019,8 +10010,10 @@ Ovo podešavanje sadrži tačno četiri cela broja odvojena zarezom."""] ],
             [0, """Global Widget Behaviors"""],
             [1, """Globalna Ponašanja Widgeta"""] ],
         "app_sett_style_gwp_buttons_name": [
-            [0, """Buttons"""],
-            [1, """Dugmad"""] ],
+            [0, """Global Widget Behaviors
+Buttons"""],
+            [1, """Globalna Ponašanja Widgeta
+Dugmad"""] ],
         "app_sett_style_gwp_buttons_click_name": [
             [0, """Event: Button click"""],
             [1, """Događaj: Klik na dugme"""] ],
@@ -10084,8 +10077,8 @@ Ukoliko ne želite pozadinu, upišite "transparent" """] ],
             [0, """Appearance of the button when pressed"""],
             [1, """Izgled dugmeta kada je pritisnuto"""] ],
         "app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_enabled_style": [
-            [0, """Enable to change button appearance"""],
-            [1, """Omogući promenu izgleda dugmeta"""] ],
+            [0, """Enable change appearance"""],
+            [1, """Omogući promenu izgleda"""] ],
         "gwp_qpushbutton_tap_event_change_stylesheet_enabled_desc": [
             [0, """Allows to change the appearance of the button on the event"""],
             [1, """Omogućava promenu izgleda dugmeta na događaj"""] ],
@@ -10099,8 +10092,8 @@ Ukoliko ne želite pozadinu, upišite "transparent" """] ],
             [0, """The size of the button when pressed"""],
             [1, """Veličina dugmeta kada je pritisnuto"""] ],
         "app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style": [
-            [0, """Enable button resizing"""],
-            [1, """Omogući promenu veličine dugmeta"""] ],
+            [0, """Enable resizing"""],
+            [1, """Omogući promenu veličine"""] ],
         "gwp_qpushbutton_tap_event_change_size_enabled_desc": [
             [0, """Enables button resizing"""],
             [1, """Omogućava promenu veličine dugmeta"""] ],
@@ -10134,11 +10127,11 @@ Vrednost -30 znači da će dugme biti smanjeno za 30%, odnosno zadržaće 70% sv
             [0, """Sound when the mouse entered the widget area"""],
             [1, """Zvuk kada je miš ušao u prostor widgeta"""] ],
         "app_sett_style_gwp_buttons_enter_stylesheet_name": [
-            [0, """Appearance of the button when the mouse has entered the widget area"""],
-            [1, """Izgled dugmeta kada je miš ušao u prostor widgeta"""] ],
+            [0, """Appearance when the mouse entered the widget area"""],
+            [1, """Izgled kada je miš ušao u prostor widgeta"""] ],
         "app_sett_style_gwp_buttons_enter_size_name": [
-            [0, """The size of the button when the mouse entered the widget area"""],
-            [1, """Veličina dugmeta kada je miš ušao u prostor widgeta"""] ],
+            [0, """The size when the mouse entered the widget area"""],
+            [1, """Veličina kada je miš ušao u prostor widgeta"""] ],
         "app_sett_style_gwp_buttons_leave_name": [
             [0, """Event: Mouse exit from widget area"""],
             [1, """Događaj: Izlazak miša iz prostora widgeta"""] ],
@@ -10149,11 +10142,11 @@ Vrednost -30 znači da će dugme biti smanjeno za 30%, odnosno zadržaće 70% sv
             [0, """Sound when the mouse left the widget area"""],
             [1, """Zvuk kada je miš izašao iz prostora widgeta"""] ],
         "app_sett_style_gwp_buttons_leave_stylesheet_name": [
-            [0, """Appearance of the button when the mouse left the widget area"""],
-            [1, """Izgled dugmeta kada je miš izašao iz prostora widgeta"""] ],
+            [0, """Appearance when the mouse is out of the widget area"""],
+            [1, """Izgled kada je miš izašao iz prostora widgeta"""] ],
         "app_sett_style_gwp_buttons_leave_size_name": [
-            [0, """The size of the button when the mouse left the widget area"""],
-            [1, """Veličina dugmeta kada je miš izašao iz prostora widgeta"""] ],
+            [0, """The size when the mouse left the widget area"""],
+            [1, """Veličina kada je miš izašao iz prostora widgeta"""] ],
         "app_settings_cursor_cmb_icon_text": [
             [0, """Cursor
 Test"""],
@@ -10172,7 +10165,7 @@ Kursor"""] ],
             [0, """Allow the cursor to change when the mouse arrow is within the widget bounds"""],
             [1, """Dozvoli promenu kursora kada je strelica miša unutar granica widgeta"""] ],
         "app_sett_style_gwp_qpushbutton_cursor_style": [
-            [0, """Cursor apperance"""],
+            [0, """Cursor apearance"""],
             [1, """Izgled kursora"""] ],
         "gwp_qpushbutton_cursor_desc": [
             [0, """Appearance of the cursor when the mouse is inside the widget"""],
@@ -10218,8 +10211,10 @@ Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
             [0, """CheckBox: Block - Tags"""],
             [1, """CheckBox: Blok - Oznake"""] ],
         "app_sett_style_gwp_dialog_name": [
-            [0, """Dialog window"""],
-            [1, """Dijalog prozor"""] ],
+            [0, """Global Widget Behaviors
+Dialog window"""],
+            [1, """Globalna Ponašanja Widgeta
+Dijalog prozor"""] ],
         "app_sett_style_gwp_dialog_drag_name": [
             [0, """Window dragging"""],
             [1, """Vučenje prozora"""] ],
@@ -10257,12 +10252,16 @@ Ovo ima efekta samo na korisnički izabran kursor iz datoteke"""] ],
             [0, """The appearance of the mouse arrow when the user drags the frame"""],
             [1, """Izgled strelice miša kada korisnik vuče okvir"""] ],
         "app_sett_style_gwp_frame_name": [
-            [0, """A frame inside a window"""],
-            [1, """Okvir unutar prozora"""] ],
+            [0, """Global Widget Behaviors
+A frame inside a window"""],
+            [1, """Globalna Ponašanja Widgeta
+Okvir unutar prozora"""] ],
         "app_sett_style_gwp_actionframe_name": [
-            [0, """Complex dialog buttons
+            [0, """Global Widget Behaviors
+Complex dialog buttons
 (E.g. Side Menu)"""],
-            [1, """Kompleksna dugmad u dijalogu
+            [1, """Globalna Ponašanja Widgeta
+Kompleksna dugmad u dijalogu
 (Npr. Meni sa strane)"""] ],
         "gwp_qpushbutton_tap_event_show_animation_duration_ms_desc": [
             [0, """Animation duration in milliseconds"""],
@@ -10317,8 +10316,10 @@ Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umes
             [0, """Button: Add definition"""],
             [1, """Dugme: Dodaj definiciju"""] ],
         "app_sett_style_gwp_textbox_name": [
-            [0, """TextBox (Text input field)"""],
-            [1, """TextBox (Polje za unos teksta)"""] ],
+            [0, """Global Widget Behaviors
+TextBox (Text input field)"""],
+            [1, """Globalna Ponašanja Widgeta
+TextBox (Polje za unos teksta)"""] ],
         "app_sett_style_gwp_key_press_name": [
             [0, """Text input (Keystroke)"""],
             [1, """Unos teksta (Pritisak na taster)"""] ],
@@ -10374,7 +10375,7 @@ Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umes
             [0, """Sound when no text is selected"""],
             [1, """Zvuk kada nema selektovanog teksta"""] ],
         "app_sett_style_gwp_qtextedit_smart_parenthesis_change_stylesheet_name": [
-            [0, """Textbox apperance on smart brackets/quotes input"""],
+            [0, """Textbox apearance on smart brackets/quotes input"""],
             [1, """Izgled textbox-a na unos pametnih zagrada/navodnika"""] ],
         "app_sett_style_gwp_qtextedit_smart_parenthesis_change_size_name": [
             [0, """Textbox size on smart brackets/quotes input"""],
@@ -10392,7 +10393,7 @@ Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umes
             [0, """Illegal entry - Sound"""],
             [1, """Nedozvoljeni unos - Zvuk"""] ],
         "app_sett_style_gwp_qtextedit_illegal_entry_change_stylesheet_name": [
-            [0, """Illegal input - Textbox apperance"""],
+            [0, """Illegal input - Textbox apearance"""],
             [1, """Nedozvoljeni unos - Izgled textbox-a"""] ],
         "app_sett_style_gwp_qtextedit_illegal_entry_change_size_name": [
             [0, """Illegal input - Textbox size"""],
@@ -10410,9 +10411,11 @@ Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umes
             [0, """With this option enabled, the user will be able to drag the dialog by clicking on a part of the dialog that is not covered by a widget"""],
             [1, """Sa ovom opcijom uključenom, korisnik će moći da vuče dijalog klikom na deo dijaloga koji nije pokriven nekim widget-om"""] ],
         "app_sett_style_gwp_selection_name": [
-            [0, """Selection and check-out widgets
+            [0, """Global Widget Behaviors
+Selection and check-out widgets
 (CheckBox, ComboBox, RadioButton, SpinBox...)"""],
-            [1, """Widgeti selekcije i čekiranja
+            [1, """Globalna Ponašanja Widgeta
+Widgeti selekcije i čekiranja
 (CheckBox, ComboBox, RadioButton, SpinBox...)"""] ],
         "app_sett_style_gwp_selection_click_name": [
             [0, """Event: Widget click"""],
@@ -10449,7 +10452,2222 @@ Ukoliko je izabrana slika za masku onda slika neće biti prikazana već će umes
             [1, """Tekst pored ikone"""] ],
         "ToolButtonTextUnderIcon": [
             [0, """Text under icon"""],
-            [1, """Tekst ispod ikone"""] ]
+            [1, """Tekst ispod ikone"""] ],
+        "app_sett_style_main_menu_sound_name": [
+            [0, """Main menu: Sound on item selection"""],
+            [1, """Glavni meni: Zvuk na izbor stavke"""] ],
+        "app_sett_style_main_menu_sound_enabled_style": [
+            [0, """Enable sound for the main menu"""],
+            [1, """Omogući zvuk za glavni meni"""] ],
+        "app_sett_style_menu_item_sound_enabled_style": [
+            [0, """Enable sound for main menu items"""],
+            [1, """Omogući zvuk za stavke glavnog menija"""] ],
+        "main_menu_sound_enabled_desc": [
+            [0, """Emit a sound when the user clicks on the menu"""],
+            [1, """Emituj zvuk kada korisnik klikne na meni"""] ],
+        "app_sett_style_gwp_item_based_name": [
+            [0, """Global Widget Behaviors
+Item-based widgets
+(ListBox, Table, Tree ...)"""],
+            [1, """Globalna Ponašanja Widgeta
+Widgeti bazirani na stavkama
+(ListBox, Table, Tree ...)"""] ],
+        "btn_volume_tt": [
+            [0, """Enable / Disable sound in the application"""],
+            [1, """Omogući / Onemogući zvuk u aplikaciji"""] ],
+        "btn_volume_sb_text": [
+            [0, """Enables and disables sound in the app"""],
+            [1, """Omogućava i onemogućava zvuk u aplikaciji"""] ],
+        "sld_volume_tt": [
+            [0, """Sound volume"""],
+            [1, """Jačina zvuka"""] ],
+        "sld_volume_sb_text": [
+            [0, """Adjusts the volume in the application"""],
+            [1, """Podešava jačinu zvuka u aplikaciji"""] ],
+        "app_sett_style_sound_name": [
+            [0, """Sound control"""],
+            [1, """Kontrola zvuka"""] ],
+        "app_sett_style_statusbar_sound_frame_name": [
+            [0, """Sound control - display in the status bar"""],
+            [1, """Kontrola zvuka - prikaz u status bar-u"""] ],
+        "app_sett_style_frm_stb_volume_enabled_style": [
+            [0, """Sound control is enabled"""],
+            [1, """Kontrola zvuka je omogućena"""] ],
+        "app_sett_style_frm_stb_volume_visible_style": [
+            [0, """The volume control is visible"""],
+            [1, """Kontrola zvuka je vidljiva"""] ],
+        "app_sett_style_frm_stb_volume_stylesheet_name": [
+            [0, """Frame apearance with sound control"""],
+            [1, """Izgled okvira sa kontrolom zvuka"""] ],
+        "app_sett_style_btn_volume_stylesheet_name": [
+            [0, """Appearance of the mutate button"""],
+            [1, """Izgled dugmeta za mutiranje"""] ],
+        "app_sett_style_sld_volume_stylesheet_name": [
+            [0, """Volume slider apearance"""],
+            [1, """Izgled slajdera za podešavanje jačine"""] ],
+        "app_sett_style_lbl_volume_value_stylesheet_name": [
+            [0, """Label appearance with volume percent"""],
+            [1, """Izgled labele sa procentima jačine"""] ],
+        "app_sett_style_frm_stb_volume_fixed_width_style": [
+            [0, """Frame width
+Default = 0 , Only button = 15"""],
+            [1, """Širina okvira
+Default = 0 ,  Samo dugme = 15"""] ],
+        "frm_stb_volume_fixed_width_desc": [
+            [0, """Frame width in pixels
+0 = The application determines the best width
+15 = Only the mutate button is visible"""],
+            [1, """Širina okvira u pikselima
+0 = Aplikacija određuje najbolju širinu
+15 = Vidljivo je samo dugme za mutiranje
+"""] ],
+        "frm_stb_volume_fixed_width_recomm": [
+            [0, """It is recommended that this value be 0"""],
+            [1, """Preporučeno je da ova vrednost bude 0"""] ],
+        "app_sett_style_set_muted_sound_file_path_style": [
+            [0, """Notification sound when the sound in the application is mutated"""],
+            [1, """Zvuk obaveštenja kada je zvuk u aplikaciji mutiran"""] ],
+        "app_sett_style_set_unmuted_sound_file_path_style": [
+            [0, """Notification sound when the sound in the application is not mutated"""],
+            [1, """Zvuk obaveštenja kada zvuk u aplikaciji nije mutiran"""] ],
+        "app_sett_style_date_time_name": [
+            [0, """Setting the date and time display"""],
+            [1, """Podešavanje prikaza datuma i vremena"""] ],
+        "app_sett_style_log_name": [
+            [0, """Setting log messages"""],
+            [1, """Podešavanje log poruka"""] ],
+        "app_sett_style_pop_log_dialog_on_exception_style": [
+            [0, """Popup log dialog on exception"""],
+            [1, """Prikaži log kada se dogodi greška"""] ],
+        "app_sett_style_pop_log_dialog_on_warning_style": [
+            [0, """Popup log dialog on warning"""],
+            [1, """Prikaži log kada se dogodi upozorenje"""] ],
+        "pop_log_dialog_on_exception_desc": [
+            [0, """Show a log dialog when a serious error occurs in the application that may affect the further flow of the program."""],
+            [1, """Prikaži log dijalog kada se dogodi ozbiljna greška u aplikaciji koja može uticati na dalji tok programa."""] ],
+        "pop_log_dialog_on_warning_desc": [
+            [0, """Display the log dialog when a warning occurs about an unexpected event in the application that may affect the further flow of the program."""],
+            [1, """Prikaži log dijalog kada se dogodi upozorenje na neočekivan događaj u aplikaciji koji može uticati na dalji tok programa."""] ],
+        "app_sett_style_keep_log_window_on_top_style": [
+            [0, """Log window on top"""],
+            [1, """Log prozor na vrhu"""] ],
+        "keep_log_window_on_top_desc": [
+            [0, """Log window at the top, above all other windows"""],
+            [1, """Log prozor na vrhu, iznad svih drugih prozora"""] ],
+        "app_sett_style_log_messages_name": [
+            [0, """Log messages"""],
+            [1, """Log poruke"""] ],
+        "app_sett_style_log_messages_to_save_name": [
+            [0, """Log messages to be tracked"""],
+            [1, """Log poruke koje će se pratiti"""] ],
+        "app_sett_style_record_normal_logs_style": [
+            [0, """Track normal messages"""],
+            [1, """Prati normalne poruke"""] ],
+        "app_sett_style_record_warning_logs_style": [
+            [0, """Track warning messages"""],
+            [1, """Prati poruke upozorenja"""] ],
+        "app_sett_style_record_exception_logs_style": [
+            [0, """Track error messages"""],
+            [1, """Prati poruke o greškama"""] ],
+        "record_normal_logs_desc": [
+            [0, """Normal messages are all messages about the progress of the program as well as about user actions. These messages can be very large during the execution of the application and can significantly affect the performance of the application.
+Turn this option on only when you want to know details about the program flow, in normal use of the application this option should not be turned on."""],
+            [1, """Normalne poruke su sve poruke o toku programa kao i o akcijama korisnika. Ovih poruka može biti jako puno tokom izvršavanja aplikacije i mogu značajno uticati na performanse aplikacije.
+Uključite ovu opciju samo kada želite da saznate detalje o toku programa, u normalnom korištenju aplikacije ova opcija ne bi trebalo da bude uključena."""] ],
+        "record_warning_logs_desc": [
+            [0, """These messages indicate warnings that generally will not significantly affect the further course of the program."""],
+            [1, """Ove poruke prikazuju upozorenja koja uglavnom neće bitno uticati na dalji tok programa."""] ],
+        "record_exception_logs_desc": [
+            [0, """These messages show more serious warnings or errors in the program that can significantly affect the further course of the program."""],
+            [1, """Ove poruke prikazuju ozbiljnija upozorenja ili greške u programu koja mogu bitno uticati na dalji tok programa."""] ],
+        "app_sett_style_log_messages_structure_name": [
+            [0, """Structure of log messages"""],
+            [1, """Struktura log poruka"""] ],
+        "app_sett_style_log_save_locals_style": [
+            [0, """Save local variables"""],
+            [1, """Snimi lokalne varijable"""] ],
+        "app_sett_style_log_save_globals_style": [
+            [0, """Save global variables"""],
+            [1, """Snimi globalne varijable"""] ],
+        "app_sett_style_log_save_builtins_style": [
+            [0, """Save built-in variables"""],
+            [1, """Snimi built-in varijable"""] ],
+        "app_sett_style_log_save_module_code_style": [
+            [0, """Save the source code of the module"""],
+            [1, """Snimi izvorni kod modula"""] ],
+        "app_sett_style_log_save_function_code_style": [
+            [0, """Save the function's source code"""],
+            [1, """Snimi izvorni kod funkcije"""] ],
+        "log_save_locals_desc": [
+            [0, """All local variables in the function responsible for the log message will be recorded."""],
+            [1, """Sve lokalne varijable u funkciji koja je odgovorna za log poruku će biti snimljene."""] ],
+        "log_save_globals_desc": [
+            [0, """All global variables in the function responsible for the log message will be recorded."""],
+            [1, """Sve globalne varijable u funkciji koja je odgovorna za log poruku će biti snimljene."""] ],
+        "log_save_builtins_desc": [
+            [0, """All built-in variables in the function responsible for the log message will be recorded."""],
+            [1, """Sve built-in varijable u funkciji koja je odgovorna za log poruku će biti snimljene."""] ],
+        "log_save_module_code_desc": [
+            [0, """The source code of the module responsible for the log message will be recorded.
+This code can be quite large!"""],
+            [1, """Izvorni kod modula koji je odgovoran za log poruku će biti snimljen.
+Ovaj kod može biti prilično velik !"""] ],
+        "log_save_function_code_desc": [
+            [0, """The source code of the function responsible for the log message will be recorded."""],
+            [1, """Izvorni kod funkcije koja je odgovoran za log poruku će biti snimljen."""] ],
+        "btn_logs_text": [
+            [0, """Log messages"""],
+            [1, """Log poruke"""] ],
+        "btn_logs_tt": [
+            [0, """Opens a dialog with log messages"""],
+            [1, """Otvara dijalog sa log porukama"""] ],
+        "btn_logs_sb_text": [
+            [0, """View application messages"""],
+            [1, """Pregled poruka aplikacije"""] ],
+        "mnu_export_blocks_text": [
+            [0, """Export blocks"""],
+            [1, """Izvezi blokove"""] ],
+        "mnu_export_blocks_tt": [
+            [0, """Export the blocks to a file"""],
+            [1, """Izvezi blokove u datoteku"""] ],
+        "mnu_export_blocks_sb_text": [
+            [0, """Export the blocks to a file"""],
+            [1, """Izvezi blokove u datoteku"""] ],
+        "mnu_import_blocks_text": [
+            [0, """Import blocks"""],
+            [1, """Uvezi blokove"""] ],
+        "mnu_import_blocks_tt": [
+            [0, """Import blocks from a file"""],
+            [1, """Uvezi blokove iz datoteke"""] ],
+        "mnu_import_blocks_sb_text": [
+            [0, """Import blocks from a file"""],
+            [1, """Uvezi blokove iz datoteke"""] ],
+        "mnu_import_def_text": [
+            [0, """Import definitions"""],
+            [1, """Uvezi definicije"""] ],
+        "mnu_import_def_tt": [
+            [0, """Import definitions from a file"""],
+            [1, """Uvezi definicije iz datoteke"""] ],
+        "mnu_import_def_sb_text": [
+            [0, """Import definitions from a file"""],
+            [1, """Uvezi definicije iz datoteke"""] ],
+        "mnu_export_def_text": [
+            [0, """Export definitions"""],
+            [1, """Izvezi definicije"""] ],
+        "mnu_export_def_tt": [
+            [0, """Export definitions to a file"""],
+            [1, """Izvezi definicije u datoteku"""] ],
+        "mnu_export_def_sb_text": [
+            [0, """Export definitions to a file"""],
+            [1, """Izvezi definicije u datoteku"""] ],
+        "app_sett_style_menu_file_mnu_import_blocks_name": [
+            [0, """Menu: File -> Import Blocks"""],
+            [1, """Meni: Datoteka -> Uvezi blokove"""] ],
+        "app_sett_style_menu_file_mnu_export_blocks_name": [
+            [0, """Menu: File -> Export Blocks"""],
+            [1, """Meni: Datoteka -> Izvezi blokove"""] ],
+        "app_sett_style_menu_file_mnu_export_def_name": [
+            [0, """Menu: File -> Export Definitions"""],
+            [1, """Meni: Datoteka -> Izvezi definicije"""] ],
+        "app_sett_style_menu_file_mnu_import_def_name": [
+            [0, """Menu: File -> Import Definitions"""],
+            [1, """Meni: Datoteka -> Uvezi definicije"""] ],
+        "mnu_help_log_messages_text": [
+            [0, """Log messages"""],
+            [1, """Log poruke"""] ],
+        "mnu_help_log_messages_tt": [
+            [0, """View log messages"""],
+            [1, """Pregled log poruka"""] ],
+        "mnu_help_log_messages_sb_text": [
+            [0, """View log messages"""],
+            [1, """Pregled log poruka"""] ],
+        "app_sett_style_menu_help_mnu_help_log_messages_name": [
+            [0, """Menu: Help -> Log messages"""],
+            [1, """Meni: Pomoć -> Log poruke"""] ],
+        "app_sett_style_allow_volume_muted_sound_style": [
+            [0, """Play sound when "Mute" pressed"""],
+            [1, """Zvuk kada je dugme "Mute" pritisnuto"""] ],
+        "app_sett_style_allow_volume_unmuted_sound_style": [
+            [0, """Play sound when "UnMute" pressed"""],
+            [1, """Zvuk kada je dugme "UnMute" pritisnuto"""] ],
+        "allow_volume_muted_sound_desc": [
+            [0, """Emit a sound when the user mutes the sound."""],
+            [1, """Emituj zvuk kada korisnik mutira zvuk."""] ],
+        "allow_volume_unmuted_sound_desc": [
+            [0, """Emit a sound when the user unmutes the sound."""],
+            [1, """Emituj zvuk kada korisnik demutira zvuk."""] ],
+        "app_sett_style_frameless_log_window_style": [
+            [0, """Log dialog without frame"""],
+            [1, """Log dijalog bez okvira"""] ],
+        "frameless_log_window_desc": [
+            [0, """Show log window without frame and title bar."""],
+            [1, """Prikaži log prozor bez okvira i naslovne linije."""] ],
+        "add_def_syn_hint_msg_replace_serbian_chars_title": [
+            [0, """Editing text"""],
+            [1, """Izmena teksta"""] ],
+        "add_def_syn_hint_msg_replace_serbian_chars_text": [
+            [0, """Do you want to replace all (čćžšđ) characters in the text?"""],
+            [1, """Da li želite da zamenite u tekstu sve (čćžšđ) karaktere ?"""] ],
+        "syn_hint_menu_add_serbian_text": [
+            [0, """Add lines with Serbian characters (čćžšđ) cleared"""],
+            [1, """Dodaj linije sa srpskim znakovima (čćžšđ) očišćene"""] ],
+        "syn_hint_menu_add_serbian_tt": [
+            [0, """All lines containing Serbian characters (čćžšđ) will be added to the end of the text without these characters"""],
+            [1, """Sve linije koje sadrže srpske znakove (čćžšđ) će biti dodate na kraj teksta bez ovih znakova"""] ],
+        "syn_hint_menu_copy_serbian_text": [
+            [0, """Copy lines with Serbian characters (čćžšđ) cleared"""],
+            [1, """Kopiraj linije sa srpskim znakovima (čćžšđ) očišćene"""] ],
+        "syn_hint_menu_copy_serbian_tt": [
+            [0, """All lines containing Serbian characters (čćžšđ) will be copied to the clipboard without these characters"""],
+            [1, """Sve linije koje sadrže srpske znakove (čćžšđ) će biti kopirane u clipboard bez ovih znakova"""] ],
+        "syn_hint_menu_replace_serbian_text": [
+            [0, """Remove all Serbian characters (čćžšđ)"""],
+            [1, """Izbaci sve srpske znakove (čćžšđ)"""] ],
+        "syn_hint_menu_replace_serbian_tt": [
+            [0, """All Serbian characters (čćžšđ) in the text will be replaced with the version without ticks (cczsdj)"""],
+            [1, """Svi srpski znakovi (čćžšđ) u tekstu će biti zamenjeni sa verzijom bez kvačica (cczsdj)"""] ],
+        "export_import_tab_export_blocks_text": [
+            [0, """Export blocks"""],
+            [1, """Izvezi blokove"""] ],
+        "export_import_tab_import_blocks_text": [
+            [0, """Import blocks"""],
+            [1, """Uvezi blokove"""] ],
+        "export_import_tab_export_defs_text": [
+            [0, """Export definitions"""],
+            [1, """Izvezi definicije"""] ],
+        "export_import_tab_import_defs_text": [
+            [0, """Import definitions"""],
+            [1, """Uvezi definicije"""] ],
+        "block_context_copy_text": [
+            [0, """Copy this block"""],
+            [1, """Kopiraj ovaj blok"""] ],
+        "block_context_copy_desc": [
+            [0, """Copies this block to the clipboard"""],
+            [1, """Kopira ovaj blok u clipboard"""] ],
+        "block_context_send_to_text": [
+            [0, """Send to..."""],
+            [1, """Pošalji u ... """] ],
+        "block_context_send_to_export_blocks_text": [
+            [0, """Export blocks"""],
+            [1, """Izvezi blokove"""] ],
+        "block_context_send_to_export_blocks_desc": [
+            [0, """Add this block to the "Export Blocks" dialog"""],
+            [1, """Dodaj ovaj blok u dijalog "Izvezi blokove" """] ],
+        "block_context_copy_all_text": [
+            [0, """Copy all blocks in the list"""],
+            [1, """Kopiraj sve blokove u listi"""] ],
+        "block_context_copy_all_desc": [
+            [0, """Copies all blocks from the list to the clipboard"""],
+            [1, """Kopira sve blokove iz liste u clipboard"""] ],
+        "block_context_send_to_all_text": [
+            [0, """Send all blocks to ..."""],
+            [1, """Pošalji sve blokove u ... """] ],
+        "definition_context_copy_text": [
+            [0, """Copy this definition"""],
+            [1, """Kopiraj ovu definiciju"""] ],
+        "definition_context_copy_desc": [
+            [0, """Copies this definition to the clipboard"""],
+            [1, """Kopira ovu definiciju u clipboard"""] ],
+        "definition_context_send_to_text": [
+            [0, """Send to..."""],
+            [1, """Pošalji u ... """] ],
+        "definition_context_send_to_export_definitions_text": [
+            [0, """Export definitions"""],
+            [1, """Izvezi definicije"""] ],
+        "definition_context_send_to_export_definitions_desc": [
+            [0, """Add this definition to the "Export Definitions" dialog"""],
+            [1, """Dodaj ovu definiciju u dijalog "Izvezi definicjje" """] ],
+        "definition_context_copy_all_text": [
+            [0, """Copy all definitions in the list"""],
+            [1, """Kopiraj sve definicije u listi"""] ],
+        "definition_context_copy_all_desc": [
+            [0, """Copies all definitions from the list to the clipboard"""],
+            [1, """Kopira sve definicije iz liste u clipboard"""] ],
+        "definition_context_send_to_all_text": [
+            [0, """Send all definitions from the list to ..."""],
+            [1, """Pošalji sve definicije iz liste u ... """] ],
+        "block_context_copy_add_text": [
+            [0, """Add this block to the clipboard"""],
+            [1, """Dodaj ovaj blok u clipboard"""] ],
+        "block_context_copy_add_desc": [
+            [0, """Adds this block to the clipboard on top of other blocks currently in the clipboard"""],
+            [1, """Dodaje ovaj blok u clipboard na druge blokove koji  su trenutno u clipboardu"""] ],
+        "block_context_clear_text": [
+            [0, """Remove this block from the clipboard"""],
+            [1, """Ukloni ovaj blok iz clipboarda"""] ],
+        "block_context_clear_desc": [
+            [0, """Removes this block from the clipboard"""],
+            [1, """Uklanja ovaj blok iz clipboarda"""] ],
+        "definition_context_copy_add_text": [
+            [0, """Add this definition to the clipboard"""],
+            [1, """Dodaj ovu definiciju u clipboard"""] ],
+        "definition_context_copy_add_desc": [
+            [0, """Adds this definition to the clipboard on top of other definitions currently in the clipboard"""],
+            [1, """Dodaje ovu definiciju u clipboard na druge definicije koje  su trenutno u clipboardu"""] ],
+        "definition_context_clear_text": [
+            [0, """Remove this definition from the clipboard"""],
+            [1, """Ukloni ovu definiciju iz clipboarda"""] ],
+        "definition_context_clear_desc": [
+            [0, """Removes this definition from the clipboard"""],
+            [1, """Uklanja ovu definiciju iz clipboarda"""] ],
+        "block_context_clear_all_text": [
+            [0, """Remove all blocks in the list from the clipboard"""],
+            [1, """Ukloni sve blokove u listi iz clipboarda"""] ],
+        "block_context_clear_all_desc": [
+            [0, """Removes all blocks in the list from the clipboard"""],
+            [1, """Uklanja sve blokove u listi iz clipboarda"""] ],
+        "block_context_copy_add_all_text": [
+            [0, """Add all the blocks in the list to the clipboard"""],
+            [1, """Dodaj sve blokove u listi u clipboard"""] ],
+        "block_context_copy_add_all_desc": [
+            [0, """Adds all blocks from the clipboard list to other blocks currently in the clipboard"""],
+            [1, """Dodaje sve blokove iz liste u clipboard na druge blokove koji  su trenutno u clipboardu"""] ],
+        "block_context_clear_clip_text": [
+            [0, """Remove all blocks from the clipboard"""],
+            [1, """Ukloni sve blokove iz clipboarda"""] ],
+        "block_context_clear_clip_desc": [
+            [0, """Removes all blocks from the clipboard"""],
+            [1, """Uklanja sve blokove iz clipboarda"""] ],
+        "definition_context_clear_all_text": [
+            [0, """Remove all definitions in the list from the clipboard"""],
+            [1, """Ukloni sve definicije u listi iz clipboarda"""] ],
+        "definition_context_clear_all_desc": [
+            [0, """Removes all definitions in the list from the clipboard"""],
+            [1, """Uklanja sve definicije u listi iz clipboarda"""] ],
+        "definition_context_copy_add_all_text": [
+            [0, """Add all definitions in the list to the clipboard"""],
+            [1, """Dodaj sve definicije u listi u clipboard"""] ],
+        "definition_context_copy_add_all_desc": [
+            [0, """Adds all definitions from the clipboard list to other definitions currently in the clipboard"""],
+            [1, """Dodaje sve definicije iz liste u clipboard na druge definicije koje su trenutno u clipboardu"""] ],
+        "definition_context_clear_clip_text": [
+            [0, """Remove all definitions from the clipboard"""],
+            [1, """Ukloni sve definicije iz clipboarda"""] ],
+        "definition_context_clear_clip_desc": [
+            [0, """Removes all definitions from the clipboard"""],
+            [1, """Uklanja sve definicije iz clipboarda"""] ],
+        "block_context_items_in_clip_text": [
+            [0, """#1 items in the clipboard"""],
+            [1, """#1 stavki u clipboardu"""] ],
+        "block_context_items_in_list_text": [
+            [0, """#1 item in the list"""],
+            [1, """#1 stavki u listi"""] ],
+        "block_context_items_found_text": [
+            [0, """#1/#2 items"""],
+            [1, """#1/#2 stavki"""] ],
+        "export_import_btn_export_block_clear_text": [
+            [0, """Clear"""],
+            [1, """Očisti"""] ],
+        "export_import_btn_export_block_clear_tt": [
+            [0, """Remove all items from the list"""],
+            [1, """Ukloni sve stavke sa liste"""] ],
+        "export_import_btn_export_block_paste_text": [
+            [0, """Paste"""],
+            [1, """Nalepi"""] ],
+        "export_import_btn_export_block_paste_tt": [
+            [0, """Add all blocks from the clipboard to the list"""],
+            [1, """Dodaj u listu sve blokove iz clipboard-a"""] ],
+        "export_import_btn_import_block_clear_text": [
+            [0, """Clear"""],
+            [1, """Očisti"""] ],
+        "export_import_btn_import_block_clear_tt": [
+            [0, """Remove all items from the list"""],
+            [1, """Ukloni sve stavke sa liste"""] ],
+        "export_import_btn_import_block_add_file_text": [
+            [0, """File(s)"""],
+            [1, """Datoteka(e)"""] ],
+        "export_import_btn_import_block_add_file_tt": [
+            [0, """Add blocks from one or more files to the list"""],
+            [1, """Dodaj u listu blokove iz jedne ili više datoteka"""] ],
+        "export_import_btn_export_def_clear_text": [
+            [0, """Clear"""],
+            [1, """Očisti"""] ],
+        "export_import_btn_export_def_clear_tt": [
+            [0, """Remove all items from the list"""],
+            [1, """Ukloni sve stavke sa liste"""] ],
+        "export_import_btn_export_def_paste_text": [
+            [0, """Paste"""],
+            [1, """Nalepi"""] ],
+        "export_import_btn_export_def_paste_tt": [
+            [0, """Add to the list all the definitions from the clipboard"""],
+            [1, """Dodaj u listu sve defnicije iz clipboard-a"""] ],
+        "export_import_btn_import_def_clear_text": [
+            [0, """Clear"""],
+            [1, """Očisti"""] ],
+        "export_import_btn_import_def_clear_tt": [
+            [0, """Remove all items from the list"""],
+            [1, """Ukloni sve stavke sa liste"""] ],
+        "export_import_btn_import_def_add_file_text": [
+            [0, """File(s)"""],
+            [1, """Datoteka(e)"""] ],
+        "export_import_btn_import_def_add_file_tt": [
+            [0, """Add to list definitions from one or more files"""],
+            [1, """Dodaj u listu definicije iz jedne ili više datoteka"""] ],
+        "export_import_list_item_source_text": [
+            [0, """SOURCE"""],
+            [1, """IZVOR"""] ],
+        "export_import_lbl_export_block_info_text": [
+            [0, """Total #1 blocks from #2 selected"""],
+            [1, """Ukupno #1 blokova od #2 izabrano"""] ],
+        "export_import_lbl_export_block_info_no_data_text": [
+            [0, """The block list is empty"""],
+            [1, """Lista blokova je prazna"""] ],
+        "export_import_lbl_export_def_info_text": [
+            [0, """Total #1 definition of #2 selected"""],
+            [1, """Ukupno #1 definicija od #2 izabrano"""] ],
+        "export_import_lbl_export_def_info_no_data_text": [
+            [0, """The list of definitions is empty"""],
+            [1, """Lista definicija je prazna"""] ],
+        "export_import_btn_working_abort_text": [
+            [0, """Abort"""],
+            [1, """Otkaži"""] ],
+        "export_import_lbl_execute_title_details_export_blocks_text": [
+            [0, """Export Blocks: Details"""],
+            [1, """Izvezi Blokove: Detalji"""] ],
+        "export_import_lbl_execute_title_actions_export_blocks_text": [
+            [0, """Export Blocks: Actions"""],
+            [1, """Izvezi Blokove: Akcije"""] ],
+        "export_import_btn_execute_confirm_export_blocks_text": [
+            [0, """Confirm Export"""],
+            [1, """Potvrdi Izvoz"""] ],
+        "export_import_btn_execute_details_text": [
+            [0, """View details"""],
+            [1, """Vidi detalje"""] ],
+        "export_import_btn_execute_actions_text": [
+            [0, """View actions"""],
+            [1, """Vidi akcije"""] ],
+        "export_import_lbl_execute_info_collecting_data_text": [
+            [0, """Collecting data..."""],
+            [1, """Prikupljam podatke..."""] ],
+        "export_import_execute_msg_adding_action": [
+            [0, """Adding action"""],
+            [1, """Dodajem akciju"""] ],
+        "export_import_execute_msg_done": [
+            [0, """Done"""],
+            [1, """Urađeno"""] ],
+        "export_import_execute_msg_processing_data": [
+            [0, """Processing data..."""],
+            [1, """Obrađujem podatke..."""] ],
+        "export_import_execute_msg_block": [
+            [0, """Block"""],
+            [1, """Blok"""] ],
+        "export_import_execute_msg_start_metadata": [
+            [0, """Collecting block data..."""],
+            [1, """Prikupljam podatke o blokovima..."""] ],
+        "export_import_execute_msg_define_block_id": [
+            [0, """Block ID = """],
+            [1, """Blok ID = """] ],
+        "export_import_execute_msg_define_block_name": [
+            [0, """Block name = """],
+            [1, """Naziv bloka = """] ],
+        "export_import_execute_msg_define_block_date": [
+            [0, """Block Date = """],
+            [1, """Datum bloka ="""] ],
+        "export_import_execute_msg_define_block_body": [
+            [0, """Block text = """],
+            [1, """Tekst bloka = """] ],
+        "export_import_execute_msg_define_block_body_html": [
+            [0, """Block HTML = """],
+            [1, """Blok HTML = """] ],
+        "export_import_execute_msg_define_block_draft": [
+            [0, """Unfinished block: Value = """],
+            [1, """Nezavršen blok: Vrednost = """] ],
+        "export_import_execute_msg_define_block_tags": [
+            [0, """Tags in block = """],
+            [1, """Tagovi u bloku = """] ],
+        "export_import_execute_msg_define_block_images": [
+            [0, """Images in block = """],
+            [1, """Slike u bloku = """] ],
+        "export_import_execute_msg_define_block_files": [
+            [0, """Files in block = """],
+            [1, """Datoteke u bloku = """] ],
+        "export_import_execute_msg_start_tags": [
+            [0, """Collecting tag data..."""],
+            [1, """Prikupljam podatke o tagovima..."""] ],
+        "export_import_execute_msg_image": [
+            [0, """Image"""],
+            [1, """Slika"""] ],
+        "export_import_execute_msg_define_image_id": [
+            [0, """Image ID = """],
+            [1, """Slika ID = """] ],
+        "export_import_execute_msg_define_image_name": [
+            [0, """Image name = """],
+            [1, """Naziv slike = """] ],
+        "export_import_execute_msg_define_image_description": [
+            [0, """Image description = """],
+            [1, """Opis slike = """] ],
+        "export_import_execute_msg_define_image_source": [
+            [0, """Image source = """],
+            [1, """Izvor slike = """] ],
+        "export_import_execute_msg_define_image_file": [
+            [0, """Image file path = """],
+            [1, """Put do datoteke slike = """] ],
+        "export_import_execute_msg_file": [
+            [0, """File"""],
+            [1, """Datoteka"""] ],
+        "export_import_execute_msg_define_file_id": [
+            [0, """File ID = """],
+            [1, """Datoteka ID = """] ],
+        "export_import_execute_msg_define_file_name": [
+            [0, """File name = """],
+            [1, """Naziv datoteke = """] ],
+        "export_import_execute_msg_define_file_description": [
+            [0, """File description = """],
+            [1, """Opis datoteke = """] ],
+        "export_import_execute_msg_define_file_source": [
+            [0, """File source = """],
+            [1, """Izvor datoteke = """] ],
+        "export_import_execute_msg_define_file_file": [
+            [0, """File path = """],
+            [1, """Putanja do datoteke = """] ],
+        "export_import_execute_msg_tag": [
+            [0, """Tag"""],
+            [1, """Tag"""] ],
+        "export_import_execute_msg_define_tag_id": [
+            [0, """Tag ID = """],
+            [1, """Tag ID = """] ],
+        "export_import_execute_msg_define_tag_name": [
+            [0, """Tag name= """],
+            [1, """Naziv taga= """] ],
+        "export_import_execute_msg_define_tag_description": [
+            [0, """Tag description = """],
+            [1, """Opis taga = """] ],
+        "export_import_execute_msg_processing_data_done": [
+            [0, """Data processing completed."""],
+            [1, """Obrada podataka završena."""] ],
+        "export_import_lbl_execute_info_data_collected": [
+            [0, """Data has been successfully collected"""],
+            [1, """Podaci su uspešno prikupljeni"""] ],
+        "export_import_lbl_execute_info_user_aborted": [
+            [0, """User aborted"""],
+            [1, """Korisnik je prekinuo operaciju"""] ],
+        "export_import_lbl_execute_title_details_import_blocks_text": [
+            [0, """Import Blocks: Details"""],
+            [1, """Uvezi Blokove: Detalji"""] ],
+        "export_import_lbl_execute_title_details_export_defs_text": [
+            [0, """Export Definitions: Details"""],
+            [1, """Izvezi Definicije: Detalji"""] ],
+        "export_import_lbl_execute_title_details_import_defs_text": [
+            [0, """Import Definitions: Details"""],
+            [1, """Uvezi Definicije: Detalji"""] ],
+        "export_import_lbl_execute_title_actions_import_blocks_text": [
+            [0, """Import Blocks: Actions"""],
+            [1, """Uvezi Blokove: Akcije"""] ],
+        "export_import_lbl_execute_title_actions_export_defs_text": [
+            [0, """Export Definitions: Actions"""],
+            [1, """Izvezi Definicije: Akcije"""] ],
+        "export_import_lbl_execute_title_actions_import_defs_text": [
+            [0, """Import Definitions: Actions"""],
+            [1, """Uvezi Definicije: Akcije"""] ],
+        "export_import_execute_msg_define_tag_export_action": [
+            [0, """Prepare tag (ID=#1) for data export"""],
+            [1, """Pripremi tag (ID=#1) za izvoz podataka"""] ],
+        "export_import_execute_msg_refer_to": [
+            [0, """Refers to : """],
+            [1, """Odnosi se na : """] ],
+        "export_import_execute_msg_start_images": [
+            [0, """Collecting images data..."""],
+            [1, """Prikupljam podatke o slikama ..."""] ],
+        "export_import_execute_msg_define_image_export_action": [
+            [0, """Prepare image (ID=#1) for data export"""],
+            [1, """Pripremi sliku (ID=#1) za izvoz podataka"""] ],
+        "export_import_execute_msg_start_files": [
+            [0, """Collecting files data..."""],
+            [1, """Prikupljam podatke o datotekama ..."""] ],
+        "export_import_execute_msg_define_file_export_action": [
+            [0, """Prepare file (ID=#1) for data export"""],
+            [1, """Pripremi datoteku (ID=#1) za izvoz podataka"""] ],
+        "export_import_execute_msg_define_block_export_action": [
+            [0, """Prepare block (ID=#1) for data export"""],
+            [1, """Pripremi blok (ID=#1) za izvoz podataka"""] ],
+        "export_import_execute_msg_def": [
+            [0, """Definition"""],
+            [1, """Definicija"""] ],
+        "export_import_execute_msg_start_metadata_defs": [
+            [0, """Collecting definitions data..."""],
+            [1, """Prikupljam podatke o definicijama..."""] ],
+        "export_import_execute_msg_define_def_id": [
+            [0, """Definition ID = """],
+            [1, """Definicija ID = """] ],
+        "export_import_execute_msg_define_def_name": [
+            [0, """Definition name = """],
+            [1, """Naziv defincije = """] ],
+        "export_import_execute_msg_define_def_description": [
+            [0, """Definition description = """],
+            [1, """Opis defincije = """] ],
+        "export_import_execute_msg_define_def_synonyms": [
+            [0, """Definition synonyms = """],
+            [1, """Sinonimi defincije = """] ],
+        "export_import_execute_msg_define_def_export_action": [
+            [0, """Prepare definition (ID=#1) for data export"""],
+            [1, """Pripremi definiciju (ID=#1) za izvoz podataka"""] ],
+        "export_import_save_archive_dialog_title": [
+            [0, """Select the ZIP archive to export"""],
+            [1, """Izaberite ZIP arhivu za izvoz"""] ],
+        "export_import_lbl_execute_info_process_actions": [
+            [0, """Processing actions"""],
+            [1, """Procesuiram akcije"""] ],
+        "export_import_lbl_execute_title_importing_blocks": [
+            [0, """Importing blocks..."""],
+            [1, """Uvozim blokove..."""] ],
+        "export_import_lbl_execute_title_importing_defs": [
+            [0, """Importing definitions..."""],
+            [1, """Uvozim definicije..."""] ],
+        "export_import_lbl_execute_title_exporting_blocks": [
+            [0, """Exporting blocks..."""],
+            [1, """Izvozim blokove..."""] ],
+        "export_import_lbl_execute_title_exporting_defs": [
+            [0, """Exporting definitions..."""],
+            [1, """Izvozim definicije..."""] ],
+        "export_import_execute_msg_start_create_archive": [
+            [0, """Starting to create an archive..."""],
+            [1, """Započinjem kreiranje arhive..."""] ],
+        "export_import_execute_msg_start_archive_name": [
+            [0, """Archive name: """],
+            [1, """Naziv arhive: """] ],
+        "export_import_execute_msg_start_archive_error": [
+            [0, """An error occurred!"""],
+            [1, """Dogodila se greška !"""] ],
+        "export_import_execute_msg_error_duplicate_block1": [
+            [0, """Block ID="""],
+            [1, """Blok ID="""] ],
+        "export_import_execute_msg_error_duplicate_block2": [
+            [0, """ already exists in the archive!"""],
+            [1, """ već postoji u arhivi !"""] ],
+        "export_import_execute_msg_error_duplicate_def1": [
+            [0, """Definition ID="""],
+            [1, """Definicija ID="""] ],
+        "export_import_execute_msg_error_duplicate_def2": [
+            [0, """ already exists in the archive!"""],
+            [1, """ već postoji u arhivi !"""] ],
+        "export_import_execute_msg_operation_aborted": [
+            [0, """Operation aborted!"""],
+            [1, """Operacija je prekinuta!"""] ],
+        "export_import_execute_msg_error_image_not_found": [
+            [0, """Image file not found. """],
+            [1, """Datoteka sa slikom nije pronađena. """] ],
+        "export_import_execute_msg_error_file_not_found": [
+            [0, """File not found. """],
+            [1, """Datoteka nije pronađena. """] ],
+        "export_import_execute_msg_error_unknown_object": [
+            [0, """The archiving process encountered an unspecified object: """],
+            [1, """Proces arhiviranja je naišao na neodređeni objekat: """] ],
+        "export_import_execute_msg_archive_success": [
+            [0, """Data export has been completed successfully!"""],
+            [1, """Izvoz podataka je uspešno završen !"""] ],
+        "export_import_execute_msg_error_json_write": [
+            [0, """Error saving JSON data file!"""],
+            [1, """Greška u snimanju JSON datoteke sa podacima!"""] ],
+        "export_import_btn_execute_done_text": [
+            [0, """ Done!"""],
+            [1, """ Završeno!"""] ],
+        "export_import_lbl_execute_info_done_success": [
+            [0, """Data processed successfully!
+No errors."""],
+            [1, """Podaci su uspešno obrađeni!
+Nema grešaka."""] ],
+        "export_import_lbl_execute_info_done_fail": [
+            [0, """A data processing error occurred!
+Not all actions could be processed."""],
+            [1, """Dogodila se greška u obradi podataka!
+Nisu sve akcije mogle biti procesuirane."""] ],
+        "export_import_execute_msg_error_archive_not_created": [
+            [0, """The archive file could not be created."""],
+            [1, """Datoteka sa arhivom nije mogla biti kreirana."""] ],
+        "export_import_open_archive_dialog_title": [
+            [0, """Select an archive"""],
+            [1, """Izberite arhivu"""] ],
+        "export_import_msg_bad_archive_title": [
+            [0, """Bad archive"""],
+            [1, """Neispravna arhiva"""] ],
+        "export_import_msg_bad_archive_text": [
+            [0, """The archive you selected does not contain block or definition data."""],
+            [1, """Arhiva koju ste izabrali ne sadrži podatke o blokovima ili definicijama."""] ],
+        "export_import_msg_extract_archive_error_title": [
+            [0, """Unpacking error"""],
+            [1, """Greška u raspakivanju"""] ],
+        "export_import_msg_extract_archive_error_text": [
+            [0, """An error occurred while extracting the archive."""],
+            [1, """Dogodila se greška u raspakivanju arhive."""] ],
+        "export_import_msg_archive_no_data_title": [
+            [0, """The archive has no data"""],
+            [1, """Arhiva nema podataka"""] ],
+        "export_import_msg_archive_no_block_has_def_text": [
+            [0, """The selected archive does not contain block data.
+However, this archive contains the #1 definition."""],
+            [1, """Izabrana arhiva ne sadži podatke o blokovima.
+Međutim, ova arhiva sadži #1 definicija."""] ],
+        "export_import_msg_archive_no_block_no_def_text": [
+            [0, """The selected archive does not contain data about blocks or definitions."""],
+            [1, """Izabrana arhiva ne sadži podatke o blokovima ili definicijama."""] ],
+        "export_import_msg_archive_has_block_no_def_text": [
+            [0, """The selected archive does not contain definition data.
+However, this archive contains #1 blocks."""],
+            [1, """Izabrana arhiva ne sadži podatke o definicijama.
+Međutim, ova arhiva sadži #1 blokova."""] ],
+        "export_import_execute_msg_item_disabled": [
+            [0, """This item is not selected."""],
+            [1, """Ova stavka nije selektovana."""] ],
+        "export_import_btn_execute_confirm_import_blocks_text": [
+            [0, """Confirm Import"""],
+            [1, """Potvrdi Uvoz"""] ],
+        "export_import_execute_msg_define_tag_import_action": [
+            [0, """Prepare tag (ID=#1) for data import"""],
+            [1, """Pripremi tag (ID=#1) za uvoz podataka"""] ],
+        "compare_tag_lbl_title_text": [
+            [0, """Compare Tags"""],
+            [1, """Uporedi Tagove"""] ],
+        "compare_tag_lbl_desc_text": [
+            [0, """The found tag has the same name as the tag in your database, but the tag description is different from the description for the tag in your database.
+Do you want to create a new tag or use an existing tag in your database?"""],
+            [1, """Pronađeni tag ima isti naziv kao tag u vašoj bazi podataka ali opis taga se razlikuje od opisa za tag u vašoj bazi.
+Da li želite da napravite novi tag ili da koristite tag koji postoji u vašoj bazi ?"""] ],
+        "compare_btn_tag_new_text": [
+            [0, """Add a new tag"""],
+            [1, """Dodaj novi tag"""] ],
+        "compare_btn_tag_old_text": [
+            [0, """Use an existing tag"""],
+            [1, """Koristi postojeći tag"""] ],
+        "compare_win_title_text": [
+            [0, """Issue resolver"""],
+            [1, """Solucija problema"""] ],
+        "compare_tag_item_name": [
+            [0, """Tag name"""],
+            [1, """Naziv taga"""] ],
+        "compare_tag_item_desc": [
+            [0, """Tag description"""],
+            [1, """Opis taga"""] ],
+        "export_import_execute_msg_use_new_tag": [
+            [0, """Create a new tag"""],
+            [1, """Kreiraj novi tag"""] ],
+        "export_import_execute_msg_use_old_tag": [
+            [0, """Use an existing tag"""],
+            [1, """Koristi postojeći tag"""] ],
+        "export_import_execute_msg_use_new_image": [
+            [0, """Create a new image."""],
+            [1, """Kreiraj novu sliku."""] ],
+        "export_import_execute_msg_use_old_image": [
+            [0, """Use an existing image"""],
+            [1, """Koristi postojeću sliku"""] ],
+        "export_import_execute_msg_define_image_import_action": [
+            [0, """Prepare image (ID=#1) for data export"""],
+            [1, """Pripremi sliku (ID=#1) za uvoz podataka"""] ],
+        "compare_image_lbl_title_text": [
+            [0, """Compare Images"""],
+            [1, """Uporedi Slike"""] ],
+        "compare_image_item_id": [
+            [0, """Image ID"""],
+            [1, """Slika ID"""] ],
+        "compare_image_item_name": [
+            [0, """Image name"""],
+            [1, """Naziv slike"""] ],
+        "compare_image_item_desc": [
+            [0, """Image description"""],
+            [1, """Opis slike"""] ],
+        "compare_image_item_http": [
+            [0, """Image source"""],
+            [1, """Izvor slike"""] ],
+        "compare_image_item_file": [
+            [0, """The file where the image is located"""],
+            [1, """Datoteka u kojoj se slika nalazi"""] ],
+        "compare_image_lbl_desc_text": [
+            [0, """The image found may already exist in your database.
+Do you want to add a new image or use an image that already exists in your database?"""],
+            [1, """Pronađena slika možda već postoji u vašoj bazi podataka.
+Da li želite da dodate novu sliku ili da koristite sliku koja već postoji u vašoj bazi ?"""] ],
+        "export_import_execute_msg_check_image": [
+            [0, """Checking if the image already exists... """],
+            [1, """Proveravam da li slika već postoji ... """] ],
+        "export_import_execute_msg_check_image_old": [
+            [0, """Found."""],
+            [1, """Pronađena."""] ],
+        "export_import_execute_msg_check_image_new": [
+            [0, """Adding new."""],
+            [1, """Dodajem novu."""] ],
+        "export_import_execute_msg_define_file_import_action": [
+            [0, """Prepare file (ID=#1) for data import"""],
+            [1, """Pripremi datoteku (ID=#1) za uvoz podataka"""] ],
+        "export_import_execute_msg_check_file": [
+            [0, """Checking if the file already exists..."""],
+            [1, """Proveravam da li datoteka već postoji ... """] ],
+        "export_import_execute_msg_use_new_file": [
+            [0, """Create a new file."""],
+            [1, """Kreiraj novu datoteku."""] ],
+        "export_import_execute_msg_use_old_file": [
+            [0, """Use an existing file."""],
+            [1, """Koristi postojeću datoteku."""] ],
+        "compare_file_lbl_title_text": [
+            [0, """Compare Files"""],
+            [1, """Uporedi Datoteke"""] ],
+        "compare_file_lbl_desc_text": [
+            [0, """The file found may already exist in your database.
+Do you want to add a new file or use a file that already exists in your database?"""],
+            [1, """Pronađena datoteka možda već postoji u vašoj bazi podataka.
+Da li želite da dodate novu datoteku ili da koristite datoteku koja već postoji u vašoj bazi ?"""] ],
+        "compare_file_item_id": [
+            [0, """File ID"""],
+            [1, """Datoteka ID"""] ],
+        "compare_file_item_name": [
+            [0, """File name"""],
+            [1, """Naziv datoteke"""] ],
+        "compare_file_item_desc": [
+            [0, """File description"""],
+            [1, """Opis datoteke"""] ],
+        "compare_file_item_http": [
+            [0, """File source"""],
+            [1, """Izvor datoteke"""] ],
+        "compare_file_item_file": [
+            [0, """The path to the file"""],
+            [1, """Putanja do datoteke"""] ],
+        "compare_file_item_size": [
+            [0, """File size"""],
+            [1, """Veličina datoteke"""] ],
+        "compare_file_item_created": [
+            [0, """File creation time"""],
+            [1, """Vreme kreiranja datoteke"""] ],
+        "export_import_execute_msg_define_block_import_action": [
+            [0, """Prepare block (ID=#1) for data import"""],
+            [1, """Pripremi blok (ID=#1) za uvoz podataka"""] ],
+        "export_import_execute_msg_check_def": [
+            [0, """Checking if the definition already exists..."""],
+            [1, """Proveravam da li definicija već postoji ... """] ],
+        "export_import_execute_msg_check_def_renamed": [
+            [0, """Definition renamed"""],
+            [1, """Definicija preimenovana"""] ],
+        "export_import_execute_msg_check_def_new_name": [
+            [0, """New definition name: """],
+            [1, """Novo ime definicije: """] ],
+        "export_import_execute_msg_check_def_new_def": [
+            [0, """A new definition"""],
+            [1, """Nova definicija"""] ],
+        "export_import_execute_msg_check_def_update": [
+            [0, """Update an existing definition"""],
+            [1, """Ažuriraj postojeću definiciju"""] ],
+        "compare_btn_tag_new_update_text": [
+            [0, """Update definition"""],
+            [1, """Ažuriraj definiciju"""] ],
+        "compare_btn_tag_old_rename_text": [
+            [0, """Rename definition"""],
+            [1, """Preimenuj definiciju"""] ],
+        "compare_def_lbl_title_text": [
+            [0, """Rename a new or update an existing definition"""],
+            [1, """Preimenuj novu ili ažuriraj postojeću definiciju"""] ],
+        "compare_def_lbl_desc_text": [
+            [0, """The definition you want to add already exists!
+1.) You can choose a different name for the new definition or...
+2.) Update the existing definition (synonyms and images from the new definition will be added to the existing definition)"""],
+            [1, """Definicija koju želite da dodate već postoji !
+1.) Možete izabrati drugo ime za novu definiciju ili...
+2.) Ažurirajte postojeću definiciju (sinonimi i slike iz nove definicije će biti dodani postojećoj definiciji)"""] ],
+        "compare_def_item_id": [
+            [0, """Definition ID"""],
+            [1, """Definicija ID"""] ],
+        "compare_def_item_name": [
+            [0, """Definition name"""],
+            [1, """Naziv definicije"""] ],
+        "compare_def_item_syn": [
+            [0, """Synonyms"""],
+            [1, """Sinonimi"""] ],
+        "export_import_execute_msg_define_def_import_action": [
+            [0, """Prepare definition (ID=#1) for data import"""],
+            [1, """Pripremi definiciju (ID=#1) za uvoz podataka"""] ],
+        "export_import_execute_msg_unpacking_archive": [
+            [0, """Unpacking the archive ... """],
+            [1, """Raspakujem arhivu ... """] ],
+        "export_import_execute_msg_import_started": [
+            [0, """Data import has been started"""],
+            [1, """Uvoz podataka je startovan"""] ],
+        "export_import_execute_msg_importing_block": [
+            [0, """Importing block ID="""],
+            [1, """Uvozim blok ID="""] ],
+        "export_import_execute_msg_importing_def": [
+            [0, """Importing definition ID="""],
+            [1, """Uvozim definiciju ID="""] ],
+        "export_import_execute_msg_importing_tag": [
+            [0, """Importing tag ID="""],
+            [1, """Uvozim tag ID="""] ],
+        "export_import_execute_msg_importing_image": [
+            [0, """Importing image ID="""],
+            [1, """Uvozim sliku ID="""] ],
+        "export_import_execute_msg_importing_file": [
+            [0, """Importing file ID="""],
+            [1, """Uvozim datoteku ID="""] ],
+        "export_import_execute_msg_archive_success_import": [
+            [0, """Data import completed successfully!"""],
+            [1, """Uvoz podataka je uspešno završen !"""] ],
+        "compare_btn_tag_new_image_text": [
+            [0, """Add a new image"""],
+            [1, """Dodaj novu sliku"""] ],
+        "compare_btn_tag_new_file_text": [
+            [0, """Add a new file"""],
+            [1, """Dodaj novu datoteku"""] ],
+        "compare_btn_tag_old_image_text": [
+            [0, """Use an existing image"""],
+            [1, """Koristi postojeću sliku"""] ],
+        "compare_btn_tag_old_file_text": [
+            [0, """Use an existing file"""],
+            [1, """Koristi postojeću datoteku"""] ],
+        "export_import_main_win_msg_block_exported_title": [
+            [0, """Block export"""],
+            [1, """Izvoz blokova"""] ],
+        "export_import_main_win_msg_block_exported_text": [
+            [0, """The blocks have been exported successfully."""],
+            [1, """Blokovi su uspešno izveženi."""] ],
+        "export_import_main_win_msg_block_imported_title": [
+            [0, """Block import"""],
+            [1, """Uvoz blokova"""] ],
+        "export_import_main_win_msg_block_imported_text": [
+            [0, """The blocks have been imported successfully."""],
+            [1, """Blokovi su uspešno uveženi."""] ],
+        "export_import_main_win_msg_def_exported_title": [
+            [0, """Export definitions"""],
+            [1, """Izvoz definicija"""] ],
+        "export_import_main_win_msg_def_exported_text": [
+            [0, """Definitions exported successfully."""],
+            [1, """Definicije su uspešno izvežene."""] ],
+        "export_import_main_win_msg_def_imported_title": [
+            [0, """Import definitions"""],
+            [1, """Uvoz definicija"""] ],
+        "export_import_main_win_msg_def_imported_text": [
+            [0, """Definitions imported successfully."""],
+            [1, """Definicije su uspešno uvežene."""] ],
+        "app_sett_style_ei_name": [
+            [0, """Dialog: Import-Export of blocks and definitions"""],
+            [1, """Dijalog: Uvoz-Izvoz blokova i definicija"""] ],
+        "app_sett_style_export_icon_path_style": [
+            [0, """Data export icon"""],
+            [1, """Ikona izvoza podataka"""] ],
+        "app_sett_style_import_icon_path_style": [
+            [0, """Import data icon"""],
+            [1, """Ikona uvoza podataka"""] ],
+        "app_sett_style_export_import_tab_action_stylesheet_name": [
+            [0, """TabWidget: Tabbed widget for import-export"""],
+            [1, """TabWidget: Widget sa karticama za uvoz-izvoz"""] ],
+        "app_sett_style_export_import_btn_exec_stylesheet_name": [
+            [0, """Button: Start import/export"""],
+            [1, """Dugme: Započni uvoz/izvoz"""] ],
+        "app_sett_style_export_import_btn_cancel_stylesheet_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži"""] ],
+        "app_sett_style_export_import_tab_export_block_name": [
+            [0, """Tab: Export Blocks"""],
+            [1, """Tab: Izvezi Blokove"""] ],
+        "app_sett_style_export_import_tab_card_stylesheet_name": [
+            [0, """Tab with import/export list"""],
+            [1, """Tab sa listom za uvoz/izvoz"""] ],
+        "app_sett_style_export_import_button_clear_stylesheet_name": [
+            [0, """Button: Clear list"""],
+            [1, """Dugme: Očisti listu"""] ],
+        "app_sett_style_export_import_button_paste_stylesheet_name": [
+            [0, """Button: Paste data from clipboard"""],
+            [1, """Dugme: Nalepi podatke iz clipboarda"""] ],
+        "app_sett_style_export_import_info_label_stylesheet_name": [
+            [0, """List information label"""],
+            [1, """Labela sa informacijama o listi"""] ],
+        "app_sett_style_export_import_items_list_stylesheet_name": [
+            [0, """List of blocks/definitions to import or export"""],
+            [1, """Lista blokova/definicija za uvoz ili izvoz"""] ],
+        "app_sett_style_export_import_tab_import_block_name": [
+            [0, """Tab: Import Blocks"""],
+            [1, """Tab: Uvezi Blokove"""] ],
+        "app_sett_style_export_import_button_add_file_stylesheet_name": [
+            [0, """Button: Add archive to import data"""],
+            [1, """Dugme: Dodaj arhivu za uvoz podataka"""] ],
+        "app_sett_style_export_import_tab_export_def_name": [
+            [0, """Tab: Export Definitions"""],
+            [1, """Tab: Izvezi Definicije"""] ],
+        "app_sett_style_export_import_tab_import_def_name": [
+            [0, """Tab: Import Definitions"""],
+            [1, """Tab: Uvezi Definicije"""] ],
+        "app_sett_style_export_import_list_item_enabled_name": [
+            [0, """An item in the export/import list
+Appearance when the item is enabled"""],
+            [1, """Stavka u listi za izvoz/uvoz
+Izgled kada je stavka omogućena"""] ],
+        "app_sett_style_export_import_list_item_disabled_name": [
+            [0, """An item in the export/import list
+Appearance when the item is not enabled"""],
+            [1, """Stavka u listi za izvoz/uvoz
+Izgled kada je stavka nije omogućena"""] ],
+        "app_sett_style_export_import_item_card_stylesheet_name": [
+            [0, """Frame: Item frame appearance"""],
+            [1, """Okvir: Izgled kartice stavke"""] ],
+        "app_sett_style_export_import_list_item_enabled_lbl_enabled_stylesheet_name": [
+            [0, """Label: A marker for toggle an item"""],
+            [1, """Labela: Marker za štikliranje stavke"""] ],
+        "app_sett_style_export_import_list_item_enabled_lbl_id_stylesheet_name": [
+            [0, """Label: A field with the ID of the item"""],
+            [1, """Labela: Polje sa ID-em stavke"""] ],
+        "app_sett_style_export_import_list_item_enabled_lbl_name_stylesheet_name": [
+            [0, """Label: Field with the name of the item"""],
+            [1, """Labela: Polje sa nazivom stavke"""] ],
+        "app_sett_style_export_import_list_item_enabled_lbl_src_stylesheet_name": [
+            [0, """Label: Field with the source of the item"""],
+            [1, """Labela: Polje sa izvorom stavke"""] ],
+        "app_sett_style_export_import_list_item_enabled_lbl_text_stylesheet_name": [
+            [0, """Label: Field with item text"""],
+            [1, """Labela: Polje sa tekstom stavke"""] ],
+        "app_sett_style_export_import_list_execute_name": [
+            [0, """A frame with options for performing import / export"""],
+            [1, """Okvir sa opcijama za izvršenje uvoza / izvoza"""] ],
+        "app_sett_style_export_import_frm_execute_stylesheet_name": [
+            [0, """General appearance of the frame"""],
+            [1, """Generalni izgled okvira"""] ],
+        "app_sett_style_export_import_lbl_execute_title_stylesheet_name": [
+            [0, """Frame title"""],
+            [1, """Naslov okvira"""] ],
+        "app_sett_style_export_import_txt_execute_stylesheet_name": [
+            [0, """TextBox: Text box with details"""],
+            [1, """TextBox: Tekst polje sa detaljima"""] ],
+        "app_sett_style_export_import_lst_execute_stylesheet_name": [
+            [0, """ListBox: List with actions"""],
+            [1, """ListBox: Lista sa akcijama"""] ],
+        "app_sett_style_export_import_btn_execute_confirm_stylesheet_name": [
+            [0, """Button: Confirm"""],
+            [1, """Dugme: Potvrdi"""] ],
+        "app_sett_style_export_import_btn_execute_done_stylesheet_name": [
+            [0, """Button: Done"""],
+            [1, """Dugme: Završeno"""] ],
+        "app_sett_style_export_import_btn_execute_cancel_stylesheet_name": [
+            [0, """Button: Cancel"""],
+            [1, """Dugme: Otkaži"""] ],
+        "app_sett_style_export_import_btn_execute_details_stylesheet_name": [
+            [0, """Button: Show details"""],
+            [1, """Dugme: Prikaži detalje"""] ],
+        "app_sett_style_export_import_btn_execute_actions_stylesheet_name": [
+            [0, """Button: Show actions"""],
+            [1, """Dugme: Prikaži akcije"""] ],
+        "app_sett_style_export_import_lbl_execute_info_correct_stylesheet_name": [
+            [0, """Labels: Information - if there are no errors"""],
+            [1, """Labela: Informacije - ako nema grešaka"""] ],
+        "app_sett_style_export_import_lbl_execute_info_incorrect_stylesheet_name": [
+            [0, """Labels: Information - if there are errors"""],
+            [1, """Labela: Informacije - ako ima grešaka"""] ],
+        "app_sett_style_compare_name": [
+            [0, """Dialog: Warnings in Import-Export of blocks and definitions"""],
+            [1, """Dijalog: Upozorenja u Uvozu-Izvozu blokova i definicija"""] ],
+        "app_sett_style_compare_frm_tag_stylesheet_style": [
+            [0, """Appearance of the data frame"""],
+            [1, """Izgled okvira sa podacima"""] ],
+        "app_sett_compare_win_icon_path_style": [
+            [0, """Dialog icon"""],
+            [1, """Ikona dijaloga"""] ],
+        "app_sett_style_compare_new_data_name": [
+            [0, """New data to be imported"""],
+            [1, """Novi podatak koji se uvozi"""] ],
+        "app_sett_style_compare_old_data_name": [
+            [0, """Old data that is in the database"""],
+            [1, """Stari podatak koji se nalazi u bazi podataka"""] ],
+        "app_sett_style_compare_lbl_tag_new_stylesheet_name": [
+            [0, """Label: Description of the new data"""],
+            [1, """Labela: Opis novog podatka"""] ],
+        "app_sett_style_compare_lbl_tag_old_stylesheet_name": [
+            [0, """Label: Description of the data in the database"""],
+            [1, """Labela: Opis podatka u bazi podataka"""] ],
+        "app_sett_style_compare_btn_tag_new_stylesheet_name": [
+            [0, """Button: Select new data"""],
+            [1, """Dugme: Izaberi novi podatak"""] ],
+        "app_sett_style_compare_btn_tag_old_stylesheet_name": [
+            [0, """Button: Select data from the database"""],
+            [1, """Dugme: Izaberi podatak iz baze podataka"""] ],
+        "app_sett_style_ccompare_lbl_desc_stylesheet_name": [
+            [0, """Label: Description of the problem being solved"""],
+            [1, """Labela: Opis problema koji se rešava"""] ],
+        "app_sett_style_compare_btn_abort_stylesheet_name": [
+            [0, """Button: Abort"""],
+            [1, """Dugme: Otkaži"""] ],
+        "app_sett_style_compare_txt_rename_stylesheet_name": [
+            [0, """TextBox: Rename the new data"""],
+            [1, """TextBox: Preimenuj novi podatak"""] ],
+        "app_sett_style_main_menu_help_name": [
+            [0, """Main menu: Help"""],
+            [1, """Glavni meni: Pomoć"""] ],
+        "export_import_send_to_msg_title": [
+            [0, """Update"""],
+            [1, """Ažuriranje"""] ],
+        "export_import_send_to_msg_text": [
+            [0, """New object(s) received (#1)"""],
+            [1, """Novi objekat primljen (#1)"""] ],
+        "export_import_send_to_msg_block_text": [
+            [0, """New block received (#1)"""],
+            [1, """Novi block primljen (#1)"""] ],
+        "export_import_send_to_msg_def_text": [
+            [0, """New definition received (#1)"""],
+            [1, """Nova definicija primljena (#1)"""] ],
+        "cursor_drag_block": [
+            [0, """Block ID"""],
+            [1, """Blok ID"""] ],
+        "compare_append_new": [
+            [0, """A new archive will be created.
+This operation will #1 old archive !"""],
+            [1, """Nova arhiva će biti kreirana.
+Ova operacija će #1 staru arhivu !"""] ],
+        "compare_append_new_delete": [
+            [0, """delete"""],
+            [1, """obrisati"""] ],
+        "compare_append_old": [
+            [0, """Contents of the old archive:"""],
+            [1, """Sadržaj stare arhive:"""] ],
+        "compare_btn_tag_new_append_text": [
+            [0, """Create new archive"""],
+            [1, """Kreiraj novu arhivu"""] ],
+        "compare_btn_tag_old_append_text": [
+            [0, """Add to existing archive"""],
+            [1, """Dodaj u postojeću arhivu"""] ],
+        "compare_append_lbl_title_text": [
+            [0, """Select an action"""],
+            [1, """Izaberite radnju"""] ],
+        "compare_append_lbl_desc_text": [
+            [0, """The archive you selected already exists.
+Do you want to create a new archive (the old archive will be deleted) or do you want to add data to the old archive (the archive will contain both old and new data)"""],
+            [1, """Arhiva koju ste izabrali već postoji.
+Da li želite da kreirate novu arhivu (stara arhiva će biti obrisana) ili želite da dodate podatke u staru arhivu (arhiva će sadržati i stare i nove podatke)"""] ],
+        "compare_append_no_files": [
+            [0, """The archive contains no data"""],
+            [1, """Arhiva ne sadrži podatke"""] ],
+        "compare_append_not_archive": [
+            [0, """The selected file is not an archive."""],
+            [1, """Izabrana datoteka nije arhiva."""] ],
+        "compare_append_not_valid_archive": [
+            [0, """The selected archive is not valid MyJournal Export-Import archive."""],
+            [1, """Izabrana arhiva nije MyJournal Export-Import arhiva."""] ],
+        "export_import_msg_failed_blocks": [
+            [0, """"""],
+            [1, """Ukupno #1 blokova već postoji u staroj arhivi. Blokovi koji već postoje su izbrisani iz stare arhive i zamenjeni novim blokovima."""] ],
+        "export_import_msg_failed_defs": [
+            [0, """Total #1 definition already exists in the old archive. Definitions that already exist are deleted from the old archive and replaced by new definitions."""],
+            [1, """Ukupno #1 definicija već postoji u staroj arhivi. Definicije koje već postoje su izbrisane iz stare arhive i zamenjene novim definicijama."""] ],
+        "export_import_failed_title": [
+            [0, """Adding to archive"""],
+            [1, """Dodavanje u arhivu"""] ],
+        "compare_btn_tag_new_rename_text": [
+            [0, """Rename definition"""],
+            [1, """Preimenuj definiciju"""] ],
+        "compare_btn_tag_old_update_text": [
+            [0, """Update existing definition"""],
+            [1, """Ažuriraj postojeću definiciju"""] ],
+        "export_import_lbl_execute_info_merge_archives": [
+            [0, """Merging archives..."""],
+            [1, """Spajam arhive..."""] ],
+        "export_import_lbl_execute_info_unpacking_archive": [
+            [0, """Unpacking the archives..."""],
+            [1, """Raspakujem arhive..."""] ],
+        "export_import_lbl_execute_info_copy_archive": [
+            [0, """Copying the archive..."""],
+            [1, """Kopiram arhivu..."""] ],
+        "statistic_lbl_title_text": [
+            [0, """Statistics"""],
+            [1, """Statistika"""] ],
+        "statistic_btn_app_text": [
+            [0, """Application"""],
+            [1, """Aplikacija"""] ],
+        "statistic_btn_app_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "statistic_txt_app_kw_ph": [
+            [0, """Search in the code"""],
+            [1, """Traži u kodu"""] ],
+        "statistic_btn_app_kw_tt": [
+            [0, """Show expression statistics in application code"""],
+            [1, """Prikaži statistiku izraza u kodu aplikacije"""] ],
+        "statistic_btn_block_text": [
+            [0, """Blocks"""],
+            [1, """Blokovi"""] ],
+        "statistic_btn_block_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "statistic_txt_block_kw_ph": [
+            [0, """Search in blocks"""],
+            [1, """Traži u blokovima"""] ],
+        "statistic_btn_block_kw_tt": [
+            [0, """Shows expression statistics in blocks (Supports commands)
+
+BASIC USAGE:
+Type an expression that you want to find in the blocks.
+
+COMMANDS:
+(Required part of the command)
+"top" or "bottom" - you choose whether the results will be displayed first or last in the sorted list.
+(Optional parts of the command)
+the number of items you want to display, the default is 5
+field to sort by (id, date, name, body, image, file)
+The "if" part after which you write the condition
+
+EXAMPLES:
+"top 10 dates if "john smith" in body"
+   - finds the first 10 items containing "john smith" in the text and sorts them by date
+"bottom 12 body if "23.04.2024" in date"
+   - finds the last 12 items sorted by text size that have the date "23.04.2024."
+
+NOTE:
+All text is always converted to lowercase letters.
+In the "if" part of the statement, you can type any Python expression using the field name as a variable.
+
+KEY WORDS:
+top : ["top", "first", "beginning", "begin", "start", "most", "head", "upper"]
+bottom: ["bottom", "last", "end", "finish", "tail", "lower"]
+if: ["if", "while", "where", "for", "case", "with"]
+
+FIELDS:
+date: ["dates", "date", "times", "time"]
+name: ["names", "name", "titles", "title"]
+body: ["bodies", "body", "contents", "content", "texts", "text"]
+image: ["images", "image", "pics", "pic"]
+file: ["files", "file"]
+tag: ["tags", "tag", "markers", "marker", "mark"]
+id: ["ids", "id"]"""],
+            [1, """Prikazuje statistiku izraza u blokovima (Podržava naredbe)
+
+OSNOVNO KORIŠTENJE:
+Ukucajte neki izraz koji želite da pronađete u blokovima.
+
+NAREDBE:
+(Obavezan deo komande)
+"top" ili "bottom" - birate da li će biti prikazani rezultati prvi ili poslednji u sortiranoj listi.
+(Opcioni delovi komande)
+broj stavki koje želite da prikažete, default je 5
+polje po kome se sortira (id, date, name, body, image, file)
+"if" deo posle koga upisujete uslov
+
+PRIMERI:
+"top 10 date if "john smith" in body"
+   - pronalazi prvih 10 stavki koji sadrže "john smith" u textu i sortira ih po datumu
+"bottom 12 body if "23.04.2024" in date"
+   - pronalazi poslednjih 12 stavki sortiranih po veličini teksta koji imaju datum "23.04.2024."
+
+NAPOMENA:
+Sav tekst je uvek pretvoren u mala slova.
+U "if" delu naredbe možete upisati bilo koji Python izraz koristeći ime polja kao varijablu.
+
+KLJUČNE REČI:
+top : ["top", "first", "beginning", "begin", "start", "most", "head", "upper"]
+bottom: ["bottom", "last", "end", "finish", "tail", "lower"]
+if: ["if", "while", "where", "for", "case", "with"]
+
+POLJA:
+date: ["dates", "date", "times", "time"]
+name: ["names", "name", "titles", "title"]
+body: ["bodies", "body", "contents", "content", "texts", "text"]
+image: ["images", "image", "pics", "pic"]
+file: ["files", "file"]
+tag: ["tags", "tag", "markers", "marker", "mark"]
+id: ["ids", "id"]"""] ],
+        "statistic_btn_def_text": [
+            [0, """Definitions"""],
+            [1, """Definicije"""] ],
+        "statistic_btn_def_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "statistic_txt_def_kw_ph": [
+            [0, """Search in definitions"""],
+            [1, """Traži u definicijama"""] ],
+        "statistic_btn_def_kw_tt": [
+            [0, """Shows expression statistics in definitions (Supports commands)
+
+BASIC USAGE:
+Type a term you want to find in definitions.
+
+COMMANDS:
+(Required part of the command)
+"top" or "bottom" - you choose whether the results will be displayed first or last in the sorted list.
+(Optional parts of the command)
+the number of items you want to display, the default is 5
+field to sort by (id, date, name, body, image, file)
+The "if" part after which you write the condition
+
+EXAMPLES:
+"top 10 names if "john smith" in description"
+   - finds the first 10 items that contain "john smith" in the description and sorts them by name
+"bottom 12 description if len(images) < 10"
+   - finds the last 12 items sorted by description size that have less than 10 images
+
+NOTE:
+All text is always converted to lowercase letters.
+In the "if" part of the statement, you can type any Python expression using the field name as a variable.
+
+KEY WORDS:
+top : ["top", "first", "beginning", "begin", "start", "most", "head", "upper"]
+bottom: ["bottom", "last", "end", "finish", "tail", "lower"]
+if: ["if", "while", "where", "for", "case", "with"]
+
+FIELDS:
+name: ["names", "name", "titles", "title"]
+description:["descriptions", "description", "desc"]
+synonym: ["synonyms", "synonym", "syn"]
+image: ["images", "image", "pics", "pic"]
+id: ["ids", "id"]"""],
+            [1, """Prikazuje statistiku izraza u definicijama (Podržava naredbe)
+
+OSNOVNO KORIŠTENJE:
+Ukucajte neki izraz koji želite da pronađete u definicijama.
+
+NAREDBE:
+(Obavezan deo komande)
+"top" ili "bottom" - birate da li će biti prikazani rezultati prvi ili poslednji u sortiranoj listi.
+(Opcioni delovi komande)
+broj stavki koje želite da prikažete, default je 5
+polje po kome se sortira (id, date, name, body, image, file)
+"if" deo posle koga upisujete uslov
+
+PRIMERI:
+"top 10 name if "john smith" in description"
+   - pronalazi prvih 10 stavki koji sadrže "john smith" u opisu i sortira ih po nazivu
+"bottom 12 description if len(images) < 10"
+   - pronalazi poslednjih 12 stavki sortiranih po veličini opisa koje imaju manje od 10 slika
+
+NAPOMENA:
+Sav tekst je uvek pretvoren u mala slova.
+U "if" delu naredbe možete upisati bilo koji Python izraz koristeći ime polja kao varijablu.
+
+KLJUČNE REČI:
+top : ["top", "first", "beginning", "begin", "start", "most", "head", "upper"]
+bottom: ["bottom", "last", "end", "finish", "tail", "lower"]
+if: ["if", "while", "where", "for", "case", "with"]
+
+POLJA:
+name: ["names", "name", "titles", "title"]
+description:["descriptions", "description", "desc"]
+synonym: ["synonyms", "synonym", "syn"]
+image: ["images", "image", "pics", "pic"]
+id: ["ids", "id"]"""] ],
+        "statistic_btn_tag_text": [
+            [0, """Tags"""],
+            [1, """Tagovi"""] ],
+        "statistic_btn_tag_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "statistic_txt_tag_kw_ph": [
+            [0, """Search in tags"""],
+            [1, """Traži u tagovima"""] ],
+        "statistic_btn_tag_kw_tt": [
+            [0, """Show expression statistics in tags"""],
+            [1, """Prikaži statistiku izraza u tagovima"""] ],
+        "statistic_lbl_app_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_app_info_kw_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_block_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_block_info_kw_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_def_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_def_info_kw_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_img_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_file_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_tag_info_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_lbl_tag_info_kw_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "statistic_btn_img_text": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "statistic_btn_img_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "statistic_btn_file_text": [
+            [0, """Files"""],
+            [1, """Datoteke"""] ],
+        "statistic_btn_file_tt": [
+            [0, """Click for more details"""],
+            [1, """Kliknite za više detalja"""] ],
+        "abort": [
+            [0, """Abort"""],
+            [1, """Otkaži"""] ],
+        "statistic_log_started": [
+            [0, """Collecting data on #1 ..."""],
+            [1, """Prikupljam podatke o #1 ..."""] ],
+        "statistic_log_about_app": [
+            [0, """application"""],
+            [1, """aplikaciji"""] ],
+        "statistic_log_app_get_file_list": [
+            [0, """Retrieving a list of files..."""],
+            [1, """Dobavljam listu datoteka..."""] ],
+        "statistic_app_info_folder_path": [
+            [0, """Application path: #1"""],
+            [1, """Putanja do aplikacije: #1"""] ],
+        "statistic_log_app_count_files": [
+            [0, """(#1 files)"""],
+            [1, """(#1 datoteka)"""] ],
+        "statistic_log_done": [
+            [0, """...Done."""],
+            [1, """...Završeno."""] ],
+        "statistic_log_finished": [
+            [0, """Completed data collection on #1."""],
+            [1, """Završeno prikupljanje podataka o #1."""] ],
+        "statistic_log_aborted": [
+            [0, """The user has aborted the operation!"""],
+            [1, """Korisnik je prekinuo operaciju !"""] ],
+        "statistic_log_app_get_file_sizes": [
+            [0, """Calculating the size of the files..."""],
+            [1, """Računam veličinu datoteka..."""] ],
+        "statistic_app_info_files_count_and_total_size": [
+            [0, """The source code contains #1 files whose total size is #2."""],
+            [1, """Izvorni kod sadrži #1 datoteka čija je ukupna veličina #2."""] ],
+        "statistic_app_info_top5_file_sizes": [
+            [0, """Files with the largest size:"""],
+            [1, """Datoteke koje imaju najveću veličinu:"""] ],
+        "statistic_app_info_min_max_file_sizes": [
+            [0, """The average file size is #1, the largest file is #2, and the smallest is #3."""],
+            [1, """Prosečna veličina datoteka je #1, najveća datoteka je #2, a najmanja #3."""] ],
+        "statistic_log_app_get_creation_times": [
+            [0, """Examining the file creation time..."""],
+            [1, """Ispitujem vreme kreiranja datoteka..."""] ],
+        "statistic_app_info_oldest_file": [
+            [0, """The oldest source file is #1, created before #2 (#3)."""],
+            [1, """Najstarija izvorna datoteka je #1, kreirana pre #2 (#3)."""] ],
+        "statistic_app_info_newest_file": [
+            [0, """The most recent source file is #1, created before #2 (#3)."""],
+            [1, """Najskorija izvorna datoteka je #1, kreirana pre #2 (#3)."""] ],
+        "year": [
+            [0, """year"""],
+            [1, """godina"""] ],
+        "years": [
+            [0, """years"""],
+            [1, """godine"""] ],
+        "month": [
+            [0, """month"""],
+            [1, """mesec"""] ],
+        "months": [
+            [0, """months"""],
+            [1, """meseci"""] ],
+        "day": [
+            [0, """day"""],
+            [1, """dan"""] ],
+        "days": [
+            [0, """days"""],
+            [1, """dana"""] ],
+        "and": [
+            [0, """and"""],
+            [1, """i"""] ],
+        "hour": [
+            [0, """hour"""],
+            [1, """sat"""] ],
+        "hours": [
+            [0, """hours"""],
+            [1, """sati"""] ],
+        "minute": [
+            [0, """minute"""],
+            [1, """minut"""] ],
+        "minutes": [
+            [0, """minutes"""],
+            [1, """minuta"""] ],
+        "second": [
+            [0, """second"""],
+            [1, """sekunda"""] ],
+        "seconds": [
+            [0, """seconds"""],
+            [1, """sekundi"""] ],
+        "at": [
+            [0, """at"""],
+            [1, """u"""] ],
+        "statistic_log_app_get_modification_times": [
+            [0, """Examining file modification time..."""],
+            [1, """Ispitujem vreme modifikovanja datoteka..."""] ],
+        "statistic_app_info_oldest_modified_file": [
+            [0, """The oldest modified source file is #1, modified before #2 (#3)."""],
+            [1, """Najstarije modifikovana izvorna datoteka je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_app_info_newest_modified_file": [
+            [0, """The most recently modified source file is #1, modified before #2 (#3)."""],
+            [1, """Najskorije modifikovana izvorna datoteka je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_log_app_get_access_times": [
+            [0, """Examining file access times..."""],
+            [1, """Ispitujem vreme pristupanja datotekama..."""] ],
+        "statistic_app_info_oldest_accessed_file": [
+            [0, """Oldest accessed source file #1, accessed before #2 (#3)."""],
+            [1, """Najstarije pristupljeno je izvornoj datoteci #1, pristupljeno pre #2 (#3)."""] ],
+        "statistic_app_info_newest_accessed_file": [
+            [0, """Source file #1 was most recently accessed, accessed before #2 (#3)."""],
+            [1, """Najskorije pristupljeno je izvornoj datoteci #1, pristupljeno pre #2 (#3)."""] ],
+        "statistic_log_app_get_file_content": [
+            [0, """Examining the contents of the files..."""],
+            [1, """Ispitujem sadržaj datoteka..."""] ],
+        "statistic_app_info_max_lines": [
+            [0, """File #1 containing #2 lines has the most lines of code."""],
+            [1, """Najviše linija koda ima datoteka #1 koja sadrži #2 linije."""] ],
+        "statistic_app_info_min_lines": [
+            [0, """The least number of lines of code is file #1 which contains #2 lines."""],
+            [1, """Najmanje linija koda ima datoteka #1 koja sadrži #2 linije."""] ],
+        "statistic_app_info_max_words": [
+            [0, """File #1 containing #2 words has the most words."""],
+            [1, """Najviše reči ima datoteka #1 koja sadrži #2 reči."""] ],
+        "statistic_app_info_min_words": [
+            [0, """File #1 containing #2 words has the fewest words."""],
+            [1, """Najmanje reči ima datoteka #1 koja sadrži #2 reči."""] ],
+        "statistic_app_info_total_lines": [
+            [0, """The source code within #1 file contains a total of #2 lines of code."""],
+            [1, """Izvorni kod unutar #1 datoteke sadrži ukupno #2 linija koda."""] ],
+        "statistic_app_info_total_words": [
+            [0, """The source code within #1 file contains a total of #2 words (#3 characters)."""],
+            [1, """Izvorni kod unutar #1 datoteke sadrži ukupno #2 reči (#3 karaktera)."""] ],
+        "statistic_app_info_files_count_and_total_size_title": [
+            [0, """Number of files and their size:"""],
+            [1, """Broj datoteka i njihova veličina:"""] ],
+        "statistic_app_file_times_title": [
+            [0, """File creation, modification and access times:"""],
+            [1, """Vremena kreiranja, modifikovanja i pristupa datotekama:"""] ],
+        "statistic_app_file_content_title": [
+            [0, """File content statistics:"""],
+            [1, """Statistika sadržaja datoteka:"""] ],
+        "statistic_log_app_search_collecting_data": [
+            [0, """Analyzing the files in the source code..."""],
+            [1, """Analiziram fajlove u izvornom kodu..."""] ],
+        "statistic_log_search_preparing_data": [
+            [0, """Preparing data..."""],
+            [1, """Pripremam podatke..."""] ],
+        "statistic_log_app_search_files": [
+            [0, """#1.) File #2, size #3, created in #4 before #5. This file contains #6 lines of code, #7 words and #8 characters."""],
+            [1, """#1.) Datoteka #2, veličina #3, kreirana u #4 pre #5. Ova datoteka sadrži #6 linija koda, #7 reči i #8 karaktera."""] ],
+        "statistic_log_app_search_files_title": [
+            [0, """Files:"""],
+            [1, """Datoteke:"""] ],
+        "statistic_log_app_search_content_title": [
+            [0, """File contents:"""],
+            [1, """Sadržaj datoteka:"""] ],
+        "statistic_log_app_search_files_remaining": [
+            [0, """... and #1 files more."""],
+            [1, """... i još #1 datoteka."""] ],
+        "statistic_log_app_search_top_content": [
+            [0, """Files containing the highest number of repetitions of expressions:"""],
+            [1, """Datoteke koje sadrže najveći broj ponavljanja izraza:"""] ],
+        "statistic_log_app_search_top_content_item": [
+            [0, """#1.) #2 (size: #3), expression repeated #4 times."""],
+            [1, """#1.) #2 (veličina: #3), izraz ponovljen #4 puta."""] ],
+        "statistic_log_app_search_no_content": [
+            [0, """No data containing expression #1 !"""],
+            [1, """Nema podataka koji sadrže izraz #1 !"""] ],
+        "statistic_log_about_img": [
+            [0, """images"""],
+            [1, """slikama"""] ],
+        "statistic_log_img_get_file_types": [
+            [0, """Analyzing file types..."""],
+            [1, """Analiziram tipove datoteka..."""] ],
+        "statistic_img_info_folder_path": [
+            [0, """Path to image folder: #1"""],
+            [1, """Putanja do foldera sa slikama: #1"""] ],
+        "statistic_img_info_files_count_and_total_size": [
+            [0, """The images folder contains #1 files with a total size of #2."""],
+            [1, """Folder sa slikama sadrži #1 datoteka čija je ukupna veličina #2."""] ],
+        "statistic_img_info_newest_file": [
+            [0, """The most recent image is #1, created before #2 (#3)."""],
+            [1, """Najskorija slika je #1, kreirana pre #2 (#3)."""] ],
+        "statistic_img_info_oldest_file": [
+            [0, """The oldest image is #1, created before #2 (#3)."""],
+            [1, """Najstarija slika je #1, kreirana pre #2 (#3)."""] ],
+        "statistic_img_info_oldest_modified_file": [
+            [0, """The oldest modified image is #1, modified before #2 (#3)."""],
+            [1, """Najstarije modifikovana slika je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_img_info_newest_modified_file": [
+            [0, """The most recently modified image is #1, modified before #2 (#3)."""],
+            [1, """Najskorije modifikovana slika je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_img_info_oldest_accessed_file": [
+            [0, """The oldest accessed image is #1, before #2 (#3)."""],
+            [1, """Najstarije pristupljeno je slici #1, pre #2 (#3)."""] ],
+        "statistic_img_info_newest_accessed_file": [
+            [0, """Image #1 was most recently accessed, before #2 (#3)."""],
+            [1, """Najskorije pristupljeno je slici #1, pre #2 (#3)."""] ],
+        "statistic_img_file_type_title": [
+            [0, """File type statistics:"""],
+            [1, """Statistika tipova datoteka:"""] ],
+        "statistic_img_file_type_item": [
+            [0, """#1.) Extension #2: Total #3 files occupy #4."""],
+            [1, """#1.) Extenzija #2: Ukupno #3 datoteka zauzima #4."""] ],
+        "statistic_log_about_file": [
+            [0, """files"""],
+            [1, """datotekama"""] ],
+        "statistic_file_info_folder_path": [
+            [0, """Path to file folder: #1"""],
+            [1, """Putanja do foldera sa datotekama: #1"""] ],
+        "statistic_file_info_files_count_and_total_size": [
+            [0, """The file folder contains #1 files with a total size of #2."""],
+            [1, """Folder sa datotekama sadrži #1 datoteka čija je ukupna veličina #2."""] ],
+        "statistic_file_info_oldest_file": [
+            [0, """The oldest file is #1, created before #2 (#3)."""],
+            [1, """Najstarija datoteka je #1, kreirana pre #2 (#3)."""] ],
+        "statistic_file_info_newest_file": [
+            [0, """The most recent file is #1, created before #2 (#3)."""],
+            [1, """Najskorija datoteka je #1, kreirana pre #2 (#3)."""] ],
+        "statistic_file_info_oldest_modified_file": [
+            [0, """The oldest modified file is #1, modified before #2 (#3)."""],
+            [1, """Najstarije modifikovana datoteka je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_file_info_newest_modified_file": [
+            [0, """The most recently modified file is #1, modified before #2 (#3)."""],
+            [1, """Najskorije modifikovana datoteka je #1, modifikovana pre #2 (#3)."""] ],
+        "statistic_file_info_oldest_accessed_file": [
+            [0, """The oldest file accessed was #1, before #2 (#3)."""],
+            [1, """Najstarije pristupljeno je datoteci #1, pre #2 (#3)."""] ],
+        "statistic_file_info_newest_accessed_file": [
+            [0, """File #1 was accessed most recently, before #2 (#3)."""],
+            [1, """Najskorije pristupljeno je datoteci #1, pre #2 (#3)."""] ],
+        "statistic_log_about_block": [
+            [0, """blocks"""],
+            [1, """blokovima"""] ],
+        "statistic_log_block_db": [
+            [0, """Gathering information about the database..."""],
+            [1, """Prikupljam informacije o bazi podataka..."""] ],
+        "statistic_log_block_count": [
+            [0, """Counting blocks..."""],
+            [1, """Prebrojavam blokove..."""] ],
+        "statistic_log_block_content": [
+            [0, """Collecting information about the content of the blocks..."""],
+            [1, """Prikupljam informacije o sadržaju blokova..."""] ],
+        "statistic_block_db_folder_path": [
+            [0, """Path to database: #1"""],
+            [1, """Putanja do baze podataka: #1"""] ],
+        "statistic_block_db_info": [
+            [0, """The database has size #1, was created #2 (before #3), was last modified #4 (before #5), and the database was last accessed #6 (before #7)."""],
+            [1, """Baza podataka ima veličinu #1, kreirana je #2 (pre #3), poslednji puta je modifikovana #4 (pre #5), a bazi je poslednji puta pristupljeno #6 (pre #7)."""] ],
+        "statistic_block_db_title": [
+            [0, """Database Information:"""],
+            [1, """Informacije o bazi podataka:"""] ],
+        "statistic_block_first_date": [
+            [0, """The first block is dated #1 and was created #2 (before #3) and updated #4 (before #5)."""],
+            [1, """Prvi blok ima datum #1 i kreiran je #2 (pre #3), a ažuriran #4 (pre #5)."""] ],
+        "statistic_block_last_date": [
+            [0, """The last block is dated #1 and was created #2 (before #3) and updated #4 (before #5)."""],
+            [1, """Poslednji blok ima datum #1 i kreiran je #2 (pre #3), a ažuriran #4 (pre #5)."""] ],
+        "statistic_block_count": [
+            [0, """The database contains a total of #1 blocks."""],
+            [1, """Baza podataka sadrži ukupno #1 blokova."""] ],
+        "statistic_block_biggest_block": [
+            [0, """The largest block is written #1 (before #2) and contains #3 words, i.e. #4 characters."""],
+            [1, """Najveći blok je upisan #1 (pre #2) i sadrži #3 reči, odnosno #4 karaktera."""] ],
+        "statistic_block_smallest_block": [
+            [0, """The smallest block is written #1 (before #2) and contains #3 words, i.e. #4 characters."""],
+            [1, """Najmanji blok je upisan #1 (pre #2) i sadrži #3 reči, odnosno #4 karaktera."""] ],
+        "statistic_block_title": [
+            [0, """Information about blocks:"""],
+            [1, """Informacije o blokovima:"""] ],
+        "statistic_block_content_title": [
+            [0, """Information about blocks content:"""],
+            [1, """Informacije o sadržaju blokova:"""] ],
+        "statistic_block_content": [
+            [0, """All blocks (#1) contain a total of #2 sentences, #3 words, #4 characters."""],
+            [1, """Svi blokovi (#1) ukupno sadrže #2 rečenica, #3 reči, #4 karaktera."""] ],
+        "statistic_block_most_content": [
+            [0, """Before #1 (#2), the most content was entered into the database, #3 sentences, #4 words, #5 characters in a total of #6 blocks."""],
+            [1, """Pre #1 (#2) je u bazu podataka upisano najviše sadržaja, #3 rečenice, #4 reči, #5 karaktera u ukupno #6 blokova."""] ],
+        "statistic_block_avg_title": [
+            [0, """Blocks: Average values:"""],
+            [1, """Blokovi: Prosečne vrednosti:"""] ],
+        "statistic_block_avg_names": [
+            [0, """#1 % of blocks (#2) have a title set."""],
+            [1, """#1 % blokova (#2) ima postavljen naslov."""] ],
+        "statistic_block_avg_content": [
+            [0, """Blocks contain on average #1 sentence, #2 words, #3 characters."""],
+            [1, """Blokovi u proseku sadrže #1 rečenica, #2 reči, #3 karaktera."""] ],
+        "statistic_log_block_search_collecting_data": [
+            [0, """Searching for an expression in blocks..."""],
+            [1, """Tražim izraz u blokovima..."""] ],
+        "statistic_log_block_search_no_content": [
+            [0, """No blocks containing expression #1 !"""],
+            [1, """Nema blokova koji sadrže izraz #1 !"""] ],
+        "statistic_log_block_search_result": [
+            [0, """#1 % blocks contain the requested expression (#2) blocks.
+The term appears in #3 places, an average of #4 times in the blocks that contain it."""],
+            [1, """#1 % blokova sadrži traženi izraz (#2) blokova.
+Izraz se pojavljuje na #3 mesta, u proseku #4 puta u blokovima koji ga sadrže."""] ],
+        "statistic_log_block_search_title": [
+            [0, """Search result for phrase #1"""],
+            [1, """Rezultat pretrage za izraz #1"""] ],
+        "statistic_log_block_search_block_list_title": [
+            [0, """Blocks containing this expression:"""],
+            [1, """Blokovi koji sadrže ovaj izraz:"""] ],
+        "date": [
+            [0, """Date"""],
+            [1, """Datum"""] ],
+        "statistic_log_block_search_block_more": [
+            [0, """... and #1 more."""],
+            [1, """... i još #1"""] ],
+        "statistic_log_block_search_result_not": [
+            [0, """#1 % blocks do not contain the requested expression (#2) blocks."""],
+            [1, """#1 % blokova ne sadrži traženi izraz (#2) blokova."""] ],
+        "statistic_log_block_search_block_list_title_not": [
+            [0, """Blocks that do not contain this expression:"""],
+            [1, """Blokovi koji ne sadrže ovaj izraz:"""] ],
+        "statistic_log_about_def": [
+            [0, """definitions"""],
+            [1, """definicijama"""] ],
+        "statistic_log_block_media": [
+            [0, """I collect information about tags and multimedia..."""],
+            [1, """Prikupljam informacije o tagovima i multimediji..."""] ],
+        "statistic_block_tif_title": [
+            [0, """Tags, images and files in blocks"""],
+            [1, """Tagovi, slike i datoteke u blokovima"""] ],
+        "statistic_block_tif_total_tags": [
+            [0, """All blocks have a total of #1 tags assigned which averages out to #2 tags per block.
+A total of #3 blocks have a tag assigned (#4%) and they average #5 tags per block."""],
+            [1, """Svi blokovi ukupno imaju #1 dodeljenih tagova što u proseku čini #2 taga po bloku.
+Ukupno #3 blokova ima dodeljen tag (#4%) i oni u proseku imaju #5 tagova po bloku."""] ],
+        "statistic_block_tif_total_media": [
+            [0, """All blocks have a total of #1 images or files (multimedia) allocated which averages out to #2 multimedia per block.
+A total of #3 blocks have multimedia assigned (#4%) and they average #5 multimedia per block."""],
+            [1, """Svi blokovi ukupno imaju #1 dodeljenih slika ili datoteka (multimedije) što u proseku čini #2 multimedije po bloku.
+Ukupno #3 blokova ima dodeljenu multimediju (#4%) i oni u proseku imaju #5 multimedije po bloku."""] ],
+        "statistic_log_block_search_block_tags": [
+            [0, """#1 tags"""],
+            [1, """#1 tagova"""] ],
+        "statistic_log_block_search_block_media": [
+            [0, """#1 multimedia"""],
+            [1, """#1 multimedije"""] ],
+        "statistic_log_def_count": [
+            [0, """Counting definitions..."""],
+            [1, """Prebrojavam definicije..."""] ],
+        "statistic_def_title": [
+            [0, """Information on definitions:"""],
+            [1, """Informacije o definicijama:"""] ],
+        "statistic_def_totals": [
+            [0, """#1 definition with a total of #2 synonyms and #3 associated images is entered into the database."""],
+            [1, """U bazu je upisano #1 definicija sa ukupno #2 sinonima i #3 pridruženih slika."""] ],
+        "statistic_def_most_syn": [
+            [0, """The definition with the most synonyms is #1 with a total of #2 synonyms which is #3% more than the average number of synonyms."""],
+            [1, """Definicija sa najviše sinonima je #1 sa ukupno #2 sinonima što je #3% više od prosečnog broja sinonima."""] ],
+        "statistic_def_most_img": [
+            [0, """The definition with the most images is #1 with a total of #2 images which is #3% more than the average number of images."""],
+            [1, """Definicija sa najviše slika je #1 sa ukupno #2 slike što je #3% više od prosečnog broja slika."""] ],
+        "statistic_def_avg_title": [
+            [0, """Average values:"""],
+            [1, """Prosečne vrednosti:"""] ],
+        "statistic_def_avg": [
+            [0, """Definitions average #1 synonyms and #2 images."""],
+            [1, """Definicije u proseku imaju #1 sinonima i #2 slike."""] ],
+        "statistic_def_syn_title": [
+            [0, """Synonyms:"""],
+            [1, """Sinonimi:"""] ],
+        "statistic_def_syn": [
+            [0, """#1 definitions (#2%) have no synonyms."""],
+            [1, """#1 definicije (#2%) nemaju sinonime."""] ],
+        "statistic_def_img_title": [
+            [0, """Images in definitions:"""],
+            [1, """Slike u definicijama:"""] ],
+        "statistic_def_img": [
+            [0, """#1 definitions (#2%) have no associated images."""],
+            [1, """#1 definicije (#2%) nemaju pridružene slike."""] ],
+        "statistic_def_syn_repeated": [
+            [0, """#1 synonyms (#2%) are repeated in more than one definition."""],
+            [1, """#1 sinonima (#2%) su ponovljeni u više od jedne definicije."""] ],
+        "statistic_def_img_repeated": [
+            [0, """#1 images (#2%) are repeated in more than one definition."""],
+            [1, """#1 slike (#2%) su ponovljene u više od jedne definicije."""] ],
+        "statistic_def_default_img_title": [
+            [0, """Default Image in Definitions:"""],
+            [1, """Izabrana slika u definicijama:"""] ],
+        "statistic_def_default_img": [
+            [0, """#1 definition (#2%) has no main image selected."""],
+            [1, """#1 definicija (#2%) nema izabranu glavnu sliku."""] ],
+        "statistic_def_default_img_list": [
+            [0, """List of definitions that do not have a main image:"""],
+            [1, """Spisak definicija koje nemaju glavnu sliku:"""] ],
+        "statistic_log_def_search_collecting_data": [
+            [0, """Searching for a term in the definitions..."""],
+            [1, """Tražim izraz u definicijama..."""] ],
+        "statistic_log_def_search_title": [
+            [0, """Synonym search found #1 definition of #2 total:"""],
+            [1, """Pretragom sinonima je pronađeno #1 definicija od ukupno #2:"""] ],
+        "statistic_log_def_search_result_not": [
+            [0, """#1 % definition does not contain the requested expression, (#2) definition."""],
+            [1, """#1 % definicija ne sadrži traženi izraz,  (#2) definicija."""] ],
+        "statistic_log_def_search_block_list_title_not": [
+            [0, """Definitions that do not contain this term:"""],
+            [1, """Definicije koje ne sadrže ovaj izraz:"""] ],
+        "statistic_log_def_search_block_list_title": [
+            [0, """Definitions containing this term:"""],
+            [1, """Definicije koje sadrže ovaj izraz:"""] ],
+        "statistic_log_def_search_result": [
+            [0, """#1 % definition contains the required term in its synonyms, (#2) definitions.
+The term appears in #3 places, an average of #4 times in definition synonyms that contain it."""],
+            [1, """#1 % definicija sadrži traženi izraz u svojim sinonimima, (#2) definicija.
+Izraz se pojavljuje na #3 mesta, u proseku #4 puta u sinonimima definicija koji ga sadrže."""] ],
+        "statistic_def_default_img_more": [
+            [0, """... and more #1 definitions."""],
+            [1, """... i još #1 definicije."""] ],
+        "statistic_log_def_search_no_content": [
+            [0, """No blocks containing expression #1 !"""],
+            [1, """Nema definicija koje sadrže izraz #1 !"""] ],
+        "statistic_log_def_search_desc_title": [
+            [0, """Description search found #1 definition of #2 total:"""],
+            [1, """Pretragom opisa je pronađeno #1 definicija od ukupno #2:"""] ],
+        "statistic_log_def_search_desc_result": [
+            [0, """#1 % definition contains the required expression in its description, (#2) definition.
+The term appears in #3 places, an average of #4 times in the description of the definition that contains it."""],
+            [1, """#1 % definicija sadrži traženi izraz u svom opisu, (#2) definicija.
+Izraz se pojavljuje na #3 mesta, u proseku #4 puta u opisu definicije koji ga sadrži."""] ],
+        "statistic_log_def_search_whole_title": [
+            [0, """#1 definitions have this term as a full synonym:"""],
+            [1, """#1 definicije imaju ovaj izraz kao ceo sinonim:"""] ],
+        "statistic_log_tag_count": [
+            [0, """Counting tags..."""],
+            [1, """Prebrojavam tagove..."""] ],
+        "statistic_tag_title": [
+            [0, """Tag information:"""],
+            [1, """Informacije o tagovima:"""] ],
+        "statistic_tag_info": [
+            [0, """#1 tags are entered in the database, of which #2 are predefined and #3 are user-defined.
+User tags make up #4% of the total tags in the database."""],
+            [1, """U bazu je upisano #1 tagova, od toga #2 predefinisanih i #3 korisničkih.
+Korisnički tagovi čine #4% ukupnih tagova u bazi."""] ],
+        "statistic_tag_in_blocks_title": [
+            [0, """Representation of tags in blocks:"""],
+            [1, """Zastupljenost tagova u blokovima:"""] ],
+        "statistic_tag_in_blocks_app": [
+            [0, """Application predefined tags:"""],
+            [1, """Aplikacijom predefinisani tagovi:"""] ],
+        "statistic_tag_user_mark": [
+            [0, """User"""],
+            [1, """Korisnik"""] ],
+        "statistic_tag_app_mark": [
+            [0, """Application"""],
+            [1, """Aplikacija"""] ],
+        "statistic_tag_in_blocks_info": [
+            [0, """#1.) ID=#2 - #3 - Type=#4 ...used in #5 blocks (#6% of all blocks)"""],
+            [1, """#1.) ID=#2 - #3 - Tip=#4   ...korišten u #5 blokova (#6% od svih blokova)"""] ],
+        "statistic_tag_in_blocks_user": [
+            [0, """User defined tags:"""],
+            [1, """Korisnički definisani tagovi:"""] ],
+        "statistic_block_day_title": [
+            [0, """It has been #1 days since the first block was entered and since then blocks have been entered daily for #2 days which is #3% of the time."""],
+            [1, """Od unosa prvog bloka je prošlo #1 dana i od tada su blokovi dnevno unošeni #2 dana što čini #3% vremena."""] ],
+        "statistic_block_day_avg_title": [
+            [0, """On days when there were block entries, there was an average of #1 blocks, #2 sentences, #3 words, #4 characters."""],
+            [1, """U danima kada je bilo unosa blokova u proseku je unošeno #1 blokova, #2 rečenica, #3 reči, #4 karaktera."""] ],
+        "statistic_block_day_avg_most_title": [
+            [0, """The most blocks entered were in #1 (before #2) when #3 blocks, #4 sentences, #5 words, #6 characters were entered."""],
+            [1, """Najviše unesenih blokova je bilo u #1 (pre #2) kada je uneseno #3 blokova, #4 rečenica, #5 reči, #6 karaktera."""] ],
+        "statistic_block_info_kw_link_hovered": [
+            [0, """Click to display the block!
+Block ID: #1
+Block Date: #2
+Block Name: #3
+The content:
+#4"""],
+            [1, """Kliknite da prikažete blok !
+Blok ID: #1
+Blok Datum: #2
+Blok Naziv: #3
+Sadržaj:
+#4"""] ],
+        "statistic_def_info_kw_link_hovered": [
+            [0, """Click to show definition !
+Definition ID: #1
+Name: #2"""],
+            [1, """Kliknite da prikažete definiciju !
+Definicija ID: #1
+Naziv: #2"""] ],
+        "block_view_lbl_opening_text": [
+            [0, """Opening blocks..."""],
+            [1, """Otvaram blokove..."""] ],
+        "statistic_log_about_tag": [
+            [0, """tags"""],
+            [1, """tagovima"""] ],
+        "statistic_log_def_update": [
+            [0, """Updating definition data..."""],
+            [1, """Ažuriram podatke o definicijama..."""] ],
+        "statistic_def_desc_title": [
+            [0, """Descriptions of definitions:"""],
+            [1, """Opisi definicija:"""] ],
+        "statistic_def_desc": [
+            [0, """#1 definitions (#2%) have no description."""],
+            [1, """#1 definicije (#2%) nemaju opis."""] ],
+        "statistic_def_desc_avg": [
+            [0, """Definition descriptions contain, on average, #1 sentence, #2 words, #3 characters."""],
+            [1, """Opisi definicija u proseku sadrže #1 rečenica, #2 reči, #3 karaktera."""] ],
+        "statistic_def_desc_avg_most": [
+            [0, """The definition containing the largest description is (ID=#1) #2 with a description that has #3 sentences, #4 words, #5 characters which is #6 % more than the average description."""],
+            [1, """Definicija koja sadrži najveći opis je (ID=#1) #2 sa opisom koji ima #3 rečenice, #4 reči, #5 karaktera što je #6 % više od prosečnog opisa."""] ],
+        "statistic_def_syn_avg": [
+            [0, """The average number of synonyms per definition is #1."""],
+            [1, """Prosečan broj sinonima po definiciji je #1."""] ],
+        "statistic_def_img_avg": [
+            [0, """The average number of images per definition is #1."""],
+            [1, """Prosečan broj slika po definiciji je #1."""] ],
+        "statistic_def_desc_total": [
+            [0, """The definition descriptions contain a total of #1 sentences, #2 words, #3 characters."""],
+            [1, """Opisi definicija ukupno sadrže #1 rečenica, #2 reči, #3 karaktera."""] ],
+        "statistic_def_desc_no_without_desc": [
+            [0, """All definitions contain a description."""],
+            [1, """Sve definicije sadrže opis."""] ],
+        "mnu_help_statistic_text": [
+            [0, """Statistics"""],
+            [1, """Statistika"""] ],
+        "mnu_help_statistic_tt": [
+            [0, """Statistical data"""],
+            [1, """Statistički podaci"""] ],
+        "mnu_help_statistic_sb_text": [
+            [0, """Application and database statistics"""],
+            [1, """Statistički podaci o aplikaciji i bazi podataka"""] ],
+        "app_sett_style_menu_help_mnu_help_statistic_name": [
+            [0, """Menu: Help -> Statistics"""],
+            [1, """Meni: Pomoć -> Statistika"""] ],
+        "app_sett_style_statistic_name": [
+            [0, """Dialog: Statistics"""],
+            [1, """Dijalog: Statistika"""] ],
+        "app_sett_style_statistic_sections_name": [
+            [0, """Setting the appearance of topics in statistics (sections)"""],
+            [1, """Podešavanje izgleda tema u statistici (sekcije)"""] ],
+        "app_sett_style_statistic_section_general_name": [
+            [0, """Frame: The frame of the section in general"""],
+            [1, """Okvir: Okvir sekcije generalno"""] ],
+        "app_sett_style_statistic_section_lbl_info_stylesheet_name": [
+            [0, """Label: Label with statistical data"""],
+            [1, """Labela: Labela sa statističkim podacima"""] ],
+        "app_sett_style_statistic_section_search_name": [
+            [0, """Frame: The data search frame within the section"""],
+            [1, """Okvir: Okvir pretrage podataka unutar sekcije"""] ],
+        "app_sett_style_statistic_section_txt_kw_stylesheet_name": [
+            [0, """TextBox: A field for entering search terms"""],
+            [1, """TextBox: Polje za unos izraza za pretragu"""] ],
+        "app_sett_style_statistic_section_btn_kw_stylesheet_name": [
+            [0, """Button: Button to start the search"""],
+            [1, """Dugme: Dugme za početak pretrage"""] ],
+        "app_sett_style_statistic_section_lbl_info_kw_stylesheet_name": [
+            [0, """Label: Label with search results"""],
+            [1, """Labela: Labela sa rezultatima pretrage"""] ],
+        "app_sett_style_statistic_area_stylesheet_name": [
+            [0, """ScrollArea: The frame inside which all the sections are located"""],
+            [1, """ScrollArea: Okvir unutar koga se nalaze sve sekcije"""] ],
+        "app_sett_style_statistic_section_general_collapsed_name": [
+            [0, """Frame: The frame of the section when collapsed"""],
+            [1, """Okvir: Okvir sekcije kada je skupljen"""] ],
+        "app_sett_style_statistic_section_icons_name": [
+            [0, """Section icons:"""],
+            [1, """Ikone sekcija:"""] ],
+        "app_sett_style_statistic_btn_app_icon_path_style": [
+            [0, """Application"""],
+            [1, """Aplikacija"""] ],
+        "app_sett_style_statistic_btn_block_icon_path_style": [
+            [0, """Blocks"""],
+            [1, """Blokovi"""] ],
+        "app_sett_style_statistic_btn_def_icon_path_style": [
+            [0, """Definitions"""],
+            [1, """Definicije"""] ],
+        "app_sett_style_statistic_btn_tag_icon_path_style": [
+            [0, """Tags"""],
+            [1, """Tagovi"""] ],
+        "app_sett_style_statistic_btn_img_icon_path_style": [
+            [0, """Images"""],
+            [1, """Slike"""] ],
+        "app_sett_style_statistic_btn_file_icon_path_style": [
+            [0, """Files"""],
+            [1, """Datoteke"""] ],
+        "app_sett_style_statistic_log_name": [
+            [0, """Message box (Log)"""],
+            [1, """Okvir sa porukama (Log)"""] ],
+        "app_sett_style_statistic_log_appearance_name": [
+            [0, """Log frame appearance"""],
+            [1, """Izgled okvira sa porukama"""] ],
+        "app_sett_style_statistic_log_working_stylesheet_style": [
+            [0, """Appearance of the log frame while data is being processed"""],
+            [1, """Izgled log okvira dok traje obrada podataka"""] ],
+        "app_sett_style_statistic_log_success_stylesheet_style": [
+            [0, """Appearance of the log frame if the processing is completed successfully"""],
+            [1, """Izgled log okvira ako je obrada uspešno završena"""] ],
+        "app_sett_style_statistic_log_error_stylesheet_style": [
+            [0, """Appearance of the log frame if the processing has failed"""],
+            [1, """Izgled log okvira ako je obrada imala grešaka"""] ],
+        "app_sett_style_statistic_log_close_button_name": [
+            [0, """Button: Button to close the log frame"""],
+            [1, """Dugme: Dugme za zatvaranje log okvira"""] ],
+        "app_sett_style_statistic_btn_log_icon_path_style": [
+            [0, """Close button icon"""],
+            [1, """Ikona dugmeta za zatvaranje"""] ],
+        "app_sett_style_statistic_lbl_log_stylesheet_name": [
+            [0, """Label: The label in which messages are displayed within the log frame"""],
+            [1, """Labela: Labela u kojoj se prikazuju poruke unutar log okvira"""] ],
+        "app_sett_style_statistic_section_main_button_name": [
+            [0, """Button: The main button of the section"""],
+            [1, """Dugme: Glavno dugme sekcije"""] ],
+        "gwp_item_based_leave_event_change_size_enabled": [
+            [0, """Allows resizing of widgets"""],
+            [1, """Omogućava promenu veličine widgeta"""] ],
+        "gwp_item_based_leave_event_change_size_percent": [
+            [0, """Change the size of the widget in percentage.
+Positive percentages indicate an increase in size and negative percentages indicate a decrease in size.
+For example.
+A value of 40 means that the widget will have a 40% larger size.
+The value -30 means that the widget will be reduced by 30%, that is, it will keep 70% of its original size."""],
+            [1, """Promena veličine widgeta u procentima.
+Pozitivni procenti označavaju uvećanje a negativni smanjivanje veličine.
+Npr. 
+Vrednost 40 znači da će widget imati za 40% veču veličinu.
+Vrednost -30 znači da će widget biti smanjeno za 30%, odnosno zadržaće 70% svoje originalne veličine."""] ],
+        "gwp_item_based_leave_event_change_size_duration_ms": [
+            [0, """The duration of the changed size in milliseconds"""],
+            [1, """Trajanje promenjene veličine u milisekundama"""] ],
+        "gwp_qdialog_allow_drag_widgets_cursor_change_desc": [
+            [0, """Allow changing cursor appearance"""],
+            [1, """Dozvoli promenu izgleda kursora"""] ],
+        "export_import_execute_msg_check_block_old": [
+            [0, """Found."""],
+            [1, """Pronađen."""] ],
+        "export_import_execute_msg_check_block_new": [
+            [0, """Adding a new one."""],
+            [1, """Dodajem novi."""] ],
+        "export_import_execute_msg_check_block": [
+            [0, """Checking if the block already exists..."""],
+            [1, """Proveravam da li blok već postoji ... """] ],
+        "compare_block_item_id": [
+            [0, """Block ID"""],
+            [1, """Blok ID"""] ],
+        "compare_block_item_name": [
+            [0, """Date and block name"""],
+            [1, """Datum i naziv bloka"""] ],
+        "compare_block_item_desc": [
+            [0, """Block content"""],
+            [1, """Sadržaj bloka"""] ],
+        "compare_btn_tag_new_block_text": [
+            [0, """Add a new block"""],
+            [1, """Dodaj novi blok"""] ],
+        "compare_block_lbl_title_text": [
+            [0, """Compare Block"""],
+            [1, """Uporedi Blok"""] ],
+        "compare_block_lbl_desc_text": [
+            [0, """The found block may already exist in your database.
+Do you want to add a new block or use a block that already exists in your database?"""],
+            [1, """Pronađena blok možda već postoji u vašoj bazi podataka.
+Da li želite da dodate novi blok ili da koristite blok koji već postoji u vašoj bazi ?"""] ],
+        "compare_btn_tag_old_block_text": [
+            [0, """Uses an existing block"""],
+            [1, """Koristi postojeći blok"""] ],
+        "block_view_list_menu_state_all_text": [
+            [0, """Set the state of all blocks"""],
+            [1, """Podesi stanje svih blokova"""] ],
+        "block_view_list_menu_state_all_tt": [
+            [0, """Sets all blocks currently in the list as open or closed"""],
+            [1, """Postavlja sve blokove koji su trenutno u listi kao otvorene ili zatvorene"""] ],
+        "block_view_menu_state_opened_all_text": [
+            [0, """All blocks Open"""],
+            [1, """Svi blokovi Otvoreni"""] ],
+        "block_view_menu_state_opened_all_tt": [
+            [0, """"""],
+            [1, """"""] ],
+        "block_view_menu_state_closed_all_text": [
+            [0, """All blocks Closed"""],
+            [1, """Svi blokovi Zatvoreni"""] ],
+        "block_view_menu_state_closed_all_tt": [
+            [0, """"""],
+            [1, """"""] ],
+        "aborting": [
+            [0, """Abort"""],
+            [1, """Otkaži"""] ],
+        "statistic_log_def_syn": [
+            [0, """synonyms"""],
+            [1, """sinonima"""] ],
+        "statistic_log_def_img": [
+            [0, """images"""],
+            [1, """slika"""] ],
+        "compare_tag_chk_item_default_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "compare_tag_chk_session_default_text": [
+            [0, """Default action for all tags in this data import session"""],
+            [1, """Default akcija za sve tagove u ovoj sesiji uvoza podataka"""] ],
+        "compare_img_chk_item_default_text": [
+            [0, """Default image action for object:"""],
+            [1, """Default akcija za slike za objekat:"""] ],
+        "compare_img_chk_session_default_text": [
+            [0, """Default action for all images in this data import session"""],
+            [1, """Default akcija za sve slike u ovoj sesiji uvoza podataka"""] ],
+        "compare_def_headline": [
+            [0, """Definition:"""],
+            [1, """Definicija:"""] ],
+        "compare_block_headline": [
+            [0, """Block:"""],
+            [1, """Blok:"""] ],
+        "compare_file_chk_item_default_text": [
+            [0, """Default file action for object:"""],
+            [1, """Default akcija za datoteke za objekat:"""] ],
+        "compare_file_chk_session_default_text": [
+            [0, """Default action for all files in this data import session"""],
+            [1, """Default akcija za sve datoteke u ovoj sesiji uvoza podataka"""] ],
+        "compare_def_chk_item_default_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "compare_def_chk_session_default_text": [
+            [0, """Default action for all definitions in this data import session"""],
+            [1, """Default akcija za sve definicije u ovoj sesiji uvoza podataka"""] ],
+        "compare_block_chk_item_default_text": [
+            [0, """"""],
+            [1, """"""] ],
+        "compare_block_chk_session_default_text": [
+            [0, """Default action for all blocks in this data import session"""],
+            [1, """Default akcija za sve blokove u ovoj sesiji uvoza podataka"""] ],
+        "app_sett_style_compare_chk_boxes_unchecked_stylesheet_name": [
+            [0, """CheckBox: A checkbox when unchecked"""],
+            [1, """CheckBox: Polje za štikliranje kada nije štiklirano"""] ],
+        "app_sett_style_compare_chk_boxes_checked_stylesheet_name": [
+            [0, """CheckBox: Checkbox when checked"""],
+            [1, """CheckBox: Polje za štikliranje kada je štiklirano"""] ],
+        "statistic_search_collecting_data": [
+            [0, """Collecting data..."""],
+            [1, """Prikupljam podatke..."""] ],
+        "app_sett_style_statistic_log_frame_general_name": [
+            [0, """Log frame: General settings"""],
+            [1, """Log okvir: Generalna podešavanja"""] ],
+        "app_sett_style_statistic_log_frame_delay_style": [
+            [0, """Time until the countdown starts"""],
+            [1, """Vreme do početka odbrojavanja"""] ],
+        "statistic_log_frame_duration_desc": [
+            [0, """Duration of displaying the log frame in milliseconds until it is automatically closed."""],
+            [1, """Trajanje prikaza log okvira u milisekundama do njegovog automatskog zatvaranja."""] ],
+        "app_sett_style_statistic_log_frame_duration_style": [
+            [0, """Log frame duration"""],
+            [1, """Trajanje log okvira"""] ],
+        "statistic_log_frame_delay_desc": [
+            [0, """The time in milliseconds until the start of the countdown after which the log box will be automatically closed."""],
+            [1, """Vreme u milisekundama do početka odbrojavanja posle koga će log okvir biti automatski zatvoren."""] ],
+        "app_sett_style_statistic_log_frame_enabled_style": [
+            [0, """Enable display of the log frame"""],
+            [1, """Omogući prikaz log okvira"""] ],
+        "statistic_search_show_all_blocks": [
+            [0, """Show all listed blocks"""],
+            [1, """Prikaži sve izlistane blokove"""] ],
+        "statistic_search_show_all_defs": [
+            [0, """Show all listed definitions"""],
+            [1, """Prikaži sve izlistane definicije"""] ],
+        "statistic_def_default_img_none": [
+            [0, """All definitions have a default image selected."""],
+            [1, """Sve definicije imaju izabranu default sliku."""] ],
+        "statistic_log_def_syn_sr": [
+            [0, """Checking the Serbian characters..."""],
+            [1, """Proveravam srpske karaktere..."""] ],
+        "statistic_def_syn_sr": [
+            [0, """#1 definition contains Serbian characters in #2 synonyms which makes up #3% of definitions.
+Out of a total of #4 synonyms, #5 has Serbian characters (#6%)."""],
+            [1, """#1 definicija sadrži srpske karaktere u #2 sinonima što čini #3% definicija.
+Od ukupno #4 sinonima, #5 ima srpske karaktere (#6%)."""] ],
+        "statistic_def_syn_sr_most": [
+            [0, """Definition (#1) #2 contains the most synonyms with Serbian characters (#3)."""],
+            [1, """Definicija (#1) #2 sadrži najviše sinonima sa srpskim karakterima (#3)."""] ],
+        "statistic_def_syn_sr_title": [
+            [0, """Serbian characters in synonyms:"""],
+            [1, """Srpski karakteri u sinonimima:"""] ],
+        "statistic_def_syn_sr_none": [
+            [0, """There are no definitions that contain Serbian characters."""],
+            [1, """Nema definicija koje sadrže srpske karaktere."""] ],
+        "statistic_def_syn_sr_miss": [
+            [0, """In #1 definition there are #2 synonyms with Serbian characters that do not have a corresponding "cleaned" version without Serbian characters.
+The definition with the most such synonyms is (#3) #4 with #5 "unclean" synonyms."""],
+            [1, """U #1 definicija postoji #2 sinonima sa srpskim karakterima koji nemaju odgovarajuću "očišćenu" verziju bez srpskih karaktera.
+Definicija sa najviše takvih sinonima je (#3) #4 sa #5 "neoćišćenih" sinonima."""] ],
+        "statistic_def_syn_sr_miss_list_title": [
+            [0, """List of definitions with "uncleaned" synonyms:"""],
+            [1, """Lista definicija sa "neočišćenim" sinonimima:"""] ],
+        "statistic_def_syn_sr_miss_none": [
+            [0, """All synonyms have corresponding versions without Serbian characters."""],
+            [1, """Svi sinonimi imaju odgovarajuće verzije bez srpskih karaktera."""] ]
     }
     if key_name in lang.keys():
         return lang[key_name]
@@ -11150,56 +13368,7 @@ Example: Ctrl+W"""
             "recommended": """True or False""",
             "description": """Determines whether the shortcut name will be printed next to the menu item name."""
             },
-        "mnu_save_as_icon_path": {
-            "value": """""",
-            "default_value": """""",
-            "min_value": None,
-            "max_value": None,
-            "recommended": """Type the relative path to the Widgets icon""",
-            "description": """Location of the icon for the Widget"""
-            },
-        "mnu_save_as_enabled": {
-            "value": True,
-            "default_value": True,
-            "min_value": None,
-            "max_value": None,
-            "recommended": """True or False""",
-            "description": """Determines whether the Widget will be enabled."""
-            },
-        "mnu_save_as_visible": {
-            "value": True,
-            "default_value": True,
-            "min_value": None,
-            "max_value": None,
-            "recommended": """True or False""",
-            "description": """Determines whether the Widget will be visible."""
-            },
-        "mnu_save_as_shortcut": {
-            "value": """""",
-            "default_value": """""",
-            "min_value": None,
-            "max_value": None,
-            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
-            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
-Example: Ctrl+W"""
-            },
-        "mnu_save_as_shortcut_visible_in_menu": {
-            "value": True,
-            "default_value": True,
-            "min_value": None,
-            "max_value": None,
-            "recommended": """True or False""",
-            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
-            },
         "mnu_open_icon_visible": {
-            "value": True,
-            "default_value": True,
-            "min_value": None,
-            "max_value": None,
-            "recommended": """True or False""",
-            "description": """Determines whether the Widget icon will be visible in menu."""
-            },
-        "mnu_save_as_icon_visible": {
             "value": True,
             "default_value": True,
             "min_value": None,
@@ -35698,6 +37867,1996 @@ Values: 0-100
             "max_value": None,
             "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
             "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "main_menu_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Sound will be enabled."""
+            },
+        "main_menu_sound_file_path": {
+            "value": """data/app/sounds/short10.wav""",
+            "default_value": """data/app/sounds/short10.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "menu_item_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Sound will be enabled."""
+            },
+        "menu_item_sound_file_path": {
+            "value": """data/app/sounds/short10.wav""",
+            "default_value": """data/app/sounds/short10.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "gwp_item_based_allow_cursor_change": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_cursor": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_cursor_width": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_cursor_height": {
+            "value": 20,
+            "default_value": 20,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_cursor_keep_aspect_ratio": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_tap_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_enter_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_file_path": {
+            "value": """data/app/animation/tap.gif""",
+            "default_value": """data/app/animation/tap.gif""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_duration_ms": {
+            "value": 700,
+            "default_value": 700,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_width": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_height": {
+            "value": 30,
+            "default_value": 30,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_show_animation_background_color": {
+            "value": """transparent""",
+            "default_value": """transparent""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_play_sound_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_play_sound_file_path": {
+            "value": """data/app/sounds/tap.wav""",
+            "default_value": """data/app/sounds/tap.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_stylesheet_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_qss_stylesheet": {
+            "value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "default_value": """QPushButton {color: #000000; background-color: #ffff00;} QPushButton:hover {color: #000000; background-color: #ffff00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_stylesheet_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_size_enabled": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_size_percent": {
+            "value": 25,
+            "default_value": 25,
+            "min_value": -99,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "gwp_item_based_leave_event_change_size_duration_ms": {
+            "value": 200,
+            "default_value": 200,
+            "min_value": 1,
+            "max_value": None,
+            "recommended": """""",
+            "description": """Global Widget Properties"""
+            },
+        "def_hint_manager_layout_contents_margins": {
+            "value": """5,5,5,5""",
+            "default_value": """5,5,5,5""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """Sets the margins in which the content of the Widget will be displayed.
+Order: Left, Top, Right, Bottom
+Must be exactly 4 comma separated values."""
+            },
+        "frm_stb_volume_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "frm_stb_volume_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "frm_stb_volume_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "frm_stb_volume_fixed_width": {
+            "value": 0,
+            "default_value": 0,
+            "min_value": 0,
+            "max_value": None,
+            "recommended": """The recommended value is 0""",
+            "description": """Width of widget.
+0 = best fit"""
+            },
+        "volume_value": {
+            "value": 100,
+            "default_value": 100,
+            "min_value": 0,
+            "max_value": 100,
+            "recommended": """0 - 100""",
+            "description": """Sound volume in application.
+0 - 100"""
+            },
+        "volume_muted": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the sound volume will be muted."""
+            },
+        "btn_volume_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "sld_volume_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "lbl_volume_value_stylesheet": {
+            "value": """QLabel {color: #aaffff;}""",
+            "default_value": """QLabel {color: #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "set_muted_sound_file_path": {
+            "value": """data/app/sounds/auto_image_add_off.wav""",
+            "default_value": """data/app/sounds/auto_image_add_off.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "set_unmuted_sound_file_path": {
+            "value": """data/app/sounds/auto_image_add_on.wav""",
+            "default_value": """data/app/sounds/auto_image_add_on.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
+            },
+        "pop_log_dialog_on_exception": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Show log window when exception is raised."""
+            },
+        "pop_log_dialog_on_warning": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Show log window when warning is raised."""
+            },
+        "keep_log_window_on_top": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Keep log window on top of all windows"""
+            },
+        "record_normal_logs": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Track messages"""
+            },
+        "record_warning_logs": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Track messages"""
+            },
+        "record_exception_logs": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Track messages"""
+            },
+        "log_save_locals": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether data about local variables will be recorded in log messages."""
+            },
+        "log_save_globals": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether data about global variables will be recorded in log messages."""
+            },
+        "log_save_builtins": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether data about Built-in variables will be recorded in log messages."""
+            },
+        "log_save_module_code": {
+            "value": False,
+            "default_value": False,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether data about <module> code will be recorded in log messages."""
+            },
+        "log_save_function_code": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Determines whether data about <function> code will be recorded in log messages."""
+            },
+        "btn_logs_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "btn_logs_stylesheet": {
+            "value": """QPushButton {color: #ffff00; border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "default_value": """QPushButton {color: #ffff00; border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "mnu_export_blocks_icon_path": {
+            "value": """data/app/images/export.png""",
+            "default_value": """data/app/images/export.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_export_blocks_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_export_blocks_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_export_blocks_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_export_blocks_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_export_blocks_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "mnu_import_blocks_icon_path": {
+            "value": """data/app/images/import.png""",
+            "default_value": """data/app/images/import.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_import_blocks_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_import_blocks_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_import_blocks_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_import_blocks_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_import_blocks_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "mnu_import_def_icon_path": {
+            "value": """data/app/images/import.png""",
+            "default_value": """data/app/images/import.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_import_def_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_import_def_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_import_def_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_import_def_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_import_def_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "mnu_export_def_icon_path": {
+            "value": """data/app/images/export.png""",
+            "default_value": """data/app/images/export.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_export_def_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_export_def_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_export_def_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_export_def_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_export_def_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "mnu_help_log_messages_icon_path": {
+            "value": """data/app/images/log_win_icon.png""",
+            "default_value": """data/app/images/log_win_icon.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_help_log_messages_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_help_log_messages_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_help_log_messages_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_help_log_messages_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_help_log_messages_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "allow_volume_muted_sound": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the sound volume will play sound when mute button is pressed."""
+            },
+        "allow_volume_unmuted_sound": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the sound volume will play sound when unmute button is pressed."""
+            },
+        "frameless_log_window": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True / False""",
+            "description": """Show log messages window without frame."""
+            },
+        "log_win_icon_icon": {
+            "value": """data/app/images/log_win_icon.png""",
+            "default_value": """data/app/images/log_win_icon.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Leave this setting blank if you do not want the icon to be displayed on the widget.""",
+            "description": """Location of the icon for the Login window."""
+            },
+        "export_import_ui_file_path": {
+            "value": """data/app/designer/export_import.ui""",
+            "default_value": """data/app/designer/export_import.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "export_icon_path": {
+            "value": """data/app/images/export.png""",
+            "default_value": """data/app/images/export.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "import_icon_path": {
+            "value": """data/app/images/import.png""",
+            "default_value": """data/app/images/import.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_win_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_tab_action_stylesheet": {
+            "value": """QTabBar::tab {color: #d8d86c; background-color:  rgb(84, 84, 84);} QTabBar::tab:selected {color: #ffff00; background-color: rgb(0, 84, 0);} QTabBar::tab:hover {background-color: rgb(127, 127, 127);}""",
+            "default_value": """QTabBar::tab {color: #d8d86c; background-color:  rgb(84, 84, 84);} QTabBar::tab:selected {color: #ffff00; background-color: rgb(0, 84, 0);} QTabBar::tab:hover {background-color: rgb(127, 127, 127);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_title_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 255); border: 0px;}""",
+            "default_value": """QLabel {color: rgb(0, 255, 255); border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_cancel_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_exec_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "send_to_icon_path": {
+            "value": """data/app/images/send_to.png""",
+            "default_value": """data/app/images/send_to.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clear_icon_path": {
+            "value": """data/app/images/clear.png""",
+            "default_value": """data/app/images/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "copy_add_icon_path": {
+            "value": """data/app/images/copy_add.png""",
+            "default_value": """data/app/images/copy_add.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "clear_x_icon_path": {
+            "value": """data/app/images/clear_x.png""",
+            "default_value": """data/app/images/clear_x.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_frm_export_block_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_export_block_clear_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_export_block_paste_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_export_block_info_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0);}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lst_export_block_stylesheet": {
+            "value": """QListWidget {border: 1px solid #68d19b;}""",
+            "default_value": """QListWidget {border: 1px solid #68d19b;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_frm_import_block_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_import_block_clear_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_import_block_add_file_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_import_block_info_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0);}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lst_import_block_stylesheet": {
+            "value": """QListWidget {border: 1px solid #68d19b;}""",
+            "default_value": """QListWidget {border: 1px solid #68d19b;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_frm_export_def_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_export_def_clear_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_export_def_paste_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_export_def_info_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0);}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lst_export_def_stylesheet": {
+            "value": """QListWidget {border: 1px solid #68d19b;}""",
+            "default_value": """QListWidget {border: 1px solid #68d19b;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_frm_import_def_stylesheet": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_import_def_clear_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_import_def_add_file_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_import_def_info_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 0);}""",
+            "default_value": """QLabel {color: rgb(0, 255, 0);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lst_import_def_stylesheet": {
+            "value": """QListWidget {border: 1px solid #68d19b;}""",
+            "default_value": """QListWidget {border: 1px solid #68d19b;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_cancel_icon_path": {
+            "value": """data/app/images/btn_cancel.png""",
+            "default_value": """data/app/images/btn_cancel.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_exec_icon_path": {
+            "value": """data/app/images/update_schema.png""",
+            "default_value": """data/app/images/update_schema.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_export_block_clear_icon_path": {
+            "value": """data/app/images/clear.png""",
+            "default_value": """data/app/images/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_export_block_paste_icon_path": {
+            "value": """data/app/images/paste.png""",
+            "default_value": """data/app/images/paste.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_import_block_clear_icon_path": {
+            "value": """data/app/images/clear.png""",
+            "default_value": """data/app/images/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_import_block_add_file_icon_path": {
+            "value": """data/app/images/open_file.png""",
+            "default_value": """data/app/images/open_file.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_export_def_clear_icon_path": {
+            "value": """data/app/images/clear.png""",
+            "default_value": """data/app/images/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_export_def_paste_icon_path": {
+            "value": """data/app/images/paste.png""",
+            "default_value": """data/app/images/paste.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_import_def_clear_icon_path": {
+            "value": """data/app/images/clear.png""",
+            "default_value": """data/app/images/clear.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_import_def_add_file_icon_path": {
+            "value": """data/app/images/open_file.png""",
+            "default_value": """data/app/images/open_file.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_list_item_enabled_frame_stylesheet": {
+            "value": """QFrame {color: #ffff00; background-color: #002800; border: 0px solid #55ffff;} QFrame:hover {background-color: #004600; border: 1px solid #55ffff;}""",
+            "default_value": """QFrame {color: #ffff00; background-color: #002800; border: 0px solid #55ffff;} QFrame:hover {background-color: #004600; border: 1px solid #55ffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_enabled_lbl_enabled_stylesheet": {
+            "value": """QLabel {border: 0px solid #000000;} QLabel:hover {background-color: #53a500;}""",
+            "default_value": """QLabel {border: 0px solid #000000;} QLabel:hover {background-color: #53a500;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_enabled_lbl_id_stylesheet": {
+            "value": """QLabel {color: rgb(255, 255, 0); background-color: transparent; border: 0px solid #000000; font: 100 14pt "FreeMono";}""",
+            "default_value": """QLabel {color: rgb(255, 255, 0); background-color: transparent; border: 0px solid #000000; font: 100 14pt "FreeMono";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_enabled_lbl_name_stylesheet": {
+            "value": """QLabel {color: #00ffff; background-color: transparent; border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: #00ffff; background-color: transparent; border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_enabled_lbl_src_stylesheet": {
+            "value": """QLabel {color: #ffffff; background-color: transparent; border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: #ffffff; background-color: transparent; border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_enabled_lbl_text_stylesheet": {
+            "value": """QLabel {color: #aaff7f; background-color: transparent; border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: #aaff7f; background-color: transparent; border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_frame_stylesheet": {
+            "value": """QFrame {color: #545454; background-color: #9a9a9a; border: 0px solid #55ffff;} QFrame:hover {border: 1px solid #55ffff;}""",
+            "default_value": """QFrame {color: #545454; background-color: #9a9a9a; border: 0px solid #55ffff;} QFrame:hover {border: 1px solid #55ffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_lbl_enabled_stylesheet": {
+            "value": """QLabel {border: 0px solid #000000;} QLabel:hover {background-color: #464646;}""",
+            "default_value": """QLabel {border: 0px solid #000000;} QLabel:hover {background-color: #464646;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_lbl_id_stylesheet": {
+            "value": """QLabel {color: #000000; border: 0px solid #000000; font: 100 14pt "FreeMono";}""",
+            "default_value": """QLabel {color: #000000; border: 0px solid #000000; font: 100 14pt "FreeMono";}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_lbl_name_stylesheet": {
+            "value": """QLabel {color: #505050; border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: #505050; border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_lbl_src_stylesheet": {
+            "value": """QLabel {color: #cbcbcb; border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: #cbcbcb; border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_list_item_disabled_lbl_text_stylesheet": {
+            "value": """QLabel {color: rgb(176, 176, 176); border: 0px solid #000000;}""",
+            "default_value": """QLabel {color: rgb(176, 176, 176); border: 0px solid #000000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "date_time_delimiter": {
+            "value": """ """,
+            "default_value": """ """,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Recomended is blank space " " """,
+            "description": """String that will separate date from time."""
+            },
+        "export_import_frm_execute_stylesheet": {
+            "value": """QFrame {background-color: rgb(53, 53, 53);}""",
+            "default_value": """QFrame {background-color: rgb(53, 53, 53);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_execute_title_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 255); background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: rgb(0, 255, 255); background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_txt_execute_stylesheet": {
+            "value": """QTextEdit {color: #ffff00; background-color: #172f46; border: 1px solid #55aa00;}""",
+            "default_value": """QTextEdit {color: #ffff00; background-color: #172f46; border: 1px solid #55aa00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lst_execute_stylesheet": {
+            "value": """QListWidget {color: #ffff00; background-color: #172f46; border: 1px solid #55aa00;}""",
+            "default_value": """QListWidget {color: #ffff00; background-color: #172f46; border: 1px solid #55aa00;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_working_abort_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_working_abort_icon_path": {
+            "value": """data/app/images/abort.png""",
+            "default_value": """data/app/images/abort.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_execute_cancel_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_cancel_icon_path": {
+            "value": """data/app/images/btn_cancel.png""",
+            "default_value": """data/app/images/btn_cancel.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_execute_details_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_details_icon_path": {
+            "value": """data/app/images/details.png""",
+            "default_value": """data/app/images/details.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_execute_actions_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163)} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_actions_icon_path": {
+            "value": """data/app/images/actions.png""",
+            "default_value": """data/app/images/actions.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_lbl_execute_info_correct_stylesheet": {
+            "value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_lbl_execute_info_incorrect_stylesheet": {
+            "value": """QLabel {color: #960000; background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: #960000; background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_confirm_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_confirm_icon_path": {
+            "value": """data/app/images/archive.png""",
+            "default_value": """data/app/images/archive.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "export_import_btn_execute_done_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "export_import_btn_execute_done_icon_path": {
+            "value": """data/app/images/finished.png""",
+            "default_value": """data/app/images/finished.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "compare_ui_file_path": {
+            "value": """data/app/designer/compare.ui""",
+            "default_value": """data/app/designer/compare.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "compare_frm_tag_stylesheet": {
+            "value": """QFrame {background-color: transparent;}""",
+            "default_value": """QFrame {background-color: transparent;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_lbl_tag_new_stylesheet": {
+            "value": """QLabel {color: #ffff00; background-color: transparent; border: 1px solid #85b4ff;}""",
+            "default_value": """QLabel {color: #ffff00; background-color: transparent; border: 1px solid #85b4ff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_lbl_tag_old_stylesheet": {
+            "value": """QLabel {color: #ffff00; background-color: transparent; border: 1px solid #85b4ff;}""",
+            "default_value": """QLabel {color: #ffff00; background-color: transparent; border: 1px solid #85b4ff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_btn_tag_new_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_btn_tag_old_stylesheet": {
+            "value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(0, 0, 83); background-color: rgb(170, 255, 127); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(0, 67, 0), stop:1 rgb(0, 161, 0)); color: rgb(255, 255, 0)}
+QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_btn_tag_new_icon_path": {
+            "value": """data/app/images/add.png""",
+            "default_value": """data/app/images/add.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "compare_btn_tag_old_icon_path": {
+            "value": """data/app/images/tag.png""",
+            "default_value": """data/app/images/tag.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "compare_lbl_title_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 255); background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: rgb(0, 255, 255); border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_lbl_desc_stylesheet": {
+            "value": """QLabel {color: #aaff00; background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: #aaff00; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_btn_abort_stylesheet": {
+            "value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "default_value": """QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;}
+QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;}
+QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_btn_abort_icon_path": {
+            "value": """data/app/images/abort.png""",
+            "default_value": """data/app/images/abort.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "compare_win_icon_path": {
+            "value": """data/app/images/messagebox_question.png""",
+            "default_value": """data/app/images/messagebox_question.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "compare_txt_rename_stylesheet": {
+            "value": """QLineEdit {color: #ffff00; background-color: #005500;} QLineEdit:hover {background-color: #007400;}""",
+            "default_value": """QLineEdit {color: #ffff00; background-color: #005500;} QLineEdit:hover {background-color: #007400;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "rename_icon_path": {
+            "value": """data/app/images/rename.png""",
+            "default_value": """data/app/images/rename.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "drop_icon_path": {
+            "value": """data/app/images/drop.png""",
+            "default_value": """data/app/images/drop.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "vertical_collapse_icon_path": {
+            "value": """data/app/images/vertical_collapse.png""",
+            "default_value": """data/app/images/vertical_collapse.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "vertical_expand_icon_path": {
+            "value": """data/app/images/vertical_expand.png""",
+            "default_value": """data/app/images/vertical_expand.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "search_database_icon_path": {
+            "value": """data/app/images/search_database.png""",
+            "default_value": """data/app/images/search_database.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistics_icon_path": {
+            "value": """data/app/images/statistics.png""",
+            "default_value": """data/app/images/statistics.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_win_stylesheet": {
+            "value": """QDialog {background-color: #1f3f5f;}""",
+            "default_value": """QDialog {background-color: #1f3f5f;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_win_icon_path": {
+            "value": """data/app/images/statistics.png""",
+            "default_value": """data/app/images/statistics.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_lbl_title_stylesheet": {
+            "value": """QLabel {color: rgb(0, 255, 255); background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: rgb(0, 255, 255); background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_frm_stylesheet": {
+            "value": """QFrame { background-color: transparent; border: 1px solid #aaff7f;}""",
+            "default_value": """QFrame { background-color: transparent; border: 1px solid #aaff7f;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_btn_stylesheet": {
+            "value": """QPushButton {color: #ffff00; background-color: #2b5783; border: 0px;} QPushButton:hover {background-color: #4747d6;}""",
+            "default_value": """QPushButton {color: #ffff00; background-color: #2b5783; border: 0px;} QPushButton:hover {background-color: #4747d6;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_lbl_info_stylesheet": {
+            "value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_frm_kw_stylesheet": {
+            "value": """QFrame {background-color: transparent; border: 1px solid #617452;}""",
+            "default_value": """QFrame {background-color: transparent; border: 1px solid #617452;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_txt_kw_stylesheet": {
+            "value": """QLineEdit {color: #00ffff; background-color: #1f3f5f; border: 1px solid #bebebe;} QLineEdit:hover {background-color: #2b5986;}""",
+            "default_value": """QLineEdit {color: #00ffff; background-color: #1f3f5f; border: 1px solid #bebebe;} QLineEdit:hover {background-color: #2b5986;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_btn_kw_stylesheet": {
+            "value": """QPushButton {color: #ffff00; background-color: #2b5783; border: 0px;} QPushButton:hover {background-color: #4747d6;}""",
+            "default_value": """QPushButton {color: #ffff00; background-color: #2b5783; border: 0px;} QPushButton:hover {background-color: #4747d6;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_lbl_info_kw_stylesheet": {
+            "value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "default_value": """QLabel {color: #00ff00; background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_ui_file_path": {
+            "value": """data/app/designer/statistic.ui""",
+            "default_value": """data/app/designer/statistic.ui""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """It is usual for the location of this file to be in the directory where the application is located or in its subdirectory.""",
+            "description": """Location of the Qt Designer file that contains the graphical interface."""
+            },
+        "statistic_area_stylesheet": {
+            "value": """QScrollArea {background-color: transparent; border: 0px;}""",
+            "default_value": """QScrollArea {background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_area_widget_stylesheet": {
+            "value": """QWidget {background-color: transparent; border: 0px;}""",
+            "default_value": """QWidget {background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_section_frm_collapsed_stylesheet": {
+            "value": """QFrame { background-color: transparent; border: 0px;}""",
+            "default_value": """QFrame { background-color: transparent; border: 0px;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_btn_app_icon_path": {
+            "value": """data/app/images/python.png""",
+            "default_value": """data/app/images/python.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_btn_block_icon_path": {
+            "value": """data/app/images/block.png""",
+            "default_value": """data/app/images/block.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_btn_def_icon_path": {
+            "value": """data/app/images/definition.png""",
+            "default_value": """data/app/images/definition.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_btn_tag_icon_path": {
+            "value": """data/app/images/tag.png""",
+            "default_value": """data/app/images/tag.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_btn_img_icon_path": {
+            "value": """data/app/images/picture.png""",
+            "default_value": """data/app/images/picture.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_btn_file_icon_path": {
+            "value": """data/app/images/file.png""",
+            "default_value": """data/app/images/file.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_frm_log_stylesheet": {
+            "value": """QFrame {color: #ffffff; background-color: #4100c3; border: 1px solid #aaffff;}""",
+            "default_value": """QFrame {color: #ffffff; background-color: #4100c3; border: 1px solid #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_btn_log_stylesheet": {
+            "value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "default_value": """QPushButton {color: rgb(255, 255, 0); background-color: rgb(0, 0, 163); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));} QPushButton:disabled {background-color: rgb(162, 162, 162);}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_btn_log_icon_path": {
+            "value": """data/app/images/close.png""",
+            "default_value": """data/app/images/close.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "statistic_lbl_log_stylesheet": {
+            "value": """QLabel {color: #a4d3ff; background-color: transparent; border: 0px}""",
+            "default_value": """QLabel {color: #a4d3ff; background-color: transparent; border: 0px}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_frm_log_error_stylesheet": {
+            "value": """QFrame {color: #ffffff; background-color: #480048; border: 1px solid #aaffff;}""",
+            "default_value": """QFrame {color: #ffffff; background-color: #480048; border: 1px solid #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_frm_log_success_stylesheet": {
+            "value": """QFrame {color: #ffffff; background-color: #003800; border: 1px solid #aaffff;}""",
+            "default_value": """QFrame {color: #ffffff; background-color: #003800; border: 1px solid #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "mnu_help_statistic_icon_path": {
+            "value": """data/app/images/statistics.png""",
+            "default_value": """data/app/images/statistics.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "mnu_help_statistic_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be enabled."""
+            },
+        "mnu_help_statistic_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget will be visible."""
+            },
+        "mnu_help_statistic_shortcut": {
+            "value": """""",
+            "default_value": """""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Please be careful not to assign the same shortcut to multiple items.""",
+            "description": """Shortcut for this menu item. Leave blank if you dont want to set shortcut.
+Example: Ctrl+W"""
+            },
+        "mnu_help_statistic_shortcut_visible_in_menu": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the shortcut name will be printed next to the menu item name."""
+            },
+        "mnu_help_statistic_icon_visible": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the Widget icon will be visible in menu."""
+            },
+        "abort_icon_path": {
+            "value": """data/app/images/abort.png""",
+            "default_value": """data/app/images/abort.png""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Type the relative path to the Widgets icon""",
+            "description": """Location of the icon for the Widget"""
+            },
+        "definition_view_btn_close_stylesheet": {
+            "value": """QPushButton:hover {background-color: transparent;} QPushButton:hover {background-color: #aaffff;}""",
+            "default_value": """QPushButton:hover {background-color: transparent;} QPushButton:hover {background-color: #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_chk_boxes_checked_stylesheet": {
+            "value": """QCheckBox {background-color: #000055; color: #ffff00; border: 1px solid #00ffff;} QCheckBox:hover {color: #aaffff;}""",
+            "default_value": """QCheckBox {background-color: #000055; color: #ffff00; border: 1px solid #00ffff;} QCheckBox:hover {color: #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "compare_chk_boxes_unchecked_stylesheet": {
+            "value": """QCheckBox {background-color: transparent; color: #b9b95c; border: 0px;} QCheckBox:hover {color: #aaffff;}""",
+            "default_value": """QCheckBox {background-color: transparent; color: #b9b95c; border: 0px;} QCheckBox:hover {color: #aaffff;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_log_frame_duration": {
+            "value": 10000,
+            "default_value": 10000,
+            "min_value": 1,
+            "max_value": 1000000,
+            "recommended": """The recommended value is between 10000 and 20000 milliseconds.""",
+            "description": """The total duration of the log frame."""
+            },
+        "statistic_log_frame_delay": {
+            "value": 2000,
+            "default_value": 2000,
+            "min_value": 1,
+            "max_value": 1000000,
+            "recommended": """The recommended value is between 2000 and 10000 milliseconds.""",
+            "description": """The delay in ms until countdown."""
+            },
+        "statistic_log_frame_enabled": {
+            "value": True,
+            "default_value": True,
+            "min_value": None,
+            "max_value": None,
+            "recommended": """True or False""",
+            "description": """Determines whether the log frame will be enabled."""
+            },
+        "statistic_frm_log_busy_stylesheet": {
+            "value": """QFrame {color: #ffffff; background-color: #3c005b; border: 3px solid #ff0000;}""",
+            "default_value": """QFrame {color: #ffffff; background-color: #3c005b; border: 3px solid #ff0000;}""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """Adjust the appearance of the Widget using CSS as desired.""",
+            "description": """Sets the appearance of the Widget (setStyleSheet)."""
+            },
+        "statistic_busy_sound_file_path": {
+            "value": """data/app/sounds/typing_illegal_entry2.wav""",
+            "default_value": """data/app/sounds/typing_illegal_entry2.wav""",
+            "min_value": None,
+            "max_value": None,
+            "recommended": """There are no recommended values ​​for this setting""",
+            "description": """The location of the file containing the sound. Usually a 'wav' file."""
             }
     }
 

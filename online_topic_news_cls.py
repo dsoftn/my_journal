@@ -12,6 +12,7 @@ from rashomon_cls import Rashomon
 import html_parser_cls
 from online_abstract_topic import AbstractTopic
 from media_player_cls import MediaPlayer
+import UTILS
 
 
 class NewsData:
@@ -2503,6 +2504,8 @@ class News(AbstractTopic):
         self.lbl_prev.mousePressEvent = self.lbl_prev_click
         self.lbl_next.mousePressEvent = self.lbl_next_click
 
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["News"])
+
     def btn_search_click(self):
         if not self.source_obj or not self.source_obj.search_available:
             return
@@ -2663,9 +2666,11 @@ class News(AbstractTopic):
     def load_topic(self):
         self._set_source(self.settings["news_source"], update_topic=False, force_set_object=True)
         self.update_topic()
+        UTILS.LogHandler.add_log_record("#1: Topic loaded.", ["News"])
         return super().load_topic() 
 
     def update_topic(self, load_categories: bool = True, load_headlines: bool = True, load_page: bool = True, navigation_click: bool = False) -> bool:
+        UTILS.LogHandler.add_log_record("#1: About to update topic.", ["News"])
         QCoreApplication.processEvents()
         self.resize_me()
         QCoreApplication.processEvents()
@@ -2679,6 +2684,7 @@ class News(AbstractTopic):
             self.stop_loading = False
             self.prg_event.setVisible(False)
             self._enable_all_controls(True)
+            UTILS.LogHandler.add_log_record("#1: Updating canceled.", ["News"])
             return
 
         self.topic_info_dict["working"] = True
@@ -2702,6 +2708,7 @@ class News(AbstractTopic):
             self.stop_loading = False
             self.prg_event.setVisible(False)
             self._enable_all_controls(True)
+            UTILS.LogHandler.add_log_record("#1: Updating canceled.", ["News"])
             return
 
         # Load headlines for selected category
@@ -2715,6 +2722,7 @@ class News(AbstractTopic):
             self.stop_loading = False
             self.prg_event.setVisible(False)
             self._enable_all_controls(True)
+            UTILS.LogHandler.add_log_record("#1: Updating canceled.", ["News"])
             return
 
         # Load selected news page
@@ -2731,12 +2739,14 @@ class News(AbstractTopic):
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
             self.prg_event.setVisible(False)
+            UTILS.LogHandler.add_log_record("#1: Updating canceled.", ["News"])
             return 
 
         self.topic_info_dict["working"] = False
         self.topic_info_dict["msg"] = ""
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
         self.stop_loading = False
+        UTILS.LogHandler.add_log_record("#1: Updating completed.", ["News"])
         return no_errors
 
     def _load_categories(self) -> bool:

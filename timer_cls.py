@@ -2,27 +2,13 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtCore import QTimer, QObject, pyqtSignal
 
 from typing import Union, TypeAlias, Any
-import warnings
+
+import UTILS
+
 
 # Type aliases
 TimerIndex: TypeAlias = int
 TimerName: TypeAlias = str
-
-
-def warning_message(message: str, arguments: list = None, print_only: bool = False, warning_type: type = RuntimeWarning):
-    count = 1
-    if arguments:
-        if isinstance(arguments, str):
-            arguments = [arguments]
-        for argument in arguments:
-            message = message.replace("#" + str(count), f'"\033[31m{argument}\033[33m"')
-            count += 1
-
-    text = f"\n\033[34mWarning: \033[33m{message}\033[0m"
-    if print_only:
-        print(text.strip())
-    else:
-        warnings.warn(text, warning_type)
 
 
 class AbstractTimer:
@@ -35,14 +21,16 @@ class AbstractTimer:
                  single_shot: bool = True,
                  function_on_finished: callable = None,
                  function_on_timeout: callable = None,
-                 data: Any = None
+                 data: Any = None,
+                 standalone: bool = False
                  ):
         
         if not isinstance(parent, TimerHandler):
-            warning_message("Parent must be TimerHandler not '#1'", type(parent), print_only=True)
+            UTILS.TerminalUtility.WarningMessage("Parent must be TimerHandler not #1", type(parent), exception_raised=True)
             raise ValueError("Parent must be TimerHandler")
 
         self._parent: TimerHandler = parent
+        self._standalone = standalone
         self.name = name
         self.data = data
         self.function_on_finished = function_on_finished
@@ -53,25 +41,38 @@ class AbstractTimer:
         else:
             self._delay = delay
 
-        if interval:
-            self._interval = interval
+        if single_shot:
+            if interval:
+                UTILS.TerminalUtility.WarningMessage("Interval cannot be specified for SingleShot timer. Interval is ignored")
+            self._interval = 0
         else:
-            warning_message("Interval must be specified. Cannot be '#1", interval, print_only=True)
-            raise ValueError("Interval must be specified.")
+            if interval:
+                self._interval = interval
+            else:
+                UTILS.TerminalUtility.WarningMessage("Interval must be specified for Continuous timer. Cannot be #1", interval, exception_raised=True)
+                raise ValueError("Interval must be specified.")
         
-        if duration:
-            self._duration = duration
+        if single_shot:
+            if duration:
+                self._duration = duration
+            else:
+                UTILS.TerminalUtility.WarningMessage("Duration must be specified. Cannot be #1", duration)
+                raise ValueError("Duration must be specified.")
         else:
-            warning_message("Duration must be specified. Cannot be '#1", duration, print_only=True)
-            raise ValueError("Duration must be specified.")
-        
-        if self._interval > self._duration:
-            warning_message("Interval must be less or equal than duration. Interval (#1) > Duration (#2)", [self._interval, self._duration], print_only=True)
-            warning_message("Interval set to Duration")
+            if duration:
+                self._duration = duration
+            else:
+                self._duration = float("inf")
+            
+        if not single_shot and self._interval > self._duration:
+            UTILS.TerminalUtility.WarningMessage("Interval must be less or equal than duration. Interval (#1) > Duration (#2)\nInterval set to Duration", [self._interval, self._duration])
             self._interval = self._duration
 
         self._single_shot = single_shot
-        self.index = None
+        if self._standalone:
+            self.index = 0
+        else:
+            self.index = None
         self.__tick_state = 0
 
         self.__start_tick_state: int = None
@@ -81,9 +82,48 @@ class AbstractTimer:
 
         self.__active = False
 
-    def start(self):
+    def set_data(self, data):
+        self.data = data
+
+    def get_data(self):
+        return self.data
+
+    def start(self) -> bool:
+        if not self.can_be_started():
+            UTILS.TerminalUtility.WarningMessage("Timer cannot be started. #1", "Configuration error")
+            return False
+        
+        if self._standalone and not self._parent.is_running():
+            self._parent.start()
+
         self._init_tick_states()
         self.__active = True
+
+        return self.__active
+
+    def can_be_started(self) -> bool:
+        if self._single_shot:
+            if self._interval:
+                UTILS.TerminalUtility.WarningMessage("Cannot set interval for single shot timer. Only continuous timers can have an interval.\nInterval set to #1", "0")
+                self._interval = 0
+
+            if not self._duration:
+                UTILS.TerminalUtility.WarningMessage("Duration must be specified. Cannot be #1", self._duration)
+                return False
+        else:
+            if not self._interval:
+                UTILS.TerminalUtility.WarningMessage("Interval must be specified for Continuous timer. Cannot be #1", self._interval)
+                return False
+            
+            if not self._duration:
+                UTILS.TerminalUtility.WarningMessage("Duration cannot be #1\nDuration set to #2", [self._duration, "Infinity"])
+                self._duration = float("inf")
+
+            if self._interval > self._duration:
+                UTILS.TerminalUtility.WarningMessage("Interval must be less or equal than duration. Interval (#1) > Duration (#2)\nInterval set to Duration", [self._interval, self._duration])
+                self._interval = self._duration
+        
+        return True                
 
     def stop(self):
         self.__active = False
@@ -96,35 +136,55 @@ class AbstractTimer:
     
     def is_active(self):
         return self.__active
-    
+
+    def is_standalone(self):
+        return self._standalone
+
     def get_interval(self):
         return self._interval
     
-    def set_interval(self, value: int):
+    def set_interval(self, value: int) -> bool:
+        if value is None:
+            return False
+        
         if self._single_shot:
-            warning_message("Cannot set interval for single shot timer. Only continuous timers can have an interval.", print_only=True)
-            warning_message("Interval not set !")
-            return
+            UTILS.TerminalUtility.WarningMessage("Cannot set interval for single shot timer. Only continuous timers can have an interval.\nInterval not set !")
+            return False
         if value > self._duration:
-            warning_message("Interval must be less or equal than duration. Interval (#1) > Duration (#2)", [value, self._duration], print_only=True)
-            warning_message("Interval not set !")
-            return
+            UTILS.TerminalUtility.WarningMessage("Interval must be less or equal than duration. Interval (#1) > Duration (#2)\nInterval not set !", [value, self._duration])
+            return False
         self._interval = value
         self._check_for_timeout()
+
+        return True
 
     def get_duration(self):
         return self._duration
     
-    def set_duration(self, value: int):
+    def set_duration(self, value: int) -> bool:
+        if value is None:
+            value = float("inf")
+        
+        if not self._single_shot and value < self._interval:
+            UTILS.TerminalUtility.WarningMessage("Duration must be greater or equal than interval. Duration (#1) < Interval (#2)\nDuration not set !", [value, self._interval])
+            return False
+
         self._duration = value
         self._check_for_timeout()
+
+        return True
 
     def get_delay(self):
         return self._delay
     
-    def set_delay(self, value: int):
+    def set_delay(self, value: int) -> bool:
+        if value is None:
+            return False
+        
         self._delay = value
         self._check_for_timeout()
+
+        return True
 
     def is_single_shot(self):
         return self._single_shot
@@ -154,6 +214,7 @@ class AbstractTimer:
         else:
             if self.__tick_state >= self.__stop_tick_state:
                 self._parent._child_timer_timeout(self)
+                self.__stop_tick_state += self._interval
                 if self.__tick_state >= self.__end_tick_state:
                     self._parent._child_timer_finished(self)
                     self.__active = False
@@ -161,13 +222,32 @@ class AbstractTimer:
     def _init_tick_states(self):
         self.__count_ticks = 0
         self.__start_tick_state = self._parent.tick_state()
+        self.__tick_state = self.__start_tick_state
         self.__stop_tick_state = self.__start_tick_state + self._interval + self._delay
         self.__end_tick_state = self.__start_tick_state + self._duration + self._delay
 
+    def close_me(self):
+        if self._standalone:
+            # self._parent.stop()
+            # self._parent.remove_timer(self)
+            self._parent.close_me()
+        else:
+            self._parent.remove_timer(self)
+
 
 class ContinuousTimer(AbstractTimer):
-    def __init__(self, parent: 'TimerHandler', name: str = None, interval: int = None, duration: int = None, delay: int = None, function_on_finished: callable = None, function_on_timeout: callable = None, data: Any = None):
-        
+    def __init__(self, parent: 'TimerHandler' = None, name: str = None, interval: int = None, duration: int = None, delay: int = None, function_on_finished: callable = None, function_on_timeout: callable = None, data: Any = None):
+
+        if isinstance(parent, TimerHandler):
+            standalone = False
+        else:
+            parent = TimerHandler(None, auto_start=False)
+            standalone = True
+
+        if not duration:
+            # Set duration to infinite
+            duration = float('inf')
+
         super().__init__(parent=parent,
                          name=name,
                          interval=interval,
@@ -176,36 +256,88 @@ class ContinuousTimer(AbstractTimer):
                          single_shot=False,
                          function_on_finished=function_on_finished,
                          function_on_timeout=function_on_timeout,
-                         data=data
+                         data=data,
+                         standalone=standalone
                          )
+
+        if standalone:
+            parent._force_add_timer(self)
+
+    def start(self, interval: int = None, duration: int = None, delay: int = None) -> bool:
+        if interval is not None:
+            result = self.set_interval(interval)
+            if not result:
+                UTILS.TerminalUtility.WarningMessage("Unable to start timer. Interval not set !")
+                return False
+        
+        if duration is not None:
+            result = self.set_duration(duration)
+            if not result:
+                UTILS.TerminalUtility.WarningMessage("Unable to start timer. Duration not set !")
+                return False
+
+        if delay is not None:
+            result = self.set_delay(delay)
+            if not result:
+                UTILS.TerminalUtility.WarningMessage("Unable to start timer. Delay not set !")
+                return False
+
+        return super().start()
+        
 
 
 class SingleShotTimer(AbstractTimer):
-    def __init__(self, parent: 'TimerHandler', name: str = None, duration: int = None, delay: int = None, function_on_finished: callable = None, data: Any = None):
+    def __init__(self, parent: 'TimerHandler' = None, name: str = None, duration: int = None, delay: int = None, function_on_finished: callable = None, data: Any = None):
+
+        if isinstance(parent, TimerHandler):
+            standalone = False
+        else:
+            parent = TimerHandler(None, auto_start=False)
+            standalone = True
 
         super().__init__(parent=parent,
                          name=name,
-                         interval=duration,
+                         interval=0,
                          duration=duration,
                          delay=delay,
                          single_shot=True,
                          function_on_finished=function_on_finished,
                          function_on_timeout=None,
-                         data=data
+                         data=data,
+                         standalone=standalone
                          )
+        
+        if standalone:
+            parent._force_add_timer(self)
+
+    def start(self, duration: int = None, delay: int = None) -> bool:
+        if duration is not None:
+            result = self.set_duration(duration)
+            if not result:
+                UTILS.TerminalUtility.WarningMessage("Unable to start timer. Duration not set !")
+                return False
+        
+        if delay is not None:
+            result = self.set_delay(delay)
+            if not result:
+                UTILS.TerminalUtility.WarningMessage("Unable to start timer. Delay not set !")
+                return False
+
+        return super().start()
 
 
 class TimerHandler(QObject):
     signalTimerTimeOut = pyqtSignal(AbstractTimer)
     signalTimerFinished = pyqtSignal(AbstractTimer)
 
-    def __init__(self, parent: QWidget = None, interval: int = 50, auto_start: bool = True):
+    def __init__(self, parent: QWidget = None, interval: int = 25, auto_start: bool = True):
         super().__init__(parent)
 
         self.interval = interval
 
         self.__timer = None
         self.__tick_state = 0
+        self._parent = parent
 
         self.__timers = []
 
@@ -224,6 +356,13 @@ class TimerHandler(QObject):
         
         self.signalTimerTimeOut.emit(timer)
 
+    def _force_add_timer(self, timer: Union[ContinuousTimer, SingleShotTimer]):
+        if isinstance(timer, ContinuousTimer) or isinstance(timer, SingleShotTimer):
+            self.__timers.append(timer)
+        else:
+            UTILS.TerminalUtility.WarningMessage("Timer must be of type ContinuousTimer or SingleShotTimer.\ntype(timer) = #1\ntimer = #2", [type(timer), timer], exception_raised=True)
+            raise ValueError("Timer must be of type ContinuousTimer or SingleShotTimer.")
+        
     def add_timer(self, timer: Union[ContinuousTimer, SingleShotTimer, dict], auto_start: bool = False) -> Union[ContinuousTimer, SingleShotTimer, None]:
         if isinstance(timer, ContinuousTimer) or isinstance(timer, SingleShotTimer):
             index = len(self.__timers)
@@ -235,8 +374,10 @@ class TimerHandler(QObject):
         if isinstance(timer, dict):
             timer = self._create_timer_from_dict(timer)
             if not timer:
-                warning_message("Timer not added.", print_only=True)
+                UTILS.TerminalUtility.WarningMessage("Timer not added.\nFunction: #1\ntimer = #2", ["add_timer", timer])
                 return None
+        
+        return timer
 
     def remove_timer(self, timer: Union[ContinuousTimer, SingleShotTimer, TimerIndex, TimerName]) -> Union[ContinuousTimer, SingleShotTimer, None]:
         index = self._find_timer_index(timer)
@@ -270,8 +411,7 @@ class TimerHandler(QObject):
         return self.__timers
 
     def remove_all_timers(self):
-        for timer in self.__timers:
-            timer.stop()
+        self.stop_all_timers()
         
         self.__timers = []
 
@@ -304,13 +444,13 @@ class TimerHandler(QObject):
         elif timer_dict.get("type") == "single_shot" or timer_dict.get("single_shot") is True:
             timer = SingleShotTimer(parent=self, name=timer_dict.get("name"), duration=timer_dict.get("duration"))
         else:
-            warning_message("Unable to create timer from dict:\n#1", str(timer_dict), print_only=True)
+            UTILS.TerminalUtility.WarningMessage("Unable to create timer from dict:\n#1", str(timer_dict))
             return None
         
         return timer
 
     def start(self):
-        if self.__timer:
+        if isinstance(self.__timer, QTimer):
             self.__timer.stop()
             self.__timer.deleteLater()
             self.__tick_state = 0
@@ -321,11 +461,14 @@ class TimerHandler(QObject):
         self.__timer.start()
 
     def stop(self):
-        if self.__timer:
+        if isinstance(self.__timer, QTimer):
             self.__timer.stop()
             self.__timer.deleteLater()
             self.__tick_state = 0
-            self.__timer = None
+        self.__timer = None
+
+    def is_running(self):
+        return self.__timer is not None
 
     def tick_state(self):
         return self.__tick_state
@@ -334,6 +477,20 @@ class TimerHandler(QObject):
         self.__tick_state += self.interval
         for timer in self.__timers:
             timer._set_tick_state(self.__tick_state)
+
+    def close_me(self):
+        self.remove_all_timers()
+        try:
+            if self.__timer is not None:
+                self.__timer.stop()
+                self.__timer.deleteLater()
+        except Exception as e:
+            UTILS.LogHandler.add_log_record("#1: Exception in function #2 method (timer delete).\nException: #3\ntype(self.__timer) = #4\nself__timer = #5", ["TimerHandler", "close_me", str(e), type(self.__timer), self.__timer], exception_raised=True)
+
+        self.__timer = None
+
+        self.deleteLater()
+        self.setParent(None)
 
 
 

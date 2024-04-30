@@ -1,8 +1,7 @@
 from PyQt5.QtWidgets import QFrame, QPushButton, QTextEdit, QLabel, QGraphicsOpacityEffect
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QPixmap, QCursor, QTextCharFormat, QColor
-from PyQt5.QtCore import Qt, QCoreApplication, QRect, QPoint, QTimer
+from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QPixmap, QCursor, QTextCharFormat, QColor, QDrag
+from PyQt5.QtCore import Qt, QCoreApplication, QRect, QPoint, QTimer, QMimeData
 from PyQt5 import uic, QtGui
-from PyQt5.QtMultimedia import QSound
 
 import time
 from math import *
@@ -20,6 +19,8 @@ import webbrowser
 import wikipedia_cls
 import block_widgets_cls
 import dict_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class AutoComplete(QFrame):
@@ -30,7 +31,7 @@ class AutoComplete(QFrame):
     END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t"}
     END_OF_SENTENCE = {".", "!", "?", "\n"}
 
-    def __init__(self, settings: settings_cls.Settings, text_edit_object: QTextEdit, name: str = "autocomplete", main_win = None, *args, **kwargs):
+    def __init__(self, settings: settings_cls.Settings, text_edit_object: QTextEdit, name: str = "autocomplete", main_win = None, widget_handler: qwidgets_util_cls.WidgetHandler = None, *args, **kwargs):
         if main_win is None:
             self._parent_widget = settings.app_setting_get_value("main_win")
         else:
@@ -53,6 +54,7 @@ class AutoComplete(QFrame):
 
         self._signals: utility_cls.Signals = self.get_appv("signal")
         self._main_win = main_win
+        self.widget_handler = widget_handler
         
         # AutoComplete list to show
         self._ac_list = []
@@ -77,6 +79,12 @@ class AutoComplete(QFrame):
         # Connect events with slots
         for button in self.btn_list:
             button.clicked.connect(self._button_click)
+            if self.widget_handler:
+                self.widget_handler.add_QPushButton(button, main_win=self)
+        if self.widget_handler:
+            self.widget_handler.activate()
+
+        UTILS.LogHandler.add_log_record("#1: Engine started.", ["AutoComplete"])
 
     def select_item(self):
         button = self.btn_list[self.selected_item]
@@ -227,7 +235,7 @@ class AutoComplete(QFrame):
         # Check is text valid
         if len(txt) < 2:
             return None
-        if txt[-1] in self.END_OF_WORD:
+        if UTILS.TextUtility.is_special_char(txt[-1]):
             self._add_word_to_dict(txt)
             return None
         word = self._find_last_word(txt)
@@ -300,7 +308,7 @@ class AutoComplete(QFrame):
         # Delete last characters that marks end of word
         delete_last_char = True
         while delete_last_char:
-            if txt[-1] in self.END_OF_WORD:
+            if UTILS.TextUtility.is_special_char(txt[-1]):
                 if len(txt) > 1:
                     txt = txt[:-1]
                 else:
@@ -319,9 +327,10 @@ class AutoComplete(QFrame):
 
         # In case that is this first word in text
         if number_of_words is None:        
-            for i in self.END_OF_WORD:
-                if i != " ":
-                    txt = txt.replace(i, " ")
+            txt = UTILS.TextUtility.replace_special_chars(txt)
+            # for i in self.END_OF_WORD:
+            #     if i != " ":
+            #         txt = txt.replace(i, " ")
 
             txt = " " + txt
             txt = txt[txt.rfind(" ") + 1:]
@@ -338,10 +347,11 @@ class AutoComplete(QFrame):
         for i in range(len(word_list) - word_count, len(word_list)):
             add_word = ""
             for j in range(i, len(word_list)):
-                if j == i:
-                    for k in self.END_OF_WORD:
-                        word_list[j].replace(k, "")
-                        word_list[j].strip()
+                # if j == i:
+                #     word_list[j] = UTILS.TextUtility.replace_special_chars(word_list[j], replace_with="")
+                    # for k in self.END_OF_WORD:
+                    #     word_list[j].replace(k, "")
+                    #     word_list[j].strip()
 
                 add_word += word_list[j] + " "
             add_word = add_word[:-1]
@@ -402,6 +412,15 @@ class AutoComplete(QFrame):
         font.setStrikeOut(self.getv(f"{name}_font_strikeout"))
         btn.setFont(font)
         btn.setStyleSheet(self.getv(f"{name}_stylesheet"))
+
+    def close_me(self):
+        for button in self.btn_list:
+            if self.widget_handler:
+                self.widget_handler.remove_child(button)
+
+        UTILS.LogHandler.add_log_record("#1: Engine stopped.", ["AutoComplete"])
+        self.deleteLater()
+        self.setParent(None)
 
 
 class SimpleDefinitionExtraImage(QLabel):
@@ -469,7 +488,8 @@ class SimpleDefinitionExtraImage(QLabel):
                 return
             
             if not self._definitions_q:
-                self._timer_start_fade_out.stop()
+                if isinstance(self._timer_start_fade_out, QTimer):
+                    self._timer_start_fade_out.stop()
                 return
 
             self._is_active = True
@@ -1044,6 +1064,23 @@ class SimpleDefinitionExtraImage(QLabel):
         self.setVisible(False)
         self.setAttribute(Qt.WA_DeleteOnClose)
 
+    def close_me(self):
+        if self._timer_fade_out:
+            self._timer_fade_out.stop()
+            self._timer_fade_out.deleteLater()
+        if self._timer_delay:
+            self._timer_delay.stop()
+            self._timer_delay.deleteLater()
+        if self._timer_start_fade_out:
+            self._timer_start_fade_out.stop()
+            self._timer_start_fade_out.deleteLater()
+        self._timer_fade_out = None
+        self._timer_delay = None
+        self._timer_start_fade_out = None
+        self.hide()
+        self.deleteLater()
+        self.setParent(None)
+
 
 class ShowSimpleDefinitions():
     def __init__(self, settings: settings_cls.Settings, parent_widget, definition_ids: list = None, cursor_pos: QPoint = None, *args, **kwargs):
@@ -1073,8 +1110,11 @@ class ShowSimpleDefinitions():
         # Connect signals with slots
         self.signal.signalSimpleDefinitionGeometryChanged.connect(self.signal_definition_geometry_changed)
 
+        UTILS.LogHandler.add_log_record("#1: Engine started.", ["ShowSimpleDefinitions"])
+
     def show_me(self, definition_ids: list = None, cursor_pos: QPoint = None):
         definition_ids = self._remove_duplicate_defs(definition_ids)
+        UTILS.LogHandler.add_log_record("#1: Show frame requested for ID(s) #2.", ["ShowSimpleDefinitions", str(definition_ids)])
         if cursor_pos is not None:
             self._cursor_pos = cursor_pos
             self._cursor_loc_pos = self._parent_widget.mapFromGlobal(self._cursor_pos)
@@ -1191,16 +1231,30 @@ class ShowSimpleDefinitions():
             self._hide_def(self._definitions[0][0])
         
     def _hide_def(self, definition_id: int):
-        for idx, item in enumerate(self._definitions):
-            if item[0] == definition_id:
-                item[1].hide_me()
-                self._definitions.pop(idx)
-                break
-        for idx, item in enumerate(self._definition_ids):
-            if item == definition_id:
-                self._definition_ids.pop(idx)
-                break
+        try:
+            for idx, item in enumerate(self._definitions):
+                if item[0] == definition_id:
+                    item[1].hide_me()
+                    item[1].close_me()
+                    self._definitions.pop(idx)
+                    break
+            for idx, item in enumerate(self._definition_ids):
+                if item == definition_id:
+                    self._definition_ids.pop(idx)
+                    break
+        except Exception as e:
+            UTILS.LogHandler.add_log_record("#1: Error occurred while trying to hide definition #2 in method #3.\nException: #4", ["ShowSimpleDefinitions", str(definition_id), "_hide_def", str(e)], warning_raised=True)
 
+    def close_me(self):
+        if self._definitions:
+            for item in self._definitions:
+                item[1].close_me()
+        
+        if self._extra_image:
+            for item in self._extra_image:
+                item.close_me()
+        UTILS.LogHandler.add_log_record("#1: Engine stopped.", ["ShowSimpleDefinitions"])
+        
     @property
     def drag_mode(self) -> bool:
         for i in self._definitions:
@@ -1251,6 +1305,8 @@ class ShowSimpleDefinition(QFrame):
         self.lbl_title.mouseReleaseEvent = self.lbl_title_mouse_release
         self.lbl_title.mouseMoveEvent = self.lbl_title_mouse_move
 
+        UTILS.LogHandler.add_log_record("#1: Frame loaded. (DefID=#2)", ["ShowSimpleDefinition", self._definition_id])
+
     def lbl_title_mouse_press(self, x):
         self.move_mode = (QCursor().pos().x() - self.pos().x(), QCursor().pos().y() - self.pos().y())
 
@@ -1278,7 +1334,18 @@ class ShowSimpleDefinition(QFrame):
 
     def _lbl_pic_mouse_press(self, e: QtGui.QMouseEvent):
         self._clear_cm()
-        if e.button() == Qt.RightButton:
+        if e.button() == Qt.LeftButton:
+            if self._definition_id is None:
+                return
+
+            self.get_appv("cb").set_drag_data(self._definition_id, "def")
+            
+            mime_data = QMimeData()
+            mime_data.setText(str(self._definition_id))
+            drag = QDrag(self)
+            drag.setMimeData(mime_data)
+            drag.exec_(Qt.CopyAction)
+        elif e.button() == Qt.RightButton:
             self._context_menu()
 
     def _lbl_pic_double_click(self, e: QtGui.QMouseEvent) -> None:
@@ -1391,13 +1458,13 @@ class ShowSimpleDefinition(QFrame):
         utility_cls.ContextMenu(self._stt, self._parent_widget)
         # self._clear_cm()
         if menu_dict["result"] == 10:
-            definition_cls.ViewDefinition(self._stt, self, self._definition_id)
+            definition_cls.ViewDefinition(self._stt, self.get_appv("main_win"), self._definition_id)
         elif menu_dict["result"] == 20:
-            definition_cls.AddDefinition(self._stt, self, definition_id=self._definition_id)
+            definition_cls.AddDefinition(self._stt, self.get_appv("main_win"), definition_id=self._definition_id)
         elif menu_dict["result"] == 30:
-            definition_cls.BrowseDefinitions(self._stt, self, definition_id=self._definition_id)
+            definition_cls.BrowseDefinitions(self._stt, self.get_appv("main_win"), definition_id=self._definition_id)
         elif menu_dict["result"] == 40:
-            utility_cls.PictureBrowse(self._stt, self, db_def.definition_media_ids)
+            utility_cls.PictureBrowse(self._stt, self.get_appv("main_win"), db_def.definition_media_ids)
         elif self.get_appv("menu")["result"] == 50:
             self._clip.copy_to_clip(media_id, add_to_clip=False)
         elif self.get_appv("menu")["result"] == 60:
@@ -1406,8 +1473,7 @@ class ShowSimpleDefinition(QFrame):
             self._clip.clear_clip()
 
     def _clear_cm(self) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
 
     def _setup_position_size_and_populate_widgets(self):
         if self._definition_id is None:
@@ -1573,13 +1639,31 @@ class ShowSimpleDefinition(QFrame):
         self.drag_mode = None
         self.signal.simple_viev_geometry_changed(self)
 
+    def close_me(self):
+        if self.btn_resize:
+            self.btn_resize.deleteLater()
+        if self.btn_close:
+            self.btn_close.deleteLater()
+        if self.lbl_desc:
+            self.lbl_desc.deleteLater()
+        if self.lbl_pic:
+            self.lbl_pic.deleteLater()
+        if self.lbl_title:
+            self.lbl_title.deleteLater()
+        UTILS.LogHandler.add_log_record("#1: Frame closed. (DefID=#2)", ["ShowSimpleDefinition", self._definition_id])
+        try:
+            self.deleteLater()
+            self.setParent(None)
+        except Exception as e:
+            UTILS.LogHandler.add_log_record(f"#1: Failed to delete frame in #2 method.\nException: #3", ["ShowSimpleDefinition", "close_me", str(e)], warning_raised=True)
+        
 
 class TextHandler():
     
     END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#", "\"", "'", "{", "}", "[", "]", "_", "-", "*", "&", "^", "$", "+", "=", "|", "<", ">"}
     END_OF_SENTENCE = {".", "!", "?", "\n", "\t"}
     
-    def __init__(self, settings: settings_cls.Settings, txt_box: QTextEdit, main_win):
+    def __init__(self, settings: settings_cls.Settings, txt_box: QTextEdit, main_win, widget_handler: qwidgets_util_cls.WidgetHandler = None) -> None:
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -1589,6 +1673,7 @@ class TextHandler():
         self.set_appv = self._stt.app_setting_set_value
 
         self._main_win = main_win
+        self._widget_handler = widget_handler
         self._signals: utility_cls.Signals = self.get_appv("signal")
         self.txt_box = txt_box
         self.char_for = self.txt_box.textCursor().charFormat()
@@ -1613,12 +1698,13 @@ class TextHandler():
 
         self._txt_box_normal_tooltip = self.txt_box.toolTip()
 
-        self._definition_hint = DefinitonHint(self._stt, self._main_win)
+        self._definition_hint = DefinitonHint(self._stt, self._main_win, widget_handler=self._widget_handler)
 
         self._populate_def_list()
 
         self.data_dict = {}
         self._populate_data_dict()
+        UTILS.LogHandler.add_log_record("#1: Engine started.", ["TextHandler"])
 
     def _populate_data_dict(self):
         if "marked" not in self.data_dict:
@@ -1639,11 +1725,15 @@ class TextHandler():
 
         if pos == 0 or pos == len(txt):
             return False
-        if txt[pos - 1:pos] in self.END_OF_WORD or txt[pos + 1:pos + 2] in self.END_OF_WORD or txt[pos:pos + 1] in self.END_OF_WORD:
+
+        if UTILS.TextUtility.is_special_char(txt[pos - 1:pos]) or UTILS.TextUtility.is_special_char(txt[pos + 1:pos + 2]) or UTILS.TextUtility.is_special_char(txt[pos:pos + 1]):
+        # if txt[pos - 1:pos] in self.END_OF_WORD or txt[pos + 1:pos + 2] in self.END_OF_WORD or txt[pos:pos + 1] in self.END_OF_WORD:
             return False
 
-        for i in self.END_OF_WORD:
-            txt = txt.replace(i, " ")
+        txt = UTILS.TextUtility.replace_special_chars(txt)
+        # for i in self.END_OF_WORD:
+        #     txt = txt.replace(i, " ")
+
         start_pos = txt.rfind(" ", 0, pos) + 1
         end_pos = txt.find(" ", pos)
         word = txt[start_pos:end_pos]
@@ -1708,6 +1798,8 @@ class TextHandler():
         if self._calc_mode:
             return
 
+        UTILS.LogHandler.add_log_record("#1: Main Context menu displayed.", ["TextHandler"])
+
         # Set status for AutoComplete and Highlighter
         disab = []
         if self.getv("show_word_highlight"):
@@ -1734,8 +1826,9 @@ class TextHandler():
         if cursor.hasSelection():
             # sel_text = cursor.selectedText()
             txt = self.txt_box.toPlainText()
-            for i in self.END_OF_WORD:
-                txt = txt.replace(i, " ")
+            txt = UTILS.TextUtility.replace_special_chars(txt)
+            # for i in self.END_OF_WORD:
+            #     txt = txt.replace(i, " ")
             cur_sel = self.txt_box.textCursor()
             start_sel = txt[:cur_sel.selectionStart()].rfind(" ")
             end_sel = txt[cur_sel.selectionEnd():].find(" ") + cursor.selectionEnd()
@@ -2370,7 +2463,7 @@ class TextHandler():
                     133,
                     self.getl("block_txt_box_menu_def_enum_text") + def_enum_count_word,
                     self.getl("block_txt_box_menu_def_enum_tt"),
-                    False,
+                    True,
                     definitions_list,
                     self.getv("list_icon_path")
                 ],
@@ -2526,8 +2619,9 @@ class TextHandler():
         elif self.get_appv("menu")["result"] == 90:
             if self._check_expression_lenght(self.txt_box.textCursor().selectedText()):
                 txt = self.txt_box.toPlainText()
-                for i in self.END_OF_WORD:
-                    txt = txt.replace(i, " ")
+                txt = UTILS.TextUtility.replace_special_chars(txt)
+                # for i in self.END_OF_WORD:
+                #     txt = txt.replace(i, " ")
                 cursor = self.txt_box.textCursor()
                 start_sel = txt[:cursor.selectionStart()].rfind(" ")
                 end_sel = txt[cursor.selectionEnd():].find(" ") + cursor.selectionEnd()
@@ -2546,8 +2640,9 @@ class TextHandler():
         elif self.get_appv("menu")["result"] == 105:
             if self.txt_box.textCursor().selectedText():
                 txt = self.txt_box.toPlainText()
-                for i in self.END_OF_WORD:
-                    txt = txt.replace(i, " ")
+                txt = UTILS.TextUtility.replace_special_chars(txt)
+                # for i in self.END_OF_WORD:
+                #     txt = txt.replace(i, " ")
                 cursor = self.txt_box.textCursor()
                 start_sel = txt[:cursor.selectionStart()].rfind(" ")
                 end_sel = txt[cursor.selectionEnd():].find(" ") + cursor.selectionEnd()
@@ -2774,6 +2869,9 @@ class TextHandler():
             self.setv("def_extra_image_layout", 2)
         elif self.get_appv("menu")["result"] is not None and self.get_appv("menu")["result"] > 1330000000000 and self.get_appv("menu")["result"] < 1339000000000:
             definition_cls.BrowseDefinitions(self._stt, self._main_win, self.get_appv("menu")["result"] - 1330000000000)
+        elif self.get_appv("menu")["result"] == 133:
+            if definitions_list:
+                definition_cls.BrowseDefinitions(self._stt, self._main_win, list(self._get_unique_definition_ids_in_block().keys()))
         elif self.get_appv("menu")["result"] == 12508010:
             self.setv("def_extra_image_animate_style", 0)
         elif self.get_appv("menu")["result"] == 12508020:
@@ -2841,6 +2939,18 @@ class TextHandler():
         The submenus are created by _create_menu_for_def_list.
         The menu items themselves are generated by _create_menu_item_for_def_list.
         """
+        unique_defs = self._get_unique_definition_ids_in_block()
+        
+        if not unique_defs:
+            return []
+        
+        db_def_obj = db_definition_cls.Definition(self._stt)
+        
+        menu_items = self._create_menu_for_def_list(unique_defs, self._text_def_map[0][0], number_of_items_per_menu=number_of_items_per_menu, db_def_obj=db_def_obj)
+
+        return menu_items
+
+    def _get_unique_definition_ids_in_block(self) -> dict:
         unique_defs = {}
 
         for i in self._text_def_map:
@@ -2852,16 +2962,9 @@ class TextHandler():
             unique_defs[i[0]]["count"] += 1
             if i[1].strip() not in unique_defs[i[0]]["list"]:
                 unique_defs[i[0]]["list"].append(i[1].strip())
-        
-        if not unique_defs:
-            return []
-        
-        db_def_obj = db_definition_cls.Definition(self._stt)
-        
-        menu_items = self._create_menu_for_def_list(unique_defs, self._text_def_map[0][0], number_of_items_per_menu=number_of_items_per_menu, db_def_obj=db_def_obj)
 
-        return menu_items
-        
+        return unique_defs
+
     def _create_menu_for_def_list(self, defs_dict: dict, start_from: str, number_of_items_per_menu: int = 10, db_def_obj: db_definition_cls.Definition = None):
         if db_def_obj is None:
             db_def_obj = db_definition_cls.Definition(self._stt)
@@ -2947,8 +3050,9 @@ class TextHandler():
         return True
 
     def _check_expression_lenght(self, txt: str) -> bool:
-        for i in self.END_OF_WORD:
-            txt = txt.replace(i, " ")
+        txt = UTILS.TextUtility.replace_special_chars(txt)
+        # for i in self.END_OF_WORD:
+        #     txt = txt.replace(i, " ")
         
         if len(txt.strip()) < self.getv("definition_minimum_word_lenght"):
             msg_text = self.getl("def_msg_word_to_short_text").replace("#1", txt.strip()).replace("#2", str(self.getv("definition_minimum_word_lenght")))
@@ -3062,8 +3166,10 @@ class TextHandler():
                 pos = txt.find(expression[0], pos)
 
                 if pos != -1:
-                    left_char = True if pos == 0 or txt[pos - 1] in self.END_OF_WORD else False
-                    right_char = True if pos + len(expression[0]) == len(txt) or txt[pos + len(expression[0])] in self.END_OF_WORD else False
+                    left_char = True if pos == 0 or UTILS.TextUtility.is_special_char(txt[pos - 1]) else False
+                    right_char = True if pos + len(expression[0]) == len(txt) or UTILS.TextUtility.is_special_char(txt[pos + len(expression[0])]) else False
+                    # left_char = True if pos == 0 or txt[pos - 1] in self.END_OF_WORD else False
+                    # right_char = True if pos + len(expression[0]) == len(txt) or txt[pos + len(expression[0])] in self.END_OF_WORD else False
                     if left_char and right_char:
                         self._text_def_map.append([expression[1], expression[0], pos, pos + len(expression[0])])
                     pos += len(expression[0])
@@ -3112,8 +3218,9 @@ class TextHandler():
             return
 
         txt = self.txt_box.toPlainText()
-        for i in self.END_OF_WORD:
-            txt = txt.replace(i, " ")
+        txt = UTILS.TextUtility.replace_special_chars(txt)
+        # for i in self.END_OF_WORD:
+        #     txt = txt.replace(i, " ")
         
         txt_list = [x + " " for x in txt.split(" ")]
         
@@ -3280,8 +3387,24 @@ class TextHandler():
                 styled_text = [f"<span>{x}</span><br>" if x != "#1" else "#1" for x in self.getl("block_body_txt_box_hyperlink_tooltip").split("\n")]
                 styled_text = "".join(styled_text)
                 styled_text = '<span style="color: #aaff7f;"' + styled_text[5:]
-                # styled_text = f'<span style="color: light blue; text-decoration: underline">{hyperlink_text}</span>'
                 tt_txt = styled_text.replace("#1", f'<span style="color: #aaffff; text-decoration: underline">{hyperlink_text}</span>')
+                # Add definition image if web site is defined
+                web_site_name = hyperlink_text
+                if web_site_name.find("//") != -1:
+                    web_site_name = web_site_name[web_site_name.find("//") + 2:]
+                    if web_site_name.startswith(("www.", "ai.", "app.")) and web_site_name.find(".") != -1:
+                        web_site_name = web_site_name[web_site_name.find(".") + 1:]
+                    web_site_name = web_site_name.split(".")[0].lower()
+                    db_def = db_definition_cls.Definition(self._stt)
+                    for i in db_def.get_list_of_all_expressions():
+                        if i[0] == web_site_name:
+                            db_def.load_definition(i[1])
+                            if i[0] in db_def.definition_name.lower().replace(" ", "") and db_def.default_media_id:
+                                db_media = db_media_cls.Media(self._stt)
+                                if db_media.is_media_exist(db_def.default_media_id):
+                                    db_media.load_media(db_def.default_media_id)
+                                    tt_txt += f'<br><br><img src="{db_media.media_file}" width="300" />'
+
             else:
                 tt_txt = self._txt_box_normal_tooltip
             
@@ -3344,7 +3467,6 @@ class TextHandler():
                 "id": self.txt_box._active_record_id
             }
             self.txt_box.block_event(self.txt_box._my_name, "titlebar_msg", detail=detail_dict)
-            
 
     def _is_cursor_at_valid_position(self, e: QtGui.QMouseEvent) -> bool:
         cursor = self.txt_box.cursorForPosition(e.pos())
@@ -3704,8 +3826,43 @@ class TextHandler():
                     self._set_text_and_pos_at_end(txt)
                     self.txt_box.block_event("body_txt_box", "calculator")
                     return "calculator"
+            # Add tags
+            tags = self._check_is_tags_add_command()
+            if tags is True:
+                return "tags_no_data"
+            elif tags:
+                self.txt_box.block_event("body_txt_box", "tag_hint", {"tag_hints": tags})
+                return "tags"
 
             return False
+    
+    def _check_is_tags_add_command(self) -> list | None:
+        txt = self.txt_box.toPlainText()
+        txt = txt.rstrip()
+
+        if not txt:
+            return None
+        
+        last_line_break = txt.rfind("\n")
+
+        last_line = txt[last_line_break + 1:]
+        if not last_line.startswith("@@"):
+            return None
+        
+        tags = last_line[2:].strip()
+
+        txt = txt[:-len(last_line)]
+        self._set_text_and_pos_at_end(txt)
+
+        if not tags:
+            return True
+
+        if tags.find(",") != -1:
+            tag_list = [x.strip() for x in tags.split(",")]
+        else:
+            tag_list = [x.strip() for x in tags.split(" ")]
+        
+        return tag_list
 
     def _is_command_typed(self, command: str) -> bool:
         txt = self.txt_box.toPlainText()
@@ -3731,13 +3888,31 @@ class TextHandler():
         cur.setPosition(len(self.txt_box.toPlainText()))
         self.txt_box.setTextCursor(cur)
 
+    def close_me(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        if self._simple_def_view:
+            self._simple_def_view.close_me()
+        self._simple_def_view = None
+        if self._timer:
+            self._timer.stop()
+        self._timer = None
+        if self._timer_to_hide:
+            self._timer_to_hide.stop()
+        self._timer_to_hide = None
+        if self._definition_hint:
+            self._definition_hint.close_me()
+        self._definition_hint = None
+
+        UTILS.LogHandler.add_log_record("#1: Engine stopped.", ["TextHandler"])
+
 
 class DefinitonHint(QFrame):
     END_OF_WORD = {" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#", "\"", "'", "{", "}", "[", "]", "_", "-", "*", "&", "^", "$", "+", "=", "|", "<", ">"}
     ACCURACY_PERCENT = 80
     NUMBER_OF_DEFINITIONS = 6
 
-    def __init__(self, settings: settings_cls.Settings, parent_widget):
+    def __init__(self, settings: settings_cls.Settings, parent_widget, widget_handler: qwidgets_util_cls.WidgetHandler = None):
         super().__init__(parent_widget)
 
         # Define settings object and methods
@@ -3748,24 +3923,27 @@ class DefinitonHint(QFrame):
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
 
-        # Register dialog
-        self.my_name = str(time.time_ns())
-        self.dialog_queue = utility_cls.DialogsQueue(self, self.my_name, add_dialog=True)
         self._previous_text = None
 
         # Load GUI
         uic.loadUi(self.getv("definition_hint_ui_file_path"), self)
 
         # Define other variables
+        self.widget_handler = widget_handler
         self._dont_close_me = False
         self._parent_widget = parent_widget
         self._active_record_id = None
         self.hint_result = {}
-        self.sound_hint_pop_up = QSound(self.getv("definition_hint_sound_pop_up"))
+        self.sound_hint_pop_up = UTILS.SoundUtility(self.getv("definition_hint_sound_pop_up"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
         self._language = None
         self.data_dict = {}
         self.word = None
         self.text_func = TextFunctions(self._stt)
+
+        self._define_widgets()
+        self._setup_widgets_text()
+        if self.widget_handler:
+            self._setup_widget_handler()
 
         # Connect events with slots
         self.btn_dont_show.clicked.connect(self.btn_dont_show_click)
@@ -3775,11 +3953,23 @@ class DefinitonHint(QFrame):
         self.btn_settings.clicked.connect(self.btn_settings_click)
         self.get_appv("signal").signalNewDefinitionAdded.connect(self.refresh)
 
-
-        self._define_widgets()
-        self._setup_widgets_text()
         self.refresh()
         self._load_data()
+
+        UTILS.LogHandler.add_log_record("#1: Engine started.", ["DefinitionHint"])
+
+    def _setup_widget_handler(self):
+        this_frame: qwidgets_util_cls.Widget_Frame = self.widget_handler.add_QFrame(self)
+        this_frame.main_win = self.get_appv("main_win")
+        this_frame.properties.window_drag_widgets = [self, self.lbl_title, self.lbl_pic]
+
+        self.widget_handler.add_QPushButton(self.btn_close)
+        self.widget_handler.add_QPushButton(self.btn_dont_show)
+        self.widget_handler.add_QPushButton(self.btn_open)
+        self.widget_handler.add_QPushButton(self.btn_quick_add)
+        self.widget_handler.add_QPushButton(self.btn_settings)
+
+        self.widget_handler.activate()
 
     def btn_settings_click(self):
         utility_cls.DefHintManager(self._stt, self._parent_widget)
@@ -4012,6 +4202,7 @@ class DefinitonHint(QFrame):
         self.move(x, y)
         self.setVisible(True)
         self.sound_hint_pop_up.play()
+        UTILS.LogHandler.add_log_record("#1: Frame displayed.", ["DefinitionHint"])
 
     def _calculate_definition_similarity_for_word(self, word: str) -> int:
         accuracy = self.ACCURACY_PERCENT
@@ -4038,7 +4229,7 @@ class DefinitonHint(QFrame):
                             "ratio": ratio,
                             "name": self.expression_table[i]["name"]
                             }
-                        print (f"Found: word: {word} = {item}  Ratio: {ratio}")
+                        # print (f"Found: word: {word} = {item}  Ratio: {ratio}")
 
                 if not hint_cus_found:
                     if self._language == "serbian":
@@ -4055,14 +4246,14 @@ class DefinitonHint(QFrame):
                             "ratio": ratio,
                             "name": self.expression_table[i]["name"]
                             }
-                        print (f"Found: word: {word} = {item}  Ratio: {ratio}")
+                        # print (f"Found: word: {word} = {item}  Ratio: {ratio}")
                         
                 
         self.hint_result = self._combine_results(hint_result_diff, hint_result_custom)
 
-        print (f"RESULTS: Custom: {len(hint_result_custom)}, Diff: {len(hint_result_diff)}  METOD: COMBINED    ", "Time: ", time.perf_counter() - time_perf, "   COUNT: ", count)
-        if time.perf_counter() - time_perf > self.getv("definition_hint_ratio_method_limit_time"):
-            print (f"Method COMBINED too slow. Records: {count},  Execute time: {time.perf_counter() - time_perf}", end="")
+        # print (f"RESULTS: Custom: {len(hint_result_custom)}, Diff: {len(hint_result_diff)}  METOD: COMBINED    ", "Time: ", time.perf_counter() - time_perf, "   COUNT: ", count)
+        # if time.perf_counter() - time_perf > self.getv("definition_hint_ratio_method_limit_time"):
+        #     print (f"Method COMBINED too slow. Records: {count},  Execute time: {time.perf_counter() - time_perf}", end="")
 
     def _combine_results(self, result1: dict, result2: dict) -> dict:
         result = {}
@@ -4272,8 +4463,9 @@ class DefinitonHint(QFrame):
         if not txt.strip():
             return None
         
-        for i in self.END_OF_WORD:
-            txt = txt.replace(i, " ")
+        txt = UTILS.TextUtility.replace_special_chars(txt)
+        # for i in self.END_OF_WORD:
+        #     txt = txt.replace(i, " ")
         
         if txt[-1] != " ":
             return None
@@ -4285,14 +4477,26 @@ class DefinitonHint(QFrame):
 
         return last_word
 
-    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
-        # Unregister Dialog
-        self.dialog_queue.dialog_method_remove_dialog(self.my_name)
-        return super().closeEvent(a0)
+    # def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+    #     print ("DefHint Unregistred")
+    #     # Unregister Dialog
+    #     self.dialog_queue.dialog_method_remove_dialog(self.my_name)
+    #     return super().closeEvent(a0)
 
     def close_me(self):
-        # if not self._dont_close_me:
+        if self.widget_handler:
+            self.widget_handler.remove_child(self)
+            self.widget_handler.remove_child(self.btn_close)
+            self.widget_handler.remove_child(self.btn_settings)
+            self.widget_handler.remove_child(self.btn_quick_add)
+            self.widget_handler.remove_child(self.btn_dont_show)
+            self.widget_handler.remove_child(self.btn_open)
+
         self.setVisible(False)
+        UTILS.LogHandler.add_log_record("#1: Engine stopped.", ["DefinitionHint"])
+        self.close()
+        self.deleteLater()
+        self.setParent(None)
 
     def _define_widgets(self):
         self.lbl_title: QLabel = self.findChild(QLabel, "lbl_title")
@@ -4308,7 +4512,8 @@ class DefinitonHint(QFrame):
         self.btn_close.setDefault(False)
         if self.getv(f"definition_hint_btn_close_icon_path"):
             self.btn_close.setIcon(QIcon(self.getv("definition_hint_btn_close_icon_path")))
-        self.btn_close.setFlat(True)        
+        self.btn_close.setFlat(True)
+        self.btn_close.setStyleSheet("QPushButton:hover {background-color: #008f8f; border: 1px solid;}")
 
         img = QPixmap()
         img.load(self.getv("definition_hint_icon_path"))
@@ -4951,8 +5156,9 @@ class TextFunctions():
         return int_val
 
     def _clear_word_end_chars(self, text: str, replace_with: str = " ") -> str:
-        for i in self.END_OF_WORD:
-            text = text.replace(i, replace_with)
+        text = UTILS.TextUtility.replace_special_chars(text, replace_with=replace_with)
+        # for i in self.END_OF_WORD:
+        #     text = text.replace(i, replace_with)
         return text
 
     def _prepare_for_whole_words(self, txt: str) -> str:

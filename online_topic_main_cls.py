@@ -10,6 +10,7 @@ import folium
 
 import settings_cls
 from online_abstract_topic import AbstractTopic
+import UTILS
 
 
 class Main(AbstractTopic):
@@ -61,6 +62,8 @@ class Main(AbstractTopic):
         self.btn_we_city_go.clicked.connect(self.btn_we_city_go_click)
         self.txt_we_city.returnPressed.connect(self.txt_we_city_return_press)
         self.txt_we_city.textChanged.connect(self.txt_we_city_text_changed)
+
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["OnlineTopic Main"])
 
     def cmb_wheel_event(self, e: QMouseEvent):
         return
@@ -164,6 +167,7 @@ class Main(AbstractTopic):
         self.stop_loading = False
 
     def load_topic(self):
+        UTILS.LogHandler.add_log_record("#1: About to load topic.", ["OnlineTopic Main"])
         self.topic_info_dict["working"] = True
         self.stop_loading = False
         self._load_location()
@@ -172,6 +176,7 @@ class Main(AbstractTopic):
             self.topic_info_dict["msg"] = self.getl("topic_msg_interrupted_by_user")
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
+            UTILS.LogHandler.add_log_record("#1: User stopped loading.", ["OnlineTopic Main"])
             return
 
         self._load_exchange_rate()
@@ -180,6 +185,7 @@ class Main(AbstractTopic):
             self.topic_info_dict["msg"] = self.getl("topic_msg_interrupted_by_user")
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
+            UTILS.LogHandler.add_log_record("#1: User stopped loading.", ["OnlineTopic Main"])
             return
 
         self.load_weather()
@@ -188,12 +194,14 @@ class Main(AbstractTopic):
             self.topic_info_dict["msg"] = self.getl("topic_msg_interrupted_by_user")
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
+            UTILS.LogHandler.add_log_record("#1: User stopped loading.", ["OnlineTopic Main"])
             return
 
         self.topic_info_dict["working"] = False
         self.topic_info_dict["msg"] = ""
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
         self.stop_loading = False
+        UTILS.LogHandler.add_log_record("#1: Topic loading completed.", ["OnlineTopic Main"])
         return super().load_topic()
 
     def load_weather(self):

@@ -472,6 +472,7 @@ class StyleSheet:
             ["qverticalscrollbar", "QScrollBar"],
             ["qhorizontalslider", "QSlider"],
             ["qverticalslider", "QSlider"],
+            ["qslider", "QSlider"],
             ["qkeysequenceedit", "QKeySequenceEdit"],
             ["qlabel", "QLabel"],
             ["qtextbrowser", "QTextBrowser"],

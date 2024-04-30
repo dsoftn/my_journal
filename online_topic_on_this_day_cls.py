@@ -12,6 +12,7 @@ from utility_cls import Calendar
 from utility_cls import TextToHTML
 from utility_cls import TextToHtmlRule
 from utility_cls import DateTime
+import UTILS
 
 
 class EventItem(QFrame):
@@ -207,6 +208,8 @@ class OnThisDay(AbstractTopic):
         self.lbl_close.mousePressEvent = self.lbl_close_mouse_press
         self.lbl_site_nadanasnjidan.mouseDoubleClickEvent = self.lbl_site_nadanasnjidan_double_click
 
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["OnThisDay"])
+
     def lbl_site_nadanasnjidan_double_click(self, e: QMouseEvent):
         site = self.lbl_site_nadanasnjidan.toolTip()
         webbrowser.open_new_tab(site)
@@ -354,6 +357,7 @@ class OnThisDay(AbstractTopic):
 
     def load_topic(self, source_url: str = None, selected_date: str = None):
         """Load topic data"""
+        UTILS.LogHandler.add_log_record("#1: About to load topic.", ["OnThisDay"])
         self.topic_info_dict["working"] = True
         self.stop_loading = False
 
@@ -372,12 +376,14 @@ class OnThisDay(AbstractTopic):
             self.topic_info_dict["msg"] = self.getl("topic_msg_interrupted_by_user")
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
+            UTILS.LogHandler.add_log_record("#1: Topic loading canceled.", ["OnThisDay"])
             return
 
         self.topic_info_dict["working"] = False
         self.topic_info_dict["msg"] = ""
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
         self.stop_loading = False
+        UTILS.LogHandler.add_log_record("#1: Topic loading completed.", ["OnThisDay"])
         return super().load_topic()
 
     def load_events(self, source_url: str = None, selected_date: str = None):

@@ -11,6 +11,7 @@ import settings_cls
 import utility_cls
 import html_parser_cls
 from online_abstract_topic import AbstractTopic
+import UTILS
 
 
 class Table(QFrame):
@@ -963,6 +964,8 @@ class AladinWE(AbstractTopic):
         self.txt_search.returnPressed.connect(self.search_city)
         self.lbl_title_pic.mouseDoubleClickEvent = self.lbl_title_pic_mouse_double_click
 
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["AladinWE"])
+
     def lbl_title_pic_mouse_double_click(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
             site = self.lbl_title_pic.toolTip()
@@ -1000,11 +1003,13 @@ class AladinWE(AbstractTopic):
             self.update_normal_page_content()
 
     def load_topic(self):
+        UTILS.LogHandler.add_log_record("#1: Topic loaded.", ["AladinWE"])
         self.active_page = self.settings["start_page"]
         self.update_topic()
         return super().load_topic()
     
     def update_topic(self) -> bool:
+        UTILS.LogHandler.add_log_record("#1: Updating topic.", ["AladinWE"])
         QCoreApplication.processEvents()
         self.topic_info_dict["working"] = True
         self.topic_info_dict["msg"] = self.getl("topic_msg_aladin_we") + ", " + self.getl("topic_msg_dowloading")
@@ -1023,13 +1028,14 @@ class AladinWE(AbstractTopic):
             self.signal_topic_info_emit(self.name, self.topic_info_dict)
             self.stop_loading = False
             self.setDisabled(False)
+            UTILS.LogHandler.add_log_record("#1: Topic updated.", ["AladinWE"])
             return success
         
         self._clear_all_tables()
         self._reset_cards_dict()
 
         if result is None:
-            print ("No page found")
+            UTILS.LogHandler.add_log_record("#1: No page found.", ["AladinWE"])
             success = False
         elif result == "empty":
             success = self._load_empty_page()
@@ -1054,6 +1060,11 @@ class AladinWE(AbstractTopic):
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
         self.stop_loading = False
         self.resize_me()
+
+        if success:
+            UTILS.LogHandler.add_log_record("#1: Topic updated.", ["AladinWE"])
+        else:
+            UTILS.LogHandler.add_log_record("#1: Topic update failed.", ["AladinWE"])
 
         return success
 

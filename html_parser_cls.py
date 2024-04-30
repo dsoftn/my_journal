@@ -2,6 +2,8 @@ import urllib.request
 import requests
 import html as HtmlLib
 
+import UTILS
+
 
 class Utility:
     ONE_LINE_TAGS = ["img", "/img", "link", "/link", "meta", "/meta", "t", "/t", "br", "/br"]
@@ -12,6 +14,7 @@ class Utility:
 
     def load_html_code(self, html_code: str, dont_split_into_lines: bool = False):
         if not isinstance(html_code, str):
+            UTILS.TerminalUtility.WarningMessage("HTML Code must be in string format !\ntype(html_code): #1\nhtml_code = #2", [str(type(html_code)), html_code], exception_raised=True)
             raise TypeError("HTML Code must be in string format !")
         if self.html_code == html_code:
             return
@@ -441,6 +444,7 @@ class Utility:
             elif isinstance(only_remove_double, list) or isinstance(only_remove_double, tuple) or isinstance(only_remove_double, set):
                 remove = [x for x in only_remove_double]
             else:
+                UTILS.TerminalUtility.WarningMessage("Variable #1 must be a string, list, tuple or set.\ntype(only_remove_double): #2\nonly_remove_double = #3", ["only_remove_double", type(only_remove_double), only_remove_double], exception_raised=True)
                 raise ValueError("only_remove_double must be a string, list, tuple or set")
 
         while True:
@@ -503,6 +507,7 @@ class Utility:
             return None
         
         if not tag_property:
+            UTILS.TerminalUtility.WarningMessage("Tag property must be defined !\ntag_property = #1", [tag_property], exception_raised=True)
             raise ValueError("Tag property must be defined !")
         
         if tag is None:
@@ -845,6 +850,7 @@ class TextObject:
                     tag_search.append(formated_tag)
             tag = tuple(tag_search)
         else:
+            UTILS.TerminalUtility.WarningMessage("Invalid parameter type: Variable #1 must be string or list or tuple.\ntype(tag): #2\ntag = #3", ["tag", type(tag), tag], exception_raised=True)
             raise TypeError(f"Invalid parameter type: tag must be string or list or tuple, not {type(tag)}")
 
         result = ""
@@ -1178,6 +1184,7 @@ class TableObject:
     def add_cell(self, x: int = None, y: int = None, value: str = "", cell_type: str = "text", cell_data = None, auto_extend_table: bool = True):
         if x is None or y is None:
             if self.cur_cell is None:
+                UTILS.TerminalUtility.WarningMessage("Current cell is not set, unable to add new cell. You must specify x and y coordinates.\nx = #1\ny = #2\nself.cur_cell = #3", [x, y, self.cur_cell], exception_raised=True)
                 raise ValueError("Current cell is not set, unable to add new cell. You must specify x and y coordinates.")
             else:
                 x = self.cur_cell[0] + 1
@@ -1188,6 +1195,7 @@ class TableObject:
                 if y > self._last_row and auto_extend_table:
                     y = self.add_rows()
                 else:
+                    UTILS.TerminalUtility.WarningMessage("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.\nVariable #1 is set to #2, cannot add new row", ["auto_extend_table", auto_extend_table], exception_raised=True)
                     raise ValueError("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.")
         if self._last_col is None or  x > self._last_col:
             if auto_extend_table:
@@ -1197,6 +1205,7 @@ class TableObject:
                     correction = self._last_col
                 self.add_cols(x - correction)
             else:
+                UTILS.TerminalUtility.WarningMessage("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.\nVariable #1 is set to #2, cannot add new col", ["auto_extend_table", auto_extend_table], exception_raised=True)
                 raise ValueError("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.")
         if self._last_row is None or y > self._last_row:
             if auto_extend_table:
@@ -1206,6 +1215,7 @@ class TableObject:
                     correction = self._last_row
                 self.add_rows(y - correction)
             else:
+                UTILS.TerminalUtility.WarningMessage("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.\nVariable #1 is set to #2, cannot add new cell", ["auto_extend_table", auto_extend_table], exception_raised=True)
                 raise ValueError("New cell position outside of table bounds. You must specify x and y coordinates or extend the table first.")
         
         self.table[str(y)][str(x)] = {"value": value, "type": cell_type, "data": cell_data}
@@ -1222,12 +1232,14 @@ class TableObject:
             if self.cur_cell:
                 x = self.cur_cell[0]
             else:
+                UTILS.TerminalUtility.WarningMessage("Cell position (#1, #2) outside of table bounds. You must specify x and y coordinates or extend the table first.", [x, y], exception_raised=True)
                 raise ValueError(f"Cell position ({x}, {y}) outside of table bounds. You must specify x and y coordinates or extend the table first.")
         
         if y is None:
             if self.cur_cell:
                 y = self.cur_cell[1]
             else:
+                UTILS.TerminalUtility.WarningMessage("Cell position (#1, #2) outside of table bounds. You must specify x and y coordinates or extend the table first.", [x, y], exception_raised=True)
                 raise ValueError(f"Cell position ({x}, {y}) outside of table bounds. You must specify x and y coordinates or extend the table first.")
         
         return self.table[str(y)][str(x)]
@@ -1236,6 +1248,7 @@ class TableObject:
         if str(y) in self.table and str(x) in self.table[str(y)]:
             self.cur_cell = (x, y)
         else:
+            UTILS.TerminalUtility.WarningMessage("Cell (#1, #2) does not exist in table", [x, y], exception_raised=True)
             raise ValueError(f"Cell ({x}, {y}) does not exist in table")
         
     def normalize_table(self) -> tuple:

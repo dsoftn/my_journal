@@ -1,5 +1,6 @@
 import database_cls
 import settings_cls
+import UTILS
 
 
 class Tag():
@@ -61,6 +62,7 @@ class Tag():
             description_transl (str):
         """
         if self.is_valid_tag_name(tag_dict["name"]) is not None:
+            UTILS.TerminalUtility.WarningMessage("Tag name already exist.\ntag_dict[name]: #1", [tag_dict.get("name")], exception_raised=True)
             raise ValueError("Tag name already exist.")
         
         if "user_def" not in tag_dict:
@@ -78,16 +80,22 @@ class Tag():
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q, param=param, commit=True)
         
+        UTILS.LogHandler.add_log_record("#1: New tag added. (ID=#2)", ["Tag", result], variables=[["tag_dict[name]", tag_dict.get("name")], ["tag_dict[description]", tag_dict.get("description")], ["tag_dict[user_def]", tag_dict.get("user_def")], ["tag_dict[name_transl]", tag_dict.get("name_transl")], ["tag_dict[description_transl]", tag_dict.get("description_transl")]])
         self.log.write_log(f"DB Tag. Tag added. Tag ID: {result}")
         return result
 
     def delete_tag(self, tag_id: int) -> int:
         if not self.is_valid_tag_id(tag_id):
+            UTILS.TerminalUtility.WarningMessage("Tag ID does not exist.\ntag_id: #1", [tag_id], exception_raised=True)
             raise ValueError("Tag ID does not exist.")
         q = f"DELETE FROM tag WHERE id = {tag_id} ;"
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q, commit=True)
+
+        UTILS.LogHandler.add_log_record("#1: Tag deleted. (ID=#2)", ["Tag", result])
+
         self.log.write_log(f"DB Tag. Tag deleted. Tag ID: {tag_id}")
+        
         return result
 
     def update_tag(self, tag_id: int, tag_dict: dict) -> int:
@@ -100,10 +108,13 @@ class Tag():
             description_transl (str):
         """
         if not self.is_valid_tag_id(tag_id):
+            UTILS.TerminalUtility.WarningMessage("Tag ID does not exist.\ntag_id: #1", [tag_id], exception_raised=True)
             raise ValueError("Tag ID does not exist.")
         if self.is_valid_tag_name(tag_dict["name"]) is None:
+            UTILS.TerminalUtility.WarningMessage("Tag name does not exist.\ntag_dict[name]: #1", [tag_dict.get("name")], exception_raised=True)
             raise ValueError("Tag name does not exist.")
         if not tag_dict["name"]:
+            UTILS.TerminalUtility.WarningMessage("Tag name not defined.\ntag_dict[name]: #1", [tag_dict.get("name")], exception_raised=True)
             raise ValueError("Tag name not defined.")
 
         if "user_def" not in tag_dict:
@@ -120,6 +131,8 @@ class Tag():
 
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q, param=param, commit=True)
+
+        UTILS.LogHandler.add_log_record("#1: New tag added. (ID=#2)", ["Tag", tag_id], variables=[["tag_dict[name]", tag_dict.get("name")], ["tag_dict[description]", tag_dict.get("description")], ["tag_dict[user_def]", tag_dict.get("user_def")], ["tag_dict[name_transl]", tag_dict.get("name_transl")], ["tag_dict[description_transl]", tag_dict.get("description_transl")]])
         
         self.log.write_log(f"DB Tag. Tag updated. Tag ID: {tag_id}")
         return result
@@ -135,6 +148,7 @@ class Tag():
         if tag_id is None:
             tag_id = self._active_tag_id
         if tag_id is None:
+            UTILS.TerminalUtility.WarningMessage("Missing tag ID !\ntag_id: #1\nself._active_tag_id: #2", [tag_id, self._active_tag_id], exception_raised=True)
             raise ValueError("Missing tag ID !")
         
         q = f"SELECT COUNT(tag_id) FROM data WHERE tag_id = {tag_id} ;"
@@ -173,6 +187,7 @@ class Tag():
             tag_id = self._active_tag_id
         if self._active_tag_id == 0:
             self.log.write_log("Error: Tag_ID not found. Module: tag_cls, Class: Tag, Method: populate_values")
+            UTILS.TerminalUtility.WarningMessage("Error: Tag_ID not found.\ntag_id: #1\nself._active_tag_id: #2", [tag_id, self._active_tag_id], exception_raised=True)
             raise ValueError("Error: Tag_ID not found. Module: tag_cls, Class: Tag, Method: populate_values")
         tag = self.get_all_tags(self._active_tag_id)[0]
         self._tag_name = tag[1]

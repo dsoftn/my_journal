@@ -1,6 +1,7 @@
 import database_cls
 import settings_cls
 import utility_cls
+import UTILS
 
 
 class Record():
@@ -44,7 +45,7 @@ class Record():
         else:
             return False
 
-    def get_all_records(self, record_id: int = None, sort_by_date: bool = True) -> list:
+    def get_all_records(self, record_id: int = None, sort_by_date: bool = True, sort_by_id: bool = False) -> list:
         if record_id is None:
             condition = ""
         else:
@@ -52,6 +53,8 @@ class Record():
 
         if sort_by_date:
             q = f"SELECT * FROM record{condition} ORDER BY date_int ;"
+        if sort_by_id:
+            q = f"SELECT * FROM record{condition} ORDER BY id ;"
         else:
             q = f"SELECT * FROM record{condition} ;"
         
@@ -72,7 +75,7 @@ class Record():
         self._record_updated_at = record_fetched[0][7]
         self._record_body_html = record_fetched[0][8]
 
-        self.get_appv("log").write_log(f"DB Record. Record loaded. Record ID: {self._active_id}")
+        self.get_appv("log").write_log(f"DB Record. Record opened. Record ID: {self._active_id}")
 
     def load_record(self, record_id: int = 0):
         # If 'record_id' is not specified, try loading 'self._active_id'
@@ -106,6 +109,7 @@ class Record():
         """
         with database_cls.DataBase(self.db_info) as db:
             db.execute(q, param=(self._record_name, self._record_body, self._record_body_html), commit=True)
+        UTILS.LogHandler.add_log_record("#1: Block record updated. (ID=#2)", ["Record", self._active_id], variables=[["Name", self._record_name], ["Date", self._record_date], ["Body", self._record_body], ["Draft", self._record_draft], ["Updated_at", self._record_updated_at], ["Body_HTML", self._record_body_html]])
         self.get_appv("log").write_log(f"DB Record. Record saved. Record ID: {self._active_id}")
 
     def delete_record(self, record_id: int = None) -> None:
@@ -113,14 +117,16 @@ class Record():
             record_id = self._active_id
         if not record_id:
             self.get_appv("log").write_log(f"Error. DB Record. delete_record. Record ID: {self._active_id}")
+            UTILS.TerminalUtility.WarningMessage("Error. Record ID not defined. Cannot delete record.\nrecord_id = #1\nself._active_id = #2", [record_id, self._active_id], exception_raised=True)
             raise ValueError("An attempt was made to delete an undefined recordID.")
 
         q = f"DELETE FROM record WHERE id = {record_id} ;"
         with database_cls.DataBase(self.db_info) as db:
             db.execute(q, commit=True)
+        UTILS.LogHandler.add_log_record("#1: Block record deleted. (ID=#2)", ["Record", self._active_id])
         self.get_appv("log").write_log(f"DB Record. Record deleted. Record ID: {self._active_id}")
 
-    def add_new_record(self, body: str, body_html: str, date: str = "", draft: int = 1, name: str = ""):
+    def add_new_record(self, body: str, body_html: str, date: str = "", draft: int = 1, name: str = "") -> int:
         dt = utility_cls.DateTime(self._stt)
         date_dict = dt.make_date_dict(date)
         rec_name = name
@@ -157,6 +163,7 @@ class Record():
         last_row_id = db.execute(q, (rec_name, rec_body, rec_body_html), commit=True)
         self.load_record(last_row_id)
         db.close_db()
+        UTILS.LogHandler.add_log_record("#1: Block record added. (ID=#2)", ["Record", last_row_id], variables=[["Name", self._record_name], ["Date", self._record_date], ["Body", self._record_body], ["Draft", self._record_draft], ["Updated_at", self._record_updated_at], ["Body_HTML", self._record_body_html]])
         self.get_appv("log").write_log(f"DB Record. Record added. Record ID: {last_row_id}")
         return last_row_id
 
@@ -178,6 +185,7 @@ class Record():
     @RecordName.setter
     def RecordName(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordName property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordName property must be a string. Passed '{str(type(value))}', expected 'str'")
         self._record_name = value
 
@@ -188,6 +196,7 @@ class Record():
     @RecordDate.setter
     def RecordDate(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordDate property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordDate property must be a string. Passed '{str(type(value))}', expected 'str'")
         dt = utility_cls.DateTime(self._stt)
         date_dict = dt.make_date_dict(value)
@@ -205,6 +214,7 @@ class Record():
     @RecordBody.setter
     def RecordBody(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordBody property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordBody property must be a string. Passed '{str(type(value))}', expected 'str'")
         self._record_body = value
 
@@ -215,6 +225,7 @@ class Record():
     @RecordBodyHTML.setter
     def RecordBodyHTML(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordBodyHTML property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordBodyHTML property must be a string. Passed '{str(type(value))}', expected 'str'")
         self._record_body_html = value
 
@@ -225,6 +236,7 @@ class Record():
     @RecordDraft.setter
     def RecordDraft(self, value: int) -> None:
         if not isinstance(value, int):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordDraft property must be an integer.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordDraft property must be a integer. Passed '{str(type(value))}', expected 'int'")
         self._record_draft = value
 
@@ -235,6 +247,7 @@ class Record():
     @RecordCreatedAt.setter
     def RecordCreatedAt(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordCreatedAt property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordCreatedAt property must be a string. Passed '{str(type(value))}', expected 'str'")
         self._record_created_at = value
 
@@ -245,5 +258,6 @@ class Record():
     @RecordUpdatedAt.setter
     def RecordUpdatedAt(self, value: str) -> None:
         if not isinstance(value, str):
+            UTILS.TerminalUtility.WarningMessage("Error. RecordUpdatedAt property must be a string.\ntype(value) = #1\nvalue = #2", [type(value), value], exception_raised=True)
             raise ValueError(f"The RecordUpdatedAt property must be a string. Passed '{str(type(value))}', expected 'str'")
         self._record_updated_at = value

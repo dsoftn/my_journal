@@ -1,6 +1,7 @@
 import database_cls
 import settings_cls
 import db_media_cls
+import UTILS
 
 
 class RecordData():
@@ -90,11 +91,12 @@ class RecordData():
             rec_dict = self._empty_record_data_dict()
         data = self.get_record_data(record_id)
         db_media = db_media_cls.Files(self._stt)
+        files_id = [x[0] for x in db_media.get_all_file()]
 
         for item in data:
             rec_dict["tag"].append(item[2])
 
-            if db_media.is_file_exist(item[3]):
+            if item[3] in files_id:
                 rec_dict["files"].append(item[3])
             else:
                 rec_dict["media"].append(item[3])
@@ -107,6 +109,7 @@ class RecordData():
         if record_id == 0:
             record_id = self._active_record_id
         if overwrite_old_data:
+            UTILS.LogHandler.add_log_record("#1: Overwriting old record data. (ID=#2)", ["RecordData", record_id])
             self.delete_record_data(record_id)
             rec_dict = self.get_record_data_dict(record_id, merge_with_dict=data_dict)
         else:
@@ -122,15 +125,18 @@ class RecordData():
             for i in range(len(rec_dict["files"])):
                 q = f"INSERT INTO data (record_id, media_id) VALUES ({record_id},{rec_dict['files'][i]}) ;"
                 db.execute(q, commit=True)
+        UTILS.LogHandler.add_log_record("#1: Block record data updated. (ID=#2)", ["RecordData", record_id])
 
     def delete_record_data(self, record_id: int = None) -> None:
         if not record_id:
             record_id = self._active_record_id
         if not record_id:
+            UTILS.TerminalUtility.WarningMessage("An attempt was made to delete an undefined recordID.\nrecord_id = #1", [record_id], exception_raised=True)
             raise ValueError("An attempt was made to delete an undefined recordID.")
         q = f"DELETE FROM data WHERE record_id = {record_id} ;"
         with database_cls.DataBase(self.db_info) as db:
             db.execute(q, commit=True)
+        UTILS.LogHandler.add_log_record("#1: Block record data deleted. (ID=#2)", ["RecordData", record_id])
         
     def _empty_record_data_dict(self) -> dict:
         result = {}

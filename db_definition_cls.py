@@ -1,5 +1,6 @@
 import database_cls
 import settings_cls
+import UTILS
 
 
 class Definition():
@@ -16,11 +17,13 @@ class Definition():
         self._active_def_id = def_id
         
         if self._active_def_id:
-            self._populate_properties()
+            if not self._populate_properties():
+                UTILS.TerminalUtility.WarningMessage("#1: Error in #2 function. Loading DefID: #3 failed.", ["Definition", "init", self._active_def_id], exception_raised=True)
+                raise ValueError(f"Definition ID {self._active_def_id} cannot be loaded !")
 
     def get_list_of_all_expressions(self) -> list:
         """
-        Returns list: [expresion, def_id]
+        Returns list: [expression, def_id]
         """
         q = "SELECT expression, definition_id FROM def_data ORDER BY definition_id ;"
         with database_cls.DataBase(self.db_info) as db:
@@ -50,6 +53,38 @@ class Definition():
         q = "SELECT id, name, description FROM definition ORDER BY id ;"
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q)
+        return result
+
+    def get_complete_definitions_data(self) -> list:
+        """
+        Returns list: [id(int), name(str), description(str), synonyms(list), media_ids(list), default_media_id(int)]
+        """
+        q = "SELECT * FROM definition ORDER BY id ;"
+        with database_cls.DataBase(self.db_info) as db:
+            defs = db.execute(q)
+        
+        q = "SELECT * FROM def_data ORDER BY definition_id ;"
+        with database_cls.DataBase(self.db_info) as db:
+            data = db.execute(q)
+        
+        result = []
+        data_start = 0
+        for def_item in defs:
+            item = [def_item[0], def_item[1], def_item[2], [], [], 0]
+            for data_idx in range(data_start, len(data)):
+                data_item = data[data_idx]
+                if data_item[1] != def_item[0]:
+                    data_start = data_idx
+                    break
+                if data_item[2]:
+                    item[3].append(data_item[2])
+                if data_item[3]:
+                    item[4].append(data_item[3])
+                if data_item[5]:
+                    item[5] = data_item[5]
+            
+            result.append(item)
+
         return result
 
     def get_list_of_all_descriptions(self) -> list:
@@ -85,7 +120,7 @@ class Definition():
         else:
             return None
 
-    def add_new_definition(self, def_dict: dict):
+    def add_new_definition(self, def_dict: dict) -> int:
         """ Adds a new expression definition
         def_dict: {}
             name (str):
@@ -114,11 +149,14 @@ class Definition():
                 q += f"INSERT INTO def_data(definition_id, expression, media_id, show, is_default) VALUES ({new_id}, '', {item}, 1, 0) ;\n"
             db.execute(q, commit=True, execute_many=True)
 
+        UTILS.LogHandler.add_log_record("#1: Added new definition. (ID=#2)", ["Definition", new_id], variables=[["def_dict[name]", def_dict.get("name")], ["def_dict[description]", def_dict.get("description")], ["def_dict[synonyms]", def_dict.get("synonyms")], ["def_dict[media_ids]", def_dict.get("media_ids")]])
         self._active_def_id = new_id
         self._populate_properties(new_id)
         if "default" in def_dict:
             self.set_new_default_media(def_dict["default"])
         self.get_appv("log").write_log(f"DB Definition. add_new_definition. ID & Name: {new_id}, {def_dict['name']}")
+
+        return new_id
 
     def _fix_definitions(self):
         return
@@ -183,6 +221,7 @@ class Definition():
             if q:
                 db.execute(q.strip(), commit=True, execute_many=True)
 
+        UTILS.LogHandler.add_log_record("#1: Updated definition. (ID=#2)", ["Definition", def_id], variables=[["def_dict[name]", def_dict.get("name")], ["def_dict[description]", def_dict.get("description")], ["def_dict[synonyms]", def_dict.get("synonyms")], ["def_dict[media_ids]", def_dict.get("media_ids")]])
         self.set_new_default_media(default_media_id)
         self.get_appv("log").write_log(f"DB Definition. update_definition. Name: {self._name}")
 
@@ -190,6 +229,7 @@ class Definition():
         if def_id is None:
             def_id = self._active_def_id
         if def_id is None:
+            UTILS.TerminalUtility.WarningMessage("Definition ID is not specified !\ndef_id = #1", [def_id], exception_raised=True)
             raise ValueError("Definition ID is not specified.")
         
         q = f"DELETE FROM definition WHERE id = {def_id} ;"
@@ -200,6 +240,7 @@ class Definition():
         if result != result2:
             self.get_appv("log").write_log(f"Error. DB Definition. delete_definition failed. ID: {def_id}")
             return False
+        UTILS.LogHandler.add_log_record("#1: Deleted definition. (ID=#2)", ["Definition", def_id])
         self.get_appv("log").write_log(f"DB Definition. delete_definition. ID: {def_id}")
         return result
 
@@ -208,6 +249,7 @@ class Definition():
             def_id = self._active_def_id
         if not def_id:
             self.get_appv("log").write_log(f"Error. DB Definition. Loading failed. Definition ID: {def_id}")
+            UTILS.TerminalUtility.WarningMessage("Definition ID is not defined ! Loading failed.\ndef_id = #1", [def_id], exception_raised=True)
             raise ValueError("Definition ID is not defined !")
         
         q = f"SELECT * FROM definition WHERE id = {def_id} ;"

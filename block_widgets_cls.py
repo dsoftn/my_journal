@@ -1,9 +1,8 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridLayout, QWidget,
-                             QSpacerItem, QSizePolicy, QLabel, QHBoxLayout)
-from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QMouseEvent, QCursor, QPixmap
-from PyQt5.QtCore import QSize, Qt, QTimer, QCoreApplication
+                             QSpacerItem, QSizePolicy, QLabel, QHBoxLayout, QApplication)
+from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QMouseEvent, QCursor, QPixmap, QPainter, QColor, QDrag
+from PyQt5.QtCore import QSize, Qt, QTimer, QCoreApplication, QRect, QMimeData
 from PyQt5 import QtGui
-from PyQt5.QtMultimedia import QSound
 
 import os
 import time
@@ -17,6 +16,10 @@ import db_tag_cls
 import text_handler_cls
 import db_media_cls
 import tag_cls
+import qwidgets_util_cls
+import timer_cls
+from timer_cls import SingleShotTimer
+import UTILS
 
 
 class Frame(QFrame):
@@ -70,9 +73,9 @@ class Frame(QFrame):
         if self._my_name == "body":
             self._auto_add_images_active = False
             self.auto_add_images_frame = utility_cls.AutoAddImageFrame(self._stt, self.body_text_box)
-            self.sound_image_added = QSound(self.getv("block_body_auto_added_image_sound_file_path"))
-            self.sound_image_add_error = QSound(self.getv("block_body_auto_added_image_error_sound_file_path"))
-            self.sound_pop_up = QSound(self.getv("notification_pop_up_sound_file_path"))
+            self.sound_image_added = UTILS.SoundUtility(self.getv("block_body_auto_added_image_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+            self.sound_image_add_error = UTILS.SoundUtility(self.getv("block_body_auto_added_image_error_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+            self.sound_pop_up = UTILS.SoundUtility(self.getv("notification_pop_up_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
 
         # Connect Signals with slots
         self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
@@ -88,13 +91,41 @@ class Frame(QFrame):
         self.block_event(self._my_name, "set_pointer_to_arrow")
 
     def mousePressEvent(self, a0: QtGui.QMouseEvent) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
+
         if a0.button() == Qt.LeftButton:
+            # text = f'{self.getl("cursor_drag_block")}: {self._active_record_id}'
+            # font = QFont("Arial", 12)
+            # fm = QFontMetrics(font)
+            # text_width = fm.width(text)
+            # text_height = fm.height()
+            # cursor_image = QPixmap(text_width, text_height)
+            # cursor_image.fill(Qt.transparent)
+            # painter = QPainter(cursor_image)
+            # painter.setPen(QColor("#55ffff"))
+            # painter.setFont(font)
+            # painter.drawText(QRect(0, 0, text_width, text_height), Qt.AlignCenter, text)
+            # painter.end()
+            # cursor = QCursor(cursor_image, hotX=int(text_width / 2), hotY=int(text_height / 2))
+            # QApplication.setOverrideCursor(cursor)
+
+            self.get_appv("cb").set_drag_data(self._active_record_id, "block")
+            
+            mime_data = QMimeData()
+            mime_data.setText(str(self._active_record_id))
+            drag = QDrag(self)
+            drag.setMimeData(mime_data)
+            drag.exec_(Qt.CopyAction)
+
             self._parent_widget.block_event(self._my_name, "mouse_press_left")
         elif a0.button() == Qt.RightButton:
             self._parent_widget.block_event(self._my_name, "mouse_press_right")
         return super().mousePressEvent(a0)
+
+    def mouseReleaseEvent(self, a0: QtGui.QMouseEvent) -> None:
+        # QApplication.restoreOverrideCursor()
+
+        return super().mouseReleaseEvent(a0)
 
     def mouseDoubleClickEvent(self, a0: QtGui.QMouseEvent) -> None:
         self._parent_widget.block_event(self._my_name, "mouse_double_clicked")
@@ -162,10 +193,11 @@ class Frame(QFrame):
         result = self._auto_image_add()
 
         if result == "":
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. #3 added single image.", ["WinBlock", self._active_record_id, "AutoImageAdd"])
             return
 
         # Try to load multiple images
-        self.auto_add_images_frame.update_me(None, self.getl("auto_add_image_frame_lbl_info_starting_multi_add_text"), is_error=False)        
+        self.auto_add_images_frame.update_me(None, self.getl("auto_add_image_frame_lbl_info_starting_multi_add_text"), is_error=False)
         self._auto_multi_image_add()
         self.auto_add_images_frame.update_me(None, self.getl("auto_add_image_frame_lbl_info_start_text"), is_error=False)
 
@@ -190,6 +222,7 @@ class Frame(QFrame):
             return
 
         # Show the user a selection dialog to select the images they want to add
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. #3 triggered multiple image selection dialog.", ["WinBlock", self._active_record_id, "AutoImageAdd"])
         select_dict = {
             "title": self.getl("multi_urls_selection_title"),
             "multi-select": False,
@@ -206,6 +239,7 @@ class Frame(QFrame):
 
         # If the user has not selected any image, return
         if not urls:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. #3: Image selection aborted.\nUser did not select any image.", ["WinBlock", self._active_record_id, "AutoImageAdd"])
             return
 
         not_added = []
@@ -240,6 +274,7 @@ class Frame(QFrame):
             
             self.sound_pop_up.play()
             utility_cls.Selection(self._stt, self, selection_dict=select_dict)
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. #3 added #4 images.\nFor #5 images url cannot be resolved.", ["WinBlock", self._active_record_id, "AutoImageAdd", len(urls) - len(not_added), len(not_added)])
 
     def _auto_image_add(self, img_source: str = None) -> str:
         self.auto_add_images_frame.update_me(None, self.getl("auto_add_image_frame_lbl_info_working_text"), is_error=False)
@@ -279,10 +314,12 @@ class Frame(QFrame):
         if self._auto_add_images_active == True:
             self.auto_add_images_frame.setVisible(False)
             self._auto_add_images_active = False
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. #3 deactivated.", ["WinBlock", self._active_record_id, "AutoImageAdd"])
         else:
             self.auto_add_images_frame.setVisible(True)
             self.auto_add_images_frame.update_me()
             self._auto_add_images_active = True
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. #3 activated.", ["WinBlock", self._active_record_id, "AutoImageAdd"])
 
     def _auto_add_images_mode_exit(self):
         if self.auto_add_images_frame is None:
@@ -291,6 +328,7 @@ class Frame(QFrame):
         self._auto_add_images_active = False
 
     def _add_files(self, file_ids: list = None):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. About to add files in block.", ["WinBlock", self._active_record_id])
         if file_ids is None:
             utility_cls.FileAdd(self._stt, self._main_win)
             result = self.get_appv("file_add")
@@ -316,8 +354,12 @@ class Frame(QFrame):
                     self.horizontal_grid.addWidget(ImageItem(self._stt, self, i))
                     self._data_dict["files"].append(i)
                     self.block_event("body", "file_added")
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Files added in block.", ["WinBlock", self._active_record_id])
+        else:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. No files selected.", ["WinBlock", self._active_record_id])
 
     def _add_image(self, image_ids: list = None):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. About to add image in block.", ["WinBlock", self._active_record_id])
         # Select image to add
         if image_ids is None:
             result = []
@@ -343,6 +385,9 @@ class Frame(QFrame):
                     self.horizontal_grid.addWidget(ImageItem(self._stt, self, i))
                     self._data_dict["media"].append(i)
                     self.block_event("body", "image_added")
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Image added in block.", ["WinBlock", self._active_record_id])
+        else:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. No image selected.", ["WinBlock", self._active_record_id])
 
     def _set_user_defined_height(self, diff: int):
         self.setFixedHeight(self.height() + diff)
@@ -530,11 +575,14 @@ class Frame(QFrame):
             for i in range(self.horizontal_grid.count()):
                 media_ids.append(self.horizontal_grid.itemAt(i).widget()._media_id)
 
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Image item in block double clicked.", ["WinBlock", self._active_record_id])
             utility_cls.PictureView(self._stt, self, media_ids=media_ids, start_with_media_id=media_id)
         else:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. File item in block double clicked.", ["WinBlock", self._active_record_id])
             utility_cls.FileInfo(self._stt, self, media_id)
 
     def scroll_area_item_right_click(self):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Image/File area in block right mouse click.\nContext menu triggered.", ["WinBlock", self._active_record_id])
         disab = []
         if not self._data_dict["media"]:
             disab.append(10)
@@ -622,26 +670,38 @@ class Frame(QFrame):
         utility_cls.ContextMenu(self._stt, self)
         result = self.get_appv("menu")["result"]
         
+        if not result:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser canceled. Menu closed with no selection.", ["WinBlock", self._active_record_id])
+            return
+        
         media_ids = []
         for i in range(self.horizontal_grid.count()):
             media_ids.append(self.horizontal_grid.itemAt(i).widget()._media_id)
         
         if result == 10:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Show single image"])
             utility_cls.PictureView(self._stt, self, media_ids=media_ids)
         elif result == 20:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Browse all block images"])
             utility_cls.PictureBrowse(self._stt, self, self._data_dict["media"])
         elif result == 30:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add image to block"])
             self._add_image()
         elif result == 40:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add file to block"])
             self._add_files()
         elif result == 45:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Auto add images"])
             self.block_event(self._my_name, "auto_add_images", None)
             self.get_appv("signal").block_text_give_focus(self._active_record_id)
         elif result == 50:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add images from clipboard"])
             self._add_image(image_ids=self._clip.get_paste_images_ids())
         elif result == 55:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add files from clipboard"])
             self._add_files(file_ids=self._clip.get_paste_files_ids())
         elif result == 60:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image/file area context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Clear clipboard"])
             self._clip.clear_clip()
 
     def image_item_left_click(self, media_id: int):
@@ -659,6 +719,7 @@ class Frame(QFrame):
             self._image_item_right_click_file_item(media_id, image_item)
 
     def _image_item_right_click_file_item(self, media_id: int, image_item):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. File item in block right mouse click.\nContext menu triggered.", ["WinBlock", self._active_record_id])
         db_media = db_media_cls.Files(self._stt, media_id)
         file_util = utility_cls.FileDialog(self._stt)
         file_info = file_util.FileInfo(self._stt, db_media.file_file)
@@ -756,8 +817,10 @@ class Frame(QFrame):
         result = self.get_appv("menu")["result"]
         
         if result == 10:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Show file information"])
             utility_cls.FileInfo(self._stt, self, media_id)
         elif result == 20:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Show file with default app."])
             abs_file_path = file_info.absolute_path()
             try:
                 os.startfile(abs_file_path)
@@ -766,23 +829,32 @@ class Frame(QFrame):
                     "title": self.getl("block_image_item_menu_open_file_error_title"),
                     "text": self.getl("block_image_item_menu_open_file_error_text").replace("#1", db_media.file_file)
                 }
+                UTILS.LogHandler.add_log_record("#1 record ID: #2. Error in showing file with default app.\n#3", ["WinBlock", self._active_record_id, e], warning_raised=True)
                 utility_cls.MessageInformation(self._stt, self, msg_dict, app_modal=True)
         elif result == 30:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add file(s)"])
             self._add_files()
         elif result == 40:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Remove file"])
             self.remove_image_item(media_id)
         elif result == 50:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add image(s) from clipboard"])
             self._add_image(image_ids=self._clip.get_paste_images_ids())
         elif result == 55:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add file(s) from clipboard"])
             self._add_files(file_ids=self._clip.get_paste_files_ids())
         elif result == 60:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Copy file to clipboard"])
             self._clip.copy_to_clip(media_id)
         elif result == 70:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add file to clipboard"])
             self._clip.copy_to_clip(media_id, add_to_clip=True)
         elif result == 80:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block file context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Clear clipboard"])
             self._clip.clear_clip()
 
     def _image_item_right_click_media_item(self, media_id: int, image_item):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Image item in block right mouse click.\nContext menu triggered.", ["WinBlock", self._active_record_id])
         disab = []
         if not self._clip.number_of_files_in_clip:
             disab.append(55)
@@ -896,27 +968,38 @@ class Frame(QFrame):
             media_ids.append(self.horizontal_grid.itemAt(i).widget()._media_id)
         
         if result == 10:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Show image"])
             utility_cls.PictureView(self._stt, self, media_ids=media_ids, start_with_media_id=media_id)
         elif result == 13:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Show image information"])
             utility_cls.PictureInfo(self._stt, self, media_id=media_id)
         elif result == 15:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Browse all block images"])
             utility_cls.PictureBrowse(self._stt, self._main_win, self._data_dict["media"])
         elif result == 20:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Remove image"])
             self.remove_image_item(media_id)
         elif result == 30:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add image"])
             self._add_image()
         elif result == 40:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Auto add images"])
             self.block_event(self._my_name, "auto_add_images", None)
             self.get_appv("signal").block_text_give_focus(self._active_record_id)
         elif result == 50:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add image(s) from clipboard"])
             self._add_image(image_ids=self._clip.get_paste_images_ids())
         elif result == 55:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add file(s) from clipboard"])
             self._add_files(file_ids=self._clip.get_paste_files_ids())
         elif result == 60:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Copy image to clipboard"])
             self._clip.copy_to_clip(media_id)
         elif result == 70:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Add image to clipboard"])
             self._clip.copy_to_clip(media_id, add_to_clip=True)
         elif result == 80:
+            UTILS.LogHandler.add_log_record("#1 record ID: #2. Block image context menu.\nUser selected: #3.", ["WinBlock", self._active_record_id, "Clear clipboard"])
             self._clip.clear_clip()
 
     def scroll_area_action(self, action: str):
@@ -986,7 +1069,7 @@ class Frame(QFrame):
             if widget._media_id == media_id:
                 this_is_image_item = widget._i_am_image_item
                 self.horizontal_grid.removeWidget(widget)
-                widget.close()
+                widget.close_me()
                 break
 
         self.horizontal_grid.parent().setFixedWidth(self.getv("block_image_thumb_size") * self.horizontal_grid.count() + 10)
@@ -1005,6 +1088,7 @@ class Frame(QFrame):
             self.block_event("body", "file_removed")
 
     def app_setting_updated(self, data: dict):
+        UTILS.LogHandler.add_log_record("#1 record ID: #2. Application settings updated", ["WinBlock", self._active_record_id])
         self._define_apperance()
 
     def _define_apperance(self):
@@ -1022,6 +1106,39 @@ class Frame(QFrame):
         if len(margins) != 4:
             margins = [0, 0, 0, 0]
         object.setContentsMargins(margins[0], margins[1], margins[2], margins[3])
+
+    def close_me(self):
+        for child in self.children():
+            if isinstance(child, utility_cls.Notification):
+                child.close_me()
+
+        if self._my_name in ["win_block_controls", "header", "footer"]:
+            widgets = []
+            for i in range(self.layout().count()):
+                widget = self.layout().itemAt(i).widget()
+                if isinstance(widget, Button):
+                    widgets.append(widget)
+            for widget in widgets:
+                widget.close_me()
+            widgets = None
+
+        if self._my_name == "body" and self.body_text_box:
+            widgets = []
+            for i in range(self.horizontal_grid.count()):
+                widget = self.horizontal_grid.itemAt(i).widget()
+                if isinstance(widget, ImageItem):
+                    widgets.append(widget)
+            for widget in widgets:
+                widget.close_me()
+                self.horizontal_grid.removeWidget(widget)
+            widgets = None
+
+            self.body_text_box.close_me()
+            self.auto_add_images_frame.close_me()
+        
+        self.hide()
+        self.deleteLater()
+        self.setParent(None)
 
 
 class ScrollAreaItem(QScrollArea):
@@ -1044,13 +1161,13 @@ class ScrollAreaItem(QScrollArea):
         return super().keyPressEvent(ev)
 
     def mousePressEvent(self, a0: QMouseEvent) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self._parent_widget.get_appv("cm").remove_all_context_menu()
 
         if a0.button() == Qt.RightButton:
             self._parent_widget.scroll_area_item_right_click()
             a0.accept()
         return super().mousePressEvent(a0)
+
 
 class ImageItem(QLabel):
     def __init__(self, settings: settings_cls.Settings, parent_widget, media_id: int, *args, **kwargs):
@@ -1109,8 +1226,7 @@ class ImageItem(QLabel):
         return super().mouseDoubleClickEvent(a0)
 
     def mousePressEvent(self, ev: QMouseEvent) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
         
         self._parent_widget.image_item_left_click(self._media_id)
         
@@ -1161,6 +1277,10 @@ class ImageItem(QLabel):
             else:
                 self.setText("Error.")
 
+    def close_me(self):
+        self.deleteLater()
+        self.setParent(None)
+
 
 class TextBox(QTextEdit):
     def __init__(self, parent_widget: QFrame, settings: settings_cls.Settings, record_id: int, my_name: str, data_dict: dict, main_win, *args, **kwargs):
@@ -1183,8 +1303,8 @@ class TextBox(QTextEdit):
         self._main_win = main_win
         
         # Define Auto Complete
-        self.ac = text_handler_cls.AutoComplete(self._stt, self, main_win=self._main_win)
-        self.txt_handler = text_handler_cls.TextHandler(self._stt, self, self._main_win)
+        self.ac = text_handler_cls.AutoComplete(self._stt, self, main_win=self._main_win, widget_handler=self._data_dict["widget_handler"])
+        self.txt_handler = text_handler_cls.TextHandler(self._stt, self, self._main_win, widget_handler=self._data_dict["widget_handler"])
 
         # Define signals object
         self.signals: utility_cls.Signals = self.get_appv("signal")
@@ -1233,6 +1353,7 @@ class TextBox(QTextEdit):
         self._autosave(first_run=True)
 
     def detection_btn_command(self, detail: dict):
+        UTILS.LogHandler.add_log_record("#1 -> #2 record ID: #3. Command detected #4", ["WinBlock", "TextBox", self._active_record_id, detail["command"]])
         if detail["command"] == "list":
             if self.toPlainText():
                 if self.toPlainText()[-1:] == "@":
@@ -1252,18 +1373,18 @@ class TextBox(QTextEdit):
         if detail["command"] in ["images", "calculator"]:
             comm = detail["command"]
             if self.toPlainText():
-                    insert_text = f"@{comm}"
-                    if len(self.toPlainText()) > 1:
-                        if self.toPlainText()[-2] != "\n@":
-                            insert_text = f"\n@{comm}"
+                insert_text = f"@{comm}"
+                if len(self.toPlainText()) > 1:
+                    if self.toPlainText()[-2] != "\n@":
+                        insert_text = f"\n@{comm}"
 
-                    cur = self.textCursor()
-                    cur.setPosition(len(self.toPlainText()) - 1)
-                    cur.movePosition(cur.Right, cur.KeepAnchor, 1)
-                    cur.insertText(insert_text)
-                    self.setTextCursor(cur)
-                    self.txt_handler.return_pressed()
-                    self.setFocus()
+                cur = self.textCursor()
+                cur.setPosition(len(self.toPlainText()) - 1)
+                cur.movePosition(cur.Right, cur.KeepAnchor, 1)
+                cur.insertText(insert_text)
+                self.setTextCursor(cur)
+                self.txt_handler.return_pressed()
+                self.setFocus()
 
     def stop_calculator(self):
         self.txt_handler._calc_stop()
@@ -1367,7 +1488,10 @@ class TextBox(QTextEdit):
             if len(self.toPlainText()) - self.text_len == 0 and not show_ac:
                 self.auto_complete_text(hide_ac=True)
             else:
-                self.auto_complete_text()
+                if self.toPlainText()[self.toPlainText().rfind("\n") + 1:].startswith("@@"):
+                    self.auto_complete_text(hide_ac=True)
+                else:
+                    self.auto_complete_text()
         else:
             if not self.autocomplete_commited:
                 self.ac.update_autocomplete_dictionary(self.toPlainText())
@@ -1436,6 +1560,7 @@ class TextBox(QTextEdit):
             self.ac.show_ac()
 
     def signalNewDefinitionAdded(self):
+        UTILS.LogHandler.add_log_record("#1 -> #2 record ID: #3. Definitions changed, block updated.", ["WinBlock", "TextBox", self._active_record_id])
         self.txt_handler._populate_def_list()
         self.txt_handler.check_definitions()
         self.text_len -= 1
@@ -1463,8 +1588,8 @@ class TextBox(QTextEdit):
         self.signals.saved_button_check_status(self._active_record_id)
 
     def mousePressEvent(self, e: QtGui.QMouseEvent) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
+
         if e.button() == Qt.LeftButton:
             self.mouse_pressed = True
             self.highlight_mode = False
@@ -1546,11 +1671,11 @@ class TextBox(QTextEdit):
         self.send_dont_clear_c_menu_to_main_win()
 
         self.txt_handler.show_context_menu()
-        # cur = self.textCursor()
-        # cur.setPosition(len(self.toPlainText()))
-        # self.setTextCursor(cur)
-        self.ac.hide_ac()
-        self.txt_handler.check_definitions()
+
+        if self.ac:
+            self.ac.hide_ac()
+        if self.txt_handler:
+            self.txt_handler.check_definitions()
 
     def send_dont_clear_c_menu_to_main_win(self):
         main_dict = {
@@ -1564,9 +1689,10 @@ class TextBox(QTextEdit):
         return super().focusInEvent(e)
 
     def focusOutEvent(self, e: QtGui.QFocusEvent) -> None:
-        self.ac.hide_ac()
-        if self.getv("block_autosave_on_lost_focus"):
-            self._autosave(force_update=True)
+        if self.ac:
+            self.ac.hide_ac()
+            if self.getv("block_autosave_on_lost_focus"):
+                self._autosave(force_update=True)
         return super().focusOutEvent(e)
 
     def signalBlockTextGiveFocus(self, record_id):
@@ -1574,8 +1700,8 @@ class TextBox(QTextEdit):
             self.setFocus()
 
     def app_setting_updated(self, data: dict):
+        UTILS.LogHandler.add_log_record("#1 -> #2 record ID: #3. Application settings updated.", ["WinBlock", "TextBox", self._active_record_id])
         self._create_text_box(settings_updated=True)
-
 
     def _create_text_box(self, settings_updated: bool = False):
         if not settings_updated:
@@ -1622,6 +1748,28 @@ class TextBox(QTextEdit):
         self.setFixedHeight(int(number_of_lines * height) + 10)
         self.setViewportMargins(0,0,0,10)
 
+    def close_me(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        self.hide()
+        QCoreApplication.processEvents()
+        for child in self.children():
+            if isinstance(child, utility_cls.Notification):
+                child.close_me()
+
+        if self._autosave_timer:
+            self._autosave_timer.stop()
+        self._autosave_timer = None
+        if self.ac:
+            self.ac.close_me()
+        self.ac = None
+        if self.txt_handler:
+            self.txt_handler.close_me()
+        self.txt_handler = None
+
+        self.deleteLater()
+        self.setParent(None)
+
 
 class Button(QPushButton):
     """Creates Buttons
@@ -1662,6 +1810,9 @@ class Button(QPushButton):
         self._my_name = my_name
         self._main_win = main_win
         self._messages = []  # item: text, duration, QTimer
+        self.widget_handler: qwidgets_util_cls.WidgetHandler = self._data_dict["widget_handler"]
+        self.widget_handler.add_QPushButton(self, {"allow_bypass_mouse_press_event": False})
+        self.timer = timer_cls.TimerHandler(self)
 
         # Define Signals class
         self._signals: utility_cls.Signals = self.get_appv("signal")
@@ -1697,7 +1848,7 @@ class Button(QPushButton):
         name = detail["name"]
         dur = detail["duration"]
         text = detail["text"]
-
+        
         existing_msg = None
         for msg in self._messages:
             if msg["name"] == name:
@@ -1706,21 +1857,39 @@ class Button(QPushButton):
         if existing_msg:
             existing_msg["text"] = text
             existing_msg["duration"] = dur
-            existing_msg["timer"].singleShot(dur, lambda: self._msg_timer_triggered(name))
+            try:
+                timer: SingleShotTimer = existing_msg["timer"]
+                timer.stop()
+                timer.set_duration(dur)
+                timer.start()
+            except AttributeError:
+                new_timer = self.timer.add_timer(SingleShotTimer(
+                    self.timer,
+                    duration=dur,
+                    function_on_finished=self._msg_timer_triggered,
+                    data={"name": name}),
+                    auto_start=True)
+                existing_msg["timer"] = new_timer
         else:
             new_msg = {}
             new_msg["name"] = name
             new_msg["text"] = text
             new_msg["duration"] = dur
-            new_timer = QTimer(self)
-            new_timer.setObjectName(name)
-            new_timer.singleShot(dur, lambda: self._msg_timer_triggered(name))
+            new_timer = self.timer.add_timer(SingleShotTimer(
+                self.timer,
+                duration=dur,
+                function_on_finished=self._msg_timer_triggered,
+                data={"name": name}),
+                auto_start=True)
+
             new_msg["timer"] = new_timer
             self._messages.append(new_msg)
+
         self._update_msg_text()
         self.setVisible(True)
 
-    def _msg_timer_triggered(self, name):
+    def _msg_timer_triggered(self, timer: SingleShotTimer):
+        name = timer.data["name"]
         self._update_msg_hide(name)
 
     def _update_msg_text(self):
@@ -1733,7 +1902,7 @@ class Button(QPushButton):
         for idx, msg in enumerate(self._messages):
             if msg["name"] == name:
                 msg["timer"].stop()
-                msg["timer"].deleteLater()
+                self.timer.remove_timer(msg["timer"])
                 delete_index_list.append(idx)
 
         delete_index_list.reverse()
@@ -1774,10 +1943,11 @@ class Button(QPushButton):
                 record_id (int)
                 ...
         """
-        if e.button() == Qt.RightButton:
+        if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self).EVENT_mouse_press_event(e)
+        elif e.button() == Qt.RightButton:
             e.accept()
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
             self._parent_widget.block_event(self._my_name, "mouse_press")
 
             if self._my_name == "win_block_control_btn_name":
@@ -2097,8 +2267,7 @@ class Button(QPushButton):
 
     # Here we Handle Click events
     def btn_clicked(self) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
         self._parent_widget.btn_clicked(self._my_name, "clicked")
 
         if self._my_name == "win_block_control_btn_name":
@@ -2315,7 +2484,9 @@ class Button(QPushButton):
             "description": self.getl("block_input_box_date_description_text"),
             "position": mouse_pos.pos(),
             "one_line": True,
-            "calendar_on_double_click": True
+            "calendar_on_double_click": True,
+            "auto_show_calendar": True,
+            "auto_apply_calendar": True
         }
         self._send_msg_to_main_win()
         utility_cls.InputBoxSimple(self._stt, self, input_dict)
@@ -2470,8 +2641,7 @@ class Button(QPushButton):
             if self._my_name == "win_block_control_btn_day":
                 record = db_record_cls.Record(self._stt, self._active_record_id)
                 day1 = record.get_date_of_first_entry()
-                dates = utility_cls.DateTime(self._stt)
-                days = dates.get_date_difference(day1)
+                days = UTILS.DateTime.DateTime.get_date_difference(UTILS.DateTime.DateTime.today(), day1).total_days
                 self.setText(f"{self.getl('win_block_control_btn_day_text')}: {days}")
             elif self._my_name == "win_block_control_btn_date":
                 self._win_block_control_btn_date_set_text()
@@ -2509,6 +2679,22 @@ class Button(QPushButton):
         if not settings_updated:
             if self.text() == "" and self._my_name == "footer_btn_detection":
                 self.setVisible(False)
+
+    def close_me(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        self.hide()
+
+        for item in self._messages:
+            if item.get("timer"):
+                item.get("timer").stop()
+        self.timer.close_me()
+
+        QCoreApplication.processEvents()
+        self._messages = []
+        self.widget_handler.close_me()
+        self.deleteLater()
+        self.setParent(None)
 
 
 

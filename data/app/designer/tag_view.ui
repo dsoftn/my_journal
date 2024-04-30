@@ -188,7 +188,7 @@ Used #3 times.</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lbl_pic">
     <property name="geometry">
      <rect>
       <x>200</x>

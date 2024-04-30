@@ -3,8 +3,11 @@ from PyQt5 import uic
 import json
 import os
 import copy
+import warnings
+import shutil
 
 import default_settings
+import UTILS
 
 
 # File location where all settings will be saved
@@ -88,6 +91,8 @@ class Settings():
         self.debug_settings = []
         self.debug_language = []
 
+        UTILS.LogHandler.add_log_record("#1: Settings loaded.", ["Settings"])
+
     def __del__(self):
         if self.debug_mode:
             setting_used = "USED SETTINGS KEYS:\n"
@@ -159,8 +164,12 @@ class Settings():
                 with open(file_name, "r", encoding="utf-8") as file:
                     result = json.load(file)
                 return result
-            except:
-                return None
+            except Exception as e:
+                UTILS.TerminalUtility.WarningMessage("Error in custom_dict_load(). File is corrupted.\n#1\nNew, empty file will be created.", [str(e)])
+                with open(file_name, "w", encoding="utf-8") as file:
+                    result = {}
+                    json.dump(result, file)
+                return result
         else:
             return None
 
@@ -181,9 +190,12 @@ class Settings():
                     self._app_var = json.load(file)
                 for key in self._app_var:
                     self._app_var[key]["save"] = True
+                # Make backup copy
+                shutil.copy(os.path.abspath(self._app_var_json_file_path), os.path.abspath(self._app_var_json_file_path) + ".bak")
                 return True
-            except:
-                return False
+            except Exception as e:
+                UTILS.TerminalUtility.WarningMessage("Error while loading '#1'\n#2\nYou can find backup file in:\n#3", [self._app_var_json_file_path, str(e), os.path.abspath(self._app_var_json_file_path) + ".bak"], exception_raised=True)
+                raise e
         else:
             # If not return false
             return False
@@ -195,8 +207,11 @@ class Settings():
             with open(self._languages_json_file_path, "r", encoding="utf-8") as file:
                 self._lang = json.load(file)
             self._add_to_dict_new_keys(self._lang, default_settings.default_language_dictionary())
+            # Make backup copy
+            shutil.copy(os.path.abspath(self._languages_json_file_path), os.path.abspath(self._languages_json_file_path) + ".bak")
             return True
         else:
+            UTILS.TerminalUtility.WarningMessage("Language file not found: #1\nYou can find backup file in:\n#2", [self._languages_json_file_path, os.path.abspath(self._languages_json_file_path) + ".bak"], exception_raised=True)
             # If not load default data
             self._lang = default_settings.default_language_dictionary()
             return False
@@ -208,8 +223,11 @@ class Settings():
             with open(self._settings_json_file_path, "r", encoding="utf-8") as file:
                 self._settings = json.load(file)
             self._add_to_dict_new_keys(self._settings, default_settings.default_settings_dictionary())
+            # Make backup copy
+            shutil.copy(os.path.abspath(self._settings_json_file_path), os.path.abspath(self._settings_json_file_path) + ".bak")
             return True
         else:
+            UTILS.TerminalUtility.WarningMessage("Settings file not found: #1\nYou can find backup file in:\n#2", [self._settings_json_file_path, os.path.abspath(self._settings_json_file_path) + ".bak"], exception_raised=True)
             # If not, load default data
             self._settings = default_settings.default_settings_dictionary()
             return False
@@ -231,9 +249,11 @@ class Settings():
             if SAVE_LANGUAGE_FILE:
                 with open(self._languages_json_file_path, "w", encoding="utf-8") as file:
                     json.dump(self._lang, file, indent=2)
+            UTILS.LogHandler.add_log_record("#1: Settings saved.", ["Settings"])
             return ""
         except Exception as e:
-            return e
+            UTILS.TerminalUtility.WarningMessage("Error while saving settings.\nPlease check following files:\n'#1'\n'#2'\nError:\n#3", [self._settings_json_file_path, self._app_var_json_file_path, str(e)], exception_raised=True)
+            raise e
     
     def add_setting(self, key_name: str, value, min_value=None, max_value=None, description: str = "", recommended: str = "") -> bool:
         """Adds a new setting to the database.
@@ -242,8 +262,10 @@ class Settings():
         try:
             if min_value is not None and max_value is not None:
                 if not (min_value <= value <= max_value):
+                    UTILS.TerminalUtility.WarningMessage("Value out of range.\nValue must be between #1 and #2\nvalue = #3", [min_value, max_value, value], exception_raised=True)
                     raise ValueError("Value out of range.")
         except TypeError:
+            UTILS.TerminalUtility.WarningMessage("Variables: #1, #2 or #3 are not numeric type.\ntype(value): #4\nvalue = #5\ntype(min_value): #6\nmin_value = #7\ntype(max_value): #8\nmax_value = #9", ["value", "min_value", "max_value", type(value), value, type(min_value), min_value, type(max_value), max_value], exception_raised=True)
             raise TypeError("value, min_value or max_value are not numeric type.")
         self._settings[key_name]["value"] = value
         self._settings[key_name]["min_value"] = min_value
@@ -259,6 +281,7 @@ class Settings():
         if key_name in self._settings:
             self._settings.pop(key_name)
         else:
+            UTILS.TerminalUtility.WarningMessage("Setting '#1' does not exist and cannot be deleted.", [key_name], exception_raised=True)
             raise ValueError(f"Setting '{key_name}' does not exist and cannot be deleted.")
 
     def app_setting_add(self, key_name: str, value=None, save_to_file = False) -> None:
@@ -301,12 +324,14 @@ class Settings():
         result["recommended"] - recommended value of the setting
         """
         if key_name not in self._settings.keys():
+            UTILS.TerminalUtility.WarningMessage("Setting with name #1 does not exist.", [key_name], exception_raised=True)
             raise ValueError(f"Setting with name '{key_name}' does not exist.")
         return copy.deepcopy(self._settings[key_name])
 
     def set_setting_dict(self, key_name: str, new_key_dict: dict) -> bool:
         # Check is new_key_dict is valid
         if "value" not in new_key_dict.keys() or "min_value" not in new_key_dict.keys() or "max_value" not in new_key_dict.keys():
+            UTILS.TerminalUtility.WarningMessage("Setting with name #1 does not have valid properties.\nexist in new_key_dict (#2): #3\nexist in new_key_dict (#4): #5\nexist in new_key_dict (#6): #7", [key_name, "value", "value" in new_key_dict.keys(), "min_value", "min_value" in new_key_dict.keys(), "max_value", "max_value" in new_key_dict.keys()], exception_raised=True)
             raise ValueError(f"Setting with name '{key_name}' does not have valid properties.")
         # We must check that value type is correct
         old_dict = self.get_setting_dict(key_name)
@@ -316,6 +341,7 @@ class Settings():
             is_valid = False
         # Check is value out of range
         if not self._is_value_in_range(key_name, value):
+            UTILS.TerminalUtility.WarningMessage("Value out of range for setting #1.\n Function #2 returned #3", [key_name, "self._is_value_in_range", "False"], exception_raised=True)
             raise ValueError(f"Value out of range for setting '{key_name}'.")
         max_value = self._check_is_value_type_valid(old_dict["max_value"], new_key_dict["max_value"])
         if max_value is None and new_key_dict["max_value"] is not None:
@@ -338,6 +364,7 @@ class Settings():
             self._settings[key_name]["max_value"] = max_value
             self._settings[key_name]["min_value"] = min_value
             return True
+        UTILS.TerminalUtility.WarningMessage("Value error for setting #1.", [key_name], exception_raised=True)
         raise ValueError(f"Value error for setting '{key_name}'.")
 
     def is_setting_key_exist(self, key_name: str) -> bool:
@@ -351,8 +378,10 @@ class Settings():
                     self.debug_settings.append(key_name)
                 return setting_dict["value"]
             else:
+                UTILS.TerminalUtility.WarningMessage("Setting with name #1 does not have #2 property.", [key_name, "value"], exception_raised=True)
                 raise ValueError(f"Setting with name '{key_name}' does not have 'value' property.")
         else:
+            UTILS.TerminalUtility.WarningMessage("Setting with name #1 does not exist.", [key_name], exception_raised=True)
             raise ValueError(f"Setting with name '{key_name}' does not exist.")
 
     def set_setting_value(self, key_name: str, new_value) -> bool:
@@ -364,6 +393,7 @@ class Settings():
             bool: If true, the value was set successfully
         """
         if key_name not in self._settings:
+            UTILS.TerminalUtility.WarningMessage("Setting with name #1 does not exist.", [key_name], exception_raised=True)
             raise ValueError(f"Setting with name '{key_name}' does not exist.")
         if new_value is None:
             self._settings[key_name]["value"] = new_value
@@ -374,9 +404,11 @@ class Settings():
         # Check if value is non digit, and min or max are set
         if old_dict["min_value"] is not None or old_dict["max_value"] is not None:
             if type(result) not in [int, float]:
+                UTILS.TerminalUtility.WarningMessage("Setting:#1.\nUnable to set non-numeric data as a setting value that has defined minimum and maximum values.\ntype(new_value): #2\nnew_value = #3, Settings minimum = #4, Settings maximum = #5", [key_name, type(result), result, old_dict["min_value"], old_dict["max_value"]], exception_raised=True)
                 raise ValueError(f"Setting:'{key_name}'. Unable to set non-numeric data as a setting value that has defined minimum and maximum values.")
         # Check is value in range min-max
         if not self._is_value_in_range(key_name, result):
+            UTILS.TerminalUtility.WarningMessage("Value out of range for setting #1.\n Function #2 returned #3", [key_name, "self._is_value_in_range", "False"], exception_raised=True)
             raise ValueError(f"Setting with name '{key_name}' out of range.")
         if result is not None:
             self._settings[key_name]["value"] = result
@@ -386,6 +418,7 @@ class Settings():
                 self._settings[key_name]["value"] = result
                 return True
             else:
+                UTILS.TerminalUtility.WarningMessage("Value error for setting #1.", [key_name], exception_raised=True)
                 raise ValueError(f"Setting with name '{key_name}' is not valid data type.")
 
     def get_keys_list(self, filter: str = "") -> list:
@@ -479,8 +512,9 @@ class Settings():
                 if language[0] == active_lang:
                     result = language[1]
         # else:
-        #     if "_desc" not in key_name and "_recomm" not in key_name:
-        #         print (f"Language key '{key_name}' not found.")
+           # NOTE: AppSettings often contains keys that are not in the language dictionary. It is normal behavior.
+        #    print (f"Language key not found: {key_name}")
+        #    UTILS.TerminalUtility.WarningMessage("Language key with name #1 does not exist.", [key_name])
 
         if self.debug_mode:
             self.debug_language.append(key_name)
@@ -581,6 +615,7 @@ class Settings():
         if active_lang in lang_ids:
             self._lang["active_lang:"] = active_lang
         else:
+            UTILS.TerminalUtility.WarningMessage("The requested active language ID (#1) does not exist.", [active_lang], exception_raised=True)
             raise ValueError("The requested active language ID does not exist.")
 
 

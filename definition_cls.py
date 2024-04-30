@@ -1,10 +1,10 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QGridLayout, QWidget, QListWidget, 
                              QDialog, QLabel, QListWidgetItem, QLineEdit, QHBoxLayout, QCheckBox, QAction,
                              QProgressBar , QComboBox, QMessageBox)
-from PyQt5.QtGui import QIcon, QFont, QPixmap, QCursor, QTextCharFormat, QColor, QImage, QClipboard
-from PyQt5.QtCore import (QSize, Qt, QCoreApplication, QPoint)
+from PyQt5.QtGui import (QIcon, QFont, QPixmap, QCursor, QTextCharFormat, QColor, QImage, QClipboard,
+                         QDrag, QMouseEvent)
+from PyQt5.QtCore import (QSize, Qt, QCoreApplication, QPoint, QMimeData)
 from PyQt5 import uic, QtGui, QtCore
-from PyQt5.QtMultimedia import QSound
 
 import time
 import wikipedia
@@ -22,6 +22,8 @@ import db_media_cls
 import text_handler_cls
 import definition_data_find_cls
 import text_filter_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class SynonymManager(QDialog):
@@ -45,7 +47,7 @@ class SynonymManager(QDialog):
         if self._parent_widget is None:
             # Register dialog
             self.my_name = str(time.time_ns())
-            self.dialog_queue = utility_cls.DialogsQueue(self, self.my_name, add_dialog=True)
+            self.get_appv("cm").dialog_method_add_dialog(self, self._my_name)
 
         # Load GUI
         uic.loadUi(self.getv("synonyms_manager_ui_file_path"), self)
@@ -55,6 +57,7 @@ class SynonymManager(QDialog):
         self._setup_widgets_apperance()
         self._load_data(shema_name, suggested_words=suggested_words)
         self._load_win_position()
+        self.load_widgets_handler()
 
         self.old_base_text = self.cmb_apply.currentText()
 
@@ -75,7 +78,43 @@ class SynonymManager(QDialog):
         self.cmb_apply.editTextChanged.connect(self.cmb_apply_edit_text_changed)
         self.btn_close.clicked.connect(self.btn_close_click)
 
+        UTILS.LogHandler.add_log_record("#1: Dialog started.(Loaded #2 schemas)", ["SynonymManager", len(self.shemas)])
         self.show()
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title, self.lbl_shema_name])
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_find, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_name, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_suff, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_additional, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_Selection_Widget(self.cmb_apply)
+
+        # Add Item Based Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_shema)
+
+        self.widget_handler.activate()
 
     def btn_close_click(self):
         self.close()
@@ -156,6 +195,7 @@ class SynonymManager(QDialog):
 
     def btn_copy_click(self):
         self.get_appv("clipboard").setText(self.txt_suff.toPlainText())
+        UTILS.LogHandler.add_log_record("#1: Data copied to clipboard.", ["SynonymManager"], variables=[["Copied Data", self.txt_suff.toPlainText()]])
         self.btn_copy.setEnabled(False)
 
     def btn_update_click(self):
@@ -166,7 +206,9 @@ class SynonymManager(QDialog):
         self._update_counter_and_buttons()
 
     def btn_add_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to add new schema.", ["SynonymManager"])
         if len(self.shemas) >= 50:
+            UTILS.LogHandler.add_log_record("#1: Maximum items reached, adding canceled.", ["SynonymManager"])
             self._msg_maximum_shemas()
             return
         
@@ -178,6 +220,7 @@ class SynonymManager(QDialog):
         
         self.shemas[name] = {"suffs": suffs}
         self._update_counter_and_buttons()
+        UTILS.LogHandler.add_log_record("#1: New schema added.", ["SynonymManager"])
         self._load_data(selected_shema=name)
 
     def _msg_maximum_shemas(self):
@@ -192,6 +235,7 @@ class SynonymManager(QDialog):
         name = self.txt_name.text()
         if name in self.shemas:
             del self.shemas[name]
+            UTILS.LogHandler.add_log_record("#1: Schema deleted.", ["SynonymManager"])
         
         self._load_data()
 
@@ -295,20 +339,7 @@ class SynonymManager(QDialog):
         self.lst_shema_current_item_changed()
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
-        if "synonym_manager_win_geometry" not in self._stt.app_setting_get_list_of_keys():
-            self._stt.app_setting_add("synonym_manager_win_geometry", {}, save_to_file=True)
-
-        g = self.get_appv("synonym_manager_win_geometry")
-        g["pos_x"] = self.pos().x()
-        g["pos_y"] = self.pos().y()
-        g["width"] = self.width()
-        g["height"] = self.height()
-        g["font_size"] = self.txt_suff.font().pointSize()
-
-        # Unregister Dialog
-        if self._parent_widget is None:
-            self.dialog_queue.dialog_method_remove_dialog(self.my_name)
-        
+        self.close_me()        
         return super().closeEvent(a0)
 
     def resizeEvent(self, a0: QtGui.QResizeEvent) -> None:
@@ -348,8 +379,24 @@ class SynonymManager(QDialog):
             self.txt_suff.setFont(font)
 
     def close_me(self):
-        # if not self._dont_close_me:
-        self.close()
+        if "synonym_manager_win_geometry" not in self._stt.app_setting_get_list_of_keys():
+            self._stt.app_setting_add("synonym_manager_win_geometry", {}, save_to_file=True)
+
+        g = self.get_appv("synonym_manager_win_geometry")
+        g["pos_x"] = self.pos().x()
+        g["pos_y"] = self.pos().y()
+        g["width"] = self.width()
+        g["height"] = self.height()
+        g["font_size"] = self.txt_suff.font().pointSize()
+
+        # Unregister Dialog
+        self.get_appv("cm").remove_all_context_menu()
+        
+        if self._parent_widget is None:
+            self.get_appv("cm").dialog_method_remove_dialog(self.my_name)
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["SynonymManager"])
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def get_shemas(self) -> dict:
         if "def_syn_shemas" not in self._stt.app_setting_get_list_of_keys():
@@ -511,6 +558,25 @@ class SynonymHint():
         menu_item = self._create_menu_item(10100, name, tt, icon=icon)
         menu_items.append(menu_item)
 
+    def _add_replace_serbian_chars_items(self, menu_items: list) -> None:
+        name = self.getl("syn_hint_menu_add_serbian_text")
+        tt = self.getl("syn_hint_menu_add_serbian_tt")
+        icon = self.getv("replace_icon_path")
+        menu_item = self._create_menu_item(10050, name, tt, icon=icon)
+        menu_items.append(menu_item)
+
+        name = self.getl("syn_hint_menu_copy_serbian_text")
+        tt = self.getl("syn_hint_menu_copy_serbian_tt")
+        icon = self.getv("copy_icon_path")
+        menu_item = self._create_menu_item(10060, name, tt, icon=icon)
+        menu_items.append(menu_item)
+
+        name = self.getl("syn_hint_menu_replace_serbian_text")
+        tt = self.getl("syn_hint_menu_replace_serbian_tt")
+        icon = self.getv("edit_icon_path")
+        menu_item = self._create_menu_item(10070, name, tt, icon=icon)
+        menu_items.append(menu_item)
+
     def _show_contex_menu(self, text_box: QTextEdit, menu_position: QPoint, show_raport: bool):
         disab = []
         separator = []
@@ -536,6 +602,7 @@ class SynonymHint():
         
         menu_items = []
 
+        # Add copy and paste items
         self._add_copy_paste_manager_items(menu_items)
         if not self.clipboard.text():
             disab.append(10020)
@@ -547,6 +614,17 @@ class SynonymHint():
             disab.append(10010)
         separator.append(10020)
         separator.append(10100)
+
+        # Add replace serbian chars items
+        self._add_replace_serbian_chars_items(menu_items)
+        if not UTILS.TextUtility.has_serbian_chars(self.txt_box.toPlainText()):
+            disab.append(10050)
+            disab.append(10060)
+            disab.append(10070)
+        else:
+            if 10050 not in disab and not UTILS.TextUtility.get_text_lines_without_serbian_chars(self.txt_box.toPlainText(), if_data_exist_add_string_at_end="\n", ignore_if_line_already_exist=True).strip():
+                disab.append(10050)
+        separator.append(10070)
 
         html = utility_cls.TextToHTML()
         html.general_rule.font_size = 20
@@ -807,6 +885,21 @@ class SynonymHint():
             cur.insertText(self.clipboard.text())
             self.txt_box.setTextCursor(cur)
             msg_dict = None
+        elif menu_result == 10050:
+            # Add no serbian letters items
+            no_serbian_letters = UTILS.TextUtility.get_text_lines_without_serbian_chars(self.txt_box.toPlainText(), if_data_exist_add_string_at_end="\n", ignore_if_line_already_exist=True)
+            if self.txt_box.toPlainText() and self.txt_box.toPlainText()[-1] != "\n":
+                no_serbian_letters = "\n" + no_serbian_letters
+            self.txt_box.setText(self.txt_box.toPlainText() + no_serbian_letters)
+        elif menu_result == 10060:
+            # Copy to clipboard no serbian letters items
+            no_serbian_letters = UTILS.TextUtility.get_text_lines_without_serbian_chars(self.txt_box.toPlainText(), if_data_exist_add_string_at_end="\n")
+            self.get_appv("clipboard").setText(no_serbian_letters)
+        elif menu_result == 10070:
+            # Replace no serbian letters in all items
+            no_serbian_text = UTILS.TextUtility.clear_serbian_chars(self.txt_box.toPlainText())
+            if self._ask_to_replace_serbian_chars():
+                self.txt_box.setText(no_serbian_text)
         elif menu_result == 10100:
             msg_dict = None
             SynonymManager(self._stt, self._parent_widget, suggested_words=self._base_string)
@@ -852,7 +945,24 @@ class SynonymHint():
             icon
         ]
         return result
-    
+
+    def _ask_to_replace_serbian_chars(self) -> bool:
+        msg_dict = {
+            "title": self.getl("add_def_syn_hint_msg_replace_serbian_chars_title"),
+            "text": self.getl("add_def_syn_hint_msg_replace_serbian_chars_text"),
+            "position": "center",
+            "pos_center": False,
+            "buttons": [
+                [10, self.getl("btn_yes"), "", None, True],
+                [20, self.getl("btn_no"), "", None, True],
+                [30, self.getl("btn_cancel"), "", None, True],
+            ]
+        }
+        utility_cls.MessageQuestion(self._stt, self._parent_widget, msg_dict)
+        if msg_dict["result"] != 10:
+            return False
+        return True
+
     def get_shemas(self) -> dict:
         if "def_syn_shemas" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("def_syn_shemas", {}, save_to_file=True)
@@ -862,7 +972,6 @@ class SynonymHint():
 
 class DefinitionEditor(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj, expression: str = None, *args, **kwargs):
-        super().__init__(parent_obj, *args, **kwargs)
         
         # Define settings object and methods
         self._stt = settings
@@ -871,6 +980,8 @@ class DefinitionEditor(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_obj, *args, **kwargs)
 
         # Define other variables
         self._parent_widget = parent_obj
@@ -886,6 +997,8 @@ class DefinitionEditor(QDialog):
 
         self.txt_output_text_changed()
         
+        self.load_widgets_handler()
+        
         self._synonyms_hint = SynonymHint(self._stt, self, self.txt_output)
 
         # Connect events with slots
@@ -898,7 +1011,7 @@ class DefinitionEditor(QDialog):
         self.btn_clear_output.clicked.connect(self.btn_clear_output_click)
         self.btn_copy.clicked.connect(self.btn_copy_click)
         self.txt_output.textChanged.connect(self.txt_output_text_changed)
-        self.txt_output.mouseReleaseEvent = self.txt_output_mouse_release
+        self.txt_output.contextMenuEvent = self.txt_output_context_menu_triggered
         self.btn_switch_words_order.clicked.connect(self.btn_switch_words_order_click)
         self.btn_generate.clicked.connect(self.btn_generate_click)
         self.txt_base.textChanged.connect(self.btn_base_text_changed)
@@ -935,10 +1048,53 @@ class DefinitionEditor(QDialog):
         self._load_win_position()
 
         self.show()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["DefinitionEditor"])
         self.txt_base.setFocus()
         if self.txt_edit_replace.text():
             self.btn_edit_replace.setEnabled(True)
             self.btn_edit_replace_add.setEnabled(True)
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+        frm_padezi = self.widget_handler.add_QFrame(self.frm_padezi)
+        frm_padezi.add_window_drag_widgets([self, self.lbl_padezi_img, self.lbl_padezi_text])
+
+        frm_edit = self.widget_handler.add_QFrame(self.frm_edit)
+        frm_edit.add_window_drag_widgets([self])
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_base, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_output, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_end, {"allow_bypass_key_press_event": False})
+        self.widget_handler.add_TextBox(self.txt_beggining, {"allow_bypass_key_press_event": False})
+        self.widget_handler.add_TextBox(self.txt_edit_replace, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_edit_with, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_edit_in_string, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_edit_add_beg, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_edit_add_end, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets(starting_widget=self)
+
+        self.widget_handler.activate()
 
     def btn_switch_words_order_click(self):
         text_list = self.txt_output.toPlainText().splitlines()
@@ -955,6 +1111,14 @@ class DefinitionEditor(QDialog):
             result.append(new_line)
 
         self.txt_output.setText("\n".join(result))
+
+    def txt_output_context_menu_triggered(self, e: QtGui.QContextMenuEvent):
+        UTILS.LogHandler.add_log_record("#1: Output TextBox context menu triggered.", ["DefinitionEditor"])
+        self._dont_clear_menu = True
+        result = self._synonyms_hint.show_contex_menu(base_string=self.txt_base.text())
+        if result:
+            self._dont_clear_menu = True
+            utility_cls.MessageInformation(self._stt, self, result)
 
     def txt_output_mouse_release(self, e: QtGui.QMouseEvent):
         if e.button() == Qt.RightButton:
@@ -1110,6 +1274,10 @@ class DefinitionEditor(QDialog):
         self._change_list_letter_case()
 
     def _txt_beggining_key_press(self, e: QtGui.QKeyEvent):
+        txt_beginning: qwidgets_util_cls.Widget_TextBox = self.widget_handler.find_child(self.txt_beggining)
+        if txt_beginning:
+            txt_beginning.EVENT_key_press_event(e)
+
         if e.key() == Qt.Key_S and e.modifiers() == Qt.ControlModifier:
             text_list = self.txt_beggining.toPlainText().split("\n")
             if text_list:
@@ -1134,6 +1302,10 @@ class DefinitionEditor(QDialog):
         QCheckBox.mouseReleaseEvent(self.chk_add_end, e)
 
     def _txt_end_key_press(self, e: QtGui.QKeyEvent):
+        txt_end: qwidgets_util_cls.Widget_TextBox = self.widget_handler.find_child(self.txt_end)
+        if txt_end:
+            txt_end.EVENT_key_press_event(e)
+
         if e.key() == Qt.Key_S and e.modifiers() == Qt.ControlModifier:
             text_list = self.txt_end.toPlainText().split("\n")
             if text_list:
@@ -1453,6 +1625,7 @@ about the red milk"""
             self.frm_padezi.setVisible(False)
         else:
             self.frm_padezi.setVisible(True)
+            self.frm_padezi.raise_()
 
     def btn_padezi_close_click(self):
         self.frm_padezi.setVisible(False)
@@ -1666,6 +1839,7 @@ about the red milk"""
             self.frm_edit.setVisible(False)
         else:
             self.frm_edit.setVisible(True)
+            self.frm_edit.raise_()
 
     def btn_generate_click(self):
         # Create lists if checkboxex are checked
@@ -1751,6 +1925,7 @@ about the red milk"""
             output_string += "\n"
         
         self.txt_output.setText(output_string)
+        UTILS.LogHandler.add_log_record("#1: Data generated.", ["DefinitionEditor"])
 
     def btn_base_text_changed(self):
         if self.txt_base.text():
@@ -1779,6 +1954,7 @@ about the red milk"""
     def btn_copy_click(self):
         self.get_appv("clipboard").setText(self.txt_output.toPlainText())
         self.btn_copy.setEnabled(False)
+        UTILS.LogHandler.add_log_record("#1: Data copied.", ["DefinitionEditor"])
 
     def btn_clear_output_click(self):
         self.txt_output.setText("")
@@ -1796,6 +1972,10 @@ about the red milk"""
         self.close()
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "definition_editor_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("definition_editor_win_geometry", {}, save_to_file=True)
 
@@ -1823,7 +2003,10 @@ about the red milk"""
 
         g["show_padezi_img"] = self._padezi_image
 
-        return super().closeEvent(a0)
+        self.get_appv("cm").remove_all_context_menu()
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["DefinitionEditor"])
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _load_win_position(self):
         if "definition_editor_win_geometry" in self._stt.app_setting_get_list_of_keys():
@@ -1858,8 +2041,7 @@ about the red milk"""
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -2030,7 +2212,6 @@ about the red milk"""
         self.txt_end.setStyleSheet(self.getv("def_editor_txt_end_stylesheet"))
         self.txt_beggining.setStyleSheet(self.getv("def_editor_txt_beggining_stylesheet"))
         self.txt_output.setStyleSheet(self.getv("def_editor_txt_output_stylesheet"))
-        self.txt_output.setContextMenuPolicy(Qt.NoContextMenu)
 
         self.btn_cancel.setStyleSheet(self.getv("def_editor_btn_cancel_stylesheet"))
         self.btn_clear_base.setStyleSheet(self.getv("def_editor_btn_clear_stylesheet"))
@@ -2158,14 +2339,18 @@ class ImageThumbItem(QLabel):
             self._parent_widget.item_left_click_event(self._media_id, self._am_i_default(), self)
         return super().mousePressEvent(ev)
 
+    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
+        self.setParent(None)
+        self.deleteLater()
+
 
 class AddDefinition(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj, expression: str = "", definition_id: int = 0, application_modal: bool = False, crash_dict: dict = None, *args, **kwargs):
-        super().__init__(parent_obj, *args, **kwargs)
-        
-        if application_modal:
-            self.setWindowModality(Qt.ApplicationModal)
-
+        self._dont_clear_menu = False
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -2174,12 +2359,18 @@ class AddDefinition(QDialog):
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
 
+        super().__init__(parent_obj, *args, **kwargs)
+        
+        UTILS.LogHandler.add_log_record("#1: Dialog is about to start.", ["AddDefinition"])
+
+        if application_modal:
+            self.setWindowModality(Qt.ApplicationModal)
+
         # Define other variables
         self._parent_obj = parent_obj
         self._expression = expression
         self._definition_id = definition_id
         self._data_changed = False
-        self._dont_clear_menu = False
         # self._illegal_entry = False
         self._checking_in_progress = False
         self._syn_text = ""
@@ -2190,14 +2381,14 @@ class AddDefinition(QDialog):
         self._force_exit = False
         self._title_and_chk_box_text = []
 
-        self.sound_image_added = QSound(self.getv("def_add_auto_added_image_sound_file_path"))
-        self.sound_image_add_error = QSound(self.getv("def_add_auto_added_image_error_sound_file_path"))
-        self.sound_auto_image_on = QSound(self.getv("def_add_auto_added_image_on_sound_file_path"))
-        self.sound_auto_image_off = QSound(self.getv("def_add_auto_added_image_off_sound_file_path"))
-        self.sound_auto_image_maximum = QSound(self.getv("def_add_auto_added_image_maximum_sound_file_path"))
-        self.sound_pop_up = QSound(self.getv("notification_pop_up_sound_file_path"))
-        self.sound_completed = QSound(self.getv("completed_sound_file_path"))
-        self.sound_select = QSound(self.getv("select_sound_file_path"))
+        self.sound_image_added = UTILS.SoundUtility(self.getv("def_add_auto_added_image_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_image_add_error = UTILS.SoundUtility(self.getv("def_add_auto_added_image_error_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_auto_image_on = UTILS.SoundUtility(self.getv("def_add_auto_added_image_on_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_auto_image_off = UTILS.SoundUtility(self.getv("def_add_auto_added_image_off_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_auto_image_maximum = UTILS.SoundUtility(self.getv("def_add_auto_added_image_maximum_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_pop_up = UTILS.SoundUtility(self.getv("notification_pop_up_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_completed = UTILS.SoundUtility(self.getv("completed_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
+        self.sound_select = UTILS.SoundUtility(self.getv("select_sound_file_path"), volume=self.getv("volume_value"), muted=self.getv("volume_muted"))
 
         db_def = db_definition_cls.Definition(self._stt)
         self.exp_list = db_def.get_list_of_all_expressions()
@@ -2215,6 +2406,8 @@ class AddDefinition(QDialog):
         self._text_handler = text_handler_cls.TextHandler(self._stt, self.txt_desc, self)
 
         self._desc_cf = self.txt_desc.textCursor().charFormat()
+
+        self.load_widgets_handler()
 
         self._load_win_position()
 
@@ -2255,12 +2448,16 @@ class AddDefinition(QDialog):
         check_expression = self._definition_id_for_expression(self._expression)
         if check_expression:
             if len(check_expression) == 1:
+                UTILS.LogHandler.add_log_record("#1: Found requested definition. (ID=#2)", ["AddDefinition", check_expression[0]])
                 self._expression = self._get_definition_name(check_expression[0])
             else:
+                UTILS.LogHandler.add_log_record("#1: Multiple definitons matched requested expression (Expression=#2).\nContext menu #3 is shown.", ["AddDefinition", self._expression, "User Select Definition"])
                 result = self.user_select_definition(check_expression)
                 if result:
+                    UTILS.LogHandler.add_log_record("#1: User selected definition (#2).", ["AddDefinition", result])
                     self._expression = self._get_definition_name(result)
                 else:
+                    UTILS.LogHandler.add_log_record("#1: User canceled contex menu.\nAdding new definition is started", ["AddDefinition"])
                     self._expression = ""
         else:
             if self._expression and self._expression[0] != self._expression[0].upper():
@@ -2273,14 +2470,52 @@ class AddDefinition(QDialog):
         self._populate_widgets()
         self.frm_loading.setVisible(False)
 
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["AddDefinition"])
         if crash_dict:
+            UTILS.LogHandler.add_log_record("#1: Application #2 reports unfinished definition adding in last session.\nAttempting to restore entry from last session.", ["AddDefinition", "Crash service"], variables=[[crash_key, crash_item] for crash_key, crash_item in crash_dict.items()], warning_raised=True)
             self._load_crash_data(crash_dict)
+            UTILS.LogHandler.add_log_record("#1: Loaded data from last session.", ["AddDefinition"])
         else:
             self.txt_expression.setFocus()
             self.exec_()
 
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        txt_expression = self.widget_handler.add_TextBox(self.txt_expression, {"allow_bypass_key_press_event": True})
+        txt_expression.properties.key_pressed_change_stylesheet_enabled = False
+        txt_expression.properties.smart_parenthesis_change_stylesheet_enabled = False
+        txt_expression.properties.key_pressed_change_size_enabled = False
+        txt_expression.properties.smart_parenthesis_change_size_enabled = False
+
+        self.widget_handler.add_TextBox(self.txt_syn, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_Selection_Widget(self.chk_auto_add)
+
+        self.widget_handler.activate()
+
     def _btn_syn_find_click(self):
-        self.sound_select.play()
+        UTILS.LogHandler.add_log_record("#1: User triggered #2 for expression #3.", ["AddDefinition", "DefinitionFinder", self.txt_expression.text()])
         images = []
         for i in range(self.horizontalLayout.count()):
             img_src = self.horizontalLayout.itemAt(i).widget().img_src
@@ -2296,16 +2531,18 @@ class AddDefinition(QDialog):
 
     def definition_update_function(self, data: dict):
         if data["caller_id"] != id(self):
-            print (f"Wrong caller: {data['caller_id']} != {id(self)}")
+            UTILS.TerminalUtility.WarningMessage("#1 returned invalid #2 (id(self)=#3)(ReturedID=#4)", ["DefinitionFinder", "caller_id", id(self), data.get("caller_id")])
             return
         
         # Text
         if data.get("update_text", None):
             if data["text"]:
                 self.txt_desc.setPlainText(data["text"])
+                UTILS.LogHandler.add_log_record("#1: Definition description is updated by #2.", ["AddDefinition", "DefinitionFinder"], variables=[["Text returned", data["text"]]])
 
         # Images
         if data.get("update_images", None):
+            UTILS.LogHandler.add_log_record("#1: About to update images by #2.", ["AddDefinition", "DefinitionFinder"])
             if data["replace_images"]:
                 # Delete existing images
                 for _ in range(self.horizontalLayout.count()):
@@ -2313,6 +2550,7 @@ class AddDefinition(QDialog):
                     item.widget().close()
                     item.widget().deleteLater()
                     self.horizontalLayout.removeItem(item)
+                UTILS.LogHandler.add_log_record("#1: Existing images cleared by #2.", ["AddDefinition", "DefinitionFinder"])
 
             self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_working_text"))
             QCoreApplication.processEvents()
@@ -2321,20 +2559,25 @@ class AddDefinition(QDialog):
             not_added_images = ""
 
             for image in data["images"]:
+                UTILS.LogHandler.add_log_record("#1: Attempting to add new image to definition by #2.\n#3", ["AddDefinition", "DefinitionFinder", image])
                 result = silent_add.add_image(source=image)
                 if result:
                     if self._is_media_already_added(result):
+                        UTILS.LogHandler.add_log_record("#1: Image already exist in definition. Adding skipped.\n#3", ["AddDefinition", "DefinitionFinder", image])
                         self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
                         continue
 
                     self._add_image_to_layout(result)
                     self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
                     self.sound_image_added.play()
+                    UTILS.LogHandler.add_log_record("#1: Image added to definition by #2.\n#3", ["AddDefinition", "DefinitionFinder", image])
                 else:
                     self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
                     not_added_images += f"{image}\n"
+                    UTILS.LogHandler.add_log_record("#1: Unable to add image to definition by #2.\n#3", ["AddDefinition", "DefinitionFinder", image])
 
                 if not_added_images:
+                    UTILS.LogHandler.add_log_record("#1: Some images could not be added to definition.\n#2", ["AddDefinition", not_added_images])
                     QMessageBox.warning(self, self.getl("definition_add_error_online_img_add_title"), self.getl("definition_add_error_online_img_add_text") + f"\n{not_added_images}")
                 
         # Synonyms
@@ -2344,6 +2587,7 @@ class AddDefinition(QDialog):
                 text = self.txt_syn.toPlainText() + "\n\n"
             text += data["syn"]
             self.txt_syn.setPlainText(text)
+            UTILS.LogHandler.add_log_record("#1: Definition synonyms updated by #2.", ["AddDefinition", "DefinitionFinder"], variables=[["Synonym list", text]])
 
         # Return data
         if data.get("return_data", None):
@@ -2351,6 +2595,7 @@ class AddDefinition(QDialog):
             for i in range(self.horizontalLayout.count()):
                 img_src = self.horizontalLayout.itemAt(i).widget().img_src
                 images.append(img_src)
+            UTILS.LogHandler.add_log_record("#1: Updated #2 data.", ["AddDefinition", "DefinitionFinder"])
             return self.txt_syn.toPlainText(), images
 
         self.sound_auto_image_on.play()
@@ -2393,6 +2638,7 @@ class AddDefinition(QDialog):
             if not cur.hasSelection():
                 cur.setPosition(cursor.position())
                 self.txt_syn.setTextCursor(cur)
+            UTILS.LogHandler.add_log_record("#1: Synonyms TextBox context menu triggered.", ["AddDefinition"])
             self._dont_clear_menu = True
             result = self._synonyms_hint.show_contex_menu(base_string=self.txt_expression.text())
             if result:
@@ -2401,6 +2647,7 @@ class AddDefinition(QDialog):
         QTextEdit.mouseReleaseEvent(self.txt_syn, e)
 
     def signalNewDefinitionAdded_event(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 recieved.", ["AddDefinition", "NewDefinitionAdded"])
         db_def = db_definition_cls.Definition(self._stt)
         self.exp_list = db_def.get_list_of_all_expressions()
 
@@ -2408,6 +2655,7 @@ class AddDefinition(QDialog):
 
         if self.txt_desc.toPlainText():
             self._txt_desc_text_changed()
+        UTILS.LogHandler.add_log_record("#1: Current definition data updated.", ["AddDefinition"])
 
     def _load_crash_data(self, crash_dict: dict):
         self._data_changed = True
@@ -2425,8 +2673,10 @@ class AddDefinition(QDialog):
         for i in crash_dict[self.get_appv("user").username]["def"]["media"]:
             self._add_image_to_layout(i)
         QCoreApplication.processEvents()
+        UTILS.LogHandler.add_log_record("#1: Definition data from previous session are recovered.", ["AddDefinition"])
 
     def _signal_close_all_definitions(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 is recieved.", ["AddDefinition", "CloseAllDefinitions"])
         self._force_exit = True
         self.close()
 
@@ -2461,6 +2711,7 @@ class AddDefinition(QDialog):
                 ]
             }
 
+            UTILS.LogHandler.add_log_record("#1: Definition images context menu is triggered.", ["AddDefinition"])
             self.set_appv("menu", menu_dict)
             self._dont_clear_menu = True
             utility_cls.ContextMenu(self._stt, self)
@@ -2477,6 +2728,7 @@ class AddDefinition(QDialog):
         QScrollArea.mousePressEvent(self.area, e)
 
     def events(self, event_dict: dict):
+        UTILS.LogHandler.add_log_record("#1: Function #2 is not implemented.", ["AddDefinition", "events"], warning_raised=True)
         pass
 
     def btn_save_mouse_release(self, e: QtGui.QMouseEvent):
@@ -2489,27 +2741,36 @@ class AddDefinition(QDialog):
                     [20, self.getl("def_add_btn_save_menu_save_and_no_exit_text"), self.getl("def_add_btn_save_menu_save_and_no_exit_tt"), True, [], None],
                 ]
             }
+            UTILS.LogHandler.add_log_record("#1: Right click on button #2.\nContext menu is triggered", ["AddDefinition", "Save"])
             self.set_appv("menu", menu_dict)
             self._dont_clear_menu = True
             utility_cls.ContextMenu(self._stt, self)
             result = self.get_appv("menu")["result"]
             if result == 10:
+                UTILS.LogHandler.add_log_record("#1: User selected #2.", ["AddDefinition", "Save & Exit"])
                 self._btn_save_click(close_dialog=True)
             elif result == 20:
+                UTILS.LogHandler.add_log_record("#1: User selected #2.", ["AddDefinition", "Save & Don't Exit"])
                 self._btn_save_click(close_dialog=False)
+            else:
+                UTILS.LogHandler.add_log_record("#1: User canceled menu.", ["AddDefinition"])
+            
         elif e.button() == Qt.LeftButton:
             self._btn_save_click()
         else:
             QPushButton.mouseReleaseEvent(self.btn_save, e)
 
     def btn_auto_add_stop_click(self):
+        UTILS.LogHandler.add_log_record("#1: User aborted #2.", ["AddDefinition", "AutoAddImages"])
         self._stop_adding_images = True
 
     def chk_auto_add_state_changed(self):
         if self.chk_auto_add.isChecked():
             self.sound_auto_image_on.play()
+            UTILS.LogHandler.add_log_record("#1: User started #2.", ["AddDefinition", "AutoAddImages"])
         else:
             self.sound_auto_image_off.play()
+            UTILS.LogHandler.add_log_record("#1: User stoped #2.", ["AddDefinition", "AutoAddImages"])
 
     def _clipboard_changed(self):
         if not self.chk_auto_add.isChecked():
@@ -2524,23 +2785,28 @@ class AddDefinition(QDialog):
             self.chk_auto_add.setEnabled(False)
             self.chk_auto_add.setChecked(False)
             self.sound_auto_image_maximum.play()
+            UTILS.LogHandler.add_log_record("#1: Maximum number of images reached (#2).", ["AddDefinition", self.getv("max_number_of_images_in_definition")], warning_raised=True)
             self._message_too_many_images()
             return
 
         self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_working_text"))
         QCoreApplication.processEvents()
         silent_add = utility_cls.SilentPictureAdd(self._stt)
+        UTILS.LogHandler.add_log_record("#1: About to add image by #2.\nImage source: #3", ["AddDefinition", "AutoAddImages", silent_add.clipboard_image_source])
         result = silent_add.add_image()
         if result:
             if self._is_media_already_added(result):
                 self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
                 self.get_appv("log").write_log(f"DefinitionAdd. An attempt is made to add an image that has already been added to the definition. Media ID: {result}")
                 self.sound_image_add_error.play()
+                UTILS.LogHandler.add_log_record("#1: Image is already added to definition. Canceled adding #2\nImage source: #3", ["AddDefinition", result, silent_add.clipboard_image_source])
                 return
             self._add_image_to_layout(result)
             self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
             self.sound_image_added.play()
+            UTILS.LogHandler.add_log_record("#1: Image is added to definition by #2.\nImage source: #3", ["AddDefinition", "AutoAddImages", silent_add.clipboard_image_source])
         else:
+            UTILS.LogHandler.add_log_record("#1: Unable to add image by #2.\nImage source: #3", ["AddDefinition", "AutoAddImages", silent_add.clipboard_image_source])
             if not self._multi_urls_add():
                 self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
                 self.sound_image_add_error.play()
@@ -2581,11 +2847,13 @@ class AddDefinition(QDialog):
             select_dict["items"].append([url, url, desc, False, False, []])
         
         self.sound_pop_up.play()
+        UTILS.LogHandler.add_log_record("#1: Multiple images add selection dialog displayed. (Urls=#2)", ["AddDefinition", len(urls)], variables=[["Image source", url] for url in urls])
         utility_cls.Selection(self._stt, self, selection_dict=select_dict)
         urls = self.get_appv("selection")["result"]
 
         # If the user has not selected any image, return false
         if not urls:
+            UTILS.LogHandler.add_log_record("#1: User did not select any image.", ["AddDefinition"])
             return False
         
         # Start adding images
@@ -2594,6 +2862,7 @@ class AddDefinition(QDialog):
         not_added = []
         max_img_reached = False
         self._stop_adding_images = False
+        UTILS.LogHandler.add_log_record("#1: Adding user selected images started...", ["AddDefinition"])
 
         for idx, url in enumerate(urls):
             # Notify the user of progress
@@ -2603,6 +2872,7 @@ class AddDefinition(QDialog):
             
             # If the user has stopped adding images, exit the loop
             if self._stop_adding_images:
+                UTILS.LogHandler.add_log_record("#1: User aborted adding images!", ["AddDefinition"])
                 break
             
             # Check if the maximum number of images has been reached
@@ -2617,18 +2887,22 @@ class AddDefinition(QDialog):
             if result:
                 # If the image has already been added, continue with the next image
                 if self._is_media_already_added(result):
+                    UTILS.LogHandler.add_log_record("#1: Image already exists in definition #2.", ["AddDefinition", url])
                     continue
                 # Add image
                 self._add_image_to_layout(result)
                 self.sound_image_added.play()
+                UTILS.LogHandler.add_log_record("#1: Image added #2.", ["AddDefinition", url])
             else:
                 # In case of error, inform the user with a sound signal and continue with the next image
                 txt = f'{url}  {self.getl("auto_adding_images_not_added_reason_text")}: {self.getl("auto_adding_images_not_added_reason_load_error_text")}'
                 not_added.append(txt)
                 self.sound_image_add_error.play()
+                UTILS.LogHandler.add_log_record("#1: Image not added due to #2.\nImage source: #3", ["AddDefinition", "Load Error", url])
 
         # If the maximum number of images is reached, notify the user with a message
         if max_img_reached:
+            UTILS.LogHandler.add_log_record("#1: Maximum number of images reached #2.", ["AddDefinition", self.getv("max_number_of_images_in_definition")])
             self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_full_text"))
             self.chk_auto_add.setEnabled(False)
             self.chk_auto_add.setChecked(False)
@@ -2650,9 +2924,11 @@ class AddDefinition(QDialog):
                 desc = f'<img src="{url}" width=300>'
                 select_dict["items"].append([url, url, desc, False, False, []])
             
+            UTILS.LogHandler.add_log_record("#1: Some images could not be added.\n#2", ["AddDefinition", "\n".join(not_added)])
             self.sound_pop_up.play()
             utility_cls.Selection(self._stt, self, selection_dict=select_dict)
 
+        UTILS.LogHandler.add_log_record("#1: Adding user selected images completed.", ["AddDefinition"])
         return True
 
     def _multi_urls_add_user_msg(self, message: str):
@@ -2695,7 +2971,7 @@ class AddDefinition(QDialog):
                 self.close()
 
     def _btn_editor_click(self):
-        self.sound_select.play()
+        UTILS.LogHandler.add_log_record("#1: User click triggered #2", ["AddDefinition", "DefinitionEditor"])
         DefinitionEditor(self._stt, self, self.txt_expression.text())
 
     def _txt_expression_return_pressed(self):
@@ -2732,6 +3008,8 @@ class AddDefinition(QDialog):
         if self.txt_expression.text().strip() == "":
             return
         
+        UTILS.LogHandler.add_log_record("#1: Saving data started...", ["AddDefinition"])
+
         self.lbl_auto_add_msg.setText(self.getl("add_def_lbl_auto_add_msg_saving_text"))
         self.lbl_auto_add_msg.resize(self.lbl_auto_add_msg.width(), self.frm_auto_add.height())
         self.btn_auto_add_stop.setVisible(False)
@@ -2740,18 +3018,6 @@ class AddDefinition(QDialog):
 
         self.txt_syn.setText(self.txt_syn.toPlainText() + "\n")
         self._change_widgets_if_illegal_entry()
-        # if self._illegal_entry:
-        #     data_dict = {
-        #         "title": self.getl("definition_add_illegal_msg_title"),
-        #         "text": self.getl("definition_add_illegal_msg_text")
-        #     }
-        #     self._dont_clear_menu = True
-        #     utility_cls.MessageInformation(self._stt, self, data_dict)
-        #     self.lbl_auto_add_msg.setText("Auto add")
-        #     self.lbl_auto_add_msg.resize(self.lbl_auto_add_msg.width(), 40)
-        #     self.btn_auto_add_stop.setVisible(True)
-        #     self.frm_auto_add.setVisible(False)
-        #     return
 
         # Find media IDs
         media_ids = []
@@ -2784,11 +3050,15 @@ class AddDefinition(QDialog):
         # Save data
         if definition_id:
             db_def.update_definition(definition_id, def_dict=def_dict)
+            UTILS.LogHandler.add_log_record("#1: Definition updated", ["AddDefinition"])
         else:
             db_def.add_new_definition(def_dict)
+            UTILS.LogHandler.add_log_record("#1: Added new definition", ["AddDefinition"])
+
         self.get_appv("log").write_log(f"DefinitionAdd. Definition Saved. Definition ID: {def_dict['name']}")
         
         # Close dialog
+        UTILS.LogHandler.add_log_record("#1: Sent signal #2", ["AddDefinition", "NewDefinitionAdded"])
         self.get_appv("signal").new_definition_added()
         self._data_changed = False
 
@@ -2796,6 +3066,7 @@ class AddDefinition(QDialog):
         self.btn_auto_add_stop.setVisible(True)
         self.frm_auto_add.setVisible(False)
 
+        UTILS.LogHandler.add_log_record("#1: Saving data completed.", ["AddDefinition"])
         if close_dialog:
             self._show_save_notification()
             self.close()
@@ -2819,13 +3090,15 @@ class AddDefinition(QDialog):
         # QCoreApplication.processEvents()
 
     def item_double_click_event(self, media_id: int, is_default: bool, item: QLabel):
+        UTILS.LogHandler.add_log_record("#1: Image item #2", ["AddDefinition", "DoubleClicked"])
         self._show_images(item._media_id)
 
     def item_left_click_event(self, media_id: int, is_default: bool, item: QLabel):
+        UTILS.LogHandler.add_log_record("#1: Image item #2 function #3", ["AddDefinition", "LeftClick", "NotImplemented"], warning_raised=True)
         pass
 
     def item_right_click_event(self, media_id: int, is_default: bool, item: QLabel):
-        db_media = db_media_cls.Media(self._stt, media_id)
+        UTILS.LogHandler.add_log_record("#1: Image item #2, context menu showed.", ["AddDefinition", "RightClick"])
         if is_default:
             disabled = [10]
         else:
@@ -2927,6 +3200,7 @@ class AddDefinition(QDialog):
                 self.horizontalLayout.itemAt(i).widget().you_are_default(False)
             item._is_default = True
             item.you_are_default()
+            UTILS.LogHandler.add_log_record("#1: #2: Image with ID (#3) is set as default image.", ["AddDefinition", "User Selected", item._media_id])
         elif self.get_appv("menu")["result"] == 20:
             self.chk_auto_add.setEnabled(True)
             self.chk_auto_add.setText(self.getl("definition_add_chk_auto_add_text"))
@@ -2934,25 +3208,35 @@ class AddDefinition(QDialog):
                 if self.horizontalLayout.itemAt(i).widget()._media_id == item._media_id:
                     self.horizontalLayout.removeItem(self.horizontalLayout.itemAt(i))
                     break
+            UTILS.LogHandler.add_log_record("#1: #2: Image with ID (#3) is removed from definition.", ["AddDefinition", "User Selected", item._media_id])
             item.close()
         elif self.get_appv("menu")["result"] == 30:
+            UTILS.LogHandler.add_log_record("#1: #2: Add new image.", ["AddDefinition", "User Selected", item._media_id])
             self._btn_add_media_click()
         elif self.get_appv("menu")["result"] == 40:
+            UTILS.LogHandler.add_log_record("#1: #2: Image with ID (#3) is displayed.", ["AddDefinition", "User Selected", item._media_id])
             self._show_images(item._media_id)
         elif self.get_appv("menu")["result"] == 50:
+            UTILS.LogHandler.add_log_record("#1: #2: Image imformation for image with ID (#3) are displayed.", ["AddDefinition", "User Selected", item._media_id])
             utility_cls.PictureInfo(self._stt, self, item._media_id)
         elif self.get_appv("menu")["result"] == 60:
+            UTILS.LogHandler.add_log_record("#1: #2: Paste images from clipboard.", ["AddDefinition", "User Selected"])
             self._paste_images()
         elif self.get_appv("menu")["result"] == 70:
             if self.chk_auto_add.isChecked():
                 self.chk_auto_add.setChecked(False)
             self._clip.copy_to_clip(media_id)
+            UTILS.LogHandler.add_log_record("#1: #2: Copy image to clipboard.", ["AddDefinition", "User Selected"])
         elif self.get_appv("menu")["result"] == 80:
             if self.chk_auto_add.isChecked():
                 self.chk_auto_add.setChecked(False)
             self._clip.copy_to_clip(media_id, add_to_clip=True)
+            UTILS.LogHandler.add_log_record("#1: #2: Add image to clipboard.", ["AddDefinition", "User Selected"])
         elif self.get_appv("menu")["result"] == 90:
+            UTILS.LogHandler.add_log_record("#1: #2: Clear clipboard.", ["AddDefinition", "User Selected"])
             self._clip.clear_clip()
+        else:
+            UTILS.LogHandler.add_log_record("#1: #2: User canceled menu.", ["AddDefinition", "User Selected"])
         
         if self.horizontalLayout.count() == 0 and self.txt_desc.toPlainText() == "" and self.txt_syn.toPlainText() == "":
             self._data_changed = False
@@ -2984,8 +3268,7 @@ class AddDefinition(QDialog):
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -2996,7 +3279,6 @@ class AddDefinition(QDialog):
             self.resize(g["width"], g["height"])
 
     def _btn_add_media_click(self):
-        self.sound_select.play()
         if self._clip.number_of_images_in_clip:
             menu_dict = {
                 "position": QCursor().pos(),
@@ -3081,6 +3363,8 @@ class AddDefinition(QDialog):
             media_ids.append(self.horizontalLayout.itemAt(i).widget()._media_id)
 
         crash_dict = self._stt.custom_dict_load(self.getv("crash_file_path"))
+        if not crash_dict:
+            crash_dict = {}
         if self.get_appv("user").username not in crash_dict:
             crash_dict[self.get_appv("user").username] = {}
         crash_dict[self.get_appv("user").username] = {
@@ -3113,6 +3397,14 @@ class AddDefinition(QDialog):
         self.close()
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        if not self._can_exit():
+            a0.ignore()
+            return None
+
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "add_definition_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("add_definition_win_geometry", {}, save_to_file=True)
 
@@ -3122,18 +3414,23 @@ class AddDefinition(QDialog):
         g["width"] = self.width()
         g["height"] = self.height()
 
-        if not self._can_exit():
-            a0.ignore()
-            return None
-
         self.chk_auto_add.setChecked(False)
         crash_dict = self._stt.custom_dict_load(self.getv("crash_file_path"))
+        if not crash_dict:
+            crash_dict = {}
         if self.get_appv("user").username in crash_dict:
             if "def" in crash_dict[self.get_appv("user").username]:
                 crash_dict[self.get_appv("user").username].pop("def")
                 self._stt.custom_dict_save(self.getv("crash_file_path"), crash_dict)
-        
-        return super().closeEvent(a0)
+
+        self.get_appv("cm").remove_all_context_menu()
+
+        if self._text_handler:
+            self._text_handler.close_me()
+            self._text_handler = None
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["AddDefinition"])
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _can_exit(self) -> bool:
         if self._force_exit:
@@ -3241,6 +3538,9 @@ class AddDefinition(QDialog):
         return has_data_in_other_defs
 
     def _txt_desc_text_changed(self):
+        if not self._text_handler:
+            return
+        
         if not self._txt_desc_mark_mode:
             if self.getv("definition_text_mark_enabled_in_def_add_dialog"):
                 self._txt_desc_mark_mode = True
@@ -3256,10 +3556,12 @@ class AddDefinition(QDialog):
             self._data_changed = False
 
     def _txt_desc_mouse_move(self, e: QtGui.QMouseEvent) -> None:
-        self._text_handler.show_definition_on_mouse_hover(e)
+        if self._text_handler:
+            self._text_handler.show_definition_on_mouse_hover(e)
         QTextEdit.mouseMoveEvent(self.txt_desc, e)
 
     def _btn_format_desc_click(self):
+        UTILS.LogHandler.add_log_record("#1: User clicked #2.", ["AddDefinition", "Format Definition Description"])
         self.sound_select.play()
         QCoreApplication.processEvents()
         self.txt_desc.setText(self._clear_unnecessary_spaces(self.txt_desc.toPlainText()))
@@ -3300,6 +3602,7 @@ class AddDefinition(QDialog):
             if can_exit:
                 break
         
+        UTILS.LogHandler.add_log_record("#1: Unnecessary spaces cleared from definition description.", ["AddDefinition"])
         return txt
 
     def _remove_wiki_from_text(self, txt: str) -> str:
@@ -3310,6 +3613,7 @@ class AddDefinition(QDialog):
         
         txt = txt.replace("`", "")
 
+        UTILS.LogHandler.add_log_record("#1: Wikipedia links removed from definition description.", ["AddDefinition"])
         return txt
 
     def _find_wiki_links(self, txt: str) -> list:
@@ -3595,7 +3899,6 @@ class AddDefinition(QDialog):
 
 class ViewDefinition(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj, definition_id: int, *args, **kwargs):
-        super().__init__(parent_obj, *args, **kwargs)
 
         # Define settings object and methods
         self._stt = settings
@@ -3604,6 +3907,8 @@ class ViewDefinition(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_obj, *args, **kwargs)
 
         # Define other variables
         self._parent_obj = parent_obj
@@ -3623,6 +3928,8 @@ class ViewDefinition(QDialog):
         self._setup_widgets()
         self._setup_widgets_text()
         self._setup_widgets_apperance()
+
+        self.load_widgets_handler()
 
         # Connect events with slots
         self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
@@ -3646,15 +3953,43 @@ class ViewDefinition(QDialog):
 
         self.show()
         self._populate_widgets()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["ViewDefinition"])
         self.exec_()
 
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_QPushButton(self.btn_close)
+        self.widget_handler.add_QPushButton(self.btn_edit)
+        self.widget_handler.add_QPushButton(self.btn_ok)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+
+        # Add Selection Widgets
+
+        self.widget_handler.activate()
+
     def _signal_close_all_definitions(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 recieved.", ["ViewDefinition", "CloseAllDefinitions"])
         self.close()
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -3671,9 +4006,11 @@ class ViewDefinition(QDialog):
         }
 
         self._db_def.update_definition(self._definition_id, def_dict=def_dict)
+        UTILS.LogHandler.add_log_record("#1: Images Saved.", ["ViewDefinition"])
 
     def _btn_edit_click(self):
-        edit_def = AddDefinition(self._stt, self, definition_id=self._definition_id)
+        UTILS.LogHandler.add_log_record("#1: Button #2 clicked.", ["ViewDefinition", "Edit Definitions"])
+        AddDefinition(self._stt, self, definition_id=self._definition_id)
         self._db_def._populate_properties(self._definition_id)
         self._setup_widgets_text()
         self._populate_widgets()
@@ -3885,14 +4222,17 @@ class ViewDefinition(QDialog):
 
     def _add_media_cm(self):
         if self.horizontalLayout.count() > self.getv("max_number_of_images_in_definition"):
+            UTILS.LogHandler.add_log_record("#1: Maximum number of images reached.", ["ViewDefinition"])
             self._message_too_many_images()
             return
         result = []
+        UTILS.LogHandler.add_log_record("#1: Adding image...", ["ViewDefinition"])
         utility_cls.PictureAdd(self._stt, self, result)
         if result:
             for i in range(self.horizontalLayout.count()):
                 if self.horizontalLayout.itemAt(i).widget()._media_id == result[0]:
                     self._message_image_exist()
+                    UTILS.LogHandler.add_log_record("#1: Add Image canceled, image already exits in definition.", ["ViewDefinition"])
                     return
             self._data_changed = True
             lbl_pic = ImageThumbItem(self._stt, self, result[0], self._definition_id)
@@ -3904,6 +4244,9 @@ class ViewDefinition(QDialog):
             
             db_media = db_media_cls.Media(self._stt, result[0])
             self._show_image_in_main_label(db_media.media_file)
+            UTILS.LogHandler.add_log_record("#1: Image added.", ["ViewDefinition"])
+        else:
+            UTILS.LogHandler.add_log_record("#1: ImageAdd canceled.", ["ViewDefinition"])
 
     def _show_image_in_main_label(self, media_file: str = None):
             img = QPixmap()
@@ -3982,6 +4325,21 @@ class ViewDefinition(QDialog):
             self._populate_widgets(add_to_layout=False)
         return super().resizeEvent(a0)
 
+    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["ViewDefinition"])
+        self.get_appv("cm").remove_all_context_menu()
+
+        for i in range(self.horizontalLayout.count()):
+            widget = self.horizontalLayout.itemAt(0).widget()
+            self.horizontalLayout.removeWidget(widget)
+            widget.close_me()
+
+        UTILS.DialogUtility.on_closeEvent(self)
+
     def _setup_widgets(self):
         self.lbl_name: QLabel = self.findChild(QLabel, "lbl_name")
         self.lbl_pic: QLabel = self.findChild(QLabel, "lbl_pic")
@@ -4022,6 +4380,7 @@ class ViewDefinition(QDialog):
         self._define_buttons_apperance(self.btn_edit, "definition_view_btn_edit")
         self._define_buttons_apperance(self.btn_ok, "definition_view_btn_ok")
         self._define_buttons_apperance(self.btn_size, "definition_view_btn_size")
+        self.btn_close.setStyleSheet(self.getv("definition_view_btn_close_stylesheet"))
 
         self._define_text_box_apperance(self.txt_desc, "definition_view_txt_desc")
 
@@ -4084,7 +4443,6 @@ class ViewDefinition(QDialog):
 
 class BrowseDefinitions(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_widget, definition_id: int = None, *args, **kwargs):
-        super().__init__(parent_widget, *args, **kwargs)
 
         # Define settings object and methods
         self._stt = settings
@@ -4093,6 +4451,8 @@ class BrowseDefinitions(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_widget, *args, **kwargs)
 
         # Define other variables
         self._parent_obj = parent_widget
@@ -4117,12 +4477,16 @@ class BrowseDefinitions(QDialog):
         self._populate_widgets()
         self._load_win_position()
 
+        self.load_widgets_handler()
+
         # Connect events with slots
         self.get_appv("signal").signal_app_settings_updated.connect(self.app_setting_updated)
 
         self.lst_def.currentItemChanged.connect(self._lst_def_current_item_changed)
         self.lst_def.contextMenuEvent = self.lst_def_context_menu
         self.lst_def.mouseDoubleClickEvent = self._lst_def_mouse_double_click
+        self.lst_def.mousePressEvent = self.lst_def_start_drag
+        
         self.btn_close.clicked.connect(self._btn_close_click)
         self.btn_edit.clicked.connect(self._btn_edit_click)
         self.btn_add.clicked.connect(self._btn_add_click)
@@ -4139,8 +4503,60 @@ class BrowseDefinitions(QDialog):
         self.show()
         self._load_passed_definitions(definition_id)
         self.txt_find.setFocus()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["BrowseDefinitions"])
+
+    def lst_def_start_drag(self, e: QMouseEvent):
+        lst_widget: qwidgets_util_cls.Widget_ItemBased = self.widget_handler.find_child(self.lst_def, return_none_if_not_found=True)
+        if lst_widget is not None:
+            lst_widget.EVENT_mouse_press_event(e)
+
+        if e.button() == Qt.LeftButton:
+            self.get_appv("cb").clear_drag_data()
+            item = self.lst_def.currentItem()
+            if item is not None:
+                self.get_appv("cb").set_drag_data(item.data(Qt.UserRole), "def", self)
+                self.lst_def.startDrag(Qt.CopyAction)
+        QListWidget.mousePressEvent(self.lst_def, e)
+        if self.lst_def.currentItem() is not None:
+            self.lst_def.scrollToItem(self.lst_def.currentItem())
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_find, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_desc, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        
+        # Add Item Based Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_def)
+        lst_widget: qwidgets_util_cls.Widget_ItemBased = self.widget_handler.find_child(self.lst_def, return_none_if_not_found=True)
+        if lst_widget is not None:
+            lst_widget.properties.allow_bypass_mouse_press_event = False
+
+        self.widget_handler.activate()
 
     def _signal_close_all_definitions(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 recieved.", ["BrowseDefinitions", "CloseAllDefinitions"])
         self.close()
 
     def _lst_def_mouse_double_click(self, e: QtGui.QMouseEvent):
@@ -4149,8 +4565,7 @@ class BrowseDefinitions(QDialog):
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -4167,6 +4582,7 @@ class BrowseDefinitions(QDialog):
             self.txt_desc.setText(def_desc)
 
     def txt_find_context_menu(self, e):
+        UTILS.LogHandler.add_log_record("#1: TextBox #2 context menu displayed.", ["BrowseDefinitions", "txt_find"])
         disab = []
         if not self.txt_find.isUndoAvailable():
             disab.append(10)
@@ -4275,6 +4691,8 @@ class BrowseDefinitions(QDialog):
         elif result == 60:
             if self.txt_find.selectedText():
                 self.txt_find.setText(f"{self.txt_find.text()[:self.txt_find.selectionStart()]}{self.txt_find.text()[self.txt_find.selectionEnd():]}")
+        else:
+            UTILS.LogHandler.add_log_record("#1: User canceled context menu.", ["BrowseDefinitions"])
 
     def txt_find_text_changed(self):
         txt = self.txt_find.text()
@@ -4291,18 +4709,38 @@ class BrowseDefinitions(QDialog):
             else:
                 item.setHidden(False)
         
+        self._select_first_item_in_list()
         self._update_counter()
 
     def _load_passed_definitions(self, def_ids: list):
         if not isinstance(def_ids, list):
             return
+
+        def_ids = [UTILS.TextUtility.get_integer(x) for x in def_ids if UTILS.TextUtility.is_integer_possible(x)]
         for item in self.lst_def.findItems("", Qt.MatchFlag.MatchContains):
             if item.data(Qt.UserRole) in def_ids:
                 item.setHidden(False)
             else:
                 item.setHidden(True)
         
+        # Select first item
+        self._select_first_item_in_list()
+        
+        if def_ids:
+            UTILS.LogHandler.add_log_record("#1: Loaded definition list to show.", ["BrowseDefinitions"], variables=[["Definition List", def_ids]])
         self._update_counter()
+
+    def _select_first_item_in_list(self):
+        current_set = False
+        for item in self.lst_def.findItems("", Qt.MatchFlag.MatchContains):
+            if not item.isHidden():
+                self.lst_def.setCurrentItem(item)
+                current_set = True
+                break
+        if current_set:
+            self._populate_data(self.lst_def.currentItem().data(Qt.UserRole))
+        else:
+            self._populate_data(None)
 
     def txt_find_return_pressed(self):
         db_def = db_definition_cls.Definition(self._stt)
@@ -4381,10 +4819,22 @@ class BrowseDefinitions(QDialog):
         self._show_context_menu()
 
     def lbl_pic_mouse_press(self, e):
-        if e.button() == Qt.RightButton:
+        self.get_appv("cm").remove_all_context_menu()
+        if e.button() == Qt.LeftButton:
+            if self._definition_id is None:
+                return
+
+            self.get_appv("cb").set_drag_data(self._definition_id, "def")
+            
+            mime_data = QMimeData()
+            mime_data.setText(str(self._definition_id))
+            drag = QDrag(self)
+            drag.setMimeData(mime_data)
+            drag.exec_(Qt.CopyAction)
+        elif e.button() == Qt.RightButton:
             self._show_context_menu()
 
-    def _show_context_menu(self):            
+    def _show_context_menu(self):
         if self._definition_id is None:
             return
         
@@ -4415,10 +4865,41 @@ class BrowseDefinitions(QDialog):
         else:
             full_item_id = f"{list_item.data(Qt.UserRole)} | Name: {list_item.text()}"
 
+        def_id = 0
+        all_defs = []
+
+        for i in range(self.lst_def.count()):
+            if not self.lst_def.item(i).isHidden():
+                all_defs.append(self.lst_def.item(i).data(Qt.UserRole))
+
+        no_items_in_clip = self.get_appv("cb").def_clip_number_of_items()
+        no_items_in_list = len(all_defs)
+        no_items_found = len(self.get_appv("cb").def_clip_ids_that_are_in_clipboard(all_defs))
+
+        if self.lst_def.currentItem() is None:
+            for i in [110, 11010, 11020, 11030, 11040, 11050, 11060, 11070, 120, 12010, 130, 13010]:
+                disab.append(i)
+        else:
+            def_id = self.lst_def.currentItem().data(Qt.UserRole)
+
+            if self.get_appv("cb").def_clip_ids_that_are_in_clipboard(def_id):
+                disab.append(11020)
+            else:
+                disab.append(11030)
+            
+            if no_items_found == no_items_in_list:
+                disab.append(11050)
+            
+            if no_items_found == 0:
+                disab.append(11060)
+            
+            if no_items_in_clip == 0:
+                disab.append(11070)
+
         menu_dict = {
             "position": QCursor.pos(),
             "selected": [20],
-            "separator": [20, 40, 90],
+            "separator": [20, 40, 90, 130, 11030, 11060],
             "disabled": disab,
             "items": [
                 [
@@ -4464,6 +4945,105 @@ class BrowseDefinitions(QDialog):
                     True,
                     [],
                     self.getv("clear_clipboard_icon_path")
+                ],
+                [
+                    110,
+                    self.getl("definition_context_copy_text"),
+                    self.getl("definition_context_copy_desc"),
+                    True,
+                    [
+                        [
+                            11010,
+                            self.getl("definition_context_copy_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("definition_context_copy_desc"),
+                            True,
+                            [],
+                            self.getv("copy_icon_path")
+                        ],
+                        [
+                            11020,
+                            self.getl("definition_context_copy_add_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("definition_context_copy_add_desc"),
+                            True,
+                            [],
+                            self.getv("copy_add_icon_path")
+                        ],
+                        [
+                            11030,
+                            self.getl("definition_context_clear_text"),
+                            self.getl("definition_context_clear_desc"),
+                            True,
+                            [],
+                            self.getv("clear_x_icon_path")
+                        ],
+                        [
+                            11040,
+                            self.getl("definition_context_copy_all_text") + f' ({self.getl("block_context_items_in_list_text").replace("#1", str(no_items_in_list))})',
+                            self.getl("definition_context_copy_all_desc"),
+                            True,
+                            [],
+                            self.getv("copy_icon_path")
+                        ],
+                        [
+                            11050,
+                            self.getl("definition_context_copy_add_all_text") + f' ({self.getl("block_context_items_in_list_text").replace("#1", str(no_items_in_list))})',
+                            self.getl("definition_context_copy_add_all_desc"),
+                            True,
+                            [],
+                            self.getv("copy_add_icon_path")
+                        ],
+                        [
+                            11060,
+                            self.getl("definition_context_clear_all_text") + f' ({self.getl("block_context_items_found_text").replace("#1", str(no_items_found)).replace("#2", str(no_items_in_list))})',
+                            self.getl("definition_context_clear_all_desc"),
+                            True,
+                            [],
+                            self.getv("clear_x_icon_path")
+                        ],
+                        [
+                            11070,
+                            self.getl("definition_context_clear_clip_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("definition_context_clear_clip_desc"),
+                            True,
+                            [],
+                            self.getv("clear_icon_path")
+                        ],
+                    ],
+                    self.getv("copy_icon_path")
+                ],
+                [
+                    120,
+                    self.getl("definition_context_send_to_text"),
+                    "",
+                    False,
+                    [
+                        [
+                            12010,
+                            self.getl("definition_context_send_to_export_definitions_text"),
+                            self.getl("definition_context_send_to_export_definitions_desc"),
+                            True,
+                            [],
+                            self.getv("export_icon_path")
+                        ]
+                    ],
+                    self.getv("send_to_icon_path")
+                ],
+                [
+                    130,
+                    self.getl("definition_context_send_to_all_text"),
+                    "",
+                    False,
+                    [
+                        [
+                            13010,
+                            self.getl("definition_context_send_to_export_definitions_text"),
+                            self.getl("definition_context_send_to_export_definitions_desc"),
+                            True,
+                            [],
+                            self.getv("export_icon_path")
+                        ]
+                    ],
+                    self.getv("send_to_icon_path")
                 ]
             ]
         }
@@ -4477,31 +5057,96 @@ class BrowseDefinitions(QDialog):
                                                  show_ignore_serbian_characters=False,
                                                  show_translate_cyrillic_to_latin=False)
 
-        result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
+        filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=full_item_id)
 
         db_def = db_definition_cls.Definition(self._stt, self._definition_id)
         media_ids = db_def.definition_media_ids
 
-        if self.get_appv("menu")["result"] == 10:
+        result = self.get_appv("menu")["result"]
+
+        if result == 10:
             if self.lbl_pic.objectName() and media_ids:
                 utility_cls.PictureView(self._stt, self, media_ids, int(self.lbl_pic.objectName()))
-        if self.get_appv("menu")["result"] == 15:
+        elif result == 15:
             if self.lbl_pic.objectName() and media_ids:
                 utility_cls.PictureInfo(self._stt, self, media_id=int(self.lbl_pic.objectName()))
-        if self.get_appv("menu")["result"] == 20:
+        elif result == 20:
             if media_ids:
                 media_ids = [[x] for x in db_def.definition_media_ids]
                 utility_cls.PictureBrowse(self._stt, self, media_list=media_ids)
-        if self.get_appv("menu")["result"] == 30:
+        elif result == 30:
             self._rename_definition()
-        if self.get_appv("menu")["result"] == 40:
+        elif result == 40:
             self._btn_edit_click()
-        if self.get_appv("menu")["result"] == 70:
+        elif result == 70:
             self._clip.copy_to_clip(int(self.lbl_pic.objectName()))
-        if self.get_appv("menu")["result"] == 80:
+        elif result == 80:
             self._clip.copy_to_clip(int(self.lbl_pic.objectName()), add_to_clip=True)
-        if self.get_appv("menu")["result"] == 90:
+        elif result == 90:
             self._clip.clear_clip()
+        elif result == 110 or result == 11010:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "copy",
+                "id": def_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11020:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "copy_add",
+                "id": def_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11030:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "remove",
+                "id": def_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11040:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "copy",
+                "id": all_defs
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11050:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "copy_add",
+                "id": all_defs
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11060:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "remove",
+                "id": all_defs
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11070:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "remove",
+                "id": None
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 12010:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "send_to_export",
+                "id": def_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 13010:
+            main_win_events_dict = {
+                "name": "definition_clipboard",
+                "action": "send_to_export",
+                "id": all_defs
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
 
     def _rename_definition(self) -> bool:
         if self.lst_def.currentItem() is None:
@@ -4652,6 +5297,10 @@ class BrowseDefinitions(QDialog):
         self.lbl_count.setText(self.getl("browse_def_lbl_count_text").replace("#1", str(active)).replace("#2", str(total)))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "browse_def_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("browse_def_win_geometry", {}, save_to_file=True)
 
@@ -4661,7 +5310,11 @@ class BrowseDefinitions(QDialog):
         g["width"] = self.width()
         g["height"] = self.height()
         
-        return super().closeEvent(a0)
+        self.get_appv("cb").clear_drag_data()
+        
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["BrowseDefinitions"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _load_win_position(self):
         if "browse_def_win_geometry" in self._stt.app_setting_get_list_of_keys():
@@ -4732,12 +5385,18 @@ class BrowseDefinitions(QDialog):
         if def_id is None:
             def_id = self._definition_id
             img = QPixmap()
-            img.load(self.getv("browse_def_win_icon_path"))
+            img.load(self.getv("no_icon_icon_path"))
             self.lbl_pic.setPixmap(img)
             self.lbl_name.setText("")
             self.txt_desc.setText("")
+            self.lbl_pic.setDisabled(True)
+            self.lbl_name.setDisabled(True)
+            self.txt_desc.setDisabled(True)
             return
         else:
+            self.lbl_pic.setDisabled(False)
+            self.lbl_name.setDisabled(False)
+            self.txt_desc.setDisabled(False)
             self._definition_id = def_id
 
         db_def = db_definition_cls.Definition(self._stt, def_id=def_id)
@@ -4814,6 +5473,7 @@ class BrowseDefinitions(QDialog):
         self._define_text_box_apperance(self.txt_desc, "browse_def_txt_desc")
         self._define_text_box_apperance(self.txt_find, "browse_def_txt_find")
         self._define_list_apperance(self.lst_def, "browse_def_lst_def")
+        self.lst_def.setDragEnabled(True)
 
     def _define_definition_win_apperance(self):
         self.setStyleSheet(self.getv("browse_def_win_stylesheet"))
@@ -4882,8 +5542,6 @@ class BrowseDefinitions(QDialog):
 
 class FindDefinition(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_widget, expression: str = None, *args, **kwargs):
-        super().__init__(parent_widget, *args, **kwargs)
-
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -4891,6 +5549,8 @@ class FindDefinition(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_widget, *args, **kwargs)
 
         # Define other variables
         self._parent_obj = parent_widget
@@ -4905,6 +5565,8 @@ class FindDefinition(QDialog):
         self._setup_widgets()
         self._setup_widgets_text()
         self._setup_widgets_apperance()
+
+        self.load_widgets_handler()
 
         self._load_win_position()
 
@@ -4923,6 +5585,38 @@ class FindDefinition(QDialog):
         self.frm_load.setVisible(True)
         QCoreApplication.processEvents()
         self._populate_widgets()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["FindDefinitions"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_name])
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_desc, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+
+        # Add ItemBased Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_pages)
+
+        self.widget_handler.activate()
 
     def _btn_cancel_click(self):
         self.close()
@@ -5026,8 +5720,7 @@ class FindDefinition(QDialog):
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -5097,7 +5790,13 @@ class FindDefinition(QDialog):
             "lock-green",
         ]
 
-        self.get_appv("log").write_log(f"All Images: {self._expression} ({len(page.images)} images)")
+        try:
+            self.get_appv("log").write_log(f"All Images: {self._expression} ({len(page.images)} images)")
+        except Exception as e:
+            self.get_appv("log").write_log("Error: Wikipedia PAGE: " + str(e))
+            self._wiki_error()
+            return
+
         for image in page.images:
             self.get_appv("log").write_log(image)
 
@@ -5197,14 +5896,20 @@ class FindDefinition(QDialog):
         return img_data
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "find_def_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("find_def_win_geometry", {}, save_to_file=True)
 
         g = self.get_appv("find_def_win_geometry")
         g["pos_x"] = self.pos().x()
         g["pos_y"] = self.pos().y()
-        
-        return super().closeEvent(a0)
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["FindDefinitions"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _load_win_position(self):
         if "find_def_win_geometry" in self._stt.app_setting_get_list_of_keys():

@@ -17,6 +17,8 @@ import utility_cls
 import html_parser_cls
 import wikipedia_card_cls
 import wikipedia_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class ImageItem(QLabel):
@@ -971,7 +973,6 @@ class DefinitionFinder(QDialog):
                  update_def_function = None,
                  caller_class_id: int = None):
         
-        super().__init__(parent_widget)
         self._dont_clear_menu = False
 
         # Define settings object and methods
@@ -981,6 +982,8 @@ class DefinitionFinder(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_widget)
 
         uic.loadUi(self.getv("def_finder_ui_file_path"), self)
 
@@ -1007,6 +1010,7 @@ class DefinitionFinder(QDialog):
         self.syn_manager = None
 
         self._define_widgets()
+        self.load_widgets_handler()
         self._load_def_finder_settings()
         if self.search_string:
             self.txt_head_def.setText(self.search_string)
@@ -1062,12 +1066,74 @@ class DefinitionFinder(QDialog):
         self.lst_expression.mousePressEvent = self._expression_select_cur_item
         
         self.show()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["DefinitionFinder"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+        frm_expression = self.widget_handler.add_QFrame(self.frm_expression)
+        frm_expression.add_window_drag_widgets([self.frm_expression, self.lbl_expression_title])
+
+        frm_settings = self.widget_handler.add_QFrame(self.frm_settings)
+        frm_settings.add_window_drag_widgets([self.frm_settings, self.lbl_settings_title])
+
+        frm_section = self.widget_handler.add_QFrame(self.frm_section)
+        frm_section.add_window_drag_widgets([self.frm_section, self.lbl_section_title])
+
+        frm_txt_ignore = self.widget_handler.add_QFrame(self.frm_txt_ignore)
+        frm_txt_ignore.add_window_drag_widgets([self.frm_txt_ignore, self.lbl_txt_ignore_title])
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+        self.widget_handler.add_QPushButton(self.lbl_syn_enabled, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_img_enabled, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_txt_enabled, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_settings, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_lst_syn_all, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_lst_syn_none, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_settings_txt_info_pic, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_txt_alphabet_conversion, {"allow_bypass_mouse_press_event": False})
+
+        # Add Action Frames
+        self.widget_handler.add_ActionFrame(self.frm_head_syn, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_ActionFrame(self.frm_head_img, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_ActionFrame(self.frm_head_txt, {"allow_bypass_mouse_press_event": False})
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_head_def, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_expression, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_txt_ignore_section, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_txt, {"allow_bypass_mouse_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets()
+
+        # Add Item Based Widgets
+        self.widget_handler.add_all_ItemBased_Widgets()
+        lst_expression: qwidgets_util_cls.Widget_ItemBased = self.widget_handler.find_child(self.lst_expression)
+        lst_expression.properties.allow_bypass_mouse_press_event = False
+
+        self.widget_handler.activate()
 
     def lbl_txt_alphabet_conversion_click(self, e: QMouseEvent):
         text = self.txt_txt.toPlainText()
         if not text.strip():
             return
     
+        self.widget_handler.find_child(self.lbl_txt_alphabet_conversion).EVENT_mouse_press_event(e)
+
         if e.button() == Qt.LeftButton:
             if self.da_li_je_cirilica(text):
                 self.txt_txt.setText(self.cirilica_u_latinicu(text))
@@ -1103,6 +1169,8 @@ class DefinitionFinder(QDialog):
 
     def _expression_select_cur_item(self, e: QMouseEvent):
         QListWidget.mousePressEvent(self.lst_expression, e)
+        self.widget_handler.find_child(self.lst_expression).EVENT_mouse_press_event(e)
+
         cur_item = self.lst_expression.currentItem()
         if not cur_item:
             return
@@ -1126,6 +1194,8 @@ class DefinitionFinder(QDialog):
         if not self.lst_section.count():
             self._populate_section_list()
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.lbl_settings_txt_info_pic).EVENT_mouse_press_event(e)
+
             self.frm_section.raise_()
             self.frm_section.setVisible(not self.frm_section.isVisible())
 
@@ -1226,6 +1296,8 @@ class DefinitionFinder(QDialog):
         QCoreApplication.processEvents()
 
         self.update_def_function(data)
+        
+        UTILS.LogHandler.add_log_record("#1: Definition data updated.", ["DefinitionFinder"])
 
         self.frm_progress.setVisible(False)
 
@@ -1247,6 +1319,7 @@ class DefinitionFinder(QDialog):
         self.syn_frame.setVisible(False)
         self._populate_syn_list()
         self.syn_manager = None
+        UTILS.LogHandler.add_log_record("#1: The dialog has synchronized the data with the current definition.", ["DefinitionFinder"])
 
     def _get_syn_from_lst_syn(self) -> str:
         syns_list = []
@@ -1315,6 +1388,11 @@ class DefinitionFinder(QDialog):
 
     def _change_state_syn_list_items(self, new_state: int, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            if new_state == Qt.Checked:
+                self.widget_handler.find_child(self.lbl_lst_syn_all).EVENT_mouse_press_event(e)
+            elif new_state == Qt.Unchecked:
+                self.widget_handler.find_child(self.lbl_lst_syn_none).EVENT_mouse_press_event(e)
+
             for idx in range(self.lst_syn.count()):
                 self.lst_syn.item(idx).setCheckState(new_state)
 
@@ -1360,6 +1438,10 @@ class DefinitionFinder(QDialog):
         text = self.txt_head_def.text()
         if self.txt_head_def.selectedText():
             text = self.txt_head_def.selectedText()
+        else:
+            if text.startswith("https") and "wikipedia.org" in text:
+                self.search_feedback(text)
+                return
 
         self._show_expression_frame(text)
 
@@ -1402,10 +1484,13 @@ class DefinitionFinder(QDialog):
         QCoreApplication.processEvents()
         result = self._load_synonyms_for_expression()
         self.frm_expression.setDisabled(False)
+        UTILS.LogHandler.add_log_record("#1: Search synonyms for expression #2.", ["DefinitionFinder", self.txt_expression.text().strip()])
         if result:
             self.frm_expression.setVisible(False)
+            UTILS.LogHandler.add_log_record("#1: Search for synonyms was successful.", ["DefinitionFinder"])
         else:
             self.frm_expression.setVisible(True)
+            UTILS.LogHandler.add_log_record("#1: Search for synonyms failed.", ["DefinitionFinder"])
     
     def _load_synonyms_for_expression(self):
         text = self.txt_expression.text().strip()
@@ -1541,6 +1626,7 @@ class DefinitionFinder(QDialog):
         self.syn_frame.setVisible(False)
 
         self.frm_progress.setVisible(False)
+        UTILS.LogHandler.add_log_record("#1: Search expression on internet triggered.", ["DefinitionFinder"], variables=[["Search string", search_string]])
 
     def search_feedback(self, url: str):
         if "wikipedia.org" in url:
@@ -1873,6 +1959,8 @@ class DefinitionFinder(QDialog):
 
     def lbl_settings_click(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.lbl_settings).EVENT_mouse_press_event(e)
+
             self.frm_settings.raise_()
             self.frm_settings.setVisible(not self.frm_settings.isVisible())
             if not self.frm_settings.isVisible():
@@ -1880,16 +1968,25 @@ class DefinitionFinder(QDialog):
 
     def frm_head_txt_click(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.frm_head_txt).EVENT_mouse_press_event(e)
+            self.widget_handler.find_child(self.lbl_txt_enabled).EVENT_mouse_press_event(e)
+
             self.include_txt = not self.include_txt
             self.update_widget_apperance()
 
     def frm_head_img_click(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.frm_head_img).EVENT_mouse_press_event(e)
+            self.widget_handler.find_child(self.lbl_img_enabled).EVENT_mouse_press_event(e)
+
             self.include_img = not self.include_img
             self.update_widget_apperance()
 
     def frm_head_syn_click(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.frm_head_syn).EVENT_mouse_press_event(e)
+            self.widget_handler.find_child(self.lbl_syn_enabled).EVENT_mouse_press_event(e)
+
             self.include_syn = not self.include_syn
             self.update_widget_apperance()
 
@@ -2043,6 +2140,10 @@ class DefinitionFinder(QDialog):
         self.chk_txt_ignore_after.setChecked(g.get("ignore_after_section", False))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "def_finder_settings" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("def_finder_settings", {}, save_to_file=True)
 
@@ -2067,12 +2168,13 @@ class DefinitionFinder(QDialog):
             g["ignore_sections_list"] = self.ignore_list
             g["ignore_after_section"] = self.chk_txt_ignore_after.isChecked()
 
-        return super().closeEvent(a0)
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["DefinitionFinder"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 

@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import (QFrame, QPushButton, QTextEdit, QScrollArea, QVBoxLayout, QWidget, QSpacerItem,
                              QSizePolicy, QListWidget, QDialog, QLabel, QListWidgetItem, QLineEdit, QHBoxLayout,
-                             QCheckBox, QProgressBar)
+                             QCheckBox, QProgressBar, QApplication)
 from PyQt5.QtGui import QIcon, QFont, QFontMetrics, QPixmap, QCursor, QTextCharFormat, QColor
 from PyQt5.QtCore import QSize, Qt, QCoreApplication, QEvent
 from PyQt5 import uic, QtGui
@@ -16,12 +16,12 @@ import text_handler_cls
 import db_media_cls
 import block_cls
 import text_filter_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class BlockView(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj, block_ids: list = None, auto_open_ids: list = None, *args, **kwargs):
-        super().__init__(parent_obj, *args, **kwargs)
-        
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -30,20 +30,28 @@ class BlockView(QDialog):
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
 
+        super().__init__(parent_obj, *args, **kwargs)
+
         # Define other variables
         self._parent_obj = parent_obj
         self._dont_clear_menu = False
         self._drag_mode = None
+        self.abort_action = False
         self._tags_list = []
         self._painting_mode = None
         self.text_filter = text_filter_cls.TextFilter(self._stt, ignore_serbian_characters=True)
+        self.db_rec = db_record_cls.Record(self._stt)
         
         self._block_ids = block_ids
         if block_ids is not None:
-            if isinstance(block_ids, int):
-                self._block_ids = [block_ids]
-            else:
+            if isinstance(block_ids, tuple):
+                self._block_ids = list(block_ids)
+            elif isinstance(block_ids, list):
                 self._block_ids = block_ids
+            else:
+                self._block_ids = [block_ids]
+
+            self._block_ids = [UTILS.TextUtility.get_integer(x) for x in self._block_ids]
         
         self._auto_open_ids = auto_open_ids
         if auto_open_ids is not None:
@@ -65,6 +73,8 @@ class BlockView(QDialog):
 
         self._define_tags_frame()
 
+        self.load_widgets_handler()
+
         self._populate_widgets(self._block_ids)
         self._load_win_position()
         self._paint_items()
@@ -75,6 +85,8 @@ class BlockView(QDialog):
         self.lst_blocks.itemDoubleClicked.connect(self.lst_blocks_item_double_clicked)
         self.lst_blocks.itemChanged.connect(self.lst_blocks_item_changed)
         self.lst_blocks.contextMenuEvent = self.lst_blocks_context_menu
+        self.lst_blocks.itemPressed.connect(self.lst_blocks_start_drag)
+        self.btn_progress_abort.clicked.connect(self.btn_progress_abort_click)
         
         self.ln_delim.mousePressEvent = self._ln_delim_mouse_click
         self.ln_delim.mouseReleaseEvent = self._ln_delim_mouse_release
@@ -85,16 +97,71 @@ class BlockView(QDialog):
         self.btn_close_all.clicked.connect(self.btn_close_all_click)
         self.btn_tags.clicked.connect(self.btn_tags_click)
         self.btn_view_diary.clicked.connect(self.btn_view_diary_click)
+        self.lbl_opening.mousePressEvent = self.lbl_opening_mouse_click
 
         # self.txt_filter.textChanged.connect(self.txt_filter_return_pressed)
         self.txt_filter.returnPressed.connect(self.txt_filter_return_pressed)
         self.txt_filter.contextMenuEvent = self.txt_filter_context_menu
 
         self.get_appv("signal").signalCloseAllBlocks.connect(self._signal_close_all_blocks)
+        UTILS.Signal.signalBlockChanged.connect(self._signal_block_changed)
 
         self.show()
         QCoreApplication.processEvents()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["BlockView"])
         self._auto_open_blocks(blocks_ids=self._auto_open_ids)
+
+    def btn_progress_abort_click(self):
+        self.btn_progress_abort.setText(self.getl("aborting"))
+        self.btn_progress_abort.repaint()
+        self.abort_action = True
+
+    def lbl_opening_mouse_click(self, e):
+        self.lbl_opening.setVisible(False)
+
+    def lst_blocks_start_drag(self, e):
+        if QApplication.mouseButtons() & Qt.RightButton:
+            return
+        
+        self.get_appv("cb").clear_drag_data()
+        item = self.lst_blocks.currentItem()
+        if item is not None:
+            self.get_appv("cb").set_drag_data(item.data(Qt.UserRole), "block", self)
+            self.lst_blocks.startDrag(Qt.CopyAction)
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+        frm_tags = self.widget_handler.add_QFrame(self.frm_tags)
+        frm_tags.add_window_drag_widgets([self.frm_tags, self.lbl_tag_title, self.lbl_tag_tags])
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_filter, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets()
+
+        # Add Item Based Widgets
+        self.widget_handler.add_all_ItemBased_Widgets()
+
+        self.widget_handler.activate()
 
     def txt_filter_context_menu(self, e):
         disab = []
@@ -207,6 +274,7 @@ class BlockView(QDialog):
                 self.txt_filter.setText(f"{self.txt_filter.text()[:self.txt_filter.selectionStart()]}{self.txt_filter.text()[self.txt_filter.selectionEnd():]}")
 
     def _signal_close_all_blocks(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 received.", ["BlockView", "CloseAllBlocks"])
         while self.area.widget().layout().count():
             self.area.widget().layout().itemAt(0).widget()._close_block(fast_close=True)
         self.btn_cancel_click()
@@ -215,8 +283,14 @@ class BlockView(QDialog):
         if blocks_ids is None:
             return
         
+        self.lbl_opening.setVisible(True)
+        QCoreApplication.processEvents()
+
+        UTILS.LogHandler.add_log_record("#1: AutoOpen #2 blocks.", ["BlockView", len(blocks_ids)])
         for i in blocks_ids:
             self._show_block(i)
+        
+        self.lbl_opening.setVisible(False)
 
     def btn_view_diary_click(self):
         block_list = []
@@ -226,9 +300,17 @@ class BlockView(QDialog):
 
         DiaryView(self._stt, self, block_list=block_list)
 
-    def btn_close_all_click(self):
-        while self.area.widget().layout().count():
-            self.area.widget().layout().itemAt(0).widget()._close_block()
+    def btn_close_all_click(self, fast_close: bool = False):
+        blocks_to_close = []
+        for i in range(self.area.widget().layout().count()):
+            if self.area.widget().layout().itemAt(i).widget():
+                blocks_to_close.append(self.area.widget().layout().itemAt(i).widget()._active_record_id)
+
+        for block_id in blocks_to_close:
+            self._populate_data(block_id, fast_close=fast_close)
+
+        if blocks_to_close:
+            UTILS.LogHandler.add_log_record("#1: Closed #2 block(s).", ["BlockView", len(blocks_to_close)])
 
     def tags_are_selected(self, tag_list: list):
         self._tags_list = tag_list
@@ -275,16 +357,18 @@ class BlockView(QDialog):
         if self._painting_mode:
             return
         rec_id = e.data(Qt.UserRole)
-        db_rec = db_record_cls.Record(self._stt, record_id=rec_id)
+        if rec_id != self.db_rec.RecordID:
+            self.db_rec.load_record(rec_id)
         if e.checkState() == Qt.Checked:
-            if db_rec.RecordDraft != 0:
-                db_rec.RecordDraft = 0
-                db_rec.save_record()
+            if self.db_rec.RecordDraft != 0:
+                self.db_rec.RecordDraft = 0
+                self.db_rec.save_record()
         else:
-            if db_rec.RecordDraft == 0:
-                db_rec.RecordDraft = 1
-                db_rec.save_record()
+            if self.db_rec.RecordDraft == 0:
+                self.db_rec.RecordDraft = 1
+                self.db_rec.save_record()
         self._paint_items()
+        UTILS.Signal.emit_block_changed({"id": rec_id, "action": "updated", "draft": self.db_rec.RecordDraft, "source": "block_view"})
 
     def txt_filter_return_pressed(self):
         if self.txt_filter.text():
@@ -361,7 +445,7 @@ class BlockView(QDialog):
         }
         main_win_blocks = self.get_appv("main_win").events(data_dict)
 
-        # Fins blocks opened in View win
+        # Find blocks opened in View win
         view_win_blocks = []
         for i in range(self.area.widget().layout().count()):
             view_win_blocks.append(self.area.widget().layout().itemAt(i).widget()._active_record_id)
@@ -420,7 +504,7 @@ class BlockView(QDialog):
         if last_current_item is not None:
             self.lst_blocks.setCurrentItem(last_current_item)
 
-    def _populate_data(self, block_id: int = None):
+    def _populate_data(self, block_id: int = None, fast_close: bool = False):
         if block_id is None:
             if self.lst_blocks.currentItem() is None:
                 return
@@ -430,12 +514,18 @@ class BlockView(QDialog):
         # Check if block exist
         for i in range(self.area.widget().layout().count()):
             if self.area.widget().layout().itemAt(i).widget()._active_record_id == block_id:
-                self.area.widget().layout().itemAt(i).widget()._close_block()
+                self.area.widget().layout().itemAt(i).widget()._close_block(fast_close=fast_close)
                 self._paint_items()
                 return
 
+        self.lbl_opening.setVisible(True)
+        QCoreApplication.processEvents()
+
         block_cls.WinBlock(self._stt, self.area.widget(), block_id, collapsed=False, main_window=self)
+        UTILS.LogHandler.add_log_record("#1: Block displayed (ID=#2).", ["BlockView", block_id])
         self._paint_items()
+
+        self.lbl_opening.setVisible(False)
 
     def events(self, event_dict: dict):
         if event_dict["name"] == "win_block":
@@ -445,16 +535,36 @@ class BlockView(QDialog):
                     "text": self.getl("block_view_add_new_msg_text")
                 }
                 self._dont_clear_menu = True
+                UTILS.LogHandler.add_log_record("#1: Canceled #2 in #1 window.", ["BlockView", "AddNewBlock"])
                 utility_cls.MessageInformation(self._stt, self, msg_dict, app_modal=True)
             
-            if event_dict["action"] == "block_saved":
-                self._list_update_block(event_dict["id"], event_dict["closed"])
+            if event_dict["action"] == "try_to_close_me":
+                # event_dict["execute_function"] = self._paint_items
+                self.get_appv("main_win").events(event_dict)
             
-            if event_dict["action"] == "block_deleted":
-                self._list_delete_block(event_dict["id"])
+
 
         if event_dict["action"] == "cm":
             self._dont_clear_menu = True
+        
+    def _signal_block_changed(self, data: dict):
+        checked = not bool(data["draft"])
+        if checked:
+            check_state = Qt.Checked
+        else:
+            check_state = Qt.Unchecked
+
+        if data["action"] == "deleted" and data.get("source") == "WinBlock":
+            self._list_delete_block(data["id"])
+        elif data["action"] == "closed" and data.get("source") == "WinBlock":
+            self._list_update_block(data["id"], checked)
+        elif data["action"] == "updated" and data.get("source") == "WinBlock":
+            for item in self.lst_blocks.findItems("", Qt.MatchFlag.MatchContains):
+                if item.data(Qt.UserRole) == data["id"]:
+                    if item.checkState() != check_state:
+                        item.setCheckState(check_state)
+                    break
+            self._list_update_block(data["id"], checked)
 
     def _list_delete_block(self, rec_id: int):
         self._frm_tags_update_list()
@@ -470,7 +580,6 @@ class BlockView(QDialog):
         self._tags_map = db_data.get_tags_and_media_for_all_records()
         
         self._frm_tags_update_list()
-        db_data = db_record_data_cls.RecordData(self._stt)
         self._records_with_images = db_data.get_record_ids_with_images()
 
         db_rec = db_record_cls.Record(self._stt)
@@ -583,6 +692,12 @@ class BlockView(QDialog):
         self._show_list_menu()
     
     def _show_list_menu(self):
+        rec_id = self.lst_blocks.currentItem().data(Qt.UserRole)
+        all_block_ids = []
+        for i in range(self.lst_blocks.count()):
+            if not self.lst_blocks.item(i).isHidden():
+                all_block_ids.append(self.lst_blocks.item(i).data(Qt.UserRole))
+
         selected = []
         if self.lst_blocks.currentItem().checkState() == Qt.Checked:
             selected.append(30020)
@@ -615,12 +730,29 @@ class BlockView(QDialog):
             selected.append(20040)
         if self.getv("block_view_list_show_body_in_tooltip"):
             selected.append(20050)
-
+        
+        no_items_in_clip = self.get_appv("cb").block_clip_number_of_items()
+        no_items_in_list = len(all_block_ids)
+        no_items_found = len(self.get_appv("cb").block_clip_ids_that_are_in_clipboard(all_block_ids))
+        if self.get_appv("cb").block_clip_ids_that_are_in_clipboard(rec_id):
+            disabled.append(11020)
+        else:
+            disabled.append(11030)
+        
+        if no_items_found == no_items_in_list:
+            disabled.append(11050)
+        
+        if no_items_found == 0:
+            disabled.append(11060)
+        
+        if no_items_in_clip == 0:
+            disabled.append(11070)
+        
         menu_dict = {
             "position": QCursor.pos(),
             "selected": selected,
             "disabled": disabled,
-            "separator": [30, 20040, 40],
+            "separator": [35, 20040, 40, 130, 11030, 11060],
             "items": [
                 [
                     10,
@@ -693,10 +825,128 @@ class BlockView(QDialog):
                     ], None
                 ],
                 [
+                    35,
+                    self.getl("block_view_list_menu_state_all_text"),
+                    self.getl("block_view_list_menu_state_all_tt"),
+                    False, [
+                        [
+                            35010,
+                            self.getl("block_view_menu_state_opened_all_text"),
+                            self.getl("block_view_menu_state_opened_all_tt"),
+                            True, [], None
+                        ],
+                        [
+                            35020,
+                            self.getl("block_view_menu_state_closed_all_text"),
+                            self.getl("block_view_menu_state_closed_all_tt"),
+                            True, [], None
+                        ]
+                    ], None
+                ],
+                [
                     40,
                     self.getl("block_view_list_menu_delete_text"),
                     self.getl("block_view_list_menu_delete_tt"),
                     True, [], None
+                ],
+                [
+                    110,
+                    self.getl("block_context_copy_text"),
+                    self.getl("block_context_copy_desc"),
+                    True,
+                    [
+                        [
+                            11010,
+                            self.getl("block_context_copy_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("block_context_copy_desc"),
+                            True,
+                            [],
+                            self.getv("copy_icon_path")
+                        ],
+                        [
+                            11020,
+                            self.getl("block_context_copy_add_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("block_context_copy_add_desc"),
+                            True,
+                            [],
+                            self.getv("copy_add_icon_path")
+                        ],
+                        [
+                            11030,
+                            self.getl("block_context_clear_text"),
+                            self.getl("block_context_clear_desc"),
+                            True,
+                            [],
+                            self.getv("clear_x_icon_path")
+                        ],
+                        [
+                            11040,
+                            self.getl("block_context_copy_all_text") + f' ({self.getl("block_context_items_in_list_text").replace("#1", str(no_items_in_list))})',
+                            self.getl("block_context_copy_all_desc"),
+                            True,
+                            [],
+                            self.getv("copy_icon_path")
+                        ],
+                        [
+                            11050,
+                            self.getl("block_context_copy_add_all_text") + f' ({self.getl("block_context_items_in_list_text").replace("#1", str(no_items_in_list))})',
+                            self.getl("block_context_copy_add_all_desc"),
+                            True,
+                            [],
+                            self.getv("copy_add_icon_path")
+                        ],
+                        [
+                            11060,
+                            self.getl("block_context_clear_all_text") + f' ({self.getl("block_context_items_found_text").replace("#1", str(no_items_found)).replace("#2", str(no_items_in_list))})',
+                            self.getl("block_context_clear_all_desc"),
+                            True,
+                            [],
+                            self.getv("clear_x_icon_path")
+                        ],
+                        [
+                            11070,
+                            self.getl("block_context_clear_clip_text") + f' ({self.getl("block_context_items_in_clip_text").replace("#1", str(no_items_in_clip))})',
+                            self.getl("block_context_clear_clip_desc"),
+                            True,
+                            [],
+                            self.getv("clear_icon_path")
+                        ],
+                    ],
+                    self.getv("copy_icon_path")
+                ],
+                [
+                    120,
+                    self.getl("block_context_send_to_text"),
+                    "",
+                    False,
+                    [
+                        [
+                            12010,
+                            self.getl("block_context_send_to_export_blocks_text"),
+                            self.getl("block_context_send_to_export_blocks_desc"),
+                            True,
+                            [],
+                            self.getv("export_icon_path")
+                        ]
+                    ],
+                    self.getv("send_to_icon_path")
+                ],
+                [
+                    130,
+                    self.getl("block_context_send_to_all_text") + f' ({self.getl("block_context_items_in_list_text").replace("#1", str(no_items_in_list))})',
+                    "",
+                    False,
+                    [
+                        [
+                            13010,
+                            self.getl("block_context_send_to_export_blocks_text"),
+                            self.getl("block_context_send_to_export_blocks_desc"),
+                            True,
+                            [],
+                            self.getv("export_icon_path")
+                        ]
+                    ],
+                    self.getv("send_to_icon_path")
                 ]
             ]
 
@@ -711,9 +961,6 @@ class BlockView(QDialog):
                                                  show_translate_cyrillic_to_latin=False)
         result = filter_menu.show_menu(self, menu_dict=menu_dict, full_item_ID=str(self.lst_blocks.currentItem().data(Qt.UserRole)))
         
-        # self.set_appv("menu", menu_dict)
-        # utility_cls.ContextMenu(self._stt, self)
-        # result = self.get_appv("menu")["result"]
         if result == 10:
             self.lst_blocks_item_double_clicked()
         elif result == 15:
@@ -737,9 +984,153 @@ class BlockView(QDialog):
             self.lst_blocks.currentItem().setCheckState(Qt.Unchecked)
         elif result == 30020:
             self.lst_blocks.currentItem().setCheckState(Qt.Checked)
+        elif result == 35010:
+            self.abort_action = False
+            count = 0
+            db_rec = db_record_cls.Record(self._stt)
+            draft_list = [x[0] for x in db_rec.get_draft_records()]
+            for item in self.lst_blocks.findItems("", Qt.MatchFlag.MatchContains):
+                count += 1
+
+                if (item.data(Qt.UserRole) in draft_list and item.checkState() == Qt.Unchecked) or item.isHidden():
+                    if self.abort_action:
+                        break
+                    continue
+
+                rec_id = item.data(Qt.UserRole)
+                db_rec.load_record(rec_id)
+                db_rec.RecordDraft = 1
+                db_rec.save_record()
+
+                if not self._update_progress(count, self.lst_blocks.count()):
+                    break
+                self._painting_mode = True
+                item.setCheckState(Qt.Checked)
+                UTILS.Signal.emit_block_changed({"id": item.data(Qt.UserRole), "action": "updated","draft": 1})
+            self._painting_mode = False
+            self.frm_progress.setVisible(False)
+            self._paint_items()
+            self.abort_action = False
+        elif result == 35020:
+            self.abort_action = False
+            count = 0
+            db_rec = db_record_cls.Record(self._stt)
+            draft_list = [x[0] for x in db_rec.get_draft_records()]
+            for item in self.lst_blocks.findItems("", Qt.MatchFlag.MatchContains):
+                count += 1
+
+                if (item.data(Qt.UserRole) not in draft_list and item.checkState() == Qt.Checked) or item.isHidden():
+                    if self.abort_action:
+                        break
+                    continue
+
+                rec_id = item.data(Qt.UserRole)
+                db_rec.load_record(rec_id)
+                db_rec.RecordDraft = 0
+                db_rec.save_record()
+
+                if not self._update_progress(count, self.lst_blocks.count()):
+                    break
+                self._painting_mode = True
+                item.setCheckState(Qt.Unchecked)
+                UTILS.Signal.emit_block_changed({"id": item.data(Qt.UserRole), "action": "updated", "draft": 0})
+            self._painting_mode = False
+            self.frm_progress.setVisible(False)
+            self._paint_items()
+            self.abort_action = False
         elif result == 40:
             self._confirm_and_delete_block()
+        elif result == 110 or result == 11010:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy",
+                "id": rec_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11020:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy_add",
+                "id": rec_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11030:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "remove",
+                "id": rec_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11040:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy",
+                "id": all_block_ids
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11050:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "copy_add",
+                "id": all_block_ids
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11060:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "remove",
+                "id": all_block_ids
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 11070:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "remove",
+                "id": None
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 12010:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "send_to_export",
+                "id": rec_id
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+        elif result == 13010:
+            main_win_events_dict = {
+                "name": "block_clipboard",
+                "action": "send_to_export",
+                "id": all_block_ids
+            }
+            self.get_appv("main_win").events(main_win_events_dict)
+
+    def _update_progress(self, current_index: int, total_index: int, steps: int = None) -> bool:
+        if total_index < 10:
+            return True
+        if not self.frm_progress.isVisible():
+            self.frm_progress.setVisible(True)
+            self.btn_progress_abort.setText(self.getl("abort"))
+            QCoreApplication.processEvents()
         
+        if steps:
+            step = int(total_index / steps)
+        else:
+            step = 1
+        if current_index % step != 0:
+            if self.abort_action:
+                self.abort_action = False
+                self.frm_progress.setVisible(False)
+                return False
+            return True
+        
+        self.prg_progress.setValue(int((current_index / total_index) * 100))
+        QCoreApplication.processEvents()
+        if self.abort_action:
+            self.abort_action = False
+            self.frm_progress.setVisible(False)
+            return False
+        return True
+
     def _refresh_list(self):
         last_current_item = self.lst_blocks.currentItem()
         self._painting_mode = True
@@ -791,11 +1182,17 @@ class BlockView(QDialog):
         self._dont_clear_menu = True
         utility_cls.MessageQuestion(self._stt, self, data_dict)
         if data_dict["result"] == 1:
-
             db_record = db_record_cls.Record(self._stt, rec_id)
             db_rec_data = db_record_data_cls.RecordData(self._stt, rec_id)
             db_record.delete_record()
             db_rec_data.delete_record_data()
+
+            for item in self.lst_blocks.findItems("", Qt.MatchFlag.MatchContains):
+                if item.data(Qt.UserRole) == rec_id:
+                    self.lst_blocks.takeItem(self.lst_blocks.row(item))
+                    self._paint_items()
+                    break
+
             notif_dict = {
                 "title": self.getl("win_block_notification_block_deleted_title"),
                 "text": self.getl("win_block_notification_block_deleted_text"),
@@ -823,6 +1220,14 @@ class BlockView(QDialog):
             self._set_areas_size()
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        if self.frm_progress.isVisible():
+            a0.ignore()
+            return
+        
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "block_view_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("block_view_win_geometry", {}, save_to_file=True)
 
@@ -833,7 +1238,12 @@ class BlockView(QDialog):
         g["height"] = self.height()
         g["delimiter"] = self.ln_delim.pos().y()
 
-        return super().closeEvent(a0)
+        self.get_appv("cb").clear_drag_data()
+        self.btn_close_all_click(fast_close=True)
+
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["BlockView"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def resizeEvent(self, a0: QtGui.QResizeEvent) -> None:
         w = self.contentsRect().width()
@@ -853,6 +1263,16 @@ class BlockView(QDialog):
         self.line.resize(w - 20, self.line.height())
 
         self.frm_tags.move(w - 450, 90)
+
+        # Progress frame
+        self.frm_progress.move(0, 0)
+        self.frm_progress.resize(self.width(), self.height())
+        prg_w = int(self.width() / 4)
+        self.prg_progress.resize(prg_w, 17)
+        self.prg_progress.move(int(self.width() / 2 - self.prg_progress.width() / 2), int(self.height() / 2))
+        btn_w = int((self.prg_progress.width() / 3) * 2) if int((self.prg_progress.width() / 3) * 2) > 100 else 100
+        self.btn_progress_abort.resize(btn_w, 23)
+        self.btn_progress_abort.move(int(self.width() / 2 - self.btn_progress_abort.width() / 2), self.prg_progress.pos().y() + self.prg_progress.height() + 10)
 
         return super().resizeEvent(a0)
 
@@ -874,10 +1294,12 @@ class BlockView(QDialog):
         self.area.move(10, y + 5)
         self.area.resize(w - 20, h - y - 80)
 
+        self.lbl_opening.move(self.area.pos())
+        self.lbl_opening.resize(self.area.size())
+
     def changeEvent(self, a0: QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -909,12 +1331,23 @@ class BlockView(QDialog):
         self.ln_delim: QFrame = self.findChild(QFrame, "ln_delim")
         self.lst_blocks: QListWidget = self.findChild(QListWidget, "lst_blocks")
         self.chk_tag: QCheckBox = self.findChild(QCheckBox, "chk_tag")
+
+        self.lbl_opening: QLabel = self.findChild(QLabel, "lbl_opening")
         
         self.area: QScrollArea = self.findChild(QScrollArea, "area")
         self.vert_lay: QVBoxLayout = QVBoxLayout()
         self._widget: QWidget = QWidget()
         self._widget.setLayout(self.vert_lay)
         self.area.setWidget(self._widget)
+
+        self.frm_progress = QFrame(self)
+        self.prg_progress = QProgressBar(self.frm_progress)
+        self.frm_progress.setStyleSheet("QFrame {background-color: rgba(0, 0, 255, 190)}")
+        self.frm_progress.setVisible(False)
+        self.btn_progress_abort = QPushButton(self.frm_progress)
+        self.btn_progress_abort.setText(self.getl("abort"))
+        self.btn_progress_abort.setIcon(QIcon(QPixmap(self.getv("abort_icon_path"))))
+        self.btn_progress_abort.setStyleSheet('QPushButton {color: #0000ff; background-color:qlineargradient(spread:pad, x1:0.502, y1:0.144, x2:0.532, y2:1, stop:0.0338983 rgba(255, 255, 127, 255), stop:0.943182 rgba(255, 43, 0, 255)); border-radius: 5px;} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 #ffff00, stop:1 #ff0000); color: #0000ff;} QPushButton:disabled {color: rgb(220, 220, 220); background-color: rgb(145, 145, 145);}')
 
     def _setup_widgets_text(self):
         self.setWindowTitle(self.getl("block_view_win_title"))
@@ -934,12 +1367,17 @@ class BlockView(QDialog):
         self.btn_close_all.setToolTip(self.getl("block_view_btn_close_all_tt"))
         self.btn_cancel.setText(self.getl("btn_cancel"))
 
+        self.lbl_opening.setText(self.getl("block_view_lbl_opening_text"))
+
     def app_setting_updated(self, data: dict):
+        UTILS.LogHandler.add_log_record("#1: Application settings updated.", ["BlockView"])
         self._setup_widgets_apperance()
         self._define_tags_apperance(settings_updated=True)
 
     def _setup_widgets_apperance(self):
         self._define_block_view_win_apperance()
+
+        self.lbl_opening.setVisible(False)
         
         self._define_labels_apperance(self.lbl_title, "block_view_title")
         self._define_labels_apperance(self.lbl_count, "block_view_lbl_count")
@@ -957,6 +1395,8 @@ class BlockView(QDialog):
         self._define_text_box_apperance(self.txt_filter, "block_view_txt_filter")
 
         self.chk_tag.setStyleSheet(self.getv("block_view_chk_tag_stylesheet"))
+
+        self.lst_blocks.setDragEnabled(True)
 
     def _define_block_view_win_apperance(self):
         self.setStyleSheet(self.getv("block_view_win_stylesheet"))
@@ -1713,8 +2153,6 @@ class DiaryViewItem(QFrame):
 
 class DiaryView(QDialog):
     def __init__(self, settings: settings_cls.Settings, parent_obj, block_list: list = None, *args, **kwargs):
-        super().__init__(parent_obj, *args, **kwargs)
-        
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -1722,6 +2160,8 @@ class DiaryView(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_obj, *args, **kwargs)
 
         # Define other variables
         self._block_list = block_list
@@ -1741,6 +2181,8 @@ class DiaryView(QDialog):
 
         self._define_tags_frame()
         self.frm_tags.raise_()
+
+        self.load_widgets_handler()
 
         # self._populate_widgets()
         self._load_win_position()
@@ -1769,6 +2211,8 @@ class DiaryView(QDialog):
         self.get_appv("signal").signalCloseAllBlocks.connect(self._signal_close_all_blocks)
 
         self.show()
+        UTILS.LogHandler.add_log_record("#1: Dialog started.", ["DiaryView"])
+
         QCoreApplication.processEvents()
         if self._block_list:
             self._filter_data(filter_data=False)
@@ -1779,8 +2223,46 @@ class DiaryView(QDialog):
         self._show_data()
         self._resize_items()
         self.area.viewport().installEventFilter(self)
+        UTILS.LogHandler.add_log_record("#1: Data displayed.", ["DiaryView"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
+
+        # Add frames
+        frm_tags = self.widget_handler.add_QFrame(self.frm_tags)
+        frm_tags.add_window_drag_widgets([self.frm_tags, self.lbl_tag_title, self.lbl_tag_tags])
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons(starting_widget=self)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_from_date, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_to_date, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_filter, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets()
+
+        # Add Item Based Widgets
+        self.widget_handler.add_all_ItemBased_Widgets()
+
+        self.widget_handler.activate()
 
     def _signal_close_all_blocks(self):
+        UTILS.LogHandler.add_log_record("#1: Signal #2 received.", ["DiaryView", "CloseAllBlocks"])
         self.btn_cancel_click()
 
     def eventFilter(self, obj, event):
@@ -2190,6 +2672,10 @@ class DiaryView(QDialog):
                 self.btn_clear_to_date.setVisible(True)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "diary_view_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("diary_view_win_geometry", {}, save_to_file=True)
 
@@ -2201,12 +2687,13 @@ class DiaryView(QDialog):
         g["from_date"] = self.txt_from_date.text()
         g["to_date"] = self.txt_to_date.text()
 
-        return super().closeEvent(a0)
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["DiaryView"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def changeEvent(self, a0: QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -2274,6 +2761,7 @@ class DiaryView(QDialog):
         self.prg_loading.setToolTip(self.getl("diary_view_lbl_loading_tt"))
 
     def app_setting_updated(self, data: dict):
+        UTILS.LogHandler.add_log_record("#1: Application settings updated.", ["DiaryView"])
         self._setup_widgets_apperance()
         self._define_tags_apperance(settings_updated=True)
 

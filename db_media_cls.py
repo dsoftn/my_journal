@@ -3,6 +3,7 @@ import shutil
 
 import database_cls
 import settings_cls
+import UTILS
 
 
 class Media():
@@ -52,6 +53,7 @@ class Media():
             return None
         
         if not self.is_safe_to_delete(media_id):
+            UTILS.TerminalUtility.WarningMessage("Media cannot be deleted.\nFunction self.is_safe_to_delete(media_id) returned #1.\nmedia_id = #2", ["False", media_id], exception_raised=True)
             raise ValueError("Media cannot be deleted.")
         
         self._populate_properties(media_id)
@@ -61,6 +63,7 @@ class Media():
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q, commit=True)
 
+        UTILS.LogHandler.add_log_record("#1: Image deleted. (ID=#2)", ["Media", media_id])
         
         file_path = os.path.abspath(self._file)
         destination = self.getv("temp_folder_path") + os.path.split(file_path)[1]
@@ -68,6 +71,7 @@ class Media():
             if self.getv("when_deleting_copy_images_to_temp_folder"):
                 if not os.path.isfile(destination):
                     shutil.copy(file_path, destination)
+                    UTILS.LogHandler.add_log_record("#1: Image backup copied to #2. (ID=#3)\nCopy from: #4\nto #5", ["Media", "Temp folder", media_id, file_path, destination])
             os.remove(file_path)
 
         return result
@@ -76,6 +80,7 @@ class Media():
         if not media_id:
             media_id = self._active_media_id
         if not media_id:
+            UTILS.TerminalUtility.WarningMessage("Media ID is not defined !\nmedia_id = #1", [media_id], exception_raised=True)
             raise ValueError("Media ID is not defined !")
 
         q = f"SELECT * FROM media WHERE id = {media_id} AND is_default < 99 ;"
@@ -147,6 +152,7 @@ class Media():
             result = db.execute(q, param=param, commit=True)
         
         self._populate_properties(result)
+        UTILS.LogHandler.add_log_record("#1: Image Updated. (ID=#2)", ["Media", media_id], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
         self.get_appv("log").write_log(f"Media. Media updated. Media ID: {self._active_media_id}")
         return result
     
@@ -181,14 +187,16 @@ class Media():
             self._default = 0
 
         # Check if image exist
-        result = self.get_all_media()
-        media_exist = None
-        for i in result:
-            if (i[3] == self._file and i[3] != "") or (i[4] == self._http and i[4] != ""):
-                media_exist = i[0]
-        if media_exist:
-            self._populate_properties(media_exist)
-            return media_exist
+        if add_if_not_exist:
+            result = self.get_all_media()
+            media_exist = None
+            for i in result:
+                if (i[3] == self._file and i[3] != "") or (i[4] == self._http and i[4] != ""):
+                    media_exist = i[0]
+            if media_exist:
+                self._populate_properties(media_exist)
+                UTILS.LogHandler.add_log_record("#1: New image not added. Image already exist. (ID=#2)", ["Media", media_exist], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
+                return media_exist
 
         # Add new media
         q = f"""
@@ -203,6 +211,7 @@ class Media():
             result = db.execute(q, param=param, commit=True)
 
         self._populate_properties(result)
+        UTILS.LogHandler.add_log_record("#1: New image added. (ID=#2)", ["Media", result], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
         self.get_appv("log").write_log(f"Media. New media added. Media ID: {self._active_media_id}")
         return result
 
@@ -288,7 +297,6 @@ class Files():
         if self._active_file_id:
             self._populate_properties()
 
-
     def is_safe_to_delete(self, file_id: int) -> bool:
         q_def = f"SELECT id FROM def_data WHERE media_id = {file_id} ;"
         q_rec = f"SELECT id FROM data WHERE media_id = {file_id} ;"
@@ -311,6 +319,7 @@ class Files():
             return None
         
         if not self.is_safe_to_delete(file_id):
+            UTILS.TerminalUtility.WarningMessage("File in use cannot be deleted.\nFunction self.is_safe_to_delete() returned #1.\nfile_id = #2\nself._active_file_id = #3", ["False", file_id, self._active_file_id], exception_raised=True)
             raise ValueError("File in use cannot be deleted.")
 
         self._populate_properties(file_id)
@@ -320,12 +329,15 @@ class Files():
         with database_cls.DataBase(self.db_info) as db:
             result = db.execute(q, commit=True)
 
+        UTILS.LogHandler.add_log_record("#1: File deleted. (ID=#2)", ["Files", file_id])
+
         file_path = os.path.abspath(self._file)
         destination = self.getv("temp_folder_path") + os.path.split(file_path)[1]
         if os.path.isfile(file_path):
             if self.getv("when_deleting_copy_files_to_temp_folder"):
                 if not os.path.isfile(destination):
                     shutil.copy(file_path, destination)
+                    UTILS.LogHandler.add_log_record("#1: File backup copied to #2. (ID=#3)\nCopy from: #4\nto #5", ["Files", "Temp folder", file_id, file_path, destination])
             os.remove(file_path)
 
         return result
@@ -334,6 +346,7 @@ class Files():
         if not file_id:
             file_id = self._active_file_id
         if not file_id:
+            UTILS.TerminalUtility.WarningMessage("Media ID is not defined !\nfile_id = #1", [file_id], exception_raised=True)
             raise ValueError("Media ID is not defined !")
 
         q = f"SELECT * FROM media WHERE id = {file_id} AND is_default > 99 ;"
@@ -399,6 +412,7 @@ class Files():
             result = db.execute(q, param=param, commit=True)
         
         self._populate_properties(result)
+        UTILS.LogHandler.add_log_record("#1: File Updated. (ID=#2)", ["Files", file_id], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
         return result
     
     def add_file(self, file_dict: dict, add_if_not_exist: bool = True) -> int:
@@ -432,14 +446,16 @@ class Files():
             self._default = 100
 
         # Check if file exist
-        result = self.get_all_file()
-        file_exist = None
-        for i in result:
-            if (i[3] == self._file and i[3] != "") or (i[4] == self._http and i[4] != ""):
-                file_exist = i[0]
-        if file_exist:
-            self._populate_properties(file_exist)
-            return file_exist
+        if add_if_not_exist:
+            result = self.get_all_file()
+            file_exist = None
+            for i in result:
+                if (i[3] == self._file and i[3] != "") or (i[4] == self._http and i[4] != ""):
+                    file_exist = i[0]
+            if file_exist:
+                self._populate_properties(file_exist)
+                UTILS.LogHandler.add_log_record("#1: New file not added. FIle already exist. (ID=#2)", ["Files", file_exist], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
+                return file_exist
 
         # Add new file
         q = f"""
@@ -454,6 +470,7 @@ class Files():
             result = db.execute(q, param=param, commit=True)
 
         self._populate_properties(result)
+        UTILS.LogHandler.add_log_record("#1: New file added. (ID=#2)", ["Files", result], variables=[["Name", self._name], ["Description", self._description], ["File_path", self._file], ["Source", self._http]])
         return result
 
     def get_block_ids_that_use_file(self, file_id: int = None) -> list:

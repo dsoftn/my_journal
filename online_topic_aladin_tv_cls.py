@@ -12,6 +12,7 @@ import utility_cls
 import html_parser_cls
 from online_abstract_topic import AbstractTopic
 from wikipedia_card_cls import WikipediaCard
+import UTILS
 
 
 class ChannelMenuItem(QFrame):
@@ -1782,6 +1783,8 @@ class AladinTV(AbstractTopic):
         self.btn_search.clicked.connect(self.btn_search_click)
         self.txt_search.returnPressed.connect(self.btn_search_click)
 
+        UTILS.LogHandler.add_log_record("#1: Topic frame loaded.", ["AladinTV"])
+
     def btn_search_click(self):
         if not self.txt_search.text().strip():
             return
@@ -1932,9 +1935,11 @@ class AladinTV(AbstractTopic):
 
         self.active_page = self.settings["start_page"]
         self.update_topic()
+        UTILS.LogHandler.add_log_record("#1: Topic loaded.", ["AladinTV"])
         return super().load_topic()
 
     def update_topic(self):
+        UTILS.LogHandler.add_log_record("#1: Topic update started.", ["AladinTV"])
         QCoreApplication.processEvents()
         self.topic_info_dict["working"] = True
         self.topic_info_dict["msg"] = self.getl("topic_msg_aladin_tv") + ", " + self.getl("topic_msg_dowloading")
@@ -1982,6 +1987,8 @@ class AladinTV(AbstractTopic):
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
         self.stop_loading = False
         self.resize_me()
+
+        UTILS.LogHandler.add_log_record("#1: Topic update completed.", ["AladinTV"])
 
         return True
 

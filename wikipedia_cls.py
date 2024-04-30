@@ -13,6 +13,8 @@ import settings_cls
 import utility_cls
 import html_parser_cls
 import wikipedia_card_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class SearchCard(QFrame):
@@ -303,12 +305,15 @@ class Wikipedia(QDialog):
         self._load_win_position()
         self._check_engine_selection_status()
 
+        self.load_widgets_handler()
+
         # Connect events with slots
         self.chk_any.stateChanged.connect(self.chk_any_state_changed)
         self.chk_duckduckgo.stateChanged.connect(self.chk_duckduckgo_state_changed)
         self.chk_yahoo.stateChanged.connect(self.chk_yahoo_state_changed)
         self.chk_brave.stateChanged.connect(self.chk_brave_state_changed)
         self.btn_search.clicked.connect(self.btn_search_click)
+        self.txt_search.returnPressed.connect(self.btn_search_click)
         self.btn_refresh.clicked.connect(self.btn_refresh_click)
         self.lbl_search_pic.mousePressEvent = self.lbl_search_pic_mouse_press
         self.lbl_content_pic.mousePressEvent = self.lbl_content_pic_mouse_press
@@ -316,10 +321,45 @@ class Wikipedia(QDialog):
 
         if self.auto_show_dialog:
             self.show()
+            UTILS.LogHandler.add_log_record("#1: Dialog started. (Display dialog = #2)", ["Wikipedia", "True"])
             QCoreApplication.processEvents()
+        else:
+            UTILS.LogHandler.add_log_record("#1: Dialog started. (Display dialog = #2)", ["Wikipedia", "False"])
         if search_string:
             self.txt_search.setText(search_string)
             self.btn_search_click()
+
+    def load_widgets_handler(self):
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.frm_search, self.lbl_search_title])
+        handle_dialog.properties.window_drag_enabled_with_body = False
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_all_QPushButtons()
+
+        # Add Labels as PushButtons
+        self.widget_handler.add_QPushButton(self.lbl_content_pic, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.lbl_search_pic, {"allow_bypass_mouse_press_event": False})
+
+        # Add Action Frames
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_search, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets()
+
+        # ADD Item Based Widgets
+
+        self.widget_handler.activate()
 
     def lbl_wiki_logo_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
@@ -342,12 +382,14 @@ class Wikipedia(QDialog):
 
     def lbl_search_pic_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.lbl_search_pic).EVENT_mouse_press_event(e)
             self.content_area.setVisible(False)
             self.search_area.setVisible(True)
             self._check_engine_selection_status()
 
     def lbl_content_pic_mouse_press(self, e: QMouseEvent):
         if e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.lbl_content_pic).EVENT_mouse_press_event(e)
             self.content_area.setVisible(True)
             self.search_area.setVisible(False)
             self._check_engine_selection_status()
@@ -356,6 +398,7 @@ class Wikipedia(QDialog):
         self.wiki_logo_movie.stop()
         self.lbl_wiki_logo.setVisible(False)
         self.show_search_results(self.txt_search.text())
+        UTILS.LogHandler.add_log_record("#1: Search performed. (#2)", ["Wikipedia", self.txt_search.text()])
 
     def chk_duckduckgo_state_changed(self):
         self._check_engine_selection_status()
@@ -771,6 +814,10 @@ class Wikipedia(QDialog):
             self.chk_brave.setChecked(g.get("engine_brave", True))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "wiki_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("wiki_win_geometry", {}, save_to_file=True)
 
@@ -784,7 +831,8 @@ class Wikipedia(QDialog):
         g["engine_yahoo"] = self.chk_yahoo.isChecked()
         g["engine_brave"] = self.chk_brave.isChecked()
 
-        return super().closeEvent(a0)
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["Wikipedia"])
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def resizeEvent(self, a0: QResizeEvent) -> None:
         w = self.contentsRect().width()

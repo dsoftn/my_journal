@@ -5,6 +5,7 @@ import copy
 import settings_cls
 import database_cls
 import utility_cls
+import UTILS
 
 
 class User():
@@ -49,6 +50,7 @@ class User():
         self._users_dict = {}  # Dictionary of all users
         self._active_user_id = active_user_id  # Currently active user ID
         self.refresh_users_dict()
+        UTILS.LogHandler.add_log_record("#1: Current user object created.", ["User"])
 
     def _create_file_path_and_file(self, file_path: str):
         """Create the directories and the file if they do not exist.
@@ -68,14 +70,17 @@ class User():
         try:
             with open(self._users_json_file_path, "r", encoding="utf-8") as file:
                 self._users_dict = json.load(file)
+            UTILS.LogHandler.add_log_record("#1: Users data loaded.", ["User"])
             return True
-        except:
+        except Exception as e:
+            UTILS.LogHandler.add_log_record("#1: Error. Loading users data.\n#2", ["User", str(e)], warning_raised=True)
             self._users_dict = {}
             return False
 
     def save_users_to_file(self):
         with open(self._users_json_file_path, "w", encoding="utf-8") as file:
             json.dump(self._users_dict, file)
+        UTILS.LogHandler.add_log_record("#1: Users data saved.", ["User"])
 
     def get_user_info_all(self, user_id: int) -> dict:
         """Returns a dictionary with all information about the requested user.
@@ -106,12 +111,14 @@ class User():
         for user in self._users_dict:
             if username == self._users_dict[user]["username"]:
                 return self._users_dict[user]["id"]
+        UTILS.TerminalUtility.WarningMessage("User with username #1 does not exist!", [username], exception_raised=True)
         raise ValueError(f"User with username '{username}' does not exist!")
 
     def get_user_name(self, user_id: int) -> str:
         for user in self._users_dict:
             if str(user_id) == user:
                 return self._users_dict[user]["username"]
+        UTILS.TerminalUtility.WarningMessage("User with user ID #1 does not exist!", [user_id], exception_raised=True)
         raise ValueError(f"User with user ID '{user_id}' does not exist!")
 
     def check_user_password(self, user_name: str, password: str) -> bool:
@@ -203,6 +210,7 @@ class User():
             "created_at": created
         }
         self.save_users_to_file()
+        UTILS.LogHandler.add_log_record("#1: New user added. (ID=#2, UserName=#3)", ["User", new_id, user_name])
 
     def _adjust_username_for_filename(self, user_name: str, max_chars: int = 10) -> str:
         allowed = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM0123456789_"
@@ -249,6 +257,7 @@ class User():
         if str(user_id) in self._users_dict:
             self._active_user_id = user_id
         else:
+            UTILS.TerminalUtility.WarningMessage("The user with ID #1 is not found", [user_id], exception_raised=True)
             raise ValueError("The user is not found")
 
     @property
@@ -279,6 +288,7 @@ class User():
             self._users_dict[str(self._active_user_id)]["language_id"] = language_id
             self._users_dict[str(self._active_user_id)]["language_name"] = self._stt.get_language_name(language_id)
         else:
+            UTILS.TerminalUtility.WarningMessage("Language with ID #1 does not exist.", [language_id], exception_raised=True)
             raise ValueError("Language does not exist.")
 
     @property
@@ -291,6 +301,7 @@ class User():
             self._users_dict[str(self._active_user_id)]["language_name"] = language_name
             self._users_dict[str(self._active_user_id)]["language_id"] = self._stt.get_language_id(language_name)
         else:
+            UTILS.TerminalUtility.WarningMessage("Language with name #1 does not exist.", [language_name], exception_raised=True)
             raise ValueError("Language does not exist.")
 
     @property

@@ -5,17 +5,20 @@ from PyQt5.QtCore import QSize, Qt, pyqtSignal, QCoreApplication
 from PyQt5 import uic, QtGui, QtCore
 
 import os
+import time
 
 import settings_cls
 import utility_cls
 import online_topic_handler_cls
+import UTILS
+import qwidgets_util_cls
 
 
 class OnlineContentItem(QFrame):
     # signal_item_click = pyqtSignal(int, str)
     signal_link_click = pyqtSignal(int, str)
 
-    def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, index: int, name: str, title: str, link: str, topic_image: QPixmap) -> None:
+    def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, index: int, name: str, title: str, link: str, topic_image: QPixmap, widget_handler: qwidgets_util_cls.WidgetHandler) -> None:
         super().__init__(parent_widget)
         # Define settings object and methods
         self._stt = settings
@@ -35,6 +38,10 @@ class OnlineContentItem(QFrame):
 
         self._define_widgets()
         self._define_widgets_apperance()
+
+        self.widget_handler = widget_handler
+        action_button = self.widget_handler.add_ActionFrame(self, widget_properties_dict={"allow_bypass_mouse_press_event": True})
+        action_button.activate()
 
         if topic_image is not None:
             self.lbl_pic.setPixmap(topic_image)
@@ -74,10 +81,10 @@ class OnlineContentItem(QFrame):
         else:
             self.lbl_link.setText("")
 
+
 class OnlineContent(QDialog):
     def __init__(self, parent_widget: QWidget, settings: settings_cls.Settings, *args, **kwargs):
         self._dont_clear_menu = False
-        super().__init__(parent_widget, *args, **kwargs)
         # Define settings object and methods
         self._stt = settings
         self.getv = self._stt.get_setting_value
@@ -85,6 +92,8 @@ class OnlineContent(QDialog):
         self.getl = self._stt.lang
         self.get_appv = self._stt.app_setting_get_value
         self.set_appv = self._stt.app_setting_set_value
+
+        super().__init__(parent_widget, *args, **kwargs)
 
         # Load GUI
         uic.loadUi(self.getv("news_ui_file_path"), self)
@@ -102,8 +111,11 @@ class OnlineContent(QDialog):
         self._define_widgets()
         self._load_win_position()
 
+        self.load_widgets_handler()
+
         self.show()
         QCoreApplication.processEvents()
+        UTILS.LogHandler.add_log_record("#1: Dialog displayed.", ["OnlineContent"])
 
         # Connect events with slots
         self.btn_stop.clicked.connect(self.btn_stop_click)
@@ -118,12 +130,47 @@ class OnlineContent(QDialog):
         self._populate_widgets()
         self._resize_me()
 
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title, self.lbl_title_pic])
+        handle_dialog.properties.window_drag_enabled_with_body = False
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_QPushButton(self.btn_stop)
+        self.widget_handler.add_QPushButton(self.btn_refresh)
+        self.widget_handler.add_QPushButton(self.btn_topics_show)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+
+        # Add TextBox
+
+        # Add Selection Widgets
+
+        # ADD Item Based Widgets
+
+
+        self.widget_handler.activate()
+
     def key_press(self, event):
         result = self.topic_handler.current_topic.key_press_handler(event)
         if result:
             event.ignore()
             return
         QDialog.keyPressEvent(self, event)
+        if event.key() == Qt.Key_Escape:
+            self.close()
 
     def scroll_bar_value_changed(self, value: int):
         if self.topic_handler and self.topic_handler.current_topic:
@@ -153,11 +200,9 @@ class OnlineContent(QDialog):
         for i in range(self.lst_topics.count()):
             topic: OnlineContentItem = self.lst_topics.itemWidget(self.lst_topics.item(i))
             if topic._index == idx:
-                # topic.set_active(True)
                 topic_name = topic._name
                 break
-            # else:
-            #     topic.set_active(False)
+
         self.show_topic(topic_name)
 
     def btn_refresh_click(self):
@@ -202,7 +247,8 @@ class OnlineContent(QDialog):
                 topic,
                 self.topics_list[topic]["title"],
                 self.topics_list[topic]["link"],
-                self.topics_list[topic]["icon_pixmap"])
+                self.topics_list[topic]["icon_pixmap"],
+                self.widget_handler)
             self.lst_topics.setItemWidget(item, widget)
             count += 1
         if self.active_topic is None:
@@ -235,6 +281,8 @@ class OnlineContent(QDialog):
             self.lst_topics.setDisabled(False)
             return
         
+        UTILS.LogHandler.add_log_record("#1: About to show topic (#2).", ["OnlineContent", topic_name])
+
         self.active_topic_working = True
         self.lst_topics.setDisabled(True)
 
@@ -299,17 +347,39 @@ class OnlineContent(QDialog):
 
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        UTILS.LogHandler.add_log_record("#1: About to close dialog.", ["OnlineContent"])
+        result = self.close_me()
+        if result:
+            return super().closeEvent(a0)
+        
+        event_dict = {
+            "name": "delayed_action",
+            "dialog_name": "OnlineContent",
+            "action": "try_to_close_me",
+            "self": self,
+            "issue": self.topic_handler.current_topic.title,
+            "validate_function": self.close_me
+        }
+        
+        self.get_appv("main_win").events(event_dict)
+        UTILS.TerminalUtility.WarningMessage("#1: Unable to close dialog.\nMyJournal class will try to close it later.", "OnlineContent")
+        return super().closeEvent(a0)
+
+    def close_me(self) -> bool:
+        if self.widget_handler:
+            self.widget_handler.close_me()
+            self.widget_handler = None
+
         if self.topic_handler and self.topic_handler.current_topic:
-            self.topic_handler.current_topic.stop_loading = True
+            self.topic_handler.current_topic.stop_loading_topic()
             self.topic_handler.current_topic.close_me()
             QCoreApplication.processEvents()
-        self.topic_handler = None
+
         if "online_content_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("online_content_win_geometry", {}, save_to_file=True)
 
@@ -322,7 +392,16 @@ class OnlineContent(QDialog):
         g["last_topic"] = self.active_topic
 
         self._clear_temp_folder()
-        return super().closeEvent(a0)
+        self.hide()
+
+        if self.active_topic_working:
+            UTILS.LogHandler.add_log_record("#1: Unable to close dialog, active topic still running.", ["OnlineContent"])
+            return False
+
+        self.topic_handler = None        
+        UTILS.LogHandler.add_log_record("#1: Dialog closed.", ["OnlineContent"])
+        UTILS.DialogUtility.on_closeEvent(self)
+        return True
 
     def resizeEvent(self, a0: QResizeEvent) -> None:
         self._resize_me()

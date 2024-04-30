@@ -13,6 +13,7 @@ from rashomon_cls import Rashomon
 import html_parser_cls
 from urllib.parse import urlparse
 import utility_cls
+import UTILS
 
 
 class AbstractTopic(QFrame):
@@ -150,7 +151,8 @@ class AbstractTopic(QFrame):
         self.signal_topic_info_emit(self.name, self.topic_info_dict)
 
     def close_me(self):
-        pass
+        UTILS.LogHandler.add_log_record("#1: Topic closed.", [self.name])
+        self.stop_loading_topic()
 
     def stop_loading_topic(self):
         self.stop_loading = True
@@ -607,10 +609,6 @@ class AbstractTopic(QFrame):
             if char in allowed_chars:
                 cleaned_string += char
         search_string = cleaned_string
-
-        # remove_chars = "~!@#$%^&*()_+`-=[]}{;'\\\":?><,./|\n\t"
-        # for char in remove_chars:
-        #     search_string = search_string.replace(char, " ")
 
         while True:
             search_string = search_string.replace("  ", " ")

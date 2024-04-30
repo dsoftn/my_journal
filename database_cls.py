@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import UTILS
 
 
 class DBInfo():
@@ -51,20 +52,24 @@ class DataBase():
     def _make_connection(self):
         if self.db_type == "sqlite" and self.db_path:
             if not os.path.isfile(self.db_path):
+                UTILS.TerminalUtility.WarningMessage(f"Connection to #1 database failed.\nMissing file: #2", ["sqlite", self.db_path])
                 raise FileNotFoundError(f"Connection to database failed. Missing file: {self.db_path}")
             self.conn = sqlite3.connect(self.db_path)
             self.cur = self.conn.cursor()
 
     def execute(self, query: str, param: tuple = None, commit: bool = False, execute_many: bool = False) -> list:
         if not isinstance(self.conn, sqlite3.Connection):
+            UTILS.TerminalUtility.WarningMessage("Database #1 object does not exist. Connection is not possible.\ntype(self.conn) = #2\nself.conn = #3", ["conn", type(self.conn), self.conn])
             raise ValueError("Database 'conn' object does not exist. Connection is not possible.")
         
         if self.db_type == "sqlite":
             if execute_many:
                 if param is not None:
                     if not isinstance(param, list):
+                        UTILS.TerminalUtility.WarningMessage("Parameter must be a list for execute_many.\ntype(param) = #1\nparam = #2", [type(param), param])
                         raise ValueError("Parameter must be a list for execute_many")
                 if not commit:
+                    UTILS.TerminalUtility.WarningMessage("Commit must be set to #1 for execute_many.\ncommit = #2", ["True", commit])
                     raise ValueError("Commit must be set to TRUE for execute_many")
                 
                 query_list = self._create_sql_list(query, param)
@@ -89,6 +94,7 @@ class DataBase():
                     self.conn.commit()
                     return self.cur.lastrowid
                 return self.cur.fetchall()
+        UTILS.TerminalUtility.WarningMessage("Database type not recognized. Connection is not possible.\nself.db_type = #1", [self.db_type])
         raise ValueError("Database type not recognized. Connection is not possible.")
 
     def _create_sql_list(self, query: str, param: list) -> list:
@@ -114,10 +120,12 @@ class DataBase():
                 else:
                     par = tuple(par)
             else:
+                UTILS.TerminalUtility.WarningMessage("Param must be a tuple or list of tuples.\ntype(param) = #1\nparam = #2", [type(param), param])
                 raise TypeError("Param must be a tuple or list of tuples")
             
             par_list = [x for x in par if x is not None]
             if len(par_list) != query.count("?"):
+                UTILS.TerminalUtility.WarningMessage("Number of items in parameter tuple does not match number of question marks in query.\ntype(param) = #1\nparam = #2\nquery = #3\nlen(param) = #4\nNumber of question marks in query = #5", [type(param), param, query, len(par_list), query.count("?")])
                 raise ValueError("Number of items in parameter tuple does not match number of question marks in query")
             
             query_list.append([query, par])

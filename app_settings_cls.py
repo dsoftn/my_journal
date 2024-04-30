@@ -18,6 +18,7 @@ import media_player_cls
 import text_filter_cls
 import qwidgets_util_cls
 from stylesheet_cls import StyleSheet
+import UTILS
     
 
 class AbstractFrame(QFrame):
@@ -304,9 +305,17 @@ class AbstractFrame(QFrame):
 
         for i in range(steps):
             if step_val > 0:
-                widget.setFixedHeight(start_height + (i * step_val))
+                try:
+                    widget.setFixedHeight(start_height + (i * step_val))
+                except Exception as e:
+                    UTILS.TerminalUtility.WarningMessage("#1 failed to complete animation.\nException:\n#2", ["animate_setting_resize", str(e)])
+                    return
             else:
-                widget.setFixedHeight(start_height - (i * abs(step_val)))
+                try:
+                    widget.setFixedHeight(start_height - (i * abs(step_val)))
+                except Exception as e:
+                    UTILS.TerminalUtility.WarningMessage("#1 failed to complete animation.\nException:\n#2", ["animate_setting_resize", str(e)])
+                    return
             
             if resize_notify_function:
                 resize_notify_function()
@@ -315,7 +324,11 @@ class AbstractFrame(QFrame):
             time.sleep((duration / steps) / 1000)
             QCoreApplication.processEvents()
         
-        widget.setFixedHeight(end_height)
+        try:
+            widget.setFixedHeight(end_height)
+        except Exception as e:
+            UTILS.TerminalUtility.WarningMessage("#1 failed to complete animation.\nException:\n#2", ["animate_setting_resize", str(e)])
+            return
 
     def close_me(self):
         for child in self.children():
@@ -346,7 +359,7 @@ class ItemCheckBox(AbstractFrame):
         # Widget Handler
         global_properties = self.get_appv("global_widgets_properties")
         self.widget_handler = qwidgets_util_cls.WidgetHandler(self, global_properties)
-        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
+        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False, "allow_bypass_enter_event": False, "allow_bypass_leave_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_child(self.lbl_default_value, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_Selection_Widget(self.chk_key_name)
         self.widget_handler.activate()
@@ -623,7 +636,7 @@ class ItemInput(AbstractFrame):
         # Widget Handler
         global_properties = self.get_appv("global_widgets_properties")
         self.widget_handler = qwidgets_util_cls.WidgetHandler(self, global_properties)
-        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
+        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False, "allow_bypass_enter_event": False, "allow_bypass_leave_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_child(self.lbl_default_value, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
         if self.lbl_color:
             self.widget_handler.add_child(self.lbl_color, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
@@ -787,6 +800,7 @@ class ItemInput(AbstractFrame):
         if item_data.get("affected_keys"):
             return type(self.getv(item_data["affected_keys"][0]["key"]))
 
+        UTILS.TerminalUtility.WarningMessage("Invalid item data! No valid type found.\nitem_data[key]: #1\nitem_data[affected_keys]: #2", [item_data.get("key"), item_data.get("affected_keys")], exception_raised=True)
         raise ValueError("Invalid item data! No valid type found.")
 
     def _on_info_clicked(self, e: QMouseEvent):
@@ -1099,7 +1113,7 @@ class ItemComboBox(AbstractFrame):
         # Widget Handler
         global_properties = self.get_appv("global_widgets_properties")
         self.widget_handler = qwidgets_util_cls.WidgetHandler(self, global_properties)
-        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
+        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False, "allow_bypass_enter_event": False, "allow_bypass_leave_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_child(self.lbl_default_value, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_Selection_Widget(self.cmb_input)
         self.widget_handler.activate()
@@ -1662,7 +1676,7 @@ class ItemStyle(AbstractFrame):
         global_properties = self.get_appv("global_widgets_properties")
         self.widget_handler = qwidgets_util_cls.WidgetHandler(self, global_properties)
         self.widget_handler.add_child(self.btn_set_style, force_widget_type="qpushbutton")
-        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
+        self.widget_handler.add_child(self.lbl_info, {"allow_bypass_mouse_press_event": False, "allow_bypass_enter_event": False, "allow_bypass_leave_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.add_child(self.lbl_default_value, {"allow_bypass_mouse_press_event": False}, force_widget_type="qpushbutton")
         self.widget_handler.activate()
 
@@ -1968,10 +1982,14 @@ class ItemsGroup(QFrame):
         widget.setFixedHeight(end_height)
 
     def resize_me(self, expanded: bool = False):
-        if expanded:
-            h = sum([item.height() for item in self.widgets]) + self.title_widget.height()
-        else:
-            h = self.title_widget.height()
+        try:
+            if expanded:
+                h = sum([item.height() for item in self.widgets]) + self.title_widget.height()
+            else:
+                h = self.title_widget.height()
+        except Exception as e:
+            UTILS.TerminalUtility.WarningMessage("#1.#2 failed to complete resize.\nException:\n#3", ["AppSettings", "ItemsGroup", str(e)])
+            return
 
         # self.animate_setting_resize(self, start_height=self.height(), end_height=h)
 
@@ -2003,9 +2021,9 @@ class ItemsGroup(QFrame):
             "expanded": self.expanded,
             "spacing_height": 10,
             "width": self.item_data.get("width", 300),
-            "bg_color": "#000054",
-            "fg_color": "#ffff00",
-            "hover_color": "#55ffff",
+            "bg_color": self.item_data.get("bg_color") if self.item_data.get("bg_color") else "#000054",
+            "fg_color": self.item_data.get("fg_color") if self.item_data.get("fg_color") else "#ffff00",
+            "hover_color": self.item_data.get("hover_color") if self.item_data.get("hover_color") else "#55ffff",
             "no_mouse_interaction": True,
             "font_size": 14,
             "font_bold": True
@@ -2067,9 +2085,45 @@ class ItemsGroupManager:
 
         # General Title
         item_to_add = [
+            self._title("app_sett_style_date_time_name", title_center=True),
             self._input("date_format_name", "date_format", input_box_width=130),
             self._input("time_format_name", "time_format", input_box_width=130),
-            self._input("number_of_saved_logs_name", "number_of_saved_logs")
+            
+            self._title("app_sett_style_log_name", title_center=True),
+            self._input("number_of_saved_logs_name", "number_of_saved_logs"),
+            self._checkbox("app_sett_style_pop_log_dialog_on_exception_style", "pop_log_dialog_on_exception", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_pop_log_dialog_on_warning_style", "pop_log_dialog_on_warning", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_keep_log_window_on_top_style", "keep_log_window_on_top", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_frameless_log_window_style", "frameless_log_window"),
+            self._title("app_sett_style_log_messages_name", title_center=True),
+            self._title("app_sett_style_log_messages_to_save_name"),
+            self._checkbox("app_sett_style_record_normal_logs_style", "record_normal_logs", recomm_getl="widget_setting_false_recomm"),
+            self._checkbox("app_sett_style_record_warning_logs_style", "record_warning_logs", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_record_exception_logs_style", "record_exception_logs", recomm_getl="widget_setting_true_recomm"),
+            self._title("app_sett_style_log_messages_structure_name"),
+            self._checkbox("app_sett_style_log_save_locals_style", "log_save_locals", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_log_save_globals_style", "log_save_globals", recomm_getl="widget_setting_false_recomm"),
+            self._checkbox("app_sett_style_log_save_builtins_style", "log_save_builtins", recomm_getl="widget_setting_false_recomm"),
+            self._checkbox("app_sett_style_log_save_module_code_style", "log_save_module_code", recomm_getl="widget_setting_false_recomm"),
+            self._checkbox("app_sett_style_log_save_function_code_style", "log_save_function_code", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_sound_name", title_center=True),
+            self._title("app_sett_style_statusbar_sound_frame_name"),
+            self._checkbox("app_sett_style_frm_stb_volume_enabled_style", "frm_stb_volume_enabled"),
+            self._checkbox("app_sett_style_frm_stb_volume_visible_style", "frm_stb_volume_visible"),
+            self._input("app_sett_style_frm_stb_volume_fixed_width_style", "frm_stb_volume_fixed_width", input_box_width=60),
+            self._checkbox("app_sett_style_allow_volume_muted_sound_style", "allow_volume_muted_sound"),
+            self._combobox("app_sett_style_set_muted_sound_file_path_style", "set_muted_sound_file_path", cmb_data="sound", input_box_width=-1, desc_getl="app_sett_style_sound_desc"),
+            self._checkbox("app_sett_style_allow_volume_unmuted_sound_style", "allow_volume_unmuted_sound"),
+            self._combobox("app_sett_style_set_unmuted_sound_file_path_style", "set_unmuted_sound_file_path", cmb_data="sound", input_box_width=-1, desc_getl="app_sett_style_sound_desc"),
+            self._title("app_sett_style_frm_stb_volume_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "frm_stb_volume_stylesheet", affected_keys=self._standard_affected_keys("frm_stb_volume_stylesheet", "qframe")),
+            self._title("app_sett_style_btn_volume_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "btn_volume_stylesheet", affected_keys=self._standard_affected_keys("btn_volume_stylesheet", "qpushbutton")),
+            self._title("app_sett_style_sld_volume_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "sld_volume_stylesheet", affected_keys=self._standard_affected_keys("sld_volume_stylesheet", "qslider")),
+            self._title("app_sett_style_lbl_volume_value_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "lbl_volume_value_stylesheet", affected_keys=self._standard_affected_keys("lbl_volume_value_stylesheet", "qlabel")),
         ]
 
         item_group_data = self.item_group_empty_dictionary()
@@ -2122,6 +2176,12 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_menubar_enabled_style", "menubar_enabled"),
             self._checkbox("app_sett_style_menubar_visible_style", "menubar_visible"),
 
+            self._title("app_sett_style_main_menu_sound_name"),
+            self._checkbox("app_sett_style_main_menu_sound_enabled_style", "main_menu_sound_enabled", desc_getl="main_menu_sound_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style", "main_menu_sound_file_path", cmb_data="sound", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_item_sound_enabled_style", "menu_item_sound_enabled", desc_getl="main_menu_sound_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style", "menu_item_sound_file_path", cmb_data="sound", input_box_width=-1),
+
             self._title("app_sett_style_main_menu_name", title_center=True, font_size=18),
 
             self._title("app_sett_style_main_menu_file_name"),
@@ -2152,6 +2212,13 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_menu_enabled_style", "menu_user_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
             self._checkbox("app_sett_style_menu_visible_style", "menu_user_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
 
+            self._title("app_sett_style_main_menu_help_name"),
+            self._style("app_sett_style_main_menu_stylesheet_style", "menu_help_stylesheet", affected_keys=self._standard_affected_keys("menu_help_stylesheet", "qmenu")),
+            self._combobox("app_sett_style_menu_icon_path_style", "menu_help_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_tooltip_visible_style", "menu_help_tooltip_visible", desc_getl="app_sett_style_menu_tooltip_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_enabled_style", "menu_help_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "menu_help_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
             self._title("app_sett_style_menu_items_name", title_center=True, font_size=18),
 
             self._title("app_sett_style_menu_items_file_name", title_center=True, font_size=14),
@@ -2164,6 +2231,38 @@ class ItemsGroupManager:
             self._input("app_sett_style_menu_shortcut_style", "mnu_file_app_settings_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
             self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_file_app_settings_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
 
+            self._title("app_sett_style_menu_file_mnu_import_blocks_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_import_blocks_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_import_blocks_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_import_blocks_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_import_blocks_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_import_blocks_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_import_blocks_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_menu_file_mnu_export_blocks_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_export_blocks_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_export_blocks_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_export_blocks_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_export_blocks_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_export_blocks_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_export_blocks_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_menu_file_mnu_import_def_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_import_def_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_import_def_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_import_def_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_import_def_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_import_def_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_import_def_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_menu_file_mnu_export_def_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_export_def_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_export_def_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_export_def_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_export_def_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_export_def_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_export_def_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
             self._title("app_sett_style_menu_file_mnu_open_name"),
             self._checkbox("app_sett_style_menu_enabled_style", "mnu_open_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
             self._checkbox("app_sett_style_menu_visible_style", "mnu_open_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
@@ -2171,14 +2270,6 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_open_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
             self._input("app_sett_style_menu_shortcut_style", "mnu_open_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
             self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_open_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
-
-            self._title("app_sett_style_menu_file_mnu_save_as_name"),
-            self._checkbox("app_sett_style_menu_enabled_style", "mnu_save_as_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
-            self._checkbox("app_sett_style_menu_visible_style", "mnu_save_as_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
-            self._combobox("app_sett_style_menu_icon_path_style", "mnu_save_as_icon_path", cmb_data="icon", input_box_width=-1),
-            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_save_as_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
-            self._input("app_sett_style_menu_shortcut_style", "mnu_save_as_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
-            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_save_as_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
 
             self._title("app_sett_style_menu_file_mnu_file_save_active_block_name"),
             self._checkbox("app_sett_style_menu_enabled_style", "mnu_file_save_active_block_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
@@ -2343,6 +2434,22 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_view_find_in_app_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
             self._input("app_sett_style_menu_shortcut_style", "mnu_view_find_in_app_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
             self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_view_find_in_app_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_menu_help_mnu_help_log_messages_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_help_log_messages_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_help_log_messages_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_help_log_messages_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_help_log_messages_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_help_log_messages_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_help_log_messages_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
+
+            self._title("app_sett_style_menu_help_mnu_help_statistic_name"),
+            self._checkbox("app_sett_style_menu_enabled_style", "mnu_help_statistic_enabled", desc_getl="app_sett_style_menu_enabled_desc", recomm_getl="widget_setting_true_recomm"),
+            self._checkbox("app_sett_style_menu_visible_style", "mnu_help_statistic_visible", desc_getl="app_sett_style_menu_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._combobox("app_sett_style_menu_icon_path_style", "mnu_help_statistic_icon_path", cmb_data="icon", input_box_width=-1),
+            self._checkbox("app_sett_style_menu_icon_visible_style", "mnu_help_statistic_icon_visible", desc_getl="app_sett_style_menu_icon_visible_desc", recomm_getl="widget_setting_true_recomm"),
+            self._input("app_sett_style_menu_shortcut_style", "mnu_help_statistic_shortcut", validator_type="shortcut", desc_getl="app_sett_shortcut_desc"),
+            self._checkbox("app_sett_style_menu_shortcut_visible_style", "mnu_help_statistic_shortcut_visible_in_menu", desc_getl="app_sett_style_menu_shortcut_visible_desc", recomm_getl="widget_setting_true_recomm"),
         ]
 
         item_group_data = self.item_group_empty_dictionary()
@@ -3336,13 +3443,14 @@ class ItemsGroupManager:
             self._add_area_setting_item(group_item)
             group_item.show()
 
-        # Global Widgets Properties
         bg_section_color = "#4c3200"
+        bg_color_main_section = "#000000"
+        fg_color_main_section = "#ffff00"
+        hover_color_main_section = "#55ffff"
+        # GLOBAL WIDGETS PROPERTIES
+        # Pushbuttons
         item_to_add = [
-            # Pushbuttons
-            self._title("app_sett_style_gwp_buttons_name", title_center=True, font_size=18, bg_color=bg_section_color),
-
-            self._title("app_sett_style_gwp_buttons_click_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_click_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_cursor_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_allow_cursor_change_style", "gwp_qpushbutton_allow_cursor_change", desc_getl="gwp_qpushbutton_allow_cursor_change_desc"),
@@ -3373,7 +3481,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qpushbutton_tap_event_change_size_percent"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qpushbutton_tap_event_change_size_duration_ms"),
 
-            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_enter_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_qpushbutton_enter_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3397,7 +3505,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qpushbutton_enter_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qpushbutton_enter_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_leave_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_qpushbutton_leave_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3420,11 +3528,26 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_qpushbutton_leave_event_change_size_enabled", desc_getl="gwp_qpushbutton_tap_event_change_size_enabled_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qpushbutton_leave_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qpushbutton_leave_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_buttons_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
 
-            # Action Frames (Large menu buttons on Dialog)
-            self._title("app_sett_style_gwp_actionframe_name", title_center=True, font_size=18, bg_color=bg_section_color),
-
-            self._title("app_sett_style_gwp_buttons_click_name", title_center=True, font_size=16),
+        # GLOBAL WIDGETS PROPERTIES
+        # Action Frames (Large menu buttons on Dialog)
+        item_to_add = [
+            self._title("app_sett_style_gwp_buttons_click_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_cursor_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_allow_cursor_change_style", "gwp_actionframe_allow_cursor_change", desc_getl="gwp_qpushbutton_allow_cursor_change_desc"),
@@ -3455,7 +3578,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_actionframe_tap_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_actionframe_tap_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_enter_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_actionframe_enter_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3479,7 +3602,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_actionframe_enter_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_actionframe_enter_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_leave_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_actionframe_leave_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3502,11 +3625,26 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_actionframe_leave_event_change_size_enabled", desc_getl="gwp_qpushbutton_tap_event_change_size_enabled_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_actionframe_leave_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_actionframe_leave_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_actionframe_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
 
-            # Selectable Widgets (CheckBox, ComboBox, RadioButton...)
-            self._title("app_sett_style_gwp_selection_name", title_center=True, font_size=18, bg_color=bg_section_color),
-
-            self._title("app_sett_style_gwp_selection_click_name", title_center=True, font_size=16),
+        # GLOBAL WIDGETS PROPERTIES
+        # Selectable Widgets (CheckBox, ComboBox, RadioButton...)
+        item_to_add = [
+            self._title("app_sett_style_gwp_selection_click_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_cursor_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_allow_cursor_change_style", "gwp_selection_allow_cursor_change", desc_getl="gwp_qpushbutton_allow_cursor_change_desc"),
@@ -3537,7 +3675,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_selection_tap_event_change_size_percent"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_selection_tap_event_change_size_duration_ms"),
 
-            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_enter_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_selection_enter_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3561,7 +3699,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_selection_enter_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_selection_enter_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             self._title("app_sett_style_gwp_buttons_leave_animation_name"),
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_selection_leave_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
@@ -3584,11 +3722,123 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_selection_leave_event_change_size_enabled", desc_getl="gwp_qpushbutton_tap_event_change_size_enabled_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_selection_leave_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_selection_leave_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_selection_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
 
-            # Dialog
-            self._title("app_sett_style_gwp_dialog_name", title_center=True, font_size=18, bg_color=bg_section_color),
+        # GLOBAL WIDGETS PROPERTIES
+        # Item Based Widgets (QListWidget, QTableWidget, QTreeWidget...)
+        item_to_add = [
+            self._title("app_sett_style_gwp_selection_click_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
-            self._title("app_sett_style_gwp_dialog_drag_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_buttons_cursor_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_allow_cursor_change_style", "gwp_item_based_allow_cursor_change", desc_getl="gwp_qpushbutton_allow_cursor_change_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_cursor_style", "gwp_item_based_cursor", cmb_data="cursor", input_box_width=-1),
+            self._input("app_sett_style_gwp_qpushbutton_cursor_width_style", "gwp_item_based_cursor_width", desc_getl="gwp_qpushbutton_cursor_width_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_cursor_height_style", "gwp_item_based_cursor_height", desc_getl="gwp_qpushbutton_cursor_height_desc"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_cursor_keep_aspect_ratio_style", "gwp_item_based_cursor_keep_aspect_ratio", desc_getl="gwp_qpushbutton_cursor_keep_aspect_ratio_desc"),
+
+            self._title("app_sett_style_gwp_selection_click_animation_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_item_based_tap_event_show_animation_enabled"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_file_path_style", "gwp_item_based_tap_event_show_animation_file_path", cmb_data="animation", input_box_width=-1),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_duration_ms_style", "gwp_item_based_tap_event_show_animation_duration_ms"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_width_style", "gwp_item_based_tap_event_show_animation_width"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_height_style", "gwp_item_based_tap_event_show_animation_height"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_background_color_style", "gwp_item_based_tap_event_show_animation_background_color", validator_type="color"),
+
+            self._title("app_sett_style_gwp_selection_click_sound_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_enabled_style", "gwp_item_based_tap_event_play_sound_enabled"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style", "gwp_item_based_tap_event_play_sound_file_path", cmb_data="sound", input_box_width=-1),
+
+            self._title("app_sett_style_gwp_selection_click_stylesheet_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_enabled_style", "gwp_item_based_tap_event_change_stylesheet_enabled"),
+            self._style("app_sett_style_widget_stylesheet_style", "gwp_item_based_tap_event_change_qss_stylesheet", affected_keys=[["gwp_item_based_tap_event_change_qss_stylesheet", "qlistwidget"]]),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_style", "gwp_item_based_tap_event_change_stylesheet_duration_ms"),
+
+            self._title("app_sett_style_gwp_selection_click_size_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_item_based_tap_event_change_size_enabled"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_item_based_tap_event_change_size_percent"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_item_based_tap_event_change_size_duration_ms"),
+
+            self._title("app_sett_style_gwp_buttons_enter_name", title_center=True, font_size=16, bg_color=bg_section_color),
+
+            self._title("app_sett_style_gwp_buttons_enter_animation_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_item_based_enter_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_file_path_style", "gwp_item_based_enter_event_show_animation_file_path", cmb_data="animation", input_box_width=-1, desc_getl="gwp_qpushbutton_tap_event_show_animation_file_path_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_duration_ms_style", "gwp_item_based_enter_event_show_animation_duration_ms", desc_getl="gwp_qpushbutton_tap_event_show_animation_duration_ms"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_width_style", "gwp_item_based_enter_event_show_animation_width", desc_getl="gwp_qpushbutton_tap_event_show_animation_width_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_height_style", "gwp_item_based_enter_event_show_animation_height", desc_getl="gwp_qpushbutton_tap_event_show_animation_height_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_background_color_style", "gwp_item_based_enter_event_show_animation_background_color", validator_type="color", desc_getl="gwp_qpushbutton_tap_event_show_animation_background_color_desc"),
+
+            self._title("app_sett_style_gwp_buttons_enter_sound_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_enabled_style", "gwp_item_based_enter_event_play_sound_enabled", desc_getl="gwp_qpushbutton_tap_event_play_sound_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style", "gwp_item_based_enter_event_play_sound_file_path", cmb_data="sound", input_box_width=-1, desc_getl="gwp_qpushbutton_tap_event_play_sound_file_path_desc"),
+
+            self._title("app_sett_style_gwp_buttons_enter_stylesheet_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_enabled_style", "gwp_item_based_enter_event_change_stylesheet_enabled", desc_getl="gwp_qpushbutton_tap_event_change_stylesheet_enabled_desc"),
+            self._style("app_sett_style_widget_stylesheet_style", "gwp_item_based_enter_event_change_qss_stylesheet", affected_keys=[["gwp_item_based_enter_event_change_qss_stylesheet", "qlistwidget"]]),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_style", "gwp_item_based_enter_event_change_stylesheet_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_desc"),
+
+            self._title("app_sett_style_gwp_buttons_enter_size_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_item_based_enter_event_change_size_enabled", desc_getl="gwp_qpushbutton_tap_event_change_size_enabled_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_item_based_enter_event_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_item_based_enter_event_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
+
+            self._title("app_sett_style_gwp_buttons_leave_name", title_center=True, font_size=16, bg_color=bg_section_color),
+
+            self._title("app_sett_style_gwp_buttons_leave_animation_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_enabled_style", "gwp_item_based_leave_event_show_animation_enabled", desc_getl="gwp_qpushbutton_tap_event_show_animation_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_show_animation_file_path_style", "gwp_item_based_leave_event_show_animation_file_path", cmb_data="animation", input_box_width=-1, desc_getl="gwp_qpushbutton_tap_event_show_animation_file_path_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_duration_ms_style", "gwp_item_based_leave_event_show_animation_duration_ms", desc_getl="gwp_qpushbutton_tap_event_show_animation_duration_ms"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_width_style", "gwp_item_based_leave_event_show_animation_width", desc_getl="gwp_qpushbutton_tap_event_show_animation_width_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_height_style", "gwp_item_based_leave_event_show_animation_height", desc_getl="gwp_qpushbutton_tap_event_show_animation_height_desc"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_show_animation_background_color_style", "gwp_item_based_leave_event_show_animation_background_color", validator_type="color", desc_getl="gwp_qpushbutton_tap_event_show_animation_background_color_desc"),
+
+            self._title("app_sett_style_gwp_buttons_leave_sound_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_enabled_style", "gwp_item_based_leave_event_play_sound_enabled", desc_getl="gwp_qpushbutton_tap_event_play_sound_enabled_desc"),
+            self._combobox("app_sett_style_gwp_qpushbutton_tap_event_play_sound_file_path_style", "gwp_item_based_leave_event_play_sound_file_path", cmb_data="sound", input_box_width=-1, desc_getl="gwp_qpushbutton_tap_event_play_sound_file_path_desc"),
+
+            self._title("app_sett_style_gwp_buttons_leave_stylesheet_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_enabled_style", "gwp_item_based_leave_event_change_stylesheet_enabled", desc_getl="gwp_qpushbutton_tap_event_change_stylesheet_enabled_desc"),
+            self._style("app_sett_style_widget_stylesheet_style", "gwp_item_based_leave_event_change_qss_stylesheet", affected_keys=[["gwp_item_based_leave_event_change_qss_stylesheet", "qlistwidget"]]),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_style", "gwp_item_based_leave_event_change_stylesheet_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_stylesheet_duration_ms_desc"),
+
+            self._title("app_sett_style_gwp_buttons_leave_size_name"),
+            self._checkbox("app_sett_style_gwp_qpushbutton_tap_event_change_size_enabled_style", "gwp_selection_leave_event_change_size_enabled", desc_getl="gwp_item_based_leave_event_change_size_enabled"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_selection_leave_event_change_size_percent", desc_getl="gwp_item_based_leave_event_change_size_percent"),
+            self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_selection_leave_event_change_size_duration_ms", desc_getl="gwp_item_based_leave_event_change_size_duration_ms"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_item_based_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
+
+        # GLOBAL WIDGETS PROPERTIES
+        # Dialog
+        item_to_add = [
+            self._title("app_sett_style_gwp_dialog_drag_name", title_center=True, font_size=16, bg_color=bg_section_color),
             
             self._checkbox("app_sett_style_gwp_qdialog_window_drag_enabled_style", "gwp_qdialog_window_drag_enabled", desc_getl="gwp_qdialog_window_drag_enabled_desc"),
             self._checkbox("app_sett_style_gwp_qdialog_drag_dialog_with_body_style", "gwp_qdialog_window_drag_enabled_with_body", desc_getl="gwp_qdialog_dialog_drag_with_body_desc"),
@@ -3606,11 +3856,26 @@ class ItemsGroupManager:
             self._style("app_sett_style_label_mask_stylesheet_style", "gwp_qdialog_dragged_window_mask_label_stylesheet", affected_keys=[["gwp_qframe_dragged_window_mask_label_stylesheet", "qlabel"]], desc_getl="gwp_qframe_dragged_window_mask_label_stylesheet_desc"),
             self._combobox("app_sett_style_gwp_qframe_dragged_window_mask_label_image_path_style", "gwp_qdialog_dragged_window_mask_label_image_path", cmb_data="icon", input_box_width=-1, desc_getl="gwp_qframe_dragged_window_mask_label_image_path_desc"),
             self._combobox("app_sett_style_gwp_qframe_dragged_window_mask_label_animation_path_style", "gwp_qdialog_dragged_window_mask_label_animation_path", cmb_data="animation", input_box_width=-1, desc_getl="gwp_qframe_dragged_window_mask_label_animation_path_desc"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_dialog_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
 
-            # Frame
-            self._title("app_sett_style_gwp_frame_name", title_center=True, font_size=18, bg_color=bg_section_color),
-
-            self._title("app_sett_style_gwp_frame_drag_name", title_center=True, font_size=16),
+        # GLOBAL WIDGETS PROPERTIES
+        # Frame
+        item_to_add = [
+            self._title("app_sett_style_gwp_frame_drag_name", title_center=True, font_size=16, bg_color=bg_section_color),
             
             self._checkbox("app_sett_style_gwp_qdialog_window_drag_enabled_style", "gwp_qframe_window_drag_enabled", desc_getl="gwp_qdialog_window_drag_enabled_desc"),
             self._checkbox("app_sett_style_gwp_qdialog_drag_frame_with_body_style", "gwp_qframe_window_drag_enabled_with_body", desc_getl="gwp_qdialog_frame_drag_with_body_desc"),
@@ -3633,11 +3898,26 @@ class ItemsGroupManager:
             self._style("app_sett_style_label_mask_stylesheet_style", "gwp_qframe_dragged_window_mask_label_stylesheet", affected_keys=[["gwp_qframe_dragged_window_mask_label_stylesheet", "qlabel"]], desc_getl="gwp_qframe_dragged_window_mask_label_stylesheet_desc"),
             self._combobox("app_sett_style_gwp_qframe_dragged_window_mask_label_image_path_style", "gwp_qframe_dragged_window_mask_label_image_path", cmb_data="icon", input_box_width=-1, desc_getl="gwp_qframe_dragged_window_mask_label_image_path_desc"),
             self._combobox("app_sett_style_gwp_qframe_dragged_window_mask_label_animation_path_style", "gwp_qframe_dragged_window_mask_label_animation_path", cmb_data="animation", input_box_width=-1, desc_getl="gwp_qframe_dragged_window_mask_label_animation_path_desc"),
+        ]
+        
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_frame_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
 
-            # TextBox
-            self._title("app_sett_style_gwp_textbox_name", title_center=True, font_size=18, bg_color=bg_section_color),
-
-            self._title("app_sett_style_gwp_key_press_name", title_center=True, font_size=16),
+        # GLOBAL WIDGETS PROPERTIES
+        # TextBox
+        item_to_add = [
+            self._title("app_sett_style_gwp_key_press_name", title_center=True, font_size=16, bg_color=bg_section_color),
             
             # Key Pressed - Sound
             self._title("app_sett_style_gwp_qtextedit_key_pressed_sound_name"),
@@ -3654,7 +3934,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qtextedit_key_pressed_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qtextedit_key_pressed_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_return_press_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_return_press_name", title_center=True, font_size=16, bg_color=bg_section_color),
             
             # ENTER Pressed - Sound
             self._title("app_sett_style_gwp_qtextedit_return_pressed_sound_name"),
@@ -3671,7 +3951,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qtextedit_return_pressed_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qtextedit_return_pressed_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_esc_press_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_esc_press_name", title_center=True, font_size=16, bg_color=bg_section_color),
             
             # ESC Pressed - Sound
             self._title("app_sett_style_gwp_qtextedit_escape_pressed_sound_name"),
@@ -3688,7 +3968,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qtextedit_escape_pressed_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qtextedit_escape_pressed_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_gwp_smart_parenthesis_name", title_center=True, font_size=16),
+            self._title("app_sett_style_gwp_smart_parenthesis_name", title_center=True, font_size=16, bg_color=bg_section_color),
             self._title("app_sett_style_gwp_smart_parenthesis_desc_name"),
             self._checkbox("app_sett_style_gwp_qtextedit_smart_parenthesis_enabled_style", "gwp_qtextedit_smart_parenthesis_enabled", desc_getl="gwp_qpushbutton_tap_event_play_sound_enabled_desc"),
 
@@ -3708,7 +3988,7 @@ class ItemsGroupManager:
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qtextedit_smart_parenthesis_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qtextedit_smart_parenthesis_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
 
-            self._title("app_sett_style_illegal_entry_name", title_center=True, font_size=16),
+            self._title("app_sett_style_illegal_entry_name", title_center=True, font_size=16, bg_color=bg_section_color),
 
             # ESC Pressed - Sound
             self._title("app_sett_style_gwp_qtextedit_illegal_entry_sound_name"),
@@ -3724,11 +4004,13 @@ class ItemsGroupManager:
             self._checkbox("app_sett_style_textbox_change_size_enabled_style", "gwp_qtextedit_illegal_entry_change_size_enabled", desc_getl="gwp_qpushbutton_tap_event_change_size_enabled_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_percent_style", "gwp_qtextedit_illegal_entry_change_size_percent", desc_getl="gwp_qpushbutton_tap_event_change_size_percent_desc"),
             self._input("app_sett_style_gwp_qpushbutton_tap_event_change_size_duration_ms_style", "gwp_qtextedit_illegal_entry_change_size_duration_ms", desc_getl="gwp_qpushbutton_tap_event_change_size_duration_ms_desc"),
-
         ]
         
         item_group_data = self.item_group_empty_dictionary()
-        item_group_data["name"] = self.getl("app_sett_style_gwp_name")
+        item_group_data["bg_color"] = bg_color_main_section
+        item_group_data["fg_color"] = fg_color_main_section
+        item_group_data["hover_color"] = hover_color_main_section
+        item_group_data["name"] = self.getl("app_sett_style_gwp_textbox_name")
         if populate_archive:
             self._add_to_archive(section, item_group_data["name"], item_to_add)
         else:
@@ -5748,6 +6030,330 @@ class ItemsGroupManager:
             self._add_area_setting_item(group_item)
             group_item.show()
 
+        # Export - Import Dialog
+        item_to_add = [
+            self._title("app_sett_style_selection_win_name"),
+            self._style("app_settings_grp_style_gen_title", "export_import_win_stylesheet", affected_keys="qdialog"),
+            self._combobox("app_sett_style_export_icon_path_style", "export_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_import_icon_path_style", "import_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_title_label_name"),
+            self._style("app_sett_style_dialog_title_label_stylesheet_style", "export_import_lbl_title_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_title_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_tab_action_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_tab_action_stylesheet", affected_keys=self._standard_affected_keys("export_import_tab_action_stylesheet", "qtabwidget")),
+
+            self._title("app_sett_style_export_import_btn_exec_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_exec_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_exec_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_exec_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_btn_cancel_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_cancel_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_cancel_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_cancel_icon_path", cmb_data="icon", input_box_width=-1),
+
+            # Export blocks
+            self._title("app_sett_style_export_import_tab_export_block_name", title_center=True),
+
+            self._title("app_sett_style_export_import_tab_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_frm_export_block_stylesheet", affected_keys=self._standard_affected_keys("export_import_frm_export_block_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_button_clear_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_export_block_clear_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_export_block_clear_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_export_block_clear_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_button_paste_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_export_block_paste_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_export_block_paste_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_export_block_paste_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_info_label_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_export_block_info_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_export_block_info_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_items_list_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lst_export_block_stylesheet", affected_keys=self._standard_affected_keys("export_import_lst_export_block_stylesheet", "qlistwidget")),
+
+            # Import blocks
+            self._title("app_sett_style_export_import_tab_import_block_name", title_center=True),
+
+            self._title("app_sett_style_export_import_tab_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_frm_import_block_stylesheet", affected_keys=self._standard_affected_keys("export_import_frm_import_block_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_button_clear_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_import_block_clear_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_import_block_clear_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_import_block_clear_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_button_add_file_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_import_block_add_file_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_import_block_add_file_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_import_block_add_file_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_info_label_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_import_block_info_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_import_block_info_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_items_list_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lst_import_block_stylesheet", affected_keys=self._standard_affected_keys("export_import_lst_import_block_stylesheet", "qlistwidget")),
+
+            # Export defs
+            self._title("app_sett_style_export_import_tab_export_def_name", title_center=True),
+
+            self._title("app_sett_style_export_import_tab_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_frm_export_def_stylesheet", affected_keys=self._standard_affected_keys("export_import_frm_export_def_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_button_clear_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_export_def_clear_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_export_def_clear_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_export_def_clear_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_button_paste_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_export_def_paste_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_export_def_paste_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_export_def_paste_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_info_label_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_export_def_info_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_export_def_info_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_items_list_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lst_export_def_stylesheet", affected_keys=self._standard_affected_keys("export_import_lst_export_def_stylesheet", "qlistwidget")),
+
+            # Import defs
+            self._title("app_sett_style_export_import_tab_import_def_name", title_center=True),
+
+            self._title("app_sett_style_export_import_tab_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_frm_import_def_stylesheet", affected_keys=self._standard_affected_keys("export_import_frm_import_def_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_button_clear_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_import_def_clear_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_import_def_clear_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_import_def_clear_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_button_add_file_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_import_def_add_file_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_import_def_add_file_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_import_def_add_file_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_info_label_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_import_def_info_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_import_def_info_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_items_list_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lst_import_def_stylesheet", affected_keys=self._standard_affected_keys("export_import_lst_import_def_stylesheet", "qlistwidget")),
+
+            # Item Enabled
+            self._title("app_sett_style_export_import_list_item_enabled_name", title_center=True),
+
+            self._title("app_sett_style_export_import_item_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_frame_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_frame_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_enabled_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_lbl_enabled_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_lbl_enabled_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_id_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_lbl_id_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_lbl_id_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_name_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_lbl_name_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_lbl_name_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_src_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_lbl_src_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_lbl_src_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_text_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_enabled_lbl_text_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_enabled_lbl_text_stylesheet", "qlabel")),
+
+            # Item Disabled
+            self._title("app_sett_style_export_import_list_item_disabled_name", title_center=True),
+
+            self._title("app_sett_style_export_import_item_card_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_frame_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_frame_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_enabled_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_lbl_enabled_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_lbl_enabled_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_id_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_lbl_id_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_lbl_id_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_name_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_lbl_name_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_lbl_name_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_src_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_lbl_src_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_lbl_src_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_list_item_enabled_lbl_text_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_list_item_disabled_lbl_text_stylesheet", affected_keys=self._standard_affected_keys("export_import_list_item_disabled_lbl_text_stylesheet", "qlabel")),
+
+            # Execute Frame
+            self._title("app_sett_style_export_import_list_execute_name", title_center=True),
+
+            self._title("app_sett_style_export_import_frm_execute_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_frm_execute_stylesheet", affected_keys=self._standard_affected_keys("export_import_frm_execute_stylesheet", "qframe")),
+
+            self._title("app_sett_style_export_import_lbl_execute_title_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_execute_title_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_execute_title_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_txt_execute_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_txt_execute_stylesheet", affected_keys=self._standard_affected_keys("export_import_txt_execute_stylesheet", "qtextedit")),
+
+            self._title("app_sett_style_export_import_lst_execute_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lst_execute_stylesheet", affected_keys=self._standard_affected_keys("export_import_lst_execute_stylesheet", "qlistwidget")),
+
+            self._title("app_sett_style_export_import_btn_execute_confirm_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_execute_confirm_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_execute_confirm_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_execute_confirm_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_btn_execute_done_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_execute_done_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_execute_done_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_execute_done_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_btn_execute_cancel_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_execute_cancel_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_execute_cancel_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_execute_cancel_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_btn_execute_details_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_execute_details_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_execute_details_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_execute_details_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_btn_execute_actions_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "export_import_btn_execute_actions_stylesheet", affected_keys=self._standard_affected_keys("export_import_btn_execute_actions_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "export_import_btn_execute_actions_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_export_import_lbl_execute_info_correct_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_execute_info_correct_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_execute_info_correct_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_export_import_lbl_execute_info_incorrect_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "export_import_lbl_execute_info_incorrect_stylesheet", affected_keys=self._standard_affected_keys("export_import_lbl_execute_info_incorrect_stylesheet", "qlabel")),
+
+        ]
+
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["name"] = self.getl("app_sett_style_ei_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
+
+        # Compare (export-import)
+        item_to_add = [
+            self._title("app_sett_style_selection_win_name"),
+            self._style("app_sett_style_compare_frm_tag_stylesheet_style", "compare_frm_tag_stylesheet", affected_keys=self._standard_affected_keys("compare_frm_tag_stylesheet", "qframe")),
+            self._combobox("app_sett_compare_win_icon_path_style", "compare_win_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_title_label_name"),
+            self._style("app_sett_style_dialog_title_label_stylesheet_style", "compare_lbl_title_stylesheet", affected_keys=self._standard_affected_keys("compare_lbl_title_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_ccompare_lbl_desc_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_lbl_desc_stylesheet", affected_keys=self._standard_affected_keys("compare_lbl_desc_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_compare_btn_abort_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "compare_btn_abort_stylesheet", affected_keys=self._standard_affected_keys("compare_btn_abort_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "compare_btn_abort_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_compare_chk_boxes_unchecked_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_chk_boxes_unchecked_stylesheet", affected_keys=self._standard_affected_keys("compare_chk_boxes_unchecked_stylesheet", "qcheckbox")),
+
+            self._title("app_sett_style_compare_chk_boxes_checked_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_chk_boxes_checked_stylesheet", affected_keys=self._standard_affected_keys("compare_chk_boxes_checked_stylesheet", "qcheckbox")),
+
+            # New data
+            self._title("app_sett_style_compare_new_data_name", title_center=True),
+
+            self._title("app_sett_style_compare_lbl_tag_new_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_lbl_tag_new_stylesheet", affected_keys=self._standard_affected_keys("compare_lbl_tag_new_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_compare_btn_tag_new_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "compare_btn_tag_new_stylesheet", affected_keys=self._standard_affected_keys("compare_btn_tag_new_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "compare_btn_tag_new_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_compare_txt_rename_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_txt_rename_stylesheet", affected_keys=self._standard_affected_keys("compare_txt_rename_stylesheet", "qlineedit")),
+
+            # Old data
+            self._title("app_sett_style_compare_old_data_name", title_center=True),
+
+            self._title("app_sett_style_compare_lbl_tag_old_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "compare_lbl_tag_old_stylesheet", affected_keys=self._standard_affected_keys("compare_lbl_tag_old_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_compare_btn_tag_old_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "compare_btn_tag_old_stylesheet", affected_keys=self._standard_affected_keys("compare_btn_tag_old_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_select_icon_image_style", "compare_btn_tag_old_icon_path", cmb_data="icon", input_box_width=-1),
+        ]
+
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["name"] = self.getl("app_sett_style_compare_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
+
+        # Statistic
+        item_to_add = [
+            self._title("app_sett_style_selection_win_name"),
+            self._style("app_settings_grp_style_gen_title", "statistic_win_stylesheet", affected_keys="qdialog"),
+            self._combobox("app_sett_style_definition_add_win_icon_path_style", "statistic_win_icon_path", cmb_data="icon", input_box_width=-1),
+
+            self._title("app_sett_style_title_label_name"),
+            self._style("app_sett_style_dialog_title_label_stylesheet_style", "statistic_lbl_title_stylesheet", affected_keys=self._standard_affected_keys("statistic_lbl_title_stylesheet", "qlabel")),
+
+            self._title("app_sett_style_statistic_area_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_area_stylesheet", affected_keys=self._standard_affected_keys("statistic_area_stylesheet", "qscrollarea")),
+
+            self._title("app_sett_style_statistic_section_icons_name"),
+            self._combobox("app_sett_style_statistic_btn_app_icon_path_style", "statistic_btn_app_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_statistic_btn_block_icon_path_style", "statistic_btn_block_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_statistic_btn_def_icon_path_style", "statistic_btn_def_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_statistic_btn_tag_icon_path_style", "statistic_btn_tag_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_statistic_btn_img_icon_path_style", "statistic_btn_img_icon_path", cmb_data="icon", input_box_width=-1),
+            self._combobox("app_sett_style_statistic_btn_file_icon_path_style", "statistic_btn_file_icon_path", cmb_data="icon", input_box_width=-1),
+
+            # Sections
+            self._title("app_sett_style_statistic_sections_name", title_center=True, font_size=16),
+
+            self._title("app_sett_style_statistic_section_general_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_frm_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_frm_stylesheet", "qframe")),
+            self._title("app_sett_style_statistic_section_general_collapsed_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_frm_collapsed_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_frm_collapsed_stylesheet", "qframe")),
+            self._title("app_sett_style_statistic_section_main_button_name"),
+            self._style("app_sett_style_button_stylesheet_style", "statistic_section_btn_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_btn_stylesheet", "qpushbutton")),
+            self._title("app_sett_style_statistic_section_lbl_info_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_lbl_info_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_lbl_info_stylesheet", "qlabel")),
+            self._title("app_sett_style_statistic_section_search_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_frm_kw_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_frm_kw_stylesheet", "qframe")),
+            self._title("app_sett_style_statistic_section_txt_kw_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_txt_kw_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_txt_kw_stylesheet", "qlineedit")),
+            self._title("app_sett_style_statistic_section_btn_kw_stylesheet_name"),
+            self._style("app_sett_style_button_stylesheet_style", "statistic_section_btn_kw_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_btn_kw_stylesheet", "qpushbutton")),
+            self._title("app_sett_style_statistic_section_lbl_info_kw_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_section_lbl_info_kw_stylesheet", affected_keys=self._standard_affected_keys("statistic_section_lbl_info_kw_stylesheet", "qlabel")),
+
+            # Log frame
+            self._title("app_sett_style_statistic_log_name", title_center=True, font_size=16),
+
+            self._title("app_sett_style_statistic_log_frame_general_name"),
+            self._checkbox("app_sett_style_statistic_log_frame_enabled_style", "statistic_log_frame_enabled"),
+            self._input("app_sett_style_statistic_log_frame_duration_style", "statistic_log_frame_duration", desc_getl="statistic_log_frame_duration_desc"),
+            self._input("app_sett_style_statistic_log_frame_delay_style", "statistic_log_frame_delay", desc_getl="statistic_log_frame_delay_desc"),
+
+            self._title("app_sett_style_statistic_log_appearance_name"),
+            self._style("app_sett_style_statistic_log_working_stylesheet_style", "statistic_frm_log_stylesheet", affected_keys=self._standard_affected_keys("statistic_frm_log_stylesheet", "qframe")),
+            self._style("app_sett_style_statistic_log_success_stylesheet_style", "statistic_frm_log_success_stylesheet", affected_keys=self._standard_affected_keys("statistic_frm_log_success_stylesheet", "qframe")),
+            self._style("app_sett_style_statistic_log_error_stylesheet_style", "statistic_frm_log_error_stylesheet", affected_keys=self._standard_affected_keys("statistic_frm_log_error_stylesheet", "qframe")),
+            self._title("app_sett_style_statistic_log_close_button_name"),
+            self._style("app_sett_style_button_stylesheet_style", "statistic_btn_log_stylesheet", affected_keys=self._standard_affected_keys("statistic_btn_log_stylesheet", "qpushbutton")),
+            self._combobox("app_sett_style_statistic_btn_log_icon_path_style", "statistic_btn_log_icon_path", cmb_data="icon", input_box_width=-1),
+            self._title("app_sett_style_statistic_lbl_log_stylesheet_name"),
+            self._style("app_sett_style_widget_stylesheet_style", "statistic_lbl_log_stylesheet", affected_keys=self._standard_affected_keys("statistic_lbl_log_stylesheet", "qlabel")),
+        ]
+
+        item_group_data = self.item_group_empty_dictionary()
+        item_group_data["name"] = self.getl("app_sett_style_statistic_name")
+        if populate_archive:
+            self._add_to_archive(section, item_group_data["name"], item_to_add)
+        else:
+            group_item = ItemsGroup(self._stt, self.area_settings_widget, item_group_data)
+            for item_data in item_to_add:
+                group_item.add_item(info_data=item_data)
+            self._add_area_setting_item(group_item)
+            group_item.show()
+
     def _standard_affected_keys(self, base_key: str, widget_type: str) -> list:
         if base_key.endswith("_stylesheet"):
             base_key = base_key[:-11]
@@ -5775,17 +6381,24 @@ class ItemsGroupManager:
             "menu_file",
             "menu_edit",
             "menu_view",
-            "menu_user"
+            "menu_user",
+            "menu_help"
         ]
 
         return result
     
     def _menu_item_list(self) -> list:
         result = [
+            # File
             "mnu_file_app_settings",
+            "mnu_export_blocks",
+            "mnu_import_blocks",
+            "mnu_export_def",
+            "mnu_import_def",
             "mnu_open",
             "mnu_save_as",
             "mnu_file_save_active_block",
+            # Edit
             "mnu_add_block",
             "mnu_expand_all",
             "mnu_collapse_all",
@@ -5793,6 +6406,7 @@ class ItemsGroupManager:
             "mnu_edit_tags",
             "mnu_edit_definitions",
             "mnu_translation",
+            # View
             "mnu_diary",
             "mnu_view_blocks",
             "mnu_view_tags",
@@ -5804,7 +6418,10 @@ class ItemsGroupManager:
             "mnu_view_dicts",
             "mnu_view_wiki",
             "mnu_view_online_content",
-            "mnu_view_find_in_app"
+            "mnu_view_find_in_app",
+            # Help
+            "mnu_help_log_messages",
+            "mnu_help_statistic"
         ]
 
         return result
@@ -5848,7 +6465,9 @@ class ItemsGroupManager:
             "app_settings_btn_cancel_text",
             "synonyms_manager_btn_close",
             "def_hint_manager_btn_cancel",
-            "find_in_app_btn_close"
+            "find_in_app_btn_close",
+            "export_import_btn_cancel",
+            "export_import_btn_execute_cancel"
         ]
 
         return result
@@ -5891,7 +6510,10 @@ class ItemsGroupManager:
             "definition_add_btn_format_desc",
             "def_hint_manager_btn_save",
             "find_in_app_btn_find",
-            "browse_def_btn_add"
+            "browse_def_btn_add",
+            "export_import_btn_exec",
+            "export_import_btn_execute_confirm",
+            "export_import_btn_execute_done"
         ]
 
         return result
@@ -5922,7 +6544,9 @@ class ItemsGroupManager:
             "online_content_win",
             "wiki_win",
             "def_hint_manager_win",
-            "filter_results_win"
+            "filter_results_win",
+            "export_import_win",
+            "statistic_win"
         ]
 
         return result
@@ -5948,7 +6572,10 @@ class ItemsGroupManager:
             "find_in_app_lbl_title",
             "app_settings_lbl_title",
             "synonyms_manager_lbl_title",
-            "def_hint_manager_lbl_title"
+            "def_hint_manager_lbl_title",
+            "export_import_lbl_title",
+            "compare_lbl_title",
+            "statistic_lbl_title"
         ]
 
         return result
@@ -6838,7 +7465,6 @@ class Settings(QDialog):
         self.lbl_style_hov_bg.mousePressEvent = self.lbl_style_hov_bg_click
         self.lbl_style_hov_border_color.mousePressEvent = self.lbl_style_hov_border_color_click
 
-        
         self.btn_style_dis_fg.clicked.connect(self.btn_style_dis_fg_click)
         self.btn_style_dis_bg.clicked.connect(self.btn_style_dis_bg_click)
         self.btn_style_dis_border_color.clicked.connect(self.btn_style_dis_border_color_click)
@@ -6903,6 +7529,7 @@ class Settings(QDialog):
         self.btn_adv_show.clicked.connect(self.btn_adv_show_click)
 
         self.show()
+        UTILS.LogHandler.add_log_record("#1 dialog started.\nDialog displayed.", ["Application settings"])
         self.txt_menu_search.setFocus()
 
     def txt_menu_search_drop_event(self, a0: QDropEvent):
@@ -6923,9 +7550,7 @@ class Settings(QDialog):
             self.lbl_loading.movie().stop()
 
     def load_widgets_handler(self):
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
-        QCoreApplication.processEvents()
+        self.get_appv("cm").remove_all_context_menu()
 
         global_properties = self.get_appv("global_widgets_properties")
         self.widget_handler = qwidgets_util_cls.WidgetHandler(
@@ -6934,7 +7559,7 @@ class Settings(QDialog):
         
         # Add Dialog
         handle_dialog = self.widget_handler.add_QDialog(self)
-        handle_dialog.add_window_drag_widgets([self.lbl_title, self])
+        handle_dialog.add_window_drag_widgets([self, self.lbl_title])
 
         # Add frames
         frm_import = self.widget_handler.add_QFrame(self.frm_import, main_win=self)
@@ -6969,6 +7594,10 @@ class Settings(QDialog):
 
         # Add Selection Widgets
         self.widget_handler.add_all_Selection_Widgets(starting_widget=self)
+
+        # Add Item Based Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_adv)
+        self.widget_handler.add_ItemBased_Widget(self.lst_changes)
 
         self.widget_handler.activate()
 
@@ -7434,17 +8063,23 @@ class Settings(QDialog):
             self.update_lst_adv()
 
     def btn_import_from_file_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to import settings from file.", ["AppSettings"])
         result = self._ask_user_for_filename()
         if result:
             sections = self._get_sections_to_import()
             imported_settings = self._get_settings_from_file(result, sections_to_import=sections)
             if not imported_settings:
+                UTILS.LogHandler.add_log_record("#1: User selected file has no valid #2 settings to import.\nFile: #3\nImport canceled.", ["AppSettings", "MyJournal", result])
                 self._notiffy_import_error(result)
                 return
             count_settings = self._merge_imported_settings(imported_settings)
             if count_settings is None:
+                UTILS.LogHandler.add_log_record("#1: An error occurred while importing #2 settings.\nFile: #3\nImport canceled.", ["AppSettings", "MyJournal", result], warning_raised=True)
                 QMessageBox.warning(self, self.getl("app_settings_notif_import_error_title"), self.getl("app_settings_notif_import_merge_error_text").replace("#1", result))
                 return
+
+            UTILS.LogHandler.add_log_record("#1: Found and imported #2 settings from file: #3.", ["AppSettings", count_settings, result])
+            QCoreApplication.processEvents()
             self._notiffy_successfull_import(result, count_settings, imported_settings)
 
     def _get_sections_to_import(self) -> list:
@@ -7496,10 +8131,13 @@ class Settings(QDialog):
                 value = self._convert_data_type(value, self.getv(key))
                 try:
                     if self._stt.get_setting_dict(key)["min_value"] is not None and value < self._stt.get_setting_dict(key)["min_value"]:
+                        UTILS.LogHandler.add_log_record("#1: Setting #2 value (#3) is below min value: #4.", ["AppSettings", key, value, self._stt.get_setting_dict(key)["min_value"]])
                         continue
                     if self._stt.get_setting_dict(key)["max_value"] is not None and value > self._stt.get_setting_dict(key)["max_value"]:
+                        UTILS.LogHandler.add_log_record("#1: Setting #2 value (#3) is above max value: #4.", ["AppSettings", key, value, self._stt.get_setting_dict(key)["max_value"]])
                         continue
-                except:
+                except Exception as e:
+                    UTILS.LogHandler.add_log_record("#1: Error while checking setting #2\nSetting value cannot be imported. Value: #3. ValueType: #4\n#5", ["AppSettings", key, value, type(value), str(e)])
                     continue
 
                 result = self.fast_update_lst_changed_setting_no_existing_check(key, value)
@@ -7529,6 +8167,7 @@ class Settings(QDialog):
 
     def _convert_data_type(self, new_val, old_val):
         if old_val is None:
+            UTILS.TerminalUtility.WarningMessage("You must specify old value. Old value is None.\nnew_val = #1\nold_val = #2", [new_val, old_val], exception_raised=True)
             raise TypeError("old_val is None")
         
         try:
@@ -7545,6 +8184,7 @@ class Settings(QDialog):
                     elif new_val == 1:
                         return True
                     else:
+                        UTILS.TerminalUtility.WarningMessage("Invalid value. New value is in #1 format and can not be converted to bool.\nnew_val = #2\nold_val = #3", ["integer", new_val, old_val], exception_raised=True)
                         raise TypeError("Invalid value. New value is in int format and can not be converted to bool.")
                 elif isinstance(new_val, str):
                     if new_val.lower() in ["true", "1"]:
@@ -7552,14 +8192,18 @@ class Settings(QDialog):
                     elif new_val.lower() in ["false", "0"]:
                         return False
                     else:
+                        UTILS.TerminalUtility.WarningMessage("Invalid value. New value is in #1 format and can not be converted to bool.\nnew_val = #2\nold_val = #3", ["string", new_val, old_val], exception_raised=True)
                         raise TypeError("Invalid value. New value is in string format and can not be converted to bool.")
                 else:
+                    UTILS.TerminalUtility.WarningMessage("Invalid value. New value is in #1 format and can not be converted to bool.\nnew_val = #2\nold_val = #3", [type(new_val), new_val, old_val], exception_raised=True)
                     raise TypeError(f"Invalid value. New value is in {type(new_val)} format and can not be converted to bool.")
             elif isinstance(old_val, str):
                 return str(new_val)
             else:
+                UTILS.TerminalUtility.WarningMessage("Invalid value. Old value is in #1 format and can not be converted to new type #2.\nnew_val = #3\nold_val = #4", [type(old_val), type(new_val), new_val, old_val], exception_raised=True)
                 raise TypeError(f"Invalid value. Old value is in {type(old_val)} format and can not be converted to new type ({type(new_val)}).")
         except:
+            UTILS.TerminalUtility.WarningMessage("Invalid value. New value is in #1 format and can not be converted to old type #2.\nnew_val = #3\nold_val = #4", [type(new_val), type(old_val), new_val, old_val], exception_raised=True)
             raise TypeError(f"Invalid value. New value is in {type(new_val)} format and can not be converted to old type ({type(old_val)}).")
 
     def _get_settings_from_file(self, file_name: str, sections_to_import: list = None) -> dict:
@@ -7710,9 +8354,13 @@ class Settings(QDialog):
         }
 
         # Ask user if he want to import settings from this file
+        UTILS.LogHandler.add_log_record("#1: Found #2 valid settings to import from text file, waiting for user confirmation.", ["AppSettings", len(stylesheet_settings)])
         question = QMessageBox.question(self, self.getl("app_settings_msg_import_from_string_file_title"), self.getl("app_settings_msg_import_from_string_file_text").replace("#1", str(len(stylesheet_settings))), QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel, QMessageBox.Yes)
         if question != QMessageBox.Yes:
+            UTILS.LogHandler.add_log_record("#1: User cancelled the import process.", ["AppSettings"])
             return False
+        else:
+            UTILS.LogHandler.add_log_record("#1: User confirmed the import process.", ["AppSettings"])
         
         return result
 
@@ -7738,12 +8386,17 @@ class Settings(QDialog):
             self.grp_import_custom.setDisabled(True)
 
     def btn_export_click(self):
+        UTILS.LogHandler.add_log_record("#1: About to export settings to file.", ["AppSettings"])
         result = self._ask_for_export_filename()
         if result:
             self._export_settings_to_file(result)
+            UTILS.LogHandler.add_log_record("#1: Settings exported to file: #2", ["AppSettings", result])
             self._notiffy_successfull_export(result)
+        else:
+            UTILS.LogHandler.add_log_record("#1: Export cancelled.", ["AppSettings"])
 
     def btn_import_click(self):
+        UTILS.LogHandler.add_log_record("#1: Import settings options displayed.", ["AppSettings"])
         self.frm_import.setVisible(not self.frm_import.isVisible())
 
     def _ask_for_export_filename(self):
@@ -9122,6 +9775,14 @@ class Settings(QDialog):
             self.txt_menu_search.setText(g.get("txt_menu_search", ""))
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        if not self._can_exit():
+            a0.ignore()
+            return None
+
+        self.close_me()
+        return super().closeEvent(a0)
+
+    def close_me(self):
         if "app_settings_win_geometry" not in self._stt.app_setting_get_list_of_keys():
             self._stt.app_setting_add("app_settings_win_geometry", {}, save_to_file=True)
 
@@ -9132,21 +9793,22 @@ class Settings(QDialog):
         g["chk_menu_search_matchcase"] = self.chk_menu_search_matchcase.isChecked()
         g["txt_menu_search"] = self.txt_menu_search.text()
 
-        if not self._can_exit():
-            a0.ignore()
-            return None
-
+        self.get_appv("cm").remove_all_context_menu()
+        
         if self.item_group_manager:
             self.item_group_manager.close_me()
             self.item_group_manager = None
 
-        self.deleteLater()
-        return super().closeEvent(a0)
+        for child in self.children():
+            if isinstance(child, utility_cls.Notification):
+                child.close_me()
 
+        UTILS.LogHandler.add_log_record("#1 dialog closed", ["Application settings"])
+        UTILS.DialogUtility.on_closeEvent(self, close_children=False)
+        
     def changeEvent(self, a0: QtCore.QEvent) -> None:
         if not self._dont_clear_menu:
-            dialog_queue = utility_cls.DialogsQueue()
-            dialog_queue.remove_all_context_menu()
+            self.get_appv("cm").remove_all_context_menu()
         self._dont_clear_menu = False
         return super().changeEvent(a0)
 
@@ -9183,14 +9845,13 @@ class Settings(QDialog):
         self.close()
     
     def btn_save_click(self, e = None, close_dialog: bool = True):
+        self.setDisabled(True)
         result, errors = self.save_settings()
 
         if close_dialog:
             self.hide()
             
         self._save_settings_message(result, errors=errors)
-
-        # self._parent_widget._setup_widgets_apperance(settings_action=True)
 
         if close_dialog:
             self.close()
@@ -9238,9 +9899,10 @@ class Settings(QDialog):
             "text": self.getl("app_settings_save_msg_save_text").replace("#1", str(text_replacement)),
             "icon_path": self.getv("app_settings_win_icon_path")
         }
-        utility_cls.MessageInformation(self._stt, self, msg_dict, app_modal=True)
+        utility_cls.MessageInformation(self._stt, self, msg_dict, app_modal=False)
 
     def btn_apply_click(self):
+        self.setDisabled(True)
         result, errors = self.save_settings()
         self._save_settings_message(result, source_function="btn_apply_click", errors=errors)
         self.update_save_button_apperance()
@@ -9254,15 +9916,30 @@ class Settings(QDialog):
             {"item_group_empty_dictionary": self.item_group_empty_dictionary, "main_win": self, "loading_function": self._show_loading_label}
             )
 
+        if self.widget_handler:
+            self.widget_handler.close_me()
+        self.load_widgets_handler()
+
         self.show_general_settings()
+        QCoreApplication.processEvents()
+        self.setDisabled(False)
 
     def save_settings(self) -> int:
+        self.frm_working.setVisible(True)
+        self.prg_working.setMaximum(100)
+        self.prg_working.raise_()
+        QCoreApplication.processEvents()
+
         updated_settings = {}
         updated_settings["keys_list"] = []
 
         count = 0
         value_error = 0
-        for item in self.changed_settings:
+        for idx, item in enumerate(self.changed_settings):
+            prg_value = int((idx + 1) / len(self.changed_settings) * 100)
+            self.prg_working.setValue(prg_value)
+            QCoreApplication.processEvents()
+
             if not item["is_checked"]:
                 continue
 
@@ -9278,23 +9955,28 @@ class Settings(QDialog):
             elif type(self.getv(key)) == str:
                 value = str(value)
             else:
-                print ("ERROR: Unknown settings value type: ", type(self.getv(key)))
+                UTILS.TerminalUtility.WarningMessage("Error. Unknown settings value type. Key: #1", [key], variables=[["key", key], ["value", value], ["'old setting value'", self.getv(key)]])
                 continue
 
             try:
+                old_s_val = self.getv(key)
                 result = self._stt.set_setting_value(key, value)
+                if result:
+                    UTILS.LogHandler.add_log_record("Changed setting #1\nOld value: #2\nNew value: #3", [key, old_s_val, value])
             except ValueError:
+                UTILS.TerminalUtility.WarningMessage("Value error. Unable to update setting with key #1", [key], variables=[["key", key], ["value", value]])
                 value_error += 1
                 continue
 
             if not result:
-                print (f"ERROR: Can't save settings. KEY: {key}, VALUE: {value}")
+                UTILS.TerminalUtility.WarningMessage("Error: Can't save settings. Key: #1", [key], variables=[["key", key], ["value", value], ["'old setting value'", self.getv(key)]])
                 continue
             
             updated_settings["keys_list"].append(key)
 
             count += 1
         
+        UTILS.LogHandler.add_log_record("Application settings updated #1 settings changed", [count])
         self.changed_settings = []
         
         for i in range(self.lst_changes.count()):
@@ -9307,12 +9989,17 @@ class Settings(QDialog):
         # Save Settings
         result = self._stt.save_settings()
         if result:
+            UTILS.TerminalUtility.WarningMessage("Error. Can't save settings. Reason: #1", [result])
             QMessageBox.information(self, self.getl("app_settings_save_error_msg_save_title"), self.getl("app_settings_save_error_msg_save_text") + f"\n{result}")
             self.get_appv("log").write_log("Error. Saving settings. : " + result)
         else:
+            UTILS.LogHandler.add_log_record("Application settings saved in file")
             self.get_appv("log").write_log("AppSettings. Settings updated.")
 
         self.get_appv("signal").send_app_settings_updated(updated_settings)
+
+        self.frm_working.setVisible(False)
+        QCoreApplication.processEvents()
 
         return count, value_error
 

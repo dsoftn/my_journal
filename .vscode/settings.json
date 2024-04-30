@@ -1,16 +1,22 @@
 {
     "cSpell.words": [
         "actionframe",
+        "adaptic",
+        "aiohttp",
+        "aladin",
         "appv",
         "cyrtranslit",
         "Definiton",
         "disab",
         "doubleclicked",
+        "Dsoft",
+        "Frameless",
         "fullscreen",
         "getl",
         "getv",
         "googletrans",
         "lineedit",
+        "notif",
         "Pixmap",
         "Pushbuttons",
         "pyqt",
@@ -24,11 +30,15 @@
         "qlineedit",
         "qlistwidget",
         "qpushbutton",
+        "qslider",
         "qspinbox",
         "qtextedit",
         "qwidget",
         "qwidgets",
         "scrollarea",
-        "setv"
-    ]
+        "setv",
+        "subfolders",
+        "unmuted"
+    ],
+    "python.REPL.enableREPLSmartSend": false
 }

@@ -15,6 +15,8 @@ import text_handler_cls
 import text_handler_cls
 import utility_cls
 import net_cls
+import qwidgets_util_cls
+import UTILS
 
 
 class ImageItem(QFrame):
@@ -47,8 +49,7 @@ class ImageItem(QFrame):
             self._show_context_menu()
 
     def _clear_cm(self) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
 
     def _show_context_menu(self):
         clip: utility_cls.Clipboard = self.get_appv("cb")
@@ -177,7 +178,7 @@ class ImageItem(QFrame):
 class DictFrameItem(QFrame):
     INACTIVE_OPACITY = 0.35
 
-    def __init__(self, settings: settings_cls.Settings, parent_widget, name: str, name_desc: str, obj_name: int = None, *args, **kwargs):
+    def __init__(self, settings: settings_cls.Settings, parent_widget, name: str, name_desc: str, obj_name: int = None, widget_handler: qwidgets_util_cls.WidgetHandler = None, *args, **kwargs):
         super().__init__(parent_widget, *args, **kwargs)
         # Define settings object and methods
         self._stt = settings
@@ -191,6 +192,7 @@ class DictFrameItem(QFrame):
         uic.loadUi(self.getv("dict_frame_item_ui_file_path"), self)
 
         # Define variables
+        self.widget_handler = widget_handler
         self._parent_widget: QListWidget = parent_widget
         self._obj_name = obj_name
         self.name = name
@@ -209,15 +211,29 @@ class DictFrameItem(QFrame):
         self.lbl_pic.mousePressEvent = self.lbl_pic_mouse_press
         self.lbl_title.mousePressEvent = self.lbl_title_mouse_press
 
+    def register_me_to_widget_handler(self):
+        if self.widget_handler is not None:
+            wh_setup = {
+                "allow_bypass_mouse_press_event": False,
+                "allow_bypass_enter_event": False,
+                "allow_bypass_leave_event": False
+            }
+            if self.widget_handler.find_child(self, return_none_if_not_found=True) is None:
+                self.widget_handler.add_ActionFrame(self, wh_setup)
+
     def lbl_pic_mouse_press(self, e: QtGui.QMouseEvent) -> None:
         if e.button() == Qt.LeftButton:
             if not self._is_active:
                 self._activate_me()
+                QCoreApplication.processEvents()
+                self.widget_handler.find_child(self).EVENT_mouse_press_event(e)
 
     def lbl_title_mouse_press(self, e: QtGui.QMouseEvent) -> None:
         if e.button() == Qt.LeftButton:
             if not self._is_active:
                 self._activate_me()
+                QCoreApplication.processEvents()
+                self.widget_handler.find_child(self).EVENT_mouse_press_event(e)
 
     def signal_change_active_dict_event(self, dict_data: dict):
         if dict_data["obj_name"] == self._obj_name:
@@ -248,16 +264,22 @@ class DictFrameItem(QFrame):
 
     def enterEvent(self, a0: QEvent) -> None:
         self.setLineWidth(1)
+        QCoreApplication.processEvents()
+        self.widget_handler.find_child(self).EVENT_enter_event(a0)
         return super().enterEvent(a0)
 
     def leaveEvent(self, a0: QEvent) -> None:
         self.setLineWidth(0)
+        QCoreApplication.processEvents()
+        self.widget_handler.find_child(self).EVENT_leave_event(a0)
         return super().leaveEvent(a0)
     
     def mousePressEvent(self, a0: QtGui.QMouseEvent) -> None:
         if a0.button() == Qt.LeftButton:
             if not self._is_active:
                 self._activate_me()
+                QCoreApplication.processEvents()
+                self.widget_handler.find_child(self).EVENT_mouse_press_event(a0)
         return super().mousePressEvent(a0)
 
     def _activate_me(self):
@@ -436,6 +458,10 @@ class DictFrameItem(QFrame):
 
         self.effect.setOpacity(self.INACTIVE_OPACITY)
 
+    def close_me(self):
+        if self.widget_handler:
+            self.widget_handler.remove_child(self)
+
 
 class DictFrame(QFrame):
     BORDER_SIZE = 5
@@ -463,6 +489,7 @@ class DictFrame(QFrame):
         self.installEventFilter(self)
 
         # Define variables
+        self.widget_handler = None
         self._lock_geometry = None
         self._adding_images = False
         self._adding_images_delay = None
@@ -494,6 +521,8 @@ class DictFrame(QFrame):
         self._setup_widgets_text()
         self._setup_widgets_apperance()
         self._load_position()
+
+        self.load_widgets_handler()
 
         cur = self.txt_item.textCursor()
         self.old_cf = cur.charFormat()
@@ -553,15 +582,74 @@ class DictFrame(QFrame):
 
         self.signal.signal_change_active_dict.connect(self.signal_change_active_dict_event)
 
+        UTILS.LogHandler.add_log_record("#1: Dictionary frame started.", ["DictFrame"])
+
+    def load_widgets_handler(self):
+        self.get_appv("cm").remove_all_context_menu()
+
+        global_properties = self.get_appv("global_widgets_properties")
+        self.widget_handler = qwidgets_util_cls.WidgetHandler(
+            main_win=self,
+            global_widgets_properties=global_properties)
+        
+        # Add Dialog
+        handle_dialog = self.widget_handler.add_QDialog(self)
+        handle_dialog.properties.window_drag_enabled = False
+
+
+        # Add frames
+
+        # Add all Pushbuttons
+        self.widget_handler.add_QPushButton(self.btn_back, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.btn_forward, {"allow_bypass_mouse_press_event": False})
+        self.widget_handler.add_QPushButton(self.btn_find)
+        self.widget_handler.add_QPushButton(self.btn_find_deep)
+        self.widget_handler.add_QPushButton(self.btn_close)
+        self.widget_handler.add_QPushButton(self.btn_item_back)
+        self.widget_handler.add_QPushButton(self.btn_deep_abort)
+        self.widget_handler.add_QPushButton(self.btn_item_opt_exp, {"allow_bypass_enter_event": False, "allow_bypass_leave_event": False})
+        self.widget_handler.add_QPushButton(self.btn_item_opt_show_images)
+        self.widget_handler.add_QPushButton(self.btn_item_opt_clear_cashe)
+        self.widget_handler.add_QPushButton(self.btn_lock)
+
+        # Add Labels as PushButtons
+
+        # Add Action Frames
+        # print(self.lst_dicts.count())
+        # for index in range(self.lst_dicts.count()):
+        #     widget = self.lst_dicts.itemWidget(self.lst_dicts.item(index))
+        #     widget.widget_handler = self.widget_handler
+        #     widget.register_me_to_widget_handler()
+
+        # Add TextBox
+        self.widget_handler.add_TextBox(self.txt_find, {"allow_bypass_key_press_event": True})
+        self.widget_handler.add_TextBox(self.txt_item_find, {"allow_bypass_key_press_event": False})
+        self.widget_handler.add_TextBox(self.txt_dict_find, {"allow_bypass_key_press_event": True})
+
+        # Add Selection Widgets
+        self.widget_handler.add_all_Selection_Widgets()
+
+        # Add Item Based Widgets
+        self.widget_handler.add_ItemBased_Widget(self.lst_dicts, {"allow_bypass_enter_event": False, "allow_bypass_leave_event": False})
+        self.widget_handler.add_ItemBased_Widget(self.lst_items, {"allow_bypass_enter_event": False, "allow_bypass_mouse_press_event": False})
+
+        self.widget_handler.activate()
+
     def lst_dicts_enter_event(self, e):
+        self.widget_handler.find_child(self.lst_dicts).EVENT_enter_event(e)
+
         self.setCursor(Qt.PointingHandCursor)
         QListWidget.enterEvent(self.lst_dicts, e)
 
     def lst_dicts_leave_event(self, e):
+        self.widget_handler.find_child(self.lst_dicts).EVENT_leave_event(e)
+
         self.setCursor(Qt.ArrowCursor)
         QListWidget.leaveEvent(self.lst_dicts, e)
 
     def lst_items_enter_event(self, e):
+        self.widget_handler.find_child(self.lst_items).EVENT_enter_event(e)
+
         self.setCursor(Qt.ArrowCursor)
         QListWidget.enterEvent(self.lst_items, e)
 
@@ -581,6 +669,8 @@ class DictFrame(QFrame):
             self.btn_lock.setToolTip(self.getl("dict_frame_btn_lock_unlocked_tt"))
 
     def lst_items_mouse_press(self, e: QtGui.QMouseEvent):
+        self.widget_handler.find_child(self.lst_items).EVENT_mouse_press_event(e)
+
         self._clear_cm()
         QListWidget.mousePressEvent(self.lst_items, e)
 
@@ -771,6 +861,8 @@ class DictFrame(QFrame):
         self.spin_item_opt_pic_num.setValue(self._show_images_dict[self.current_dict]["count"])
 
     def btn_item_opt_exp_enter_event(self, e):
+        self.widget_handler.find_child(self.btn_item_opt_exp).EVENT_enter_event(e)
+
         img = QPixmap()
         img.load(self.getv("double_down_expand_icon_path"))
         self.btn_item_opt_exp.setIcon(QIcon(img))
@@ -779,6 +871,8 @@ class DictFrame(QFrame):
         QPushButton.enterEvent(self.btn_item_opt_exp, e)
 
     def btn_item_opt_exp_leave_event(self, e):
+        self.widget_handler.find_child(self.btn_item_opt_exp).EVENT_leave_event(e)
+
         img = QPixmap()
         img.load(self.getv("down_expand_icon_path"))
         self.btn_item_opt_exp.setIcon(QIcon(img))
@@ -846,6 +940,9 @@ class DictFrame(QFrame):
                     item.setHidden(False)
                 else:
                     item.setHidden(True)
+        else:
+            self.widget_handler.find_child(self.txt_item_find).EVENT_key_press_event(e)
+
         QLineEdit.keyPressEvent(self.txt_item_find, e)
 
     def txt_dict_find_text_changed(self):
@@ -914,11 +1011,15 @@ class DictFrame(QFrame):
     def btn_back_mouse_press(self, e: QtGui.QMouseEvent):
         if e.button() == Qt.RightButton:
             self.show_context_menu(self.pages)
+        elif e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.btn_back).EVENT_mouse_press_event(e)
         QPushButton.mousePressEvent(self.btn_back, e)
 
     def btn_forward_mouse_press(self, e: QtGui.QMouseEvent):
         if e.button() == Qt.RightButton:
             self.show_context_menu(self.pages)
+        elif e.button() == Qt.LeftButton:
+            self.widget_handler.find_child(self.btn_forward).EVENT_mouse_press_event(e)
         QPushButton.mousePressEvent(self.btn_forward, e)
 
     def btn_back_click(self):
@@ -933,9 +1034,8 @@ class DictFrame(QFrame):
 
     def key_press_event(self, e: QtGui.QKeyEvent):
         if e.key() == Qt.Key_Escape:
-            dialog_queue = utility_cls.DialogsQueue()
-            if dialog_queue.has_opened_context_menu():
-                dialog_queue.remove_all_context_menu()
+            if self.get_appv("cm").has_opened_context_menu():
+                self.get_appv("cm").remove_all_context_menu()
             else:
                 self.hide_me()
         QFrame.keyPressEvent(self, e)
@@ -1092,6 +1192,7 @@ class DictFrame(QFrame):
         
     def mouseMoveEvent(self, a0: QtGui.QMouseEvent) -> None:
         if not self._lock_geometry:
+            QCoreApplication.processEvents()
             if not self._geometry_change_mode:
                 self._set_cursor_shape()
             else:
@@ -1204,18 +1305,19 @@ class DictFrame(QFrame):
         self._resize_me()
 
     def _clear_cm(self) -> None:
-        dialog_queue = utility_cls.DialogsQueue()
-        dialog_queue.remove_all_context_menu()
+        self.get_appv("cm").remove_all_context_menu()
 
     def _load_word(self, word: str, deep_search: bool = False):
         if word is None:
             word = ""
         
         if deep_search:
+            UTILS.LogHandler.add_log_record("#1: Serching for expression #2 (DeepSearch=#3).", ["DictFrame", word, deep_search])
             self._show_deep_search_frame()
             self.page_info = self.data.get_dicts_data_deep_search(word)
             self.frm_deep.setVisible(False)
         else:
+            UTILS.LogHandler.add_log_record("#1: Serching for expression #2 (DeepSearch=#3).", ["DictFrame", word, deep_search])
             self.page_info = self.data.get_dicts_data(word)
 
     def _show_deep_search_frame(self):
@@ -1260,11 +1362,16 @@ class DictFrame(QFrame):
         if page_info is None:
             page_info = self.page_info
         
+        for item in range(self.lst_dicts.count()):
+            widget = self.lst_dicts.itemWidget(self.lst_dicts.item(item))
+            widget.close_me()
+
         self.lst_dicts.clear()
         self.txt_dict_find.setText("")
         
         for dict_item in page_info:
-            dict_widget = DictFrameItem(self._stt, self.lst_dicts, name=dict_item, name_desc=page_info[dict_item]["@name"], obj_name=self.my_name)
+            dict_widget = DictFrameItem(self._stt, self.lst_dicts, name=dict_item, name_desc=page_info[dict_item]["@name"], obj_name=self.my_name, widget_handler=self.widget_handler)
+            dict_widget.register_me_to_widget_handler()
             list_item = QListWidgetItem()
             list_item.setSizeHint(QSize(self.lst_dicts.contentsRect().width(), 80))
             self.lst_dicts.addItem(list_item)
@@ -1361,10 +1468,11 @@ class DictFrame(QFrame):
         if not links:
             return
         
-        end_of_word = [" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#"]
+        # end_of_word = [" ", ",", ":", ";", ".", "!", "?", "\n", "\t", "(", ")", "/", "@", "#"]
 
-        for i in end_of_word:
-            txt = txt.replace(i, " ")
+        txt = UTILS.TextUtility.replace_special_chars(txt)
+        # for i in end_of_word:
+        #     txt = txt.replace(i, " ")
         
         # Find Links
         txt += " "
@@ -2980,12 +3088,14 @@ class DictFrame(QFrame):
         self.images_timer.timeout.connect(self._add_images)
         self.images_timer.start(300)
         self.setVisible(True)
+        UTILS.LogHandler.add_log_record("#1: Dictionary frame is visible.", ["DictFrame"])
 
     def hide_me(self):
         self.images_timer.stop()
         self._save_options()
         self._clear_cm()
         self.setVisible(False)
+        UTILS.LogHandler.add_log_record("#1: Dictionary frame is hidden.", ["DictFrame"])
 
     def add_page(self, text: str):
         if text is None:
@@ -3111,8 +3221,17 @@ class DictFrame(QFrame):
         self.sep_li_pic.move(self.sep_li_pic.pos().x(), sep_li_pic)
 
     def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
-        self._save_geometry()
+        self.close_me()
         return super().closeEvent(a0)
+
+    def close_me(self):
+        self.hide_me()
+        
+        self._save_geometry()
+
+        UTILS.LogHandler.add_log_record("#1: Dictionary frame closed.", ["DictFrame"])
+        self.get_appv("cm").remove_all_context_menu()
+        UTILS.DialogUtility.on_closeEvent(self)
 
     def _save_geometry(self):
         self.get_appv("dict_frame_geometry")["x"] = self.pos().x()
