@@ -1,0 +1,21 @@
+/__pycache__/
+/.vscode/
+/razno.txt
+
+# Ignorise sve unutar foldera data/user
+/data/user/**
+# Ponistava ignorisanje fajlova direktno unutar data/user
+!/data/user/*
+
+# Ignorise sve unutar data/app osim settings i designer
+/data/app/animation/
+/data/app/downloads/
+/data/app/files/
+/data/app/images/
+/data/app/log/
+/data/app/rashomon/
+/data/app/sounds/
+/data/app/temp/
+
+# Ignorise fajl dictionary.db
+/data/app/settings/dictionary.db

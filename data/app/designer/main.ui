@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>989</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(102, 102, 102); color: rgb(63, 157, 171); selection-background-color: rgb(0, 76, 0); selection-color: rgb(255, 255, 0); color: rgb(203, 203, 101); QToolTip {background-color: #3C3F41; color: white; border: 1px solid black; padding: 5px; }</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonTextBesideIcon</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollArea" name="area">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>691</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>689</width>
+       <height>369</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frm_stb_volume">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>410</y>
+      <width>80</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QSlider" name="sld_volume">
+     <property name="geometry">
+      <rect>
+       <x>17</x>
+       <y>0</y>
+       <width>63</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>100</number>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="tickPosition">
+      <enum>QSlider::NoTicks</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btn_volume">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>15</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>15</width>
+       <height>15</height>
+      </size>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_volume_value">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>17</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>100</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>989</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar::item:selected {background-color: blue;}</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="mnu_file_app_settings"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_import_blocks"/>
+    <addaction name="mnu_export_blocks"/>
+    <addaction name="mnu_import_def"/>
+    <addaction name="mnu_export_def"/>
+    <addaction name="mnu_open"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_file_save_active_block"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="mnu_add_block"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_expand_all"/>
+    <addaction name="mnu_collapse_all"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_unfinished_show"/>
+    <addaction name="mnu_edit_tags"/>
+    <addaction name="mnu_edit_definitions"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_translation"/>
+   </widget>
+   <widget class="QMenu" name="menuTags">
+    <property name="title">
+     <string>Tags</string>
+    </property>
+    <addaction name="mnu_expenses"/>
+    <addaction name="mnu_incomes"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_web_pages"/>
+    <addaction name="mnu_youtube"/>
+    <addaction name="mnu_important_dates"/>
+    <addaction name="separator"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="mnu_help_log_messages"/>
+    <addaction name="mnu_help_statistic"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="mnu_diary"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_view_blocks"/>
+    <addaction name="mnu_view_tags"/>
+    <addaction name="mnu_view_definitions"/>
+    <addaction name="mnu_view_images"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_view_fun_fact"/>
+    <addaction name="mnu_view_clipboard"/>
+    <addaction name="mnu_view_media_explorer"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_view_dicts"/>
+    <addaction name="mnu_view_wiki"/>
+    <addaction name="mnu_view_online_content"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_view_find_in_app"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_schedule"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuUser">
+    <property name="title">
+     <string>User</string>
+    </property>
+    <addaction name="mnu_user_settings"/>
+    <addaction name="mnu_personal_info"/>
+    <addaction name="separator"/>
+    <addaction name="mnu_contacts"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuUser"/>
+   <addaction name="menuTags"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="sts_bar">
+   <property name="styleSheet">
+    <string notr="true">color: rgb(193, 193, 193);</string>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolTip { background-color: #3C3F41; color: white; border: 1px solid black; padding: 5px; }</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="mnu_view_find_in_app"/>
+   <addaction name="mnu_diary"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="mnu_view_blocks"/>
+   <addaction name="mnu_view_definitions"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="mnu_translation"/>
+   <addaction name="separator"/>
+   <addaction name="mnu_collapse_all"/>
+   <addaction name="mnu_expand_all"/>
+   <addaction name="mnu_view_online_content"/>
+   <addaction name="mnu_view_wiki"/>
+  </widget>
+  <action name="mnu_open">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="mnu_export_blocks">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/export.png</normaloff>../images/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export blocks</string>
+   </property>
+  </action>
+  <action name="mnu_diary">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/diary.png</normaloff>../images/diary.png</iconset>
+   </property>
+   <property name="text">
+    <string>Diary</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="mnu_web_pages">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/web_pages.png</normaloff>../images/web_pages.png</iconset>
+   </property>
+   <property name="text">
+    <string>Web Pages</string>
+   </property>
+  </action>
+  <action name="mnu_youtube">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/youtube.png</normaloff>../images/youtube.png</iconset>
+   </property>
+   <property name="text">
+    <string>YouTube video</string>
+   </property>
+  </action>
+  <action name="mnu_expenses">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/expenses.png</normaloff>../images/expenses.png</iconset>
+   </property>
+   <property name="text">
+    <string>Expenses</string>
+   </property>
+  </action>
+  <action name="mnu_incomes">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/incomes.png</normaloff>../images/incomes.png</iconset>
+   </property>
+   <property name="text">
+    <string>Incomes</string>
+   </property>
+  </action>
+  <action name="mnu_contacts">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/contacts.png</normaloff>../images/contacts.png</iconset>
+   </property>
+   <property name="text">
+    <string>Contacts</string>
+   </property>
+  </action>
+  <action name="mnu_personal_info">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/personal_information.png</normaloff>../images/personal_information.png</iconset>
+   </property>
+   <property name="text">
+    <string>Personal information</string>
+   </property>
+  </action>
+  <action name="mnu_translation">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/translation.png</normaloff>../images/translation.png</iconset>
+   </property>
+   <property name="text">
+    <string>Translation</string>
+   </property>
+  </action>
+  <action name="mnu_user_settings">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/user_settings.png</normaloff>../images/user_settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>User Settings</string>
+   </property>
+   <property name="statusTip">
+    <string>Setting user options</string>
+   </property>
+  </action>
+  <action name="mnu_important_dates">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/important_dates.png</normaloff>../images/important_dates.png</iconset>
+   </property>
+   <property name="text">
+    <string>Important dates</string>
+   </property>
+  </action>
+  <action name="mnu_schedule">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/schedule.png</normaloff>../images/schedule.png</iconset>
+   </property>
+   <property name="text">
+    <string>Schedule</string>
+   </property>
+   <property name="statusTip">
+    <string>Edits the calendar with notifications.</string>
+   </property>
+  </action>
+  <action name="mnu_expand_all">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/expand.png</normaloff>../images/expand.png</iconset>
+   </property>
+   <property name="text">
+    <string>Expand all</string>
+   </property>
+  </action>
+  <action name="mnu_collapse_all">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/collapse.png</normaloff>../images/collapse.png</iconset>
+   </property>
+   <property name="text">
+    <string>Collapse all</string>
+   </property>
+  </action>
+  <action name="mnu_unfinished_show">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/list.png</normaloff>../images/list.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show unfinished entries</string>
+   </property>
+  </action>
+  <action name="mnu_add_block">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/add_new_block.png</normaloff>../images/add_new_block.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Block</string>
+   </property>
+  </action>
+  <action name="mnu_edit_tags">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/tag.png</normaloff>../images/tag.png</iconset>
+   </property>
+   <property name="text">
+    <string>Tags</string>
+   </property>
+  </action>
+  <action name="mnu_edit_definitions">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/definition.png</normaloff>../images/definition.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definitions</string>
+   </property>
+  </action>
+  <action name="mnu_view_tags">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/tag.png</normaloff>../images/tag.png</iconset>
+   </property>
+   <property name="text">
+    <string>Tags</string>
+   </property>
+  </action>
+  <action name="mnu_view_definitions">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/definition.png</normaloff>../images/definition.png</iconset>
+   </property>
+   <property name="text">
+    <string>Definitions</string>
+   </property>
+  </action>
+  <action name="mnu_view_images">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/picture.png</normaloff>../images/picture.png</iconset>
+   </property>
+   <property name="text">
+    <string>Images</string>
+   </property>
+  </action>
+  <action name="mnu_view_blocks">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/closed_block.png</normaloff>../images/closed_block.png</iconset>
+   </property>
+   <property name="text">
+    <string>Blocks</string>
+   </property>
+  </action>
+  <action name="mnu_view_fun_fact">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/fun_fact.png</normaloff>../images/fun_fact.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fun Facts</string>
+   </property>
+  </action>
+  <action name="mnu_view_clipboard">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/clipboard.png</normaloff>../images/clipboard.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clipboard</string>
+   </property>
+  </action>
+  <action name="mnu_view_media_explorer">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/media_explorer.png</normaloff>../images/media_explorer.png</iconset>
+   </property>
+   <property name="text">
+    <string>Media Explorer</string>
+   </property>
+  </action>
+  <action name="mnu_view_find_in_app">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/find.png</normaloff>../images/find.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find in app</string>
+   </property>
+  </action>
+  <action name="mnu_file_save_active_block">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/btn_save.png</normaloff>../images/btn_save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save active block</string>
+   </property>
+  </action>
+  <action name="mnu_view_dicts">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/dictionary.png</normaloff>../images/dictionary.png</iconset>
+   </property>
+   <property name="text">
+    <string>Dictionaries</string>
+   </property>
+  </action>
+  <action name="mnu_view_online_content">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/online_content.png</normaloff>../images/online_content.png</iconset>
+   </property>
+   <property name="text">
+    <string>OnLine Content</string>
+   </property>
+  </action>
+  <action name="mnu_view_wiki">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/wikipedia_logo.png</normaloff>../images/wikipedia_logo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Wikipedia</string>
+   </property>
+  </action>
+  <action name="mnu_file_app_settings">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/settings.png</normaloff>../images/settings.png</iconset>
+   </property>
+   <property name="text">
+    <string>App settings</string>
+   </property>
+  </action>
+  <action name="mnu_import_blocks">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/import.png</normaloff>../images/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import blocks</string>
+   </property>
+  </action>
+  <action name="mnu_import_def">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/import.png</normaloff>../images/import.png</iconset>
+   </property>
+   <property name="text">
+    <string>Import definitions</string>
+   </property>
+  </action>
+  <action name="mnu_export_def">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/export.png</normaloff>../images/export.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export definitions</string>
+   </property>
+  </action>
+  <action name="mnu_help_log_messages">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/log_win_icon.png</normaloff>../images/log_win_icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log Messages</string>
+   </property>
+  </action>
+  <action name="mnu_help_statistic">
+   <property name="icon">
+    <iconset>
+     <normaloff>../images/statistics.png</normaloff>../images/statistics.png</iconset>
+   </property>
+   <property name="text">
+    <string>Statistic</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,24 @@
+class UTILS_Settings:
+    # DATE-TIME SETTINGS
+    DATE_FORMAT = "%d.%m.%Y."
+    TIME_FORMAT = "%H:%M:%S"
+    DATE_TIME_FORMAT_DELIMITER = " "
+    # LOG SETTINGS
+    # Application level
+    LOG_FILE_PATH = "data/app/log/log.json"
+    TEMP_FOLDER = "data/app/temp/"
+    DONT_SHOW_LOG_WINDOW_WHEN_MESSAGE_STARTS_WITH = ["UserLogin"]
+    LOG_WINDOW_PARENT_WIDGET = None
+    # User level
+    POPUP_LOG_WINDOW_WHEN_EXCEPTION_IS_RAISED = True
+    POPUP_LOG_WINDOW_WHEN_WARNING_IS_RAISED = True
+    KEEP_LOG_WINDOW_ON_TOP = True
+    LOG_MAX_RECORDS = 2000
+    RECORD_NORMAL_LOGS = False
+    RECORD_WARNING_LOGS = True
+    RECORD_EXCEPTION_LOGS = True
+    LOG_SAVE_LOCALS = True
+    LOG_SAVE_GLOBALS = False
+    LOG_SAVE_BUILTINS = False
+    LOG_SAVE_MODULE_CODE = False
+    LOG_SAVE_FUNCTION_CODE = True
