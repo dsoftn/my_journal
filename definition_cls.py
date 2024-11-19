@@ -2960,6 +2960,13 @@ class DefinitionEditor(QDialog):
                 suff += self._make_suffs(perfekt)
                 output += self._join_pref_base_suff("", base_str[:-1], self._make_suffs(perfekt))
                 imperativ_output1 = f"{base_str + 'i'},{base_str + 'ite'}"
+            elif base_str[-2:].lower() == "ov":
+                # Izazovem - Izazvao
+                base_str_extra = [base_str[:-2] + "v", base_str[:-2] + "v", base_str[:-2] + "v"]
+                perfekt = "o, ao, ala, alo, ali, ale"
+                suff += self._make_suffs(perfekt)
+                output += self._join_pref_base_suff("", base_str[:-2] + "v", self._make_suffs(perfekt))
+                imperativ_output1 = f"{base_str + 'i'},{base_str + 'ite'}"
             else:
                 imperativ_output1 = f"{base_str + 'i'},{base_str + 'ite'}"
                 imperativ_output2 = f"{base_str + 'i'},{base_str + 'ite'}"
@@ -3072,6 +3079,11 @@ class DefinitionEditor(QDialog):
                 aorist = "oh, oše, osmo, oste, ošte, ohu"
                 suff += self._make_suffs(aorist)
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(aorist))
+            elif base_str[-2:].lower() == "ov":
+                # Izazovem - Izazvah
+                aorist = "ah, aše, asmo, aste, ašte, ahu"
+                suff += self._make_suffs(aorist)
+                output += self._join_pref_base_suff("", base_str[:-2] + "v", self._make_suffs(aorist))
             else:
                 # planem - planuh
                 aorist = "uh, uše, usmo, uste, ušte,uhu"
@@ -3181,6 +3193,11 @@ class DefinitionEditor(QDialog):
                 futur = "ću, ćeš, će, ćemo, ćete"
                 suff += self._make_suffs(futur)
                 output += self._join_pref_base_suff("", base_str[:-1], self._make_suffs(futur))
+            elif base_str[-2:].lower() == "ov":
+                # Izazovem - Izazvaću
+                futur = "aću, aćeš, aće, aćemo, aćete"
+                suff += self._make_suffs(futur)
+                output += self._join_pref_base_suff("", base_str[:-2] + "v", self._make_suffs(futur))
             else:
                 # planem - planuću
                 futur = "uću, ućeš, uće, ućemo, ućete"
@@ -3321,6 +3338,13 @@ class DefinitionEditor(QDialog):
                 )
             elif base_str[-1:].lower() == "đ":
                 # Nadiđem - Nadiću
+                output += self._join_pref_base_suff("", base_str, self._make_suffs(extra))
+                self.variant_show(
+                    opt1="DEFAULT;" + ",".join([x.strip() for x in output.split("\n") if x.strip()]),
+                    extra_plus=extra_plus
+                )
+            elif base_str[-2:].lower() == "ov":
+                # Izazovem - Izazovući
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(extra))
                 self.variant_show(
                     opt1="DEFAULT;" + ",".join([x.strip() for x in output.split("\n") if x.strip()]),
