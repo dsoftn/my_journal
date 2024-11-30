@@ -2923,6 +2923,17 @@ class DefinitionEditor(QDialog):
                 suff += self._make_suffs(perfekt)
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(perfekt))
                 imperativ_output1 = f"{base_str + 'i'},{base_str + 'ite'}"
+            elif base_str[-1:].lower() == "n" and len(base_str) > 1:
+                # Potisnem - Potisno - Potisnuo
+                # Postignem - Postigo - Postignuo
+                base_str_extra = [base_str, base_str[:-1], base_str]
+                perfekt = "o, uo, uti, ula, ulo, uli, ule"
+                perfekt2 = "go, gao, ći, gla, glo, gli, gle"
+                suff += self._make_suffs(perfekt)
+                output += self._join_pref_base_suff("", base_str, self._make_suffs(perfekt))
+                output2 += self._join_pref_base_suff("", base_str[:-2], self._make_suffs(perfekt2))
+                imperativ_output1 = f"{base_str + 'i'},{base_str + 'ite'}"
+                imperativ_output2 = f"{base_str + 'i'},{base_str + 'ite'},{base_str[:-2] + 'ži'},{base_str[:-2] + 'žite'}"
             elif base_str[-1:].lower() == "s":
                 # Donesem - Donesti
                 # Donesem - Doneti
@@ -3054,13 +3065,21 @@ class DefinitionEditor(QDialog):
                 aorist = "ah, aše, asmo, aste, ašte, ahu"
                 suff += self._make_suffs(aorist)
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(aorist))
+            elif base_str[-1:].lower() == "n" and len(base_str) > 1:
+                # Potisnem - Potisnuh
+                # Postignem - Postigoh
+                aorist = "uh, uše, usmo, uste, ušte,uhu"
+                aorist2 = "oh, oše, osmo, oste, ošte,ohu"
+                suff += self._make_suffs(aorist)
+                output += self._join_pref_base_suff("", base_str, self._make_suffs(aorist))
+                output2 += self._join_pref_base_suff("", base_str[:-1], self._make_suffs(aorist2))
             elif base_str[-1:].lower() == "s":
                 # Donesem - Donesoh
                 aorist = "oh, oše, osmo, oste, ošte,ohu"
                 aorist2 = "oh, oše, osmo, oste, ošte,ohu"
                 suff += self._make_suffs(aorist)
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(aorist))
-                output2 += self._join_pref_base_suff("", base_str, self._make_suffs(aorist))
+                output2 += self._join_pref_base_suff("", base_str, self._make_suffs(aorist2))
             elif base_str[-4:].lower() == "šalj":
                 # Šaljem - Slao
                 aorist = "h, še, smo, ste, šte,hu"
@@ -3167,6 +3186,14 @@ class DefinitionEditor(QDialog):
                 futur = "aću, aćeš, aće, aćemo, aćete"
                 suff += self._make_suffs(futur)
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(futur))
+            elif base_str[-1:].lower() == "n" and len(base_str) > 1:
+                # Potisnem - Potisnuću
+                # Postignem - Postiću
+                futur = "uću, ućeš, uće, ućemo, ućete"
+                futur2 = "ću, ćeš, će, ćemo, ćete"
+                suff += self._make_suffs(futur)
+                output += self._join_pref_base_suff("", base_str, self._make_suffs(futur))
+                output2 += self._join_pref_base_suff("", base_str[:-2], self._make_suffs(futur2))
             elif base_str[-1:].lower() == "s":
                 # Donesem - Donešću
                 # Donesem - Doneću
@@ -3305,6 +3332,16 @@ class DefinitionEditor(QDialog):
                 output += self._join_pref_base_suff("", base_str, self._make_suffs(extra))
                 self.variant_show(
                     opt1="DEFAULT;" + ",".join(output.splitlines()),
+                    extra_plus=extra_plus
+                )
+            elif base_str[-1:].lower() == "n" and len(base_str) > 1:
+                # Potisnem - Potisnuću
+                # Postignem - Postiću
+                output += self._join_pref_base_suff("", base_str, self._make_suffs(extra))
+                output2 += self._join_pref_base_suff("", base_str[:-2] + "ž", self._make_suffs(extra))
+                self.variant_show(
+                    opt1="Potisnem - Potisnuću;" + ",".join(output.splitlines()),
+                    opt2="Postignem - Postiću;" + ",".join(output2.splitlines()),
                     extra_plus=extra_plus
                 )
             elif base_str[-1:].lower() == "s":
