@@ -19,7 +19,7 @@
     "description": "Each time a user logs into the application, a new log is created. This value determines the maximum number of logs that will be stored in the file 'log.txt'."
   },
   "main_win_pos_x": {
-    "value": 127,
+    "value": 128,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,
@@ -27,7 +27,7 @@
     "description": "This is the horizontal (x) position of the top left corner of the main application window. This value changes as the user moves the window."
   },
   "main_win_pos_y": {
-    "value": 89,
+    "value": 117,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,

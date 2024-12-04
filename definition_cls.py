@@ -1977,20 +1977,15 @@ class DefinitionEditor(QDialog):
                         suff = self._make_suffs(f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{slovo_pre}ama")
                         suff2 = self._make_suffs(f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{slovo_pre}ima")
                         suff_mnozina = self._make_suffs(f"{slovo_pre}{nastavak}, {slovo_pre}ima")
-                        # Kuća
-                        decl = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ama,{slovo_pre}e,{slovo_pre}e,{slovo_pre}ama,{slovo_pre}ama")
-                        decl_p = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ama,{slovo_pre}e,{slovo_pre}e,{slovo_pre}ama,{slovo_pre}ama")
+                        # nobelova - nobelovoj
+                        decl = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}oj,{slovo_pre}u,{slovo_pre}a,{slovo_pre}om,{slovo_pre}oj,{slovo_pre}e,{slovo_pre}ih,{slovo_pre}im,{slovo_pre}e,{slovo_pre}e,{slovo_pre}im,{slovo_pre}im")
+                        decl_p = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}oj,{slovo_pre}u,{slovo_pre}a,{slovo_pre}om,{slovo_pre}oj,{slovo_pre}e,{slovo_pre}ih,{slovo_pre}im,{slovo_pre}e,{slovo_pre}e,{slovo_pre}im,{slovo_pre}im")
                         # Scenarista
                         decl2 = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{slovo_pre}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ima,{slovo_pre}e,{slovo_pre}i,{slovo_pre}ima,{slovo_pre}ima")
                         decl_p2 = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{slovo_pre}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ima,{slovo_pre}e,{slovo_pre}i,{slovo_pre}ima,{slovo_pre}ima")
-                        if slovo_pre == "v" or slovo_pre == "n":
-                            # nobelova - nobelovoj
-                            # zemljina - zemljinoj
-                            # Nobelova nagrada
-                            decl3 = decl
-                            decl_p3 = decl_p
-                            decl = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}oj,{slovo_pre}u,{slovo_pre}a,{slovo_pre}om,{slovo_pre}oj,{slovo_pre}e,{slovo_pre}ih,{slovo_pre}im,{slovo_pre}e,{slovo_pre}e,{slovo_pre}im,{slovo_pre}im")
-                            decl_p = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{slovo_pre}oj,{slovo_pre}u,{slovo_pre}a,{slovo_pre}om,{slovo_pre}oj,{slovo_pre}e,{slovo_pre}ih,{slovo_pre}im,{slovo_pre}e,{slovo_pre}e,{slovo_pre}im,{slovo_pre}im")
+                        # Kuća
+                        decl3 = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ama,{slovo_pre}e,{slovo_pre}e,{slovo_pre}ama,{slovo_pre}ama")
+                        decl_p3 = self._join_pref_base_suff("", base_str, f"{slovo_pre}a,{slovo_pre}e,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}u,{slovo_pre}o,{slovo_pre}om,{self.sibilarizacija(slovo_pre)}i,{slovo_pre}e,{slovo_pre}a,{slovo_pre}ama,{slovo_pre}e,{slovo_pre}e,{slovo_pre}ama,{slovo_pre}ama")
                         self.variant_show(
                             opt1 = "Kuća - Kućama;" + ",".join([base_str + x.strip() for x in suff.split("\n") if x.strip()]),
                             opt2 = "Scenarista - Scenaristima;" + ",".join([base_str + x.strip() for x in suff2.split("\n") if x.strip()]),
