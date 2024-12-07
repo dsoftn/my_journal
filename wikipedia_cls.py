@@ -700,7 +700,7 @@ class Wikipedia(QDialog):
         except:
             try:
                 result_page = requests.get(source_http, timeout=3)
-                html = result_page.content
+                html = result_page.content.decode("utf-8")
             except:
                 return result
         
