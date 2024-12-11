@@ -19,7 +19,7 @@
     "description": "Each time a user logs into the application, a new log is created. This value determines the maximum number of logs that will be stored in the file 'log.txt'."
   },
   "main_win_pos_x": {
-    "value": 128,
+    "value": 129,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,
