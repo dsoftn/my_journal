@@ -657,25 +657,27 @@ class Wikipedia(QDialog):
         desc = ""
         title = ""
         link_list = []
-        for row in data:
-            if 'class="nav_button"' in row:
-                continue
+        for idx, row in enumerate(data):
+            if 'class="next_form"' in row:
+                break
             links = self.html_parser.get_all_links(load_html_code=row)
-            if links:
-                title = links[0].a_text.strip()
+            if not links:
                 continue
 
-            desc_code = self.html_parser.get_tags(html_code=row, tag="td", tag_class_contains="result-snippet")
-            if desc_code:
-                desc = self.html_parser.get_raw_text(load_html_code=desc_code[0]).strip()
-            
-            link = ""
-            link_code = self.html_parser.get_tags(html_code=row, tag="span", tag_class_contains="link-text")
-            if link_code:
-                link = self.html_parser.get_raw_text(load_html_code=link_code[0]).strip()
-                if not link.startswith("http"):
-                    link = "https://" + link.lstrip("/")
+            link = links[0].a_href.strip()
+            link = link[link.find("http"):]
+            if (link.find("&amp;rut") != -1):
+                link = link[:link.find("&amp;rut")]
 
+            link = urllib.parse.unquote(link)
+            title = links[0].a_text.strip()
+
+            if idx + 1 >= len(data):
+                continue
+
+            desc = ""
+            desc = self.html_parser.get_raw_text(load_html_code=data[idx + 1]).strip()
+            
             if link and link not in link_list:
                 link_list.append(link)
                 item = {}
@@ -720,7 +722,7 @@ class Wikipedia(QDialog):
         link_list = []
         for row in data:
             title = ""
-            title_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="heading")
+            title_code = self.html_parser.get_tags(html_code=row, tag="div", tag_class_contains="title")
             if title_code:
                 title = self.html_parser.get_raw_text(load_html_code=title_code[0])
 

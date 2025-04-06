@@ -3705,8 +3705,8 @@
       "pos_y": 58,
       "width": 1579,
       "height": 876,
-      "engine_duckduckgo": true,
-      "engine_yahoo": true,
+      "engine_duckduckgo": false,
+      "engine_yahoo": false,
       "engine_brave": true
     },
     "save": true

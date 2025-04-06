@@ -19,6 +19,7 @@ MyJournal is a Python-based personal journaling application designed to help use
 ![MyJournal Screenshot](screenshot.jpg)
 
 ## Installation
+MyJournal is developed using Python 3.11.3, and uses module `googletrans 3.1.0a0` that doesn't support Python 3.13 or newer !
 
 1. Clone this repository:
    ```bash

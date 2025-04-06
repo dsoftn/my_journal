@@ -957,6 +957,7 @@ class AladinWE(AbstractTopic):
         self.cards = {}
         self.tables = []
 
+
         self._define_widgets()
 
         # Connect events with slots
@@ -1370,9 +1371,6 @@ class AladinWE(AbstractTopic):
                 card_item["btn"].setStyleSheet("QPushButton {color: rgb(170, 255, 255); background-color: rgb(0, 0, 79);} QPushButton:hover {background-color: qlineargradient(spread:pad, x1:0, y1:0.00568182, x2:0.98, y2:0.982955, stop:0 rgb(38, 19, 255), stop:1 rgb(150, 207, 207));}")
             
     def _get_card_dict_key(self, html: str) -> str:
-        if 'span class="collapse collapse-text show float-end"' in html:
-            return False
-
         h2 = self.html_parser.get_tags(html_code=html, tag="h2", multiline=True)
         if h2:
             h2 = h2[0]
@@ -1385,19 +1383,20 @@ class AladinWE(AbstractTopic):
         if iframe:
             iframe = iframe[0]
         
-        if "Prognoza i temperatura za danas" in h2:
+        
+        if 'id="today"' in h2 and ("Ponedeljak" in h2 or "Utorak" in h2 or "Sreda" in h2 or "Četvrtak" in h2 or "Petak" in h2 or "Subota" in h2 or "Nedelja" in h2):
             return "today"
-        elif "Prognoza i temperatura za sutra" in h2:
+        elif 'id="tomorrow"' in h2 and ("Ponedeljak" in h2 or "Utorak" in h2 or "Sreda" in h2 or "Četvrtak" in h2 or "Petak" in h2 or "Subota" in h2 or "Nedelja" in h2 in h2):
             return "tomorrow"
         elif "Vremenska prognoza" in h2 and "Subota" in h2:
             return "saturday"
         elif "Vremenska prognoza" in h2 and "Nedelja" in h2:
             return "sunday"
-        elif "Trenutno stanje i temperatura" in h2:
+        elif "Trenutno stanje" in h2:
             return "now"
-        elif "Vremenska prognoza za 10 dana" in h2:
+        elif "https://schema.org/Table" in html and "Ned" in html and "Pon" in html and "Uto" in html and "Sre" in html and "Čet" in html and "Pet" in html and "Sub" in html:
             return "10"
-        elif "Vremenska prognoza i temperatura po satima" in h2:
+        elif "https://schema.org/Table" in html:
             return "hourly"
         elif "U blizini" in h4:
             return "near"
@@ -1497,7 +1496,12 @@ class AladinWE(AbstractTopic):
         if not result:
             return False
         
-        if not self.rashomon.is_segment("page_menu_000"):
+        if not self.rashomon.is_segment("page"):
+            return False
+        
+        menu_items = self.html_parser.get_tags(html_code=self.rashomon.get_segment_selection("page"), tag="div", tag_class_contains="row mb-2", multiline=True)
+
+        if not menu_items:
             return False
         
         # Delete old menu items
@@ -1507,13 +1511,13 @@ class AladinWE(AbstractTopic):
         self.menu_items = []
 
         # Create new menu items
-        menu_items_segments = self.rashomon.get_segment_children("page_menu")
+        menu_items_segments = self.html_parser.get_tags(html_code=menu_items[0], tag="div", tag_class_contains="col", multiline=True)
 
         x = 0
         w = 0
         h = 0
         for menu_item_segment in menu_items_segments:
-            menu_item_code = self.rashomon.get_segment_selection(menu_item_segment)
+            menu_item_code = menu_item_segment
             self.html_parser.load_html_code(menu_item_code)
             # Link
             links = self.html_parser.get_all_links()
