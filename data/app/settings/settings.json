@@ -11,7 +11,7 @@
     "description": "Python, PyQt5"
   },
   "number_of_saved_logs": {
-    "value": 250,
+    "value": 1000,
     "default_value": 100,
     "min_value": 1,
     "max_value": 1000000,
@@ -267,7 +267,7 @@
     "description": "List of characters that are allowed to be used in the user password."
   },
   "last_user_id": {
-    "value": 3,
+    "value": 4,
     "default_value": 0,
     "min_value": null,
     "max_value": null,
@@ -275,7 +275,7 @@
     "description": "The last user ID logged into the application.\n0 = Unknown user"
   },
   "last_user_username": {
-    "value": "mama",
+    "value": "DsoftN",
     "default_value": "",
     "min_value": null,
     "max_value": null,

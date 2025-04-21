@@ -19,7 +19,7 @@
     "description": "Each time a user logs into the application, a new log is created. This value determines the maximum number of logs that will be stored in the file 'log.txt'."
   },
   "main_win_pos_x": {
-    "value": 327,
+    "value": 800,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,
@@ -27,7 +27,7 @@
     "description": "This is the horizontal (x) position of the top left corner of the main application window. This value changes as the user moves the window."
   },
   "main_win_pos_y": {
-    "value": 98,
+    "value": 0,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,
@@ -35,7 +35,7 @@
     "description": "This is the vertical (y) position of the top left corner of the main application window. This value changes as the user moves the window."
   },
   "main_win_width": {
-    "value": 1460,
+    "value": 691,
     "default_value": 800,
     "min_value": 400,
     "max_value": null,
@@ -43,7 +43,7 @@
     "description": "This is the width of main application window. This value changes as the user resizes the window."
   },
   "main_win_height": {
-    "value": 803,
+    "value": 1008,
     "default_value": 600,
     "min_value": 300,
     "max_value": null,
@@ -21803,7 +21803,7 @@
     "description": "Location of the animation for the Widget\nIt's usually an animated gif image"
   },
   "area_label_content_type": {
-    "value": 2,
+    "value": 1,
     "default_value": 0,
     "min_value": 0,
     "max_value": 2,
@@ -21811,7 +21811,7 @@
     "description": "Type of content in the label:\n0 - text\n1 - image\n2 - animation"
   },
   "area_label_widget_icon_path": {
-    "value": "",
+    "value": "D:/Slike privatne/Vojislav Nisevic/ChatGPT Image Apr 17, 2025, 11_01_27 PM.png",
     "default_value": "",
     "min_value": null,
     "max_value": null,

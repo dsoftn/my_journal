@@ -3502,7 +3502,7 @@
       "pos_y": 20,
       "width": 1852,
       "height": 944,
-      "last_topic": "aladin_we"
+      "last_topic": "news"
     },
     "save": true
   },
@@ -17973,7 +17973,7 @@
       "height": 647,
       "chk_menu_search_whole_words": false,
       "chk_menu_search_matchcase": false,
-      "txt_menu_search": "textbox gw smart size"
+      "txt_menu_search": "back"
     },
     "save": true
   },

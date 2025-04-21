@@ -27,7 +27,7 @@
     "description": "This is the horizontal (x) position of the top left corner of the main application window. This value changes as the user moves the window."
   },
   "main_win_pos_y": {
-    "value": 107,
+    "value": 106,
     "default_value": 100,
     "min_value": 0,
     "max_value": null,
@@ -2531,7 +2531,7 @@
     "description": "If True, the button will be displayed flush with the background."
   },
   "footer_btn_save_shortcut": {
-    "value": "",
+    "value": "Ctrl+S",
     "default_value": "",
     "min_value": null,
     "max_value": null,
@@ -18251,7 +18251,7 @@
     "description": "Determines whether the Widget will be visible."
   },
   "mnu_file_save_active_block_shortcut": {
-    "value": "Ctrl+S",
+    "value": "",
     "default_value": "Ctrl+S",
     "min_value": null,
     "max_value": null,
