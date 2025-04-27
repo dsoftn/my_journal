@@ -11,7 +11,7 @@
     "description": "Python, PyQt5"
   },
   "number_of_saved_logs": {
-    "value": 250,
+    "value": 1000,
     "default_value": 100,
     "min_value": 1,
     "max_value": 1000000,
